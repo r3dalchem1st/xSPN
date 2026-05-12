@@ -197,4 +197,4 @@ if __name__ == "__main__":
         json.dump(cache, f, indent=2)
 
     print(f"\nTotal fit time: {time.time()-t0:.1f}s")
-    pri
+    print("Saved: model_params.json")
