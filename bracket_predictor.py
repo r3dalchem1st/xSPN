@@ -289,10 +289,9 @@ sf_preds = [ko_match_pred((a,0),(b,0)) for a,b in sf_matchups]
 sfw_modal = [p["winner"] for p in sf_preds]
 
 final_pred = ko_match_pred((sfw_modal[0],0),(sfw_modal[1],0))
-third_pred  = ko_match_pred(
-    (sfw_modal[0] if sf_preds[0]["winner"]==sfw_modal[1] else sfw_modal[1], 0),
-    (sfw_modal[0] if sf_preds[1]["winner"]==sfw_modal[1] else sfw_modal[1], 0)
-)
+sf_loser_0 = sf_preds[0]["away"] if sf_preds[0]["winner"]==sf_preds[0]["home"] else sf_preds[0]["home"]
+sf_loser_1 = sf_preds[1]["away"] if sf_preds[1]["winner"]==sf_preds[1]["home"] else sf_preds[1]["home"]
+third_pred  = ko_match_pred((sf_loser_0, 0), (sf_loser_1, 0))
 
 # ── Output ─────────────────────────────────────────────────────────────────────
 output = {
