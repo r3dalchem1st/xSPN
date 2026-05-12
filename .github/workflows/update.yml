@@ -1,0 +1,47 @@
+name: Update WC 2026 Predictions
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install numpy scipy requests
+
+      - name: Fetch new match results
+        env:
+          FD_API_KEY: ${{ secrets.FD_API_KEY }}
+        run: python fetch_matches.py
+
+      - name: Refit model (Dixon-Coles + Elo)
+        run: python fit_improved.py
+
+      - name: Run simulations (75,000 tournaments)
+        run: python sim_improved.py
+
+      - name: Generate bracket predictions
+        run: python bracket_predictor.py
+
+      - name: Build index.html
+        run: python build_html.py
+
+      - name: Commit and push updated files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json
+          git diff --staged --quiet || git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
+          git push
