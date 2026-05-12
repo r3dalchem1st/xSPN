@@ -69,77 +69,82 @@ html = f'''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2026 FIFA World Cup Predictions</title>
+<title>xSPN — 2026 World Cup Predictions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{{--bg:#0a0e1a;--card:#111827;--border:#1e293b;--gold:#f59e0b;--text:#e2e8f0;--muted:#64748b;--win:#22c55e;--draw:#f59e0b;--lose:#ef4444}}
+:root{{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--hint:#999;--win:#2e7d32;--draw:#e07000;--lose:#c62828}}
 *{{box-sizing:border-box;margin:0;padding:0}}
-body{{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}}
-header{{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);padding:22px 20px;text-align:center;border-bottom:2px solid var(--gold)}}
-header h1{{font-size:1.8rem;font-weight:800;color:#fff;letter-spacing:1px}}
-header p{{color:var(--muted);font-size:.83rem;margin-top:4px}}
-.updated{{font-size:.75rem;color:#475569;margin-top:3px}}
-.tabs{{display:flex;background:#0d1422;border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:0;z-index:10}}
-.tab{{padding:12px 16px;cursor:pointer;font-size:.84rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s}}
-.tab:hover{{color:var(--text)}}.tab.active{{color:var(--gold);border-bottom-color:var(--gold)}}
+body{{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}}
+header{{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}}
+.xspn-logo{{background:var(--red);color:#fff;font-size:1.25rem;font-weight:600;letter-spacing:2px;padding:4px 10px;border-radius:3px;flex-shrink:0;font-family:'Barlow',sans-serif}}
+.xspn-logo span{{opacity:.7;font-weight:400}}
+.hdr-text h1{{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}}
+.hdr-text p{{color:#888;font-size:.76rem;margin-top:2px}}
+.updated{{font-size:.7rem;color:#555;margin-top:1px}}
+.tabs{{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto;position:sticky;top:0;z-index:10}}
+.tab{{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px;font-family:'Barlow',sans-serif}}
+.tab:hover{{color:#fff}}.tab.active{{color:#fff;background:var(--red);border-bottom-color:var(--red)}}
 .pane{{display:none;padding:20px;max-width:1100px;margin:0 auto}}.pane.active{{display:block}}
 table{{width:100%;border-collapse:collapse}}
-th{{background:#0d1422;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:left;position:sticky;top:47px}}
+th{{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:left;border-bottom:2px solid var(--border);position:sticky;top:42px}}
 td{{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem}}
-tr:hover td{{background:#151f35}}
-.bar-bg{{background:#1e293b;border-radius:4px;height:8px;width:120px}}
-.bar-fill{{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),#fb923c)}}
-.pct-high{{color:#22c55e;font-weight:600}}.pct-mid{{color:var(--gold);font-weight:600}}.pct-low{{color:var(--muted)}}
-.groups-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}}
-.group-card{{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}}
-.group-hdr{{background:linear-gradient(90deg,#1e3a5f,#1e2d4f);padding:7px 12px;font-weight:700;color:var(--gold);letter-spacing:1px;font-size:.9rem}}
+tr:hover td{{background:#fafafa}}
+.bar-bg{{background:#e8e8e8;border-radius:3px;height:7px;width:110px}}
+.bar-fill{{height:100%;border-radius:3px;background:var(--red)}}
+.pct-high{{color:#cc0000;font-weight:600}}.pct-mid{{color:#e07000;font-weight:600}}.pct-low{{color:var(--hint)}}
+.groups-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}}
+.group-card{{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}}
+.group-hdr{{background:var(--dark);padding:7px 12px;font-weight:600;color:#fff;letter-spacing:1.5px;font-size:.82rem;display:flex;align-items:center;gap:7px}}
+.group-hdr::before{{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}}
 .match-row{{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-bottom:1px solid var(--border);font-size:.8rem;gap:4px}}
 .t{{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}.t.r{{text-align:right}}
-.sc{{background:#1e293b;padding:2px 7px;border-radius:3px;font-weight:700;font-size:.85rem;min-width:34px;text-align:center}}
-.odds{{font-size:.7rem;color:var(--muted);text-align:center;padding:1px 10px 4px}}
-.adv-row{{display:flex;align-items:center;gap:6px;padding:4px 10px;font-size:.8rem;border-top:1px solid var(--border)}}
-.adv-row.q{{border-left:3px solid var(--gold)}}.adv-row.m{{border-left:3px solid #334155}}
-.adv-pct{{margin-left:auto;color:var(--gold);font-weight:700;font-size:.78rem}}
+.sc{{background:var(--dark);color:#fff;padding:2px 7px;border-radius:2px;font-weight:600;font-size:.82rem;min-width:34px;text-align:center}}
+.odds{{font-size:.7rem;color:var(--hint);text-align:center;padding:1px 10px 5px}}
 .bracket-wrap{{overflow-x:auto}}.bracket{{display:flex;gap:0;min-width:860px}}
 .br-col{{display:flex;flex-direction:column;flex:1;padding:0 5px}}
-.br-title{{text-align:center;font-size:.72rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;padding:5px 0 10px}}
+.br-title{{text-align:center;font-size:.7rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.8px;padding:6px 0;background:var(--red);border-radius:3px;margin-bottom:8px}}
 .br-matches{{display:flex;flex-direction:column;justify-content:space-around;flex:1}}
-.bm{{background:var(--card);border:1px solid var(--border);border-radius:5px;margin:2px 0;padding:5px 7px;font-size:.75rem}}
+.bm{{background:var(--card);border:1px solid var(--border);border-radius:3px;margin:2px 0;padding:5px 7px;font-size:.75rem}}
 .bm-t{{display:flex;align-items:center;gap:3px;padding:2px 0}}
-.bm-t.win{{color:var(--gold);font-weight:700}}.bm-t.lose{{color:var(--muted)}}
-.bm-sc{{margin-left:auto;font-weight:700}}.bm-pct{{font-size:.68rem;color:var(--muted);text-align:center;padding-top:2px}}
-.filter-row{{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}}
-.fb{{padding:4px 11px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:.78rem;transition:all .15s}}
-.fb.active{{background:var(--gold);color:#000;border-color:var(--gold)}}
-.sbadge{{display:inline-block;padding:1px 6px;border-radius:8px;font-size:.68rem;font-weight:600}}
-.sb-g{{background:#1e3a5f;color:#7dd3fc}}.sb-r32{{background:#1e3a2f;color:#86efac}}
-.sb-r16{{background:#2d1e3f;color:#c4b5fd}}.sb-qf{{background:#3f2d1e;color:#fdba74}}
-.sb-sf{{background:#3f1e1e;color:#fca5a5}}.sb-f{{background:#3a2e00;color:var(--gold)}}
-.sb-3{{background:#1e2d2f;color:#67e8f9}}.win-cell{{color:var(--gold);font-weight:600}}
+.bm-t.win{{color:var(--dark);font-weight:600}}.bm-t.lose{{color:var(--hint)}}
+.bm-sc{{margin-left:auto;font-weight:600}}.bm-pct{{font-size:.68rem;color:var(--hint);text-align:center;padding-top:2px}}
+.filter-row{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}}
+.fb{{padding:4px 12px;border-radius:3px;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;font-size:.78rem;font-family:'Barlow',sans-serif;transition:all .12s}}
+.fb.active{{background:var(--red);color:#fff;border-color:var(--red)}}
+.sbadge{{display:inline-block;padding:1px 6px;border-radius:2px;font-size:.68rem;font-weight:600}}
+.sb-g{{background:#e8f0fb;color:#1a56a0}}.sb-r32{{background:#e8f5e9;color:#2e7d32}}
+.sb-r16{{background:#f3e8fd;color:#6b21a8}}.sb-qf{{background:#fff3e0;color:#b35900}}
+.sb-sf{{background:#ffebee;color:#c62828}}.sb-f{{background:#1a1a1a;color:#fff}}
+.sb-3{{background:#e0f7fa;color:#00838f}}.win-cell{{color:var(--red);font-weight:600}}
 .podium-wrap{{max-width:560px;margin:0 auto}}
 .pod-stage{{display:flex;align-items:flex-end;justify-content:center;gap:6px;margin:24px 0 16px}}
 .pod{{text-align:center;display:flex;flex-direction:column;align-items:center}}
-.pod-bar{{width:80px;background:var(--card);border:1px solid var(--border);border-bottom:none;border-radius:4px 4px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px}}
-.pod-1 .pod-bar{{height:130px}}.pod-2 .pod-bar{{height:95px}}.pod-3 .pod-bar{{height:65px}}
-.pod-medal{{font-size:1.4rem}}.pod-name{{font-weight:700;font-size:.88rem;margin-top:4px}}.pod-pct{{font-size:.78rem;color:var(--muted)}}
-.sec{{font-size:.95rem;font-weight:700;margin:18px 0 8px;border-bottom:1px solid var(--border);padding-bottom:5px}}
+.pod-bar{{width:80px;background:#eee;border:1px solid var(--border);border-bottom:none;border-radius:3px 3px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px}}
+.pod-1 .pod-bar{{height:130px;background:#fff0f0;border-color:var(--red)}}.pod-2 .pod-bar{{height:95px}}.pod-3 .pod-bar{{height:65px}}
+.pod-medal{{font-size:1.4rem}}.pod-name{{font-weight:600;font-size:.88rem;margin-top:4px}}.pod-pct{{font-size:.78rem;color:var(--muted)}}
+.sec{{font-size:.82rem;font-weight:600;margin:18px 0 8px;border-bottom:2px solid var(--border);padding-bottom:5px;color:var(--dark);text-transform:uppercase;letter-spacing:.6px}}
 .top10 td{{padding:7px 8px;border-bottom:1px solid var(--border)}}
-.top10-bar{{height:9px;background:linear-gradient(90deg,var(--gold),#fb923c);border-radius:3px}}
-.fin-box{{background:var(--card);border:1px solid var(--gold);border-radius:7px;padding:14px;text-align:center;margin:6px 0}}
+.top10-bar{{height:7px;background:var(--red);border-radius:2px}}
+.fin-box{{background:#fff;border:1px solid var(--border);border-left:4px solid var(--red);border-radius:3px;padding:14px;text-align:center;margin:6px 0}}
 </style>
 </head>
 <body>
 <header>
-  <h1>&#127942; 2026 FIFA World Cup Predictions</h1>
-  <p>Dixon-Coles + L2 regularisation + host advantage &nbsp;|&nbsp; 75,000 simulations &nbsp;|&nbsp; 453 training matches</p>
-  <p class="updated">Last updated: {UPDATED}</p>
+  <div class="xspn-logo">x<span>SPN</span></div>
+  <div class="hdr-text">
+    <h1>2026 FIFA World Cup Predictions</h1>
+    <p>Dixon-Coles · L2 regularisation · host advantage · 75,000 simulations</p>
+    <p class="updated">Last updated: {UPDATED}</p>
+  </div>
 </header>
 <div class="tabs">
-  <div class="tab active" onclick="show('win')">&#127942; Win Odds</div>
-  <div class="tab" onclick="show('stage')">&#128202; Stage Probs</div>
-  <div class="tab" onclick="show('groups')">&#9917; Group Stage</div>
-  <div class="tab" onclick="show('bracket')">&#128302; Bracket</div>
-  <div class="tab" onclick="show('matches')">&#128203; All 104 Matches</div>
-  <div class="tab" onclick="show('podium')">&#129351; Podium</div>
+  <div class="tab active" onclick="show('win')">Win Odds</div>
+  <div class="tab" onclick="show('stage')">Stage %</div>
+  <div class="tab" onclick="show('groups')">Groups</div>
+  <div class="tab" onclick="show('bracket')">Bracket</div>
+  <div class="tab" onclick="show('matches')">All 104 Matches</div>
+  <div class="tab" onclick="show('podium')">Podium</div>
 </div>
 <div id="tab-win" class="pane active"></div>
 <div id="tab-stage" class="pane"></div>
@@ -189,25 +194,51 @@ function show(n){{
   document.getElementById('tab-stage').innerHTML=h+'</tbody></table>';
 }})();
 (function(){{
+  function computeStandings(teams, ms) {{
+    const pts={{}}, w={{}}, d={{}}, l={{}};
+    teams.forEach(t=>{{ pts[t]=0; w[t]=0; d[t]=0; l[t]=0; }});
+    ms.forEach(m=>{{
+      pts[m.home]+=3*m.ph+m.pd; pts[m.away]+=3*m.pa+m.pd;
+      w[m.home]+=m.ph; w[m.away]+=m.pa;
+      d[m.home]+=m.pd; d[m.away]+=m.pd;
+      l[m.home]+=m.pa; l[m.away]+=m.ph;
+    }});
+    return teams.map(t=>(({{t,pts:pts[t],w:w[t],d:d[t],l:l[t]}})))
+               .sort((a,b)=>b.pts-a.pts);
+  }}
   let h='<div class="groups-grid">';
   Object.entries(GR).forEach(([g,teams])=>{{
     const ms=B.group_predictions[g]||[];
-    const adv=B.group_advance[g];
     h+=`<div class="group-card"><div class="group-hdr">Group ${{g}}</div>`;
+    const st=computeStandings(teams,ms);
+    h+=`<table style="width:100%;border-collapse:collapse;font-size:.76rem">
+      <thead><tr style="background:#0d1422">
+        <th style="padding:5px 8px;text-align:left;color:var(--muted);font-weight:600;font-size:.7rem;letter-spacing:.3px">Team</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem">W</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem">D</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem">L</th>
+        <th style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700;font-size:.7rem">Pts</th>
+      </tr></thead><tbody>`;
+    st.forEach((row,i)=>{{
+      const ql=i<2?'3px solid var(--red)':'3px solid transparent';
+      h+=`<tr style="border-left:${{ql}};border-bottom:1px solid var(--border)}">
+        <td style="padding:4px 8px">${{ft(row.t)}}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${{row.w.toFixed(1)}}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${{row.d.toFixed(1)}}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${{row.l.toFixed(1)}}</td>
+        <td style="padding:4px 6px;text-align:center;font-weight:700;color:${{i<2?'var(--red)':'var(--text)'}}">${{row.pts.toFixed(1)}}</td>
+      </tr>`;
+    }});
+    h+='</tbody></table><div style="border-top:1px solid var(--border);margin-top:2px;padding-top:4px">';
     ms.forEach(m=>{{
       const hw=(m.ph*100).toFixed(0),dw=(m.pd*100).toFixed(0),aw=(m.pa*100).toFixed(0);
       const isH=m.winner===m.home||m.likely_winner===m.home;
-      h+=`<div class="match-row"><span class="t" style="${{isH?'color:var(--gold);font-weight:600':''}}">${{ft(m.home)}}</span>
+      h+=`<div class="match-row"><span class="t" style="${{isH?'color:var(--red);font-weight:600':''}}">${{ft(m.home)}}</span>
         <span class="sc">${{m.score}}</span>
-        <span class="t r" style="${{!isH?'color:var(--gold);font-weight:600':''}}">${{ft(m.away)}}</span></div>
+        <span class="t r" style="${{!isH?'color:var(--red);font-weight:600':''}}">${{ft(m.away)}}</span></div>
       <div class="odds"><span style="color:var(--win)">${{hw}}%</span> &middot; <span style="color:var(--draw)">${{dw}}%</span> &middot; <span style="color:var(--lose)">${{aw}}%</span></div>`;
     }});
-    const st=[...teams].sort((a,b)=>((adv.win_pct[b]||0)+(adv.ru_pct[b]||0))-((adv.win_pct[a]||0)+(adv.ru_pct[a]||0)));
-    st.forEach((t,i)=>{{
-      const pct=((adv.win_pct[t]||0)+(adv.ru_pct[t]||0)).toFixed(0);
-      h+=`<div class="adv-row ${{i<2?'q':'m'}}">${{ft(t)}}<span class="adv-pct">${{pct}}% adv</span></div>`;
-    }});
-    h+='</div>';
+    h+='</div></div>';
   }});
   document.getElementById('tab-groups').innerHTML=h+'</div>';
 }})();
@@ -243,7 +274,7 @@ function show(n){{
       const w=m.winner||m.likely_winner;
       return`<tr><td><span class="sbadge ${{m.badge}}">${{m.stage}}</span></td>
         <td>${{ft(m.home)}}</td><td style="text-align:center;font-weight:700">${{m.score}}</td>
-        <td>${{ft(m.away)}}</td><td class="win-cell">${{ft(w)}} ${{w}}</td>
+        <td>${{ft(m.away)}}</td><td class="win-cell">${{ft(w)}}</td>
         <td style="color:var(--muted);font-size:.76rem">${{pct}}</td></tr>`;
     }}).join('');
   }}
@@ -261,7 +292,7 @@ window.filt=function(f,btn){{
       const w=m.winner||m.likely_winner;
       return`<tr><td><span class="sbadge ${{m.badge}}">${{m.stage}}</span></td>
         <td>${{ft(m.home)}}</td><td style="text-align:center;font-weight:700">${{m.score}}</td>
-        <td>${{ft(m.away)}}</td><td class="win-cell">${{ft(w)}} ${{w}}</td>
+        <td>${{ft(m.away)}}</td><td class="win-cell">${{ft(w)}}</td>
         <td style="color:var(--muted);font-size:.76rem">${{pct}}</td></tr>`;
     }}).join('');
 }};
@@ -271,41 +302,11 @@ window.filt=function(f,btn){{
   let h=`<div class="podium-wrap"><div class="sec">Predicted Tournament Winner</div>
   <div style="text-align:center;margin:14px 0">
     <div>${{FL[t1]?`<img src="${{fi(FL[t1])}}" style="height:48px;border-radius:3px">`:'&#127942;'}}</div>
-    <div style="font-size:1.4rem;font-weight:800;color:var(--gold);margin-top:6px">${{t1}}</div>
+    <div style="font-size:1.4rem;font-weight:800;color:var(--red);margin-top:6px">${{t1}}</div>
     <div style="color:var(--muted)">${{(r1.win*100).toFixed(1)}}% win probability</div></div>
   <div class="sec">Predicted Podium</div>
   <div class="pod-stage">
     <div class="pod pod-2"><div>${{FL[t2]?`<img src="${{fi(FL[t2])}}" style="height:32px;border-radius:2px">`:''}}</div>
       <div class="pod-bar"><div class="pod-medal">&#129352;</div></div>
       <div class="pod-name">${{t2}}</div><div class="pod-pct">${{(r2.win*100).toFixed(1)}}%</div></div>
-    <div class="pod pod-1"><div>${{FL[t1]?`<img src="${{fi(FL[t1])}}" style="height:32px;border-radius:2px">`:''}}</div>
-      <div class="pod-bar"><div class="pod-medal">&#129351;</div></div>
-      <div class="pod-name">${{t1}}</div><div class="pod-pct">${{(r1.win*100).toFixed(1)}}%</div></div>
-    <div class="pod pod-3"><div>${{FL[t3]?`<img src="${{fi(FL[t3])}}" style="height:32px;border-radius:2px">`:''}}</div>
-      <div class="pod-bar"><div class="pod-medal">&#129353;</div></div>
-      <div class="pod-name">${{t3}}</div><div class="pod-pct">${{(r3.win*100).toFixed(1)}}%</div></div></div>
-  <div class="sec">Top 10 Contenders</div><table class="top10">`;
-  ranked.slice(0,10).forEach(([t,r],i)=>{{
-    const bw=(r.win/mx*100).toFixed(1);const m=i===0?'&#127945;':i===1?'&#129352;':i===2?'&#129353;':'';
-    h+=`<tr><td style="width:26px;color:var(--muted);font-weight:700">${{i+1}}</td>
-      <td style="width:170px">${{ft(t)}} ${{m}}</td>
-      <td><div class="top10-bar" style="width:${{bw}}%"></div></td>
-      <td style="width:50px;text-align:right;font-weight:700">${{(r.win*100).toFixed(1)}}%</td></tr>`;
-  }});
-  const fin=B.final,tp=B.third_place;
-  h+=`</table><div class="sec" style="margin-top:20px">Predicted Final</div>
-  <div class="fin-box"><div style="font-size:1.15rem;font-weight:800">${{ft(fin.home)}} <span style="color:var(--gold)">${{fin.score}}</span> ${{ft(fin.away)}}</div>
-    <div style="font-size:.83rem;color:var(--muted);margin-top:5px">Winner: <strong style="color:var(--gold)">${{fin.winner}}</strong> &middot; ${{fin.win_pct}}% chance</div></div>
-  <div style="font-size:.8rem;color:var(--muted);margin:8px 0 3px">3rd Place Match</div>
-  <div class="fin-box" style="border-color:var(--border)"><div>${{ft(tp.home)}} <strong>${{tp.score}}</strong> ${{ft(tp.away)}}</div>
-    <div style="font-size:.78rem;color:var(--muted);margin-top:4px">${{tp.winner}} &middot; ${{tp.win_pct}}%</div></div></div>`;
-  document.getElementById('tab-podium').innerHTML=h;
-}})();
-</script>
-</body>
-</html>'''
-
-out = os.path.join(DIR, 'index.html')
-with open(out, 'w', encoding='utf-8') as f:
-    f.write(html)
-print(f"Built index.html ({len(html):,} chars) — last updated: {UPDATED}")
+    <div class="pod pod-1"><div>${{FL[t1]?`<img src="${{fi(FL[t1])}}" 
