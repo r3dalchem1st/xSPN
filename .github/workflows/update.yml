@@ -2,8 +2,8 @@ name: Update WC 2026 Predictions
 
 on:
   schedule:
-    # Runs every day at 23::00 UTC — adjust as you like
-    - cron: '0 23 * * *'
+    # Runs every day at 21::00 UTC — adjust as you like
+    - cron: '0 21 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
