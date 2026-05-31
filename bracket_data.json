@@ -7,9 +7,9 @@
         "lam": 0.56,
         "mu": 0.96,
         "score": "0\u20130",
-        "ph": 0.2,
-        "pd": 0.36,
-        "pa": 0.439,
+        "ph": 0.203,
+        "pd": 0.362,
+        "pa": 0.434,
         "likely_winner": "South Africa"
       },
       {
@@ -18,9 +18,9 @@
         "lam": 0.69,
         "mu": 1.62,
         "score": "0\u20131",
-        "ph": 0.156,
-        "pd": 0.255,
-        "pa": 0.588,
+        "ph": 0.155,
+        "pd": 0.253,
+        "pa": 0.592,
         "likely_winner": "South Korea"
       },
       {
@@ -29,9 +29,9 @@
         "lam": 0.62,
         "mu": 1.23,
         "score": "0\u20131",
-        "ph": 0.192,
-        "pd": 0.289,
-        "pa": 0.52,
+        "ph": 0.182,
+        "pd": 0.305,
+        "pa": 0.513,
         "likely_winner": "Czechia"
       },
       {
@@ -40,9 +40,9 @@
         "lam": 1.08,
         "mu": 1.47,
         "score": "1\u20131",
-        "ph": 0.278,
-        "pd": 0.265,
-        "pa": 0.456,
+        "ph": 0.276,
+        "pd": 0.263,
+        "pa": 0.461,
         "likely_winner": "South Korea"
       },
       {
@@ -51,9 +51,9 @@
         "lam": 0.97,
         "mu": 1.12,
         "score": "0\u20131",
-        "ph": 0.305,
-        "pd": 0.302,
-        "pa": 0.393,
+        "ph": 0.309,
+        "pd": 0.295,
+        "pa": 0.396,
         "likely_winner": "Czechia"
       },
       {
@@ -62,9 +62,9 @@
         "lam": 1.65,
         "mu": 1.38,
         "score": "1\u20131",
-        "ph": 0.416,
-        "pd": 0.25,
-        "pa": 0.334,
+        "ph": 0.444,
+        "pd": 0.237,
+        "pa": 0.32,
         "likely_winner": "South Korea"
       }
     ],
@@ -75,9 +75,9 @@
         "lam": 0.52,
         "mu": 2.47,
         "score": "0\u20132",
-        "ph": 0.054,
-        "pd": 0.143,
-        "pa": 0.803,
+        "ph": 0.056,
+        "pd": 0.144,
+        "pa": 0.8,
         "likely_winner": "Switzerland"
       },
       {
@@ -86,9 +86,9 @@
         "lam": 1.08,
         "mu": 1.74,
         "score": "1\u20131",
-        "ph": 0.24,
-        "pd": 0.233,
-        "pa": 0.527,
+        "ph": 0.229,
+        "pd": 0.236,
+        "pa": 0.535,
         "likely_winner": "Qatar"
       },
       {
@@ -97,9 +97,9 @@
         "lam": 0.98,
         "mu": 1.34,
         "score": "0\u20131",
-        "ph": 0.28,
-        "pd": 0.275,
-        "pa": 0.446,
+        "ph": 0.263,
+        "pd": 0.281,
+        "pa": 0.456,
         "likely_winner": "Bosnia"
       },
       {
@@ -108,9 +108,9 @@
         "lam": 2.77,
         "mu": 0.95,
         "score": "2\u20130",
-        "ph": 0.757,
-        "pd": 0.142,
-        "pa": 0.101,
+        "ph": 0.759,
+        "pd": 0.143,
+        "pa": 0.098,
         "likely_winner": "Switzerland"
       },
       {
@@ -119,9 +119,9 @@
         "lam": 2.54,
         "mu": 0.73,
         "score": "2\u20130",
-        "ph": 0.759,
-        "pd": 0.152,
-        "pa": 0.088,
+        "ph": 0.77,
+        "pd": 0.143,
+        "pa": 0.087,
         "likely_winner": "Switzerland"
       },
       {
@@ -130,9 +130,9 @@
         "lam": 1.79,
         "mu": 1.5,
         "score": "1\u20131",
-        "ph": 0.439,
-        "pd": 0.234,
-        "pa": 0.327,
+        "ph": 0.441,
+        "pd": 0.23,
+        "pa": 0.329,
         "likely_winner": "Qatar"
       }
     ],
@@ -143,10 +143,10 @@
         "lam": 0.83,
         "mu": 0.82,
         "score": "0\u20130",
-        "ph": 0.322,
-        "pd": 0.351,
-        "pa": 0.328,
-        "likely_winner": "Morocco"
+        "ph": 0.331,
+        "pd": 0.355,
+        "pa": 0.315,
+        "likely_winner": "Brazil"
       },
       {
         "home": "Brazil",
@@ -154,9 +154,9 @@
         "lam": 2.02,
         "mu": 0.48,
         "score": "2\u20130",
-        "ph": 0.74,
-        "pd": 0.177,
-        "pa": 0.083,
+        "ph": 0.741,
+        "pd": 0.18,
+        "pa": 0.079,
         "likely_winner": "Brazil"
       },
       {
@@ -166,8 +166,8 @@
         "mu": 0.91,
         "score": "2\u20130",
         "ph": 0.638,
-        "pd": 0.214,
-        "pa": 0.148,
+        "pd": 0.205,
+        "pa": 0.157,
         "likely_winner": "Brazil"
       },
       {
@@ -176,9 +176,9 @@
         "lam": 1.43,
         "mu": 0.35,
         "score": "1\u20130",
-        "ph": 0.652,
-        "pd": 0.259,
-        "pa": 0.089,
+        "ph": 0.65,
+        "pd": 0.261,
+        "pa": 0.09,
         "likely_winner": "Morocco"
       },
       {
@@ -187,9 +187,9 @@
         "lam": 1.44,
         "mu": 0.66,
         "score": "1\u20130",
-        "ph": 0.553,
-        "pd": 0.274,
-        "pa": 0.173,
+        "ph": 0.554,
+        "pd": 0.271,
+        "pa": 0.175,
         "likely_winner": "Morocco"
       },
       {
@@ -198,9 +198,9 @@
         "lam": 0.85,
         "mu": 1.59,
         "score": "0\u20131",
-        "ph": 0.201,
-        "pd": 0.258,
-        "pa": 0.541,
+        "ph": 0.2,
+        "pd": 0.243,
+        "pa": 0.556,
         "likely_winner": "Scotland"
       }
     ],
@@ -211,9 +211,9 @@
         "lam": 1.0,
         "mu": 1.44,
         "score": "0\u20131",
-        "ph": 0.261,
-        "pd": 0.265,
-        "pa": 0.474,
+        "ph": 0.267,
+        "pd": 0.248,
+        "pa": 0.485,
         "likely_winner": "Paraguay"
       },
       {
@@ -222,9 +222,9 @@
         "lam": 0.96,
         "mu": 1.44,
         "score": "0\u20131",
-        "ph": 0.238,
-        "pd": 0.269,
-        "pa": 0.493,
+        "ph": 0.247,
+        "pd": 0.273,
+        "pa": 0.48,
         "likely_winner": "Australia"
       },
       {
@@ -233,9 +233,9 @@
         "lam": 0.67,
         "mu": 2.28,
         "score": "0\u20132",
-        "ph": 0.087,
-        "pd": 0.177,
-        "pa": 0.736,
+        "ph": 0.09,
+        "pd": 0.176,
+        "pa": 0.734,
         "likely_winner": "Turkey"
       },
       {
@@ -244,9 +244,9 @@
         "lam": 0.91,
         "mu": 0.95,
         "score": "0\u20130",
-        "ph": 0.32,
-        "pd": 0.33,
-        "pa": 0.35,
+        "ph": 0.332,
+        "pd": 0.324,
+        "pa": 0.343,
         "likely_winner": "Australia"
       },
       {
@@ -255,9 +255,9 @@
         "lam": 0.64,
         "mu": 1.5,
         "score": "0\u20131",
-        "ph": 0.148,
-        "pd": 0.261,
-        "pa": 0.591,
+        "ph": 0.162,
+        "pd": 0.267,
+        "pa": 0.571,
         "likely_winner": "Turkey"
       },
       {
@@ -266,9 +266,9 @@
         "lam": 0.64,
         "mu": 1.45,
         "score": "0\u20131",
-        "ph": 0.163,
-        "pd": 0.266,
-        "pa": 0.571,
+        "ph": 0.169,
+        "pd": 0.271,
+        "pa": 0.56,
         "likely_winner": "Turkey"
       }
     ],
@@ -279,9 +279,9 @@
         "lam": 2.56,
         "mu": 0.51,
         "score": "2\u20130",
-        "ph": 0.818,
-        "pd": 0.128,
-        "pa": 0.054,
+        "ph": 0.824,
+        "pd": 0.125,
+        "pa": 0.05,
         "likely_winner": "Germany"
       },
       {
@@ -290,9 +290,9 @@
         "lam": 1.48,
         "mu": 1.02,
         "score": "1\u20131",
-        "ph": 0.484,
-        "pd": 0.26,
-        "pa": 0.256,
+        "ph": 0.476,
+        "pd": 0.266,
+        "pa": 0.257,
         "likely_winner": "Germany"
       },
       {
@@ -301,9 +301,9 @@
         "lam": 1.08,
         "mu": 0.42,
         "score": "1\u20130",
-        "ph": 0.533,
-        "pd": 0.319,
-        "pa": 0.149,
+        "ph": 0.522,
+        "pd": 0.334,
+        "pa": 0.145,
         "likely_winner": "Germany"
       },
       {
@@ -313,8 +313,8 @@
         "mu": 1.77,
         "score": "0\u20131",
         "ph": 0.103,
-        "pd": 0.225,
-        "pa": 0.672,
+        "pd": 0.218,
+        "pa": 0.679,
         "likely_winner": "Ivory Coast"
       },
       {
@@ -323,9 +323,9 @@
         "lam": 0.37,
         "mu": 0.74,
         "score": "0\u20130",
-        "ph": 0.171,
-        "pd": 0.428,
-        "pa": 0.401,
+        "ph": 0.176,
+        "pd": 0.426,
+        "pa": 0.399,
         "likely_winner": "Ecuador"
       },
       {
@@ -334,8 +334,8 @@
         "lam": 0.75,
         "mu": 0.43,
         "score": "0\u20130",
-        "ph": 0.393,
-        "pd": 0.424,
+        "ph": 0.395,
+        "pd": 0.422,
         "pa": 0.183,
         "likely_winner": "Ivory Coast"
       }
@@ -347,8 +347,8 @@
         "lam": 1.45,
         "mu": 1.54,
         "score": "1\u20131",
-        "ph": 0.354,
-        "pd": 0.249,
+        "ph": 0.368,
+        "pd": 0.233,
         "pa": 0.398,
         "likely_winner": "Japan"
       },
@@ -358,9 +358,9 @@
         "lam": 3.12,
         "mu": 1.42,
         "score": "3\u20131",
-        "ph": 0.716,
+        "ph": 0.712,
         "pd": 0.146,
-        "pa": 0.138,
+        "pa": 0.142,
         "likely_winner": "Netherlands"
       },
       {
@@ -369,9 +369,9 @@
         "lam": 1.05,
         "mu": 0.45,
         "score": "1\u20130",
-        "ph": 0.509,
-        "pd": 0.347,
-        "pa": 0.144,
+        "ph": 0.506,
+        "pd": 0.34,
+        "pa": 0.154,
         "likely_winner": "Netherlands"
       },
       {
@@ -380,9 +380,9 @@
         "lam": 2.55,
         "mu": 1.09,
         "score": "2\u20131",
-        "ph": 0.692,
-        "pd": 0.164,
-        "pa": 0.144,
+        "ph": 0.686,
+        "pd": 0.166,
+        "pa": 0.148,
         "likely_winner": "Japan"
       },
       {
@@ -391,9 +391,9 @@
         "lam": 0.86,
         "mu": 0.34,
         "score": "0\u20130",
-        "ph": 0.472,
-        "pd": 0.396,
-        "pa": 0.132,
+        "ph": 0.46,
+        "pd": 0.409,
+        "pa": 0.131,
         "likely_winner": "Japan"
       },
       {
@@ -402,9 +402,9 @@
         "lam": 0.79,
         "mu": 0.74,
         "score": "0\u20130",
-        "ph": 0.342,
-        "pd": 0.36,
-        "pa": 0.298,
+        "ph": 0.344,
+        "pd": 0.351,
+        "pa": 0.305,
         "likely_winner": "Sweden"
       }
     ],
@@ -415,9 +415,9 @@
         "lam": 0.77,
         "mu": 1.08,
         "score": "0\u20131",
-        "ph": 0.247,
-        "pd": 0.326,
-        "pa": 0.426,
+        "ph": 0.257,
+        "pd": 0.306,
+        "pa": 0.437,
         "likely_winner": "Egypt"
       },
       {
@@ -426,8 +426,8 @@
         "lam": 0.8,
         "mu": 1.56,
         "score": "0\u20131",
-        "ph": 0.196,
-        "pd": 0.246,
+        "ph": 0.193,
+        "pd": 0.248,
         "pa": 0.559,
         "likely_winner": "Iran"
       },
@@ -437,9 +437,9 @@
         "lam": 0.99,
         "mu": 0.57,
         "score": "0\u20130",
-        "ph": 0.44,
-        "pd": 0.348,
-        "pa": 0.212,
+        "ph": 0.452,
+        "pd": 0.347,
+        "pa": 0.202,
         "likely_winner": "Belgium"
       },
       {
@@ -448,9 +448,9 @@
         "lam": 1.3,
         "mu": 1.8,
         "score": "1\u20131",
-        "ph": 0.274,
-        "pd": 0.227,
-        "pa": 0.499,
+        "ph": 0.292,
+        "pd": 0.228,
+        "pa": 0.481,
         "likely_winner": "Iran"
       },
       {
@@ -459,9 +459,9 @@
         "lam": 1.62,
         "mu": 0.67,
         "score": "1\u20130",
-        "ph": 0.6,
-        "pd": 0.254,
-        "pa": 0.146,
+        "ph": 0.61,
+        "pd": 0.238,
+        "pa": 0.152,
         "likely_winner": "Egypt"
       },
       {
@@ -470,9 +470,9 @@
         "lam": 2.32,
         "mu": 0.69,
         "score": "2\u20130",
-        "ph": 0.732,
-        "pd": 0.167,
-        "pa": 0.1,
+        "ph": 0.731,
+        "pd": 0.174,
+        "pa": 0.095,
         "likely_winner": "Iran"
       }
     ],
@@ -483,9 +483,9 @@
         "lam": 2.72,
         "mu": 0.38,
         "score": "2\u20130",
-        "ph": 0.87,
-        "pd": 0.099,
-        "pa": 0.03,
+        "ph": 0.857,
+        "pd": 0.111,
+        "pa": 0.032,
         "likely_winner": "Spain"
       },
       {
@@ -494,9 +494,9 @@
         "lam": 2.29,
         "mu": 0.2,
         "score": "2\u20130",
-        "ph": 0.853,
-        "pd": 0.123,
-        "pa": 0.024,
+        "ph": 0.85,
+        "pd": 0.129,
+        "pa": 0.021,
         "likely_winner": "Spain"
       },
       {
@@ -506,8 +506,8 @@
         "mu": 0.28,
         "score": "1\u20130",
         "ph": 0.616,
-        "pd": 0.306,
-        "pa": 0.078,
+        "pd": 0.309,
+        "pa": 0.075,
         "likely_winner": "Spain"
       },
       {
@@ -516,9 +516,9 @@
         "lam": 1.18,
         "mu": 0.67,
         "score": "1\u20130",
-        "ph": 0.466,
-        "pd": 0.315,
-        "pa": 0.22,
+        "ph": 0.476,
+        "pd": 0.31,
+        "pa": 0.214,
         "likely_winner": "Cape Verde"
       },
       {
@@ -527,9 +527,9 @@
         "lam": 0.64,
         "mu": 1.05,
         "score": "0\u20131",
-        "ph": 0.222,
-        "pd": 0.318,
-        "pa": 0.46,
+        "ph": 0.225,
+        "pd": 0.321,
+        "pa": 0.454,
         "likely_winner": "Uruguay"
       },
       {
@@ -538,9 +538,9 @@
         "lam": 0.3,
         "mu": 0.88,
         "score": "0\u20130",
-        "ph": 0.129,
-        "pd": 0.392,
-        "pa": 0.48,
+        "ph": 0.132,
+        "pd": 0.393,
+        "pa": 0.476,
         "likely_winner": "Uruguay"
       }
     ],
@@ -551,9 +551,9 @@
         "lam": 1.93,
         "mu": 0.76,
         "score": "1\u20130",
-        "ph": 0.642,
-        "pd": 0.209,
-        "pa": 0.149,
+        "ph": 0.654,
+        "pd": 0.205,
+        "pa": 0.142,
         "likely_winner": "France"
       },
       {
@@ -562,9 +562,9 @@
         "lam": 1.1,
         "mu": 1.13,
         "score": "1\u20131",
-        "ph": 0.342,
-        "pd": 0.288,
-        "pa": 0.37,
+        "ph": 0.352,
+        "pd": 0.275,
+        "pa": 0.374,
         "likely_winner": "Norway"
       },
       {
@@ -573,8 +573,8 @@
         "lam": 1.74,
         "mu": 0.24,
         "score": "1\u20130",
-        "ph": 0.756,
-        "pd": 0.195,
+        "ph": 0.74,
+        "pd": 0.211,
         "pa": 0.049,
         "likely_winner": "France"
       },
@@ -584,9 +584,9 @@
         "lam": 0.86,
         "mu": 2.25,
         "score": "0\u20132",
-        "ph": 0.126,
-        "pd": 0.187,
-        "pa": 0.687,
+        "ph": 0.132,
+        "pd": 0.185,
+        "pa": 0.684,
         "likely_winner": "Norway"
       },
       {
@@ -595,9 +595,9 @@
         "lam": 1.36,
         "mu": 0.47,
         "score": "1\u20130",
-        "ph": 0.583,
-        "pd": 0.296,
-        "pa": 0.121,
+        "ph": 0.59,
+        "pd": 0.282,
+        "pa": 0.128,
         "likely_winner": "Senegal"
       },
       {
@@ -606,9 +606,9 @@
         "lam": 2.02,
         "mu": 0.27,
         "score": "2\u20130",
-        "ph": 0.783,
+        "ph": 0.786,
         "pd": 0.176,
-        "pa": 0.041,
+        "pa": 0.038,
         "likely_winner": "Norway"
       }
     ],
@@ -619,9 +619,9 @@
         "lam": 0.79,
         "mu": 0.45,
         "score": "0\u20130",
-        "ph": 0.408,
-        "pd": 0.394,
-        "pa": 0.198,
+        "ph": 0.41,
+        "pd": 0.398,
+        "pa": 0.192,
         "likely_winner": "Argentina"
       },
       {
@@ -630,9 +630,9 @@
         "lam": 1.35,
         "mu": 1.24,
         "score": "1\u20131",
-        "ph": 0.389,
-        "pd": 0.269,
-        "pa": 0.342,
+        "ph": 0.4,
+        "pd": 0.266,
+        "pa": 0.334,
         "likely_winner": "Argentina"
       },
       {
@@ -641,9 +641,9 @@
         "lam": 2.21,
         "mu": 0.48,
         "score": "2\u20130",
-        "ph": 0.77,
-        "pd": 0.16,
-        "pa": 0.07,
+        "ph": 0.781,
+        "pd": 0.159,
+        "pa": 0.06,
         "likely_winner": "Argentina"
       },
       {
@@ -652,9 +652,9 @@
         "lam": 0.63,
         "mu": 1.02,
         "score": "0\u20131",
-        "ph": 0.218,
-        "pd": 0.331,
-        "pa": 0.452,
+        "ph": 0.212,
+        "pd": 0.349,
+        "pa": 0.439,
         "likely_winner": "Austria"
       },
       {
@@ -663,9 +663,9 @@
         "lam": 1.04,
         "mu": 0.39,
         "score": "1\u20130",
-        "ph": 0.507,
+        "ph": 0.517,
         "pd": 0.341,
-        "pa": 0.152,
+        "pa": 0.142,
         "likely_winner": "Algeria"
       },
       {
@@ -674,8 +674,8 @@
         "lam": 2.87,
         "mu": 0.68,
         "score": "2\u20130",
-        "ph": 0.814,
-        "pd": 0.121,
+        "ph": 0.818,
+        "pd": 0.117,
         "pa": 0.065,
         "likely_winner": "Austria"
       }
@@ -687,9 +687,9 @@
         "lam": 1.24,
         "mu": 0.7,
         "score": "1\u20130",
-        "ph": 0.498,
-        "pd": 0.286,
-        "pa": 0.216,
+        "ph": 0.489,
+        "pd": 0.298,
+        "pa": 0.213,
         "likely_winner": "Portugal"
       },
       {
@@ -698,9 +698,9 @@
         "lam": 1.26,
         "mu": 0.65,
         "score": "1\u20130",
-        "ph": 0.491,
-        "pd": 0.307,
-        "pa": 0.202,
+        "ph": 0.516,
+        "pd": 0.287,
+        "pa": 0.197,
         "likely_winner": "Portugal"
       },
       {
@@ -709,9 +709,9 @@
         "lam": 1.43,
         "mu": 0.98,
         "score": "1\u20130",
-        "ph": 0.476,
-        "pd": 0.266,
-        "pa": 0.258,
+        "ph": 0.465,
+        "pd": 0.259,
+        "pa": 0.276,
         "likely_winner": "Portugal"
       },
       {
@@ -720,9 +720,9 @@
         "lam": 0.62,
         "mu": 0.57,
         "score": "0\u20130",
-        "ph": 0.307,
-        "pd": 0.409,
-        "pa": 0.284,
+        "ph": 0.298,
+        "pd": 0.426,
+        "pa": 0.277,
         "likely_winner": "DR Congo"
       },
       {
@@ -731,9 +731,9 @@
         "lam": 0.7,
         "mu": 0.86,
         "score": "0\u20130",
-        "ph": 0.277,
-        "pd": 0.356,
-        "pa": 0.368,
+        "ph": 0.276,
+        "pd": 0.357,
+        "pa": 0.367,
         "likely_winner": "Colombia"
       },
       {
@@ -742,9 +742,9 @@
         "lam": 0.66,
         "mu": 0.87,
         "score": "0\u20130",
-        "ph": 0.251,
-        "pd": 0.37,
-        "pa": 0.379,
+        "ph": 0.264,
+        "pd": 0.361,
+        "pa": 0.375,
         "likely_winner": "Colombia"
       }
     ],
@@ -755,9 +755,9 @@
         "lam": 1.32,
         "mu": 0.63,
         "score": "1\u20130",
-        "ph": 0.526,
-        "pd": 0.292,
-        "pa": 0.182,
+        "ph": 0.544,
+        "pd": 0.277,
+        "pa": 0.18,
         "likely_winner": "England"
       },
       {
@@ -766,9 +766,9 @@
         "lam": 2.63,
         "mu": 0.76,
         "score": "2\u20130",
-        "ph": 0.778,
-        "pd": 0.143,
-        "pa": 0.079,
+        "ph": 0.771,
+        "pd": 0.144,
+        "pa": 0.085,
         "likely_winner": "England"
       },
       {
@@ -778,8 +778,8 @@
         "mu": 0.47,
         "score": "5\u20130",
         "ph": 0.976,
-        "pd": 0.018,
-        "pa": 0.006,
+        "pd": 0.019,
+        "pa": 0.004,
         "likely_winner": "England"
       },
       {
@@ -788,9 +788,9 @@
         "lam": 2.14,
         "mu": 1.3,
         "score": "2\u20131",
-        "ph": 0.566,
-        "pd": 0.205,
-        "pa": 0.228,
+        "ph": 0.58,
+        "pd": 0.199,
+        "pa": 0.221,
         "likely_winner": "Croatia"
       },
       {
@@ -799,9 +799,9 @@
         "lam": 4.26,
         "mu": 0.8,
         "score": "4\u20130",
-        "ph": 0.912,
-        "pd": 0.06,
-        "pa": 0.028,
+        "ph": 0.916,
+        "pd": 0.058,
+        "pa": 0.026,
         "likely_winner": "Croatia"
       },
       {
@@ -810,9 +810,9 @@
         "lam": 5.16,
         "mu": 1.6,
         "score": "5\u20131",
-        "ph": 0.888,
-        "pd": 0.059,
-        "pa": 0.053,
+        "ph": 0.883,
+        "pd": 0.066,
+        "pa": 0.052,
         "likely_winner": "Ghana"
       }
     ]
@@ -1070,59 +1070,59 @@
     },
     {
       "home": "Germany",
-      "away": "Scotland",
-      "score": "2\u20130",
+      "away": "Bosnia",
+      "score": "3\u20130",
       "winner": "Germany",
-      "win_pct": 83.5
+      "win_pct": 91.9
     },
     {
       "home": "Norway",
       "away": "Cape Verde",
       "score": "2\u20130",
       "winner": "Norway",
-      "win_pct": 86.8
+      "win_pct": 87.0
     },
     {
       "home": "South Korea",
-      "away": "Ecuador",
-      "score": "0\u20130",
+      "away": "Cape Verde",
+      "score": "1\u20131",
       "winner": "South Korea",
-      "win_pct": 56.4
+      "win_pct": 63.8
     },
     {
       "home": "England",
-      "away": "Ecuador",
-      "score": "0\u20130",
+      "away": "Uzbekistan",
+      "score": "1\u20130",
       "winner": "England",
-      "win_pct": 67.2
+      "win_pct": 65.7
     },
     {
       "home": "Turkey",
-      "away": "Ecuador",
-      "score": "0\u20130",
+      "away": "Bosnia",
+      "score": "2\u20130",
       "winner": "Turkey",
-      "win_pct": 65.2
+      "win_pct": 86.8
     },
     {
       "home": "Iran",
-      "away": "Ecuador",
-      "score": "0\u20130",
+      "away": "Cape Verde",
+      "score": "2\u20131",
       "winner": "Iran",
-      "win_pct": 60.4
+      "win_pct": 72.3
     },
     {
       "home": "Switzerland",
-      "away": "Ecuador",
+      "away": "Algeria",
       "score": "0\u20130",
       "winner": "Switzerland",
-      "win_pct": 61.5
+      "win_pct": 51.0
     },
     {
       "home": "Portugal",
-      "away": "Ecuador",
-      "score": "1\u20130",
+      "away": "Ghana",
+      "score": "3\u20131",
       "winner": "Portugal",
-      "win_pct": 71.2
+      "win_pct": 85.4
     }
   ],
   "r16": [
@@ -1131,56 +1131,56 @@
       "away": "Morocco",
       "score": "0\u20131",
       "winner": "Morocco",
-      "win_pct": 65.9
+      "win_pct": 65.8
     },
     {
       "home": "Japan",
       "away": "France",
       "score": "0\u20131",
       "winner": "France",
-      "win_pct": 62.2
+      "win_pct": 60.8
     },
     {
       "home": "Spain",
       "away": "Colombia",
       "score": "1\u20130",
       "winner": "Spain",
-      "win_pct": 78.2
+      "win_pct": 77.9
     },
     {
       "home": "Austria",
       "away": "Egypt",
       "score": "2\u20130",
       "winner": "Austria",
-      "win_pct": 76.5
+      "win_pct": 75.2
     },
     {
       "home": "Germany",
       "away": "South Korea",
       "score": "2\u20131",
       "winner": "Germany",
-      "win_pct": 74.1
+      "win_pct": 75.3
     },
     {
       "home": "Norway",
       "away": "England",
       "score": "1\u20130",
       "winner": "Norway",
-      "win_pct": 55.1
+      "win_pct": 53.4
     },
     {
       "home": "Turkey",
       "away": "Switzerland",
       "score": "1\u20131",
       "winner": "Turkey",
-      "win_pct": 57.3
+      "win_pct": 56.7
     },
     {
       "home": "Iran",
       "away": "Portugal",
       "score": "1\u20132",
       "winner": "Portugal",
-      "win_pct": 66.9
+      "win_pct": 67.1
     }
   ],
   "qf": [
@@ -1189,28 +1189,28 @@
       "away": "France",
       "score": "0\u20130",
       "winner": "France",
-      "win_pct": 62.5
+      "win_pct": 61.9
     },
     {
       "home": "Spain",
       "away": "Austria",
       "score": "1\u20130",
       "winner": "Spain",
-      "win_pct": 70.7
+      "win_pct": 71.9
     },
     {
       "home": "Germany",
       "away": "Norway",
       "score": "1\u20131",
       "winner": "Norway",
-      "win_pct": 56.7
+      "win_pct": 57.2
     },
     {
       "home": "Turkey",
       "away": "Portugal",
       "score": "1\u20131",
       "winner": "Portugal",
-      "win_pct": 55.2
+      "win_pct": 55.5
     }
   ],
   "sf": [
@@ -1219,14 +1219,14 @@
       "away": "Spain",
       "score": "0\u20131",
       "winner": "Spain",
-      "win_pct": 64.9
+      "win_pct": 64.8
     },
     {
       "home": "Norway",
       "away": "Portugal",
       "score": "1\u20131",
       "winner": "Norway",
-      "win_pct": 56.2
+      "win_pct": 58.0
     }
   ],
   "final": {
@@ -1234,14 +1234,14 @@
     "away": "Norway",
     "score": "1\u20130",
     "winner": "Spain",
-    "win_pct": 65.3
+    "win_pct": 64.5
   },
   "third_place": {
     "home": "France",
     "away": "Portugal",
     "score": "1\u20131",
     "winner": "France",
-    "win_pct": 56.1
+    "win_pct": 56.3
   },
   "champion": "Spain",
   "champion_pct": 22.6
