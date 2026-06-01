@@ -1,10 +1,12 @@
 """
 Reads JSON data files + template.html, injects data, writes index.html.
 """
-import json, os
+import json, os, sys
 from datetime import datetime
 
 DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, DIR)
+from fit_improved import SQUAD_VALUES as SQUAD  # single source of truth
 
 with open(os.path.join(DIR, 'wc2026_v2_results.json')) as f:
     results = json.load(f)
@@ -22,18 +24,6 @@ else:
                                             "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0}}
 
 elo = model['elo']
-SQUAD = {
-    'England':1300,'France':1280,'Spain':920,'Brazil':1000,'Germany':850,
-    'Portugal':850,'Netherlands':720,'Argentina':570,'Belgium':550,'Colombia':450,
-    'Turkey':460,'Italy':730,'Norway':420,'Switzerland':280,'Japan':290,
-    'South Korea':250,'Mexico':300,'USA':350,'Croatia':350,'Uruguay':280,
-    'Morocco':255,'Austria':280,'Ecuador':220,'Senegal':300,'Sweden':255,
-    'Egypt':200,'Australia':185,'Algeria':195,'Paraguay':140,'Tunisia':160,
-    'Saudi Arabia':120,'Canada':355,'Ghana':200,'Scotland':285,'Qatar':80,
-    'South Africa':100,'Bosnia':150,'Czechia':200,'Panama':60,'Iraq':50,
-    'Jordan':65,'DR Congo':120,'Uzbekistan':55,'Haiti':40,'New Zealand':50,
-    'Curacao':80,'Cape Verde':100,'Ivory Coast':350,
-}
 FLAGS = {
     'Spain':'es','France':'fr','Norway':'no','Germany':'de','Argentina':'ar',
     'Portugal':'pt','Turkey':'tr','Austria':'at','Brazil':'br','England':'gb-eng',
