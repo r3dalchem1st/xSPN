@@ -1,0 +1,10 @@
+{
+  "matches": [],
+  "summary": {
+    "total_matches": 0,
+    "correct_winners": 0,
+    "accuracy": 0,
+    "avg_goal_error": 0,
+    "avg_brier": 0
+  }
+}
