@@ -60,8 +60,10 @@ SEED_ELOS = {
 HOME_ADV=100; K_BASE=40; INIT_ELO=1500
 HALF_LIFE_DAYS = 365*1.5
 
-def days_ago(date_str, ref="2026-05-12"):
+def days_ago(date_str, ref=None):
     from datetime import date
+    if ref is None:
+        ref = date.today().isoformat()
     y1,m1,d1 = map(int, date_str.split("-"))
     y2,m2,d2 = map(int, ref.split("-"))
     return (date(y2,m2,d2) - date(y1,m1,d1)).days

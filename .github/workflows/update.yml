@@ -2,8 +2,8 @@ name: Update WC 2026 Predictions
 
 on:
   schedule:
-    # Runs every day at 21::00 UTC — adjust as you like
-    - cron: '0 21 * * *'
+    # Runs every day at 06:00 UTC — adjust as you like
+    - cron: '0 6 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
@@ -28,10 +28,16 @@ jobs:
       - name: Install dependencies
         run: pip install numpy scipy requests
 
+      - name: Snapshot pre-match predictions
+        run: python snapshot_predictions.py
+
       - name: Fetch new match results
         env:
           FD_API_KEY: ${{ secrets.FD_API_KEY }}
         run: python fetch_matches.py
+
+      - name: Score predictions against actual results
+        run: python score_predictions.py
 
       - name: Refit model (Dixon-Coles + Elo)
         run: python fit_improved.py
@@ -49,6 +55,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json
+          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json
           git diff --staged --quiet || git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
           git push

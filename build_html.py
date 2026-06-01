@@ -13,6 +13,14 @@ with open(os.path.join(DIR, 'bracket_data.json')) as f:
 with open(os.path.join(DIR, 'model_params.json')) as f:
     model = json.load(f)
 
+_acc_file = os.path.join(DIR, 'results_accuracy.json')
+if os.path.exists(_acc_file):
+    with open(_acc_file) as f:
+        accuracy = json.load(f)
+else:
+    accuracy = {"matches": [], "summary": {"total_matches": 0, "correct_winners": 0,
+                                            "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0}}
+
 elo = model['elo']
 SQUAD = {
     'England':1300,'France':1280,'Spain':920,'Brazil':1000,'Germany':850,
@@ -56,12 +64,13 @@ GROUPS = {
 
 UPDATED = datetime.utcnow().strftime('%d %b %Y %H:%M UTC')
 
-results_json = json.dumps(results)
-bracket_json = json.dumps(bracket)
-elo_json     = json.dumps({t: round(v, 0) for t, v in elo.items()})
-squad_json   = json.dumps(SQUAD)
-flags_json   = json.dumps(FLAGS)
-groups_json  = json.dumps(GROUPS)
+results_json  = json.dumps(results)
+bracket_json  = json.dumps(bracket)
+elo_json      = json.dumps({t: round(v, 0) for t, v in elo.items()})
+squad_json    = json.dumps(SQUAD)
+flags_json    = json.dumps(FLAGS)
+groups_json   = json.dumps(GROUPS)
+accuracy_json = json.dumps(accuracy)
 
 with open(os.path.join(DIR, 'template.html'), encoding='utf-8') as f:
     html = f.read()
@@ -73,6 +82,7 @@ html = (html
     .replace('__SQUAD__',    squad_json)
     .replace('__FLAGS__',    flags_json)
     .replace('__GROUPS__',   groups_json)
+    .replace('__ACCURACY__', accuracy_json)
     .replace('__UPDATED__',  UPDATED)
 )
 
