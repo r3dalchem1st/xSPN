@@ -98,11 +98,8 @@ def compute_elos_improved(matches):
 # qualifying blowout records (e.g. Norway 8-0-0) from over-inflating attack.
 L2_REG = 0.30
 
-def fit_dc_fast(matches, elo_ratings):
-    teams = sorted({m[1] for m in matches} | {m[2] for m in matches})
-    n = len(teams)
-    idx = {t:i for i,t in enumerate(teams)}
-
+def _build_rows(matches, idx):
+    """Weighted, indexed match rows shared by the point fit and bootstrap fits."""
     rows = []
     for row in matches:
         date, home, away, hg, ag, tournament, neutral = row
@@ -111,29 +108,30 @@ def fit_dc_fast(matches, elo_ratings):
         d = days_ago(date)
         w = (0.5 ** (d / HALF_LIFE_DAYS)) * importance
         rows.append((idx[home], idx[away], hg, ag, w, bool(neutral)))
+    return rows
 
-    # Pre-build numpy arrays once (outside neg_ll) for speed
+
+def _fit_rows(rows, teams, x0, maxiter=2000, w_scale=None):
+    """Fit Dixon-Coles params on a fixed team index from a row list. Returns res.x.
+    w_scale (optional) multiplies each row's weight — used by the Bayesian
+    bootstrap to perturb weights without ever dropping a team's matches."""
+    n = len(teams)
     hi  = np.array([r[0] for r in rows], dtype=np.int32)
     ai  = np.array([r[1] for r in rows], dtype=np.int32)
     hg  = np.array([r[2] for r in rows], dtype=np.float64)
     ag  = np.array([r[3] for r in rows], dtype=np.float64)
     w   = np.array([r[4] for r in rows], dtype=np.float64)
+    if w_scale is not None:
+        w = w * w_scale
     neut= np.array([r[5] for r in rows], dtype=bool)
 
-    # Precompute gammaln lookups (scores are small integers)
     glh = gammaln(hg + 1)
     gla = gammaln(ag + 1)
 
-    # Low-score masks for Dixon-Coles tau correction
     m00 = (hg==0) & (ag==0)
     m01 = (hg==0) & (ag==1)
     m10 = (hg==1) & (ag==0)
     m11 = (hg==1) & (ag==1)
-
-    avg_elo = np.mean(list(elo_ratings.values()))
-    x0_atk  = np.array([0.1*(elo_ratings.get(t,INIT_ELO)-avg_elo)/400 for t in teams])
-    x0_def  = np.zeros(n)
-    x0      = np.concatenate([x0_atk, x0_def, [0.1, -0.1]])
 
     def neg_ll(params):
         atk  = params[:n];  dfn  = params[n:2*n]
@@ -145,7 +143,6 @@ def fit_dc_fast(matches, elo_ratings):
         lam = np.maximum(lam, 1e-6)
         mu  = np.maximum(mu,  1e-6)
 
-        # Dixon-Coles tau correction for low scores
         tau = np.ones(len(rows))
         tau[m00] = np.maximum(1 - lam[m00]*mu[m00]*rho, 1e-10)
         tau[m01] = np.maximum(1 + lam[m01]*rho,          1e-10)
@@ -159,19 +156,61 @@ def fit_dc_fast(matches, elo_ratings):
         reg  = L2_REG * (np.dot(atk, atk) + np.dot(dfn, dfn))
         return -ll + reg
 
-    res = minimize(neg_ll, x0, method='Powell',
-                   options={'maxiter':2000,'ftol':1e-6,'xtol':1e-5})
+    return minimize(neg_ll, x0, method='Powell',
+                    options={'maxiter':maxiter,'ftol':1e-6,'xtol':1e-5})
 
-    p = res.x
+
+def _x0_from_elo(teams, elo_ratings):
+    avg_elo = np.mean(list(elo_ratings.values()))
+    x0_atk  = np.array([0.1*(elo_ratings.get(t,INIT_ELO)-avg_elo)/400 for t in teams])
+    x0_def  = np.zeros(len(teams))
+    return np.concatenate([x0_atk, x0_def, [0.1, -0.1]])
+
+
+def _unpack(p, teams):
+    n = len(teams)
     return {
-        "attack":    {t: float(p[i])   for i,t in enumerate(teams)},
-        "defense":   {t: float(p[n+i]) for i,t in enumerate(teams)},
-        "home_adv":  float(p[-2]),
-        "rho":       float(p[-1]),
-        "teams":     teams,
-        "converged": bool(res.success),
-        "fun":       float(res.fun),
+        "attack":  {t: float(p[i])   for i,t in enumerate(teams)},
+        "defense": {t: float(p[n+i]) for i,t in enumerate(teams)},
+        "home_adv": float(p[-2]),
+        "rho":      float(p[-1]),
     }
+
+
+def fit_dc_fast(matches, elo_ratings):
+    teams = sorted({m[1] for m in matches} | {m[2] for m in matches})
+    idx = {t:i for i,t in enumerate(teams)}
+    rows = _build_rows(matches, idx)
+    res = _fit_rows(rows, teams, _x0_from_elo(teams, elo_ratings))
+    out = _unpack(res.x, teams)
+    out.update(teams=teams, converged=bool(res.success), fun=float(res.fun))
+    return out
+
+
+def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
+    """Bayesian-bootstrap the Dixon-Coles fit B times to capture parameter
+    uncertainty. Each refit keeps EVERY match but multiplies its weight by a
+    Dirichlet(1) draw (normalised to mean 1, so total weight — and thus the L2
+    balance — is preserved). Unlike resampling-with-replacement this never drops
+    a sparse team's scarce games, so it doesn't manufacture freak ratings.
+    Warm-started from the point estimate for fast convergence."""
+    teams = point_dc["teams"]
+    idx = {t:i for i,t in enumerate(teams)}
+    rows = _build_rows(matches, idx)
+    x0 = np.concatenate([
+        [point_dc["attack"][t]  for t in teams],
+        [point_dc["defense"][t] for t in teams],
+        [point_dc["home_adv"], point_dc["rho"]],
+    ])
+    rng = np.random.default_rng(seed)
+    M = len(rows)
+    ensemble = []
+    for b in range(B):
+        e = rng.exponential(1.0, size=M)
+        w_scale = e / e.mean()          # Dirichlet weights, mean 1
+        res = _fit_rows(rows, teams, x0, maxiter=1500, w_scale=w_scale)
+        ensemble.append(_unpack(res.x, teams))
+    return ensemble
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
@@ -194,7 +233,23 @@ if __name__ == "__main__":
     print("\n  Top attack params:")
     for t,v in top_atk: print(f"    {t:<22} {v:.4f}")
 
-    cache = {"elo": {t:round(v,2) for t,v in elo.items()}, "dc": dc}
+    # Bootstrap ensemble — captures parameter uncertainty for the simulator.
+    B = int(os.environ.get("DC_BOOTSTRAP", "60"))
+    print(f"\nBootstrapping {B} Dixon-Coles refits...")
+    t2 = time.time()
+    ensemble = fit_dc_bootstrap(MATCHES, elo, dc, B=B)
+    print(f"  Done ({time.time()-t2:.1f}s)")
+
+    def _round_dc(d):
+        return {"attack":  {t: round(v,4) for t,v in d["attack"].items()},
+                "defense": {t: round(v,4) for t,v in d["defense"].items()},
+                "home_adv": round(d["home_adv"],4), "rho": round(d["rho"],4)}
+
+    cache = {
+        "elo": {t:round(v,2) for t,v in elo.items()},
+        "dc": dc,
+        "dc_ensemble": [_round_dc(m) for m in ensemble],
+    }
     with open("model_params.json","w") as f:
         json.dump(cache, f, indent=2)
 

@@ -11,68 +11,40 @@ from collections import defaultdict
 warnings.filterwarnings("ignore")
 
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from fit_improved import SQUAD_VALUES, squad_adj, INIT_ELO
+from fit_improved import SQUAD_VALUES, INIT_ELO
+from model_common import (GROUPS, ALL_TEAMS, HOST_NATIONS, HOST_ADV_FRACTION,
+                          PEN, pen_prob, eff_params)
 
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO  = cache["elo"];  DC = cache["dc"]
-ATK  = DC["attack"]; DEF = DC["defense"]; RHO = DC["rho"]
-AVG_ATK = float(np.mean(list(ATK.values())))
-AVG_DEF = float(np.mean(list(DEF.values())))
 
-GROUPS = {
-    "A": ["Mexico","South Africa","South Korea","Czechia"],
-    "B": ["Canada","Switzerland","Qatar","Bosnia"],
-    "C": ["Brazil","Morocco","Haiti","Scotland"],
-    "D": ["USA","Paraguay","Australia","Turkey"],
-    "E": ["Germany","Curacao","Ivory Coast","Ecuador"],
-    "F": ["Netherlands","Japan","Sweden","Tunisia"],
-    "G": ["Belgium","Egypt","Iran","New Zealand"],
-    "H": ["Spain","Cape Verde","Saudi Arabia","Uruguay"],
-    "I": ["France","Senegal","Norway","Iraq"],
-    "J": ["Argentina","Algeria","Austria","Jordan"],
-    "K": ["Portugal","DR Congo","Uzbekistan","Colombia"],
-    "L": ["England","Croatia","Ghana","Panama"],
-}
-ALL_TEAMS = [t for g in GROUPS.values() for t in g]
+# Build a (lam, mu) table for every ordered pair from one parameter set.
+# Squad value enters symmetrically via eff_params; host nations (USA/Canada/
+# Mexico) get a crowd boost in EVERY round they play — not just the group
+# stage — since nearly all 2026 knockout games are US-hosted.
+def _build_lg(atkd, defd, home_adv):
+    avg_a = float(np.mean(list(atkd.values())))
+    avg_d = float(np.mean(list(defd.values())))
+    host_adv = home_adv * HOST_ADV_FRACTION
+    eff = {t: eff_params(t, atkd, defd, avg_a, avg_d) for t in ALL_TEAMS}
+    lg = {}
+    for home in ALL_TEAMS:
+        ah, dh = eff[home]
+        hb = host_adv if home in HOST_NATIONS else 0.0
+        for away in ALL_TEAMS:
+            if home == away: continue
+            aa, da = eff[away]
+            ab = host_adv if away in HOST_NATIONS else 0.0
+            lg[(home, away)] = (max(math.exp(ah + da + hb), 0.20),
+                                max(math.exp(aa + dh + ab), 0.20))
+    return lg
 
-# Pre-compute (lam, mu) for every ordered team pair — neutral venue
-LAMBDA = {}
-for home in ALL_TEAMS:
-    for away in ALL_TEAMS:
-        if home == away: continue
-        a_h = ATK.get(home, AVG_ATK) + 0.5 * squad_adj(home)
-        d_h = DEF.get(home, AVG_DEF)
-        a_a = ATK.get(away, AVG_ATK) + 0.5 * squad_adj(away)
-        d_a = DEF.get(away, AVG_DEF)
-        lam = max(math.exp(a_h + d_a), 0.20)
-        mu  = max(math.exp(a_a + d_h), 0.20)
-        LAMBDA[(home, away)] = (lam, mu)
-
-# Host nation crowd advantage (USA/Canada/Mexico in group stage)
-HOST_NATIONS = {"USA", "Canada", "Mexico"}
-_HOST_ADV = DC["home_adv"] * 0.65   # 65% of learned home advantage
-
-# Build LAMBDA_GROUP: same as LAMBDA but host nations get crowd boost.
-# Single lookup in the hot sim loop — no branching overhead.
-LAMBDA_GROUP = dict(LAMBDA)   # start from neutral copy
-for _host in HOST_NATIONS:
-    for _opp in ALL_TEAMS:
-        if _host == _opp: continue
-        _ah = ATK.get(_host, AVG_ATK) + 0.5 * squad_adj(_host)
-        _dh = DEF.get(_host, AVG_DEF)
-        _ao = ATK.get(_opp,  AVG_ATK) + 0.5 * squad_adj(_opp)
-        _do = DEF.get(_opp,  AVG_DEF)
-        # host listed first: boost host lambda
-        LAMBDA_GROUP[(_host, _opp)] = (
-            max(math.exp(_ah + _do + _HOST_ADV), 0.20),
-            max(math.exp(_ao + _dh), 0.20),
-        )
-        # host listed second: boost host mu
-        LAMBDA_GROUP[(_opp, _host)] = (
-            max(math.exp(_ao + _dh), 0.20),
-            max(math.exp(_ah + _do + _HOST_ADV), 0.20),
-        )
+# Bootstrap ensemble: one lambda table per refit. Each simulated tournament
+# draws a random member, propagating parameter uncertainty into the results.
+ENSEMBLE = cache.get("dc_ensemble") or [DC]
+LG_ENS = [_build_lg(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
+NMEM = len(LG_ENS)
 
 # Fast scalar Poisson (Knuth) — avoids numpy isscalar overhead on scalar draws.
 _rnd = random.random
@@ -82,31 +54,15 @@ def _pois(lam):
     while p > L: p *= _rnd(); k += 1
     return k - 1
 
-def sim_score_group(home, away):
-    lam, mu = LAMBDA_GROUP[(home, away)]
+# Penalty win probabilities are parameter-independent — precompute once.
+PEN_PROB = {(a, b): pen_prob(a, b, ELO) for a in ALL_TEAMS for b in ALL_TEAMS if a != b}
+
+def sim_score_g(lg, home, away):
+    lam, mu = lg[(home, away)]
     return _pois(lam), _pois(mu)
 
-# Penalty shootout strength (WC historical win rates)
-PEN = {"Germany":0.75,"Argentina":0.67,"Portugal":0.67,"Croatia":0.75,
-       "South Korea":0.67,"Uruguay":0.67,"Italy":0.67,"France":0.50,
-       "Brazil":0.42,"Netherlands":0.40,"Spain":0.50,"England":0.38,
-       "Mexico":0.25,"Denmark":0.33,"Switzerland":0.33,"Japan":0.50,
-       "Senegal":0.50,"Colombia":0.50,"Belgium":0.50,"Morocco":0.50}
-
-def pen_prob(a, b):
-    sa = PEN.get(a, 0.50); sb = PEN.get(b, 0.50)
-    ea = ELO.get(a, INIT_ELO); eb = ELO.get(b, INIT_ELO)
-    edge = 0.03 * math.tanh((ea - eb) / 300)
-    return max(0.30, min(0.70, sa / (sa + sb) + edge))
-
-PEN_PROB = {(a, b): pen_prob(a, b) for a in ALL_TEAMS for b in ALL_TEAMS if a != b}
-
-def sim_score(home, away):
-    lam, mu = LAMBDA[(home, away)]
-    return _pois(lam), _pois(mu)
-
-def ko_result(a, b):
-    hg, ag = sim_score(a, b)
+def ko_result(lg, a, b):
+    hg, ag = sim_score_g(lg, a, b)
     if hg > ag: return a
     if ag > hg: return b
     return a if random.random() < PEN_PROB[(a, b)] else b
@@ -138,12 +94,12 @@ R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
 QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
-def sim_group(teams):
+def sim_group(lg, teams):
     s = {t:[0,0,0] for t in teams}
     for i in range(len(teams)):
         for j in range(i+1,len(teams)):
             h,a = teams[i],teams[j]
-            hg,ag = sim_score_group(h,a)
+            hg,ag = sim_score_g(lg,h,a)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
             else: s[h][0]+=1; s[a][0]+=1
@@ -151,10 +107,10 @@ def sim_group(teams):
     ranked = sorted(teams,key=lambda t:(s[t][0],s[t][1],s[t][2],random.random()),reverse=True)
     return ranked, s
 
-def sim_tournament():
+def sim_tournament(lg):
     gw,gr = {},{}; thirds=[]
     for g,teams in GROUPS.items():
-        ranked,s = sim_group(teams)
+        ranked,s = sim_group(lg,teams)
         gw[g],gr[g] = ranked[0],ranked[1]
         t3=ranked[2]; st=s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
@@ -166,11 +122,11 @@ def sim_tournament():
         return var.get(slot,"Unknown")
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
-    r32w = [ko_result(a,b) for a,b in r32p]
-    r16w = [ko_result(r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
-    qfw  = [ko_result(r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
-    sfw  = [ko_result(qfw[p[0]], qfw[p[1]])  for p in SF_PAIRS]
-    champ = ko_result(sfw[0],sfw[1])
+    r32w = [ko_result(lg,a,b) for a,b in r32p]
+    r16w = [ko_result(lg,r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
+    qfw  = [ko_result(lg,r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
+    sfw  = [ko_result(lg,qfw[p[0]], qfw[p[1]])  for p in SF_PAIRS]
+    champ = ko_result(lg,sfw[0],sfw[1])
     return champ, set(sfw), set(qfw), set(r16w)
 
 def run_sims(n=100_000):
@@ -180,7 +136,7 @@ def run_sims(n=100_000):
     t0=time.time()
     for i in range(n):
         if i%25000==0 and i: print(f"  {i:,}/{n:,}...")
-        champ,sf,qf,r16 = sim_tournament()
+        champ,sf,qf,r16 = sim_tournament(LG_ENS[random.randrange(NMEM)])
         wins[champ]+=1
         for t in sf:  finals[t]+=1
         for t in qf:  sfs[t]+=1
@@ -228,7 +184,7 @@ if __name__=="__main__":
         v1 = json.load(open("wc2026_v2_results.json"))
     except Exception:
         v1 = None
-    print(f"Pre-computing lambdas for {len(LAMBDA)} team pairs... done.")
+    print(f"Loaded {NMEM} bootstrap parameter set(s); lambda tables ready.")
     print(f"Running {N:,} simulations...")
     results = run_sims(N)
     print_and_save(results, N, v1)

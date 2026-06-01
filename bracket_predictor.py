@@ -7,7 +7,7 @@ import sys, json, math, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from fit_improved import SQUAD_VALUES, squad_adj, INIT_ELO
+from model_common import GROUPS, HOST_NATIONS, HOST_ADV_FRACTION, PEN, pen_prob, eff_params
 
 with open("model_params.json") as f:
     cache = json.load(f)
@@ -17,37 +17,15 @@ ATK = DC["attack"]; DEF = DC["defense"]
 AVG_ATK = float(np.mean(list(ATK.values())))
 AVG_DEF = float(np.mean(list(DEF.values())))
 
-GROUPS = {
-    "A": ["Mexico","South Africa","South Korea","Czechia"],
-    "B": ["Canada","Switzerland","Qatar","Bosnia"],
-    "C": ["Brazil","Morocco","Haiti","Scotland"],
-    "D": ["USA","Paraguay","Australia","Turkey"],
-    "E": ["Germany","Curacao","Ivory Coast","Ecuador"],
-    "F": ["Netherlands","Japan","Sweden","Tunisia"],
-    "G": ["Belgium","Egypt","Iran","New Zealand"],
-    "H": ["Spain","Cape Verde","Saudi Arabia","Uruguay"],
-    "I": ["France","Senegal","Norway","Iraq"],
-    "J": ["Argentina","Algeria","Austria","Jordan"],
-    "K": ["Portugal","DR Congo","Uzbekistan","Colombia"],
-    "L": ["England","Croatia","Ghana","Panama"],
-}
-
-HOST_NATIONS = {"USA", "Canada", "Mexico"}
-_HOST_ADV = DC["home_adv"] * 0.65   # 65% of learned home advantage for hosts
+HOST_ADV = DC["home_adv"] * HOST_ADV_FRACTION
 
 def get_lambdas(home, away, host_group=False):
-    a_h = ATK.get(home, AVG_ATK) + 0.5 * squad_adj(home)
-    d_h = DEF.get(home, AVG_DEF)
-    a_a = ATK.get(away, AVG_ATK) + 0.5 * squad_adj(away)
-    d_a = DEF.get(away, AVG_DEF)
-    if host_group and home in HOST_NATIONS:
-        lam = max(math.exp(a_h + d_a + _HOST_ADV), 0.20)
-    else:
-        lam = max(math.exp(a_h + d_a), 0.20)
-    if host_group and away in HOST_NATIONS:
-        mu  = max(math.exp(a_a + d_h + _HOST_ADV), 0.20)
-    else:
-        mu  = max(math.exp(a_a + d_h), 0.20)
+    a_h, d_h = eff_params(home, ATK, DEF, AVG_ATK, AVG_DEF)
+    a_a, d_a = eff_params(away, ATK, DEF, AVG_ATK, AVG_DEF)
+    hb = HOST_ADV if (host_group and home in HOST_NATIONS) else 0.0
+    ab = HOST_ADV if (host_group and away in HOST_NATIONS) else 0.0
+    lam = max(math.exp(a_h + d_a + hb), 0.20)
+    mu  = max(math.exp(a_a + d_h + ab), 0.20)
     return lam, mu
 
 def likely_score(lam, mu, max_g=6):
@@ -68,18 +46,11 @@ def win_prob(lam, mu, n=4000):
     ph = (hg > ag).mean(); pa = (ag > hg).mean()
     return ph, 1-ph-pa, pa
 
-PEN = {"Germany":0.75,"Argentina":0.67,"Portugal":0.67,"Croatia":0.75,
-       "South Korea":0.67,"Uruguay":0.67,"France":0.50,"Brazil":0.42,
-       "Netherlands":0.40,"Spain":0.50,"England":0.38,"Japan":0.50}
-
 def ko_win_prob(a, b):
-    lam, mu = get_lambdas(a, b)
+    lam, mu = get_lambdas(a, b, host_group=True)
     ph, pd, pa = win_prob(lam, mu)
-    sa = PEN.get(a, 0.50); sb = PEN.get(b, 0.50)
-    ea = ELO.get(a, INIT_ELO); eb = ELO.get(b, INIT_ELO)
-    pen_a = max(0.30, min(0.70, sa/(sa+sb) + 0.03*math.tanh((ea-eb)/300)))
-    # Probability a wins = ph + pd * pen_a
-    return ph + pd * pen_a
+    # Probability a wins = ph + pd * P(a wins shootout)
+    return ph + pd * pen_prob(a, b, ELO)
 
 # ── Group stage ────────────────────────────────────────────────────────────────
 GROUP_FIXTURES = {}  # group -> list of (home, away, match_num)
@@ -135,13 +106,10 @@ def sim_score(h, a, host_group=False):
     return int(np.random.poisson(lam)), int(np.random.poisson(mu))
 
 def ko_result(a, b):
-    hg, ag = sim_score(a, b)
+    hg, ag = sim_score(a, b, host_group=True)
     if hg > ag: return a
     if ag > hg: return b
-    sa = PEN.get(a, 0.50); sb = PEN.get(b, 0.50)
-    ea = ELO.get(a, INIT_ELO); eb = ELO.get(b, INIT_ELO)
-    pen = max(0.30, min(0.70, sa/(sa+sb) + 0.03*math.tanh((ea-eb)/300)))
-    return a if random.random() < pen else b
+    return a if random.random() < pen_prob(a, b, ELO) else b
 
 def assign_thirds(best8):
     elig = {s: e for s, e in R32_VAR}
@@ -240,7 +208,7 @@ def ko_match_pred(team_a_info, team_b_info):
     b, b_pct = team_b_info
     if a == "TBD" or b == "TBD":
         return {"home":a,"away":b,"score":"?–?","winner":"TBD","pct":0}
-    lam, mu = get_lambdas(a, b)
+    lam, mu = get_lambdas(a, b, host_group=True)
     hs, as_ = likely_score(lam, mu)
     pw = ko_win_prob(a, b)
     winner = a if pw >= 0.5 else b
