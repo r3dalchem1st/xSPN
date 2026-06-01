@@ -249,14 +249,7 @@ def ko_match_pred(team_a_info, team_b_info):
             "score":f"{hs}–{as_}","winner":winner,"win_pct":round(wp*100,1)}
 
 # Build all R32 matches (use modal teams from simulations for opponent slots)
-r32_matches = []
-for i in range(16):
-    # Get most likely pair for this R32 match
-    # Slot i plays slot i+1 (odd) or pairing from R16_PAIRS logic
-    # The R32 winners feed into R16 via R16_PAIRS
-    pass
-
-# Actually compute R32 matchups from the modal group finishes
+# Compute R32 matchups from the modal group finishes
 modal_gw = {g: GROUP_ADVANCE[g]["winner"][0] for g in GROUPS}
 modal_gr = {g: GROUP_ADVANCE[g]["runner"][0] for g in GROUPS}
 modal_t3 = {g: GROUP_ADVANCE[g]["third"][0]  for g in GROUPS}
@@ -267,7 +260,7 @@ def modal_res(slot, var_asgn):
     return var_asgn.get(slot, "TBD")
 
 # Modal third-place assignment (simplified — use top 8 groups by third-place strength)
-var_asgn = {slot: modal_t3[list(elig)[0]] for slot, elig in R32_VAR}
+var_asgn = {slot: modal_t3[sorted(elig)[0]] for slot, elig in R32_VAR}
 
 r32_matchups = [(modal_res(a, var_asgn), modal_res(b, var_asgn)) for a,b in R32_FIXED]
 for slot,_ in R32_VAR:
@@ -289,9 +282,9 @@ sf_preds = [ko_match_pred((a,0),(b,0)) for a,b in sf_matchups]
 sfw_modal = [p["winner"] for p in sf_preds]
 
 final_pred = ko_match_pred((sfw_modal[0],0),(sfw_modal[1],0))
-sf_loser_0 = sf_preds[0]["away"] if sf_preds[0]["winner"]==sf_preds[0]["home"] else sf_preds[0]["home"]
-sf_loser_1 = sf_preds[1]["away"] if sf_preds[1]["winner"]==sf_preds[1]["home"] else sf_preds[1]["home"]
-third_pred  = ko_match_pred((sf_loser_0, 0), (sf_loser_1, 0))
+sf1_loser = sf_matchups[0][1] if sfw_modal[0] == sf_matchups[0][0] else sf_matchups[0][0]
+sf2_loser = sf_matchups[1][1] if sfw_modal[1] == sf_matchups[1][0] else sf_matchups[1][0]
+third_pred = ko_match_pred((sf1_loser, 0), (sf2_loser, 0))
 
 # ── Output ─────────────────────────────────────────────────────────────────────
 output = {
@@ -326,8 +319,5 @@ with open("bracket_data.json","w") as f:
 print("Done.")
 print(f"Champion: {champion[0]} ({champion[1]}%)")
 print(f"Final: {final_pred['home']} vs {final_pred['away']} → {final_pred['winner']} {final_pred['score']}")
-print("Done.")
-print(f"Champion: {champion[0]} ({champion[1]}%)")
-print(f"Final: {final_pred['home']} vs {final_pred['away']} -> {final_pred['winner']} {final_pred['score']}")
 for i, p in enumerate(sf_preds):
-    print(f"SF{i+1}: {p['home']} vs {p['away']} -> {p['winner']} {p['score']}")
+    print(f"SF{i+1}: {p['home']} vs {p['away']} → {p['winner']} {p['score']}")
