@@ -2,8 +2,10 @@ name: Update WC 2026 Predictions
 
 on:
   schedule:
-    # Runs every day at 06:00 UTC — adjust as you like
-    - cron: '0 6 * * *'
+    # 23:00 UTC = 01:00 Barcelona time during the WC (CEST, UTC+2), so fresh
+    # results are ready by morning. NB: GitHub cron is always UTC and does not
+    # follow DST — in winter (CET, UTC+1) this would fire at 00:00 Barcelona.
+    - cron: '0 23 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
