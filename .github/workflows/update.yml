@@ -16,6 +16,12 @@ on:
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
+# Serialise runs so overlapping schedules/manual triggers never race on push.
+# cancel-in-progress: false → a new run waits for the in-flight one to finish.
+concurrency:
+  group: update-predictions
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -65,5 +71,14 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json
-          git diff --staged --quiet || git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
-          git push
+          git diff --staged --quiet && echo "No changes to commit." && exit 0
+          git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
+          # Retry push against concurrent updates (overlapping runs / manual pushes):
+          # rebase the auto-commit onto the latest main and try again.
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "Push rejected (attempt $i) — rebasing on latest main and retrying..."
+            git pull --rebase --autostash origin main || true
+          done
+          echo "Push failed after 5 attempts." >&2
+          exit 1
