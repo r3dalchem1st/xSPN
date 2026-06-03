@@ -2,13 +2,17 @@ name: Update WC 2026 Predictions
 
 on:
   schedule:
-    # Two daily runs during the WC (Barcelona = CEST, UTC+2):
-    #   23:00 UTC = 01:00 Barcelona — catches the prior evening's matches
-    #   07:00 UTC = 09:00 Barcelona — catches US-evening games that finish overnight
-    # NB: GitHub cron is always UTC and does not follow DST; in winter (CET,
-    # UTC+1) these fire at 00:00 and 08:00 Barcelona respectively.
-    - cron: '0 23 * * *'
-    - cron: '0 7 * * *'
+    # GitHub scheduled runs are best-effort: often delayed by hours and
+    # sometimes dropped entirely under load. Mitigations: (1) schedule a few
+    # minutes off the top of the hour (load spikes at :00), and (2) use redundant
+    # slots so a dropped run is backed up by a later one. Times are UTC; during
+    # the WC Barcelona is CEST (UTC+2). GitHub cron does NOT follow DST.
+    #   22:43 UTC = 00:43 Barcelona — catches the prior evening's matches
+    #   05:43 UTC = 07:43 Barcelona — catches US-evening games (backup)
+    #   07:43 UTC = 09:43 Barcelona — final morning refresh
+    - cron: '43 22 * * *'
+    - cron: '43 5 * * *'
+    - cron: '43 7 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
