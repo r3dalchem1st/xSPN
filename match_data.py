@@ -625,6 +625,28 @@ MATCHES = [
     ("2026-06-01","Turkey","North Macedonia",4,0,"Friendly",True),
     ("2026-06-01","Colombia","Costa Rica",3,1,"Friendly",True),
     ("2026-06-02","Canada","Uzbekistan",2,0,"Friendly",True),
+    # Final pre-WC warm-ups (2–7 June 2026)
+    ("2026-06-02","Croatia","Belgium",0,2,"Friendly",True),
+    ("2026-06-02","Morocco","Madagascar",4,0,"Friendly",True),
+    ("2026-06-02","Wales","Ghana",1,1,"Friendly",True),
+    ("2026-06-03","Netherlands","Algeria",0,1,"Friendly",True),
+    ("2026-06-03","DR Congo","Denmark",0,0,"Friendly",True),
+    ("2026-06-03","South Korea","El Salvador",1,0,"Friendly",True),
+    ("2026-06-03","Panama","Dominican Republic",4,2,"Friendly",True),
+    ("2026-06-04","Spain","Iraq",1,1,"Friendly",True),
+    ("2026-06-04","France","Ivory Coast",1,2,"Friendly",True),
+    ("2026-06-06","USA","Germany",1,2,"Friendly",True),
+    ("2026-06-06","England","New Zealand",1,0,"Friendly",True),
+    ("2026-06-06","Portugal","Chile",2,1,"Friendly",True),
+    ("2026-06-06","Brazil","Egypt",2,1,"Friendly",True),
+    ("2026-06-06","Switzerland","Australia",1,1,"Friendly",True),
+    ("2026-06-06","Belgium","Tunisia",5,0,"Friendly",True),
+    ("2026-06-06","Curacao","Aruba",4,0,"Friendly",True),
+    ("2026-06-06","Argentina","Honduras",2,0,"Friendly",True),
+    ("2026-06-07","Colombia","Jordan",2,0,"Friendly",True),
+    ("2026-06-07","Ecuador","Guatemala",3,0,"Friendly",True),
+    ("2026-06-07","Croatia","Slovenia",2,1,"Friendly",True),
+    ("2026-06-07","Morocco","Norway",1,1,"Friendly",True),
 ]
 
 # Tournament weight multipliers for importance
