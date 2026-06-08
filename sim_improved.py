@@ -12,38 +12,18 @@ warnings.filterwarnings("ignore")
 
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
-from model_common import (GROUPS, ALL_TEAMS, HOST_NATIONS, HOST_ADV_FRACTION,
-                          PEN, pen_prob, eff_params)
+from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table)
 
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO  = cache["elo"];  DC = cache["dc"]
 
-# Build a (lam, mu) table for every ordered pair from one parameter set.
-# Squad value enters symmetrically via eff_params; host nations (USA/Canada/
-# Mexico) get a crowd boost in EVERY round they play — not just the group
-# stage — since nearly all 2026 knockout games are US-hosted.
-def _build_lg(atkd, defd, home_adv):
-    avg_a = float(np.mean(list(atkd.values())))
-    avg_d = float(np.mean(list(defd.values())))
-    host_adv = home_adv * HOST_ADV_FRACTION
-    eff = {t: eff_params(t, atkd, defd, avg_a, avg_d) for t in ALL_TEAMS}
-    lg = {}
-    for home in ALL_TEAMS:
-        ah, dh = eff[home]
-        hb = host_adv if home in HOST_NATIONS else 0.0
-        for away in ALL_TEAMS:
-            if home == away: continue
-            aa, da = eff[away]
-            ab = host_adv if away in HOST_NATIONS else 0.0
-            lg[(home, away)] = (max(math.exp(ah + da + hb), 0.20),
-                                max(math.exp(aa + dh + ab), 0.20))
-    return lg
-
-# Bootstrap ensemble: one lambda table per refit. Each simulated tournament
-# draws a random member, propagating parameter uncertainty into the results.
+# Bootstrap ensemble: one (host-aware, squad-symmetric) lambda table per refit.
+# Each simulated tournament draws a random member, propagating parameter
+# uncertainty into the results. build_lambda_table is shared with the bracket
+# predictor so both pipelines use identical match expectations.
 ENSEMBLE = cache.get("dc_ensemble") or [DC]
-LG_ENS = [_build_lg(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
+LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
 NMEM = len(LG_ENS)
 
 # Fast scalar Poisson (Knuth) — avoids numpy isscalar overhead on scalar draws.

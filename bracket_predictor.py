@@ -7,26 +7,25 @@ import sys, json, math, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, HOST_NATIONS, HOST_ADV_FRACTION, PEN, pen_prob, eff_params
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble
 
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO = cache["elo"]
 DC  = cache["dc"]
-ATK = DC["attack"]; DEF = DC["defense"]
-AVG_ATK = float(np.mean(list(ATK.values())))
-AVG_DEF = float(np.mean(list(DEF.values())))
+ENSEMBLE = cache.get("dc_ensemble") or [DC]
 
-HOST_ADV = DC["home_adv"] * HOST_ADV_FRACTION
+# Use the SAME bootstrap-ensemble lambda tables as the simulator, so the
+# bracket / groups / podium tabs are consistent with the Win Odds tab (both
+# reflect parameter uncertainty and the same host-aware, squad-symmetric model).
+LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
+NMEM = len(LG_ENS)
+# Ensemble-mean (lam, mu) per ordered pair — for the displayed most-likely score.
+LG_MEAN = {k: (sum(lg[k][0] for lg in LG_ENS)/NMEM, sum(lg[k][1] for lg in LG_ENS)/NMEM)
+           for k in LG_ENS[0]}
 
-def get_lambdas(home, away, host_group=False):
-    a_h, d_h = eff_params(home, ATK, DEF, AVG_ATK, AVG_DEF)
-    a_a, d_a = eff_params(away, ATK, DEF, AVG_ATK, AVG_DEF)
-    hb = HOST_ADV if (host_group and home in HOST_NATIONS) else 0.0
-    ab = HOST_ADV if (host_group and away in HOST_NATIONS) else 0.0
-    lam = max(math.exp(a_h + d_a + hb), 0.20)
-    mu  = max(math.exp(a_a + d_h + ab), 0.20)
-    return lam, mu
+# Everything below is deterministic — seed the RNG once, up front.
+random.seed(42); np.random.seed(42)
 
 def likely_score(lam, mu, max_g=6):
     """Most probable (home, away) score pair under Poisson."""
@@ -40,16 +39,13 @@ def likely_score(lam, mu, max_g=6):
                 best_p = ph*pa; best = (h, a)
     return best
 
-def win_prob(lam, mu, n=4000):
-    """P(home win), P(draw), P(away win) via simulation."""
-    hg = np.random.poisson(lam, n); ag = np.random.poisson(mu, n)
-    ph = (hg > ag).mean(); pa = (ag > hg).mean()
-    return ph, 1-ph-pa, pa
+def hda(home, away):
+    """Mean (P home win, draw, away win) over the ensemble — analytic, no RNG."""
+    return hda_probs_ensemble(home, away, LG_ENS)
 
 def ko_win_prob(a, b):
-    lam, mu = get_lambdas(a, b, host_group=True)
-    ph, pd, pa = win_prob(lam, mu)
-    # Probability a wins = ph + pd * P(a wins shootout)
+    ph, pd, pa = hda(a, b)
+    # a advances by winning in regulation, or drawing then winning the shootout
     return ph + pd * pen_prob(a, b, ELO)
 
 # ── Group stage ────────────────────────────────────────────────────────────────
@@ -68,9 +64,9 @@ group_predictions = {}  # group -> list of match dicts
 for g, fixtures in GROUP_FIXTURES.items():
     preds = []
     for home, away, mn in fixtures:
-        lam, mu = get_lambdas(home, away, host_group=True)
+        lam, mu = LG_MEAN[(home, away)]
         hs, as_ = likely_score(lam, mu)
-        ph, pd, pa = win_prob(lam, mu)
+        ph, pd, pa = hda(home, away)
         preds.append({
             "home": home, "away": away,
             "lam": round(lam,2), "mu": round(mu,2),
@@ -81,8 +77,6 @@ for g, fixtures in GROUP_FIXTURES.items():
     group_predictions[g] = preds
 
 # ── Simulate 50k tournaments to find modal knockout path ──────────────────────
-random.seed(42); np.random.seed(42)
-
 # Track who wins each slot in the bracket
 R32_WINS   = defaultdict(Counter)  # slot_idx -> Counter of teams
 R16_WINS   = defaultdict(Counter)
@@ -101,12 +95,12 @@ R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
 QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
-def sim_score(h, a, host_group=False):
-    lam, mu = get_lambdas(h, a, host_group=host_group)
+def sim_score(lg, h, a):
+    lam, mu = lg[(h, a)]
     return int(np.random.poisson(lam)), int(np.random.poisson(mu))
 
-def ko_result(a, b):
-    hg, ag = sim_score(a, b, host_group=True)
+def ko_result(lg, a, b):
+    hg, ag = sim_score(lg, a, b)
     if hg > ag: return a
     if ag > hg: return b
     return a if random.random() < pen_prob(a, b, ELO) else b
@@ -126,12 +120,12 @@ def assign_thirds(best8):
             asgn[slot] = available[ai][4]; ai += 1
     return asgn
 
-def sim_group(teams):
+def sim_group(lg, teams):
     s = {t:[0,0,0] for t in teams}
     for i in range(len(teams)):
         for j in range(i+1, len(teams)):
             h, a = teams[i], teams[j]
-            hg, ag = sim_score(h, a, host_group=True)  # host crowd boost
+            hg, ag = sim_score(lg, h, a)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
             else: s[h][0]+=1; s[a][0]+=1
@@ -141,9 +135,10 @@ def sim_group(teams):
 
 N = 50000
 for _ in range(N):
+    lg = LG_ENS[random.randrange(NMEM)]   # draw a bootstrap member per tournament
     gw, gr = {}, {}; thirds = []
     for g, teams in GROUPS.items():
-        ranked, s = sim_group(teams)
+        ranked, s = sim_group(lg, teams)
         gw[g], gr[g] = ranked[0], ranked[1]
         t3 = ranked[2]; st = s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
@@ -157,15 +152,15 @@ for _ in range(N):
 
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
-    r32w = [ko_result(a,b) for a,b in r32p]
+    r32w = [ko_result(lg,a,b) for a,b in r32p]
     for i,w in enumerate(r32w): R32_WINS[i][w] += 1
-    r16w = [ko_result(r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
+    r16w = [ko_result(lg,r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
     for i,w in enumerate(r16w): R16_WINS[i][w] += 1
-    qfw  = [ko_result(r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
+    qfw  = [ko_result(lg,r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
     for i,w in enumerate(qfw):  QF_WINS[i][w]  += 1
-    sfw  = [ko_result(qfw[p[0]],qfw[p[1]])   for p in SF_PAIRS]
+    sfw  = [ko_result(lg,qfw[p[0]],qfw[p[1]])   for p in SF_PAIRS]
     for i,w in enumerate(sfw):  SF_WINS[i][w]  += 1
-    champ = ko_result(sfw[0], sfw[1])
+    champ = ko_result(lg,sfw[0], sfw[1])
     CHAMPION[champ] += 1
 
 def top(ctr, pct=True):
@@ -179,7 +174,7 @@ for g, teams in GROUPS.items():
     # Simulate group standing distribution
     win_cnt   = Counter(); ru_cnt = Counter(); t3_cnt = Counter()
     for _ in range(20000):
-        ranked, _ = sim_group(teams)
+        ranked, _ = sim_group(LG_ENS[random.randrange(NMEM)], teams)
         win_cnt[ranked[0]] += 1; ru_cnt[ranked[1]] += 1; t3_cnt[ranked[2]] += 1
     GROUP_ADVANCE[g] = {
         "winner": win_cnt.most_common(1)[0],
@@ -192,7 +187,6 @@ for g, teams in GROUPS.items():
 # ── Build knockout bracket ────────────────────────────────────────────────────
 def get_bracket_match(round_wins, match_idx):
     team, pct = top(round_wins[match_idx])
-    lam, mu = get_lambdas(team, "Spain")  # dummy — score shown differently
     return team, pct
 
 # Most likely bracket path
@@ -208,7 +202,7 @@ def ko_match_pred(team_a_info, team_b_info):
     b, b_pct = team_b_info
     if a == "TBD" or b == "TBD":
         return {"home":a,"away":b,"score":"?–?","winner":"TBD","pct":0}
-    lam, mu = get_lambdas(a, b, host_group=True)
+    lam, mu = LG_MEAN[(a, b)]
     hs, as_ = likely_score(lam, mu)
     pw = ko_win_prob(a, b)
     winner = a if pw >= 0.5 else b

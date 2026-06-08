@@ -62,3 +62,47 @@ def pen_prob(a, b, ELO):
     ea = ELO.get(a, INIT_ELO); eb = ELO.get(b, INIT_ELO)
     edge = 0.03 * math.tanh((ea - eb) / 300)
     return max(0.30, min(0.70, sa / (sa + sb) + edge))
+
+
+def build_lambda_table(atkd, defd, home_adv):
+    """(lam, mu) for every ordered WC-team pair from one parameter set.
+    Squad value enters symmetrically (eff_params); host nations get a crowd
+    boost in EVERY round they play. Shared by sim_improved.py and
+    bracket_predictor.py so both pipelines use identical match expectations."""
+    avg_a = sum(atkd.values()) / len(atkd)
+    avg_d = sum(defd.values()) / len(defd)
+    host_adv = home_adv * HOST_ADV_FRACTION
+    eff = {t: eff_params(t, atkd, defd, avg_a, avg_d) for t in ALL_TEAMS}
+    lg = {}
+    for home in ALL_TEAMS:
+        ah, dh = eff[home]
+        hb = host_adv if home in HOST_NATIONS else 0.0
+        for away in ALL_TEAMS:
+            if home == away:
+                continue
+            aa, da = eff[away]
+            ab = host_adv if away in HOST_NATIONS else 0.0
+            lg[(home, away)] = (max(math.exp(ah + da + hb), 0.20),
+                                max(math.exp(aa + dh + ab), 0.20))
+    return lg
+
+
+def hda_probs_ensemble(home, away, lg_ens, max_g=10):
+    """Mean P(home win), P(draw), P(away win) over an ensemble of lambda tables,
+    computed analytically (Dixon-Coles tau omitted — negligible for display)."""
+    import math as _m
+    ph = pd = pa = 0.0
+    for lg in lg_ens:
+        lam, mu = lg[(home, away)]
+        elam, emu = _m.exp(-lam), _m.exp(-mu)
+        # Poisson pmfs up to max_g
+        ph_l = [elam * lam**h / _m.factorial(h) for h in range(max_g + 1)]
+        pa_l = [emu * mu**a / _m.factorial(a) for a in range(max_g + 1)]
+        for h in range(max_g + 1):
+            for a in range(max_g + 1):
+                p = ph_l[h] * pa_l[a]
+                if h > a: ph += p
+                elif h < a: pa += p
+                else: pd += p
+    n = len(lg_ens)
+    return ph / n, pd / n, pa / n
