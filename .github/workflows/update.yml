@@ -70,7 +70,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json
+          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
           # Retry push against concurrent updates (overlapping runs / manual pushes):

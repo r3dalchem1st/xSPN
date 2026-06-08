@@ -145,6 +145,29 @@ def run_sims(n=100_000):
     return {t:{"win":wins[t]/n,"final":finals[t]/n,"sf":sfs[t]/n,"qf":qfs[t]/n}
             for t in ALL_TEAMS}
 
+def apply_daily_deltas(results, hist_file="win_history.json"):
+    """Embed win_delta = today's win% minus the most recent PRIOR day's win%.
+    Persists a small per-day snapshot so the delta is genuinely day-over-day and
+    stable across the multiple runs we do each day (not just 'since last run')."""
+    from datetime import datetime
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    try:
+        hist = json.load(open(hist_file))
+    except Exception:
+        hist = {}
+    prior = [d for d in hist if d < today]
+    prev = hist[max(prior)] if prior else {}
+    for t, r in results.items():
+        base = prev.get(t)
+        r["win_delta"] = (round(r["win"] - base, 4) if base is not None else None)
+    # Record today's latest win% (overwrites earlier runs today); keep last 8 days.
+    hist[today] = {t: round(r["win"], 4) for t, r in results.items()}
+    for d in sorted(hist)[:-8]:
+        del hist[d]
+    with open(hist_file, "w") as f:
+        json.dump(hist, f, indent=2)
+    return results
+
 def print_and_save(results, n, v1=None):
     ranked = sorted(results.items(),key=lambda x:-x[1]["win"])
     print("\n" + "="*74)
@@ -173,8 +196,9 @@ def print_and_save(results, n, v1=None):
         bar="#"*int(r["win"]*300); sv=SQUAD_VALUES.get(team,0)
         print(f"  {rank}. {team:<20}{r['win']:5.1%}  squad:E{sv}M  {bar}")
     print()
+    _r = lambda v: v if v is None else round(v,4)
     with open("wc2026_v2_results.json","w") as f:
-        json.dump({t:{k:round(v,4) for k,v in r.items()} for t,r in results.items()},f,indent=2)
+        json.dump({t:{k:_r(v) for k,v in r.items()} for t,r in results.items()},f,indent=2)
     print("  Saved: wc2026_v2_results.json")
     return ranked
 
@@ -187,4 +211,5 @@ if __name__=="__main__":
     print(f"Loaded {NMEM} bootstrap parameter set(s); lambda tables ready.")
     print(f"Running {N:,} simulations...")
     results = run_sims(N)
+    results = apply_daily_deltas(results)
     print_and_save(results, N, v1)

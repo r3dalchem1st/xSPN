@@ -113,13 +113,22 @@ function show(n){
 (function(){
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
   const mx=ranked[0][1].win;
-  let h=`<table><thead><tr><th>#</th><th>Team</th><th>Win%</th><th></th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
+  let h=`<table><thead><tr><th>#</th><th>Team</th><th>Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
   ranked.forEach(([t,r],i)=>{
     const m=i===0?'&#127945;':i===1?'&#129352;':i===2?'&#129353;':'';
     const bw=(r.win/mx*100).toFixed(1);
     const pc=r.win>=0.15?'pct-high':r.win>=0.05?'pct-mid':'pct-low';
+    const d=r.win_delta;
+    let dcell='<span style="color:var(--hint)">&mdash;</span>';
+    if(d!==null&&d!==undefined){
+      const dp=d*100;
+      if(Math.abs(dp)<0.05) dcell='<span style="color:var(--hint)">&plusmn;0.0</span>';
+      else if(dp>0) dcell=`<span style="color:#1a8a1a;font-weight:600">&#9650;${dp.toFixed(1)}</span>`;
+      else dcell=`<span style="color:#cc0000;font-weight:600">&#9660;${Math.abs(dp).toFixed(1)}</span>`;
+    }
     h+=`<tr><td style="color:var(--hint);font-size:.8rem">${i+1}</td><td>${ft(t)} ${m}</td>
     <td><strong class="${pc}">${(r.win*100).toFixed(1)}%</strong></td>
+    <td style="font-size:.8rem;white-space:nowrap">${dcell}</td>
     <td><div class="bar-bg"><div class="bar-fill" style="width:${bw}%"></div></div></td>
     <td>${(r.final*100).toFixed(1)}%</td><td>${(r.sf*100).toFixed(1)}%</td><td>${(r.qf*100).toFixed(1)}%</td>
     <td style="color:var(--hint)">${Math.round(ELO[t]||1500)}</td><td style="color:var(--hint)">&euro;${SQ[t]||0}M</td></tr>`;
