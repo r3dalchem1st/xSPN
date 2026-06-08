@@ -76,7 +76,7 @@ tr:hover td{background:#fafafa}
   <div class="hdr-text">
     <h1>2026 FIFA World Cup Predictions</h1>
     <p>Dixon-Coles &middot; L2 regularisation &middot; host advantage &middot; 75,000 simulations</p>
-    <p class="updated">Last updated: 08 Jun 2026 16:28 UTC</p>
+    <p class="updated">Last updated: 08 Jun 2026 16:57 UTC</p>
   </div>
 </header>
 <div class="tabs">
@@ -115,7 +115,7 @@ function show(n){
   const mx=ranked[0][1].win;
   let h=`<table><thead><tr><th>#</th><th>Team</th><th>Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
   ranked.forEach(([t,r],i)=>{
-    const m=i===0?'&#127945;':i===1?'&#129352;':i===2?'&#129353;':'';
+    const m=i===0?'&#129351;':i===1?'&#129352;':i===2?'&#129353;':'';
     const bw=(r.win/mx*100).toFixed(1);
     const pc=r.win>=0.15?'pct-high':r.win>=0.05?'pct-mid':'pct-low';
     const d=r.win_delta;
@@ -136,7 +136,7 @@ function show(n){
   document.getElementById('tab-win').innerHTML=h+'</tbody></table>';
 })();
 (function(){
-  const ranked=Object.entries(R).sort((a,b)=>b[1].sf-a[1].sf);
+  const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
   function pc(v){return v>=0.3?'pct-high':v>=0.1?'pct-mid':'pct-low'}
   let h=`<table><thead><tr><th>Team</th><th>Win</th><th>Final</th><th>Semi-Final</th><th>Quarter-Final</th></tr></thead><tbody>`;
   ranked.forEach(([t,r])=>{
