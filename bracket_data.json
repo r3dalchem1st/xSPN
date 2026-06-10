@@ -915,8 +915,8 @@
       }
     },
     "G": {
-      "winner": "Iran",
-      "runner": "Egypt",
+      "winner": "Egypt",
+      "runner": "Iran",
       "win_pct": {
         "Belgium": 28.8,
         "Egypt": 33.7,
@@ -932,7 +932,7 @@
     },
     "H": {
       "winner": "Spain",
-      "runner": "Uruguay",
+      "runner": "Cape Verde",
       "win_pct": {
         "Spain": 77.8,
         "Cape Verde": 11.5,
@@ -1049,10 +1049,10 @@
     },
     {
       "home": "Argentina",
-      "away": "Uruguay",
+      "away": "Cape Verde",
       "score": "1\u20130",
       "winner": "Argentina",
-      "win_pct": 70.3
+      "win_pct": 77.5
     },
     {
       "home": "Colombia",
@@ -1063,66 +1063,66 @@
     },
     {
       "home": "USA",
-      "away": "Egypt",
-      "score": "1\u20131",
+      "away": "Iran",
+      "score": "2\u20131",
       "winner": "USA",
-      "win_pct": 51.3
+      "win_pct": 53.5
     },
     {
       "home": "Germany",
-      "away": "Mexico",
+      "away": "South Africa",
       "score": "2\u20130",
       "winner": "Germany",
-      "win_pct": 87.1
+      "win_pct": 82.7
     },
     {
       "home": "Norway",
-      "away": "Scotland",
-      "score": "2\u20130",
+      "away": "Belgium",
+      "score": "1\u20130",
       "winner": "Norway",
-      "win_pct": 84.3
+      "win_pct": 71.7
     },
     {
       "home": "South Korea",
-      "away": "Scotland",
-      "score": "1\u20131",
-      "winner": "South Korea",
-      "win_pct": 60.3
+      "away": "Ecuador",
+      "score": "0\u20130",
+      "winner": "Ecuador",
+      "win_pct": 50.6
     },
     {
       "home": "England",
-      "away": "Ecuador",
+      "away": "Algeria",
       "score": "0\u20130",
       "winner": "England",
-      "win_pct": 61.2
+      "win_pct": 56.3
     },
     {
       "home": "Turkey",
-      "away": "Bosnia",
-      "score": "2\u20130",
+      "away": "Senegal",
+      "score": "1\u20131",
       "winner": "Turkey",
-      "win_pct": 84.3
+      "win_pct": 53.9
     },
     {
-      "home": "Iran",
-      "away": "Mexico",
-      "score": "1\u20130",
-      "winner": "Iran",
-      "win_pct": 72.1
+      "home": "Egypt",
+      "away": "Uruguay",
+      "score": "0\u20130",
+      "winner": "Uruguay",
+      "win_pct": 53.8
     },
     {
       "home": "Switzerland",
-      "away": "Ecuador",
+      "away": "DR Congo",
       "score": "0\u20130",
       "winner": "Switzerland",
-      "win_pct": 54.0
+      "win_pct": 51.3
     },
     {
       "home": "Portugal",
-      "away": "Paraguay",
-      "score": "1\u20130",
+      "away": "Ghana",
+      "score": "3\u20131",
       "winner": "Portugal",
-      "win_pct": 75.5
+      "win_pct": 83.4
     }
   ],
   "r16": [
@@ -1156,10 +1156,10 @@
     },
     {
       "home": "Germany",
-      "away": "South Korea",
-      "score": "2\u20130",
+      "away": "Ecuador",
+      "score": "1\u20130",
       "winner": "Germany",
-      "win_pct": 77.1
+      "win_pct": 69.9
     },
     {
       "home": "Norway",
@@ -1176,11 +1176,11 @@
       "win_pct": 57.9
     },
     {
-      "home": "Iran",
+      "home": "Uruguay",
       "away": "Portugal",
-      "score": "1\u20132",
+      "score": "0\u20131",
       "winner": "Portugal",
-      "win_pct": 73.9
+      "win_pct": 64.9
     }
   ],
   "qf": [
