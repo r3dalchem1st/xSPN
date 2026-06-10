@@ -212,17 +212,33 @@ def ko_match_pred(team_a_info, team_b_info):
 
 # Build all R32 matches (use modal teams from simulations for opponent slots)
 # Compute R32 matchups from the modal group finishes
-modal_gw = {g: GROUP_ADVANCE[g]["winner"][0] for g in GROUPS}
-modal_gr = {g: GROUP_ADVANCE[g]["runner"][0] for g in GROUPS}
-modal_t3 = {g: GROUP_ADVANCE[g]["third"][0]  for g in GROUPS}
+# Rank each group 1-2-3-4 by expected points — the SAME metric the Groups-tab
+# standings use (3·P(win)+1·P(draw)). Using one consistent ordering for
+# winner/runner/third makes them mutually distinct, so the R32 ends up with 32
+# distinct teams (the old code derived winner/runner from a frequency sim but
+# thirds from expected points, so a modal runner-up could also be picked as a
+# best third and the team appeared in the bracket twice).
+def _expected_points(g):
+    xp = {t: 0.0 for t in GROUPS[g]}
+    for m in group_predictions[g]:
+        xp[m["home"]] += 3*m["ph"] + m["pd"]
+        xp[m["away"]] += 3*m["pa"] + m["pd"]
+    return xp
+
+_xp   = {g: _expected_points(g) for g in GROUPS}
+_rank = {g: sorted(GROUPS[g], key=lambda t: -_xp[g][t]) for g in GROUPS}
+modal_gw = {g: _rank[g][0] for g in GROUPS}
+modal_gr = {g: _rank[g][1] for g in GROUPS}
 
 def modal_res(slot, var_asgn):
     if slot[0]=="1": return modal_gw[slot[1]]
     if slot[0]=="2": return modal_gr[slot[1]]
     return var_asgn.get(slot, "TBD")
 
-# Modal third-place assignment (simplified — use top 8 groups by third-place strength)
-var_asgn = {slot: modal_t3[sorted(elig)[0]] for slot, elig in R32_VAR}
+# Best-8 third-place qualifiers, assigned to the variable R32 slots via the
+# simulation's eligibility logic (each team used exactly once).
+_thirds = sorted(((_xp[g][_rank[g][2]], 0, 0, g, _rank[g][2]) for g in GROUPS), reverse=True)
+var_asgn = assign_thirds(_thirds[:8])
 
 r32_matchups = [(modal_res(a, var_asgn), modal_res(b, var_asgn)) for a,b in R32_FIXED]
 for slot,_ in R32_VAR:
@@ -252,8 +268,8 @@ third_pred = ko_match_pred((sf1_loser, 0), (sf2_loser, 0))
 output = {
     "group_predictions": group_predictions,
     "group_advance": {g: {
-        "winner": GROUP_ADVANCE[g]["winner"][0],
-        "runner": GROUP_ADVANCE[g]["runner"][0],
+        "winner": modal_gw[g],   # expected-points ordering — matches bracket + standings
+        "runner": modal_gr[g],
         "win_pct": GROUP_ADVANCE[g]["win_pct"],
         "ru_pct":  GROUP_ADVANCE[g]["ru_pct"],
     } for g in GROUPS},
