@@ -311,9 +311,28 @@ window.filt=function(f,btn){
     <div class="acc-card"><div class="acc-lbl">Avg Brier Score</div>
       <div class="acc-val">${s.avg_brier.toFixed(3)}</div>
       <div class="acc-sub">${brier_note}</div></div>
-  </div>
-  <table><thead><tr>
-    <th>Date</th><th>Group</th><th>Match</th>
+    <div class="acc-card"><div class="acc-lbl">Avg Log-Loss</div>
+      <div class="acc-val">${(s.avg_logloss||0).toFixed(3)}</div>
+      <div class="acc-sub">lower better (rand 1.10)</div></div>
+  </div>`;
+  if(s.reliability&&s.reliability.length){
+    h+=`<div style="margin:16px 0 6px;font-size:.82rem;color:var(--muted);font-weight:600">Calibration &mdash; model confidence vs how often it happened</div>
+    <table style="margin-bottom:20px"><thead><tr>
+      <th>Confidence</th><th style="text-align:center">Predicted</th>
+      <th style="text-align:center">Actual</th><th style="text-align:center">Matches</th>
+    </tr></thead><tbody>`;
+    s.reliability.forEach(r=>{
+      const diff=Math.abs(r.predicted-r.actual);
+      const col=diff<=0.1?'var(--win)':diff<=0.2?'var(--draw)':'var(--lose)';
+      h+=`<tr><td>${r.bin}</td>
+        <td style="text-align:center;color:var(--hint)">${(r.predicted*100).toFixed(0)}%</td>
+        <td style="text-align:center;color:${col};font-weight:600">${(r.actual*100).toFixed(0)}%</td>
+        <td style="text-align:center;color:var(--hint)">${r.n}</td></tr>`;
+    });
+    h+='</tbody></table>';
+  }
+  h+=`<table><thead><tr>
+    <th>Date</th><th>Stage</th><th>Match</th>
     <th style="text-align:center">Predicted</th>
     <th style="text-align:center">Actual</th>
     <th style="text-align:center">Winner</th>
@@ -326,7 +345,7 @@ window.filt=function(f,btn){
     const errCol=m.total_goal_error===0?'var(--win)':m.total_goal_error<=2?'var(--draw)':'var(--lose)';
     h+=`<tr>
       <td style="color:var(--hint);font-size:.78rem;white-space:nowrap">${m.date}</td>
-      <td style="color:var(--hint);font-size:.78rem">Grp ${m.group}</td>
+      <td style="color:var(--hint);font-size:.78rem">${/^[A-L]$/.test(m.group)?'Grp '+m.group:m.group}</td>
       <td>${ft(m.home)} <span style="color:var(--hint)">vs</span> ${ft(m.away)}</td>
       <td style="text-align:center;color:var(--hint)">${m.predicted_score}</td>
       <td style="text-align:center;font-weight:700">${m.actual_score}</td>

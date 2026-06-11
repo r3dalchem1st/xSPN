@@ -4,7 +4,7 @@ Reads:  predictions_snapshot.json + fetched_matches.json
 Writes: results_accuracy.json
 Regenerates from scratch each run (idempotent).
 """
-import json, os
+import json, os, math
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 SNAPSHOT_FILE = os.path.join(DIR, 'predictions_snapshot.json')
@@ -12,7 +12,24 @@ FETCHED_FILE  = os.path.join(DIR, 'fetched_matches.json')
 ACCURACY_FILE = os.path.join(DIR, 'results_accuracy.json')
 
 EMPTY_SUMMARY = {"total_matches": 0, "correct_winners": 0,
-                 "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0}
+                 "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0,
+                 "avg_logloss": 0, "reliability": []}
+
+# Reliability bins: model confidence in its most-likely outcome vs how often it
+# actually happened. A well-calibrated model's "predicted" ≈ "actual" per bin.
+REL_BINS = [(0.34, 0.45), (0.45, 0.55), (0.55, 0.65), (0.65, 0.75), (0.75, 1.01)]
+REL_LABELS = ["34–45%", "45–55%", "55–65%", "65–75%", "75%+"]
+
+def reliability(calib):
+    """calib: list of (confidence, hit_bool). Returns per-bin predicted/actual/n."""
+    out = []
+    for (lo, hi), label in zip(REL_BINS, REL_LABELS):
+        pts = [(c, h) for c, h in calib if lo <= c < hi]
+        if pts:
+            out.append({"bin": label, "n": len(pts),
+                        "predicted": round(sum(c for c, _ in pts) / len(pts), 3),
+                        "actual": round(sum(1 for _, h in pts if h) / len(pts), 3)})
+    return out
 
 def brier(ph, pd, pa, outcome):
     """Brier score for 3-outcome prediction. outcome: 'H', 'D', or 'A'."""
@@ -77,6 +94,13 @@ for match in fetched:
     elif actual_outcome == 'A': actual_winner = pred['away']
     else:                       actual_winner = 'Draw'
 
+    # Log-loss + calibration use the model's probability for the ACTUAL outcome
+    probs = {'H': ph, 'D': pd_val, 'A': pa}
+    p_actual = probs[actual_outcome]
+    logloss = -math.log(max(p_actual, 1e-12))
+    pred_argmax = max(probs, key=probs.get)          # most-likely outcome
+    confidence = probs[pred_argmax]
+
     scored.append({
         "date": date_,
         "home": pred['home'],
@@ -91,6 +115,9 @@ for match in fetched:
         "away_error": away_err,
         "total_goal_error": home_err + away_err,
         "brier": round(brier(ph, pd_val, pa, actual_outcome), 4),
+        "logloss": round(logloss, 4),
+        "_conf": confidence,                          # internal, for reliability
+        "_hit": bool(pred_argmax == actual_outcome),
     })
 
 scored.sort(key=lambda x: x["date"])
@@ -98,18 +125,24 @@ n = len(scored)
 
 if n:
     correct = sum(1 for m in scored if m["correct_winner"])
+    calib = [(m.pop("_conf"), m.pop("_hit")) for m in scored]
     summary = {
         "total_matches": n,
         "correct_winners": correct,
         "accuracy": round(correct / n, 4),
         "avg_goal_error": round(sum(m["total_goal_error"] for m in scored) / n, 3),
         "avg_brier": round(sum(m["brier"] for m in scored) / n, 4),
+        "avg_logloss": round(sum(m["logloss"] for m in scored) / n, 4),
+        "reliability": reliability(calib),
     }
     print(f"Scored {n} matches: {correct}/{n} correct ({correct/n:.1%}), "
           f"avg goal error {summary['avg_goal_error']:.2f}, "
-          f"avg Brier {summary['avg_brier']:.4f}")
+          f"avg Brier {summary['avg_brier']:.4f}, "
+          f"avg log-loss {summary['avg_logloss']:.4f}")
 else:
-    print("No WC group matches scored yet.")
+    print("No WC matches scored yet.")
     summary = EMPTY_SUMMARY
 
+for m in scored:                       # drop any leftover internal keys
+    m.pop("_conf", None); m.pop("_hit", None)
 save(scored, summary)

@@ -118,3 +118,13 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
                        "backtest_results.json"), "w") as f:
     json.dump(summary, f, indent=2)
 print("\nSaved: backtest_results.json")
+
+# Quality gate: fail CI if the model is no better than a random baseline — a
+# signal that a code change broke the model. Threshold is intentionally loose
+# (catastrophic-regression guard, not a tight calibration target).
+GATE = float(os.environ.get("BACKTEST_MAX_BRIER", "0.667"))
+if summary["brier"] >= GATE:
+    print(f"QUALITY GATE FAILED: Brier {summary['brier']} >= {GATE} "
+          f"(no better than random) — likely a model regression.")
+    sys.exit(1)
+print(f"Quality gate passed: Brier {summary['brier']} < {GATE}.")

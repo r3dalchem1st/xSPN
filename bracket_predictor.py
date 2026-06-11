@@ -204,11 +204,14 @@ def ko_match_pred(team_a_info, team_b_info):
         return {"home":a,"away":b,"score":"?–?","winner":"TBD","pct":0}
     lam, mu = LG_MEAN[(a, b)]
     hs, as_ = likely_score(lam, mu)
-    pw = ko_win_prob(a, b)
+    ph, pd, pa = hda(a, b)                       # regulation-result H/D/A probs
+    pw = ko_win_prob(a, b)                        # P(a advances, incl. shootout)
     winner = a if pw >= 0.5 else b
     wp = pw if pw >= 0.5 else 1-pw
+    reg = a if ph > pa else (b if pa > ph else "Draw")  # regulation favourite
     return {"home":a,"away":b,"lam":round(lam,2),"mu":round(mu,2),
-            "score":f"{hs}–{as_}","winner":winner,"win_pct":round(wp*100,1)}
+            "score":f"{hs}–{as_}","winner":winner,"win_pct":round(wp*100,1),
+            "ph":round(ph,3),"pd":round(pd,3),"pa":round(pa,3),"reg_winner":reg}
 
 # Build all R32 matches (use modal teams from simulations for opponent slots)
 # Compute R32 matchups from the modal group finishes
@@ -265,6 +268,13 @@ sf2_loser = sf_matchups[1][1] if sfw_modal[1] == sf_matchups[1][0] else sf_match
 third_pred = ko_match_pred((sf1_loser, 0), (sf2_loser, 0))
 
 # ── Output ─────────────────────────────────────────────────────────────────────
+def _ko_out(p):
+    """Serialise a KO match, carrying H/D/A scoring fields when present (TBD slots have none)."""
+    return {"home": p["home"], "away": p["away"], "score": p["score"],
+            "winner": p["winner"], "win_pct": p.get("win_pct", 50),
+            "ph": p.get("ph"), "pd": p.get("pd"), "pa": p.get("pa"),
+            "reg_winner": p.get("reg_winner"), "lam": p.get("lam"), "mu": p.get("mu")}
+
 output = {
     "group_predictions": group_predictions,
     "group_advance": {g: {
@@ -273,20 +283,12 @@ output = {
         "win_pct": GROUP_ADVANCE[g]["win_pct"],
         "ru_pct":  GROUP_ADVANCE[g]["ru_pct"],
     } for g in GROUPS},
-    "r32": [{"home": p["home"], "away": p["away"], "score": p["score"],
-             "winner": p["winner"], "win_pct": p.get("win_pct",50)} for p in r32_preds],
-    "r16": [{"home": p["home"], "away": p["away"], "score": p["score"],
-             "winner": p["winner"], "win_pct": p.get("win_pct",50)} for p in r16_preds],
-    "qf":  [{"home": p["home"], "away": p["away"], "score": p["score"],
-             "winner": p["winner"], "win_pct": p.get("win_pct",50)} for p in qf_preds],
-    "sf":  [{"home": p["home"], "away": p["away"], "score": p["score"],
-             "winner": p["winner"], "win_pct": p.get("win_pct",50)} for p in sf_preds],
-    "final": {"home": final_pred["home"], "away": final_pred["away"],
-              "score": final_pred["score"], "winner": final_pred["winner"],
-              "win_pct": final_pred.get("win_pct",50)},
-    "third_place": {"home": third_pred["home"], "away": third_pred["away"],
-                    "score": third_pred["score"], "winner": third_pred["winner"],
-                    "win_pct": third_pred.get("win_pct",50)},
+    "r32": [_ko_out(p) for p in r32_preds],
+    "r16": [_ko_out(p) for p in r16_preds],
+    "qf":  [_ko_out(p) for p in qf_preds],
+    "sf":  [_ko_out(p) for p in sf_preds],
+    "final": _ko_out(final_pred),
+    "third_place": _ko_out(third_pred),
     "champion": champion[0],
     "champion_pct": champion[1],
 }
