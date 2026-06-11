@@ -5,6 +5,8 @@
     "correct_winners": 0,
     "accuracy": 0,
     "avg_goal_error": 0,
-    "avg_brier": 0
+    "avg_brier": 0,
+    "avg_logloss": 0,
+    "reliability": []
   }
 }
