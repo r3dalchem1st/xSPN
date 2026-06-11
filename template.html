@@ -103,6 +103,15 @@ const SQ=__SQUAD__;
 const FL=__FLAGS__;
 const GR=__GROUPS__;
 const AC=__ACCURACY__;
+const WH=__WINHIST__;
+// Tiny inline SVG sparkline of a team's daily win% (returns '' if <2 days yet).
+function spark(team){
+  const s=WH[team]; if(!s||s.length<2) return '';
+  const w=46,h=14,mx=Math.max(...s),mn=Math.min(...s),rng=(mx-mn)||1;
+  const pts=s.map((v,i)=>`${(i/(s.length-1)*w).toFixed(1)},${(h-((v-mn)/rng)*h).toFixed(1)}`).join(' ');
+  const up=s[s.length-1]>=s[0], col=up?'#1a8a1a':'#cc0000';
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="vertical-align:middle"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.3"/></svg>`;
+}
 function fi(cc){return cc?'https://flagcdn.com/20x15/'+cc+'.png':''}
 function ft(t){const c=FL[t];return c?`<img src="${fi(c)}" style="vertical-align:middle;margin-right:4px;border-radius:1px"> ${t}`:t}
 function show(n){
@@ -113,7 +122,7 @@ function show(n){
 (function(){
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
   const mx=ranked[0][1].win;
-  let h=`<table><thead><tr><th>#</th><th>Team</th><th>Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
+  let h=`<table><thead><tr><th>#</th><th>Team</th><th title="Title odds (90% range across model variants below)">Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th title="10-day win% trend">Trend</th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
   ranked.forEach(([t,r],i)=>{
     const m=i===0?'&#129351;':i===1?'&#129352;':i===2?'&#129353;':'';
     const bw=(r.win/mx*100).toFixed(1);
@@ -126,10 +135,12 @@ function show(n){
       else if(dp>0) dcell=`<span style="color:#1a8a1a;font-weight:600">&#9650;${dp.toFixed(1)}</span>`;
       else dcell=`<span style="color:#cc0000;font-weight:600">&#9660;${Math.abs(dp).toFixed(1)}</span>`;
     }
+    const band=(r.win_hi!=null&&r.win_hi>r.win_lo)?`<div style="font-size:.66rem;color:var(--hint);font-weight:400">${(r.win_lo*100).toFixed(0)}&ndash;${(r.win_hi*100).toFixed(0)}%</div>`:'';
     h+=`<tr><td style="color:var(--hint);font-size:.8rem">${i+1}</td><td>${ft(t)} ${m}</td>
-    <td><strong class="${pc}">${(r.win*100).toFixed(1)}%</strong></td>
+    <td><strong class="${pc}">${(r.win*100).toFixed(1)}%</strong>${band}</td>
     <td style="font-size:.8rem;white-space:nowrap">${dcell}</td>
     <td><div class="bar-bg"><div class="bar-fill" style="width:${bw}%"></div></div></td>
+    <td>${spark(t)}</td>
     <td>${(r.final*100).toFixed(1)}%</td><td>${(r.sf*100).toFixed(1)}%</td><td>${(r.qf*100).toFixed(1)}%</td>
     <td style="color:var(--hint)">${Math.round(ELO[t]||1500)}</td><td style="color:var(--hint)">&euro;${SQ[t]||0}M</td></tr>`;
   });
@@ -215,7 +226,12 @@ function show(n){
   h+=`<div class="br-col"><div class="br-title">Final + 3rd</div><div class="br-matches">
     ${bm(B.final)}<div style="font-size:.7rem;color:var(--hint);text-align:center;padding:6px 0">3rd Place</div>
     ${bm(B.third_place)}</div></div>`;
-  document.getElementById('tab-bracket').innerHTML=h+'</div></div>';
+  const rf=B.reach_final||{};
+  const top=Object.entries(rf).slice(0,6).map(([t,p])=>`${ft(t)} <strong>${p}%</strong>`).join(' &middot; ');
+  const legend=`<div style="max-width:780px;margin:16px auto 0;font-size:.76rem;color:var(--muted);line-height:1.55">
+    <strong>How to read this:</strong> the bracket shows the single <em>most-likely path</em> — at each match the favourite advances. Because co-favourites drawn into the same half meet before the final, a strong team can exit early even with high title odds, so the shown final isn't always the two best teams overall.
+    ${top?'<div style="margin-top:6px"><strong>Most likely finalists</strong> (chance of reaching the final): '+top+'</div>':''}</div>`;
+  document.getElementById('tab-bracket').innerHTML=h+'</div></div>'+legend;
 })();
 (function(){
   const all=[];
