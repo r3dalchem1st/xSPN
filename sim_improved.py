@@ -12,8 +12,10 @@ warnings.filterwarnings("ignore")
 
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
-from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table)
+from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
+                          load_ensemble, rank_group)
 
+_DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO  = cache["elo"];  DC = cache["dc"]
@@ -22,7 +24,7 @@ ELO  = cache["elo"];  DC = cache["dc"]
 # Each simulated tournament draws a random member, propagating parameter
 # uncertainty into the results. build_lambda_table is shared with the bracket
 # predictor so both pipelines use identical match expectations.
-ENSEMBLE = cache.get("dc_ensemble") or [DC]
+ENSEMBLE = load_ensemble(cache, _DIR)
 LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
 NMEM = len(LG_ENS)
 
@@ -75,17 +77,17 @@ QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
 def sim_group(lg, teams):
-    s = {t:[0,0,0] for t in teams}
+    s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
         for j in range(i+1,len(teams)):
             h,a = teams[i],teams[j]
             hg,ag = sim_score_g(lg,h,a)
+            res[(h,a)] = (hg,ag)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
             else: s[h][0]+=1; s[a][0]+=1
             s[h][1]+=hg-ag; s[a][1]+=ag-hg; s[h][2]+=hg; s[a][2]+=ag
-    ranked = sorted(teams,key=lambda t:(s[t][0],s[t][1],s[t][2],random.random()),reverse=True)
-    return ranked, s
+    return rank_group(teams, s, res, random.random), s
 
 def sim_tournament(lg):
     gw,gr = {},{}; thirds=[]
@@ -113,17 +115,32 @@ def run_sims(n=100_000):
     random.seed(42); np.random.seed(42)
     wins=defaultdict(int); finals=defaultdict(int)
     sfs=defaultdict(int);  qfs=defaultdict(int)
+    mem_wins=[defaultdict(int) for _ in range(NMEM)]; mem_n=[0]*NMEM
     t0=time.time()
     for i in range(n):
         if i%25000==0 and i: print(f"  {i:,}/{n:,}...")
-        champ,sf,qf,r16 = sim_tournament(LG_ENS[random.randrange(NMEM)])
-        wins[champ]+=1
+        m = random.randrange(NMEM)
+        champ,sf,qf,r16 = sim_tournament(LG_ENS[m])
+        wins[champ]+=1; mem_wins[m][champ]+=1; mem_n[m]+=1
         for t in sf:  finals[t]+=1
         for t in qf:  sfs[t]+=1
         for t in r16: qfs[t]+=1
     print(f"  Done in {time.time()-t0:.1f}s")
-    return {t:{"win":wins[t]/n,"final":finals[t]/n,"sf":sfs[t]/n,"qf":qfs[t]/n}
-            for t in ALL_TEAMS}
+
+    # Confidence band: spread of each team's title odds ACROSS ensemble members
+    # (10th–90th percentile) — surfaces the parameter uncertainty the ensemble
+    # already captures. With one member there's no spread, so band = point.
+    def band(t):
+        vals = sorted(mem_wins[m][t]/mem_n[m] for m in range(NMEM) if mem_n[m])
+        if not vals: return 0.0, 0.0
+        return vals[int(0.10*(len(vals)-1))], vals[int(0.90*(len(vals)-1))]
+
+    out={}
+    for t in ALL_TEAMS:
+        lo,hi = band(t)
+        out[t]={"win":wins[t]/n,"final":finals[t]/n,"sf":sfs[t]/n,"qf":qfs[t]/n,
+                "win_lo":lo,"win_hi":hi}
+    return out
 
 def apply_daily_deltas(results, hist_file="win_history.json"):
     """Embed win_delta = today's win% minus the most recent PRIOR day's win%.

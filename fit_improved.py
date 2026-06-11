@@ -245,13 +245,14 @@ if __name__ == "__main__":
                 "defense": {t: round(v,4) for t,v in d["defense"].items()},
                 "home_adv": round(d["home_adv"],4), "rho": round(d["rho"],4)}
 
-    cache = {
-        "elo": {t:round(v,2) for t,v in elo.items()},
-        "dc": dc,
-        "dc_ensemble": [_round_dc(m) for m in ensemble],
-    }
+    # model_params.json stays small (Elo + point estimate) and is committed
+    # daily; the 60-member ensemble is large and derived, so it goes to its own
+    # file that is regenerated every run and NOT committed (see .gitignore). This
+    # keeps the git history from ballooning with ~35k-line ensemble churn 3×/day.
     with open("model_params.json","w") as f:
-        json.dump(cache, f, indent=2)
+        json.dump({"elo": {t:round(v,2) for t,v in elo.items()}, "dc": dc}, f, indent=2)
+    with open("dc_ensemble.json","w") as f:
+        json.dump([_round_dc(m) for m in ensemble], f)
 
     print(f"\nTotal fit time: {time.time()-t0:.1f}s")
-    print("Saved: model_params.json")
+    print("Saved: model_params.json (slim) + dc_ensemble.json (uncommitted)")

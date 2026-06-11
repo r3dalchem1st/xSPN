@@ -64,6 +64,44 @@ def pen_prob(a, b, ELO):
     return max(0.30, min(0.70, sa / (sa + sb) + edge))
 
 
+def rank_group(teams, s, results, tiebreak):
+    """Rank a group by FIFA 2026 criteria: points, goal difference, goals for
+    (all matches), then HEAD-TO-HEAD among exactly-tied teams (points, GD, GF in
+    matches between them), then a random draw. s: dict team->[pts,gd,gf];
+    results: dict (home,away)->(hg,ag); tiebreak: zero-arg random callable."""
+    def primary(t): return (s[t][0], s[t][1], s[t][2])
+    order = sorted(teams, key=lambda t: (primary(t), tiebreak()), reverse=True)
+    out, i = [], 0
+    while i < len(order):
+        j = i
+        while j + 1 < len(order) and primary(order[j + 1]) == primary(order[i]):
+            j += 1
+        cluster = order[i:j + 1]
+        if len(cluster) > 1:                      # exact tie → head-to-head mini-table
+            cs = set(cluster)
+            hp = {t: 0 for t in cluster}; hd = {t: 0 for t in cluster}; hf = {t: 0 for t in cluster}
+            for (h, a), (hg, ag) in results.items():
+                if h in cs and a in cs:
+                    hf[h] += hg; hf[a] += ag; hd[h] += hg - ag; hd[a] += ag - hg
+                    if hg > ag: hp[h] += 3
+                    elif ag > hg: hp[a] += 3
+                    else: hp[h] += 1; hp[a] += 1
+            cluster = sorted(cluster, key=lambda t: (hp[t], hd[t], hf[t], tiebreak()), reverse=True)
+        out.extend(cluster); i = j + 1
+    return out
+
+
+def load_ensemble(cache, base_dir):
+    """Bootstrap ensemble lives in its own (uncommitted) dc_ensemble.json,
+    regenerated each run. Fall back to an inline copy or the point estimate."""
+    import os, json
+    p = os.path.join(base_dir, "dc_ensemble.json")
+    if os.path.exists(p):
+        with open(p) as f:
+            return json.load(f)
+    return cache.get("dc_ensemble") or [cache["dc"]]
+
+
 def build_lambda_table(atkd, defd, home_adv):
     """(lam, mu) for every ordered WC-team pair from one parameter set.
     Squad value enters symmetrically (eff_params); host nations get a crowd

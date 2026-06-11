@@ -54,7 +54,18 @@ GROUPS = {
 
 UPDATED = datetime.utcnow().strftime('%d %b %Y %H:%M UTC')
 
+# Per-team win% history → trend sparklines. win_history.json is date -> {team: win}.
+_hist_file = os.path.join(DIR, 'win_history.json')
+winhist = {}
+if os.path.exists(_hist_file):
+    with open(_hist_file) as f:
+        hist = json.load(f)
+    for d in sorted(hist):
+        for t, v in hist[d].items():
+            winhist.setdefault(t, []).append(round(v, 4))
+
 results_json  = json.dumps(results)
+winhist_json  = json.dumps(winhist)
 bracket_json  = json.dumps(bracket)
 elo_json      = json.dumps({t: round(v, 0) for t, v in elo.items()})
 squad_json    = json.dumps(SQUAD)
@@ -73,6 +84,7 @@ html = (html
     .replace('__FLAGS__',    flags_json)
     .replace('__GROUPS__',   groups_json)
     .replace('__ACCURACY__', accuracy_json)
+    .replace('__WINHIST__',  winhist_json)
     .replace('__UPDATED__',  UPDATED)
 )
 

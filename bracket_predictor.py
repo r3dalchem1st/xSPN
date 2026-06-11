@@ -7,13 +7,14 @@ import sys, json, math, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group
 
+_DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO = cache["elo"]
 DC  = cache["dc"]
-ENSEMBLE = cache.get("dc_ensemble") or [DC]
+ENSEMBLE = load_ensemble(cache, _DIR)
 
 # Use the SAME bootstrap-ensemble lambda tables as the simulator, so the
 # bracket / groups / podium tabs are consistent with the Win Odds tab (both
@@ -121,17 +122,17 @@ def assign_thirds(best8):
     return asgn
 
 def sim_group(lg, teams):
-    s = {t:[0,0,0] for t in teams}
+    s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
         for j in range(i+1, len(teams)):
             h, a = teams[i], teams[j]
             hg, ag = sim_score(lg, h, a)
+            res[(h,a)] = (hg,ag)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
             else: s[h][0]+=1; s[a][0]+=1
             s[h][1]+=hg-ag; s[a][1]+=ag-hg; s[h][2]+=hg; s[a][2]+=ag
-    ranked = sorted(teams, key=lambda t:(s[t][0],s[t][1],s[t][2],random.random()), reverse=True)
-    return ranked, s
+    return rank_group(teams, s, res, random.random), s
 
 N = 50000
 for _ in range(N):
@@ -267,6 +268,15 @@ sf1_loser = sf_matchups[0][1] if sfw_modal[0] == sf_matchups[0][0] else sf_match
 sf2_loser = sf_matchups[1][1] if sfw_modal[1] == sf_matchups[1][0] else sf_matchups[1][0]
 third_pred = ko_match_pred((sf1_loser, 0), (sf2_loser, 0))
 
+# Probability each team REACHES the final (wins either semi-final slot), from
+# the 50k sim. Lets the UI explain why the single modal path can look odd —
+# co-favourites drawn into the same half can't both reach the final.
+reach_final = {}
+for slot in (0, 1):
+    for t, c in SF_WINS[slot].items():
+        reach_final[t] = reach_final.get(t, 0) + c
+reach_final = {t: round(c / N * 100, 1) for t, c in sorted(reach_final.items(), key=lambda x: -x[1])}
+
 # ── Output ─────────────────────────────────────────────────────────────────────
 def _ko_out(p):
     """Serialise a KO match, carrying H/D/A scoring fields when present (TBD slots have none)."""
@@ -291,6 +301,7 @@ output = {
     "third_place": _ko_out(third_pred),
     "champion": champion[0],
     "champion_pct": champion[1],
+    "reach_final": reach_final,
 }
 
 with open("bracket_data.json","w") as f:

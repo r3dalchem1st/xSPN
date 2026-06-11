@@ -1,0 +1,8 @@
+# Large, derived bootstrap ensemble — regenerated every run, not committed
+# (keeps git history from ballooning with ~35k-line churn 3×/day).
+dc_ensemble.json
+
+# Local preview / tooling
+.claude/launch.json
+__pycache__/
+*.pyc

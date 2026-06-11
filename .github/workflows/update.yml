@@ -57,6 +57,9 @@ jobs:
       - name: Score predictions against actual results
         run: python score_predictions.py
 
+      - name: Validate match data
+        run: python validate_data.py
+
       - name: Refit model (Dixon-Coles + Elo)
         run: python fit_improved.py
 
