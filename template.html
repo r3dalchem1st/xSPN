@@ -104,6 +104,12 @@ const FL=__FLAGS__;
 const GR=__GROUPS__;
 const AC=__ACCURACY__;
 const WH=__WINHIST__;
+const SCH=__SCHEDULE__;
+// Fallback ordering dates for knockout rounds (predicted matchups have no real
+// fixture yet); group games use their real date from SCH.
+const ROUND_DATE={group:null,r32:'2026-06-28',r16:'2026-07-04',qf:'2026-07-09',sf:'2026-07-14','3rd':'2026-07-18',final:'2026-07-19'};
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtDate(d){if(!d)return'';const p=d.split('-');return p.length===3?MON[+p[1]-1]+' '+(+p[2]):d;}
 // Tiny inline SVG sparkline of a team's daily win% (returns '' if <2 days yet).
 function spark(team){
   const s=WH[team]; if(!s||s.length<2) return '';
@@ -240,35 +246,39 @@ function show(n){
     .forEach(({k,l,b})=>(B[k]||[]).forEach(m=>all.push({...m,stage:l,sk:k,badge:b})));
   all.push({...B.final,stage:'Final',sk:'final',badge:'sb-f'});
   all.push({...B.third_place,stage:'3rd Place',sk:'3rd',badge:'sb-3'});
+  // Attach real fixture date + actual result (keyed by sorted team pair) from SCH;
+  // knockout predicted matchups fall back to a per-round ordering date.
+  all.forEach(m=>{
+    const s=SCH[[m.home,m.away].sort().join('|')];
+    m._date=(s&&s.date)||ROUND_DATE[m.sk]||null;
+    const g=s&&s.goals;
+    m._result=(g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`:null;
+  });
+  all.sort((a,b)=>String(a._date||'9999-99-99').localeCompare(String(b._date||'9999-99-99')));
   window._AM=all;
-  function rows(arr){
-    return arr.map(m=>{
-      const pct=m.win_pct!=null?m.win_pct+'%':(m.ph?`${(m.ph*100).toFixed(0)}/${(m.pd*100).toFixed(0)}/${(m.pa*100).toFixed(0)}%`:'');
-      const w=m.winner||m.likely_winner;
-      return`<tr><td><span class="sbadge ${m.badge}">${m.stage}</span></td>
-        <td>${ft(m.home)}</td><td style="text-align:center;font-weight:700">${m.score}</td>
-        <td>${ft(m.away)}</td><td class="win-cell">${ft(w)}</td>
-        <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
-    }).join('');
+  function rowHtml(m){
+    const pct=m.win_pct!=null?m.win_pct+'%':(m.ph?`${(m.ph*100).toFixed(0)}/${(m.pd*100).toFixed(0)}/${(m.pa*100).toFixed(0)}%`:'');
+    const w=m.winner||m.likely_winner;
+    const res=m._result?`<strong>${m._result}</strong>`:'<span style="color:var(--hint)">&mdash;</span>';
+    return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
+      <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
+      <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${m.score}</td>
+      <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
+      <td class="win-cell">${ft(w)}</td>
+      <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
   }
+  window._rowHtml=rowHtml;
   document.getElementById('tab-matches').innerHTML=
     '<div class="filter-row">'+['all','group','r32','r16','qf','sf','final'].map((f,i)=>
       `<button class="fb${i===0?' active':''}" onclick="filt('${f}',this)">${['All 104','Groups','R32','R16','QF','SF','Final'][i]}</button>`
     ).join('')+'</div>'+
-    `<table><thead><tr><th>Stage</th><th>Home</th><th>Score</th><th>Away</th><th>Winner</th><th>Odds</th></tr></thead>
-    <tbody id="mrows">${rows(all)}</tbody></table>`;
+    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Result</th><th>Winner</th><th>Odds</th></tr></thead>
+    <tbody id="mrows">${all.map(rowHtml).join('')}</tbody></table>`;
 })();
 window.filt=function(f,btn){
   document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
   const arr=f==='all'?window._AM:window._AM.filter(m=>f==='group'?m.sk==='group':m.sk===f);
-  document.getElementById('mrows').innerHTML=arr.map(m=>{
-    const pct=m.win_pct!=null?m.win_pct+'%':(m.ph?`${(m.ph*100).toFixed(0)}/${(m.pd*100).toFixed(0)}/${(m.pa*100).toFixed(0)}%`:'');
-    const w=m.winner||m.likely_winner;
-    return`<tr><td><span class="sbadge ${m.badge}">${m.stage}</span></td>
-      <td>${ft(m.home)}</td><td style="text-align:center;font-weight:700">${m.score}</td>
-      <td>${ft(m.away)}</td><td class="win-cell">${ft(w)}</td>
-      <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
-  }).join('');
+  document.getElementById('mrows').innerHTML=arr.map(window._rowHtml).join('');
 };
 (function(){
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
