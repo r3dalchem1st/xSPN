@@ -95,6 +95,14 @@
       "Tunisia": null
     }
   },
+  "Cape Verde|Spain": {
+    "date": "2026-06-15",
+    "status": "TIMED",
+    "goals": {
+      "Spain": null,
+      "Cape Verde": null
+    }
+  },
   "Belgium|Egypt": {
     "date": "2026-06-15",
     "status": "TIMED",
@@ -295,6 +303,14 @@
       "Iran": null
     }
   },
+  "Cape Verde|Uruguay": {
+    "date": "2026-06-21",
+    "status": "TIMED",
+    "goals": {
+      "Uruguay": null,
+      "Cape Verde": null
+    }
+  },
   "Egypt|New Zealand": {
     "date": "2026-06-22",
     "status": "TIMED",
@@ -485,6 +501,14 @@
     "goals": {
       "Uruguay": null,
       "Spain": null
+    }
+  },
+  "Cape Verde|Saudi Arabia": {
+    "date": "2026-06-27",
+    "status": "TIMED",
+    "goals": {
+      "Cape Verde": null,
+      "Saudi Arabia": null
     }
   },
   "Belgium|New Zealand": {
