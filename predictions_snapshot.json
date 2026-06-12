@@ -1571,5 +1571,31 @@
     "lam": 0.98,
     "mu": 1.22,
     "snapped_at": "2026-06-12"
+  },
+  "Belgium|DR Congo": {
+    "home": "Belgium",
+    "away": "DR Congo",
+    "group": "R32",
+    "predicted_score": "0\u20130",
+    "predicted_winner": "Belgium",
+    "ph": 0.381,
+    "pd": 0.41,
+    "pa": 0.208,
+    "lam": 0.77,
+    "mu": 0.48,
+    "snapped_at": "2026-06-12"
+  },
+  "Belgium|Portugal": {
+    "home": "Belgium",
+    "away": "Portugal",
+    "group": "R16",
+    "predicted_score": "0\u20131",
+    "predicted_winner": "Portugal",
+    "ph": 0.209,
+    "pd": 0.287,
+    "pa": 0.503,
+    "lam": 0.74,
+    "mu": 1.33,
+    "snapped_at": "2026-06-12"
   }
 }
