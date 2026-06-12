@@ -25,7 +25,7 @@ ELO  = cache["elo"];  DC = cache["dc"]
 # uncertainty into the results. build_lambda_table is shared with the bracket
 # predictor so both pipelines use identical match expectations.
 ENSEMBLE = load_ensemble(cache, _DIR)
-LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
+LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"], ELO) for m in ENSEMBLE]
 NMEM = len(LG_ENS)
 
 # Fast scalar Poisson (Knuth) — avoids numpy isscalar overhead on scalar draws.

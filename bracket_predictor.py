@@ -19,7 +19,7 @@ ENSEMBLE = load_ensemble(cache, _DIR)
 # Use the SAME bootstrap-ensemble lambda tables as the simulator, so the
 # bracket / groups / podium tabs are consistent with the Win Odds tab (both
 # reflect parameter uncertainty and the same host-aware, squad-symmetric model).
-LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"]) for m in ENSEMBLE]
+LG_ENS = [build_lambda_table(m["attack"], m["defense"], m["home_adv"], ELO) for m in ENSEMBLE]
 NMEM = len(LG_ENS)
 # Ensemble-mean (lam, mu) per ordered pair — for the displayed most-likely score.
 LG_MEAN = {k: (sum(lg[k][0] for lg in LG_ENS)/NMEM, sum(lg[k][1] for lg in LG_ENS)/NMEM)
