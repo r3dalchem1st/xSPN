@@ -28,16 +28,22 @@ LG_MEAN = {k: (sum(lg[k][0] for lg in LG_ENS)/NMEM, sum(lg[k][1] for lg in LG_EN
 # Everything below is deterministic — seed the RNG once, up front.
 random.seed(42); np.random.seed(42)
 
-def likely_score(lam, mu, max_g=6):
-    """Most probable (home, away) score pair under Poisson."""
-    best_p, best = 0.0, (round(lam), round(mu))
+def likely_score(lam, mu, allowed=None, max_g=6):
+    """Most probable (home, away) scoreline under independent Poisson, optionally
+    restricted to scorelines whose result is in `allowed` ('H'/'D'/'A'). Used to
+    keep the displayed score consistent with the predicted result — so we never
+    show e.g. '1-1' next to a named winner."""
     from math import exp, factorial
+    best_p, best = -1.0, (round(lam), round(mu))
     for h in range(max_g+1):
+        ph = (lam**h * exp(-lam)) / factorial(h)
         for a in range(max_g+1):
-            ph = (lam**h * exp(-lam)) / factorial(h)
-            pa = (mu**a  * exp(-mu))  / factorial(a)
-            if ph*pa > best_p:
-                best_p = ph*pa; best = (h, a)
+            res = 'H' if h > a else ('A' if h < a else 'D')
+            if allowed and res not in allowed:
+                continue
+            p = ph * (mu**a * exp(-mu)) / factorial(a)
+            if p > best_p:
+                best_p = p; best = (h, a)
     return best
 
 def hda(home, away):
@@ -66,14 +72,17 @@ for g, fixtures in GROUP_FIXTURES.items():
     preds = []
     for home, away, mn in fixtures:
         lam, mu = LG_MEAN[(home, away)]
-        hs, as_ = likely_score(lam, mu)
         ph, pd, pa = hda(home, away)
+        # Predicted RESULT = genuinely most likely outcome (draw included), and a
+        # scoreline consistent with it — no more "1-1 but Team X wins".
+        oc = 'H' if (ph >= pd and ph >= pa) else ('A' if (pa >= pd and pa >= ph) else 'D')
+        hs, as_ = likely_score(lam, mu, allowed={oc})
         preds.append({
             "home": home, "away": away,
             "lam": round(lam,2), "mu": round(mu,2),
             "score": f"{hs}–{as_}",
             "ph": round(ph,3), "pd": round(pd,3), "pa": round(pa,3),
-            "likely_winner": home if ph>pa else (away if pa>ph else "Draw"),
+            "likely_winner": home if oc=='H' else (away if oc=='A' else "Draw"),
         })
     group_predictions[g] = preds
 
@@ -204,14 +213,18 @@ def ko_match_pred(team_a_info, team_b_info):
     if a == "TBD" or b == "TBD":
         return {"home":a,"away":b,"score":"?–?","winner":"TBD","pct":0}
     lam, mu = LG_MEAN[(a, b)]
-    hs, as_ = likely_score(lam, mu)
     ph, pd, pa = hda(a, b)                       # regulation-result H/D/A probs
     pw = ko_win_prob(a, b)                        # P(a advances, incl. shootout)
     winner = a if pw >= 0.5 else b
     wp = pw if pw >= 0.5 else 1-pw
     reg = a if ph > pa else (b if pa > ph else "Draw")  # regulation favourite
+    # Score consistent with the advancer: a decisive win for them, or — if the
+    # model expects it level after 90/120' — the modal draw, flagged as a shootout.
+    win_oc = 'H' if winner == a else 'A'
+    hs, as_ = likely_score(lam, mu, allowed={win_oc, 'D'})
+    score = f"{hs}–{as_}" + (" (p)" if hs == as_ else "")
     return {"home":a,"away":b,"lam":round(lam,2),"mu":round(mu,2),
-            "score":f"{hs}–{as_}","winner":winner,"win_pct":round(wp*100,1),
+            "score":score,"winner":winner,"win_pct":round(wp*100,1),
             "ph":round(ph,3),"pd":round(pd,3),"pa":round(pa,3),"reg_winner":reg}
 
 # Build all R32 matches (use modal teams from simulations for opponent slots)
