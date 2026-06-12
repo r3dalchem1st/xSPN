@@ -5,8 +5,10 @@ them to fetched_matches.json so the model can pick them up.
 Free API key: https://www.football-data.org/client/register
 Set as GitHub secret FD_API_KEY (see README).
 """
-import os, json, requests
+import os, sys, json, requests
 from datetime import datetime, date, timedelta
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from model_common import ALL_TEAMS
 
 API_KEY = os.environ.get('FD_API_KEY', '')
 if not API_KEY:
@@ -16,27 +18,31 @@ if not API_KEY:
 BASE    = 'https://api.football-data.org/v4'
 HEADERS = {'X-Auth-Token': API_KEY}
 
-# Map football-data.org names → our model names
+# Only football-data.org names that DIFFER from our model names need an entry
+# here — any name that already matches one of the 48 WC teams passes through
+# (see resolve()). This covers the spelling variants the API is known to use.
+# (Previously this map omitted South Africa, Haiti, Curacao, Uzbekistan, Iraq,
+# Jordan, New Zealand — so e.g. the Mexico–South Africa opener was silently
+# dropped and never scored.)
 TEAM_MAP = {
-    'Spain': 'Spain', 'France': 'France', 'Germany': 'Germany',
-    'Argentina': 'Argentina', 'Brazil': 'Brazil', 'England': 'England',
-    'Portugal': 'Portugal', 'Netherlands': 'Netherlands', 'Belgium': 'Belgium',
-    'Italy': 'Italy', 'Croatia': 'Croatia', 'Uruguay': 'Uruguay',
-    'Denmark': 'Denmark', 'Switzerland': 'Switzerland', 'Mexico': 'Mexico',
-    'Colombia': 'Colombia', 'Norway': 'Norway', 'Austria': 'Austria',
-    'Turkey': 'Turkey', 'Japan': 'Japan', 'South Korea': 'South Korea',
-    'Morocco': 'Morocco', 'Senegal': 'Senegal', 'Iran': 'Iran',
-    'Ecuador': 'Ecuador', 'USA': 'USA', 'Canada': 'Canada',
-    'Australia': 'Australia', 'Poland': 'Poland', 'Sweden': 'Sweden',
-    'Serbia': 'Serbia', 'Ukraine': 'Ukraine', 'Czech Republic': 'Czechia',
-    'Bosnia and Herzegovina': 'Bosnia', 'Scotland': 'Scotland',
-    'Paraguay': 'Paraguay', 'Chile': 'Chile', 'Peru': 'Peru',
-    'Ghana': 'Ghana', 'Tunisia': 'Tunisia', 'Egypt': 'Egypt',
-    'Saudi Arabia': 'Saudi Arabia', 'Qatar': 'Qatar',
-    'Algeria': 'Algeria', 'DR Congo': 'DR Congo', 'Ivory Coast': 'Ivory Coast',
-    "Côte d'Ivoire": 'Ivory Coast', 'Cape Verde': 'Cape Verde',
-    'Costa Rica': 'Costa Rica', 'Panama': 'Panama', 'Jamaica': 'Jamaica',
+    'Czech Republic': 'Czechia',
+    'Bosnia and Herzegovina': 'Bosnia', 'Bosnia-Herzegovina': 'Bosnia',
+    "Côte d'Ivoire": 'Ivory Coast', "Cote d'Ivoire": 'Ivory Coast',
+    'Cabo Verde': 'Cape Verde',
+    'Korea Republic': 'South Korea', 'Republic of Korea': 'South Korea',
+    'Türkiye': 'Turkey', 'Turkiye': 'Turkey',
+    'IR Iran': 'Iran', 'Iran (Islamic Republic of)': 'Iran',
+    'United States': 'USA', 'United States of America': 'USA',
+    'Curaçao': 'Curacao',
+    'Congo DR': 'DR Congo', 'Democratic Republic of the Congo': 'DR Congo',
+    'Republic of Ireland': 'Ireland',
 }
+TEAM_SET = set(ALL_TEAMS)
+
+def resolve(raw):
+    """API team name -> our model name, or None (caller logs the miss)."""
+    if raw in TEAM_SET: return raw            # already our spelling (most teams)
+    return TEAM_MAP.get(raw)                   # known variant, else None
 
 # Competitions to watch — football-data.org codes
 COMPETITIONS = [
@@ -76,15 +82,16 @@ def fetch_competition(code, label, neutral):
     if resp.status_code != 200:
         print(f"  API error {resp.status_code} for {code}: {resp.text[:120]}")
         return []
+    raw = resp.json().get('matches', [])
+    finished = [m for m in raw if m.get('status') == 'FINISHED']
+    print(f"  {code}: {len(raw)} matches returned, {len(finished)} FINISHED")
     matches = []
-    for m in resp.json().get('matches', []):
-        if m.get('status') != 'FINISHED':
-            continue
+    for m in finished:
         home_raw = m.get('homeTeam', {}).get('name', '')
         away_raw = m.get('awayTeam', {}).get('name', '')
-        home = TEAM_MAP.get(home_raw)
-        away = TEAM_MAP.get(away_raw)
+        home = resolve(home_raw); away = resolve(away_raw)
         if not home or not away:
+            print(f"    ! unmapped team name(s): {home_raw!r} / {away_raw!r} — skipped")
             continue
         match_date = m.get('utcDate', '')[:10]
         score = m.get('score', {}).get('fullTime', {})
