@@ -48,11 +48,23 @@ PEN = {
 }
 
 
-def eff_params(team, ATK, DEF, avg_atk, avg_def):
-    """Effective (attack, defence) params for a team, incl. symmetric squad adj."""
+# How strongly long-run Elo feeds the match lambda. The Dixon-Coles fit is
+# recency-weighted, so a team with little recent COMPETITIVE data (notably the
+# auto-qualified hosts, who only play friendlies) is rated almost entirely on
+# noisy form — e.g. the model rated host Mexico below South Africa before the
+# opener. Elo carries the long memory the DC fit discards; blending a little of
+# it back in corrects that. β=0.3 was chosen on the backtest holdout: it fixes
+# the host under-rating while leaving out-of-sample Brier essentially unchanged
+# (larger values over-correct and degrade it).
+ELO_BLEND = 0.3
+
+def eff_params(team, ATK, DEF, avg_atk, avg_def, elo=None, avg_elo=None):
+    """Effective (attack, defence) for a team: Dixon-Coles + symmetric squad adj
+    + an optional symmetric long-run Elo prior."""
     sa = squad_adj(team)
-    atk = ATK.get(team, avg_atk) + SQUAD_W * sa
-    dfn = DEF.get(team, avg_def) - SQUAD_W * sa
+    e = 0.0 if elo is None else ELO_BLEND * (elo.get(team, 1500) - avg_elo) / 400.0
+    atk = ATK.get(team, avg_atk) + SQUAD_W * sa + e
+    dfn = DEF.get(team, avg_def) - SQUAD_W * sa - e
     return atk, dfn
 
 
@@ -102,15 +114,16 @@ def load_ensemble(cache, base_dir):
     return cache.get("dc_ensemble") or [cache["dc"]]
 
 
-def build_lambda_table(atkd, defd, home_adv):
+def build_lambda_table(atkd, defd, home_adv, elo=None):
     """(lam, mu) for every ordered WC-team pair from one parameter set.
-    Squad value enters symmetrically (eff_params); host nations get a crowd
-    boost in EVERY round they play. Shared by sim_improved.py and
+    Squad value + long-run Elo enter symmetrically (eff_params); host nations get
+    a crowd boost in EVERY round they play. Shared by sim_improved.py and
     bracket_predictor.py so both pipelines use identical match expectations."""
     avg_a = sum(atkd.values()) / len(atkd)
     avg_d = sum(defd.values()) / len(defd)
+    avg_e = (sum(elo.values()) / len(elo)) if elo else None
     host_adv = home_adv * HOST_ADV_FRACTION
-    eff = {t: eff_params(t, atkd, defd, avg_a, avg_d) for t in ALL_TEAMS}
+    eff = {t: eff_params(t, atkd, defd, avg_a, avg_d, elo, avg_e) for t in ALL_TEAMS}
     lg = {}
     for home in ALL_TEAMS:
         ah, dh = eff[home]

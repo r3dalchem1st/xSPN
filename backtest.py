@@ -42,12 +42,13 @@ dc  = fi.fit_dc_fast(TRAIN, elo)
 ATK, DEF, RHO = dc["attack"], dc["defense"], dc["rho"]
 AVG_ATK = float(np.mean(list(ATK.values())))
 AVG_DEF = float(np.mean(list(DEF.values())))
+AVG_ELO = float(np.mean(list(elo.values())))
 
 
 def hda_probs(home, away, max_g=10):
     """P(home win), P(draw), P(away win) under Dixon-Coles, neutral venue."""
-    a_h, d_h = eff_params(home, ATK, DEF, AVG_ATK, AVG_DEF)
-    a_a, d_a = eff_params(away, ATK, DEF, AVG_ATK, AVG_DEF)
+    a_h, d_h = eff_params(home, ATK, DEF, AVG_ATK, AVG_DEF, elo, AVG_ELO)
+    a_a, d_a = eff_params(away, ATK, DEF, AVG_ATK, AVG_DEF, elo, AVG_ELO)
     lam = max(math.exp(a_h + d_a), 0.20)
     mu  = max(math.exp(a_a + d_h), 0.20)
     ph = pd = pa = 0.0
