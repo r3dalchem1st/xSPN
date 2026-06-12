@@ -64,8 +64,16 @@ if os.path.exists(_hist_file):
         for t, v in hist[d].items():
             winhist.setdefault(t, []).append(round(v, 4))
 
+# Real fixture dates + actual results (football-data.org), keyed by sorted pair.
+_sched_file = os.path.join(DIR, 'wc_schedule.json')
+schedule = {}
+if os.path.exists(_sched_file):
+    with open(_sched_file) as f:
+        schedule = json.load(f)
+
 results_json  = json.dumps(results)
 winhist_json  = json.dumps(winhist)
+schedule_json = json.dumps(schedule)
 bracket_json  = json.dumps(bracket)
 elo_json      = json.dumps({t: round(v, 0) for t, v in elo.items()})
 squad_json    = json.dumps(SQUAD)
@@ -85,6 +93,7 @@ html = (html
     .replace('__GROUPS__',   groups_json)
     .replace('__ACCURACY__', accuracy_json)
     .replace('__WINHIST__',  winhist_json)
+    .replace('__SCHEDULE__', schedule_json)
     .replace('__UPDATED__',  UPDATED)
 )
 

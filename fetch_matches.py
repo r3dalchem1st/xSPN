@@ -103,6 +103,32 @@ def fetch_competition(code, label, neutral):
         matches.append([match_date, home, away, int(hg), int(ag), label, is_neutral])
     return matches
 
+def fetch_schedule():
+    """Full WC fixture list (any status) -> {sorted_pair: {date,status,hg,ag}}.
+    Gives real game dates (and results once played) for ordering / display in the
+    All-104-Matches table. Group fixtures resolve immediately; KO fills in as teams
+    are decided."""
+    url = f'{BASE}/competitions/WC/matches'
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+    except Exception as e:
+        print(f"  schedule request failed: {e}"); return {}
+    if resp.status_code != 200:
+        print(f"  schedule API {resp.status_code} (kept previous schedule)"); return {}
+    sched = {}
+    for m in resp.json().get('matches', []):
+        home = resolve(m.get('homeTeam', {}).get('name', ''))
+        away = resolve(m.get('awayTeam', {}).get('name', ''))
+        if not home or not away:
+            continue
+        ft = m.get('score', {}).get('fullTime', {})
+        sched['|'.join(sorted([home, away]))] = {
+            "date": m.get('utcDate', '')[:10], "status": m.get('status'),
+            "goals": {home: ft.get('home'), away: ft.get('away')},  # by team name (orientation-safe)
+        }
+    print(f"  schedule: {len(sched)} fixtures with both teams resolved")
+    return sched
+
 def main():
     print("Fetching new match data...")
     existing   = load_existing()
@@ -132,6 +158,18 @@ def main():
     all_matches = existing + new_matches
     with open(CACHE_FILE, 'w') as f:
         json.dump(all_matches, f, indent=2)
+
+    # Schedule (dates + results for the All-104-Matches table). Keep the previous
+    # file if the API hiccups, so we never blank out the dates.
+    print("  Fetching full WC schedule...")
+    sched = fetch_schedule()
+    sched_file = os.path.join(SCRIPT_DIR, 'wc_schedule.json')
+    if sched:
+        with open(sched_file, 'w') as f:
+            json.dump(sched, f, indent=2)
+    elif not os.path.exists(sched_file):
+        with open(sched_file, 'w') as f:
+            json.dump({}, f)
 
     print(f"Done. {len(new_matches)} new matches added ({len(all_matches)} total in cache).")
 
