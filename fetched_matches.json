@@ -1,1 +1,20 @@
-[]
+[
+  [
+    "2026-06-11",
+    "Mexico",
+    "South Africa",
+    2,
+    0,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-12",
+    "South Korea",
+    "Czechia",
+    2,
+    1,
+    "World Cup",
+    true
+  ]
+]

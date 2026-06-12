@@ -1,12 +1,52 @@
 {
-  "matches": [],
+  "matches": [
+    {
+      "date": "2026-06-11",
+      "home": "Mexico",
+      "away": "South Africa",
+      "group": "A",
+      "predicted_score": "0\u20130",
+      "actual_score": "2\u20130",
+      "predicted_winner": "South Africa",
+      "actual_winner": "Mexico",
+      "correct_winner": false,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.9546,
+      "logloss": 1.5945
+    },
+    {
+      "date": "2026-06-12",
+      "home": "South Korea",
+      "away": "Czechia",
+      "group": "A",
+      "predicted_score": "1\u20131",
+      "actual_score": "2\u20131",
+      "predicted_winner": "South Korea",
+      "actual_winner": "South Korea",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.4677,
+      "logloss": 0.8119
+    }
+  ],
   "summary": {
-    "total_matches": 0,
-    "correct_winners": 0,
-    "accuracy": 0,
-    "avg_goal_error": 0,
-    "avg_brier": 0,
-    "avg_logloss": 0,
-    "reliability": []
+    "total_matches": 2,
+    "correct_winners": 1,
+    "accuracy": 0.5,
+    "avg_goal_error": 1.5,
+    "avg_brier": 0.7111,
+    "avg_logloss": 1.2032,
+    "reliability": [
+      {
+        "bin": "34\u201345%",
+        "n": 2,
+        "predicted": 0.439,
+        "actual": 0.5
+      }
+    ]
   }
 }
