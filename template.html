@@ -248,13 +248,16 @@ function show(n){
   all.push({...B.third_place,stage:'3rd Place',sk:'3rd',badge:'sb-3'});
   // Attach real fixture date + actual result (keyed by sorted team pair) from SCH;
   // knockout predicted matchups fall back to a per-round ordering date.
+  const GROUP_FALLBACK='2026-06-27';   // keep date-less group games in the group block
   all.forEach(m=>{
     const s=SCH[[m.home,m.away].sort().join('|')];
-    m._date=(s&&s.date)||ROUND_DATE[m.sk]||null;
+    const real=s&&s.date;
+    m._date=real||(m.sk!=='group'?ROUND_DATE[m.sk]:null);                       // shown date
+    m._sort=real||(m.sk==='group'?GROUP_FALLBACK:ROUND_DATE[m.sk])||'9999-99-99'; // ordering key
     const g=s&&s.goals;
     m._result=(g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`:null;
   });
-  all.sort((a,b)=>String(a._date||'9999-99-99').localeCompare(String(b._date||'9999-99-99')));
+  all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
   window._AM=all;
   function rowHtml(m){
     const pct=m.win_pct!=null?m.win_pct+'%':(m.ph?`${(m.ph*100).toFixed(0)}/${(m.pd*100).toFixed(0)}/${(m.pa*100).toFixed(0)}%`:'');

@@ -28,7 +28,8 @@ TEAM_MAP = {
     'Czech Republic': 'Czechia',
     'Bosnia and Herzegovina': 'Bosnia', 'Bosnia-Herzegovina': 'Bosnia',
     "Côte d'Ivoire": 'Ivory Coast', "Cote d'Ivoire": 'Ivory Coast',
-    'Cabo Verde': 'Cape Verde',
+    'Cabo Verde': 'Cape Verde', 'Cape Verde Islands': 'Cape Verde',
+    'Cabo Verde Islands': 'Cape Verde', 'Republic of Cabo Verde': 'Cape Verde',
     'Korea Republic': 'South Korea', 'Republic of Korea': 'South Korea',
     'Türkiye': 'Turkey', 'Turkiye': 'Turkey',
     'IR Iran': 'Iran', 'Iran (Islamic Republic of)': 'Iran',
@@ -115,11 +116,13 @@ def fetch_schedule():
         print(f"  schedule request failed: {e}"); return {}
     if resp.status_code != 200:
         print(f"  schedule API {resp.status_code} (kept previous schedule)"); return {}
-    sched = {}
+    sched = {}; unmapped = set()
     for m in resp.json().get('matches', []):
-        home = resolve(m.get('homeTeam', {}).get('name', ''))
-        away = resolve(m.get('awayTeam', {}).get('name', ''))
+        hr = m.get('homeTeam', {}).get('name'); ar = m.get('awayTeam', {}).get('name')
+        home = resolve(hr or ''); away = resolve(ar or '')
         if not home or not away:
+            if hr and not home: unmapped.add(hr)
+            if ar and not away: unmapped.add(ar)
             continue
         ft = m.get('score', {}).get('fullTime', {})
         sched['|'.join(sorted([home, away]))] = {
@@ -127,6 +130,8 @@ def fetch_schedule():
             "goals": {home: ft.get('home'), away: ft.get('away')},  # by team name (orientation-safe)
         }
     print(f"  schedule: {len(sched)} fixtures with both teams resolved")
+    if unmapped:
+        print(f"  schedule unmapped team names (add to TEAM_MAP): {sorted(unmapped)}")
     return sched
 
 def main():
