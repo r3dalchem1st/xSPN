@@ -4,7 +4,7 @@ Reads:  predictions_snapshot.json + fetched_matches.json
 Writes: results_accuracy.json
 Regenerates from scratch each run (idempotent).
 """
-import json, os, math
+import json, os, math, re
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 SNAPSHOT_FILE = os.path.join(DIR, 'predictions_snapshot.json')
@@ -84,8 +84,9 @@ for match in fetched:
 
     # Parse predicted goals from stored score string (e.g. "1–0")
     parts = pred['predicted_score'].replace('\u2013', '-').split('-')
-    pred_hg = int(parts[0]) if len(parts) == 2 else 0
-    pred_ag = int(parts[1]) if len(parts) == 2 else 0
+    nums = re.findall(r'\d+', pred['predicted_score'])   # robust to "1–1 (p)" etc.
+    pred_hg = int(nums[0]) if len(nums) >= 2 else 0
+    pred_ag = int(nums[1]) if len(nums) >= 2 else 0
 
     home_err = abs(pred_home_goals - pred_hg)
     away_err = abs(pred_away_goals - pred_ag)
