@@ -17,10 +17,10 @@
   },
   "Bosnia|Canada": {
     "date": "2026-06-12",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Canada": null,
-      "Bosnia": null
+      "Canada": 1,
+      "Bosnia": 1
     }
   },
   "Paraguay|USA": {
