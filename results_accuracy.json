@@ -31,21 +31,43 @@
       "total_goal_error": 1,
       "brier": 0.4677,
       "logloss": 0.8119
+    },
+    {
+      "date": "2026-06-12",
+      "home": "Canada",
+      "away": "Bosnia",
+      "group": "B",
+      "predicted_score": "0\u20131",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Bosnia",
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.7941,
+      "logloss": 1.2694
     }
   ],
   "summary": {
-    "total_matches": 2,
+    "total_matches": 3,
     "correct_winners": 1,
-    "accuracy": 0.5,
-    "avg_goal_error": 1.5,
-    "avg_brier": 0.7111,
-    "avg_logloss": 1.2032,
+    "accuracy": 0.3333,
+    "avg_goal_error": 1.333,
+    "avg_brier": 0.7388,
+    "avg_logloss": 1.2253,
     "reliability": [
       {
         "bin": "34\u201345%",
         "n": 2,
         "predicted": 0.439,
         "actual": 0.5
+      },
+      {
+        "bin": "45\u201355%",
+        "n": 1,
+        "predicted": 0.456,
+        "actual": 0.0
       }
     ]
   }
