@@ -1597,5 +1597,57 @@
     "lam": 0.74,
     "mu": 1.33,
     "snapped_at": "2026-06-12"
+  },
+  "Brazil|Netherlands": {
+    "home": "Brazil",
+    "away": "Netherlands",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Brazil",
+    "ph": 0.516,
+    "pd": 0.225,
+    "pa": 0.259,
+    "lam": 1.89,
+    "mu": 1.26,
+    "snapped_at": "2026-06-13"
+  },
+  "Japan|Morocco": {
+    "home": "Japan",
+    "away": "Morocco",
+    "group": "R32",
+    "predicted_score": "0\u20130 (p)",
+    "predicted_winner": "Morocco",
+    "ph": 0.286,
+    "pd": 0.346,
+    "pa": 0.368,
+    "lam": 0.75,
+    "mu": 0.89,
+    "snapped_at": "2026-06-13"
+  },
+  "Argentina|Belgium": {
+    "home": "Argentina",
+    "away": "Belgium",
+    "group": "R16",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Argentina",
+    "ph": 0.672,
+    "pd": 0.243,
+    "pa": 0.085,
+    "lam": 1.59,
+    "mu": 0.36,
+    "snapped_at": "2026-06-13"
+  },
+  "Iran|Portugal": {
+    "home": "Iran",
+    "away": "Portugal",
+    "group": "R16",
+    "predicted_score": "1\u20132",
+    "predicted_winner": "Portugal",
+    "ph": 0.182,
+    "pd": 0.182,
+    "pa": 0.635,
+    "lam": 1.17,
+    "mu": 2.49,
+    "snapped_at": "2026-06-13"
   }
 }
