@@ -63,15 +63,31 @@
       "total_goal_error": 4,
       "brier": 0.834,
       "logloss": 1.3205
+    },
+    {
+      "date": "2026-06-13",
+      "home": "Switzerland",
+      "away": "Qatar",
+      "group": "B",
+      "predicted_score": "2\u20130",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Switzerland",
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 1.3201,
+      "logloss": 1.9449
     }
   ],
   "summary": {
-    "total_matches": 4,
+    "total_matches": 5,
     "correct_winners": 1,
-    "accuracy": 0.25,
+    "accuracy": 0.2,
     "avg_goal_error": 2.0,
-    "avg_brier": 0.7626,
-    "avg_logloss": 1.2491,
+    "avg_brier": 0.8741,
+    "avg_logloss": 1.3882,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -83,6 +99,12 @@
         "bin": "45\u201355%",
         "n": 2,
         "predicted": 0.471,
+        "actual": 0.0
+      },
+      {
+        "bin": "75%+",
+        "n": 1,
+        "predicted": 0.759,
         "actual": 0.0
       }
     ]

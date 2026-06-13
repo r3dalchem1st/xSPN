@@ -33,18 +33,18 @@
   },
   "Qatar|Switzerland": {
     "date": "2026-06-13",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Qatar": null,
-      "Switzerland": null
+      "Qatar": 1,
+      "Switzerland": 1
     }
   },
   "Brazil|Morocco": {
     "date": "2026-06-13",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Brazil": null,
-      "Morocco": null
+      "Brazil": 1,
+      "Morocco": 1
     }
   },
   "Haiti|Scotland": {
