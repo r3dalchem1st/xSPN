@@ -47,15 +47,31 @@
       "total_goal_error": 1,
       "brier": 0.7941,
       "logloss": 1.2694
+    },
+    {
+      "date": "2026-06-13",
+      "home": "USA",
+      "away": "Paraguay",
+      "group": "D",
+      "predicted_score": "0\u20131",
+      "actual_score": "4\u20131",
+      "predicted_winner": "Paraguay",
+      "actual_winner": "USA",
+      "correct_winner": false,
+      "home_error": 4,
+      "away_error": 0,
+      "total_goal_error": 4,
+      "brier": 0.834,
+      "logloss": 1.3205
     }
   ],
   "summary": {
-    "total_matches": 3,
+    "total_matches": 4,
     "correct_winners": 1,
-    "accuracy": 0.3333,
-    "avg_goal_error": 1.333,
-    "avg_brier": 0.7388,
-    "avg_logloss": 1.2253,
+    "accuracy": 0.25,
+    "avg_goal_error": 2.0,
+    "avg_brier": 0.7626,
+    "avg_logloss": 1.2491,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -65,8 +81,8 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 1,
-        "predicted": 0.456,
+        "n": 2,
+        "predicted": 0.471,
         "actual": 0.0
       }
     ]

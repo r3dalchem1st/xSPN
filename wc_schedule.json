@@ -25,10 +25,10 @@
   },
   "Paraguay|USA": {
     "date": "2026-06-13",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "USA": null,
-      "Paraguay": null
+      "USA": 4,
+      "Paraguay": 1
     }
   },
   "Qatar|Switzerland": {
