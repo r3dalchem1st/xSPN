@@ -127,15 +127,31 @@
       "total_goal_error": 3,
       "brier": 1.0776,
       "logloss": 1.7779
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Germany",
+      "away": "Curacao",
+      "group": "E",
+      "predicted_score": "2\u20130",
+      "actual_score": "7\u20131",
+      "predicted_winner": "Germany",
+      "actual_winner": "Germany",
+      "correct_winner": true,
+      "home_error": 5,
+      "away_error": 1,
+      "total_goal_error": 6,
+      "brier": 0.0491,
+      "logloss": 0.1936
     }
   ],
   "summary": {
-    "total_matches": 8,
-    "correct_winners": 2,
-    "accuracy": 0.25,
-    "avg_goal_error": 1.875,
-    "avg_brier": 0.7961,
-    "avg_logloss": 1.2927,
+    "total_matches": 9,
+    "correct_winners": 3,
+    "accuracy": 0.3333,
+    "avg_goal_error": 2.333,
+    "avg_brier": 0.7131,
+    "avg_logloss": 1.1706,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -157,9 +173,9 @@
       },
       {
         "bin": "75%+",
-        "n": 1,
-        "predicted": 0.759,
-        "actual": 0.0
+        "n": 2,
+        "predicted": 0.791,
+        "actual": 0.5
       }
     ]
   }
