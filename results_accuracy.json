@@ -143,21 +143,37 @@
       "total_goal_error": 6,
       "brier": 0.0491,
       "logloss": 0.1936
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Netherlands",
+      "away": "Japan",
+      "group": "F",
+      "predicted_score": "1\u20131",
+      "actual_score": "2\u20132",
+      "predicted_winner": "Japan",
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.8821,
+      "logloss": 1.4567
     }
   ],
   "summary": {
-    "total_matches": 9,
+    "total_matches": 10,
     "correct_winners": 3,
-    "accuracy": 0.3333,
-    "avg_goal_error": 2.333,
-    "avg_brier": 0.7131,
-    "avg_logloss": 1.1706,
+    "accuracy": 0.3,
+    "avg_goal_error": 2.3,
+    "avg_brier": 0.73,
+    "avg_logloss": 1.1992,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 3,
-        "predicted": 0.411,
-        "actual": 0.667
+        "n": 4,
+        "predicted": 0.408,
+        "actual": 0.5
       },
       {
         "bin": "45\u201355%",

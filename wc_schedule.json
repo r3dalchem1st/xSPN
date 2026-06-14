@@ -73,10 +73,10 @@
   },
   "Japan|Netherlands": {
     "date": "2026-06-14",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "goals": {
-      "Netherlands": 0,
-      "Japan": 0
+      "Netherlands": 2,
+      "Japan": 2
     }
   },
   "Ecuador|Ivory Coast": {

@@ -1779,5 +1779,70 @@
     "lam": 1.03,
     "mu": 1.35,
     "snapped_at": "2026-06-14"
+  },
+  "Australia|Belgium": {
+    "home": "Australia",
+    "away": "Belgium",
+    "group": "R32",
+    "predicted_score": "0\u20130 (p)",
+    "predicted_winner": "Belgium",
+    "ph": 0.292,
+    "pd": 0.358,
+    "pa": 0.35,
+    "lam": 0.71,
+    "mu": 0.82,
+    "snapped_at": "2026-06-14"
+  },
+  "Germany|Turkey": {
+    "home": "Germany",
+    "away": "Turkey",
+    "group": "R32",
+    "predicted_score": "2\u20130",
+    "predicted_winner": "Germany",
+    "ph": 0.659,
+    "pd": 0.197,
+    "pa": 0.144,
+    "lam": 2.12,
+    "mu": 0.8,
+    "snapped_at": "2026-06-14"
+  },
+  "Algeria|USA": {
+    "home": "USA",
+    "away": "Algeria",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "USA",
+    "ph": 0.472,
+    "pd": 0.268,
+    "pa": 0.26,
+    "lam": 1.47,
+    "mu": 0.93,
+    "snapped_at": "2026-06-14"
+  },
+  "Switzerland|USA": {
+    "home": "USA",
+    "away": "Switzerland",
+    "group": "R16",
+    "predicted_score": "2\u20131",
+    "predicted_winner": "USA",
+    "ph": 0.457,
+    "pd": 0.198,
+    "pa": 0.344,
+    "lam": 2.17,
+    "mu": 1.83,
+    "snapped_at": "2026-06-14"
+  },
+  "Portugal|USA": {
+    "home": "USA",
+    "away": "Portugal",
+    "group": "QF",
+    "predicted_score": "1\u20132",
+    "predicted_winner": "Portugal",
+    "ph": 0.311,
+    "pd": 0.187,
+    "pa": 0.502,
+    "lam": 1.82,
+    "mu": 2.35,
+    "snapped_at": "2026-06-14"
   }
 }
