@@ -65,10 +65,10 @@
   },
   "Curacao|Germany": {
     "date": "2026-06-14",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Germany": null,
-      "Curacao": null
+      "Germany": 5,
+      "Curacao": 1
     }
   },
   "Japan|Netherlands": {
