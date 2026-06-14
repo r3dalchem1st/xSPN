@@ -37,6 +37,13 @@ HOST_ADV_FRACTION = 0.65   # fraction of the learned home_adv applied to hosts
 # removed. (Defence params are added to the OPPONENT's lambda, hence the minus.)
 SQUAD_W = 0.25
 
+# Expected-goals bounds for a single team in a match. Attack/squad/Elo all add
+# in log space, so for an extreme mismatch (elite vs minnow) exp(...) can blow
+# up (e.g. λ≈11 for Germany–Curacao → a nonsensical "6–0" clipped at the score
+# grid and win-probs that don't sum to 1). No international match has an
+# expected-goals near that; clamp to a realistic range. The floor avoids λ=0.
+LAMBDA_MIN, LAMBDA_MAX = 0.20, 5.0
+
 # ── Penalty-shootout conversion strengths (WC historical win rates) ──────────
 # Canonical table — single source of truth for both pipelines.
 PEN = {
@@ -133,9 +140,13 @@ def build_lambda_table(atkd, defd, home_adv, elo=None):
                 continue
             aa, da = eff[away]
             ab = host_adv if away in HOST_NATIONS else 0.0
-            lg[(home, away)] = (max(math.exp(ah + da + hb), 0.20),
-                                max(math.exp(aa + dh + ab), 0.20))
+            lg[(home, away)] = (_clamp_lambda(math.exp(ah + da + hb)),
+                                _clamp_lambda(math.exp(aa + dh + ab)))
     return lg
+
+
+def _clamp_lambda(x):
+    return min(max(x, LAMBDA_MIN), LAMBDA_MAX)
 
 
 def hda_probs_ensemble(home, away, lg_ens, max_g=10):
@@ -155,5 +166,5 @@ def hda_probs_ensemble(home, away, lg_ens, max_g=10):
                 if h > a: ph += p
                 elif h < a: pa += p
                 else: pd += p
-    n = len(lg_ens)
-    return ph / n, pd / n, pa / n
+    s = ph + pd + pa   # normalise (the score grid drops a tiny high-score tail)
+    return (ph / s, pd / s, pa / s) if s else (0.0, 0.0, 0.0)
