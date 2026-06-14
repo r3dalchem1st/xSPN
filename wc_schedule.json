@@ -19,8 +19,8 @@
     "date": "2026-06-12",
     "status": "FINISHED",
     "goals": {
-      "Canada": 1,
-      "Bosnia": 1
+      "Canada": null,
+      "Bosnia": null
     }
   },
   "Paraguay|USA": {
@@ -65,18 +65,18 @@
   },
   "Curacao|Germany": {
     "date": "2026-06-14",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Germany": 5,
+      "Germany": 7,
       "Curacao": 1
     }
   },
   "Japan|Netherlands": {
     "date": "2026-06-14",
-    "status": "TIMED",
+    "status": "PAUSED",
     "goals": {
-      "Netherlands": null,
-      "Japan": null
+      "Netherlands": 0,
+      "Japan": 0
     }
   },
   "Ecuador|Ivory Coast": {
