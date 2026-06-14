@@ -30,7 +30,7 @@ _orig_days_ago = fi.days_ago
 fi.days_ago = lambda ds, ref=CUTOFF: _orig_days_ago(ds, ref)
 
 from match_data import MATCHES
-from model_common import eff_params
+from model_common import eff_params, LAMBDA_MIN, LAMBDA_MAX
 
 TRAIN = [m for m in MATCHES if m[0] <  CUTOFF]
 TEST  = [m for m in MATCHES if m[0] >= CUTOFF and m[5] in TEST_TOURNAMENTS]
@@ -49,8 +49,8 @@ def hda_probs(home, away, max_g=10):
     """P(home win), P(draw), P(away win) under Dixon-Coles, neutral venue."""
     a_h, d_h = eff_params(home, ATK, DEF, AVG_ATK, AVG_DEF, elo, AVG_ELO)
     a_a, d_a = eff_params(away, ATK, DEF, AVG_ATK, AVG_DEF, elo, AVG_ELO)
-    lam = max(math.exp(a_h + d_a), 0.20)
-    mu  = max(math.exp(a_a + d_h), 0.20)
+    lam = min(max(math.exp(a_h + d_a), LAMBDA_MIN), LAMBDA_MAX)
+    mu  = min(max(math.exp(a_a + d_h), LAMBDA_MIN), LAMBDA_MAX)
     ph = pd = pa = 0.0
     for h in range(max_g + 1):
         p_h = math.exp(-lam) * lam**h / math.factorial(h)
