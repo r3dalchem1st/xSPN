@@ -43,5 +43,32 @@
     1,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-13",
+    "Brazil",
+    "Morocco",
+    1,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-14",
+    "Haiti",
+    "Scotland",
+    0,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-14",
+    "Australia",
+    "Turkey",
+    2,
+    0,
+    "World Cup",
+    true
   ]
 ]

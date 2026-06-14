@@ -79,27 +79,81 @@
       "total_goal_error": 2,
       "brier": 1.3201,
       "logloss": 1.9449
+    },
+    {
+      "date": "2026-06-13",
+      "home": "Brazil",
+      "away": "Morocco",
+      "group": "C",
+      "predicted_score": "0\u20130",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Brazil",
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.6248,
+      "logloss": 1.0356
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Haiti",
+      "away": "Scotland",
+      "group": "C",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20131",
+      "predicted_winner": "Scotland",
+      "actual_winner": "Scotland",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.2962,
+      "logloss": 0.587
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Australia",
+      "away": "Turkey",
+      "group": "D",
+      "predicted_score": "0\u20131",
+      "actual_score": "2\u20130",
+      "predicted_winner": "Turkey",
+      "actual_winner": "Australia",
+      "correct_winner": false,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 1.0776,
+      "logloss": 1.7779
     }
   ],
   "summary": {
-    "total_matches": 5,
-    "correct_winners": 1,
-    "accuracy": 0.2,
-    "avg_goal_error": 2.0,
-    "avg_brier": 0.8741,
-    "avg_logloss": 1.3882,
+    "total_matches": 8,
+    "correct_winners": 2,
+    "accuracy": 0.25,
+    "avg_goal_error": 1.875,
+    "avg_brier": 0.7961,
+    "avg_logloss": 1.2927,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 2,
-        "predicted": 0.439,
-        "actual": 0.5
+        "n": 3,
+        "predicted": 0.411,
+        "actual": 0.667
       },
       {
         "bin": "45\u201355%",
         "n": 2,
         "predicted": 0.471,
         "actual": 0.0
+      },
+      {
+        "bin": "55\u201365%",
+        "n": 2,
+        "predicted": 0.558,
+        "actual": 0.5
       },
       {
         "bin": "75%+",

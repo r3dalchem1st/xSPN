@@ -41,7 +41,7 @@
   },
   "Brazil|Morocco": {
     "date": "2026-06-13",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Brazil": 1,
       "Morocco": 1
@@ -49,18 +49,18 @@
   },
   "Haiti|Scotland": {
     "date": "2026-06-14",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Haiti": null,
-      "Scotland": null
+      "Haiti": 0,
+      "Scotland": 1
     }
   },
   "Australia|Turkey": {
     "date": "2026-06-14",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Australia": null,
-      "Turkey": null
+      "Australia": 2,
+      "Turkey": 0
     }
   },
   "Curacao|Germany": {
