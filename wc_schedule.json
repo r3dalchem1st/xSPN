@@ -81,18 +81,18 @@
   },
   "Ecuador|Ivory Coast": {
     "date": "2026-06-14",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Ivory Coast": null,
-      "Ecuador": null
+      "Ivory Coast": 1,
+      "Ecuador": 0
     }
   },
   "Sweden|Tunisia": {
     "date": "2026-06-15",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Sweden": null,
-      "Tunisia": null
+      "Sweden": 5,
+      "Tunisia": 1
     }
   },
   "Cape Verde|Spain": {
