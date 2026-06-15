@@ -1896,5 +1896,31 @@
     "lam": 0.87,
     "mu": 0.71,
     "snapped_at": "2026-06-15"
+  },
+  "England|Uruguay": {
+    "home": "England",
+    "away": "Uruguay",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "England",
+    "ph": 0.511,
+    "pd": 0.354,
+    "pa": 0.135,
+    "lam": 1.03,
+    "mu": 0.38,
+    "snapped_at": "2026-06-15"
+  },
+  "Algeria|Portugal": {
+    "home": "Portugal",
+    "away": "Algeria",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Portugal",
+    "ph": 0.474,
+    "pd": 0.327,
+    "pa": 0.2,
+    "lam": 1.19,
+    "mu": 0.56,
+    "snapped_at": "2026-06-15"
   }
 }
