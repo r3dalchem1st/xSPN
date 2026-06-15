@@ -4,7 +4,9 @@ Reads:  predictions_snapshot.json + fetched_matches.json
 Writes: results_accuracy.json
 Regenerates from scratch each run (idempotent).
 """
-import json, os, math, re
+import json, os, math, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from model_common import likely_score
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 SNAPSHOT_FILE = os.path.join(DIR, 'predictions_snapshot.json')
@@ -82,9 +84,21 @@ for match in fetched:
     if home != pred['home']:
         ph, pa = pa, ph
 
-    nums = re.findall(r'\d+', pred['predicted_score'])   # robust to "1–1 (p)" etc.
-    pred_hg = int(nums[0]) if len(nums) >= 2 else 0
-    pred_ag = int(nums[1]) if len(nums) >= 2 else 0
+    # Predicted scoreline. Group-stage snapshots locked before the score↔winner
+    # consistency fix can carry a draw scoreline (e.g. "0–0") next to a decisive
+    # winner; recompute a score consistent with the locked winner from the locked
+    # lam/mu so goal error reflects the real prediction. KO snapshots ("1–1 (p)"
+    # shootouts) are intentionally a draw next to an advancer — parse them as stored.
+    is_group = bool(re.fullmatch(r'[A-L]', pred.get('group', '')))
+    lam, mu = pred.get('lam'), pred.get('mu')
+    if is_group and lam is not None and mu is not None:
+        pred_hg, pred_ag = likely_score(lam, mu, allowed={pred_outcome})
+        predicted_score = f"{pred_hg}–{pred_ag}"
+    else:
+        predicted_score = pred['predicted_score']
+        nums = re.findall(r'\d+', predicted_score)   # robust to "1–1 (p)" etc.
+        pred_hg = int(nums[0]) if len(nums) >= 2 else 0
+        pred_ag = int(nums[1]) if len(nums) >= 2 else 0
 
     home_err = abs(pred_home_goals - pred_hg)
     away_err = abs(pred_away_goals - pred_ag)
@@ -105,7 +119,7 @@ for match in fetched:
         "home": pred['home'],
         "away": pred['away'],
         "group": pred.get("group", ""),
-        "predicted_score": pred["predicted_score"],
+        "predicted_score": predicted_score,
         "actual_score": f"{pred_home_goals}\u2013{pred_away_goals}",
         "predicted_winner": pw,
         "actual_winner": actual_winner,
