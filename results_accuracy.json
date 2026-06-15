@@ -191,15 +191,31 @@
       "total_goal_error": 5,
       "brier": 0.6466,
       "logloss": 1.0671
+    },
+    {
+      "date": "2026-06-15",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "group": "H",
+      "predicted_score": "2\u20130",
+      "actual_score": "0\u20130",
+      "predicted_winner": "Spain",
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 1.5258,
+      "logloss": 2.1982
     }
   ],
   "summary": {
-    "total_matches": 12,
+    "total_matches": 13,
     "correct_winners": 5,
-    "accuracy": 0.4167,
-    "avg_goal_error": 2.167,
-    "avg_brier": 0.7104,
-    "avg_logloss": 1.1657,
+    "accuracy": 0.3846,
+    "avg_goal_error": 2.154,
+    "avg_brier": 0.7731,
+    "avg_logloss": 1.2451,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -221,9 +237,9 @@
       },
       {
         "bin": "75%+",
-        "n": 2,
-        "predicted": 0.791,
-        "actual": 0.5
+        "n": 3,
+        "predicted": 0.813,
+        "actual": 0.333
       }
     ]
   }
