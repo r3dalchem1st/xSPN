@@ -7,7 +7,7 @@ import sys, json, math, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -27,24 +27,6 @@ LG_MEAN = {k: (sum(lg[k][0] for lg in LG_ENS)/NMEM, sum(lg[k][1] for lg in LG_EN
 
 # Everything below is deterministic — seed the RNG once, up front.
 random.seed(42); np.random.seed(42)
-
-def likely_score(lam, mu, allowed=None, max_g=6):
-    """Most probable (home, away) scoreline under independent Poisson, optionally
-    restricted to scorelines whose result is in `allowed` ('H'/'D'/'A'). Used to
-    keep the displayed score consistent with the predicted result — so we never
-    show e.g. '1-1' next to a named winner."""
-    from math import exp, factorial
-    best_p, best = -1.0, (round(lam), round(mu))
-    for h in range(max_g+1):
-        ph = (lam**h * exp(-lam)) / factorial(h)
-        for a in range(max_g+1):
-            res = 'H' if h > a else ('A' if h < a else 'D')
-            if allowed and res not in allowed:
-                continue
-            p = ph * (mu**a * exp(-mu)) / factorial(a)
-            if p > best_p:
-                best_p = p; best = (h, a)
-    return best
 
 def hda(home, away):
     """Mean (P home win, draw, away win) over the ensemble — analytic, no RNG."""

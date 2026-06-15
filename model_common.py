@@ -203,3 +203,21 @@ def hda_probs_ensemble(home, away, lg_ens, max_g=10):
                 else: pd += p
     s = ph + pd + pa   # normalise (the score grid drops a tiny high-score tail)
     return (ph / s, pd / s, pa / s) if s else (0.0, 0.0, 0.0)
+
+
+def likely_score(lam, mu, allowed=None, max_g=6):
+    """Most probable (home, away) scoreline under independent Poisson, optionally
+    restricted to scorelines whose result is in `allowed` ('H'/'D'/'A'). Keeps the
+    displayed score consistent with the predicted result — never '0-0' next to a
+    named winner."""
+    best_p, best = -1.0, (round(lam), round(mu))
+    for h in range(max_g + 1):
+        ph = (lam ** h * math.exp(-lam)) / math.factorial(h)
+        for a in range(max_g + 1):
+            res = 'H' if h > a else ('A' if h < a else 'D')
+            if allowed and res not in allowed:
+                continue
+            p = ph * (mu ** a * math.exp(-mu)) / math.factorial(a)
+            if p > best_p:
+                best_p = p; best = (h, a)
+    return best
