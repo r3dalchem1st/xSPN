@@ -285,23 +285,31 @@ window.filt=function(f,btn){
 };
 (function(){
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
-  const [[t1,r1],[t2,r2],[t3,r3]]=ranked;const mx=r1.win;
+  const mx=ranked[0][1].win;
+  // Podium = predicted FINISHING positions from the bracket (consistent with the
+  // Bracket/Final tabs): champion, beaten finalist, and 3rd-place match winner —
+  // NOT just the top-3 by title odds (which made "Spain beats France in the final"
+  // disagree with who showed up as 2nd).
+  // Champion identity comes from the FINAL winner (so the podium always matches the
+  // shown bracket); B.champion is a separately-computed sim modal that can diverge.
+  const champ=(B.final&&B.final.winner&&B.final.winner!=='TBD')?B.final.winner:(B.champion||'');
+  const runner=(B.final.winner===B.final.home)?B.final.away:B.final.home;
+  const bronze=B.third_place.winner;
+  const wp=t=>R[t]?(R[t].win*100).toFixed(1)+'% to win':'';
+  const medal=(t,cls,sym,role)=>`<div class="pod ${cls}"><div>${FL[t]?`<img src="${fi(FL[t])}" style="height:32px;border-radius:2px">`:''}
+      </div><div class="pod-bar"><div class="pod-medal">${sym}</div></div>
+      <div class="pod-name">${t}</div><div class="pod-pct">${role}</div></div>`;
   let h=`<div class="podium-wrap"><div class="sec">Predicted Tournament Winner</div>
   <div style="text-align:center;margin:14px 0">
-    <div>${FL[t1]?`<img src="${fi(FL[t1])}" style="height:48px;border-radius:3px">`:'&#127942;'}</div>
-    <div style="font-size:1.4rem;font-weight:600;color:var(--red);margin-top:6px">${t1}</div>
-    <div style="color:var(--muted)">${(r1.win*100).toFixed(1)}% win probability</div></div>
-  <div class="sec">Predicted Podium</div>
+    <div>${FL[champ]?`<img src="${fi(FL[champ])}" style="height:48px;border-radius:3px">`:'&#127942;'}</div>
+    <div style="font-size:1.4rem;font-weight:600;color:var(--red);margin-top:6px">${champ}</div>
+    <div style="color:var(--muted)">${wp(champ)}</div></div>
+  <div class="sec">Predicted Final Standings</div>
   <div class="pod-stage">
-    <div class="pod pod-2"><div>${FL[t2]?`<img src="${fi(FL[t2])}" style="height:32px;border-radius:2px">`:''}
-      </div><div class="pod-bar"><div class="pod-medal">&#129352;</div></div>
-      <div class="pod-name">${t2}</div><div class="pod-pct">${(r2.win*100).toFixed(1)}%</div></div>
-    <div class="pod pod-1"><div>${FL[t1]?`<img src="${fi(FL[t1])}" style="height:32px;border-radius:2px">`:''}
-      </div><div class="pod-bar"><div class="pod-medal">&#129351;</div></div>
-      <div class="pod-name">${t1}</div><div class="pod-pct">${(r1.win*100).toFixed(1)}%</div></div>
-    <div class="pod pod-3"><div>${FL[t3]?`<img src="${fi(FL[t3])}" style="height:32px;border-radius:2px">`:''}
-      </div><div class="pod-bar"><div class="pod-medal">&#129353;</div></div>
-      <div class="pod-name">${t3}</div><div class="pod-pct">${(r3.win*100).toFixed(1)}%</div></div></div>
+    ${medal(runner,'pod-2','&#129352;','Runner-up')}
+    ${medal(champ,'pod-1','&#129351;','Champion')}
+    ${medal(bronze,'pod-3','&#129353;','3rd place')}
+  </div>
   <div class="sec">Top 10 Contenders</div><table class="top10">`;
   ranked.slice(0,10).forEach(([t,r],i)=>{
     const bw=(r.win/mx*100).toFixed(1);const m=i===0?'&#127945;':i===1?'&#129352;':i===2?'&#129353;':'';

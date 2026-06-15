@@ -110,6 +110,41 @@ def rank_group(teams, s, results, tiebreak):
     return out
 
 
+def assign_thirds(best8, r32_var):
+    """Assign the 8 best third-place teams to the variable R32 slots so each third
+    lands in an ELIGIBLE slot, one-to-one. Each slot's eligibility set excludes its
+    own group, so a complete eligible matching is guaranteed free of same-group R32
+    ties. Backtracking (most-constrained slot first) always finds that matching when
+    one exists — unlike the old greedy first-fit, whose fallback ignored eligibility
+    and could occasionally pair e.g. 1B vs 3B (Switzerland vs Qatar)."""
+    slots = [s for s, _ in r32_var]
+    elig  = {s: e for s, e in r32_var}
+    thirds = list(best8)                        # tuples (pts, gd, gs, grp, team)
+    order = sorted(slots, key=lambda s: sum(1 for t in thirds if t[3] in elig[s]))
+    asgn, used = {}, [False] * len(thirds)
+    def bt(k):
+        if k == len(order): return True
+        s = order[k]
+        for i, t in enumerate(thirds):
+            if not used[i] and t[3] in elig[s]:
+                used[i] = True; asgn[s] = t[4]
+                if bt(k + 1): return True
+                used[i] = False; del asgn[s]
+        return False
+    if bt(0):
+        return asgn
+    # Degenerate fallback (shouldn't trigger): fill remaining slots but never pair
+    # a third with its OWN group's winner (slot "1X" -> group X).
+    leftover = [t for i, t in enumerate(thirds) if not used[i]]
+    for s in slots:
+        if s in asgn:
+            continue
+        pick = next((j for j, t in enumerate(leftover) if t[3] != s[1]), 0 if leftover else None)
+        if pick is not None:
+            asgn[s] = leftover.pop(pick)[4]
+    return asgn
+
+
 def load_ensemble(cache, base_dir):
     """Bootstrap ensemble lives in its own (uncommitted) dc_ensemble.json,
     regenerated each run. Fall back to an inline copy or the point estimate."""
