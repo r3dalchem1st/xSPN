@@ -105,10 +105,10 @@
   },
   "Belgium|Egypt": {
     "date": "2026-06-15",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Belgium": null,
-      "Egypt": null
+      "Belgium": 0,
+      "Egypt": 1
     }
   },
   "Saudi Arabia|Uruguay": {
