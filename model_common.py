@@ -5,7 +5,7 @@ Centralised here so the two prediction pipelines cannot drift apart (they
 previously kept independent copies of GROUPS / PEN / host logic, and the two
 penalty tables had already diverged). Import-only; no side effects.
 """
-import math
+import math, os
 from fit_improved import squad_adj, INIT_ELO
 
 # ── Groups (2026 format: 12 groups of 4) ─────────────────────────────────────
@@ -43,6 +43,19 @@ SQUAD_W = 0.25
 # grid and win-probs that don't sum to 1). No international match has an
 # expected-goals near that; clamp to a realistic range. The floor avoids λ=0.
 LAMBDA_MIN, LAMBDA_MAX = 0.20, 5.0
+
+# Strength shrinkage (calibration). The friendly/qualifier-trained model is
+# over-confident on favourites and under-predicts draws (validated on the live
+# group openers: Brier 0.77 > 0.667 random, 0/13 draws called vs 38% actual).
+# Compress every match's expected goals toward a common anchor: 1.0 = no shrink,
+# <1 pulls scorelines toward the mean → flatter H/D/A, more draws. Magnitude is
+# chosen on the backtest holdout (Euro/Copa 2024), never on the live openers.
+GOAL_ANCHOR = 1.35
+# 0.55 chosen on the backtest holdout: log-loss 1.026→0.950, Brier 0.612→0.574
+# (≈ the flat minimum at 0.45–0.55; accuracy unchanged). Conservative vs over-shrink.
+STRENGTH_SHRINK = float(os.environ.get("STRENGTH_SHRINK", "0.55"))
+def shrink_lambda(x):
+    return GOAL_ANCHOR + STRENGTH_SHRINK * (x - GOAL_ANCHOR)
 
 # ── Penalty-shootout conversion strengths (WC historical win rates) ──────────
 # Canonical table — single source of truth for both pipelines.
@@ -175,8 +188,8 @@ def build_lambda_table(atkd, defd, home_adv, elo=None):
                 continue
             aa, da = eff[away]
             ab = host_adv if away in HOST_NATIONS else 0.0
-            lg[(home, away)] = (_clamp_lambda(math.exp(ah + da + hb)),
-                                _clamp_lambda(math.exp(aa + dh + ab)))
+            lg[(home, away)] = (_clamp_lambda(shrink_lambda(math.exp(ah + da + hb))),
+                                _clamp_lambda(shrink_lambda(math.exp(aa + dh + ab))))
     return lg
 
 
