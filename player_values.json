@@ -1,0 +1,20 @@
+{
+  "Spain":       {"Lamine Yamal": 200, "Pedri": 140, "Rodri": 110, "Nico Williams": 75, "Pau Cubarsi": 80, "Dani Olmo": 60},
+  "France":      {"Kylian Mbappe": 180, "Aurelien Tchouameni": 90, "Eduardo Camavinga": 90, "William Saliba": 80, "Ousmane Dembele": 70, "Michael Olise": 90},
+  "England":     {"Jude Bellingham": 180, "Bukayo Saka": 140, "Cole Palmer": 130, "Phil Foden": 120, "Declan Rice": 110, "Harry Kane": 80},
+  "Brazil":      {"Vinicius Junior": 180, "Rodrygo": 100, "Raphinha": 70, "Bruno Guimaraes": 70, "Endrick": 50},
+  "Argentina":   {"Julian Alvarez": 90, "Alexis Mac Allister": 80, "Enzo Fernandez": 75, "Lautaro Martinez": 80, "Lionel Messi": 20},
+  "Portugal":    {"Vitinha": 90, "Rafael Leao": 75, "Bernardo Silva": 50, "Bruno Fernandes": 50, "Ruben Dias": 60},
+  "Germany":     {"Florian Wirtz": 140, "Jamal Musiala": 140, "Joshua Kimmich": 50, "Kai Havertz": 60},
+  "Netherlands": {"Xavi Simons": 80, "Cody Gakpo": 65, "Frenkie de Jong": 60, "Virgil van Dijk": 25},
+  "Belgium":     {"Jeremy Doku": 60, "Kevin De Bruyne": 30, "Romelu Lukaku": 30, "Amadou Onana": 50},
+  "Norway":      {"Erling Haaland": 180, "Martin Odegaard": 100, "Antonio Nusa": 45},
+  "Croatia":     {"Josko Gvardiol": 75, "Luka Modric": 8, "Mateo Kovacic": 35},
+  "Uruguay":     {"Federico Valverde": 130, "Darwin Nunez": 65, "Manuel Ugarte": 45},
+  "Morocco":     {"Achraf Hakimi": 60, "Brahim Diaz": 50, "Bilal El Khannouss": 40},
+  "Colombia":    {"Luis Diaz": 80, "James Rodriguez": 8, "Jhon Duran": 40},
+  "Japan":       {"Takefusa Kubo": 60, "Kaoru Mitoma": 50, "Wataru Endo": 20},
+  "USA":         {"Christian Pulisic": 60, "Weston McKennie": 30, "Yunus Musah": 30},
+  "Switzerland": {"Granit Xhaka": 25, "Dan Ndoye": 35, "Manuel Akanji": 40},
+  "Senegal":     {"Nicolas Jackson": 55, "Pape Matar Sarr": 45, "Iliman Ndiaye": 35}
+}
