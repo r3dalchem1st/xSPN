@@ -10,9 +10,9 @@ on:
     #   22:43 UTC = 00:43 Barcelona — catches the prior evening's matches
     #   05:43 UTC = 07:43 Barcelona — catches US-evening games (backup)
     #   07:43 UTC = 09:43 Barcelona — final morning refresh
-    - cron: '00 22 * * *'
-    - cron: '00 5 * * *'
-    - cron: '00 14 * * *'
+    - cron: '43 22 * * *'
+    - cron: '43 5 * * *'
+    - cron: '43 7 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
@@ -54,6 +54,15 @@ jobs:
           FD_API_KEY: ${{ secrets.FD_API_KEY }}
         run: python fetch_matches.py
 
+      - name: Fetch injuries (optional)
+        # Populates injuries.json from API-Football, valued via player_values.json.
+        # No API_FOOTBALL_KEY -> no-op. continue-on-error so a quota/API hiccup
+        # never breaks the daily forecast.
+        continue-on-error: true
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python fetch_injuries.py
+
       - name: Score predictions against actual results
         run: python score_predictions.py
 
@@ -76,7 +85,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json backtest_results.json wc_schedule.json
+          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json backtest_results.json wc_schedule.json injuries.json
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
           # Retry push against concurrent updates (overlapping runs / manual pushes):
