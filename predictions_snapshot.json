@@ -1844,5 +1844,57 @@
     "lam": 1.82,
     "mu": 2.35,
     "snapped_at": "2026-06-14"
+  },
+  "Ivory Coast|Norway": {
+    "home": "Ivory Coast",
+    "away": "Norway",
+    "group": "R32",
+    "predicted_score": "0\u20132",
+    "predicted_winner": "Norway",
+    "ph": 0.16,
+    "pd": 0.204,
+    "pa": 0.635,
+    "lam": 0.89,
+    "mu": 2.12,
+    "snapped_at": "2026-06-15"
+  },
+  "Germany|Sweden": {
+    "home": "Germany",
+    "away": "Sweden",
+    "group": "R32",
+    "predicted_score": "3\u20131",
+    "predicted_winner": "Germany",
+    "ph": 0.799,
+    "pd": 0.108,
+    "pa": 0.093,
+    "lam": 3.6,
+    "mu": 1.18,
+    "snapped_at": "2026-06-15"
+  },
+  "Qatar|USA": {
+    "home": "USA",
+    "away": "Qatar",
+    "group": "R32",
+    "predicted_score": "3\u20130",
+    "predicted_winner": "USA",
+    "ph": 0.843,
+    "pd": 0.095,
+    "pa": 0.062,
+    "lam": 3.65,
+    "mu": 0.85,
+    "snapped_at": "2026-06-15"
+  },
+  "Algeria|Switzerland": {
+    "home": "Switzerland",
+    "away": "Algeria",
+    "group": "R32",
+    "predicted_score": "0\u20130 (p)",
+    "predicted_winner": "Switzerland",
+    "ph": 0.363,
+    "pd": 0.352,
+    "pa": 0.285,
+    "lam": 0.87,
+    "mu": 0.71,
+    "snapped_at": "2026-06-15"
   }
 }
