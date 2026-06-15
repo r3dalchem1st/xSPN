@@ -34,9 +34,31 @@ SQUAD_VALUES = {
     "Georgia":100,"Ukraine":250,
 }
 _vals = list(SQUAD_VALUES.values())
-_med  = np.median(_vals)
+_med  = np.median(_vals)   # baseline median — always full-squad, injuries never move it
+
+# Optional manual injury list: team -> [{"player": str, "value_m": >0}]. We subtract
+# the out players' market value from the squad total before squad_adj, so a depleted
+# squad is rated weaker. Missing/empty file = no-op (feature off). Unknown teams warn.
+_INJ_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'injuries.json')
+def _load_injuries():
+    try:
+        with open(_INJ_FILE) as f:
+            data = json.load(f)
+    except (FileNotFoundError, ValueError):
+        return {}
+    out = {}
+    for team, players in data.items():
+        if team not in SQUAD_VALUES:
+            print(f"  injuries: unknown team {team!r} ignored"); continue
+        out[team] = sum(p["value_m"] for p in players
+                        if isinstance(p, dict)
+                        and isinstance(p.get("value_m"), (int, float)) and p["value_m"] > 0)
+    return out
+INJURIES_OUT = _load_injuries()   # team -> total €M unavailable
+
 def squad_adj(team):
-    v = SQUAD_VALUES.get(team, _med)
+    v = SQUAD_VALUES.get(team, _med) - INJURIES_OUT.get(team, 0)
+    v = max(v, 10)                # floor: a gutted squad can't drive log() negative
     return 0.12 * math.log(v / _med)
 
 # ── #2 + #4  IMPROVED ELO (opponent discount + recency decay) ────────────────

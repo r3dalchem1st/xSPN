@@ -105,6 +105,12 @@ const GR=__GROUPS__;
 const AC=__ACCURACY__;
 const WH=__WINHIST__;
 const SCH=__SCHEDULE__;
+const INJ=__INJURIES__;   // team -> {total_m, players[]} factored into squad value
+// Compact red note under an affected team's name (nothing if no injuries logged).
+function injNote(t){
+  const x=INJ[t]; if(!x) return '';
+  return `<div style="font-size:.66rem;color:#cc0000;font-weight:500" title="Unavailable players, subtracted from squad value">&minus;&euro;${x.total_m}M out: ${x.players.join(', ')}</div>`;
+}
 // Fallback ordering dates for knockout rounds (predicted matchups have no real
 // fixture yet); group games use their real date from SCH.
 const ROUND_DATE={group:null,r32:'2026-06-28',r16:'2026-07-04',qf:'2026-07-09',sf:'2026-07-14','3rd':'2026-07-18',final:'2026-07-19'};
@@ -142,7 +148,7 @@ function show(n){
       else dcell=`<span style="color:#cc0000;font-weight:600">&#9660;${Math.abs(dp).toFixed(1)}</span>`;
     }
     const band=(r.win_hi!=null&&r.win_hi>r.win_lo)?`<div style="font-size:.66rem;color:var(--hint);font-weight:400">${(r.win_lo*100).toFixed(0)}&ndash;${(r.win_hi*100).toFixed(0)}%</div>`:'';
-    h+=`<tr><td style="color:var(--hint);font-size:.8rem">${i+1}</td><td>${ft(t)} ${m}</td>
+    h+=`<tr><td style="color:var(--hint);font-size:.8rem">${i+1}</td><td>${ft(t)} ${m}${injNote(t)}</td>
     <td><strong class="${pc}">${(r.win*100).toFixed(1)}%</strong>${band}</td>
     <td style="font-size:.8rem;white-space:nowrap">${dcell}</td>
     <td><div class="bar-bg"><div class="bar-fill" style="width:${bw}%"></div></div></td>
