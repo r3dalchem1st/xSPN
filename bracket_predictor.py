@@ -7,7 +7,7 @@ import sys, json, math, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -115,21 +115,6 @@ def ko_result(lg, a, b):
     if ag > hg: return b
     return a if random.random() < pen_prob(a, b, ELO) else b
 
-def assign_thirds(best8):
-    elig = {s: e for s, e in R32_VAR}
-    slots = [s for s, _ in R32_VAR]
-    available = list(best8)
-    asgn = {}
-    for slot in slots:
-        for i, (pts, gd, gs, grp, team) in enumerate(available):
-            if grp in elig[slot]:
-                asgn[slot] = team; available.pop(i); break
-    ai = 0
-    for slot in slots:
-        if slot not in asgn and ai < len(available):
-            asgn[slot] = available[ai][4]; ai += 1
-    return asgn
-
 def sim_group(lg, teams):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
@@ -153,7 +138,7 @@ for _ in range(N):
         t3 = ranked[2]; st = s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
     thirds.sort(reverse=True)
-    var = assign_thirds(thirds[:8])
+    var = assign_thirds(thirds[:8], R32_VAR)
 
     def res(slot):
         if slot[0]=="1": return gw[slot[1]]
@@ -211,7 +196,7 @@ def ko_match_pred(team_a_info, team_b_info):
     a, a_pct = team_a_info
     b, b_pct = team_b_info
     if a == "TBD" or b == "TBD":
-        return {"home":a,"away":b,"score":"?–?","winner":"TBD","pct":0}
+        return {"home":a,"away":b,"score":"?–?","winner":"TBD","win_pct":0}
     lam, mu = LG_MEAN[(a, b)]
     ph, pd, pa = hda(a, b)                       # regulation-result H/D/A probs
     pw = ko_win_prob(a, b)                        # P(a advances, incl. shootout)
@@ -255,7 +240,7 @@ def modal_res(slot, var_asgn):
 # Best-8 third-place qualifiers, assigned to the variable R32 slots via the
 # simulation's eligibility logic (each team used exactly once).
 _thirds = sorted(((_xp[g][_rank[g][2]], 0, 0, g, _rank[g][2]) for g in GROUPS), reverse=True)
-var_asgn = assign_thirds(_thirds[:8])
+var_asgn = assign_thirds(_thirds[:8], R32_VAR)
 
 r32_matchups = [(modal_res(a, var_asgn), modal_res(b, var_asgn)) for a,b in R32_FIXED]
 for slot,_ in R32_VAR:

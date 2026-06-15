@@ -150,15 +150,8 @@ def main():
             known_keys.add(k)
             print(f"    + {m[0]} {m[1]} {m[3]}-{m[4]} {m[2]}")
 
-    # Nations League (if available on free tier)
-    print("  Fetching UEFA Nations League...")
-    nl = fetch_competition('UNL', 'Nations League', False)
-    for m in nl:
-        k = (m[0], m[1], m[2])
-        if k not in known_keys:
-            new_matches.append(m)
-            known_keys.add(k)
-            print(f"    + {m[0]} {m[1]} {m[3]}-{m[4]} {m[2]}")
+    # (Nations League fetch removed: not on the free tier — it only 403'd every
+    # run — and irrelevant during the World Cup, which the WC fetch above covers.)
 
     all_matches = existing + new_matches
     with open(CACHE_FILE, 'w') as f:

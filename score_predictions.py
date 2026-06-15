@@ -82,8 +82,6 @@ for match in fetched:
     if home != pred['home']:
         ph, pa = pa, ph
 
-    # Parse predicted goals from stored score string (e.g. "1–0")
-    parts = pred['predicted_score'].replace('\u2013', '-').split('-')
     nums = re.findall(r'\d+', pred['predicted_score'])   # robust to "1–1 (p)" etc.
     pred_hg = int(nums[0]) if len(nums) >= 2 else 0
     pred_ag = int(nums[1]) if len(nums) >= 2 else 0

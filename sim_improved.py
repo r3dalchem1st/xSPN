@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
 from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
-                          load_ensemble, rank_group)
+                          load_ensemble, rank_group, assign_thirds)
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -57,21 +57,6 @@ R32_VAR   = [("1E",{"A","B","C","D","F"}),("1I",{"C","D","F","G","H"}),
              ("1D",{"B","E","F","I","J"}),("1G",{"A","E","H","I","J"}),
              ("1B",{"E","F","G","I","J"}),("1K",{"D","E","I","J","L"})]
 
-def assign_thirds(best8):
-    elig = {s: e for s, e in R32_VAR}
-    slots = [s for s, _ in R32_VAR]
-    available = list(best8)
-    asgn = {}
-    for slot in slots:
-        for i, (pts, gd, gs, grp, team) in enumerate(available):
-            if grp in elig[slot]:
-                asgn[slot] = team; available.pop(i); break
-    ai = 0
-    for slot in slots:
-        if slot not in asgn and ai < len(available):
-            asgn[slot] = available[ai][4]; ai += 1
-    return asgn
-
 R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
 QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
@@ -97,7 +82,7 @@ def sim_tournament(lg):
         t3=ranked[2]; st=s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
     thirds.sort(reverse=True)
-    var = assign_thirds(thirds[:8])
+    var = assign_thirds(thirds[:8], R32_VAR)
     def res(slot):
         if slot[0]=="1": return gw[slot[1]]
         if slot[0]=="2": return gr[slot[1]]
