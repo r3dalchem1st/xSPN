@@ -246,6 +246,11 @@ function show(n){
   document.getElementById('tab-bracket').innerHTML=h+'</div></div>'+legend;
 })();
 (function(){
+  // Once a match is played its prediction FREEZES to the locked pre-match snapshot
+  // (from the Results data) — we never re-predict a completed game with today's model.
+  const frozen={};
+  (AC.matches||[]).forEach(x=>{frozen[[x.home,x.away].sort().join('|')]=
+    {score:x.predicted_score,winner:x.predicted_winner,ph:x.ph,pd:x.pd,pa:x.pa};});
   const all=[];
   Object.entries(B.group_predictions).forEach(([g,ms])=>ms.forEach(m=>all.push({...m,stage:'Group '+g,sk:'group',badge:'sb-g'})));
   [{k:'r32',l:'R32',b:'sb-r32'},{k:'r16',l:'R16',b:'sb-r16'},{k:'qf',l:'QF',b:'sb-qf'},{k:'sf',l:'SF',b:'sb-sf'}]
@@ -266,12 +271,15 @@ function show(n){
   all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
   window._AM=all;
   function rowHtml(m){
-    const pct=m.win_pct!=null?m.win_pct+'%':(m.ph?`${(m.ph*100).toFixed(0)}/${(m.pd*100).toFixed(0)}/${(m.pa*100).toFixed(0)}%`:'');
-    const w=m.winner||m.likely_winner;
+    const fz=m._result?frozen[[m.home,m.away].sort().join('|')]:null;   // frozen once played
+    const score=fz?fz.score:m.score;
+    const w=fz?fz.winner:(m.winner||m.likely_winner);
+    const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
+    const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
     const res=m._result?`<strong>${m._result}</strong>`:'<span style="color:var(--hint)">&mdash;</span>';
     return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
       <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
-      <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${m.score}</td>
+      <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
       <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
       <td class="win-cell">${ft(w)}</td>
       <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
