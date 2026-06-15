@@ -55,10 +55,14 @@ for g, fixtures in GROUP_FIXTURES.items():
     for home, away, mn in fixtures:
         lam, mu = LG_MEAN[(home, away)]
         ph, pd, pa = hda(home, away)
-        # Predicted RESULT = genuinely most likely outcome (draw included), and a
-        # scoreline consistent with it — no more "1-1 but Team X wins".
-        oc = 'H' if (ph >= pd and ph >= pa) else ('A' if (pa >= pd and pa >= ph) else 'D')
-        hs, as_ = likely_score(lam, mu, allowed={oc})
+        # Predicted scoreline = the single most likely EXACT scoreline (MAP over the
+        # Poisson grid). Home-win probability is spread over many scorelines
+        # (1-0, 2-0, 2-1, …) while draw mass concentrates on 0-0/1-1, so the modal
+        # scoreline is often a draw even when P(home win) > P(draw) as an outcome —
+        # this calls draws when they are genuinely most likely (the old argmax-
+        # outcome-first rule never predicted one: 0/13 live vs 38% actual draws).
+        hs, as_ = likely_score(lam, mu)            # unconstrained MAP scoreline
+        oc = 'H' if hs > as_ else ('A' if hs < as_ else 'D')
         preds.append({
             "home": home, "away": away,
             "lam": round(lam,2), "mu": round(mu,2),
