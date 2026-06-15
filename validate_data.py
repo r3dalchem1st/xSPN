@@ -44,6 +44,26 @@ for i, row in enumerate(MATCHES):
         errors.append(f"{where} — exact duplicate of an earlier row")
     seen[key] = row
 
+# Injuries (optional): warn on malformed entries / unknown teams, never hard-fail.
+import json
+from fit_improved import SQUAD_VALUES
+_inj_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'injuries.json')
+if os.path.exists(_inj_path):
+    try:
+        with open(_inj_path) as f:
+            _inj = json.load(f)
+        for team, players in _inj.items():
+            if team not in SQUAD_VALUES:
+                warnings.append(f"injuries: unknown team {team!r} (ignored)")
+            if not isinstance(players, list):
+                warnings.append(f"injuries[{team!r}] is not a list"); continue
+            for p in players:
+                if not (isinstance(p, dict) and isinstance(p.get("player"), str)
+                        and isinstance(p.get("value_m"), (int, float)) and p["value_m"] > 0):
+                    warnings.append(f"injuries[{team!r}] bad entry {p!r}")
+    except ValueError as e:
+        warnings.append(f"injuries.json could not be parsed: {e}")
+
 print(f"Validated {len(MATCHES)} matches: {len(errors)} error(s), {len(warnings)} warning(s).")
 for w in warnings[:20]: print("  WARN:", w)
 for e in errors[:40]:   print("  ERROR:", e)

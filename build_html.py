@@ -71,6 +71,19 @@ if os.path.exists(_sched_file):
     with open(_sched_file) as f:
         schedule = json.load(f)
 
+# Injuries factored into squad values (team -> {total_m, players}). Empty/missing = none.
+_inj_file = os.path.join(DIR, 'injuries.json')
+injuries = {}
+if os.path.exists(_inj_file):
+    with open(_inj_file) as f:
+        _raw_inj = json.load(f)
+    for team, players in _raw_inj.items():
+        valid = [p for p in players if isinstance(p, dict)
+                 and isinstance(p.get('value_m'), (int, float)) and p['value_m'] > 0]
+        if team in SQUAD and valid:
+            injuries[team] = {"total_m": sum(p['value_m'] for p in valid),
+                              "players": [p.get('player', '?') for p in valid]}
+
 results_json  = json.dumps(results)
 winhist_json  = json.dumps(winhist)
 schedule_json = json.dumps(schedule)
@@ -80,6 +93,7 @@ squad_json    = json.dumps(SQUAD)
 flags_json    = json.dumps(FLAGS)
 groups_json   = json.dumps(GROUPS)
 accuracy_json = json.dumps(accuracy)
+injuries_json = json.dumps(injuries)
 
 with open(os.path.join(DIR, 'template.html'), encoding='utf-8') as f:
     html = f.read()
@@ -94,6 +108,7 @@ html = (html
     .replace('__ACCURACY__', accuracy_json)
     .replace('__WINHIST__',  winhist_json)
     .replace('__SCHEDULE__', schedule_json)
+    .replace('__INJURIES__', injuries_json)
     .replace('__UPDATED__',  UPDATED)
 )
 
