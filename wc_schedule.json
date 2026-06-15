@@ -97,10 +97,10 @@
   },
   "Cape Verde|Spain": {
     "date": "2026-06-15",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Spain": null,
-      "Cape Verde": null
+      "Spain": 0,
+      "Cape Verde": 0
     }
   },
   "Belgium|Egypt": {
