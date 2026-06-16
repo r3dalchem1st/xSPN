@@ -121,18 +121,18 @@
   },
   "Iran|New Zealand": {
     "date": "2026-06-16",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Iran": null,
-      "New Zealand": null
+      "Iran": 2,
+      "New Zealand": 2
     }
   },
   "France|Senegal": {
     "date": "2026-06-16",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "France": null,
-      "Senegal": null
+      "France": 3,
+      "Senegal": 1
     }
   },
   "Iraq|Norway": {
