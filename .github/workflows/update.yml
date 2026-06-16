@@ -10,9 +10,8 @@ on:
     #   22:43 UTC = 00:43 Barcelona — catches the prior evening's matches
     #   05:43 UTC = 07:43 Barcelona — catches US-evening games (backup)
     #   07:43 UTC = 09:43 Barcelona — final morning refresh
-    - cron: '43 22 * * *'
-    - cron: '43 5 * * *'
-    - cron: '43 7 * * *'
+    - cron: '15 19 * * *'
+    - cron: '30 6  * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
