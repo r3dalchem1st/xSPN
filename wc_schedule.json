@@ -113,10 +113,10 @@
   },
   "Saudi Arabia|Uruguay": {
     "date": "2026-06-15",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Saudi Arabia": null,
-      "Uruguay": null
+      "Saudi Arabia": 1,
+      "Uruguay": 1
     }
   },
   "Iran|New Zealand": {
