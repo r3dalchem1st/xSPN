@@ -137,26 +137,26 @@
   },
   "Iraq|Norway": {
     "date": "2026-06-16",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Iraq": null,
-      "Norway": null
+      "Iraq": 1,
+      "Norway": 4
     }
   },
   "Algeria|Argentina": {
     "date": "2026-06-17",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Argentina": null,
-      "Algeria": null
+      "Argentina": 3,
+      "Algeria": 0
     }
   },
   "Austria|Jordan": {
     "date": "2026-06-17",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Austria": null,
-      "Jordan": null
+      "Austria": 3,
+      "Jordan": 1
     }
   },
   "DR Congo|Portugal": {
