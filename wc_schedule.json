@@ -161,18 +161,18 @@
   },
   "DR Congo|Portugal": {
     "date": "2026-06-17",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Portugal": null,
-      "DR Congo": null
+      "Portugal": 1,
+      "DR Congo": 1
     }
   },
   "Croatia|England": {
     "date": "2026-06-17",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "England": null,
-      "Croatia": null
+      "England": 3,
+      "Croatia": 2
     }
   },
   "Ghana|Panama": {

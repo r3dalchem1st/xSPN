@@ -379,15 +379,34 @@
       "total_goal_error": 2,
       "brier": 0.051,
       "logloss": 0.2009
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Portugal",
+      "away": "DR Congo",
+      "group": "K",
+      "predicted_score": "1\u20130",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Portugal",
+      "ph": 0.489,
+      "pd": 0.298,
+      "pa": 0.213,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.7773,
+      "logloss": 1.2107
     }
   ],
   "summary": {
-    "total_matches": 20,
+    "total_matches": 21,
     "correct_winners": 9,
-    "accuracy": 0.45,
-    "avg_goal_error": 2.1,
-    "avg_brier": 0.7489,
-    "avg_logloss": 1.242,
+    "accuracy": 0.4286,
+    "avg_goal_error": 2.048,
+    "avg_brier": 0.7502,
+    "avg_logloss": 1.2405,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -397,8 +416,8 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 3,
-        "predicted": 0.472,
+        "n": 4,
+        "predicted": 0.477,
         "actual": 0.0
       },
       {
