@@ -151,5 +151,32 @@
     1,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-16",
+    "Iraq",
+    "Norway",
+    1,
+    4,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-17",
+    "Argentina",
+    "Algeria",
+    3,
+    0,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-17",
+    "Austria",
+    "Jordan",
+    3,
+    1,
+    "World Cup",
+    true
   ]
 ]

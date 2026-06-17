@@ -1948,5 +1948,31 @@
     "lam": 1.48,
     "mu": 1.0,
     "snapped_at": "2026-06-15"
+  },
+  "France|Turkey": {
+    "home": "France",
+    "away": "Turkey",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "France",
+    "ph": 0.6,
+    "pd": 0.222,
+    "pa": 0.178,
+    "lam": 1.88,
+    "mu": 0.89,
+    "snapped_at": "2026-06-17"
+  },
+  "Egypt|Switzerland": {
+    "home": "Switzerland",
+    "away": "Egypt",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Switzerland",
+    "ph": 0.434,
+    "pd": 0.271,
+    "pa": 0.294,
+    "lam": 1.36,
+    "mu": 1.06,
+    "snapped_at": "2026-06-17"
   }
 }

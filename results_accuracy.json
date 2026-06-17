@@ -322,21 +322,78 @@
       "total_goal_error": 3,
       "brier": 0.1819,
       "logloss": 0.4246
+    },
+    {
+      "date": "2026-06-16",
+      "home": "Norway",
+      "away": "Iraq",
+      "group": "I",
+      "predicted_score": "2\u20130",
+      "actual_score": "4\u20131",
+      "predicted_winner": "Norway",
+      "ph": 0.786,
+      "pd": 0.176,
+      "pa": 0.038,
+      "actual_winner": "Norway",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 1.5742,
+      "logloss": 3.2702
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Argentina",
+      "away": "Algeria",
+      "group": "J",
+      "predicted_score": "1\u20130",
+      "actual_score": "3\u20130",
+      "predicted_winner": "Argentina",
+      "ph": 0.41,
+      "pd": 0.398,
+      "pa": 0.192,
+      "actual_winner": "Argentina",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.5434,
+      "logloss": 0.8916
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Austria",
+      "away": "Jordan",
+      "group": "J",
+      "predicted_score": "2\u20130",
+      "actual_score": "3\u20131",
+      "predicted_winner": "Austria",
+      "ph": 0.818,
+      "pd": 0.117,
+      "pa": 0.065,
+      "actual_winner": "Austria",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.051,
+      "logloss": 0.2009
     }
   ],
   "summary": {
-    "total_matches": 17,
-    "correct_winners": 6,
-    "accuracy": 0.3529,
-    "avg_goal_error": 2.059,
-    "avg_brier": 0.7535,
-    "avg_logloss": 1.2046,
+    "total_matches": 20,
+    "correct_winners": 9,
+    "accuracy": 0.45,
+    "avg_goal_error": 2.1,
+    "avg_brier": 0.7489,
+    "avg_logloss": 1.242,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 7,
+        "n": 8,
         "predicted": 0.406,
-        "actual": 0.286
+        "actual": 0.375
       },
       {
         "bin": "45\u201355%",
@@ -358,9 +415,9 @@
       },
       {
         "bin": "75%+",
-        "n": 3,
-        "predicted": 0.813,
-        "actual": 0.333
+        "n": 5,
+        "predicted": 0.809,
+        "actual": 0.4
       }
     ]
   }
