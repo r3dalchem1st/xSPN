@@ -1974,5 +1974,44 @@
     "lam": 1.36,
     "mu": 1.06,
     "snapped_at": "2026-06-17"
+  },
+  "Cape Verde|South Korea": {
+    "home": "South Korea",
+    "away": "Cape Verde",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "South Korea",
+    "ph": 0.371,
+    "pd": 0.284,
+    "pa": 0.345,
+    "lam": 1.18,
+    "mu": 1.12,
+    "snapped_at": "2026-06-17"
+  },
+  "Ecuador|England": {
+    "home": "England",
+    "away": "Ecuador",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "England",
+    "ph": 0.424,
+    "pd": 0.319,
+    "pa": 0.257,
+    "lam": 1.07,
+    "mu": 0.76,
+    "snapped_at": "2026-06-17"
+  },
+  "Sweden|USA": {
+    "home": "USA",
+    "away": "Sweden",
+    "group": "R32",
+    "predicted_score": "2\u20131",
+    "predicted_winner": "USA",
+    "ph": 0.563,
+    "pd": 0.177,
+    "pa": 0.26,
+    "lam": 2.64,
+    "mu": 1.77,
+    "snapped_at": "2026-06-17"
   }
 }
