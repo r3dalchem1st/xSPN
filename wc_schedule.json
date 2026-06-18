@@ -169,26 +169,26 @@
   },
   "Croatia|England": {
     "date": "2026-06-17",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "England": 3,
+      "England": 4,
       "Croatia": 2
     }
   },
   "Ghana|Panama": {
     "date": "2026-06-17",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Ghana": null,
-      "Panama": null
+      "Ghana": 1,
+      "Panama": 0
     }
   },
   "Colombia|Uzbekistan": {
     "date": "2026-06-18",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Uzbekistan": null,
-      "Colombia": null
+      "Uzbekistan": 1,
+      "Colombia": 3
     }
   },
   "Czechia|South Africa": {
