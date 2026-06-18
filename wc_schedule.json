@@ -193,18 +193,18 @@
   },
   "Czechia|South Africa": {
     "date": "2026-06-18",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Czechia": null,
-      "South Africa": null
+      "Czechia": 1,
+      "South Africa": 1
     }
   },
   "Bosnia|Switzerland": {
     "date": "2026-06-18",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Switzerland": null,
-      "Bosnia": null
+      "Switzerland": 4,
+      "Bosnia": 1
     }
   },
   "Canada|Qatar": {
