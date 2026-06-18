@@ -455,21 +455,59 @@
       "total_goal_error": 3,
       "brier": 0.5906,
       "logloss": 0.9808
+    },
+    {
+      "date": "2026-06-18",
+      "home": "South Africa",
+      "away": "Czechia",
+      "group": "A",
+      "predicted_score": "0\u20131",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Czechia",
+      "ph": 0.309,
+      "pd": 0.295,
+      "pa": 0.396,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.7493,
+      "logloss": 1.2208
+    },
+    {
+      "date": "2026-06-18",
+      "home": "Switzerland",
+      "away": "Bosnia",
+      "group": "B",
+      "predicted_score": "2\u20130",
+      "actual_score": "4\u20131",
+      "predicted_winner": "Switzerland",
+      "ph": 0.77,
+      "pd": 0.143,
+      "pa": 0.087,
+      "actual_winner": "Switzerland",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 0.0809,
+      "logloss": 0.2614
     }
   ],
   "summary": {
-    "total_matches": 24,
-    "correct_winners": 12,
+    "total_matches": 26,
+    "correct_winners": 13,
     "accuracy": 0.5,
-    "avg_goal_error": 2.333,
-    "avg_brier": 0.6951,
-    "avg_logloss": 1.1569,
+    "avg_goal_error": 2.308,
+    "avg_brier": 0.6736,
+    "avg_logloss": 1.1249,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 9,
-        "predicted": 0.403,
-        "actual": 0.444
+        "n": 10,
+        "predicted": 0.402,
+        "actual": 0.4
       },
       {
         "bin": "45\u201355%",
@@ -491,9 +529,9 @@
       },
       {
         "bin": "75%+",
-        "n": 6,
-        "predicted": 0.821,
-        "actual": 0.5
+        "n": 7,
+        "predicted": 0.814,
+        "actual": 0.571
       }
     ]
   }
