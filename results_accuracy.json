@@ -398,27 +398,84 @@
       "total_goal_error": 1,
       "brier": 0.7773,
       "logloss": 1.2107
+    },
+    {
+      "date": "2026-06-17",
+      "home": "England",
+      "away": "Croatia",
+      "group": "L",
+      "predicted_score": "1\u20130",
+      "actual_score": "4\u20132",
+      "predicted_winner": "England",
+      "ph": 0.544,
+      "pd": 0.277,
+      "pa": 0.18,
+      "actual_winner": "England",
+      "correct_winner": true,
+      "home_error": 3,
+      "away_error": 2,
+      "total_goal_error": 5,
+      "brier": 0.3171,
+      "logloss": 0.6088
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Ghana",
+      "away": "Panama",
+      "group": "L",
+      "predicted_score": "5\u20131",
+      "actual_score": "1\u20130",
+      "predicted_winner": "Ghana",
+      "ph": 0.883,
+      "pd": 0.066,
+      "pa": 0.052,
+      "actual_winner": "Ghana",
+      "correct_winner": true,
+      "home_error": 4,
+      "away_error": 1,
+      "total_goal_error": 5,
+      "brier": 0.0207,
+      "logloss": 0.1244
+    },
+    {
+      "date": "2026-06-18",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "group": "K",
+      "predicted_score": "0\u20131",
+      "actual_score": "1\u20133",
+      "predicted_winner": "Colombia",
+      "ph": 0.264,
+      "pd": 0.361,
+      "pa": 0.375,
+      "actual_winner": "Colombia",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 2,
+      "total_goal_error": 3,
+      "brier": 0.5906,
+      "logloss": 0.9808
     }
   ],
   "summary": {
-    "total_matches": 21,
-    "correct_winners": 9,
-    "accuracy": 0.4286,
-    "avg_goal_error": 2.048,
-    "avg_brier": 0.7502,
-    "avg_logloss": 1.2405,
+    "total_matches": 24,
+    "correct_winners": 12,
+    "accuracy": 0.5,
+    "avg_goal_error": 2.333,
+    "avg_brier": 0.6951,
+    "avg_logloss": 1.1569,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 8,
-        "predicted": 0.406,
-        "actual": 0.375
+        "n": 9,
+        "predicted": 0.403,
+        "actual": 0.444
       },
       {
         "bin": "45\u201355%",
-        "n": 4,
-        "predicted": 0.477,
-        "actual": 0.0
+        "n": 5,
+        "predicted": 0.49,
+        "actual": 0.2
       },
       {
         "bin": "55\u201365%",
@@ -434,9 +491,9 @@
       },
       {
         "bin": "75%+",
-        "n": 5,
-        "predicted": 0.809,
-        "actual": 0.4
+        "n": 6,
+        "predicted": 0.821,
+        "actual": 0.5
       }
     ]
   }
