@@ -209,10 +209,10 @@
   },
   "Canada|Qatar": {
     "date": "2026-06-18",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Canada": null,
-      "Qatar": null
+      "Canada": 0,
+      "Qatar": 0
     }
   },
   "Mexico|South Korea": {
