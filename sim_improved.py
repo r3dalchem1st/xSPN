@@ -13,12 +13,21 @@ warnings.filterwarnings("ignore")
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
 from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
-                          load_ensemble, rank_group, assign_thirds)
+                          load_ensemble, rank_group, assign_thirds, played_group_results)
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO  = cache["elo"];  DC = cache["dc"]
+
+# Condition the tournament on results already played: real group scores are fixed,
+# only the remaining group games are simulated. Without this the sim re-predicts
+# every group game each run, so standings/odds ignore what actually happened.
+try:
+    with open(os.path.join(_DIR, "wc_schedule.json")) as f:
+        PLAYED = played_group_results(json.load(f))
+except (FileNotFoundError, ValueError):
+    PLAYED = {g: {} for g in GROUPS}
 
 # Bootstrap ensemble: one (host-aware, squad-symmetric) lambda table per refit.
 # Each simulated tournament draws a random member, propagating parameter
@@ -61,12 +70,12 @@ R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
 QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
-def sim_group(lg, teams):
+def sim_group(lg, teams, played):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
         for j in range(i+1,len(teams)):
             h,a = teams[i],teams[j]
-            hg,ag = sim_score_g(lg,h,a)
+            hg,ag = played[(h,a)] if (h,a) in played else sim_score_g(lg,h,a)
             res[(h,a)] = (hg,ag)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
@@ -77,7 +86,7 @@ def sim_group(lg, teams):
 def sim_tournament(lg):
     gw,gr = {},{}; thirds=[]
     for g,teams in GROUPS.items():
-        ranked,s = sim_group(lg,teams)
+        ranked,s = sim_group(lg,teams,PLAYED[g])
         gw[g],gr[g] = ranked[0],ranked[1]
         t3=ranked[2]; st=s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
