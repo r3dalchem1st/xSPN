@@ -7,11 +7,14 @@ on:
     # minutes off the top of the hour (load spikes at :00), and (2) use redundant
     # slots so a dropped run is backed up by a later one. Times are UTC; during
     # the WC Barcelona is CEST (UTC+2). GitHub cron does NOT follow DST.
-    #   22:43 UTC = 00:43 Barcelona — catches the prior evening's matches
-    #   05:43 UTC = 07:43 Barcelona — catches US-evening games (backup)
-    #   07:43 UTC = 09:43 Barcelona — final morning refresh
-    - cron: '15 19 * * *'
-    - cron: '30 6  * * *'
+    #   21:40 UTC = 23:40 Barcelona
+    #   00:20 UTC = 02:20 Barcelona
+    #   04:40 UTC = 06:40 Barcelona
+    #   18:40 UTC = 20:40 Barcelona
+    - cron: '40 21 * * *'
+    - cron: '20 0 * * *'
+    - cron: '40 4 * * *'
+    - cron: '40 18 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 

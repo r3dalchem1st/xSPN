@@ -7,7 +7,7 @@ import sys, json, math, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score, played_group_results
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -24,6 +24,13 @@ NMEM = len(LG_ENS)
 # Ensemble-mean (lam, mu) per ordered pair — for the displayed most-likely score.
 LG_MEAN = {k: (sum(lg[k][0] for lg in LG_ENS)/NMEM, sum(lg[k][1] for lg in LG_ENS)/NMEM)
            for k in LG_ENS[0]}
+
+# Condition on group games already played: fix their real scores, predict the rest.
+try:
+    with open(os.path.join(_DIR, "wc_schedule.json")) as f:
+        PLAYED = played_group_results(json.load(f))
+except (FileNotFoundError, ValueError):
+    PLAYED = {g: {} for g in GROUPS}
 
 # Everything below is deterministic — seed the RNG once, up front.
 random.seed(42); np.random.seed(42)
@@ -101,12 +108,12 @@ def ko_result(lg, a, b):
     if ag > hg: return b
     return a if random.random() < pen_prob(a, b, ELO) else b
 
-def sim_group(lg, teams):
+def sim_group(lg, teams, played):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
         for j in range(i+1, len(teams)):
             h, a = teams[i], teams[j]
-            hg, ag = sim_score(lg, h, a)
+            hg, ag = played[(h,a)] if (h,a) in played else sim_score(lg, h, a)
             res[(h,a)] = (hg,ag)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
@@ -119,7 +126,7 @@ for _ in range(N):
     lg = LG_ENS[random.randrange(NMEM)]   # draw a bootstrap member per tournament
     gw, gr = {}, {}; thirds = []
     for g, teams in GROUPS.items():
-        ranked, s = sim_group(lg, teams)
+        ranked, s = sim_group(lg, teams, PLAYED[g])
         gw[g], gr[g] = ranked[0], ranked[1]
         t3 = ranked[2]; st = s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
@@ -155,7 +162,7 @@ for g, teams in GROUPS.items():
     # Simulate group standing distribution
     win_cnt   = Counter(); ru_cnt = Counter(); t3_cnt = Counter()
     for _ in range(20000):
-        ranked, _ = sim_group(LG_ENS[random.randrange(NMEM)], teams)
+        ranked, _ = sim_group(LG_ENS[random.randrange(NMEM)], teams, PLAYED[g])
         win_cnt[ranked[0]] += 1; ru_cnt[ranked[1]] += 1; t3_cnt[ranked[2]] += 1
     GROUP_ADVANCE[g] = {
         "winner": win_cnt.most_common(1)[0],
@@ -206,15 +213,33 @@ def ko_match_pred(team_a_info, team_b_info):
 # distinct teams (the old code derived winner/runner from a frequency sim but
 # thirds from expected points, so a modal runner-up could also be picked as a
 # best third and the team appeared in the bracket twice).
-def _expected_points(g):
-    xp = {t: 0.0 for t in GROUPS[g]}
+def _expected_standings(g):
+    """Group standings [pts, goal-diff, goals-for] mixing ACTUAL results for played
+    matches with model expectations (3·P + E[goals]) for the rest — so the seeded
+    bracket reflects the real table, not a from-scratch re-prediction."""
+    s = {t: [0.0, 0.0, 0.0] for t in GROUPS[g]}
+    res = {}
     for m in group_predictions[g]:
-        xp[m["home"]] += 3*m["ph"] + m["pd"]
-        xp[m["away"]] += 3*m["pa"] + m["pd"]
-    return xp
+        h, a = m["home"], m["away"]
+        if (h, a) in PLAYED[g]:
+            hg, ag = PLAYED[g][(h, a)]
+            res[(h, a)] = (hg, ag)
+            if hg > ag: s[h][0] += 3
+            elif ag > hg: s[a][0] += 3
+            else: s[h][0] += 1; s[a][0] += 1
+            s[h][1] += hg - ag; s[a][1] += ag - hg; s[h][2] += hg; s[a][2] += ag
+        else:
+            s[h][0] += 3*m["ph"] + m["pd"]; s[a][0] += 3*m["pa"] + m["pd"]
+            s[h][1] += m["lam"] - m["mu"];  s[a][1] += m["mu"] - m["lam"]
+            s[h][2] += m["lam"];            s[a][2] += m["mu"]
+    return s, res
 
-_xp   = {g: _expected_points(g) for g in GROUPS}
-_rank = {g: sorted(GROUPS[g], key=lambda t: -_xp[g][t]) for g in GROUPS}
+# Deterministic seeding: full FIFA tiebreakers (rank_group) on the mixed standings,
+# with a constant tiebreak so the displayed bracket path is stable across runs.
+_stand, _rank = {}, {}
+for g in GROUPS:
+    _stand[g], _res = _expected_standings(g)
+    _rank[g] = rank_group(GROUPS[g], _stand[g], _res, lambda: 0)
 modal_gw = {g: _rank[g][0] for g in GROUPS}
 modal_gr = {g: _rank[g][1] for g in GROUPS}
 
@@ -225,7 +250,8 @@ def modal_res(slot, var_asgn):
 
 # Best-8 third-place qualifiers, assigned to the variable R32 slots via the
 # simulation's eligibility logic (each team used exactly once).
-_thirds = sorted(((_xp[g][_rank[g][2]], 0, 0, g, _rank[g][2]) for g in GROUPS), reverse=True)
+_thirds = sorted(((_stand[g][_rank[g][2]][0], _stand[g][_rank[g][2]][1],
+                   _stand[g][_rank[g][2]][2], g, _rank[g][2]) for g in GROUPS), reverse=True)
 var_asgn = assign_thirds(_thirds[:8], R32_VAR)
 
 r32_matchups = [(modal_res(a, var_asgn), modal_res(b, var_asgn)) for a,b in R32_FIXED]

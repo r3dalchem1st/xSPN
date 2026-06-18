@@ -123,6 +123,24 @@ def rank_group(teams, s, results, tiebreak):
     return out
 
 
+def played_group_results(schedule):
+    """{group: {(home,away): (hg,ag)}} for FINISHED group-stage matches, oriented to
+    each group's fixture order (home=teams[i], away=teams[j]) so it lines up with
+    sim_group / group_predictions. `schedule` is wc_schedule.json (keyed by sorted
+    pair, goals stored by team name). Lets the sim and bracket condition on what has
+    actually happened instead of re-predicting every group game from scratch."""
+    out = {g: {} for g in GROUPS}
+    for g, teams in GROUPS.items():
+        for i in range(len(teams)):
+            for j in range(i + 1, len(teams)):
+                h, a = teams[i], teams[j]
+                info = schedule.get('|'.join(sorted([h, a]))) or {}
+                goals = info.get('goals') or {}
+                if info.get('status') == 'FINISHED' and h in goals and a in goals:
+                    out[g][(h, a)] = (goals[h], goals[a])
+    return out
+
+
 def assign_thirds(best8, r32_var):
     """Assign the 8 best third-place teams to the variable R32 slots so each third
     lands in an ELIGIBLE slot, one-to-one. Each slot's eligibility set excludes its
