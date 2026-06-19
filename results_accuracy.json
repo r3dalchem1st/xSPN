@@ -493,15 +493,53 @@
       "total_goal_error": 3,
       "brier": 0.0809,
       "logloss": 0.2614
+    },
+    {
+      "date": "2026-06-18",
+      "home": "Canada",
+      "away": "Qatar",
+      "group": "B",
+      "predicted_score": "0\u20131",
+      "actual_score": "6\u20130",
+      "predicted_winner": "Qatar",
+      "ph": 0.229,
+      "pd": 0.236,
+      "pa": 0.535,
+      "actual_winner": "Canada",
+      "correct_winner": false,
+      "home_error": 6,
+      "away_error": 1,
+      "total_goal_error": 7,
+      "brier": 0.9364,
+      "logloss": 1.474
+    },
+    {
+      "date": "2026-06-19",
+      "home": "Mexico",
+      "away": "South Korea",
+      "group": "A",
+      "predicted_score": "0\u20131",
+      "actual_score": "1\u20130",
+      "predicted_winner": "South Korea",
+      "ph": 0.155,
+      "pd": 0.253,
+      "pa": 0.592,
+      "actual_winner": "Mexico",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 1.1285,
+      "logloss": 1.8643
     }
   ],
   "summary": {
-    "total_matches": 26,
+    "total_matches": 28,
     "correct_winners": 13,
-    "accuracy": 0.5,
-    "avg_goal_error": 2.308,
-    "avg_brier": 0.6736,
-    "avg_logloss": 1.1249,
+    "accuracy": 0.4643,
+    "avg_goal_error": 2.464,
+    "avg_brier": 0.6992,
+    "avg_logloss": 1.1638,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -511,15 +549,15 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 5,
-        "predicted": 0.49,
-        "actual": 0.2
+        "n": 6,
+        "predicted": 0.498,
+        "actual": 0.167
       },
       {
         "bin": "55\u201365%",
-        "n": 2,
-        "predicted": 0.558,
-        "actual": 0.5
+        "n": 3,
+        "predicted": 0.569,
+        "actual": 0.333
       },
       {
         "bin": "65\u201375%",

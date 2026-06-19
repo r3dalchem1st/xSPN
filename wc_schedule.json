@@ -209,18 +209,18 @@
   },
   "Canada|Qatar": {
     "date": "2026-06-18",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Canada": 0,
+      "Canada": 6,
       "Qatar": 0
     }
   },
   "Mexico|South Korea": {
     "date": "2026-06-19",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Mexico": null,
-      "South Korea": null
+      "Mexico": 1,
+      "South Korea": 0
     }
   },
   "Australia|USA": {
