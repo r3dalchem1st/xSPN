@@ -225,7 +225,7 @@
   },
   "Australia|USA": {
     "date": "2026-06-19",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "USA": 2,
       "Australia": 0
@@ -233,10 +233,10 @@
   },
   "Morocco|Scotland": {
     "date": "2026-06-19",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Scotland": null,
-      "Morocco": null
+      "Scotland": 0,
+      "Morocco": 1
     }
   },
   "Brazil|Haiti": {

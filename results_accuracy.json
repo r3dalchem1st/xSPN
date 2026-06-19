@@ -531,15 +531,34 @@
       "total_goal_error": 2,
       "brier": 1.1285,
       "logloss": 1.8643
+    },
+    {
+      "date": "2026-06-19",
+      "home": "USA",
+      "away": "Australia",
+      "group": "D",
+      "predicted_score": "0\u20131",
+      "actual_score": "2\u20130",
+      "predicted_winner": "Australia",
+      "ph": 0.247,
+      "pd": 0.273,
+      "pa": 0.48,
+      "actual_winner": "USA",
+      "correct_winner": false,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 0.8719,
+      "logloss": 1.3984
     }
   ],
   "summary": {
-    "total_matches": 28,
+    "total_matches": 29,
     "correct_winners": 13,
-    "accuracy": 0.4643,
-    "avg_goal_error": 2.464,
-    "avg_brier": 0.6458,
-    "avg_logloss": 1.0556,
+    "accuracy": 0.4483,
+    "avg_goal_error": 2.483,
+    "avg_brier": 0.6536,
+    "avg_logloss": 1.0674,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -549,9 +568,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 6,
-        "predicted": 0.498,
-        "actual": 0.167
+        "n": 7,
+        "predicted": 0.495,
+        "actual": 0.143
       },
       {
         "bin": "55\u201365%",
