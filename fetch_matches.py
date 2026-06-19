@@ -61,7 +61,10 @@ def load_existing():
     return []
 
 def existing_keys(existing):
-    return {(m[0], m[1], m[2]) for m in existing}  # (date, home, away)
+    # Key by date + UNORDERED pair so an orientation flip (home/away swapped between
+    # API responses) doesn't append the same fixture twice. Matches how the rest of
+    # the pipeline keys by sorted([home, away]).
+    return {(m[0], tuple(sorted((m[1], m[2])))) for m in existing}
 
 def fetch_competition(code, label, neutral):
     """Fetch finished matches for a competition in the last 90 days."""
@@ -144,7 +147,7 @@ def main():
     print("  Fetching World Cup 2026 matches...")
     wc = fetch_competition('WC', 'World Cup', True)
     for m in wc:
-        k = (m[0], m[1], m[2])
+        k = (m[0], tuple(sorted((m[1], m[2]))))
         if k not in known_keys:
             new_matches.append(m)
             known_keys.add(k)

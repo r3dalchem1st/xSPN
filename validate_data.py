@@ -40,8 +40,11 @@ for i, row in enumerate(MATCHES):
         warnings.append(f"{where} — unknown tournament {tour!r} (weight defaults to 1.0)")
 
     key = (d, tuple(sorted([str(home), str(away)])))
-    if key in seen and seen[key] == row:
-        errors.append(f"{where} — exact duplicate of an earlier row")
+    if key in seen:
+        if seen[key] == row:
+            errors.append(f"{where} — exact duplicate of an earlier row")
+        else:                              # same date+fixture, DIFFERENT score: corrupting
+            errors.append(f"{where} — contradicts earlier row for same date+fixture: {seen[key]!r}")
     seen[key] = row
 
 # Injuries (optional): warn on malformed entries / unknown teams, never hard-fail.
@@ -61,8 +64,17 @@ if os.path.exists(_inj_path):
                 if not (isinstance(p, dict) and isinstance(p.get("player"), str)
                         and isinstance(p.get("value_m"), (int, float)) and p["value_m"] > 0):
                     warnings.append(f"injuries[{team!r}] bad entry {p!r}")
-    except ValueError as e:
-        warnings.append(f"injuries.json could not be parsed: {e}")
+    except (ValueError, OSError) as e:
+        warnings.append(f"injuries.json could not be read: {e}")
+
+# Coverage: a WC team with no training matches is rated on squad value + Elo only
+# (build_lambda_table silently falls back to the average DC params) — warn so it's
+# visible rather than silent.
+from model_common import GROUPS
+_wc_teams = {t for teams in GROUPS.values() for t in teams}
+_seen_teams = {str(h) for _, h, a, *_ in MATCHES} | {str(a) for _, h, a, *_ in MATCHES}
+for t in sorted(_wc_teams - _seen_teams):
+    warnings.append(f"WC team {t!r} has NO training matches — rated on squad+Elo only")
 
 print(f"Validated {len(MATCHES)} matches: {len(errors)} error(s), {len(warnings)} warning(s).")
 for w in warnings[:20]: print("  WARN:", w)

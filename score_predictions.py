@@ -79,10 +79,11 @@ for match in fetched:
     elif pw == pred['away']: pred_outcome = 'A'
     else:                    pred_outcome = 'D'
 
-    # Swap ph/pa if API listed teams in reversed order relative to our snapshot
+    # ph/pd/pa were locked in SNAPSHOT orientation (home = pred['home']), and
+    # actual_outcome is computed in that same orientation (goals are resolved by
+    # team name). The API's home/away ordering is irrelevant here, so NO swap — a
+    # swap would mis-assign P(home)/P(away) and corrupt Brier/log-loss/reliability.
     ph, pd_val, pa = pred['ph'], pred['pd'], pred['pa']
-    if home != pred['home']:
-        ph, pa = pa, ph
 
     # Use the LOCKED scoreline verbatim — a pre-match prediction must stay frozen.
     # ONE exception: a few group snapshots locked before the score↔winner consistency
@@ -91,11 +92,16 @@ for match in fetched:
     # every consistent snapshot (and KO "x–x (p)") is left exactly as locked.
     predicted_score = pred['predicted_score']
     nums = re.findall(r'\d+', predicted_score)       # robust to "1–1 (p)" etc.
+    is_group = bool(re.fullmatch(r'[A-L]', pred.get('group', '')))
+    lam, mu = pred.get('lam'), pred.get('mu')
+    if len(nums) < 2 and not (is_group and lam is not None and mu is not None):
+        # Malformed locked score and no lam/mu to recompute from — skip rather than
+        # invent a 0–0 and score goal error against a fabricated draw.
+        print(f"  skip {pred['home']} vs {pred['away']}: unparseable predicted_score {predicted_score!r}")
+        continue
     pred_hg = int(nums[0]) if len(nums) >= 2 else 0
     pred_ag = int(nums[1]) if len(nums) >= 2 else 0
     stored_oc = 'H' if pred_hg > pred_ag else ('A' if pred_hg < pred_ag else 'D')
-    is_group = bool(re.fullmatch(r'[A-L]', pred.get('group', '')))
-    lam, mu = pred.get('lam'), pred.get('mu')
     if is_group and lam is not None and mu is not None and stored_oc != pred_outcome:
         pred_hg, pred_ag = likely_score(lam, mu, allowed={pred_outcome})
         predicted_score = f"{pred_hg}–{pred_ag}"
