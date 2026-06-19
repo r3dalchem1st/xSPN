@@ -30,7 +30,16 @@ _orig_days_ago = fi.days_ago
 fi.days_ago = lambda ds, ref=CUTOFF: _orig_days_ago(ds, ref)
 
 from match_data import MATCHES
+import model_common as _mc
 from model_common import eff_params, LAMBDA_MIN, LAMBDA_MAX, shrink_lambda
+
+# The holdout must reflect the SHIPPED model, reproducibly:
+#  - pin STRENGTH_SHRINK to the production default (still env-overridable for tuning),
+#    rather than silently inheriting whatever env happens to be set.
+#  - drop injuries: there is no 2024 injury data, so today's manual injuries.json
+#    must not leak into the 2024 holdout (squad_adj reads fit_improved.INJURIES_OUT).
+_mc.STRENGTH_SHRINK = float(os.environ.get("STRENGTH_SHRINK", "0.55"))
+fi.INJURIES_OUT = {}
 
 TRAIN = [m for m in MATCHES if m[0] <  CUTOFF]
 TEST  = [m for m in MATCHES if m[0] >= CUTOFF and m[5] in TEST_TOURNAMENTS]

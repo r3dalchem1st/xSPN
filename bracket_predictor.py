@@ -234,14 +234,20 @@ def _expected_standings(g):
             s[h][2] += m["lam"];            s[a][2] += m["mu"]
     return s, res
 
-# Deterministic seeding: full FIFA tiebreakers (rank_group) on the mixed standings,
-# with a constant tiebreak so the displayed bracket path is stable across runs.
-_stand, _rank = {}, {}
+# Single source for the displayed finish order so the named group winner/runner
+# MATCH the win%/ru% shown beside them (previously the winner came from expected
+# points while the %s came from the frequency sim, so they could name different
+# teams). 1st/2nd = the frequency sim's MODAL (argmax win%/ru%); 3rd = best REMAINING
+# team by expected standings. Distinct 1/2/3 per group -> 32 distinct R32 teams.
+_stand = {g: _expected_standings(g)[0] for g in GROUPS}
+def _skey(g, t): v = _stand[g][t]; return (v[0], v[1], v[2])
+modal_gw, modal_gr, modal_g3 = {}, {}, {}
 for g in GROUPS:
-    _stand[g], _res = _expected_standings(g)
-    _rank[g] = rank_group(GROUPS[g], _stand[g], _res, lambda: 0)
-modal_gw = {g: _rank[g][0] for g in GROUPS}
-modal_gr = {g: _rank[g][1] for g in GROUPS}
+    wp, rp = GROUP_ADVANCE[g]["win_pct"], GROUP_ADVANCE[g]["ru_pct"]
+    gw = max(GROUPS[g], key=lambda t: wp[t])
+    gr = max((t for t in GROUPS[g] if t != gw), key=lambda t: rp[t])
+    g3 = max((t for t in GROUPS[g] if t not in (gw, gr)), key=lambda t: _skey(g, t))
+    modal_gw[g], modal_gr[g], modal_g3[g] = gw, gr, g3
 
 def modal_res(slot, var_asgn):
     if slot[0]=="1": return modal_gw[slot[1]]
@@ -250,8 +256,8 @@ def modal_res(slot, var_asgn):
 
 # Best-8 third-place qualifiers, assigned to the variable R32 slots via the
 # simulation's eligibility logic (each team used exactly once).
-_thirds = sorted(((_stand[g][_rank[g][2]][0], _stand[g][_rank[g][2]][1],
-                   _stand[g][_rank[g][2]][2], g, _rank[g][2]) for g in GROUPS), reverse=True)
+_thirds = sorted(((_stand[g][modal_g3[g]][0], _stand[g][modal_g3[g]][1],
+                   _stand[g][modal_g3[g]][2], g, modal_g3[g]) for g in GROUPS), reverse=True)
 var_asgn = assign_thirds(_thirds[:8], R32_VAR)
 
 r32_matchups = [(modal_res(a, var_asgn), modal_res(b, var_asgn)) for a,b in R32_FIXED]

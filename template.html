@@ -124,12 +124,14 @@ function spark(team){
 }
 function fi(cc){return cc?'https://flagcdn.com/20x15/'+cc+'.png':''}
 function ft(t){const c=FL[t];return c?`<img src="${fi(c)}" style="vertical-align:middle;margin-right:4px;border-radius:1px"> ${t}`:t}
+const NODATA='<div style="padding:40px;text-align:center;color:var(--hint);font-size:.9rem">Data unavailable.</div>';
 function show(n){
   document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','groups','matches','bracket','win','podium'][i]===n));
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+n).classList.add('active');
 }
 (function(){
+  if(!Object.keys(R).length){document.getElementById('tab-win').innerHTML=NODATA;return;}
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
   const mx=ranked[0][1].win;
   let h=`<table><thead><tr><th>#</th><th>Team</th><th title="Title odds (90% range across model variants below)">Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th title="10-day win% trend">Trend</th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
@@ -157,6 +159,7 @@ function show(n){
   document.getElementById('tab-win').innerHTML=h+'</tbody></table>';
 })();
 (function(){
+  if(!B.group_predictions){document.getElementById('tab-groups').innerHTML=NODATA;return;}
   function computeStandings(teams,ms){
     const pts={},w={},d={},l={};
     teams.forEach(t=>{pts[t]=0;w[t]=0;d[t]=0;l[t]=0;});
@@ -209,9 +212,10 @@ function show(n){
   document.getElementById('tab-groups').innerHTML=h+'</div>';
 })();
 (function(){
+  if(!B.final||!B.group_predictions){document.getElementById('tab-bracket').innerHTML=NODATA;return;}
   function bm(m){
     if(!m)return'<div class="bm"><em style="color:var(--hint);font-size:.72rem">TBD</em></div>';
-    const isH=m.winner===m.home;const sc=m.score.split('–');
+    const isH=m.winner===m.home;const sc=(m.score.match(/\d+/g)||[0,0]);  // digits only ("1–1 (p)"->[1,1])
     return`<div class="bm"><div class="bm-t ${isH?'win':'lose'}">${ft(m.home)}<span class="bm-sc">${sc[0]||0}</span></div>
       <div class="bm-t ${!isH?'win':'lose'}">${ft(m.away)}<span class="bm-sc">${sc[1]||0}</span></div>
       <div class="bm-pct">${m.win_pct}% ${m.winner}</div></div>`;
@@ -232,6 +236,7 @@ function show(n){
   document.getElementById('tab-bracket').innerHTML=h+'</div></div>'+legend;
 })();
 (function(){
+  if(!B.group_predictions){document.getElementById('tab-matches').innerHTML=NODATA;return;}
   // Once a match is played its prediction FREEZES to the locked pre-match snapshot
   // (from the Results data) — we never re-predict a completed game with today's model.
   const frozen={};
@@ -300,6 +305,8 @@ function show(n){
   draw();
 })();
 (function(){
+  if(!Object.keys(R).length||!B.final||!B.third_place||B.final.winner==='TBD'){
+    document.getElementById('tab-podium').innerHTML=NODATA;return;}
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
   const mx=ranked[0][1].win;
   // Podium = predicted FINISHING positions from the bracket (consistent with the
