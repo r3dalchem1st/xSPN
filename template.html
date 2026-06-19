@@ -80,21 +80,19 @@ tr:hover td{background:#fafafa}
   </div>
 </header>
 <div class="tabs">
-  <div class="tab active" onclick="show('win')">Win Odds</div>
-  <div class="tab" onclick="show('stage')">Stage %</div>
+  <div class="tab active" onclick="show('results')">Results</div>
   <div class="tab" onclick="show('groups')">Groups</div>
-  <div class="tab" onclick="show('bracket')">Bracket</div>
   <div class="tab" onclick="show('matches')">All 104 Matches</div>
+  <div class="tab" onclick="show('bracket')">Bracket</div>
+  <div class="tab" onclick="show('win')">Win Odds</div>
   <div class="tab" onclick="show('podium')">Podium</div>
-  <div class="tab" onclick="show('results')">Results</div>
 </div>
-<div id="tab-win" class="pane active"></div>
-<div id="tab-stage" class="pane"></div>
+<div id="tab-results" class="pane active"></div>
 <div id="tab-groups" class="pane"></div>
-<div id="tab-bracket" class="pane"></div>
 <div id="tab-matches" class="pane"></div>
+<div id="tab-bracket" class="pane"></div>
+<div id="tab-win" class="pane"></div>
 <div id="tab-podium" class="pane"></div>
-<div id="tab-results" class="pane"></div>
 <script>
 const R=__RESULTS__;
 const B=__BRACKET__;
@@ -127,7 +125,7 @@ function spark(team){
 function fi(cc){return cc?'https://flagcdn.com/20x15/'+cc+'.png':''}
 function ft(t){const c=FL[t];return c?`<img src="${fi(c)}" style="vertical-align:middle;margin-right:4px;border-radius:1px"> ${t}`:t}
 function show(n){
-  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['win','stage','groups','bracket','matches','podium','results'][i]===n));
+  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','groups','matches','bracket','win','podium'][i]===n));
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+n).classList.add('active');
 }
@@ -157,18 +155,6 @@ function show(n){
     <td style="color:var(--hint)">${Math.round(ELO[t]||1500)}</td><td style="color:var(--hint)">&euro;${SQ[t]||0}M</td></tr>`;
   });
   document.getElementById('tab-win').innerHTML=h+'</tbody></table>';
-})();
-(function(){
-  const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
-  function pc(v){return v>=0.3?'pct-high':v>=0.1?'pct-mid':'pct-low'}
-  let h=`<table><thead><tr><th>Team</th><th>Win</th><th>Final</th><th>Semi-Final</th><th>Quarter-Final</th></tr></thead><tbody>`;
-  ranked.forEach(([t,r])=>{
-    h+=`<tr><td>${ft(t)}</td><td class="${pc(r.win)}">${(r.win*100).toFixed(1)}%</td>
-    <td class="${pc(r.final)}">${(r.final*100).toFixed(1)}%</td>
-    <td class="${pc(r.sf)}">${(r.sf*100).toFixed(1)}%</td>
-    <td class="${pc(r.qf)}">${(r.qf*100).toFixed(1)}%</td></tr>`;
-  });
-  document.getElementById('tab-stage').innerHTML=h+'</tbody></table>';
 })();
 (function(){
   function computeStandings(teams,ms){
@@ -285,18 +271,34 @@ function show(n){
       <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
   }
   window._rowHtml=rowHtml;
+  // Already-played matches are collapsed behind an expandable divider row, so the
+  // table opens on the upcoming fixtures. Filter buttons + the toggle re-draw here.
+  let curFilter='all', showPlayed=false;
+  function draw(){
+    const arr=curFilter==='all'?all:all.filter(m=>curFilter==='group'?m.sk==='group':m.sk===curFilter);
+    const played=arr.filter(m=>m._result), upcoming=arr.filter(m=>!m._result);
+    let rows='';
+    if(played.length){
+      rows+=`<tr class="played-toggle" onclick="_togglePlayed()"><td colspan="8" style="cursor:pointer;background:#efefef;color:var(--muted);font-weight:600;font-size:.8rem;padding:9px 12px">`
+        +`${showPlayed?'&#9662;':'&#9656;'} ${played.length} completed match${played.length===1?'':'es'} &mdash; tap to ${showPlayed?'hide':'show'}</td></tr>`;
+      if(showPlayed) rows+=played.map(rowHtml).join('');
+    }
+    rows+=upcoming.map(rowHtml).join('');
+    document.getElementById('mrows').innerHTML=rows||`<tr><td colspan="8" style="padding:24px;text-align:center;color:var(--hint)">No matches.</td></tr>`;
+  }
+  window._togglePlayed=function(){showPlayed=!showPlayed; draw();};
+  window.filt=function(f,btn){
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+    curFilter=f; draw();
+  };
   document.getElementById('tab-matches').innerHTML=
     '<div class="filter-row">'+['all','group','r32','r16','qf','sf','final'].map((f,i)=>
       `<button class="fb${i===0?' active':''}" onclick="filt('${f}',this)">${['All 104','Groups','R32','R16','QF','SF','Final'][i]}</button>`
     ).join('')+'</div>'+
     `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Result</th><th>Winner</th><th>Odds</th></tr></thead>
-    <tbody id="mrows">${all.map(rowHtml).join('')}</tbody></table>`;
+    <tbody id="mrows"></tbody></table>`;
+  draw();
 })();
-window.filt=function(f,btn){
-  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
-  const arr=f==='all'?window._AM:window._AM.filter(m=>f==='group'?m.sk==='group':m.sk===f);
-  document.getElementById('mrows').innerHTML=arr.map(window._rowHtml).join('');
-};
 (function(){
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
   const mx=ranked[0][1].win;
