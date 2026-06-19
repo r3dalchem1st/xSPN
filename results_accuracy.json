@@ -339,8 +339,8 @@
       "home_error": 2,
       "away_error": 1,
       "total_goal_error": 3,
-      "brier": 1.5742,
-      "logloss": 3.2702
+      "brier": 0.0782,
+      "logloss": 0.2408
     },
     {
       "date": "2026-06-17",
@@ -538,8 +538,8 @@
     "correct_winners": 13,
     "accuracy": 0.4643,
     "avg_goal_error": 2.464,
-    "avg_brier": 0.6992,
-    "avg_logloss": 1.1638,
+    "avg_brier": 0.6458,
+    "avg_logloss": 1.0556,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -569,7 +569,7 @@
         "bin": "75%+",
         "n": 7,
         "predicted": 0.814,
-        "actual": 0.571
+        "actual": 0.714
       }
     ]
   }
