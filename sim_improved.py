@@ -18,7 +18,7 @@ from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
     cache = json.load(f)
-ELO  = cache["elo"];  DC = cache["dc"]
+ELO  = cache["elo"]
 
 # Condition the tournament on results already played: real group scores are fixed,
 # only the remaining group games are simulated. Without this the sim re-predicts
