@@ -3,7 +3,7 @@ Full match-by-match WC 2026 predictor.
 Outputs: group stage (72 matches) + knockout bracket (32 matches) with
 predicted winner and most-likely score for every match.
 """
-import sys, json, math, random
+import sys, json, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +13,6 @@ _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
     cache = json.load(f)
 ELO = cache["elo"]
-DC  = cache["dc"]
 ENSEMBLE = load_ensemble(cache, _DIR)
 
 # Use the SAME bootstrap-ensemble lambda tables as the simulator, so the
@@ -81,12 +80,8 @@ for g, fixtures in GROUP_FIXTURES.items():
 
 # ── Simulate 50k tournaments to find modal knockout path ──────────────────────
 # Track who wins each slot in the bracket
-R32_WINS   = defaultdict(Counter)  # slot_idx -> Counter of teams
-R16_WINS   = defaultdict(Counter)
-QF_WINS    = defaultdict(Counter)
-SF_WINS    = defaultdict(Counter)
-FINAL_WINS = Counter()
-CHAMPION   = Counter()
+SF_WINS  = defaultdict(Counter)  # slot_idx -> Counter (feeds reach_final)
+CHAMPION = Counter()             # modal champion across the sim
 
 R32_FIXED = [("2A","2B"),("1C","2F"),("1F","2C"),("2E","2I"),
              ("1H","2J"),("1J","2H"),("2K","2L"),("2D","2G")]
@@ -141,13 +136,10 @@ for _ in range(N):
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
     r32w = [ko_result(lg,a,b) for a,b in r32p]
-    for i,w in enumerate(r32w): R32_WINS[i][w] += 1
     r16w = [ko_result(lg,r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
-    for i,w in enumerate(r16w): R16_WINS[i][w] += 1
     qfw  = [ko_result(lg,r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
-    for i,w in enumerate(qfw):  QF_WINS[i][w]  += 1
     sfw  = [ko_result(lg,qfw[p[0]],qfw[p[1]])   for p in SF_PAIRS]
-    for i,w in enumerate(sfw):  SF_WINS[i][w]  += 1
+    for i,w in enumerate(sfw):  SF_WINS[i][w]  += 1   # only SF_WINS is consumed (reach_final)
     champ = ko_result(lg,sfw[0], sfw[1])
     CHAMPION[champ] += 1
 
@@ -173,16 +165,7 @@ for g, teams in GROUPS.items():
     }
 
 # ── Build knockout bracket ────────────────────────────────────────────────────
-def get_bracket_match(round_wins, match_idx):
-    team, pct = top(round_wins[match_idx])
-    return team, pct
-
-# Most likely bracket path
-r32_teams = [top(R32_WINS[i]) for i in range(16)]
-r16_teams = [top(R16_WINS[i]) for i in range(8)]
-qf_teams  = [top(QF_WINS[i])  for i in range(4)]
-sf_teams  = [top(SF_WINS[i])  for i in range(2)]
-champion  = top(CHAMPION)
+champion = top(CHAMPION)   # modal champion across the sim (used in output below)
 
 # Build KO match predictions
 def ko_match_pred(team_a_info, team_b_info):
