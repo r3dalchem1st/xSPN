@@ -232,5 +232,23 @@
     1,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-18",
+    "Canada",
+    "Qatar",
+    6,
+    0,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-19",
+    "Mexico",
+    "South Korea",
+    1,
+    0,
+    "World Cup",
+    true
   ]
 ]
