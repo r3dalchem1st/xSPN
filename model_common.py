@@ -136,7 +136,10 @@ def played_group_results(schedule):
                 h, a = teams[i], teams[j]
                 info = schedule.get('|'.join(sorted([h, a]))) or {}
                 goals = info.get('goals') or {}
-                if info.get('status') == 'FINISHED' and h in goals and a in goals:
+                # Require non-null scores: a match can be FINISHED yet carry null
+                # goals (awarded/abandoned game or an API glitch) — key-presence is
+                # not enough, or sim_group hits None > None.
+                if info.get('status') == 'FINISHED' and goals.get(h) is not None and goals.get(a) is not None:
                     out[g][(h, a)] = (goals[h], goals[a])
     return out
 
