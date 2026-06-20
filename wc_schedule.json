@@ -265,10 +265,10 @@
   },
   "Germany|Ivory Coast": {
     "date": "2026-06-20",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Germany": 0,
-      "Ivory Coast": 0
+      "Germany": 2,
+      "Ivory Coast": 1
     }
   },
   "Curacao|Ecuador": {
