@@ -550,15 +550,53 @@
       "total_goal_error": 3,
       "brier": 0.8719,
       "logloss": 1.3984
+    },
+    {
+      "date": "2026-06-19",
+      "home": "Morocco",
+      "away": "Scotland",
+      "group": "C",
+      "predicted_score": "1\u20130",
+      "actual_score": "1\u20130",
+      "predicted_winner": "Morocco",
+      "ph": 0.554,
+      "pd": 0.271,
+      "pa": 0.175,
+      "actual_winner": "Morocco",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.303,
+      "logloss": 0.5906
+    },
+    {
+      "date": "2026-06-20",
+      "home": "Brazil",
+      "away": "Haiti",
+      "group": "C",
+      "predicted_score": "2\u20130",
+      "actual_score": "3\u20130",
+      "predicted_winner": "Brazil",
+      "ph": 0.741,
+      "pd": 0.18,
+      "pa": 0.079,
+      "actual_winner": "Brazil",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.1057,
+      "logloss": 0.2998
     }
   ],
   "summary": {
-    "total_matches": 29,
-    "correct_winners": 13,
-    "accuracy": 0.4483,
-    "avg_goal_error": 2.483,
-    "avg_brier": 0.6536,
-    "avg_logloss": 1.0674,
+    "total_matches": 31,
+    "correct_winners": 15,
+    "accuracy": 0.4839,
+    "avg_goal_error": 2.355,
+    "avg_brier": 0.6246,
+    "avg_logloss": 1.0273,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -574,15 +612,15 @@
       },
       {
         "bin": "55\u201365%",
-        "n": 3,
-        "predicted": 0.569,
-        "actual": 0.333
+        "n": 4,
+        "predicted": 0.566,
+        "actual": 0.5
       },
       {
         "bin": "65\u201375%",
-        "n": 2,
-        "predicted": 0.693,
-        "actual": 0.5
+        "n": 3,
+        "predicted": 0.709,
+        "actual": 0.667
       },
       {
         "bin": "75%+",

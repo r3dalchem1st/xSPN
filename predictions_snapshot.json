@@ -2546,5 +2546,18 @@
     "lam": 1.02,
     "mu": 1.52,
     "snapped_at": "2026-06-19"
+  },
+  "Argentina|Egypt": {
+    "home": "Argentina",
+    "away": "Egypt",
+    "group": "R16",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Argentina",
+    "ph": 0.623,
+    "pd": 0.222,
+    "pa": 0.155,
+    "lam": 1.85,
+    "mu": 0.78,
+    "snapped_at": "2026-06-20"
   }
 }
