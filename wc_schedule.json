@@ -257,18 +257,18 @@
   },
   "Netherlands|Sweden": {
     "date": "2026-06-20",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Netherlands": null,
-      "Sweden": null
+      "Netherlands": 5,
+      "Sweden": 1
     }
   },
   "Germany|Ivory Coast": {
     "date": "2026-06-20",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Germany": null,
-      "Ivory Coast": null
+      "Germany": 0,
+      "Ivory Coast": 0
     }
   },
   "Curacao|Ecuador": {
