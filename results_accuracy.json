@@ -607,15 +607,34 @@
       "total_goal_error": 2,
       "brier": 1.0996,
       "logloss": 1.8202
+    },
+    {
+      "date": "2026-06-20",
+      "home": "Netherlands",
+      "away": "Sweden",
+      "group": "F",
+      "predicted_score": "3\u20131",
+      "actual_score": "5\u20131",
+      "predicted_winner": "Netherlands",
+      "ph": 0.712,
+      "pd": 0.146,
+      "pa": 0.142,
+      "actual_winner": "Netherlands",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.1244,
+      "logloss": 0.3397
     }
   ],
   "summary": {
-    "total_matches": 32,
-    "correct_winners": 15,
-    "accuracy": 0.4688,
-    "avg_goal_error": 2.344,
-    "avg_brier": 0.6395,
-    "avg_logloss": 1.052,
+    "total_matches": 33,
+    "correct_winners": 16,
+    "accuracy": 0.4848,
+    "avg_goal_error": 2.333,
+    "avg_brier": 0.6238,
+    "avg_logloss": 1.0304,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -637,9 +656,9 @@
       },
       {
         "bin": "65\u201375%",
-        "n": 3,
-        "predicted": 0.709,
-        "actual": 0.667
+        "n": 4,
+        "predicted": 0.71,
+        "actual": 0.75
       },
       {
         "bin": "75%+",

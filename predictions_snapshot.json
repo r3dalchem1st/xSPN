@@ -2559,5 +2559,70 @@
     "lam": 1.85,
     "mu": 0.78,
     "snapped_at": "2026-06-20"
+  },
+  "Germany|Paraguay": {
+    "home": "Germany",
+    "away": "Paraguay",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Germany",
+    "ph": 0.576,
+    "pd": 0.226,
+    "pa": 0.198,
+    "lam": 1.85,
+    "mu": 0.97,
+    "snapped_at": "2026-06-20"
+  },
+  "France|Uruguay": {
+    "home": "France",
+    "away": "Uruguay",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "France",
+    "ph": 0.534,
+    "pd": 0.26,
+    "pa": 0.206,
+    "lam": 1.51,
+    "mu": 0.82,
+    "snapped_at": "2026-06-20"
+  },
+  "Mexico|Scotland": {
+    "home": "Mexico",
+    "away": "Scotland",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Mexico",
+    "ph": 0.502,
+    "pd": 0.269,
+    "pa": 0.23,
+    "lam": 1.43,
+    "mu": 0.87,
+    "snapped_at": "2026-06-20"
+  },
+  "Germany|Mexico": {
+    "home": "Germany",
+    "away": "Mexico",
+    "group": "R16",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Germany",
+    "ph": 0.454,
+    "pd": 0.272,
+    "pa": 0.274,
+    "lam": 1.37,
+    "mu": 0.98,
+    "snapped_at": "2026-06-20"
+  },
+  "Colombia|Ecuador": {
+    "home": "Ecuador",
+    "away": "Colombia",
+    "group": "R16",
+    "predicted_score": "0\u20131",
+    "predicted_winner": "Colombia",
+    "ph": 0.281,
+    "pd": 0.306,
+    "pa": 0.413,
+    "lam": 0.87,
+    "mu": 1.12,
+    "snapped_at": "2026-06-20"
   }
 }
