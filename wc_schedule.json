@@ -233,7 +233,7 @@
   },
   "Morocco|Scotland": {
     "date": "2026-06-19",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Scotland": 0,
       "Morocco": 1
@@ -241,18 +241,18 @@
   },
   "Brazil|Haiti": {
     "date": "2026-06-20",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Brazil": null,
-      "Haiti": null
+      "Brazil": 3,
+      "Haiti": 0
     }
   },
   "Paraguay|Turkey": {
     "date": "2026-06-20",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Turkey": null,
-      "Paraguay": null
+      "Turkey": 0,
+      "Paraguay": 1
     }
   },
   "Netherlands|Sweden": {

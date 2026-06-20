@@ -259,5 +259,23 @@
     0,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-19",
+    "Scotland",
+    "Morocco",
+    0,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-20",
+    "Brazil",
+    "Haiti",
+    3,
+    0,
+    "World Cup",
+    true
   ]
 ]
