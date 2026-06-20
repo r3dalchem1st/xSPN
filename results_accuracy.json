@@ -626,15 +626,34 @@
       "total_goal_error": 2,
       "brier": 0.1244,
       "logloss": 0.3397
+    },
+    {
+      "date": "2026-06-20",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "group": "E",
+      "predicted_score": "1\u20130",
+      "actual_score": "2\u20131",
+      "predicted_winner": "Germany",
+      "ph": 0.476,
+      "pd": 0.266,
+      "pa": 0.257,
+      "actual_winner": "Germany",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.4114,
+      "logloss": 0.7423
     }
   ],
   "summary": {
-    "total_matches": 33,
-    "correct_winners": 16,
-    "accuracy": 0.4848,
-    "avg_goal_error": 2.333,
-    "avg_brier": 0.6238,
-    "avg_logloss": 1.0304,
+    "total_matches": 34,
+    "correct_winners": 17,
+    "accuracy": 0.5,
+    "avg_goal_error": 2.324,
+    "avg_brier": 0.6176,
+    "avg_logloss": 1.022,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -644,9 +663,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 7,
-        "predicted": 0.495,
-        "actual": 0.143
+        "n": 8,
+        "predicted": 0.493,
+        "actual": 0.25
       },
       {
         "bin": "55\u201365%",
