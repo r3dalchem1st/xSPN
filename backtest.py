@@ -31,14 +31,16 @@ fi.days_ago = lambda ds, ref=CUTOFF: _orig_days_ago(ds, ref)
 
 from match_data import MATCHES
 import model_common as _mc
-from model_common import eff_params, LAMBDA_MIN, LAMBDA_MAX, shrink_lambda
+from model_common import eff_params, LAMBDA_MIN, LAMBDA_MAX, shrink_lambda, inflate_hda
 
 # The holdout must reflect the SHIPPED model, reproducibly:
 #  - pin STRENGTH_SHRINK to the production default (still env-overridable for tuning),
 #    rather than silently inheriting whatever env happens to be set.
+#  - pin DRAW_INFLATE to 0.0 default (orchestrator sets the chosen value after grid).
 #  - drop injuries: there is no 2024 injury data, so today's manual injuries.json
 #    must not leak into the 2024 holdout (squad_adj reads fit_improved.INJURIES_OUT).
 _mc.STRENGTH_SHRINK = float(os.environ.get("STRENGTH_SHRINK", "0.55"))
+_mc.DRAW_INFLATE    = float(os.environ.get("DRAW_INFLATE",    "0.25"))
 fi.INJURIES_OUT = {}
 
 TRAIN = [m for m in MATCHES if m[0] <  CUTOFF]
@@ -77,6 +79,64 @@ def hda_probs(home, away, max_g=10):
 
 
 EPS = 1e-12
+
+
+def score_holdout(shrink, delta):
+    """Score the TEST holdout for a given (shrink, delta) pair.
+    Reuses module-level elo/ATK/DEF/RHO (fitted once); no refit."""
+    _mc.STRENGTH_SHRINK = shrink
+    n = correct = 0
+    brier_sum = logloss_sum = 0.0
+    pred_draw_sum = act_draw_sum = argmax_draw_sum = 0
+    skipped = 0
+    for date, home, away, hs, as_, tour, neutral in TEST:
+        if home not in ATK or away not in ATK:
+            skipped += 1
+            continue
+        pred = inflate_hda(*hda_probs(home, away), delta)
+        ph, pd, pa = pred
+        if   hs > as_: o, oi = (1, 0, 0), 0
+        elif hs < as_: o, oi = (0, 0, 1), 2
+        else:          o, oi = (0, 1, 0), 1
+        if pred.index(max(pred)) == oi:
+            correct += 1
+        brier_sum   += sum((pred[k] - o[k])**2 for k in range(3))
+        logloss_sum += -math.log(max(pred[oi], EPS))
+        pred_draw_sum    += pd
+        act_draw_sum     += (1 if hs == as_ else 0)
+        argmax_draw_sum  += (1 if pred.index(max(pred)) == 1 else 0)
+        n += 1
+    return {
+        "shrink":       shrink,
+        "delta":        delta,
+        "logloss":      logloss_sum / n,
+        "brier":        brier_sum / n,
+        "accuracy":     correct / n,
+        "pred_draw":    pred_draw_sum / n,
+        "act_draw":     act_draw_sum / n,
+        "argmax_draw":  argmax_draw_sum / n,
+        "n":            n,
+    }
+
+
+if __name__ == "__main__" and "--grid" in sys.argv:
+    import itertools
+    shrinks = [0.40, 0.50, 0.55, 0.65, 0.80]
+    deltas  = [0.0, 0.15, 0.30, 0.50, 0.80]
+    print(f"{'shrink':>6} {'delta':>6} {'logloss':>8} {'brier':>7} {'acc':>6} "
+          f"{'predDraw':>9} {'actDraw':>8} {'argmaxDraw':>11}")
+    for sh, dl in itertools.product(shrinks, deltas):
+        r = score_holdout(sh, dl)
+        print(f"{sh:6.2f} {dl:6.2f} {r['logloss']:8.4f} {r['brier']:7.4f} "
+              f"{r['accuracy']:6.3f} {r['pred_draw']:9.3f} {r['act_draw']:8.3f} {r['argmax_draw']:11.3f}")
+    raise SystemExit(0)
+
+
+# ── Single-run scoring (normal / CI mode) ────────────────────────────────────
+# Restore the pinned shrink (score_holdout may have mutated it in --grid mode,
+# but we never reach here in --grid mode due to the raise above).
+_mc.STRENGTH_SHRINK = float(os.environ.get("STRENGTH_SHRINK", "0.55"))
+
 n = correct = 0
 brier = logloss = 0.0
 elo_correct = ndec = 0          # Elo baseline on decisive games only
@@ -86,7 +146,7 @@ for date, home, away, hs, as_, tour, neutral in TEST:
     if home not in ATK or away not in ATK:   # team unseen in training
         skipped += 1
         continue
-    pred = hda_probs(home, away)
+    pred = inflate_hda(*hda_probs(home, away), _mc.DRAW_INFLATE)
     if   hs > as_: o, oi = (1, 0, 0), 0
     elif hs < as_: o, oi = (0, 0, 1), 2
     else:          o, oi = (0, 1, 0), 1

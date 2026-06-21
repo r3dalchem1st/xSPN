@@ -13,7 +13,8 @@ warnings.filterwarnings("ignore")
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
 from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
-                          load_ensemble, rank_group, assign_thirds, played_group_results)
+                          load_ensemble, rank_group, assign_thirds, played_group_results,
+                          draw_mix, sample_inflated_score, DRAW_INFLATE)
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -48,6 +49,12 @@ def _pois(lam):
 # Penalty win probabilities are parameter-independent — precompute once.
 PEN_PROB = {(a, b): pen_prob(a, b, ELO) for a in ALL_TEAMS for b in ALL_TEAMS if a != b}
 
+# Diagonal draw-inflation: precompute a sampler per (ensemble member × group fixture).
+GROUP_PAIRS = [(teams[i], teams[j]) for teams in GROUPS.values()
+               for i in range(len(teams)) for j in range(i + 1, len(teams))]
+INFL = [{(h, a): draw_mix(LG_ENS[m][(h, a)][0], LG_ENS[m][(h, a)][1], DRAW_INFLATE)
+         for (h, a) in GROUP_PAIRS} for m in range(NMEM)]
+
 def sim_score_g(lg, home, away):
     lam, mu = lg[(home, away)]
     return _pois(lam), _pois(mu)
@@ -70,12 +77,15 @@ R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
 QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
-def sim_group(lg, teams, played):
+def sim_group(lg, teams, played, infl):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
         for j in range(i+1,len(teams)):
             h,a = teams[i],teams[j]
-            hg,ag = played[(h,a)] if (h,a) in played else sim_score_g(lg,h,a)
+            if (h,a) in played:
+                hg,ag = played[(h,a)]
+            else:
+                hg,ag = sample_inflated_score(lg[(h,a)][0], lg[(h,a)][1], infl.get((h,a)), _pois, _rnd)
             res[(h,a)] = (hg,ag)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
@@ -83,10 +93,10 @@ def sim_group(lg, teams, played):
             s[h][1]+=hg-ag; s[a][1]+=ag-hg; s[h][2]+=hg; s[a][2]+=ag
     return rank_group(teams, s, res, random.random), s
 
-def sim_tournament(lg):
+def sim_tournament(lg, infl):
     gw,gr = {},{}; thirds=[]
     for g,teams in GROUPS.items():
-        ranked,s = sim_group(lg,teams,PLAYED[g])
+        ranked,s = sim_group(lg,teams,PLAYED[g],infl)
         gw[g],gr[g] = ranked[0],ranked[1]
         t3=ranked[2]; st=s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
@@ -114,7 +124,7 @@ def run_sims(n=100_000):
     for i in range(n):
         if i%25000==0 and i: print(f"  {i:,}/{n:,}...")
         m = random.randrange(NMEM)
-        champ,sf,qf,r16 = sim_tournament(LG_ENS[m])
+        champ,sf,qf,r16 = sim_tournament(LG_ENS[m], INFL[m])
         wins[champ]+=1; mem_wins[m][champ]+=1; mem_n[m]+=1
         for t in sf:  finals[t]+=1
         for t in qf:  sfs[t]+=1

@@ -15,7 +15,8 @@ ACCURACY_FILE = os.path.join(DIR, 'results_accuracy.json')
 
 EMPTY_SUMMARY = {"total_matches": 0, "correct_winners": 0,
                  "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0,
-                 "avg_logloss": 0, "reliability": []}
+                 "avg_logloss": 0, "reliability": [],
+                 "predicted_draw_rate": 0, "actual_draw_rate": 0, "ece": 0}
 
 # Reliability bins: model confidence in its most-likely outcome vs how often it
 # actually happened. A well-calibrated model's "predicted" ≈ "actual" per bin.
@@ -103,7 +104,7 @@ for match in fetched:
     pred_ag = int(nums[1]) if len(nums) >= 2 else 0
     stored_oc = 'H' if pred_hg > pred_ag else ('A' if pred_hg < pred_ag else 'D')
     if is_group and lam is not None and mu is not None and stored_oc != pred_outcome:
-        pred_hg, pred_ag = likely_score(lam, mu, allowed={pred_outcome})
+        pred_hg, pred_ag = likely_score(lam, mu, allowed={pred_outcome}, group=True)
         predicted_score = f"{pred_hg}–{pred_ag}"
 
     home_err = abs(pred_home_goals - pred_hg)
@@ -157,6 +158,11 @@ if n:
         "avg_logloss": round(sum(m["logloss"] for m in scored) / n, 4),
         "reliability": reliability(calib),
     }
+    summary["predicted_draw_rate"] = round(sum(m["pd"] for m in scored) / n, 4)
+    summary["actual_draw_rate"]    = round(sum(1 for m in scored if m["actual_winner"] == "Draw") / n, 4)
+    summary["ece"] = round(
+        sum(b["n"] * abs(b["predicted"] - b["actual"]) for b in summary["reliability"]) / n, 4
+    ) if summary["reliability"] else 0.0
     print(f"Scored {n} matches: {correct}/{n} correct ({correct/n:.1%}), "
           f"avg goal error {summary['avg_goal_error']:.2f}, "
           f"avg Brier {summary['avg_brier']:.4f}, "
