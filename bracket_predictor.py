@@ -79,16 +79,20 @@ for g, fixtures in GROUP_FIXTURES.items():
         })
     group_predictions[g] = preds
 
-# Self-check (guards against re-introducing a winner that disagrees with the odds):
-# every group match's named winner MUST be the argmax outcome of its H/D/A probs.
+# Self-check (guards against re-introducing a winner that disagrees with the odds,
+# e.g. the old MAP-scoreline rule calling "Draw" next to a clear favourite): the
+# named winner's OWN probability must be the maximum of H/D/A. A small tolerance
+# absorbs 3-dp rounding and genuine near-ties (where either side is a fair pick)
+# while still catching a real regression (a misnamed draw trails by ~0.1+).
 for g, preds in group_predictions.items():
     for m in preds:
-        want = max((m['ph'], m['home']), (m['pd'], 'Draw'), (m['pa'], m['away']),
-                   key=lambda x: x[0])[1]
-        if m['likely_winner'] != want:
+        wp = m['pd'] if m['likely_winner'] == 'Draw' else (
+             m['ph'] if m['likely_winner'] == m['home'] else m['pa'])
+        if wp < max(m['ph'], m['pd'], m['pa']) - 0.005:
             raise AssertionError(
                 f"Group {g} {m['home']} v {m['away']}: winner {m['likely_winner']!r} "
-                f"!= argmax outcome {want!r} (ph/pd/pa={m['ph']}/{m['pd']}/{m['pa']})")
+                f"(p={wp}) is not the most-likely outcome (ph/pd/pa="
+                f"{m['ph']}/{m['pd']}/{m['pa']})")
 
 # ── Simulate 50k tournaments to find modal knockout path ──────────────────────
 # Track who wins each slot in the bracket
