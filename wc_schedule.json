@@ -281,10 +281,10 @@
   },
   "Japan|Tunisia": {
     "date": "2026-06-21",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Tunisia": 0,
-      "Japan": 2
+      "Japan": 4
     }
   },
   "Saudi Arabia|Spain": {
