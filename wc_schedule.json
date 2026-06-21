@@ -273,18 +273,18 @@
   },
   "Curacao|Ecuador": {
     "date": "2026-06-21",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Ecuador": null,
-      "Curacao": null
+      "Ecuador": 0,
+      "Curacao": 0
     }
   },
   "Japan|Tunisia": {
     "date": "2026-06-21",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Tunisia": null,
-      "Japan": null
+      "Tunisia": 0,
+      "Japan": 2
     }
   },
   "Saudi Arabia|Spain": {
