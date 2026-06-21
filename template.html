@@ -185,7 +185,8 @@ function show(n){
     return teams.map(t=>({t,pts:pts[t],w:w[t],d:d[t],l:l[t],pld:pld[t]})).sort((a,b)=>b.pts-a.pts);
   }
   let h='<div style="max-width:780px;margin:0 auto 14px;font-size:.76rem;color:var(--muted);line-height:1.5">'
-    +'<strong>Standings</strong> blend <strong>real points</strong> from finished games (greyed below) with the model’s <strong>expected points</strong> for fixtures still to play — i.e. the projected final table. <em>Pld</em> = games already played.</div>'
+    +'<strong>Standings</strong> blend <strong>real points</strong> from finished games (greyed below) with the model’s <strong>expected points</strong> for fixtures still to play — i.e. the projected final table. <em>Pld</em> = games already played. '
+    +'The predicted winner is each match’s single most-likely result; a draw is rarely any one game’s most-likely outcome even though ~30% of games end level, so look to the draw % in the odds for that.</div>'
     +'<div class="groups-grid">';
   Object.entries(GR).forEach(([g,teams])=>{
     const ms=B.group_predictions[g]||[];
@@ -223,19 +224,17 @@ function show(n){
           <span class="t r" style="${ag>hg?'font-weight:700':''}">${ft(m.away)}</span></div>`;
         return;
       }
-      // UPCOMING game — prediction (white) + odds. The winner is the sign of the most
-      // likely EXACT score, so it can read "draw" even when a side leads on the odds;
-      // we bold the draw% + tag the score to flag that rather than look like a bug.
+      // UPCOMING game — prediction (white) + odds. Winner = argmax(H/D/A), so the
+      // bolded team is always the one leading the odds beside it (draws are rare).
       const hw=(m.ph*100).toFixed(0),dw=(m.pd*100).toFixed(0),aw=(m.pa*100).toFixed(0);
       const win=m.winner||m.likely_winner;
-      const isH=win===m.home, isA=win===m.away, isD=win==='Draw';
-      const dTip=isD?' title="Most likely exact score is a draw — a side may still be favored to win on the odds"':'';
+      const isH=win===m.home, isA=win===m.away;
       h+=`<div class="match-row">
         <span class="t" style="${isH?'color:var(--red);font-weight:600':''}">${ft(m.home)}</span>
-        <span class="sc"${dTip}>${m.score}</span>
+        <span class="sc">${m.score}</span>
         <span class="t r" style="${isA?'color:var(--red);font-weight:600':''}">${ft(m.away)}</span></div>
       <div class="odds"><span style="color:var(--win)">${hw}%</span> &middot;
-        <span style="color:var(--draw)${isD?';font-weight:700':''}">${dw}%</span> &middot;
+        <span style="color:var(--draw)">${dw}%</span> &middot;
         <span style="color:var(--lose)">${aw}%</span></div>`;
     });
     h+='</div></div>';
@@ -297,18 +296,13 @@ function show(n){
     const score=fz?fz.score:m.score;
     const w=fz?fz.winner:(m.winner||m.likely_winner);
     const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
-    // Winner = sign of most-likely exact score, so a "Draw" can sit next to odds that
-    // favor a team; bold the draw% + tag the cell so it reads as intent, not a bug.
-    const isD=w==='Draw';
-    const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null
-      ?`${(ph*100).toFixed(0)}/<span style="${isD?'font-weight:700;color:var(--draw)':''}">${(pd*100).toFixed(0)}</span>/${(pa*100).toFixed(0)}%`:'');
-    const wCell=isD?`<span title="Most likely exact score is a draw — a side may still be favored on the odds">${ft(w)}</span>`:ft(w);
+    const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
     const res=m._result?`<strong>${m._result}</strong>`:'<span style="color:var(--hint)">&mdash;</span>';
     return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
       <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
       <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
       <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
-      <td class="win-cell">${wCell}</td>
+      <td class="win-cell">${ft(w)}</td>
       <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
   }
   window._rowHtml=rowHtml;
