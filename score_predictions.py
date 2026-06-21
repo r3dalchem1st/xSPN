@@ -160,9 +160,12 @@ if n:
     }
     summary["predicted_draw_rate"] = round(sum(m["pd"] for m in scored) / n, 4)
     summary["actual_draw_rate"]    = round(sum(1 for m in scored if m["actual_winner"] == "Draw") / n, 4)
+    # ECE = bin-count-weighted mean |predicted-actual|; divide by the BINNED count,
+    # not n, so near-tie matches (confidence < the lowest bin edge) don't bias it low.
+    _binned = sum(b["n"] for b in summary["reliability"])
     summary["ece"] = round(
-        sum(b["n"] * abs(b["predicted"] - b["actual"]) for b in summary["reliability"]) / n, 4
-    ) if summary["reliability"] else 0.0
+        sum(b["n"] * abs(b["predicted"] - b["actual"]) for b in summary["reliability"]) / _binned, 4
+    ) if _binned else 0.0
     print(f"Scored {n} matches: {correct}/{n} correct ({correct/n:.1%}), "
           f"avg goal error {summary['avg_goal_error']:.2f}, "
           f"avg Brier {summary['avg_brier']:.4f}, "
