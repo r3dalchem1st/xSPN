@@ -291,13 +291,13 @@
     "date": "2026-06-21",
     "status": "FINISHED",
     "goals": {
-      "Spain": 5,
+      "Spain": 4,
       "Saudi Arabia": 0
     }
   },
   "Belgium|Iran": {
     "date": "2026-06-21",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "goals": {
       "Belgium": 0,
       "Iran": 0
