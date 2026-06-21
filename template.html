@@ -429,7 +429,7 @@ function show(n){
     <th style="text-align:center">Goal&nbsp;Err</th>
     <th style="text-align:center">Brier</th>
   </tr></thead><tbody>`;
-  ms.forEach(m=>{
+  [...ms].reverse().forEach(m=>{   // newest match first
     const ok=m.correct_winner;
     const wmark=ok?'<span class="res-ok">&#10003;</span>':'<span class="res-err">&#10007;</span>';
     const errCol=m.total_goal_error===0?'var(--win)':m.total_goal_error<=2?'var(--draw)':'var(--lose)';
