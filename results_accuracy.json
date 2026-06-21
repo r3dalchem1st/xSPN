@@ -702,15 +702,34 @@
       "total_goal_error": 3,
       "brier": 0.0396,
       "logloss": 0.1625
+    },
+    {
+      "date": "2026-06-21",
+      "home": "Belgium",
+      "away": "Iran",
+      "group": "G",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20130",
+      "predicted_winner": "Iran",
+      "ph": 0.193,
+      "pd": 0.248,
+      "pa": 0.559,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.9152,
+      "logloss": 1.3943
     }
   ],
   "summary": {
-    "total_matches": 37,
+    "total_matches": 38,
     "correct_winners": 19,
-    "accuracy": 0.5135,
-    "avg_goal_error": 2.324,
-    "avg_brier": 0.5955,
-    "avg_logloss": 0.9876,
+    "accuracy": 0.5,
+    "avg_goal_error": 2.289,
+    "avg_brier": 0.6039,
+    "avg_logloss": 0.9983,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -726,9 +745,9 @@
       },
       {
         "bin": "55\u201365%",
-        "n": 5,
-        "predicted": 0.567,
-        "actual": 0.4
+        "n": 6,
+        "predicted": 0.565,
+        "actual": 0.333
       },
       {
         "bin": "65\u201375%",
@@ -743,8 +762,8 @@
         "actual": 0.75
       }
     ],
-    "predicted_draw_rate": 0.2553,
-    "actual_draw_rate": 0.2973,
-    "ece": 0.0947
+    "predicted_draw_rate": 0.2551,
+    "actual_draw_rate": 0.3158,
+    "ece": 0.1069
   }
 }
