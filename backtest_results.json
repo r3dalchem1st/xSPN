@@ -3,9 +3,9 @@
   "train_matches": 136,
   "test_matches_scored": 36,
   "test_matches_skipped_unseen_team": 41,
-  "accuracy": 0.5278,
-  "brier": 0.5738,
-  "logloss": 0.9498,
+  "accuracy": 0.5556,
+  "brier": 0.5716,
+  "logloss": 0.9411,
   "elo_baseline_accuracy_decisive": 0.8333,
   "random_brier": 0.667,
   "random_logloss": 1.0986

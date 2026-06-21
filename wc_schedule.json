@@ -289,18 +289,18 @@
   },
   "Saudi Arabia|Spain": {
     "date": "2026-06-21",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Spain": 3,
+      "Spain": 5,
       "Saudi Arabia": 0
     }
   },
   "Belgium|Iran": {
     "date": "2026-06-21",
-    "status": "TIMED",
+    "status": "PAUSED",
     "goals": {
-      "Belgium": null,
-      "Iran": null
+      "Belgium": 0,
+      "Iran": 0
     }
   },
   "Cape Verde|Uruguay": {
