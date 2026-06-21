@@ -61,14 +61,15 @@ for g, fixtures in GROUP_FIXTURES.items():
     for home, away, mn in fixtures:
         lam, mu = LG_MEAN[(home, away)]
         ph, pd, pa = hda(home, away)
-        # Predicted scoreline = the single most likely EXACT scoreline (MAP over the
-        # Poisson grid). Home-win probability is spread over many scorelines
-        # (1-0, 2-0, 2-1, …) while draw mass concentrates on 0-0/1-1, so the modal
-        # scoreline is often a draw even when P(home win) > P(draw) as an outcome —
-        # this calls draws when they are genuinely most likely (the old argmax-
-        # outcome-first rule never predicted one: 0/13 live vs 38% actual draws).
-        hs, as_ = likely_score(lam, mu)            # unconstrained MAP scoreline
-        oc = 'H' if hs > as_ else ('A' if hs < as_ else 'D')
+        # Predicted result = the single most likely OUTCOME, argmax(P_home, P_draw,
+        # P_away) — so the winner always agrees with the H/D/A odds shown beside it.
+        # The displayed score is then the most likely scoreline CONSISTENT with that
+        # outcome (likely_score restricts to it), so "winner" and score never clash.
+        # Note: for a goal model a draw is rarely the modal outcome even at ~50/50
+        # (≈0.38/0.24/0.38), so a predicted draw is rare though ~30% of games end
+        # level — that draw mass lives in the visible pd%, not in the point pick.
+        oc = max((ph, 'H'), (pd, 'D'), (pa, 'A'), key=lambda x: x[0])[1]
+        hs, as_ = likely_score(lam, mu, allowed={oc})
         preds.append({
             "home": home, "away": away,
             "lam": round(lam,2), "mu": round(mu,2),
@@ -77,6 +78,17 @@ for g, fixtures in GROUP_FIXTURES.items():
             "likely_winner": home if oc=='H' else (away if oc=='A' else "Draw"),
         })
     group_predictions[g] = preds
+
+# Self-check (guards against re-introducing a winner that disagrees with the odds):
+# every group match's named winner MUST be the argmax outcome of its H/D/A probs.
+for g, preds in group_predictions.items():
+    for m in preds:
+        want = max((m['ph'], m['home']), (m['pd'], 'Draw'), (m['pa'], m['away']),
+                   key=lambda x: x[0])[1]
+        if m['likely_winner'] != want:
+            raise AssertionError(
+                f"Group {g} {m['home']} v {m['away']}: winner {m['likely_winner']!r} "
+                f"!= argmax outcome {want!r} (ph/pd/pa={m['ph']}/{m['pd']}/{m['pa']})")
 
 # ── Simulate 50k tournaments to find modal knockout path ──────────────────────
 # Track who wins each slot in the bracket
