@@ -645,21 +645,40 @@
       "total_goal_error": 2,
       "brier": 0.4114,
       "logloss": 0.7423
+    },
+    {
+      "date": "2026-06-21",
+      "home": "Curacao",
+      "away": "Ecuador",
+      "group": "E",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20130",
+      "predicted_winner": "Ecuador",
+      "ph": 0.176,
+      "pd": 0.426,
+      "pa": 0.399,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.5197,
+      "logloss": 0.8533
     }
   ],
   "summary": {
-    "total_matches": 34,
+    "total_matches": 35,
     "correct_winners": 17,
-    "accuracy": 0.5,
-    "avg_goal_error": 2.324,
-    "avg_brier": 0.6176,
-    "avg_logloss": 1.022,
+    "accuracy": 0.4857,
+    "avg_goal_error": 2.286,
+    "avg_brier": 0.6148,
+    "avg_logloss": 1.0172,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 10,
-        "predicted": 0.402,
-        "actual": 0.4
+        "n": 11,
+        "predicted": 0.404,
+        "actual": 0.455
       },
       {
         "bin": "45\u201355%",
