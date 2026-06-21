@@ -7,7 +7,7 @@ import sys, json, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score, played_group_results
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score, played_group_results, draw_mix, sample_inflated_score, DRAW_INFLATE
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -31,12 +31,18 @@ try:
 except (FileNotFoundError, ValueError):
     PLAYED = {g: {} for g in GROUPS}
 
+_POIS_NP = lambda x: int(np.random.poisson(x))
+GROUP_PAIRS = [(teams[i], teams[j]) for teams in GROUPS.values()
+               for i in range(len(teams)) for j in range(i + 1, len(teams))]
+INFL = [{(h, a): draw_mix(LG_ENS[m][(h, a)][0], LG_ENS[m][(h, a)][1], DRAW_INFLATE)
+         for (h, a) in GROUP_PAIRS} for m in range(NMEM)]
+
 # Everything below is deterministic — seed the RNG once, up front.
 random.seed(42); np.random.seed(42)
 
-def hda(home, away):
+def hda(home, away, group=False):
     """Mean (P home win, draw, away win) over the ensemble — analytic, no RNG."""
-    return hda_probs_ensemble(home, away, LG_ENS)
+    return hda_probs_ensemble(home, away, LG_ENS, group=group)
 
 def ko_win_prob(a, b):
     ph, pd, pa = hda(a, b)
@@ -60,7 +66,7 @@ for g, fixtures in GROUP_FIXTURES.items():
     preds = []
     for home, away, mn in fixtures:
         lam, mu = LG_MEAN[(home, away)]
-        ph, pd, pa = hda(home, away)
+        ph, pd, pa = hda(home, away, group=True)
         # Predicted result = the single most likely OUTCOME, argmax(P_home, P_draw,
         # P_away) — so the winner always agrees with the H/D/A odds shown beside it.
         # The displayed score is then the most likely scoreline CONSISTENT with that
@@ -69,7 +75,7 @@ for g, fixtures in GROUP_FIXTURES.items():
         # (≈0.38/0.24/0.38), so a predicted draw is rare though ~30% of games end
         # level — that draw mass lives in the visible pd%, not in the point pick.
         oc = max((ph, 'H'), (pd, 'D'), (pa, 'A'), key=lambda x: x[0])[1]
-        hs, as_ = likely_score(lam, mu, allowed={oc})
+        hs, as_ = likely_score(lam, mu, allowed={oc}, group=True)
         preds.append({
             "home": home, "away": away,
             "lam": round(lam,2), "mu": round(mu,2),
@@ -119,12 +125,15 @@ def ko_result(lg, a, b):
     if ag > hg: return b
     return a if random.random() < pen_prob(a, b, ELO) else b
 
-def sim_group(lg, teams, played):
+def sim_group(lg, teams, played, infl):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
         for j in range(i+1, len(teams)):
             h, a = teams[i], teams[j]
-            hg, ag = played[(h,a)] if (h,a) in played else sim_score(lg, h, a)
+            if (h,a) in played:
+                hg, ag = played[(h,a)]
+            else:
+                hg, ag = sample_inflated_score(lg[(h,a)][0], lg[(h,a)][1], infl.get((h,a)), _POIS_NP, random.random)
             res[(h,a)] = (hg,ag)
             if hg>ag: s[h][0]+=3
             elif ag>hg: s[a][0]+=3
@@ -134,10 +143,11 @@ def sim_group(lg, teams, played):
 
 N = 50000
 for _ in range(N):
-    lg = LG_ENS[random.randrange(NMEM)]   # draw a bootstrap member per tournament
+    m = random.randrange(NMEM)
+    lg = LG_ENS[m]                        # draw a bootstrap member per tournament
     gw, gr = {}, {}; thirds = []
     for g, teams in GROUPS.items():
-        ranked, s = sim_group(lg, teams, PLAYED[g])
+        ranked, s = sim_group(lg, teams, PLAYED[g], INFL[m])
         gw[g], gr[g] = ranked[0], ranked[1]
         t3 = ranked[2]; st = s[t3]
         thirds.append((st[0],st[1],st[2],g,t3))
@@ -170,7 +180,8 @@ for g, teams in GROUPS.items():
     # Simulate group standing distribution
     win_cnt   = Counter(); ru_cnt = Counter(); t3_cnt = Counter()
     for _ in range(20000):
-        ranked, _ = sim_group(LG_ENS[random.randrange(NMEM)], teams, PLAYED[g])
+        _m = random.randrange(NMEM)
+        ranked, _ = sim_group(LG_ENS[_m], teams, PLAYED[g], INFL[_m])
         win_cnt[ranked[0]] += 1; ru_cnt[ranked[1]] += 1; t3_cnt[ranked[2]] += 1
     GROUP_ADVANCE[g] = {
         "winner": win_cnt.most_common(1)[0],

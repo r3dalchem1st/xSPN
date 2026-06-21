@@ -54,6 +54,7 @@ GOAL_ANCHOR = 1.35
 # 0.55 chosen on the backtest holdout: log-loss 1.026→0.950, Brier 0.612→0.574
 # (≈ the flat minimum at 0.45–0.55; accuracy unchanged). Conservative vs over-shrink.
 STRENGTH_SHRINK = float(os.environ.get("STRENGTH_SHRINK", "0.55"))
+DRAW_INFLATE = float(os.environ.get("DRAW_INFLATE", "0.25"))  # Karlis diagonal-inflation δ; group stage. 0 = off until calibrated.
 def shrink_lambda(x):
     return GOAL_ANCHOR + STRENGTH_SHRINK * (x - GOAL_ANCHOR)
 
@@ -218,32 +219,39 @@ def _clamp_lambda(x):
     return min(max(x, LAMBDA_MIN), LAMBDA_MAX)
 
 
-def hda_probs_ensemble(home, away, lg_ens, max_g=10):
-    """Mean P(home win), P(draw), P(away win) over an ensemble of lambda tables,
-    computed analytically (Dixon-Coles tau omitted — negligible for display)."""
+def hda_probs_ensemble(home, away, lg_ens, max_g=10, group=False):
+    """Mean P(home win), P(draw), P(away win) over an ensemble of lambda tables.
+    When group=True, each member's triple gets Karlis diagonal inflation (DRAW_INFLATE)
+    before averaging — so the displayed group odds match the inflated sim/scoring."""
     import math as _m
-    ph = pd = pa = 0.0
+    delta = DRAW_INFLATE if group else 0.0
+    tph = tpd = tpa = 0.0
+    n = 0
     for lg in lg_ens:
         lam, mu = lg[(home, away)]
         elam, emu = _m.exp(-lam), _m.exp(-mu)
-        # Poisson pmfs up to max_g
         ph_l = [elam * lam**h / _m.factorial(h) for h in range(max_g + 1)]
         pa_l = [emu * mu**a / _m.factorial(a) for a in range(max_g + 1)]
+        ph = pd = pa = 0.0
         for h in range(max_g + 1):
             for a in range(max_g + 1):
                 p = ph_l[h] * pa_l[a]
                 if h > a: ph += p
                 elif h < a: pa += p
                 else: pd += p
-    s = ph + pd + pa   # normalise (the score grid drops a tiny high-score tail)
-    return (ph / s, pd / s, pa / s) if s else (0.0, 0.0, 0.0)
+        s = ph + pd + pa
+        if not s:
+            continue
+        ph, pd, pa = inflate_hda(ph / s, pd / s, pa / s, delta)
+        tph += ph; tpd += pd; tpa += pa; n += 1
+    return (tph / n, tpd / n, tpa / n) if n else (0.0, 0.0, 0.0)
 
 
-def likely_score(lam, mu, allowed=None, max_g=6):
+def likely_score(lam, mu, allowed=None, max_g=6, group=False):
     """Most probable (home, away) scoreline under independent Poisson, optionally
-    restricted to scorelines whose result is in `allowed` ('H'/'D'/'A'). Keeps the
-    displayed score consistent with the predicted result — never '0-0' next to a
-    named winner."""
+    restricted to results in `allowed`. When group=True, draw cells are inflated by
+    (1+DRAW_INFLATE) so the modal score reflects the same draw boost as the odds."""
+    delta = DRAW_INFLATE if group else 0.0
     best_p, best = -1.0, (round(lam), round(mu))
     for h in range(max_g + 1):
         ph = (lam ** h * math.exp(-lam)) / math.factorial(h)
@@ -252,6 +260,54 @@ def likely_score(lam, mu, allowed=None, max_g=6):
             if allowed and res not in allowed:
                 continue
             p = ph * (mu ** a * math.exp(-mu)) / math.factorial(a)
+            if res == 'D' and delta > 0.0:
+                p *= (1.0 + delta)
             if p > best_p:
                 best_p = p; best = (h, a)
     return best
+
+
+def inflate_hda(ph, pd, pa, delta):
+    """Karlis & Ntzoufras (2003) diagonal inflation, closed form on a normalized
+    (H, D, A) triple: scale the draw mass by (1+δ) and renormalize. δ=0 is identity."""
+    if delta <= 0.0:
+        return ph, pd, pa
+    z = 1.0 + delta * pd
+    return ph / z, pd * (1.0 + delta) / z, pa / z
+
+
+def draw_mix(lam, mu, delta, max_g=10):
+    """Exact sampler parameters for diagonal-inflated scores.
+    Returns (alpha, cdf): with probability alpha draw two INDEPENDENT Poissons,
+    otherwise force a draw k-k sampled from `cdf` (cumulative P(k | draw)). This
+    reproduces inflate_hda's draw rate while preserving the per-team goal marginals
+    on the independent branch."""
+    if delta <= 0.0:
+        return 1.0, None
+    elam, emu = math.exp(-lam), math.exp(-mu)
+    diag = [(elam * lam**k / math.factorial(k)) * (emu * mu**k / math.factorial(k))
+            for k in range(max_g + 1)]
+    pdraw = sum(diag)
+    alpha = 1.0 / (1.0 + delta * pdraw)
+    cdf, c = [], 0.0
+    for d in diag:
+        c += (d / pdraw) if pdraw else 0.0
+        cdf.append(c)
+    if cdf:
+        cdf[-1] = 1.0
+    return alpha, cdf
+
+
+def sample_inflated_score(lam, mu, mix, pois, unif):
+    """Draw a (home, away) score. mix=(alpha,cdf) from draw_mix, or None for plain
+    independent Poisson. With prob (1-alpha) force a draw k-k from cdf; else two
+    independent Poissons via `pois`. `unif` is a 0-1 RNG (e.g. random.random)."""
+    if mix is None:
+        return pois(lam), pois(mu)
+    alpha, cdf = mix
+    if cdf is not None and unif() >= alpha:
+        u = unif(); k = 0
+        while k < len(cdf) - 1 and u > cdf[k]:
+            k += 1
+        return k, k
+    return pois(lam), pois(mu)

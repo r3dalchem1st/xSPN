@@ -396,8 +396,8 @@ function show(n){
       <div class="acc-val">${s.correct_winners}/${s.total_matches}</div>
       <div class="acc-sub">${(s.accuracy*100).toFixed(1)}% accuracy</div></div>
     <div class="acc-card"><div class="acc-lbl">Avg Goal Error</div>
-      <div class="acc-val">${s.avg_goal_error.toFixed(2)}</div>
-      <div class="acc-sub">goals off per match</div></div>
+      <div class="acc-val" style="color:var(--muted)">${s.avg_goal_error.toFixed(2)}</div>
+      <div class="acc-sub">exact-score distance · not a quality score</div></div>
     <div class="acc-card"><div class="acc-lbl">Avg Brier Score</div>
       <div class="acc-val">${s.avg_brier.toFixed(3)}</div>
       <div class="acc-sub">${brier_note}</div></div>
@@ -421,18 +421,24 @@ function show(n){
     });
     h+='</tbody></table>';
   }
+  if(s.actual_draw_rate!=null){
+    h+=`<div style="margin:6px 0 16px;font-size:.8rem;color:var(--muted)">
+      Draw calibration: predicted <strong>${(s.predicted_draw_rate*100).toFixed(0)}%</strong>
+      vs actual <strong>${(s.actual_draw_rate*100).toFixed(0)}%</strong>
+      &middot; ECE <strong>${(s.ece*100).toFixed(1)}%</strong> (lower = better calibrated)</div>`;
+  }
   h+=`<table><thead><tr>
     <th>Date</th><th>Stage</th><th>Match</th>
     <th style="text-align:center">Predicted</th>
     <th style="text-align:center">Actual</th>
     <th style="text-align:center">Winner</th>
-    <th style="text-align:center">Goal&nbsp;Err</th>
+    <th style="text-align:center" title="Exact-score distance |predicted − actual| — not a quality score; see Correct Winner / Brier for call quality">Goal&nbsp;Err</th>
     <th style="text-align:center">Brier</th>
   </tr></thead><tbody>`;
   [...ms].reverse().forEach(m=>{   // newest match first
     const ok=m.correct_winner;
     const wmark=ok?'<span class="res-ok">&#10003;</span>':'<span class="res-err">&#10007;</span>';
-    const errCol=m.total_goal_error===0?'var(--win)':m.total_goal_error<=2?'var(--draw)':'var(--lose)';
+    const errCol='var(--hint)';   // goal error = exact-score distance, not a quality grade — keep it neutral
     h+=`<tr>
       <td style="color:var(--hint);font-size:.78rem;white-space:nowrap">${m.date}</td>
       <td style="color:var(--hint);font-size:.78rem">${/^[A-L]$/.test(m.group)?'Grp '+m.group:m.group}</td>
