@@ -160,18 +160,33 @@ function show(n){
 })();
 (function(){
   if(!B.group_predictions){document.getElementById('tab-groups').innerHTML=NODATA;return;}
+  function played(m){const s=SCH[[m.home,m.away].sort().join('|')];const g=s&&s.goals;
+    return (g&&g[m.home]!=null&&g[m.away]!=null)?[g[m.home],g[m.away]]:null;}
+  // Standings blend REAL points from finished games with EXPECTED points from the
+  // model for games not yet played — so the table is the projected final table that
+  // already reflects results in (Pld = games actually completed).
   function computeStandings(teams,ms){
-    const pts={},w={},d={},l={};
-    teams.forEach(t=>{pts[t]=0;w[t]=0;d[t]=0;l[t]=0;});
+    const pts={},w={},d={},l={},pld={};
+    teams.forEach(t=>{pts[t]=0;w[t]=0;d[t]=0;l[t]=0;pld[t]=0;});
     ms.forEach(m=>{
-      pts[m.home]+=3*m.ph+m.pd; pts[m.away]+=3*m.pa+m.pd;
-      w[m.home]+=m.ph; w[m.away]+=m.pa;
-      d[m.home]+=m.pd; d[m.away]+=m.pd;
-      l[m.home]+=m.pa; l[m.away]+=m.ph;
+      const r=played(m);
+      if(r){
+        const[hg,ag]=r; pld[m.home]++; pld[m.away]++;
+        if(hg>ag){pts[m.home]+=3;w[m.home]++;l[m.away]++;}
+        else if(hg<ag){pts[m.away]+=3;w[m.away]++;l[m.home]++;}
+        else{pts[m.home]++;pts[m.away]++;d[m.home]++;d[m.away]++;}
+      }else{
+        pts[m.home]+=3*m.ph+m.pd; pts[m.away]+=3*m.pa+m.pd;
+        w[m.home]+=m.ph; w[m.away]+=m.pa;
+        d[m.home]+=m.pd; d[m.away]+=m.pd;
+        l[m.home]+=m.pa; l[m.away]+=m.ph;
+      }
     });
-    return teams.map(t=>({t,pts:pts[t],w:w[t],d:d[t],l:l[t]})).sort((a,b)=>b.pts-a.pts);
+    return teams.map(t=>({t,pts:pts[t],w:w[t],d:d[t],l:l[t],pld:pld[t]})).sort((a,b)=>b.pts-a.pts);
   }
-  let h='<div class="groups-grid">';
+  let h='<div style="max-width:780px;margin:0 auto 14px;font-size:.76rem;color:var(--muted);line-height:1.5">'
+    +'<strong>Standings</strong> blend <strong>real points</strong> from finished games (greyed below) with the model’s <strong>expected points</strong> for fixtures still to play — i.e. the projected final table. <em>Pld</em> = games already played.</div>'
+    +'<div class="groups-grid">';
   Object.entries(GR).forEach(([g,teams])=>{
     const ms=B.group_predictions[g]||[];
     h+=`<div class="group-card"><div class="group-hdr">GROUP ${g}</div>`;
@@ -179,6 +194,7 @@ function show(n){
     h+=`<table style="width:100%;border-collapse:collapse;font-size:.76rem">
       <thead><tr style="background:#f5f5f5">
         <th style="padding:5px 8px;text-align:left;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">Team</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Games already played (real)">Pld</th>
         <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">W</th>
         <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">D</th>
         <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">L</th>
@@ -188,6 +204,7 @@ function show(n){
       const ql=i<2?'3px solid var(--red)':'3px solid transparent';
       h+=`<tr style="border-left:${ql};border-bottom:1px solid var(--border)">
         <td style="padding:4px 8px">${ft(row.t)}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.pld}</td>
         <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.w.toFixed(1)}</td>
         <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.d.toFixed(1)}</td>
         <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.l.toFixed(1)}</td>
@@ -197,14 +214,28 @@ function show(n){
     });
     h+='</tbody></table><div style="border-top:2px solid var(--border);padding-top:4px">';
     ms.forEach(m=>{
+      const r=played(m);
+      if(r){   // CONCLUDED game — greyed, real score, real winner bolded (no odds)
+        const[hg,ag]=r;
+        h+=`<div class="match-row" style="opacity:.5">
+          <span class="t" style="${hg>ag?'font-weight:700':''}">${ft(m.home)}</span>
+          <span class="sc" title="Full-time result">${hg}–${ag}</span>
+          <span class="t r" style="${ag>hg?'font-weight:700':''}">${ft(m.away)}</span></div>`;
+        return;
+      }
+      // UPCOMING game — prediction (white) + odds. The winner is the sign of the most
+      // likely EXACT score, so it can read "draw" even when a side leads on the odds;
+      // we bold the draw% + tag the score to flag that rather than look like a bug.
       const hw=(m.ph*100).toFixed(0),dw=(m.pd*100).toFixed(0),aw=(m.pa*100).toFixed(0);
-      const isH=m.winner===m.home||m.likely_winner===m.home;
+      const win=m.winner||m.likely_winner;
+      const isH=win===m.home, isA=win===m.away, isD=win==='Draw';
+      const dTip=isD?' title="Most likely exact score is a draw — a side may still be favored to win on the odds"':'';
       h+=`<div class="match-row">
         <span class="t" style="${isH?'color:var(--red);font-weight:600':''}">${ft(m.home)}</span>
-        <span class="sc">${m.score}</span>
-        <span class="t r" style="${!isH?'color:var(--red);font-weight:600':''}">${ft(m.away)}</span></div>
+        <span class="sc"${dTip}>${m.score}</span>
+        <span class="t r" style="${isA?'color:var(--red);font-weight:600':''}">${ft(m.away)}</span></div>
       <div class="odds"><span style="color:var(--win)">${hw}%</span> &middot;
-        <span style="color:var(--draw)">${dw}%</span> &middot;
+        <span style="color:var(--draw)${isD?';font-weight:700':''}">${dw}%</span> &middot;
         <span style="color:var(--lose)">${aw}%</span></div>`;
     });
     h+='</div></div>';
@@ -266,13 +297,18 @@ function show(n){
     const score=fz?fz.score:m.score;
     const w=fz?fz.winner:(m.winner||m.likely_winner);
     const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
-    const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
+    // Winner = sign of most-likely exact score, so a "Draw" can sit next to odds that
+    // favor a team; bold the draw% + tag the cell so it reads as intent, not a bug.
+    const isD=w==='Draw';
+    const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null
+      ?`${(ph*100).toFixed(0)}/<span style="${isD?'font-weight:700;color:var(--draw)':''}">${(pd*100).toFixed(0)}</span>/${(pa*100).toFixed(0)}%`:'');
+    const wCell=isD?`<span title="Most likely exact score is a draw — a side may still be favored on the odds">${ft(w)}</span>`:ft(w);
     const res=m._result?`<strong>${m._result}</strong>`:'<span style="color:var(--hint)">&mdash;</span>';
     return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
       <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
       <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
       <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
-      <td class="win-cell">${ft(w)}</td>
+      <td class="win-cell">${wCell}</td>
       <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
   }
   window._rowHtml=rowHtml;
