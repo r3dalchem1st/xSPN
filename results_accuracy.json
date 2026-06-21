@@ -664,15 +664,34 @@
       "total_goal_error": 1,
       "brier": 0.5197,
       "logloss": 0.8533
+    },
+    {
+      "date": "2026-06-21",
+      "home": "Japan",
+      "away": "Tunisia",
+      "group": "F",
+      "predicted_score": "1\u20130",
+      "actual_score": "4\u20130",
+      "predicted_winner": "Japan",
+      "ph": 0.46,
+      "pd": 0.409,
+      "pa": 0.131,
+      "actual_winner": "Japan",
+      "correct_winner": true,
+      "home_error": 3,
+      "away_error": 0,
+      "total_goal_error": 3,
+      "brier": 0.476,
+      "logloss": 0.7765
     }
   ],
   "summary": {
-    "total_matches": 35,
-    "correct_winners": 17,
-    "accuracy": 0.4857,
-    "avg_goal_error": 2.286,
-    "avg_brier": 0.6148,
-    "avg_logloss": 1.0172,
+    "total_matches": 36,
+    "correct_winners": 18,
+    "accuracy": 0.5,
+    "avg_goal_error": 2.306,
+    "avg_brier": 0.6109,
+    "avg_logloss": 1.0105,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -682,9 +701,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 8,
-        "predicted": 0.493,
-        "actual": 0.25
+        "n": 9,
+        "predicted": 0.489,
+        "actual": 0.333
       },
       {
         "bin": "55\u201365%",
