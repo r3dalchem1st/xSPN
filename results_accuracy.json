@@ -683,15 +683,34 @@
       "total_goal_error": 3,
       "brier": 0.476,
       "logloss": 0.7765
+    },
+    {
+      "date": "2026-06-21",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "group": "H",
+      "predicted_score": "2\u20130",
+      "actual_score": "5\u20130",
+      "predicted_winner": "Spain",
+      "ph": 0.85,
+      "pd": 0.129,
+      "pa": 0.021,
+      "actual_winner": "Spain",
+      "correct_winner": true,
+      "home_error": 3,
+      "away_error": 0,
+      "total_goal_error": 3,
+      "brier": 0.0396,
+      "logloss": 0.1625
     }
   ],
   "summary": {
-    "total_matches": 36,
-    "correct_winners": 18,
-    "accuracy": 0.5,
-    "avg_goal_error": 2.306,
-    "avg_brier": 0.6109,
-    "avg_logloss": 1.0105,
+    "total_matches": 37,
+    "correct_winners": 19,
+    "accuracy": 0.5135,
+    "avg_goal_error": 2.324,
+    "avg_brier": 0.5955,
+    "avg_logloss": 0.9876,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -719,10 +738,13 @@
       },
       {
         "bin": "75%+",
-        "n": 7,
-        "predicted": 0.814,
-        "actual": 0.714
+        "n": 8,
+        "predicted": 0.818,
+        "actual": 0.75
       }
-    ]
+    ],
+    "predicted_draw_rate": 0.2553,
+    "actual_draw_rate": 0.2973,
+    "ece": 0.0947
   }
 }
