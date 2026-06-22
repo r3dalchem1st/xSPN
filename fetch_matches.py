@@ -60,11 +60,35 @@ def load_existing():
         return json.load(open(CACHE_FILE))
     return []
 
-def existing_keys(existing):
-    # Key by date + UNORDERED pair so an orientation flip (home/away swapped between
-    # API responses) doesn't append the same fixture twice. Matches how the rest of
-    # the pipeline keys by sorted([home, away]).
-    return {(m[0], tuple(sorted((m[1], m[2])))) for m in existing}
+def reconcile(existing, fresh):
+    """Merge freshly-fetched results into the accumulated cache, keyed by date +
+    UNORDERED pair (so a home/away flip doesn't duplicate a fixture).
+
+    A fresh result OVERWRITES a previously-cached one for the same key: the API can
+    amend a finished score (VAR / official correction, or a transient first capture),
+    and keeping the stale value would diverge from wc_schedule.json (regenerated
+    fresh each run) and mis-score the Results tab. New fixtures are appended; older
+    cached matches the API no longer returns (aged out of the 90-day window) are
+    preserved in place. Returns (all_matches, n_added, n_corrected)."""
+    idx, out = {}, []
+    for m in existing:
+        idx[(m[0], tuple(sorted((m[1], m[2]))))] = len(out)
+        out.append(m)
+    added = corrected = 0
+    for m in fresh:
+        k = (m[0], tuple(sorted((m[1], m[2]))))
+        if k in idx:
+            prev = out[idx[k]]
+            if prev[3:5] != m[3:5]:        # score changed -> trust the latest API value
+                print(f"    ~ corrected {m[0]} {m[1]} {prev[3]}-{prev[4]} -> {m[3]}-{m[4]} {m[2]}")
+                out[idx[k]] = m
+                corrected += 1
+        else:
+            idx[k] = len(out)
+            out.append(m)
+            print(f"    + {m[0]} {m[1]} {m[3]}-{m[4]} {m[2]}")
+            added += 1
+    return out, added, corrected
 
 def fetch_competition(code, label, neutral):
     """Fetch finished matches for a competition in the last 90 days."""
@@ -139,24 +163,18 @@ def fetch_schedule():
 
 def main():
     print("Fetching new match data...")
-    existing   = load_existing()
-    known_keys = existing_keys(existing)
-    new_matches = []
+    existing = load_existing()
 
     # World Cup 2026 group stage
     print("  Fetching World Cup 2026 matches...")
     wc = fetch_competition('WC', 'World Cup', True)
-    for m in wc:
-        k = (m[0], tuple(sorted((m[1], m[2]))))
-        if k not in known_keys:
-            new_matches.append(m)
-            known_keys.add(k)
-            print(f"    + {m[0]} {m[1]} {m[3]}-{m[4]} {m[2]}")
 
     # (Nations League fetch removed: not on the free tier — it only 403'd every
     # run — and irrelevant during the World Cup, which the WC fetch above covers.)
 
-    all_matches = existing + new_matches
+    # Reconcile fresh results into the cache: new fixtures appended, corrected
+    # scores overwritten (a stale first-capture must not stick — see reconcile()).
+    all_matches, n_added, n_corrected = reconcile(existing, wc)
     with open(CACHE_FILE, 'w') as f:
         json.dump(all_matches, f, indent=2)
 
@@ -172,7 +190,7 @@ def main():
         with open(sched_file, 'w') as f:
             json.dump({}, f)
 
-    print(f"Done. {len(new_matches)} new matches added ({len(all_matches)} total in cache).")
+    print(f"Done. {n_added} new, {n_corrected} corrected ({len(all_matches)} total in cache).")
 
 if __name__ == '__main__':
     main()
