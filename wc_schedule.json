@@ -313,10 +313,10 @@
   },
   "Egypt|New Zealand": {
     "date": "2026-06-22",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "New Zealand": null,
-      "Egypt": null
+      "New Zealand": 1,
+      "Egypt": 3
     }
   },
   "Argentina|Austria": {
