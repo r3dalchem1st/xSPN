@@ -2624,5 +2624,31 @@
     "lam": 0.87,
     "mu": 1.12,
     "snapped_at": "2026-06-20"
+  },
+  "Egypt|Senegal": {
+    "home": "Egypt",
+    "away": "Senegal",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Senegal",
+    "ph": 0.303,
+    "pd": 0.268,
+    "pa": 0.429,
+    "lam": 1.12,
+    "mu": 1.38,
+    "snapped_at": "2026-06-22"
+  },
+  "Colombia|Senegal": {
+    "home": "Senegal",
+    "away": "Colombia",
+    "group": "R16",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Colombia",
+    "ph": 0.284,
+    "pd": 0.251,
+    "pa": 0.465,
+    "lam": 1.15,
+    "mu": 1.56,
+    "snapped_at": "2026-06-22"
   }
 }
