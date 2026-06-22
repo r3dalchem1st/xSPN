@@ -321,18 +321,18 @@
   },
   "Argentina|Austria": {
     "date": "2026-06-22",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Argentina": null,
-      "Austria": null
+      "Argentina": 2,
+      "Austria": 0
     }
   },
   "France|Iraq": {
     "date": "2026-06-22",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "France": null,
-      "Iraq": null
+      "France": 1,
+      "Iraq": 0
     }
   },
   "Norway|Senegal": {
