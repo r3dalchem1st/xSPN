@@ -2650,5 +2650,31 @@
     "lam": 1.15,
     "mu": 1.56,
     "snapped_at": "2026-06-22"
+  },
+  "Mexico|Sweden": {
+    "home": "Mexico",
+    "away": "Sweden",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Mexico",
+    "ph": 0.516,
+    "pd": 0.231,
+    "pa": 0.253,
+    "lam": 1.77,
+    "mu": 1.15,
+    "snapped_at": "2026-06-22"
+  },
+  "Bosnia|USA": {
+    "home": "USA",
+    "away": "Bosnia",
+    "group": "R32",
+    "predicted_score": "3\u20131",
+    "predicted_winner": "USA",
+    "ph": 0.831,
+    "pd": 0.1,
+    "pa": 0.07,
+    "lam": 3.67,
+    "mu": 1.01,
+    "snapped_at": "2026-06-22"
   }
 }
