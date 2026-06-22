@@ -721,15 +721,34 @@
       "total_goal_error": 1,
       "brier": 0.9152,
       "logloss": 1.3943
+    },
+    {
+      "date": "2026-06-21",
+      "home": "Cape Verde",
+      "away": "Uruguay",
+      "group": "H",
+      "predicted_score": "0\u20131",
+      "actual_score": "2\u20132",
+      "predicted_winner": "Uruguay",
+      "ph": 0.225,
+      "pd": 0.321,
+      "pa": 0.454,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 0.7178,
+      "logloss": 1.1363
     }
   ],
   "summary": {
-    "total_matches": 38,
+    "total_matches": 39,
     "correct_winners": 19,
-    "accuracy": 0.5,
-    "avg_goal_error": 2.289,
-    "avg_brier": 0.6039,
-    "avg_logloss": 0.9983,
+    "accuracy": 0.4872,
+    "avg_goal_error": 2.308,
+    "avg_brier": 0.6068,
+    "avg_logloss": 1.0018,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -739,9 +758,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 9,
-        "predicted": 0.489,
-        "actual": 0.333
+        "n": 10,
+        "predicted": 0.486,
+        "actual": 0.3
       },
       {
         "bin": "55\u201365%",
@@ -762,8 +781,8 @@
         "actual": 0.75
       }
     ],
-    "predicted_draw_rate": 0.2551,
-    "actual_draw_rate": 0.3158,
-    "ece": 0.1069
+    "predicted_draw_rate": 0.2568,
+    "actual_draw_rate": 0.3333,
+    "ece": 0.1158
   }
 }

@@ -305,10 +305,10 @@
   },
   "Cape Verde|Uruguay": {
     "date": "2026-06-21",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Uruguay": 0,
-      "Cape Verde": 1
+      "Uruguay": 2,
+      "Cape Verde": 2
     }
   },
   "Egypt|New Zealand": {
