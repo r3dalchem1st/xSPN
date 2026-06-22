@@ -329,7 +329,7 @@
   },
   "France|Iraq": {
     "date": "2026-06-22",
-    "status": "IN_PLAY",
+    "status": "PAUSED",
     "goals": {
       "France": 1,
       "Iraq": 0
