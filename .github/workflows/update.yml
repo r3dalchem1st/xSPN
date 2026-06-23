@@ -65,6 +65,15 @@ jobs:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: python fetch_injuries.py
 
+      - name: Fetch cards (optional)
+        # Populates cards.json (yellow/red cards per team) from API-Football.
+        # No API_FOOTBALL_KEY -> no-op. continue-on-error so a quota/API hiccup
+        # never breaks the daily forecast. Display-only (does not feed the model).
+        continue-on-error: true
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python fetch_cards.py
+
       - name: Score predictions against actual results
         run: python score_predictions.py
 
@@ -87,7 +96,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json backtest_results.json wc_schedule.json injuries.json
+          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json backtest_results.json wc_schedule.json injuries.json cards.json
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
           # Retry push against concurrent updates (overlapping runs / manual pushes):

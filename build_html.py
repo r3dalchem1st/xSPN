@@ -71,6 +71,13 @@ if os.path.exists(_sched_file):
     with open(_sched_file) as f:
         schedule = json.load(f)
 
+# Booking data from played games (sorted-pair -> {YC:{team:n}, RC:{team:n}}). Empty/missing = none.
+_cards_file = os.path.join(DIR, 'cards.json')
+cards = {}
+if os.path.exists(_cards_file):
+    with open(_cards_file) as f:
+        cards = json.load(f)
+
 # Injuries factored into squad values (team -> {total_m, players}). Empty/missing = none.
 _inj_file = os.path.join(DIR, 'injuries.json')
 injuries = {}
@@ -94,6 +101,7 @@ flags_json    = json.dumps(FLAGS)
 groups_json   = json.dumps(GROUPS)
 accuracy_json = json.dumps(accuracy)
 injuries_json = json.dumps(injuries)
+cards_json    = json.dumps(cards)
 
 with open(os.path.join(DIR, 'template.html'), encoding='utf-8') as f:
     html = f.read()
@@ -109,6 +117,7 @@ html = (html
     .replace('__WINHIST__',  winhist_json)
     .replace('__SCHEDULE__', schedule_json)
     .replace('__INJURIES__', injuries_json)
+    .replace('__CARDS__',    cards_json)
     .replace('__UPDATED__',  UPDATED)
 )
 
