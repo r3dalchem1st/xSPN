@@ -353,18 +353,18 @@
   },
   "Portugal|Uzbekistan": {
     "date": "2026-06-23",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Portugal": null,
-      "Uzbekistan": null
+      "Portugal": 5,
+      "Uzbekistan": 0
     }
   },
   "England|Ghana": {
     "date": "2026-06-23",
-    "status": "TIMED",
+    "status": "LIVE",
     "goals": {
-      "England": null,
-      "Ghana": null
+      "England": 0,
+      "Ghana": 0
     }
   },
   "Croatia|Panama": {
