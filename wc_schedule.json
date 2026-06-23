@@ -329,26 +329,26 @@
   },
   "France|Iraq": {
     "date": "2026-06-22",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "goals": {
-      "France": 1,
+      "France": 3,
       "Iraq": 0
     }
   },
   "Norway|Senegal": {
     "date": "2026-06-23",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Norway": null,
-      "Senegal": null
+      "Norway": 3,
+      "Senegal": 2
     }
   },
   "Algeria|Jordan": {
     "date": "2026-06-23",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Jordan": null,
-      "Algeria": null
+      "Jordan": 1,
+      "Algeria": 0
     }
   },
   "Portugal|Uzbekistan": {

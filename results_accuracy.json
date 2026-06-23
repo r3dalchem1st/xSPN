@@ -778,15 +778,53 @@
       "total_goal_error": 1,
       "brier": 0.5423,
       "logloss": 0.9163
+    },
+    {
+      "date": "2026-06-22",
+      "home": "France",
+      "away": "Iraq",
+      "group": "I",
+      "predicted_score": "1\u20130",
+      "actual_score": "3\u20130",
+      "predicted_winner": "France",
+      "ph": 0.74,
+      "pd": 0.211,
+      "pa": 0.049,
+      "actual_winner": "France",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.1145,
+      "logloss": 0.3011
+    },
+    {
+      "date": "2026-06-23",
+      "home": "Senegal",
+      "away": "Norway",
+      "group": "I",
+      "predicted_score": "0\u20132",
+      "actual_score": "2\u20133",
+      "predicted_winner": "Norway",
+      "ph": 0.132,
+      "pd": 0.185,
+      "pa": 0.684,
+      "actual_winner": "Norway",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 0.1515,
+      "logloss": 0.3798
     }
   ],
   "summary": {
-    "total_matches": 41,
-    "correct_winners": 21,
-    "accuracy": 0.5122,
-    "avg_goal_error": 2.268,
-    "avg_brier": 0.5961,
-    "avg_logloss": 0.9873,
+    "total_matches": 43,
+    "correct_winners": 23,
+    "accuracy": 0.5349,
+    "avg_goal_error": 2.279,
+    "avg_brier": 0.5746,
+    "avg_logloss": 0.9572,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -808,9 +846,9 @@
       },
       {
         "bin": "65\u201375%",
-        "n": 4,
+        "n": 6,
         "predicted": 0.71,
-        "actual": 0.75
+        "actual": 0.833
       },
       {
         "bin": "75%+",
@@ -819,8 +857,8 @@
         "actual": 0.75
       }
     ],
-    "predicted_draw_rate": 0.2566,
-    "actual_draw_rate": 0.3171,
-    "ece": 0.115
+    "predicted_draw_rate": 0.2539,
+    "actual_draw_rate": 0.3023,
+    "ece": 0.1231
   }
 }
