@@ -104,14 +104,18 @@ const AC=__ACCURACY__;
 const WH=__WINHIST__;
 const SCH=__SCHEDULE__;
 const INJ=__INJURIES__;   // team -> {total_m, players[]} factored into squad value
+const CARDS=__CARDS__;    // sorted-pair -> {YC:{team:n}, RC:{team:n}} from played games
 // Compact red note under an affected team's name (nothing if no injuries logged).
 function injNote(t){
   const x=INJ[t]; if(!x) return '';
   return `<div style="font-size:.66rem;color:#cc0000;font-weight:500" title="Unavailable players, subtracted from squad value">&minus;&euro;${x.total_m}M out: ${x.players.join(', ')}</div>`;
 }
-// Fallback ordering dates for knockout rounds (predicted matchups have no real
-// fixture yet); group games use their real date from SCH.
-const ROUND_DATE={group:null,r32:'2026-06-28',r16:'2026-07-04',qf:'2026-07-09',sf:'2026-07-14','3rd':'2026-07-18',final:'2026-07-19'};
+// Knockout matchups are predicted (no real fixture yet), so spread each round's
+// matches by bracket index across that round's REAL calendar window
+// [start, span days] rather than stamping every match in the round one date.
+const ROUND_WIN={r32:['2026-06-28',6],r16:['2026-07-04',4],qf:['2026-07-09',3],sf:['2026-07-14',2],'3rd':['2026-07-18',1],final:['2026-07-19',1]};
+function addDays(iso,n){const d=new Date(iso+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
+function koDate(sk,i,n){const w=ROUND_WIN[sk];if(!w)return null;const off=n<=1?0:Math.min(w[1]-1,Math.floor(i*w[1]/n));return addDays(w[0],off);}
 const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function fmtDate(d){if(!d)return'';const p=d.split('-');return p.length===3?MON[+p[1]-1]+' '+(+p[2]):d;}
 // Tiny inline SVG sparkline of a team's daily win% (returns '' if <2 days yet).
@@ -162,30 +166,27 @@ function show(n){
   if(!B.group_predictions){document.getElementById('tab-groups').innerHTML=NODATA;return;}
   function played(m){const s=SCH[[m.home,m.away].sort().join('|')];const g=s&&s.goals;
     return (g&&g[m.home]!=null&&g[m.away]!=null)?[g[m.home],g[m.away]]:null;}
-  // Standings blend REAL points from finished games with EXPECTED points from the
-  // model for games not yet played — so the table is the projected final table that
-  // already reflects results in (Pld = games actually completed).
+  // ACTUAL standings: only games already played count toward points/W-D-L/goals —
+  // no predicted/expected points (unplayed fixtures contribute nothing). GF/GA/GD
+  // from real scores; yellow/red cards from CARDS (booking data, when available).
   function computeStandings(teams,ms){
-    const pts={},w={},d={},l={},pld={};
-    teams.forEach(t=>{pts[t]=0;w[t]=0;d[t]=0;l[t]=0;pld[t]=0;});
+    const z={},S={};teams.forEach(t=>{z[t]=0;S[t]={pts:0,w:0,d:0,l:0,pld:0,gf:0,ga:0,yc:0,rc:0};});
     ms.forEach(m=>{
-      const r=played(m);
-      if(r){
-        const[hg,ag]=r; pld[m.home]++; pld[m.away]++;
-        if(hg>ag){pts[m.home]+=3;w[m.home]++;l[m.away]++;}
-        else if(hg<ag){pts[m.away]+=3;w[m.away]++;l[m.home]++;}
-        else{pts[m.home]++;pts[m.away]++;d[m.home]++;d[m.away]++;}
-      }else{
-        pts[m.home]+=3*m.ph+m.pd; pts[m.away]+=3*m.pa+m.pd;
-        w[m.home]+=m.ph; w[m.away]+=m.pa;
-        d[m.home]+=m.pd; d[m.away]+=m.pd;
-        l[m.home]+=m.pa; l[m.away]+=m.ph;
-      }
+      const r=played(m); if(!r)return;
+      const[hg,ag]=r,H=S[m.home],A=S[m.away];
+      H.pld++;A.pld++;H.gf+=hg;H.ga+=ag;A.gf+=ag;A.ga+=hg;
+      if(hg>ag){H.pts+=3;H.w++;A.l++;}
+      else if(hg<ag){A.pts+=3;A.w++;H.l++;}
+      else{H.pts++;A.pts++;H.d++;A.d++;}
+      const c=CARDS[[m.home,m.away].sort().join('|')];
+      if(c){const yc=c.YC||{},rc=c.RC||{};
+        H.yc+=yc[m.home]||0;A.yc+=yc[m.away]||0;H.rc+=rc[m.home]||0;A.rc+=rc[m.away]||0;}
     });
-    return teams.map(t=>({t,pts:pts[t],w:w[t],d:d[t],l:l[t],pld:pld[t]})).sort((a,b)=>b.pts-a.pts);
+    return teams.map(t=>({t,...S[t],gd:S[t].gf-S[t].ga}))
+      .sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf);
   }
   let h='<div style="max-width:780px;margin:0 auto 14px;font-size:.76rem;color:var(--muted);line-height:1.5">'
-    +'<strong>Standings</strong> blend <strong>real points</strong> from finished games (greyed below) with the model’s <strong>expected points</strong> for fixtures still to play — i.e. the projected final table. <em>Pld</em> = games already played. '
+    +'<strong>Standings</strong> reflect <strong>actual results only</strong> — points, W-D-L, goals (GF/GA/GD) and cards (YC/RC) are tallied from games already played (greyed below); fixtures still to come do not count. <em>Pld</em> = games played. '
     +'The predicted winner is each match’s single most-likely result; a draw is rarely any one game’s most-likely outcome even though ~30% of games end level, so look to the draw % in the odds for that.</div>'
     +'<div class="groups-grid">';
   Object.entries(GR).forEach(([g,teams])=>{
@@ -199,18 +200,28 @@ function show(n){
         <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">W</th>
         <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">D</th>
         <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">L</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Goals for">GF</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Goals against">GA</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Goal difference">GD</th>
         <th style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700;font-size:.7rem;border-bottom:1px solid var(--border)">Pts</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Yellow cards">🟨</th>
+        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Red cards">🟥</th>
       </tr></thead><tbody>`;
     st.forEach((row,i)=>{
       const ql=i<2?'3px solid var(--red)':'3px solid transparent';
+      const gd=(row.gd>0?'+':'')+row.gd;
       h+=`<tr style="border-left:${ql};border-bottom:1px solid var(--border)">
         <td style="padding:4px 8px">${ft(row.t)}</td>
         <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.pld}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.w.toFixed(1)}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.d.toFixed(1)}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.l.toFixed(1)}</td>
-        <td style="padding:4px 6px;text-align:center;font-weight:700;color:${i<2?'var(--red)':'var(--text)'}">
-          ${row.pts.toFixed(1)}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.w}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.d}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.l}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.gf}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.ga}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${gd}</td>
+        <td style="padding:4px 6px;text-align:center;font-weight:700;color:${i<2?'var(--red)':'var(--text)'}">${row.pts}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.yc||0}</td>
+        <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.rc||0}</td>
       </tr>`;
     });
     h+='</tbody></table><div style="border-top:2px solid var(--border);padding-top:4px">';
@@ -275,17 +286,17 @@ function show(n){
   const all=[];
   Object.entries(B.group_predictions).forEach(([g,ms])=>ms.forEach(m=>all.push({...m,stage:'Group '+g,sk:'group',badge:'sb-g'})));
   [{k:'r32',l:'R32',b:'sb-r32'},{k:'r16',l:'R16',b:'sb-r16'},{k:'qf',l:'QF',b:'sb-qf'},{k:'sf',l:'SF',b:'sb-sf'}]
-    .forEach(({k,l,b})=>(B[k]||[]).forEach(m=>all.push({...m,stage:l,sk:k,badge:b})));
-  all.push({...B.final,stage:'Final',sk:'final',badge:'sb-f'});
-  all.push({...B.third_place,stage:'3rd Place',sk:'3rd',badge:'sb-3'});
+    .forEach(({k,l,b})=>{const arr=B[k]||[];arr.forEach((m,i)=>all.push({...m,stage:l,sk:k,badge:b,_ko:koDate(k,i,arr.length)}));});
+  all.push({...B.final,stage:'Final',sk:'final',badge:'sb-f',_ko:koDate('final',0,1)});
+  all.push({...B.third_place,stage:'3rd Place',sk:'3rd',badge:'sb-3',_ko:koDate('3rd',0,1)});
   // Attach real fixture date + actual result (keyed by sorted team pair) from SCH;
   // knockout predicted matchups fall back to a per-round ordering date.
   const GROUP_FALLBACK='2026-06-27';   // keep date-less group games in the group block
   all.forEach(m=>{
     const s=SCH[[m.home,m.away].sort().join('|')];
     const real=s&&s.date;
-    m._date=real||(m.sk!=='group'?ROUND_DATE[m.sk]:null);                       // shown date
-    m._sort=real||(m.sk==='group'?GROUP_FALLBACK:ROUND_DATE[m.sk])||'9999-99-99'; // ordering key
+    m._date=real||(m.sk!=='group'?m._ko:null);                       // shown date
+    m._sort=real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99'; // ordering key
     const g=s&&s.goals;
     m._result=(g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`:null;
   });
