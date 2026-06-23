@@ -816,15 +816,34 @@
       "total_goal_error": 3,
       "brier": 0.1515,
       "logloss": 0.3798
+    },
+    {
+      "date": "2026-06-23",
+      "home": "Algeria",
+      "away": "Jordan",
+      "group": "J",
+      "predicted_score": "1\u20130",
+      "actual_score": "2\u20131",
+      "predicted_winner": "Algeria",
+      "ph": 0.517,
+      "pd": 0.341,
+      "pa": 0.142,
+      "actual_winner": "Algeria",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.3697,
+      "logloss": 0.6597
     }
   ],
   "summary": {
-    "total_matches": 43,
-    "correct_winners": 23,
-    "accuracy": 0.5349,
-    "avg_goal_error": 2.279,
-    "avg_brier": 0.5746,
-    "avg_logloss": 0.9572,
+    "total_matches": 44,
+    "correct_winners": 24,
+    "accuracy": 0.5455,
+    "avg_goal_error": 2.273,
+    "avg_brier": 0.5699,
+    "avg_logloss": 0.9505,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -834,9 +853,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 10,
-        "predicted": 0.486,
-        "actual": 0.3
+        "n": 11,
+        "predicted": 0.488,
+        "actual": 0.364
       },
       {
         "bin": "55\u201365%",
@@ -857,8 +876,8 @@
         "actual": 0.75
       }
     ],
-    "predicted_draw_rate": 0.2539,
-    "actual_draw_rate": 0.3023,
-    "ece": 0.1231
+    "predicted_draw_rate": 0.2558,
+    "actual_draw_rate": 0.2955,
+    "ece": 0.1091
   }
 }

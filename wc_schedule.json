@@ -345,10 +345,10 @@
   },
   "Algeria|Jordan": {
     "date": "2026-06-23",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Jordan": 1,
-      "Algeria": 0
+      "Algeria": 2
     }
   },
   "Portugal|Uzbekistan": {

@@ -2676,5 +2676,31 @@
     "lam": 3.67,
     "mu": 1.01,
     "snapped_at": "2026-06-22"
+  },
+  "Algeria|Egypt": {
+    "home": "Egypt",
+    "away": "Algeria",
+    "group": "R32",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Egypt",
+    "ph": 0.41,
+    "pd": 0.287,
+    "pa": 0.303,
+    "lam": 1.22,
+    "mu": 0.99,
+    "snapped_at": "2026-06-23"
+  },
+  "Colombia|Egypt": {
+    "home": "Egypt",
+    "away": "Colombia",
+    "group": "R16",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Colombia",
+    "ph": 0.24,
+    "pd": 0.248,
+    "pa": 0.512,
+    "lam": 1.02,
+    "mu": 1.62,
+    "snapped_at": "2026-06-23"
   }
 }
