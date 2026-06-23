@@ -2702,5 +2702,18 @@
     "lam": 1.02,
     "mu": 1.62,
     "snapped_at": "2026-06-23"
+  },
+  "Egypt|Portugal": {
+    "home": "Egypt",
+    "away": "Portugal",
+    "group": "R16",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Portugal",
+    "ph": 0.239,
+    "pd": 0.242,
+    "pa": 0.52,
+    "lam": 1.06,
+    "mu": 1.69,
+    "snapped_at": "2026-06-23"
   }
 }

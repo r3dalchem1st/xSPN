@@ -854,15 +854,34 @@
       "total_goal_error": 4,
       "brier": 0.3554,
       "logloss": 0.6616
+    },
+    {
+      "date": "2026-06-23",
+      "home": "England",
+      "away": "Ghana",
+      "group": "L",
+      "predicted_score": "2\u20130",
+      "actual_score": "0\u20130",
+      "predicted_winner": "England",
+      "ph": 0.771,
+      "pd": 0.144,
+      "pa": 0.085,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 1.3344,
+      "logloss": 1.9379
     }
   ],
   "summary": {
-    "total_matches": 45,
+    "total_matches": 46,
     "correct_winners": 25,
-    "accuracy": 0.5556,
-    "avg_goal_error": 2.311,
-    "avg_brier": 0.5652,
-    "avg_logloss": 0.9441,
+    "accuracy": 0.5435,
+    "avg_goal_error": 2.304,
+    "avg_brier": 0.5819,
+    "avg_logloss": 0.9657,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -890,13 +909,13 @@
       },
       {
         "bin": "75%+",
-        "n": 8,
-        "predicted": 0.818,
-        "actual": 0.75
+        "n": 9,
+        "predicted": 0.813,
+        "actual": 0.667
       }
     ],
-    "predicted_draw_rate": 0.2565,
-    "actual_draw_rate": 0.2889,
-    "ece": 0.0961
+    "predicted_draw_rate": 0.2541,
+    "actual_draw_rate": 0.3043,
+    "ece": 0.1107
   }
 }
