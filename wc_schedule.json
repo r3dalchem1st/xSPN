@@ -385,34 +385,34 @@
   },
   "Canada|Switzerland": {
     "date": "2026-06-24",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Switzerland": 2,
-      "Canada": 0
+      "Canada": 1
     }
   },
   "Bosnia|Qatar": {
     "date": "2026-06-24",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Bosnia": 2,
+      "Bosnia": 3,
       "Qatar": 1
     }
   },
   "Haiti|Morocco": {
     "date": "2026-06-24",
-    "status": "TIMED",
+    "status": "LIVE",
     "goals": {
-      "Morocco": null,
-      "Haiti": null
+      "Morocco": 1,
+      "Haiti": 2
     }
   },
   "Brazil|Scotland": {
     "date": "2026-06-24",
-    "status": "TIMED",
+    "status": "LIVE",
     "goals": {
-      "Scotland": null,
-      "Brazil": null
+      "Scotland": 0,
+      "Brazil": 2
     }
   },
   "Czechia|Mexico": {
