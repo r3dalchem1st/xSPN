@@ -412,5 +412,23 @@
     0,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-23",
+    "Panama",
+    "Croatia",
+    0,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-24",
+    "Colombia",
+    "DR Congo",
+    1,
+    0,
+    "World Cup",
+    true
   ]
 ]

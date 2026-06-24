@@ -369,18 +369,18 @@
   },
   "Croatia|Panama": {
     "date": "2026-06-23",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Panama": null,
-      "Croatia": null
+      "Panama": 0,
+      "Croatia": 1
     }
   },
   "Colombia|DR Congo": {
     "date": "2026-06-24",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Colombia": null,
-      "DR Congo": null
+      "Colombia": 1,
+      "DR Congo": 0
     }
   },
   "Canada|Switzerland": {
