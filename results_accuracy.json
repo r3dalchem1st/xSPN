@@ -873,21 +873,59 @@
       "total_goal_error": 2,
       "brier": 1.3344,
       "logloss": 1.9379
+    },
+    {
+      "date": "2026-06-23",
+      "home": "Croatia",
+      "away": "Panama",
+      "group": "L",
+      "predicted_score": "4\u20130",
+      "actual_score": "1\u20130",
+      "predicted_winner": "Croatia",
+      "ph": 0.916,
+      "pd": 0.058,
+      "pa": 0.026,
+      "actual_winner": "Croatia",
+      "correct_winner": true,
+      "home_error": 3,
+      "away_error": 0,
+      "total_goal_error": 3,
+      "brier": 0.0111,
+      "logloss": 0.0877
+    },
+    {
+      "date": "2026-06-24",
+      "home": "DR Congo",
+      "away": "Colombia",
+      "group": "K",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20131",
+      "predicted_winner": "Colombia",
+      "ph": 0.276,
+      "pd": 0.357,
+      "pa": 0.367,
+      "actual_winner": "Colombia",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.6043,
+      "logloss": 1.0024
     }
   ],
   "summary": {
-    "total_matches": 46,
-    "correct_winners": 25,
-    "accuracy": 0.5435,
-    "avg_goal_error": 2.304,
-    "avg_brier": 0.5819,
-    "avg_logloss": 0.9657,
+    "total_matches": 48,
+    "correct_winners": 27,
+    "accuracy": 0.5625,
+    "avg_goal_error": 2.271,
+    "avg_brier": 0.5705,
+    "avg_logloss": 0.9481,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 12,
-        "predicted": 0.404,
-        "actual": 0.5
+        "n": 13,
+        "predicted": 0.401,
+        "actual": 0.538
       },
       {
         "bin": "45\u201355%",
@@ -909,13 +947,13 @@
       },
       {
         "bin": "75%+",
-        "n": 9,
-        "predicted": 0.813,
-        "actual": 0.667
+        "n": 10,
+        "predicted": 0.823,
+        "actual": 0.7
       }
     ],
-    "predicted_draw_rate": 0.2541,
-    "actual_draw_rate": 0.3043,
-    "ece": 0.1107
+    "predicted_draw_rate": 0.2521,
+    "actual_draw_rate": 0.2917,
+    "ece": 0.1175
   }
 }
