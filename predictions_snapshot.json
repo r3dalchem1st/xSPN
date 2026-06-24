@@ -2715,5 +2715,31 @@
     "lam": 1.06,
     "mu": 1.69,
     "snapped_at": "2026-06-23"
+  },
+  "Argentina|Brazil": {
+    "home": "Brazil",
+    "away": "Argentina",
+    "group": "SF",
+    "predicted_score": "0\u20131",
+    "predicted_winner": "Argentina",
+    "ph": 0.235,
+    "pd": 0.261,
+    "pa": 0.504,
+    "lam": 0.93,
+    "mu": 1.5,
+    "snapped_at": "2026-06-24"
+  },
+  "Brazil|Colombia": {
+    "home": "Brazil",
+    "away": "Colombia",
+    "group": "3rd",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Brazil",
+    "ph": 0.391,
+    "pd": 0.266,
+    "pa": 0.344,
+    "lam": 1.33,
+    "mu": 1.23,
+    "snapped_at": "2026-06-24"
   }
 }
