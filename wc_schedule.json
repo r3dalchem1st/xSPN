@@ -385,18 +385,18 @@
   },
   "Canada|Switzerland": {
     "date": "2026-06-24",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Switzerland": null,
-      "Canada": null
+      "Switzerland": 2,
+      "Canada": 0
     }
   },
   "Bosnia|Qatar": {
     "date": "2026-06-24",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Bosnia": null,
-      "Qatar": null
+      "Bosnia": 2,
+      "Qatar": 1
     }
   },
   "Haiti|Morocco": {
