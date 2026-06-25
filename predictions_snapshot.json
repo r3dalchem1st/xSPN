@@ -2741,5 +2741,57 @@
     "lam": 1.33,
     "mu": 1.23,
     "snapped_at": "2026-06-24"
+  },
+  "Canada|South Africa": {
+    "home": "South Africa",
+    "away": "Canada",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Canada",
+    "ph": 0.288,
+    "pd": 0.261,
+    "pa": 0.452,
+    "lam": 1.08,
+    "mu": 1.45,
+    "snapped_at": "2026-06-25"
+  },
+  "Germany|Scotland": {
+    "home": "Germany",
+    "away": "Scotland",
+    "group": "R32",
+    "predicted_score": "2\u20130",
+    "predicted_winner": "Germany",
+    "ph": 0.738,
+    "pd": 0.157,
+    "pa": 0.105,
+    "lam": 2.59,
+    "mu": 0.83,
+    "snapped_at": "2026-06-25"
+  },
+  "France|Paraguay": {
+    "home": "France",
+    "away": "Paraguay",
+    "group": "R32",
+    "predicted_score": "2\u20130",
+    "predicted_winner": "France",
+    "ph": 0.648,
+    "pd": 0.203,
+    "pa": 0.149,
+    "lam": 2.06,
+    "mu": 0.84,
+    "snapped_at": "2026-06-25"
+  },
+  "Egypt|South Korea": {
+    "home": "Egypt",
+    "away": "South Korea",
+    "group": "R32",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Egypt",
+    "ph": 0.444,
+    "pd": 0.263,
+    "pa": 0.293,
+    "lam": 1.43,
+    "mu": 1.1,
+    "snapped_at": "2026-06-25"
   }
 }
