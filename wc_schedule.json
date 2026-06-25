@@ -401,34 +401,34 @@
   },
   "Haiti|Morocco": {
     "date": "2026-06-24",
-    "status": "LIVE",
+    "status": "FINISHED",
     "goals": {
-      "Morocco": 1,
+      "Morocco": 4,
       "Haiti": 2
     }
   },
   "Brazil|Scotland": {
     "date": "2026-06-24",
-    "status": "LIVE",
+    "status": "FINISHED",
     "goals": {
       "Scotland": 0,
-      "Brazil": 2
+      "Brazil": 3
     }
   },
   "Czechia|Mexico": {
     "date": "2026-06-25",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Czechia": null,
-      "Mexico": null
+      "Czechia": 0,
+      "Mexico": 3
     }
   },
   "South Africa|South Korea": {
     "date": "2026-06-25",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "South Africa": null,
-      "South Korea": null
+      "South Africa": 1,
+      "South Korea": 0
     }
   },
   "Ecuador|Germany": {

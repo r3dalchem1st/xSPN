@@ -911,49 +911,163 @@
       "total_goal_error": 0,
       "brier": 0.6043,
       "logloss": 1.0024
+    },
+    {
+      "date": "2026-06-24",
+      "home": "Canada",
+      "away": "Switzerland",
+      "group": "B",
+      "predicted_score": "0\u20132",
+      "actual_score": "1\u20132",
+      "predicted_winner": "Switzerland",
+      "ph": 0.056,
+      "pd": 0.144,
+      "pa": 0.8,
+      "actual_winner": "Switzerland",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.0639,
+      "logloss": 0.2231
+    },
+    {
+      "date": "2026-06-24",
+      "home": "Qatar",
+      "away": "Bosnia",
+      "group": "B",
+      "predicted_score": "2\u20131",
+      "actual_score": "1\u20133",
+      "predicted_winner": "Qatar",
+      "ph": 0.441,
+      "pd": 0.23,
+      "pa": 0.329,
+      "actual_winner": "Bosnia",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 2,
+      "total_goal_error": 3,
+      "brier": 0.6976,
+      "logloss": 1.1117
+    },
+    {
+      "date": "2026-06-24",
+      "home": "Morocco",
+      "away": "Haiti",
+      "group": "C",
+      "predicted_score": "1\u20130",
+      "actual_score": "4\u20132",
+      "predicted_winner": "Morocco",
+      "ph": 0.65,
+      "pd": 0.261,
+      "pa": 0.09,
+      "actual_winner": "Morocco",
+      "correct_winner": true,
+      "home_error": 3,
+      "away_error": 2,
+      "total_goal_error": 5,
+      "brier": 0.1987,
+      "logloss": 0.4308
+    },
+    {
+      "date": "2026-06-24",
+      "home": "Brazil",
+      "away": "Scotland",
+      "group": "C",
+      "predicted_score": "2\u20130",
+      "actual_score": "3\u20130",
+      "predicted_winner": "Brazil",
+      "ph": 0.638,
+      "pd": 0.205,
+      "pa": 0.157,
+      "actual_winner": "Brazil",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.1977,
+      "logloss": 0.4494
+    },
+    {
+      "date": "2026-06-25",
+      "home": "Mexico",
+      "away": "Czechia",
+      "group": "A",
+      "predicted_score": "0\u20131",
+      "actual_score": "3\u20130",
+      "predicted_winner": "Czechia",
+      "ph": 0.182,
+      "pd": 0.305,
+      "pa": 0.513,
+      "actual_winner": "Mexico",
+      "correct_winner": false,
+      "home_error": 3,
+      "away_error": 1,
+      "total_goal_error": 4,
+      "brier": 1.0253,
+      "logloss": 1.7037
+    },
+    {
+      "date": "2026-06-25",
+      "home": "South Africa",
+      "away": "South Korea",
+      "group": "A",
+      "predicted_score": "0\u20131",
+      "actual_score": "1\u20130",
+      "predicted_winner": "South Korea",
+      "ph": 0.276,
+      "pd": 0.263,
+      "pa": 0.461,
+      "actual_winner": "South Africa",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.8059,
+      "logloss": 1.2874
     }
   ],
   "summary": {
-    "total_matches": 48,
-    "correct_winners": 27,
-    "accuracy": 0.5625,
-    "avg_goal_error": 2.271,
-    "avg_brier": 0.5705,
-    "avg_logloss": 0.9481,
+    "total_matches": 54,
+    "correct_winners": 30,
+    "accuracy": 0.5556,
+    "avg_goal_error": 2.315,
+    "avg_brier": 0.5624,
+    "avg_logloss": 0.9392,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 13,
-        "predicted": 0.401,
-        "actual": 0.538
+        "n": 14,
+        "predicted": 0.404,
+        "actual": 0.5
       },
       {
         "bin": "45\u201355%",
-        "n": 12,
-        "predicted": 0.491,
-        "actual": 0.417
+        "n": 14,
+        "predicted": 0.49,
+        "actual": 0.357
       },
       {
         "bin": "55\u201365%",
-        "n": 7,
-        "predicted": 0.572,
-        "actual": 0.429
+        "n": 8,
+        "predicted": 0.58,
+        "actual": 0.5
       },
       {
         "bin": "65\u201375%",
-        "n": 6,
-        "predicted": 0.71,
-        "actual": 0.833
+        "n": 7,
+        "predicted": 0.702,
+        "actual": 0.857
       },
       {
         "bin": "75%+",
-        "n": 10,
-        "predicted": 0.823,
-        "actual": 0.7
+        "n": 11,
+        "predicted": 0.821,
+        "actual": 0.727
       }
     ],
-    "predicted_draw_rate": 0.2521,
-    "actual_draw_rate": 0.2917,
-    "ece": 0.1175
+    "predicted_draw_rate": 0.2502,
+    "actual_draw_rate": 0.2593,
+    "ece": 0.1105
   }
 }
