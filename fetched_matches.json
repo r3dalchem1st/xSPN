@@ -484,5 +484,23 @@
     0,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-25",
+    "Ecuador",
+    "Germany",
+    2,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-25",
+    "Curacao",
+    "Ivory Coast",
+    0,
+    2,
+    "World Cup",
+    true
   ]
 ]
