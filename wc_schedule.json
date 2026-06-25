@@ -433,18 +433,18 @@
   },
   "Ecuador|Germany": {
     "date": "2026-06-25",
-    "status": "TIMED",
+    "status": "LIVE",
     "goals": {
-      "Ecuador": null,
-      "Germany": null
+      "Ecuador": 1,
+      "Germany": 1
     }
   },
   "Curacao|Ivory Coast": {
     "date": "2026-06-25",
-    "status": "TIMED",
+    "status": "LIVE",
     "goals": {
-      "Curacao": null,
-      "Ivory Coast": null
+      "Curacao": 0,
+      "Ivory Coast": 1
     }
   },
   "Netherlands|Tunisia": {
