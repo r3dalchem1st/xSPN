@@ -430,5 +430,59 @@
     0,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-24",
+    "Switzerland",
+    "Canada",
+    2,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-24",
+    "Bosnia",
+    "Qatar",
+    3,
+    1,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-24",
+    "Morocco",
+    "Haiti",
+    4,
+    2,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-24",
+    "Scotland",
+    "Brazil",
+    0,
+    3,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-25",
+    "Czechia",
+    "Mexico",
+    0,
+    3,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-25",
+    "South Africa",
+    "South Korea",
+    1,
+    0,
+    "World Cup",
+    true
   ]
 ]
