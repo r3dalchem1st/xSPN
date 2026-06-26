@@ -481,17 +481,17 @@
   },
   "France|Norway": {
     "date": "2026-06-26",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Norway": 1,
-      "France": 3
+      "France": 4
     }
   },
   "Iraq|Senegal": {
     "date": "2026-06-26",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Senegal": 1,
+      "Senegal": 5,
       "Iraq": 0
     }
   },
