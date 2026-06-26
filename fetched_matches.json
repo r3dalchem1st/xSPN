@@ -538,5 +538,23 @@
     0,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-26",
+    "Norway",
+    "France",
+    1,
+    4,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-26",
+    "Senegal",
+    "Iraq",
+    5,
+    0,
+    "World Cup",
+    true
   ]
 ]
