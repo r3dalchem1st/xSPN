@@ -2793,5 +2793,31 @@
     "lam": 1.43,
     "mu": 1.1,
     "snapped_at": "2026-06-25"
+  },
+  "Bosnia|Germany": {
+    "home": "Germany",
+    "away": "Bosnia",
+    "group": "R32",
+    "predicted_score": "3\u20130",
+    "predicted_winner": "Germany",
+    "ph": 0.803,
+    "pd": 0.118,
+    "pa": 0.079,
+    "lam": 3.19,
+    "mu": 0.94,
+    "snapped_at": "2026-06-26"
+  },
+  "Ecuador|Mexico": {
+    "home": "Mexico",
+    "away": "Ecuador",
+    "group": "R32",
+    "predicted_score": "0\u20130 (p)",
+    "predicted_winner": "Mexico",
+    "ph": 0.382,
+    "pd": 0.33,
+    "pa": 0.289,
+    "lam": 0.97,
+    "mu": 0.8,
+    "snapped_at": "2026-06-26"
   }
 }

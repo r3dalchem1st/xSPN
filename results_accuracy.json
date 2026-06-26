@@ -1063,27 +1063,103 @@
       "total_goal_error": 1,
       "brier": 0.1612,
       "logloss": 0.3871
+    },
+    {
+      "date": "2026-06-25",
+      "home": "Netherlands",
+      "away": "Tunisia",
+      "group": "F",
+      "predicted_score": "1\u20130",
+      "actual_score": "3\u20131",
+      "predicted_winner": "Netherlands",
+      "ph": 0.506,
+      "pd": 0.34,
+      "pa": 0.154,
+      "actual_winner": "Netherlands",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 0.3834,
+      "logloss": 0.6812
+    },
+    {
+      "date": "2026-06-25",
+      "home": "Japan",
+      "away": "Sweden",
+      "group": "F",
+      "predicted_score": "2\u20131",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Japan",
+      "ph": 0.686,
+      "pd": 0.166,
+      "pa": 0.148,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 1.1881,
+      "logloss": 1.7958
+    },
+    {
+      "date": "2026-06-26",
+      "home": "USA",
+      "away": "Turkey",
+      "group": "D",
+      "predicted_score": "0\u20132",
+      "actual_score": "2\u20133",
+      "predicted_winner": "Turkey",
+      "ph": 0.09,
+      "pd": 0.176,
+      "pa": 0.734,
+      "actual_winner": "Turkey",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 1,
+      "total_goal_error": 3,
+      "brier": 0.1098,
+      "logloss": 0.3092
+    },
+    {
+      "date": "2026-06-26",
+      "home": "Paraguay",
+      "away": "Australia",
+      "group": "D",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20130",
+      "predicted_winner": "Australia",
+      "ph": 0.332,
+      "pd": 0.324,
+      "pa": 0.343,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.6848,
+      "logloss": 1.127
     }
   ],
   "summary": {
-    "total_matches": 56,
-    "correct_winners": 31,
-    "accuracy": 0.5536,
-    "avg_goal_error": 2.286,
-    "avg_brier": 0.5651,
-    "avg_logloss": 0.9471,
+    "total_matches": 60,
+    "correct_winners": 33,
+    "accuracy": 0.55,
+    "avg_goal_error": 2.267,
+    "avg_brier": 0.5669,
+    "avg_logloss": 0.9491,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 14,
-        "predicted": 0.404,
-        "actual": 0.5
+        "n": 15,
+        "predicted": 0.4,
+        "actual": 0.467
       },
       {
         "bin": "45\u201355%",
-        "n": 15,
-        "predicted": 0.492,
-        "actual": 0.333
+        "n": 16,
+        "predicted": 0.493,
+        "actual": 0.375
       },
       {
         "bin": "55\u201365%",
@@ -1093,9 +1169,9 @@
       },
       {
         "bin": "65\u201375%",
-        "n": 8,
-        "predicted": 0.699,
-        "actual": 0.875
+        "n": 10,
+        "predicted": 0.701,
+        "actual": 0.8
       },
       {
         "bin": "75%+",
@@ -1105,7 +1181,7 @@
       }
     ],
     "predicted_draw_rate": 0.2511,
-    "actual_draw_rate": 0.25,
-    "ece": 0.1216
+    "actual_draw_rate": 0.2667,
+    "ece": 0.0926
   }
 }
