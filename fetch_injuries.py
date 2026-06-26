@@ -63,7 +63,11 @@ else:
         print(f"Injury fetch failed ({e}) — injuries.json unchanged."); raise SystemExit(0)
     if r.status_code != 200:
         print(f"Injury API HTTP {r.status_code} — injuries.json unchanged."); raise SystemExit(0)
-    rows = r.json().get('response', [])
+    data = r.json()
+    if data.get('errors'):
+        print(f"Injury API error: {data['errors']} — injuries.json unchanged."); raise SystemExit(0)
+    rows = data.get('response', [])
+    print(f"  Injury API: {data.get('results', '?')} results (league={LEAGUE} season={SEASON})")
 injuries, unmatched, seen = {}, [], set()
 for row in rows:
     tname = (row.get('team') or {}).get('name', '')
