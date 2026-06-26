@@ -574,5 +574,37 @@
       "Algeria": null,
       "Austria": null
     }
+  },
+  "Canada|South Africa": {
+    "date": "2026-06-28",
+    "status": "TIMED",
+    "goals": {
+      "South Africa": null,
+      "Canada": null
+    }
+  },
+  "Brazil|Japan": {
+    "date": "2026-06-29",
+    "status": "TIMED",
+    "goals": {
+      "Brazil": null,
+      "Japan": null
+    }
+  },
+  "Morocco|Netherlands": {
+    "date": "2026-06-30",
+    "status": "TIMED",
+    "goals": {
+      "Netherlands": null,
+      "Morocco": null
+    }
+  },
+  "Bosnia|USA": {
+    "date": "2026-07-02",
+    "status": "TIMED",
+    "goals": {
+      "USA": null,
+      "Bosnia": null
+    }
   }
 }

@@ -2819,5 +2819,18 @@
     "lam": 0.97,
     "mu": 0.8,
     "snapped_at": "2026-06-26"
+  },
+  "Ecuador|Egypt": {
+    "home": "Egypt",
+    "away": "Ecuador",
+    "group": "R32",
+    "predicted_score": "0\u20130 (p)",
+    "predicted_winner": "Ecuador",
+    "ph": 0.324,
+    "pd": 0.323,
+    "pa": 0.353,
+    "lam": 0.9,
+    "mu": 0.96,
+    "snapped_at": "2026-06-26"
   }
 }
