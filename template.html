@@ -170,11 +170,13 @@ function show(n){
   // no predicted/expected points (unplayed fixtures contribute nothing). GF/GA/GD
   // from real scores; yellow/red cards from CARDS (booking data, when available).
   function computeStandings(teams,ms){
-    const z={},S={};teams.forEach(t=>{z[t]=0;S[t]={pts:0,w:0,d:0,l:0,pld:0,gf:0,ga:0,yc:0,rc:0};});
+    const S={};const RES={};
+    teams.forEach(t=>{S[t]={pts:0,w:0,d:0,l:0,pld:0,gf:0,ga:0,yc:0,rc:0};});
     ms.forEach(m=>{
       const r=played(m); if(!r)return;
       const[hg,ag]=r,H=S[m.home],A=S[m.away];
       H.pld++;A.pld++;H.gf+=hg;H.ga+=ag;A.gf+=ag;A.ga+=hg;
+      RES[m.home+'|'+m.away]=[hg,ag];
       if(hg>ag){H.pts+=3;H.w++;A.l++;}
       else if(hg<ag){A.pts+=3;A.w++;H.l++;}
       else{H.pts++;A.pts++;H.d++;A.d++;}
@@ -182,8 +184,30 @@ function show(n){
       if(c){const yc=c.YC||{},rc=c.RC||{};
         H.yc+=yc[m.home]||0;A.yc+=yc[m.away]||0;H.rc+=rc[m.home]||0;A.rc+=rc[m.away]||0;}
     });
-    return teams.map(t=>({t,...S[t],gd:S[t].gf-S[t].ga}))
-      .sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf);
+    const rows=teams.map(t=>({t,...S[t],gd:S[t].gf-S[t].ga}));
+    rows.sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf);
+    // Head-to-head tiebreaker within clusters tied on pts/gd/gf (FIFA 2026 rules 4-6)
+    function h2hSort(cl){
+      if(cl.length<2)return cl;
+      const cs=new Set(cl.map(r=>r.t));
+      const hp={},hd={},hf={};
+      cl.forEach(r=>{hp[r.t]=0;hd[r.t]=0;hf[r.t]=0;});
+      Object.entries(RES).forEach(([k,[hg,ag]])=>{
+        const[h,a]=k.split('|');
+        if(!cs.has(h)||!cs.has(a))return;
+        hf[h]+=hg;hf[a]+=ag;hd[h]+=hg-ag;hd[a]+=ag-hg;
+        if(hg>ag)hp[h]+=3;else if(hg<ag)hp[a]+=3;else{hp[h]++;hp[a]++;}
+      });
+      return[...cl].sort((a,b)=>hp[b.t]-hp[a.t]||hd[b.t]-hd[a.t]||hf[b.t]-hf[a.t]);
+    }
+    const out=[];let i=0;
+    while(i<rows.length){
+      let j=i+1;
+      while(j<rows.length&&rows[j].pts===rows[i].pts&&rows[j].gd===rows[i].gd&&rows[j].gf===rows[i].gf)j++;
+      out.push(...h2hSort(rows.slice(i,j)));
+      i=j;
+    }
+    return out;
   }
   let h='<div style="max-width:780px;margin:0 auto 14px;font-size:.76rem;color:var(--muted);line-height:1.5">'
     +'<strong>Standings</strong> reflect <strong>actual results only</strong> — points, W-D-L, goals (GF/GA/GD) and cards (YC/RC) are tallied from games already played (greyed below); fixtures still to come do not count. <em>Pld</em> = games played. '
@@ -298,7 +322,8 @@ function show(n){
     m._date=real||(m.sk!=='group'?m._ko:null);                       // shown date
     m._sort=real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99'; // ordering key
     const g=s&&s.goals;
-    m._result=(g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`:null;
+    const pw=s&&s.pen_winner;
+    m._result=(g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`+(pw?' (p)':''):null;
   });
   all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
   window._AM=all;

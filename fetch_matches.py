@@ -122,9 +122,13 @@ def fetch_competition(code, label, neutral):
             print(f"    ! unmapped team name(s): {home_raw!r} / {away_raw!r} — skipped")
             continue
         match_date = m.get('utcDate', '')[:10]
-        score = m.get('score', {}).get('fullTime', {})
-        hg = score.get('home')
-        ag = score.get('away')
+        sc = m.get('score') or {}
+        ft = sc.get('fullTime') or {}
+        et = sc.get('extraTime') or {}
+        # ET score is cumulative (includes 90-min goals); prefer it over fullTime for
+        # knockout matches that reach extra time so training data reflects actual result.
+        hg = et.get('home') if et.get('home') is not None else ft.get('home')
+        ag = et.get('away') if et.get('away') is not None else ft.get('away')
         if hg is None or ag is None:
             continue
         is_neutral = neutral if neutral is not None else False
@@ -151,11 +155,21 @@ def fetch_schedule():
             if hr and not home: unmapped.add(hr)
             if ar and not away: unmapped.add(ar)
             continue
-        ft = m.get('score', {}).get('fullTime', {})
-        sched['|'.join(sorted([home, away]))] = {
+        sc = m.get('score') or {}
+        ft = sc.get('fullTime') or {}
+        et = sc.get('extraTime') or {}
+        pen = sc.get('penalties') or {}
+        duration = sc.get('duration')
+        final_h = et.get('home') if et.get('home') is not None else ft.get('home')
+        final_a = et.get('away') if et.get('away') is not None else ft.get('away')
+        entry = {
             "date": m.get('utcDate', '')[:10], "status": m.get('status'),
-            "goals": {home: ft.get('home'), away: ft.get('away')},  # by team name (orientation-safe)
+            "goals": {home: final_h, away: final_a},  # by team name (orientation-safe)
         }
+        if duration == 'PENALTY_SHOOTOUT' and pen.get('home') is not None:
+            pen_h, pen_a = pen.get('home', 0), pen.get('away', 0)
+            entry['pen_winner'] = home if pen_h > pen_a else away
+        sched['|'.join(sorted([home, away]))] = entry
     print(f"  schedule: {len(sched)} fixtures with both teams resolved")
     if unmapped:
         print(f"  schedule unmapped team names (add to TEAM_MAP): {sorted(unmapped)}")
