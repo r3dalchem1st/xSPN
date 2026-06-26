@@ -69,7 +69,10 @@ def api_get(path, params):
     r = requests.get(f"{API}{path}", headers=HEADERS, params=params, timeout=20)
     if r.status_code != 200:
         raise RuntimeError(f"HTTP {r.status_code}")
-    return r.json().get('response', [])
+    data = r.json()
+    if data.get('errors'):
+        raise RuntimeError(f"API error: {data['errors']}")
+    return data.get('response', [])
 
 def fixture_cards(stat_rows):
     """API-Football /fixtures/statistics response -> {our_team: {'YC':n,'RC':n}}."""
@@ -99,6 +102,9 @@ def main():
             fixtures = api_get('/fixtures', {'league': LEAGUE, 'season': SEASON})
         except (requests.RequestException, RuntimeError) as e:
             print(f"Card fetch failed listing fixtures ({e}) — cards.json unchanged."); return
+        n_finished = sum(1 for fx in fixtures
+                         if (fx.get('fixture') or {}).get('status', {}).get('short') in FINISHED)
+        print(f"  Cards API: {len(fixtures)} fixtures (league={LEAGUE} season={SEASON}), {n_finished} FINISHED")
         stats_for = lambda fid: api_get('/fixtures/statistics', {'fixture': fid})
 
     cards = load_cards()
