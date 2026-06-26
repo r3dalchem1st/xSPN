@@ -449,34 +449,34 @@
   },
   "Netherlands|Tunisia": {
     "date": "2026-06-25",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Tunisia": null,
-      "Netherlands": null
+      "Tunisia": 1,
+      "Netherlands": 3
     }
   },
   "Japan|Sweden": {
     "date": "2026-06-25",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Japan": null,
-      "Sweden": null
+      "Japan": 1,
+      "Sweden": 1
     }
   },
   "Turkey|USA": {
     "date": "2026-06-26",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Turkey": null,
-      "USA": null
+      "Turkey": 3,
+      "USA": 2
     }
   },
   "Australia|Paraguay": {
     "date": "2026-06-26",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Paraguay": null,
-      "Australia": null
+      "Paraguay": 0,
+      "Australia": 0
     }
   },
   "France|Norway": {
