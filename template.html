@@ -165,7 +165,7 @@ function show(n){
 (function(){
   if(!B.group_predictions){document.getElementById('tab-groups').innerHTML=NODATA;return;}
   function played(m){const s=SCH[[m.home,m.away].sort().join('|')];const g=s&&s.goals;
-    return (g&&g[m.home]!=null&&g[m.away]!=null)?[g[m.home],g[m.away]]:null;}
+    return (s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null)?[g[m.home],g[m.away]]:null;}
   // ACTUAL standings: only games already played count toward points/W-D-L/goals —
   // no predicted/expected points (unplayed fixtures contribute nothing). GF/GA/GD
   // from real scores; yellow/red cards from CARDS (booking data, when available).
@@ -323,7 +323,7 @@ function show(n){
     m._sort=real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99'; // ordering key
     const g=s&&s.goals;
     const pw=s&&s.pen_winner;
-    m._result=(g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`+(pw?' (p)':''):null;
+    m._result=(s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`+(pw?' (p)':''):null;
   });
   all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
   window._AM=all;

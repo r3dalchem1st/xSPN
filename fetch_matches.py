@@ -160,8 +160,9 @@ def fetch_schedule():
         et = sc.get('extraTime') or {}
         pen = sc.get('penalties') or {}
         duration = sc.get('duration')
-        final_h = et.get('home') if et.get('home') is not None else ft.get('home')
-        final_a = et.get('away') if et.get('away') is not None else ft.get('away')
+        is_finished = m.get('status') == 'FINISHED'
+        final_h = (et.get('home') if et.get('home') is not None else ft.get('home')) if is_finished else None
+        final_a = (et.get('away') if et.get('away') is not None else ft.get('away')) if is_finished else None
         entry = {
             "date": m.get('utcDate', '')[:10], "status": m.get('status'),
             "goals": {home: final_h, away: final_a},  # by team name (orientation-safe)
