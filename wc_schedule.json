@@ -513,15 +513,15 @@
   },
   "Belgium|New Zealand": {
     "date": "2026-06-27",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "New Zealand": 0,
-      "Belgium": 2
+      "New Zealand": 1,
+      "Belgium": 5
     }
   },
   "Egypt|Iran": {
     "date": "2026-06-27",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
       "Egypt": 1,
       "Iran": 1
@@ -573,6 +573,38 @@
     "goals": {
       "Algeria": null,
       "Austria": null
+    }
+  },
+  "Canada|South Africa": {
+    "date": "2026-06-28",
+    "status": "TIMED",
+    "goals": {
+      "South Africa": null,
+      "Canada": null
+    }
+  },
+  "Brazil|Japan": {
+    "date": "2026-06-29",
+    "status": "TIMED",
+    "goals": {
+      "Brazil": null,
+      "Japan": null
+    }
+  },
+  "Morocco|Netherlands": {
+    "date": "2026-06-30",
+    "status": "TIMED",
+    "goals": {
+      "Netherlands": null,
+      "Morocco": null
+    }
+  },
+  "Bosnia|USA": {
+    "date": "2026-07-02",
+    "status": "TIMED",
+    "goals": {
+      "USA": null,
+      "Bosnia": null
     }
   }
 }

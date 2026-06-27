@@ -1215,15 +1215,53 @@
       "total_goal_error": 1,
       "brier": 0.7485,
       "logloss": 1.1712
+    },
+    {
+      "date": "2026-06-27",
+      "home": "Belgium",
+      "away": "New Zealand",
+      "group": "G",
+      "predicted_score": "1\u20130",
+      "actual_score": "5\u20131",
+      "predicted_winner": "Belgium",
+      "ph": 0.452,
+      "pd": 0.347,
+      "pa": 0.202,
+      "actual_winner": "Belgium",
+      "correct_winner": true,
+      "home_error": 4,
+      "away_error": 1,
+      "total_goal_error": 5,
+      "brier": 0.4615,
+      "logloss": 0.7941
+    },
+    {
+      "date": "2026-06-27",
+      "home": "Egypt",
+      "away": "Iran",
+      "group": "G",
+      "predicted_score": "1\u20132",
+      "actual_score": "1\u20131",
+      "predicted_winner": "Iran",
+      "ph": 0.292,
+      "pd": 0.228,
+      "pa": 0.481,
+      "actual_winner": "Draw",
+      "correct_winner": false,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.9126,
+      "logloss": 1.4784
     }
   ],
   "summary": {
-    "total_matches": 64,
-    "correct_winners": 35,
-    "accuracy": 0.5469,
-    "avg_goal_error": 2.266,
-    "avg_brier": 0.5611,
-    "avg_logloss": 0.9402,
+    "total_matches": 66,
+    "correct_winners": 36,
+    "accuracy": 0.5455,
+    "avg_goal_error": 2.288,
+    "avg_brier": 0.5649,
+    "avg_logloss": 0.9462,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1233,9 +1271,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 17,
-        "predicted": 0.492,
-        "actual": 0.353
+        "n": 19,
+        "predicted": 0.489,
+        "actual": 0.368
       },
       {
         "bin": "55\u201365%",
@@ -1256,8 +1294,8 @@
         "actual": 0.727
       }
     ],
-    "predicted_draw_rate": 0.2538,
-    "actual_draw_rate": 0.2656,
-    "ece": 0.0809
+    "predicted_draw_rate": 0.2548,
+    "actual_draw_rate": 0.2727,
+    "ece": 0.0775
   }
 }
