@@ -973,8 +973,8 @@
       },
       "ru_pct": {
         "Argentina": 0.1,
-        "Algeria": 26.7,
-        "Austria": 73.2,
+        "Algeria": 27.0,
+        "Austria": 72.9,
         "Jordan": 0.0
       }
     },
@@ -988,7 +988,7 @@
         "Colombia": 66.0
       },
       "ru_pct": {
-        "Portugal": 65.3,
+        "Portugal": 65.2,
         "DR Congo": 0.7,
         "Uzbekistan": 0.0,
         "Colombia": 34.0
@@ -998,15 +998,15 @@
       "winner": "England",
       "runner": "Ghana",
       "win_pct": {
-        "England": 81.6,
-        "Croatia": 8.2,
-        "Ghana": 10.2,
+        "England": 81.5,
+        "Croatia": 8.6,
+        "Ghana": 9.9,
         "Panama": 0.0
       },
       "ru_pct": {
-        "England": 18.3,
-        "Croatia": 29.3,
-        "Ghana": 52.3,
+        "England": 18.4,
+        "Croatia": 28.9,
+        "Ghana": 52.7,
         "Panama": 0.0
       }
     }
@@ -1436,42 +1436,42 @@
     "mu": 1.19
   },
   "champion": "Argentina",
-  "champion_pct": 17.3,
+  "champion_pct": 17.1,
   "reach_final": {
-    "Argentina": 25.7,
+    "Argentina": 25.3,
     "France": 24.7,
-    "Spain": 20.4,
-    "Germany": 12.8,
-    "Colombia": 10.1,
-    "USA": 9.3,
-    "Brazil": 9.3,
+    "Spain": 20.7,
+    "Germany": 13.0,
+    "Colombia": 9.8,
+    "Brazil": 9.5,
+    "USA": 9.5,
     "Portugal": 9.0,
-    "England": 7.4,
-    "Morocco": 6.9,
-    "Netherlands": 5.6,
+    "England": 7.5,
+    "Morocco": 6.7,
     "Belgium": 5.6,
-    "Mexico": 5.2,
-    "Switzerland": 5.1,
-    "Norway": 5.0,
-    "Ecuador": 4.5,
+    "Netherlands": 5.5,
+    "Mexico": 5.3,
+    "Norway": 5.2,
+    "Switzerland": 5.2,
     "Japan": 4.5,
-    "Senegal": 4.0,
+    "Ecuador": 4.4,
+    "Senegal": 3.9,
     "Ivory Coast": 2.8,
-    "Canada": 2.6,
+    "Canada": 2.7,
     "Egypt": 2.1,
-    "Croatia": 2.0,
     "Paraguay": 2.0,
-    "Iran": 1.9,
+    "Iran": 2.0,
+    "Croatia": 1.9,
     "Ghana": 1.9,
-    "Australia": 1.9,
     "Austria": 1.8,
-    "Cape Verde": 1.8,
+    "Australia": 1.8,
+    "Cape Verde": 1.7,
     "DR Congo": 1.1,
     "Algeria": 1.0,
-    "South Africa": 0.8,
-    "South Korea": 0.5,
+    "South Africa": 0.7,
     "Sweden": 0.5,
+    "South Korea": 0.5,
     "Bosnia": 0.3,
-    "Scotland": 0.0
+    "Jordan": 0.0
   }
 }
