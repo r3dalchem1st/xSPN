@@ -497,34 +497,34 @@
   },
   "Spain|Uruguay": {
     "date": "2026-06-27",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Uruguay": null,
-      "Spain": null
+      "Uruguay": 0,
+      "Spain": 1
     }
   },
   "Cape Verde|Saudi Arabia": {
     "date": "2026-06-27",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Cape Verde": null,
-      "Saudi Arabia": null
+      "Cape Verde": 0,
+      "Saudi Arabia": 0
     }
   },
   "Belgium|New Zealand": {
     "date": "2026-06-27",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "New Zealand": null,
-      "Belgium": null
+      "New Zealand": 0,
+      "Belgium": 2
     }
   },
   "Egypt|Iran": {
     "date": "2026-06-27",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
-      "Egypt": null,
-      "Iran": null
+      "Egypt": 1,
+      "Iran": 1
     }
   },
   "England|Panama": {
@@ -573,38 +573,6 @@
     "goals": {
       "Algeria": null,
       "Austria": null
-    }
-  },
-  "Canada|South Africa": {
-    "date": "2026-06-28",
-    "status": "TIMED",
-    "goals": {
-      "South Africa": null,
-      "Canada": null
-    }
-  },
-  "Brazil|Japan": {
-    "date": "2026-06-29",
-    "status": "TIMED",
-    "goals": {
-      "Brazil": null,
-      "Japan": null
-    }
-  },
-  "Morocco|Netherlands": {
-    "date": "2026-06-30",
-    "status": "TIMED",
-    "goals": {
-      "Netherlands": null,
-      "Morocco": null
-    }
-  },
-  "Bosnia|USA": {
-    "date": "2026-07-02",
-    "status": "TIMED",
-    "goals": {
-      "USA": null,
-      "Bosnia": null
     }
   }
 }
