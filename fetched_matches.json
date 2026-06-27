@@ -574,5 +574,23 @@
     0,
     "World Cup",
     true
+  ],
+  [
+    "2026-06-27",
+    "New Zealand",
+    "Belgium",
+    1,
+    5,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-06-27",
+    "Egypt",
+    "Iran",
+    1,
+    1,
+    "World Cup",
+    true
   ]
 ]
