@@ -125,10 +125,15 @@ def fetch_competition(code, label, neutral):
         sc = m.get('score') or {}
         ft = sc.get('fullTime') or {}
         et = sc.get('extraTime') or {}
-        # ET score is cumulative (includes 90-min goals); prefer it over fullTime for
-        # knockout matches that reach extra time so training data reflects actual result.
-        hg = et.get('home') if et.get('home') is not None else ft.get('home')
-        ag = et.get('away') if et.get('away') is not None else ft.get('away')
+        # ET score is cumulative; use it only when both sides are present — one null
+        # side means the API was read mid-match and mixing ET-home with FT-away is wrong.
+        et_h, et_a = et.get('home'), et.get('away')
+        if et_h is not None and et_a is not None:
+            hg, ag = et_h, et_a
+        else:
+            if et_h is not None or et_a is not None:
+                print(f"    ~ ET partial (home={et_h}/away={et_a}) on {match_date} {home}–{away} — using FT")
+            hg, ag = ft.get('home'), ft.get('away')
         if hg is None or ag is None:
             continue
         is_neutral = neutral if neutral is not None else False
@@ -161,15 +166,26 @@ def fetch_schedule():
         pen = sc.get('penalties') or {}
         duration = sc.get('duration')
         is_finished = m.get('status') == 'FINISHED'
-        final_h = (et.get('home') if et.get('home') is not None else ft.get('home')) if is_finished else None
-        final_a = (et.get('away') if et.get('away') is not None else ft.get('away')) if is_finished else None
+        if is_finished:
+            et_h, et_a = et.get('home'), et.get('away')
+            if et_h is not None and et_a is not None:
+                final_h, final_a = et_h, et_a
+            else:
+                if et_h is not None or et_a is not None:
+                    print(f"    ~ ET partial (home={et_h}/away={et_a}) on {m.get('utcDate','')[:10]} {home}–{away} — using FT")
+                final_h, final_a = ft.get('home'), ft.get('away')
+        else:
+            final_h, final_a = None, None
         entry = {
             "date": m.get('utcDate', '')[:10], "status": m.get('status'),
             "goals": {home: final_h, away: final_a},  # by team name (orientation-safe)
         }
         if duration == 'PENALTY_SHOOTOUT' and pen.get('home') is not None:
             pen_h, pen_a = pen.get('home', 0), pen.get('away', 0)
-            entry['pen_winner'] = home if pen_h > pen_a else away
+            if pen_h != pen_a:
+                entry['pen_winner'] = home if pen_h > pen_a else away
+            else:
+                print(f"    ~ pen equal ({pen_h}–{pen_a}) on {entry['date']} {home}–{away} — pen_winner omitted")
         sched['|'.join(sorted([home, away]))] = entry
     print(f"  schedule: {len(sched)} fixtures with both teams resolved")
     if unmapped:
