@@ -2845,5 +2845,18 @@
     "lam": 1.24,
     "mu": 1.2,
     "snapped_at": "2026-06-27"
+  },
+  "France|Sweden": {
+    "home": "France",
+    "away": "Sweden",
+    "group": "R32",
+    "predicted_score": "3\u20130",
+    "predicted_winner": "France",
+    "ph": 0.798,
+    "pd": 0.121,
+    "pa": 0.082,
+    "lam": 3.18,
+    "mu": 0.93,
+    "snapped_at": "2026-06-28"
   }
 }
