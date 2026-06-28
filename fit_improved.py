@@ -119,6 +119,9 @@ def compute_elos_improved(matches):
 # L2 regularisation pulls sparse-data teams toward average, preventing
 # qualifying blowout records (e.g. Norway 8-0-0) from over-inflating attack.
 L2_REG = 0.30
+# P7: WC 2026 matches get extra weight so current tournament evidence
+# overrides historical baselines faster. Start at 3× and review.
+WC_2026_MULTIPLIER = 3.0
 
 def _build_rows(matches, idx):
     """Weighted, indexed match rows shared by the point fit and bootstrap fits."""
@@ -127,6 +130,8 @@ def _build_rows(matches, idx):
         date, home, away, hg, ag, tournament, neutral = row
         if home not in idx or away not in idx: continue
         importance = TOURNAMENT_WEIGHTS.get(tournament, 1.0)
+        if tournament == "World Cup" and date >= "2026-06-01":
+            importance *= WC_2026_MULTIPLIER
         d = days_ago(date)
         w = (0.5 ** (d / HALF_LIFE_DAYS)) * importance
         rows.append((idx[home], idx[away], hg, ag, w, bool(neutral)))
