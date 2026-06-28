@@ -48,13 +48,13 @@ jobs:
       - name: Backtest quality gate (fails on model regression)
         run: python backtest.py
 
-      - name: Snapshot pre-match predictions
-        run: python snapshot_predictions.py
-
       - name: Fetch new match results
         env:
           FD_API_KEY: ${{ secrets.FD_API_KEY }}
         run: python fetch_matches.py
+
+      - name: Snapshot pre-match predictions
+        run: python snapshot_predictions.py
 
       - name: Fetch injuries (optional)
         # Populates injuries.json from API-Football, valued via player_values.json.
