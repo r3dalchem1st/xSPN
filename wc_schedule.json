@@ -529,50 +529,50 @@
   },
   "England|Panama": {
     "date": "2026-06-27",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Panama": null,
-      "England": null
+      "Panama": 0,
+      "England": 2
     }
   },
   "Croatia|Ghana": {
     "date": "2026-06-27",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Croatia": null,
-      "Ghana": null
+      "Croatia": 2,
+      "Ghana": 1
     }
   },
   "Colombia|Portugal": {
     "date": "2026-06-27",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Colombia": null,
-      "Portugal": null
+      "Colombia": 0,
+      "Portugal": 0
     }
   },
   "DR Congo|Uzbekistan": {
     "date": "2026-06-27",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "DR Congo": null,
-      "Uzbekistan": null
+      "DR Congo": 3,
+      "Uzbekistan": 1
     }
   },
   "Argentina|Jordan": {
     "date": "2026-06-28",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Jordan": null,
-      "Argentina": null
+      "Jordan": 1,
+      "Argentina": 3
     }
   },
   "Algeria|Austria": {
     "date": "2026-06-28",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Algeria": null,
-      "Austria": null
+      "Algeria": 3,
+      "Austria": 3
     }
   },
   "Canada|South Africa": {
