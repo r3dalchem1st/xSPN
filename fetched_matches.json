@@ -433,12 +433,12 @@
   ],
   [
     "2026-06-24",
-    "Switzerland",
     "Canada",
-    2,
+    "Switzerland",
     1,
+    2,
     "World Cup",
-    true
+    false
   ],
   [
     "2026-06-24",
@@ -469,12 +469,12 @@
   ],
   [
     "2026-06-25",
-    "Czechia",
     "Mexico",
-    0,
+    "Czechia",
     3,
+    0,
     "World Cup",
-    true
+    false
   ],
   [
     "2026-06-25",
@@ -523,12 +523,12 @@
   ],
   [
     "2026-06-26",
-    "Turkey",
     "USA",
-    3,
+    "Turkey",
     2,
+    3,
     "World Cup",
-    true
+    false
   ],
   [
     "2026-06-26",
