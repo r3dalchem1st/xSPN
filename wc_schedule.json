@@ -591,6 +591,14 @@
       "Japan": null
     }
   },
+  "Germany|Paraguay": {
+    "date": "2026-06-29",
+    "status": "TIMED",
+    "goals": {
+      "Germany": null,
+      "Paraguay": null
+    }
+  },
   "Morocco|Netherlands": {
     "date": "2026-06-30",
     "status": "TIMED",
@@ -599,12 +607,100 @@
       "Morocco": null
     }
   },
+  "Ivory Coast|Norway": {
+    "date": "2026-06-30",
+    "status": "TIMED",
+    "goals": {
+      "Ivory Coast": null,
+      "Norway": null
+    }
+  },
+  "France|Sweden": {
+    "date": "2026-06-30",
+    "status": "TIMED",
+    "goals": {
+      "France": null,
+      "Sweden": null
+    }
+  },
+  "Ecuador|Mexico": {
+    "date": "2026-07-01",
+    "status": "TIMED",
+    "goals": {
+      "Mexico": null,
+      "Ecuador": null
+    }
+  },
+  "DR Congo|England": {
+    "date": "2026-07-01",
+    "status": "TIMED",
+    "goals": {
+      "England": null,
+      "DR Congo": null
+    }
+  },
+  "Belgium|Senegal": {
+    "date": "2026-07-01",
+    "status": "TIMED",
+    "goals": {
+      "Belgium": null,
+      "Senegal": null
+    }
+  },
   "Bosnia|USA": {
     "date": "2026-07-02",
     "status": "TIMED",
     "goals": {
       "USA": null,
       "Bosnia": null
+    }
+  },
+  "Austria|Spain": {
+    "date": "2026-07-02",
+    "status": "TIMED",
+    "goals": {
+      "Spain": null,
+      "Austria": null
+    }
+  },
+  "Croatia|Portugal": {
+    "date": "2026-07-02",
+    "status": "TIMED",
+    "goals": {
+      "Portugal": null,
+      "Croatia": null
+    }
+  },
+  "Algeria|Switzerland": {
+    "date": "2026-07-03",
+    "status": "TIMED",
+    "goals": {
+      "Switzerland": null,
+      "Algeria": null
+    }
+  },
+  "Australia|Egypt": {
+    "date": "2026-07-03",
+    "status": "TIMED",
+    "goals": {
+      "Australia": null,
+      "Egypt": null
+    }
+  },
+  "Argentina|Cape Verde": {
+    "date": "2026-07-03",
+    "status": "TIMED",
+    "goals": {
+      "Argentina": null,
+      "Cape Verde": null
+    }
+  },
+  "Colombia|Ghana": {
+    "date": "2026-07-04",
+    "status": "TIMED",
+    "goals": {
+      "Colombia": null,
+      "Ghana": null
     }
   }
 }
