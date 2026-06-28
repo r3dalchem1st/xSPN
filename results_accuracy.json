@@ -1367,15 +1367,34 @@
       "total_goal_error": 5,
       "brier": 0.6615,
       "logloss": 1.0527
+    },
+    {
+      "date": "2026-06-28",
+      "home": "South Africa",
+      "away": "Canada",
+      "group": "R32",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "0\u20131",
+      "predicted_winner": "Canada",
+      "ph": 0.288,
+      "pd": 0.261,
+      "pa": 0.452,
+      "actual_winner": "Canada",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.4514,
+      "logloss": 0.7941
     }
   ],
   "summary": {
-    "total_matches": 72,
-    "correct_winners": 40,
-    "accuracy": 0.5556,
-    "avg_goal_error": 2.292,
-    "avg_brier": 0.5539,
-    "avg_logloss": 0.9289,
+    "total_matches": 73,
+    "correct_winners": 41,
+    "accuracy": 0.5616,
+    "avg_goal_error": 2.274,
+    "avg_brier": 0.5525,
+    "avg_logloss": 0.927,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1385,9 +1404,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 20,
-        "predicted": 0.488,
-        "actual": 0.35
+        "n": 21,
+        "predicted": 0.486,
+        "actual": 0.381
       },
       {
         "bin": "55\u201365%",
@@ -1408,8 +1427,8 @@
         "actual": 0.769
       }
     ],
-    "predicted_draw_rate": 0.2532,
-    "actual_draw_rate": 0.2778,
-    "ece": 0.0743
+    "predicted_draw_rate": 0.2533,
+    "actual_draw_rate": 0.274,
+    "ece": 0.0657
   }
 }
