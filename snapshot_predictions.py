@@ -35,17 +35,17 @@ today_d = date.today()
 today = today_d.isoformat()
 
 def fixture_due(home, away):
-    """Group matches are locked only once their real fixture date is within
-    LOCK_WINDOW_DAYS — so the snapshot reflects a near-match model, not a
-    weeks-early one. Unknown date → lock now (don't risk missing the match)."""
+    """Lock a match only once its real fixture date is within LOCK_WINDOW_DAYS.
+    Unknown date → don't lock (locking weeks early with a stale model is worse
+    than briefly risking a miss; the date always arrives before the match)."""
     info = schedule.get('|'.join(sorted([home, away])))
     d = info.get('date') if info else None
     if not d:
-        return True
+        return False
     try:
         return (date.fromisoformat(d) - today_d).days <= LOCK_WINDOW_DAYS
     except ValueError:
-        return True
+        return False
 
 def lock(m, stage, winner):
     """Lock one match prediction by sorted team pair (append-only)."""
@@ -69,17 +69,20 @@ for grp, matches in bracket['group_predictions'].items():
             continue
         lock(m, grp, m.get("likely_winner") or m.get("winner"))
 
-# Knockout rounds — the model's predicted matchups. Scored as regulation results
-# (a KO match that goes to a shootout counts as the draw it was after 90/120').
-# Only pairings the model foresaw get a snapshot; others simply go unscored.
+# Knockout rounds — same date gate as group matches so predictions aren't locked
+# weeks before the fixture with a stale model. Only pairings within LOCK_WINDOW_DAYS
+# of their real date (from wc_schedule) get a snapshot; others wait until closer.
 for stage, key in [("R32","r32"),("R16","r16"),("QF","qf"),("SF","sf")]:
     for m in bracket.get(key, []):
-        lock(m, stage, m.get("reg_winner"))
+        if fixture_due(m['home'], m['away']):
+            lock(m, stage, m.get("reg_winner"))
 for stage, key in [("Final","final"),("3rd","third_place")]:
     m = bracket.get(key)
-    if m:
+    if m and fixture_due(m['home'], m['away']):
         lock(m, stage, m.get("reg_winner"))
 
 with open(SNAPSHOT_FILE, 'w') as f:
     json.dump(snapshot, f, indent=2)
+if added > 5:
+    print(f"WARNING: {added} new predictions locked in one run — verify this is expected.")
 print(f"Snapshot: {added} new predictions locked ({len(snapshot)} total).")
