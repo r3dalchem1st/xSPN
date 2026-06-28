@@ -198,7 +198,18 @@ function show(n){
         hf[h]+=hg;hf[a]+=ag;hd[h]+=hg-ag;hd[a]+=ag-hg;
         if(hg>ag)hp[h]+=3;else if(hg<ag)hp[a]+=3;else{hp[h]++;hp[a]++;}
       });
-      return[...cl].sort((a,b)=>hp[b.t]-hp[a.t]||hd[b.t]-hd[a.t]||hf[b.t]-hf[a.t]);
+      const sorted=[...cl].sort((a,b)=>hp[b.t]-hp[a.t]||hd[b.t]-hd[a.t]||hf[b.t]-hf[a.t]);
+      // Recursively break remaining sub-ties; if the whole cluster is still equal
+      // (circular H2H) there is no further resolution under FIFA rules — leave as-is.
+      const out=[];let i=0;
+      while(i<sorted.length){
+        let j=i+1;
+        while(j<sorted.length&&hp[sorted[j].t]===hp[sorted[i].t]&&hd[sorted[j].t]===hd[sorted[i].t]&&hf[sorted[j].t]===hf[sorted[i].t])j++;
+        const sub=sorted.slice(i,j);
+        out.push(...(sub.length>1&&sub.length<cl.length?h2hSort(sub):sub));
+        i=j;
+      }
+      return out;
     }
     const out=[];let i=0;
     while(i<rows.length){
