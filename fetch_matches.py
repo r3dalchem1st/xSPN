@@ -8,7 +8,7 @@ Set as GitHub secret FD_API_KEY (see README).
 import os, sys, json, requests
 from datetime import datetime, date, timedelta
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import ALL_TEAMS
+from model_common import ALL_TEAMS, HOST_NATIONS
 
 API_KEY = os.environ.get('FD_API_KEY', '')
 if not API_KEY:
@@ -39,6 +39,22 @@ TEAM_MAP = {
     'Republic of Ireland': 'Ireland',
 }
 TEAM_SET = set(ALL_TEAMS)
+
+_WC26_GROUP_CUTOFF = "2026-06-28"   # R32 starts here; group stage is before this
+
+def _co_host_home(match):
+    """WC 2026 group stage: co-host teams play at their home venues → neutral=False.
+    If the API lists the co-host as 'away', swap home/away so they appear as home.
+    Applied to fresh results before reconcile() so subsequent runs stay consistent."""
+    date, home, away, hg, ag, label, neutral = match
+    if label != "World Cup" or date >= _WC26_GROUP_CUTOFF:
+        return match
+    if home in HOST_NATIONS:
+        return [date, home, away, hg, ag, label, False]
+    if away in HOST_NATIONS:
+        return [date, away, home, ag, hg, label, False]
+    return match
+
 
 def resolve(raw):
     """API team name -> our model name, or None (caller logs the miss)."""
@@ -198,7 +214,7 @@ def main():
 
     # World Cup 2026 group stage
     print("  Fetching World Cup 2026 matches...")
-    wc = fetch_competition('WC', 'World Cup', True)
+    wc = [_co_host_home(m) for m in fetch_competition('WC', 'World Cup', True)]
 
     # (Nations League fetch removed: not on the free tier — it only 403'd every
     # run — and irrelevant during the World Cup, which the WC fetch above covers.)

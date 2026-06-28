@@ -58,14 +58,27 @@ DRAW_INFLATE = float(os.environ.get("DRAW_INFLATE", "0.25"))  # Karlis diagonal-
 def shrink_lambda(x):
     return GOAL_ANCHOR + STRENGTH_SHRINK * (x - GOAL_ANCHOR)
 
-# ── Penalty-shootout conversion strengths (WC historical win rates) ──────────
+# ── Penalty-shootout conversion strengths ────────────────────────────────────
 # Canonical table — single source of truth for both pipelines.
+# Values reflect all-tournament (WC + major confederation) win rates where data
+# exists; teams with limited history default near 0.48–0.50. Only the ratio
+# sa/(sa+sb) enters pen_prob(), so these are relative strengths, not raw rates.
 PEN = {
+    # Established records (WC + major tournaments)
     "Germany":0.75,"Argentina":0.67,"Portugal":0.67,"Croatia":0.75,
-    "South Korea":0.67,"Uruguay":0.67,"Italy":0.67,"France":0.50,
-    "Brazil":0.42,"Netherlands":0.40,"Spain":0.50,"England":0.38,
-    "Mexico":0.25,"Denmark":0.33,"Switzerland":0.33,"Japan":0.50,
-    "Senegal":0.50,"Colombia":0.50,"Belgium":0.50,"Morocco":0.50,
+    "South Korea":0.67,"Uruguay":0.67,"Italy":0.55,"France":0.45,
+    "Brazil":0.42,"Netherlands":0.40,"Spain":0.35,"England":0.38,
+    "Mexico":0.25,"Denmark":0.33,"Switzerland":0.33,"Japan":0.38,
+    "Senegal":0.50,"Colombia":0.42,"Belgium":0.50,"Morocco":0.50,
+    # WC 2026 teams — added from major-tournament shootout records
+    "Sweden":0.60,"Paraguay":0.55,"Australia":0.52,"South Africa":0.52,
+    "USA":0.42,"Ghana":0.42,"Egypt":0.42,"Ivory Coast":0.42,
+    "Austria":0.35,"DR Congo":0.45,"Saudi Arabia":0.45,"Tunisia":0.45,
+    "Scotland":0.45,"New Zealand":0.45,"Qatar":0.45,"Uzbekistan":0.45,
+    "Haiti":0.45,"Panama":0.45,"Algeria":0.50,"Bosnia":0.50,
+    "Norway":0.50,"Curacao":0.50,"Canada":0.48,"Czechia":0.48,
+    "Turkey":0.48,"Ecuador":0.48,"Iran":0.48,"Cape Verde":0.48,
+    "Iraq":0.48,"Jordan":0.48,
 }
 
 
