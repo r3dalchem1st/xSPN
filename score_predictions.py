@@ -5,13 +5,15 @@ Writes: results_accuracy.json
 Regenerates from scratch each run (idempotent).
 """
 import json, os, math, re, sys
+from datetime import date as _date
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import likely_score
+from model_common import likely_score, DRAW_INFLATE, STRENGTH_SHRINK, HOST_ADV_FRACTION
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 SNAPSHOT_FILE = os.path.join(DIR, 'predictions_snapshot.json')
 FETCHED_FILE  = os.path.join(DIR, 'fetched_matches.json')
 ACCURACY_FILE = os.path.join(DIR, 'results_accuracy.json')
+HISTORY_FILE  = os.path.join(DIR, 'accuracy_history.json')
 
 EMPTY_SUMMARY = {"total_matches": 0, "correct_winners": 0,
                  "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0,
@@ -177,3 +179,25 @@ else:
 for m in scored:                       # drop any leftover internal keys
     m.pop("_conf", None); m.pop("_hit", None)
 save(scored, summary)
+
+# Append summary to accuracy_history.json (date-keyed, never overwrites past entries).
+# Lets you compare metrics before/after parameter changes without relying on git diff.
+if n:
+    history = {}
+    if os.path.exists(HISTORY_FILE):
+        try:
+            with open(HISTORY_FILE) as f:
+                history = json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            pass
+    history[_date.today().isoformat()] = {
+        **summary,
+        "params": {
+            "DRAW_INFLATE":      DRAW_INFLATE,
+            "STRENGTH_SHRINK":   STRENGTH_SHRINK,
+            "HOST_ADV_FRACTION": HOST_ADV_FRACTION,
+        },
+    }
+    with open(HISTORY_FILE, 'w') as f:
+        json.dump(history, f, indent=2)
+    print(f"History: {HISTORY_FILE} updated ({len(history)} entries)")
