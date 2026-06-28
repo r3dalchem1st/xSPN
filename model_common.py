@@ -54,7 +54,7 @@ GOAL_ANCHOR = 1.35
 # 0.55 chosen on the backtest holdout: log-loss 1.026→0.950, Brier 0.612→0.574
 # (≈ the flat minimum at 0.45–0.55; accuracy unchanged). Conservative vs over-shrink.
 STRENGTH_SHRINK = float(os.environ.get("STRENGTH_SHRINK", "0.55"))
-DRAW_INFLATE = float(os.environ.get("DRAW_INFLATE", "0.25"))  # Karlis diagonal-inflation δ; group stage. 0 = off until calibrated.
+DRAW_INFLATE = float(os.environ.get("DRAW_INFLATE", "0.50"))  # Karlis diagonal-inflation δ; group stage. Calibrated: model 25.9% vs actual 30.6% on WC 2026 rounds 1-2.
 def shrink_lambda(x):
     return GOAL_ANCHOR + STRENGTH_SHRINK * (x - GOAL_ANCHOR)
 
