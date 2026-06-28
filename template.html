@@ -206,6 +206,7 @@ function show(n){
         let j=i+1;
         while(j<sorted.length&&hp[sorted[j].t]===hp[sorted[i].t]&&hd[sorted[j].t]===hd[sorted[i].t]&&hf[sorted[j].t]===hf[sorted[i].t])j++;
         const sub=sorted.slice(i,j);
+        // sub.length<cl.length guarantees progress — circular ties fall through as-is
         out.push(...(sub.length>1&&sub.length<cl.length?h2hSort(sub):sub));
         i=j;
       }

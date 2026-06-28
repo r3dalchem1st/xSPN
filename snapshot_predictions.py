@@ -1,6 +1,6 @@
 """
 Snapshot current group stage predictions before matches are played.
-Run BEFORE fetch_matches.py — predictions are locked in once saved.
+Run AFTER fetch_matches.py — needs today's wc_schedule.json for the fixture_due() date gate.
 Keys by sorted team pair so API home/away reversal doesn't break matching.
 """
 import json, os
@@ -37,7 +37,9 @@ today = today_d.isoformat()
 def fixture_due(home, away):
     """Lock a match only once its real fixture date is within LOCK_WINDOW_DAYS.
     Unknown date → don't lock (locking weeks early with a stale model is worse
-    than briefly risking a miss; the date always arrives before the match)."""
+    than briefly risking a miss; the date always arrives before the match).
+    TBD bracket slots (ph=None) are separately guarded in lock() and never
+    locked regardless of what this function returns."""
     info = schedule.get('|'.join(sorted([home, away])))
     d = info.get('date') if info else None
     if not d:
@@ -83,6 +85,6 @@ for stage, key in [("Final","final"),("3rd","third_place")]:
 
 with open(SNAPSHOT_FILE, 'w') as f:
     json.dump(snapshot, f, indent=2)
-if added > 5:
+if added > 10:
     print(f"WARNING: {added} new predictions locked in one run — verify this is expected.")
 print(f"Snapshot: {added} new predictions locked ({len(snapshot)} total).")
