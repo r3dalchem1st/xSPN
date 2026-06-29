@@ -585,10 +585,10 @@
   },
   "Brazil|Japan": {
     "date": "2026-06-29",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Brazil": null,
-      "Japan": null
+      "Brazil": 2,
+      "Japan": 1
     }
   },
   "Germany|Paraguay": {
