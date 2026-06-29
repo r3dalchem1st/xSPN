@@ -345,13 +345,16 @@ function show(n){
     const w=fz?fz.winner:(m.winner||m.likely_winner);
     const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
     const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
+    const conf=ph!=null?Math.max(ph,pd??0,pa??0):0;
+    const confBin=conf>=0.75?'75%+':conf>=0.65?'65–75%':conf>=0.55?'55–65%':conf>=0.45?'45–55%':conf>0?'34–45%':'';
+    const confClr=conf>=0.75?'var(--win)':conf>=0.65?'#b35900':conf>=0.55?'var(--draw)':'var(--hint)';
     const res=m._result?`<strong>${m._result}</strong>`:'<span style="color:var(--hint)">&mdash;</span>';
     return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
       <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
       <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
       <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
       <td class="win-cell">${ft(w)}</td>
-      <td style="color:var(--hint);font-size:.76rem">${pct}</td></tr>`;
+      <td style="color:var(--hint);font-size:.76rem">${pct}${confBin?`<div style="font-size:.67rem;color:${confClr};margin-top:1px">${confBin}</div>`:''}</td></tr>`;
   }
   window._rowHtml=rowHtml;
   // Already-played matches are collapsed behind an expandable divider row, so the
