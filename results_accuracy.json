@@ -1386,21 +1386,40 @@
       "total_goal_error": 1,
       "brier": 0.4514,
       "logloss": 0.7941
+    },
+    {
+      "date": "2026-06-29",
+      "home": "Brazil",
+      "away": "Japan",
+      "group": "R32",
+      "predicted_score": "1\u20131",
+      "actual_score": "2\u20131",
+      "predicted_winner": "Brazil",
+      "ph": 0.444,
+      "pd": 0.262,
+      "pa": 0.295,
+      "actual_winner": "Brazil",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.4648,
+      "logloss": 0.8119
     }
   ],
   "summary": {
-    "total_matches": 73,
-    "correct_winners": 41,
-    "accuracy": 0.5616,
-    "avg_goal_error": 2.274,
-    "avg_brier": 0.5525,
-    "avg_logloss": 0.927,
+    "total_matches": 74,
+    "correct_winners": 42,
+    "accuracy": 0.5676,
+    "avg_goal_error": 2.257,
+    "avg_brier": 0.5513,
+    "avg_logloss": 0.9255,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 18,
-        "predicted": 0.402,
-        "actual": 0.389
+        "n": 19,
+        "predicted": 0.404,
+        "actual": 0.421
       },
       {
         "bin": "45\u201355%",
@@ -1427,8 +1446,8 @@
         "actual": 0.769
       }
     ],
-    "predicted_draw_rate": 0.2533,
-    "actual_draw_rate": 0.274,
-    "ece": 0.0657
+    "predicted_draw_rate": 0.2534,
+    "actual_draw_rate": 0.2703,
+    "ece": 0.066
   }
 }
