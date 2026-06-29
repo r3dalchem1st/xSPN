@@ -577,10 +577,10 @@
   },
   "Canada|South Africa": {
     "date": "2026-06-28",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "South Africa": null,
-      "Canada": null
+      "South Africa": 0,
+      "Canada": 1
     }
   },
   "Brazil|Japan": {
