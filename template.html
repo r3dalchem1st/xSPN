@@ -354,7 +354,8 @@ function show(n){
       <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
       <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
       <td class="win-cell">${ft(w)}</td>
-      <td style="color:var(--hint);font-size:.76rem">${pct}${confBin?`<div style="font-size:.67rem;color:${confClr};margin-top:1px">${confBin}</div>`:''}</td></tr>`;
+      <td style="color:var(--hint);font-size:.76rem">${pct}</td>
+      <td style="font-size:.74rem;font-weight:600;color:${confClr}">${confBin}</td></tr>`;
   }
   window._rowHtml=rowHtml;
   // Already-played matches are collapsed behind an expandable divider row, so the
@@ -365,12 +366,12 @@ function show(n){
     const played=arr.filter(m=>m._result), upcoming=arr.filter(m=>!m._result);
     let rows='';
     if(played.length){
-      rows+=`<tr class="played-toggle" onclick="_togglePlayed()"><td colspan="8" style="cursor:pointer;background:#efefef;color:var(--muted);font-weight:600;font-size:.8rem;padding:9px 12px">`
+      rows+=`<tr class="played-toggle" onclick="_togglePlayed()"><td colspan="9" style="cursor:pointer;background:#efefef;color:var(--muted);font-weight:600;font-size:.8rem;padding:9px 12px">`
         +`${showPlayed?'&#9662;':'&#9656;'} ${played.length} completed match${played.length===1?'':'es'} &mdash; tap to ${showPlayed?'hide':'show'}</td></tr>`;
       if(showPlayed) rows+=played.map(rowHtml).join('');
     }
     rows+=upcoming.map(rowHtml).join('');
-    document.getElementById('mrows').innerHTML=rows||`<tr><td colspan="8" style="padding:24px;text-align:center;color:var(--hint)">No matches.</td></tr>`;
+    document.getElementById('mrows').innerHTML=rows||`<tr><td colspan="9" style="padding:24px;text-align:center;color:var(--hint)">No matches.</td></tr>`;
   }
   window._togglePlayed=function(){showPlayed=!showPlayed; draw();};
   window.filt=function(f,btn){
@@ -381,7 +382,7 @@ function show(n){
     '<div class="filter-row">'+['all','group','r32','r16','qf','sf','final'].map((f,i)=>
       `<button class="fb${i===0?' active':''}" onclick="filt('${f}',this)">${['All 104','Groups','R32','R16','QF','SF','Final'][i]}</button>`
     ).join('')+'</div>'+
-    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Result</th><th>Winner</th><th>Odds</th></tr></thead>
+    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Result</th><th>Winner</th><th>Odds</th><th>Conf</th></tr></thead>
     <tbody id="mrows"></tbody></table>`;
   draw();
 })();
