@@ -137,9 +137,21 @@ function show(n){
 (function(){
   if(!Object.keys(R).length){document.getElementById('tab-win').innerHTML=NODATA;return;}
   const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
-  const mx=ranked[0][1].win;
-  let h=`<table><thead><tr><th>#</th><th>Team</th><th title="Title odds (90% range across model variants below)">Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th title="10-day win% trend">Trend</th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
-  ranked.forEach(([t,r],i)=>{
+  // Only show teams still in the tournament; eliminated teams have win=0 after
+  // the sim conditions on actual KO results.
+  const active=ranked.filter(([t,r])=>r.win>0);
+  const elim=ranked.length-active.length;
+  const mx=active.length?active[0][1].win:1;
+  const note=`<div style="font-size:.78rem;color:var(--muted);background:var(--card);border-radius:6px;padding:10px 14px;margin-bottom:10px;line-height:1.5">
+    <strong>How to read this tab:</strong> Win% is each team&rsquo;s probability of lifting the trophy,
+    averaged across 75,000 simulated tournaments. The <strong>Bracket</strong> tab shows the single
+    most-likely knockout path (modal outcome) &mdash; these can differ because the odds here
+    aggregate every possible scenario, not just the most likely one. A team can lead in Win% while
+    losing in the modal bracket, or vice versa.
+    ${elim?`<br><span style="color:var(--hint)">${elim} eliminated team${elim===1?'':'s'} hidden (0% odds).</span>`:''}
+  </div>`;
+  let h=note+`<table><thead><tr><th>#</th><th>Team</th><th title="Title odds (90% range across model variants below)">Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th title="10-day win% trend">Trend</th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
+  active.forEach(([t,r],i)=>{
     const m=i===0?'&#129351;':i===1?'&#129352;':i===2?'&#129353;':'';
     const bw=(r.win/mx*100).toFixed(1);
     const pc=r.win>=0.15?'pct-high':r.win>=0.05?'pct-mid':'pct-low';
