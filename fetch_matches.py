@@ -147,10 +147,13 @@ def fetch_competition(code, label, neutral):
         # For penalty shootouts the API returns extraTime as additional ET goals only
         # (not cumulative), so final score = fullTime + extraTime.
         # For regular/ET matches the existing cumulative-ET logic applies.
-        if duration_m == 'PENALTY_SHOOTOUT' and ft_h is not None and ft_a is not None:
+        if duration_m == 'PENALTY_SHOOTOUT':
+            if ft_h is None or ft_a is None:
+                print(f"    ! PENALTY_SHOOTOUT but fullTime is null on {match_date} {home}–{away} — skipped (API transient?)")
+                continue
             pen_m = sc.get('penalties') or {}
-            hg = ft_h - (pen_m.get('home') or 0)
-            ag = ft_a - (pen_m.get('away') or 0)
+            hg = max(0, ft_h - (pen_m.get('home') or 0))
+            ag = max(0, ft_a - (pen_m.get('away') or 0))
         elif et_h is not None and et_a is not None:
             hg, ag = et_h, et_a
         else:
@@ -194,8 +197,8 @@ def fetch_schedule():
             et_h, et_a = et.get('home'), et.get('away')
             if duration == 'PENALTY_SHOOTOUT' and ft_h2 is not None and ft_a2 is not None:
                 # API stores fullTime = field_goals + pen_goals; subtract pens to get field score
-                final_h = ft_h2 - (pen.get('home') or 0)
-                final_a = ft_a2 - (pen.get('away') or 0)
+                final_h = max(0, ft_h2 - (pen.get('home') or 0))
+                final_a = max(0, ft_a2 - (pen.get('away') or 0))
             elif et_h is not None and et_a is not None:
                 final_h, final_a = et_h, et_a
             else:
@@ -208,7 +211,7 @@ def fetch_schedule():
             "date": m.get('utcDate', '')[:10], "status": m.get('status'),
             "goals": {home: final_h, away: final_a},  # by team name (orientation-safe)
         }
-        if duration == 'PENALTY_SHOOTOUT' and pen.get('home') is not None:
+        if is_finished and duration == 'PENALTY_SHOOTOUT' and pen.get('home') is not None:
             pen_h, pen_a = pen.get('home', 0), pen.get('away', 0)
             if pen_h != pen_a:
                 entry['pen_winner'] = home if pen_h > pen_a else away
@@ -246,9 +249,13 @@ def main():
     if sched:
         with open(sched_file, 'w') as f:
             json.dump(sched, f, indent=2)
-    elif not os.path.exists(sched_file):
-        with open(sched_file, 'w') as f:
-            json.dump({}, f)
+    else:
+        if n_added > 0:
+            print(f"  WARNING: schedule fetch failed but {n_added} new match(es) were added — "
+                  f"wc_schedule.json is STALE and may diverge from fetched_matches.json!")
+        if not os.path.exists(sched_file):
+            with open(sched_file, 'w') as f:
+                json.dump({}, f)
 
     print(f"Done. {n_added} new, {n_corrected} corrected ({len(all_matches)} total in cache).")
 

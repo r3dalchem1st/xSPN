@@ -53,9 +53,6 @@ jobs:
           FD_API_KEY: ${{ secrets.FD_API_KEY }}
         run: python fetch_matches.py
 
-      - name: Snapshot pre-match predictions
-        run: python snapshot_predictions.py
-
       - name: Fetch injuries (optional)
         # Populates injuries.json from API-Football, valued via player_values.json.
         # No API_FOOTBALL_KEY -> no-op. continue-on-error so a quota/API hiccup
@@ -88,6 +85,9 @@ jobs:
 
       - name: Generate bracket predictions
         run: python bracket_predictor.py
+
+      - name: Snapshot pre-match predictions
+        run: python snapshot_predictions.py
 
       - name: Build index.html
         run: python build_html.py

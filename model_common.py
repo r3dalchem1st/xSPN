@@ -27,7 +27,10 @@ ALL_TEAMS = [t for g in GROUPS.values() for t in g]
 
 # ── Host advantage ───────────────────────────────────────────────────────────
 HOST_NATIONS = {"USA", "Canada", "Mexico"}
-HOST_ADV_FRACTION = 0.65   # fraction of the learned home_adv applied to hosts
+# 65% of the DC-fitted home advantage applied to co-hosts (USA/Canada/Mexico).
+# Hosts have a smaller crowd benefit than true home sides: mixed supporter bases,
+# neutral venues for some fixtures, and three nations sharing the tournament.
+HOST_ADV_FRACTION = 0.65
 
 # ── Squad market-value influence ─────────────────────────────────────────────
 # Split the squad adjustment symmetrically across attack (+) and defence (-) so
