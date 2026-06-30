@@ -335,10 +335,12 @@ function show(n){
     m._sort=real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99'; // ordering key
     const g=s&&s.goals;
     const pw=s&&s.pen_winner;
-    m._result=(s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`+(pw?' (p)':''):null;
+    const ps=s&&s.pen_scores;
+    const _fin=s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null;
+    m._result=_fin?(ps&&ps[m.home]!=null?`${g[m.home]}(${ps[m.home]})–${g[m.away]}(${ps[m.away]})`:`${g[m.home]}–${g[m.away]}`):null;
     m._pen_winner=pw||null;
     // Actual winner derived from goals (not predicted); null = data pending
-    m._actual_winner=m._result&&g?(g[m.home]>g[m.away]?m.home:g[m.away]>g[m.home]?m.away:pw||null):null;
+    m._actual_winner=_fin&&g?(g[m.home]>g[m.away]?m.home:g[m.away]>g[m.home]?m.away:pw||null):null;
   });
   all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
   window._AM=all;
