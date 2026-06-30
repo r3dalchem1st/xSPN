@@ -76,7 +76,7 @@ tr:hover td{background:#fafafa}
   <div class="hdr-text">
     <h1>2026 FIFA World Cup Predictions</h1>
     <p>Dixon-Coles &middot; L2 regularisation &middot; host advantage &middot; 75,000 simulations</p>
-    <p class="updated">Last updated: 30 Jun 2026 14:14 UTC</p>
+    <p class="updated">Last updated: 30 Jun 2026 16:52 UTC</p>
   </div>
 </header>
 <div class="tabs">
@@ -330,16 +330,21 @@ function show(n){
   const GROUP_FALLBACK='2026-06-27';   // keep date-less group games in the group block
   all.forEach(m=>{
     const s=SCH[[m.home,m.away].sort().join('|')];
-    const real=s&&s.date;
-    m._date=real||(m.sk!=='group'?m._ko:null);                       // shown date
+    // For KO matches, only treat a SCH entry as a real KO result if its date falls
+    // in the KO window (≥ 2026-06-28). Without this guard a predicted QF/SF rematch
+    // between two group-stage opponents (e.g. Brazil vs Morocco, both Group C) picks
+    // up their group-stage fixture date and score instead of the KO match.
+    const _ko_match=m.sk!=='group';
+    const _use_s=s&&(!_ko_match||s.date>='2026-06-28');
+    const real=_use_s&&s.date;
+    m._date=real||(_ko_match?m._ko:null);                             // shown date
     m._sort=real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99'; // ordering key
-    const g=s&&s.goals;
-    const pw=s&&s.pen_winner;
-    const ps=s&&s.pen_scores;
-    const _fin=s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null;
+    const g=_use_s&&s.goals;
+    const pw=_use_s&&s.pen_winner;
+    const ps=_use_s&&s.pen_scores;
+    const _fin=_use_s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null;
     m._result=_fin?(ps&&ps[m.home]!=null?`${g[m.home]}(${ps[m.home]})–${g[m.away]}(${ps[m.away]})`:`${g[m.home]}–${g[m.away]}`):null;
     m._pen_winner=pw||null;
-    // Actual winner derived from goals (not predicted); null = data pending
     m._actual_winner=_fin&&g?(g[m.home]>g[m.away]?m.home:g[m.away]>g[m.home]?m.away:pw||null):null;
   });
   all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
@@ -347,18 +352,17 @@ function show(n){
   function rowHtml(m){
     const fz=m._result?frozen[[m.home,m.away].sort().join('|')]:null;   // frozen once played
     const score=fz?fz.score:m.score;
-    const w=m._actual_winner||(fz?fz.winner:(m.winner||m.likely_winner));
+    const w=fz?fz.winner:(m.winner||m.likely_winner);
     const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
     const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
     const conf=ph!=null?Math.max(ph,pd??0,pa??0):0;
     const confBin=conf>=0.75?'75%+':conf>=0.65?'65–75%':conf>=0.55?'55–65%':conf>=0.45?'45–55%':conf>0?'34–45%':'';
     const confClr=conf>=0.75?'var(--win)':conf>=0.65?'#b35900':conf>=0.55?'var(--draw)':'var(--hint)';
-    const res=m._result?`<strong>${m._result}</strong>`:'<span style="color:var(--hint)">&mdash;</span>';
     return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
       <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
       <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
-      <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
-      <td class="win-cell">${ft(w)}${m._pen_winner?'<span style="font-size:.68rem;color:var(--hint);margin-left:3px">(pen)</span>':''}</td>
+      <td>${ft(m.away)}</td>
+      <td class="win-cell">${ft(w)}</td>
       <td style="color:var(--hint);font-size:.76rem">${pct}</td>
       <td style="font-size:.74rem;font-weight:600;color:${confClr}">${confBin}</td></tr>`;
   }
@@ -371,12 +375,12 @@ function show(n){
     const played=arr.filter(m=>m._result), upcoming=arr.filter(m=>!m._result);
     let rows='';
     if(played.length){
-      rows+=`<tr class="played-toggle" onclick="_togglePlayed()"><td colspan="9" style="cursor:pointer;background:#efefef;color:var(--muted);font-weight:600;font-size:.8rem;padding:9px 12px">`
+      rows+=`<tr class="played-toggle" onclick="_togglePlayed()"><td colspan="8" style="cursor:pointer;background:#efefef;color:var(--muted);font-weight:600;font-size:.8rem;padding:9px 12px">`
         +`${showPlayed?'&#9662;':'&#9656;'} ${played.length} completed match${played.length===1?'':'es'} &mdash; tap to ${showPlayed?'hide':'show'}</td></tr>`;
       if(showPlayed) rows+=played.map(rowHtml).join('');
     }
     rows+=upcoming.map(rowHtml).join('');
-    document.getElementById('mrows').innerHTML=rows||`<tr><td colspan="9" style="padding:24px;text-align:center;color:var(--hint)">No matches.</td></tr>`;
+    document.getElementById('mrows').innerHTML=rows||`<tr><td colspan="8" style="padding:24px;text-align:center;color:var(--hint)">No matches.</td></tr>`;
   }
   window._togglePlayed=function(){showPlayed=!showPlayed; draw();};
   window.filt=function(f,btn){
@@ -387,7 +391,7 @@ function show(n){
     '<div class="filter-row">'+['all','group','r32','r16','qf','sf','final'].map((f,i)=>
       `<button class="fb${i===0?' active':''}" onclick="filt('${f}',this)">${['All 104','Groups','R32','R16','QF','SF','Final'][i]}</button>`
     ).join('')+'</div>'+
-    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Result</th><th>Winner</th><th>Odds</th><th>Conf</th></tr></thead>
+    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Winner</th><th>Odds</th><th>Conf</th></tr></thead>
     <tbody id="mrows"></tbody></table>`;
   draw();
 })();
