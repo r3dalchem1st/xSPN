@@ -141,15 +141,20 @@ def fetch_competition(code, label, neutral):
         sc = m.get('score') or {}
         ft = sc.get('fullTime') or {}
         et = sc.get('extraTime') or {}
-        # ET score is cumulative; use it only when both sides are present — one null
-        # side means the API was read mid-match and mixing ET-home with FT-away is wrong.
+        duration_m = sc.get('duration')
+        ft_h, ft_a = ft.get('home'), ft.get('away')
         et_h, et_a = et.get('home'), et.get('away')
-        if et_h is not None and et_a is not None:
+        # For penalty shootouts the API returns extraTime as additional ET goals only
+        # (not cumulative), so final score = fullTime + extraTime.
+        # For regular/ET matches the existing cumulative-ET logic applies.
+        if duration_m == 'PENALTY_SHOOTOUT' and ft_h is not None and ft_a is not None:
+            hg, ag = ft_h + (et_h or 0), ft_a + (et_a or 0)
+        elif et_h is not None and et_a is not None:
             hg, ag = et_h, et_a
         else:
             if et_h is not None or et_a is not None:
                 print(f"    ~ ET partial (home={et_h}/away={et_a}) on {match_date} {home}–{away} — using FT")
-            hg, ag = ft.get('home'), ft.get('away')
+            hg, ag = ft_h, ft_a
         if hg is None or ag is None:
             continue
         is_neutral = neutral if neutral is not None else False
@@ -183,13 +188,16 @@ def fetch_schedule():
         duration = sc.get('duration')
         is_finished = m.get('status') == 'FINISHED'
         if is_finished:
+            ft_h2, ft_a2 = ft.get('home'), ft.get('away')
             et_h, et_a = et.get('home'), et.get('away')
-            if et_h is not None and et_a is not None:
+            if duration == 'PENALTY_SHOOTOUT' and ft_h2 is not None and ft_a2 is not None:
+                final_h, final_a = ft_h2 + (et_h or 0), ft_a2 + (et_a or 0)
+            elif et_h is not None and et_a is not None:
                 final_h, final_a = et_h, et_a
             else:
                 if et_h is not None or et_a is not None:
                     print(f"    ~ ET partial (home={et_h}/away={et_a}) on {m.get('utcDate','')[:10]} {home}–{away} — using FT")
-                final_h, final_a = ft.get('home'), ft.get('away')
+                final_h, final_a = ft_h2, ft_a2
         else:
             final_h, final_a = None, None
         entry = {
