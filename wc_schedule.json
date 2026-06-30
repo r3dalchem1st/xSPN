@@ -597,7 +597,8 @@
     "goals": {
       "Germany": 0,
       "Paraguay": 0
-    }
+    },
+    "pen_winner": "Paraguay"
   },
   "Morocco|Netherlands": {
     "date": "2026-06-30",
@@ -605,7 +606,8 @@
     "goals": {
       "Netherlands": 0,
       "Morocco": 0
-    }
+    },
+    "pen_winner": "Morocco"
   },
   "Ivory Coast|Norway": {
     "date": "2026-06-30",
@@ -701,6 +703,14 @@
     "goals": {
       "Colombia": null,
       "Ghana": null
+    }
+  },
+  "Canada|Morocco": {
+    "date": "2026-07-04",
+    "status": "TIMED",
+    "goals": {
+      "Canada": null,
+      "Morocco": null
     }
   }
 }
