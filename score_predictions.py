@@ -10,10 +10,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from model_common import likely_score, DRAW_INFLATE, STRENGTH_SHRINK, HOST_ADV_FRACTION
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-SNAPSHOT_FILE = os.path.join(DIR, 'predictions_snapshot.json')
-FETCHED_FILE  = os.path.join(DIR, 'fetched_matches.json')
-ACCURACY_FILE = os.path.join(DIR, 'results_accuracy.json')
-HISTORY_FILE  = os.path.join(DIR, 'accuracy_history.json')
+SNAPSHOT_FILE  = os.path.join(DIR, 'predictions_snapshot.json')
+FETCHED_FILE   = os.path.join(DIR, 'fetched_matches.json')
+ACCURACY_FILE  = os.path.join(DIR, 'results_accuracy.json')
+HISTORY_FILE   = os.path.join(DIR, 'accuracy_history.json')
+SCHEDULE_FILE  = os.path.join(DIR, 'wc_schedule.json')
 
 EMPTY_SUMMARY = {"total_matches": 0, "correct_winners": 0,
                  "accuracy": 0, "avg_goal_error": 0, "avg_brier": 0,
@@ -55,6 +56,7 @@ with open(SNAPSHOT_FILE) as f:
     snapshot = json.load(f)
 with open(FETCHED_FILE) as f:
     fetched = json.load(f)
+schedule = json.load(open(SCHEDULE_FILE)) if os.path.exists(SCHEDULE_FILE) else {}
 
 scored = []
 for match in fetched:
@@ -112,9 +114,13 @@ for match in fetched:
     home_err = abs(pred_home_goals - pred_hg)
     away_err = abs(pred_away_goals - pred_ag)
 
-    if actual_outcome == 'H':   actual_winner = pred['home']
-    elif actual_outcome == 'A': actual_winner = pred['away']
-    else:                       actual_winner = 'Draw'
+    sched_key = '|'.join(sorted([home, away]))
+    pen_w = (schedule.get(sched_key) or {}).get('pen_winner')
+    is_ko = not re.match(r'^[A-L]$', pred.get('group', ''))
+    if actual_outcome == 'H':         actual_winner = pred['home']
+    elif actual_outcome == 'A':       actual_winner = pred['away']
+    elif is_ko and pen_w:             actual_winner = pen_w
+    else:                             actual_winner = 'Draw'
 
     # Log-loss + calibration use the model's probability for the ACTUAL outcome
     probs = {'H': ph, 'D': pd_val, 'A': pa}
@@ -135,6 +141,7 @@ for match in fetched:
         # All-104 tab can freeze a played match's odds instead of re-predicting it.
         "ph": pred['ph'], "pd": pred['pd'], "pa": pred['pa'],
         "actual_winner": actual_winner,
+        "actual_outcome": actual_outcome,
         "correct_winner": bool(actual_outcome == pred_outcome),
         "home_error": home_err,
         "away_error": away_err,
@@ -161,7 +168,7 @@ if n:
         "reliability": reliability(calib),
     }
     summary["predicted_draw_rate"] = round(sum(m["pd"] for m in scored) / n, 4)
-    summary["actual_draw_rate"]    = round(sum(1 for m in scored if m["actual_winner"] == "Draw") / n, 4)
+    summary["actual_draw_rate"]    = round(sum(1 for m in scored if m["actual_outcome"] == "D") / n, 4)
     # ECE = bin-count-weighted mean |predicted-actual|; divide by the BINNED count,
     # not n, so near-tie matches (confidence < the lowest bin edge) don't bias it low.
     _binned = sum(b["n"] for b in summary["reliability"])
