@@ -595,8 +595,8 @@
     "date": "2026-06-29",
     "status": "FINISHED",
     "goals": {
-      "Germany": 0,
-      "Paraguay": 0
+      "Germany": 4,
+      "Paraguay": 5
     },
     "pen_winner": "Paraguay"
   },
@@ -604,8 +604,8 @@
     "date": "2026-06-30",
     "status": "FINISHED",
     "goals": {
-      "Netherlands": 0,
-      "Morocco": 0
+      "Netherlands": 3,
+      "Morocco": 4
     },
     "pen_winner": "Morocco"
   },

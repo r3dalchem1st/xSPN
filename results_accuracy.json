@@ -1486,19 +1486,19 @@
       "away": "Paraguay",
       "group": "R32",
       "predicted_score": "1\u20130",
-      "actual_score": "0\u20130",
+      "actual_score": "4\u20135",
       "predicted_winner": "Germany",
       "ph": 0.576,
       "pd": 0.226,
       "pa": 0.198,
       "actual_winner": "Paraguay",
-      "actual_outcome": "D",
+      "actual_outcome": "A",
       "correct_winner": false,
-      "home_error": 1,
-      "away_error": 0,
-      "total_goal_error": 1,
-      "brier": 0.9701,
-      "logloss": 1.4872
+      "home_error": 3,
+      "away_error": 5,
+      "total_goal_error": 8,
+      "brier": 1.0261,
+      "logloss": 1.6195
     },
     {
       "date": "2026-06-30",
@@ -1506,34 +1506,34 @@
       "away": "Morocco",
       "group": "R32",
       "predicted_score": "0\u20131",
-      "actual_score": "0\u20130",
+      "actual_score": "3\u20134",
       "predicted_winner": "Morocco",
       "ph": 0.295,
       "pd": 0.302,
       "pa": 0.403,
       "actual_winner": "Morocco",
-      "actual_outcome": "D",
+      "actual_outcome": "A",
       "correct_winner": true,
-      "home_error": 0,
-      "away_error": 1,
-      "total_goal_error": 1,
-      "brier": 0.7366,
-      "logloss": 1.1973
+      "home_error": 3,
+      "away_error": 3,
+      "total_goal_error": 6,
+      "brier": 0.5346,
+      "logloss": 0.9088
     }
   ],
   "summary": {
     "total_matches": 76,
     "correct_winners": 43,
     "accuracy": 0.5658,
-    "avg_goal_error": 2.224,
-    "avg_brier": 0.5593,
-    "avg_logloss": 0.9364,
+    "avg_goal_error": 2.382,
+    "avg_brier": 0.5573,
+    "avg_logloss": 0.9344,
     "reliability": [
       {
         "bin": "34\u201345%",
         "n": 20,
         "predicted": 0.404,
-        "actual": 0.4
+        "actual": 0.45
       },
       {
         "bin": "45\u201355%",
@@ -1561,7 +1561,7 @@
       }
     ],
     "predicted_draw_rate": 0.2537,
-    "actual_draw_rate": 0.2895,
-    "ece": 0.0537
+    "actual_draw_rate": 0.2632,
+    "ece": 0.0647
   }
 }
