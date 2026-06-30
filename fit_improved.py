@@ -80,6 +80,8 @@ SEED_ELOS = {
     "China":1440,"Indonesia":1380,"Bahrain":1390,"Jamaica":1430,"Vietnam":1370,
 }
 HOME_ADV=100; K_BASE=40; INIT_ELO=1500
+# 18-month half-life. WC 2022 (~3.5 years ago) retains ~20% weight; recent
+# competitive matches dominate. Friendlies from 2+ years back contribute little.
 HALF_LIFE_DAYS = 365*1.5
 
 def days_ago(date_str, ref=None):
@@ -119,8 +121,9 @@ def compute_elos_improved(matches):
 # L2 regularisation pulls sparse-data teams toward average, preventing
 # qualifying blowout records (e.g. Norway 8-0-0) from over-inflating attack.
 L2_REG = 0.30
-# P7: WC 2026 matches get extra weight so current tournament evidence
-# overrides historical baselines faster. Start at 3× and review.
+# WC 2026 matches get extra weight so current tournament evidence overrides
+# historical baselines faster. 3× is the starting point; review after each round
+# by comparing Brier at 2.0 / 3.0 / 4.0 against accuracy_history.json.
 WC_2026_MULTIPLIER = 3.0
 
 def _build_rows(matches, idx):
@@ -232,11 +235,17 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
     rng = np.random.default_rng(seed)
     M = len(rows)
     ensemble = []
+    n_failed = 0
     for b in range(B):
         e = rng.exponential(1.0, size=M)
         w_scale = e / e.mean()          # Dirichlet weights, mean 1
         res = _fit_rows(rows, teams, x0, maxiter=1500, w_scale=w_scale)
+        if not res.success:
+            n_failed += 1
         ensemble.append(_unpack(res.x, teams))
+    fail_rate = n_failed / B
+    warn = " — WARNING: >5% threshold exceeded, check model fit!" if fail_rate > 0.05 else ""
+    print(f"  Bootstrap convergence: {B - n_failed}/{B} converged ({n_failed} failed){warn}")
     return ensemble
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────
