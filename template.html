@@ -336,13 +336,16 @@ function show(n){
     const g=s&&s.goals;
     const pw=s&&s.pen_winner;
     m._result=(s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null)?`${g[m.home]}–${g[m.away]}`+(pw?' (p)':''):null;
+    m._pen_winner=pw||null;
+    // Actual winner derived from goals (not predicted); null = data pending
+    m._actual_winner=m._result&&g?(g[m.home]>g[m.away]?m.home:g[m.away]>g[m.home]?m.away:pw||null):null;
   });
   all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
   window._AM=all;
   function rowHtml(m){
     const fz=m._result?frozen[[m.home,m.away].sort().join('|')]:null;   // frozen once played
     const score=fz?fz.score:m.score;
-    const w=fz?fz.winner:(m.winner||m.likely_winner);
+    const w=m._actual_winner||(fz?fz.winner:(m.winner||m.likely_winner));
     const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
     const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
     const conf=ph!=null?Math.max(ph,pd??0,pa??0):0;
@@ -353,7 +356,7 @@ function show(n){
       <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
       <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
       <td>${ft(m.away)}</td><td style="text-align:center">${res}</td>
-      <td class="win-cell">${ft(w)}</td>
+      <td class="win-cell">${ft(w)}${m._pen_winner?'<span style="font-size:.68rem;color:var(--hint);margin-left:3px">(pen)</span>':''}</td>
       <td style="color:var(--hint);font-size:.76rem">${pct}</td>
       <td style="font-size:.74rem;font-weight:600;color:${confClr}">${confBin}</td></tr>`;
   }
