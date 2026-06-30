@@ -593,18 +593,18 @@
   },
   "Germany|Paraguay": {
     "date": "2026-06-29",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Germany": null,
-      "Paraguay": null
+      "Germany": 0,
+      "Paraguay": 0
     }
   },
   "Morocco|Netherlands": {
     "date": "2026-06-30",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Netherlands": null,
-      "Morocco": null
+      "Netherlands": 0,
+      "Morocco": 0
     }
   },
   "Ivory Coast|Norway": {
