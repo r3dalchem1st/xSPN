@@ -135,7 +135,10 @@ for match in fetched:
         "away": pred['away'],
         "group": pred.get("group", ""),
         "predicted_score": predicted_score,
-        "actual_score": f"{pred_home_goals}\u2013{pred_away_goals}",
+        "actual_score": (lambda ps: f"{pred_home_goals}({ps[pred['home']]})\u2013{pred_away_goals}({ps[pred['away']]})"
+                         if ps and pred['home'] in ps and pred['away'] in ps else
+                         f"{pred_home_goals}\u2013{pred_away_goals}")(
+                             (schedule.get('|'.join(sorted([home, away]))) or {}).get('pen_scores')),
         "predicted_winner": pw,
         # Locked pre-match H/D/A (snapshot orientation: home=pred['home']) so the
         # All-104 tab can freeze a played match's odds instead of re-predicting it.

@@ -148,7 +148,7 @@ def fetch_competition(code, label, neutral):
         # (not cumulative), so final score = fullTime + extraTime.
         # For regular/ET matches the existing cumulative-ET logic applies.
         if duration_m == 'PENALTY_SHOOTOUT' and ft_h is not None and ft_a is not None:
-            hg, ag = ft_h + (et_h or 0), ft_a + (et_a or 0)
+            hg, ag = ft_h, ft_a   # fullTime is cumulative reg+ET; extraTime = pen scores
         elif et_h is not None and et_a is not None:
             hg, ag = et_h, et_a
         else:
@@ -191,7 +191,7 @@ def fetch_schedule():
             ft_h2, ft_a2 = ft.get('home'), ft.get('away')
             et_h, et_a = et.get('home'), et.get('away')
             if duration == 'PENALTY_SHOOTOUT' and ft_h2 is not None and ft_a2 is not None:
-                final_h, final_a = ft_h2 + (et_h or 0), ft_a2 + (et_a or 0)
+                final_h, final_a = ft_h2, ft_a2   # fullTime is cumulative reg+ET
             elif et_h is not None and et_a is not None:
                 final_h, final_a = et_h, et_a
             else:
@@ -208,6 +208,7 @@ def fetch_schedule():
             pen_h, pen_a = pen.get('home', 0), pen.get('away', 0)
             if pen_h != pen_a:
                 entry['pen_winner'] = home if pen_h > pen_a else away
+                entry['pen_scores'] = {home: pen_h, away: pen_a}
             else:
                 print(f"    ~ pen equal ({pen_h}–{pen_a}) on {entry['date']} {home}–{away} — pen_winner omitted")
         sched['|'.join(sorted([home, away]))] = entry
