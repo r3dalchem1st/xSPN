@@ -142,7 +142,9 @@ for match in fetched:
         "ph": pred['ph'], "pd": pred['pd'], "pa": pred['pa'],
         "actual_winner": actual_winner,
         "actual_outcome": actual_outcome,
-        "correct_winner": bool(actual_outcome == pred_outcome),
+        # KO stage: correct = model backed the team that actually advanced.
+        # Group stage: correct = model got the 90-min H/D/A right.
+        "correct_winner": bool(pw == actual_winner) if (is_ko and actual_winner != 'Draw') else bool(actual_outcome == pred_outcome),
         "home_error": home_err,
         "away_error": away_err,
         "total_goal_error": home_err + away_err,
