@@ -598,7 +598,11 @@
       "Germany": 4,
       "Paraguay": 5
     },
-    "pen_winner": "Paraguay"
+    "pen_winner": "Paraguay",
+    "pen_scores": {
+      "Germany": 3,
+      "Paraguay": 4
+    }
   },
   "Morocco|Netherlands": {
     "date": "2026-06-30",
@@ -607,7 +611,11 @@
       "Netherlands": 3,
       "Morocco": 4
     },
-    "pen_winner": "Morocco"
+    "pen_winner": "Morocco",
+    "pen_scores": {
+      "Netherlands": 2,
+      "Morocco": 3
+    }
   },
   "Ivory Coast|Norway": {
     "date": "2026-06-30",
