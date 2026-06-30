@@ -39,6 +39,23 @@ if KO_PLAYED:
         f"{v['home']} {v['score']} {v['away']} → {v['winner']}"
         for v in KO_PLAYED.values()))
 
+def _all_played(g):
+    """True when every fixture in group g has a real result in PLAYED[g]."""
+    n = len(GROUPS[g])
+    return len(PLAYED[g]) >= n * (n - 1) // 2
+
+def _actual_group_rank(g):
+    """Rank group g by its actual results (only call when _all_played(g))."""
+    s = {t: [0, 0, 0] for t in GROUPS[g]}
+    res = {}
+    for (h, a), (hg, ag) in PLAYED[g].items():
+        res[(h, a)] = (hg, ag)
+        if hg > ag: s[h][0] += 3
+        elif ag > hg: s[a][0] += 3
+        else: s[h][0] += 1; s[a][0] += 1
+        s[h][1] += hg - ag; s[a][1] += ag - hg; s[h][2] += hg; s[a][2] += ag
+    return rank_group(GROUPS[g], s, res, random.random)
+
 _POIS_NP = lambda x: int(np.random.poisson(x))
 GROUP_PAIRS = [(teams[i], teams[j]) for teams in GROUPS.values()
                for i in range(len(teams)) for j in range(i + 1, len(teams))]
@@ -270,11 +287,17 @@ _stand = {g: _expected_standings(g)[0] for g in GROUPS}
 def _skey(g, t): v = _stand[g][t]; return (v[0], v[1], v[2])
 modal_gw, modal_gr, modal_g3 = {}, {}, {}
 for g in GROUPS:
-    wp, rp = GROUP_ADVANCE[g]["win_pct"], GROUP_ADVANCE[g]["ru_pct"]
-    gw = max(GROUPS[g], key=lambda t: wp[t])
-    gr = max((t for t in GROUPS[g] if t != gw), key=lambda t: rp[t])
-    g3 = max((t for t in GROUPS[g] if t not in (gw, gr)), key=lambda t: _skey(g, t))
-    modal_gw[g], modal_gr[g], modal_g3[g] = gw, gr, g3
+    if _all_played(g):
+        # Group is finished — use actual standings so the bracket seeds correct teams.
+        # Without this, a mismatched opponent in a KO slot lets eliminated teams advance.
+        ranked = _actual_group_rank(g)
+        modal_gw[g], modal_gr[g], modal_g3[g] = ranked[0], ranked[1], ranked[2]
+    else:
+        wp, rp = GROUP_ADVANCE[g]["win_pct"], GROUP_ADVANCE[g]["ru_pct"]
+        gw = max(GROUPS[g], key=lambda t: wp[t])
+        gr = max((t for t in GROUPS[g] if t != gw), key=lambda t: rp[t])
+        g3 = max((t for t in GROUPS[g] if t not in (gw, gr)), key=lambda t: _skey(g, t))
+        modal_gw[g], modal_gr[g], modal_g3[g] = gw, gr, g3
 
 def modal_res(slot, var_asgn):
     if slot[0]=="1": return modal_gw[slot[1]]
