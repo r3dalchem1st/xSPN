@@ -7,7 +7,7 @@ import sys, json, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score, played_group_results, draw_mix, sample_inflated_score, DRAW_INFLATE
+from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score, played_group_results, played_ko_results, draw_mix, sample_inflated_score, DRAW_INFLATE
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -24,12 +24,20 @@ NMEM = len(LG_ENS)
 LG_MEAN = {k: (sum(lg[k][0] for lg in LG_ENS)/NMEM, sum(lg[k][1] for lg in LG_ENS)/NMEM)
            for k in LG_ENS[0]}
 
-# Condition on group games already played: fix their real scores, predict the rest.
+# Condition on results already played: group scores are fixed for standing
+# computation; KO actual results are locked as the bracket fills in.
 try:
     with open(os.path.join(_DIR, "wc_schedule.json")) as f:
-        PLAYED = played_group_results(json.load(f))
+        _sched_data = json.load(f)
+    PLAYED = played_group_results(_sched_data)
+    KO_PLAYED = played_ko_results(_sched_data)
 except (FileNotFoundError, ValueError):
     PLAYED = {g: {} for g in GROUPS}
+    KO_PLAYED = {}
+if KO_PLAYED:
+    print("  KO results locked: " + ", ".join(
+        f"{v['home']} {v['score']} {v['away']} → {v['winner']}"
+        for v in KO_PLAYED.values()))
 
 _POIS_NP = lambda x: int(np.random.poisson(x))
 GROUP_PAIRS = [(teams[i], teams[j]) for teams in GROUPS.values()
@@ -120,6 +128,9 @@ def sim_score(lg, h, a):
     return int(np.random.poisson(lam)), int(np.random.poisson(mu))
 
 def ko_result(lg, a, b):
+    sk = '|'.join(sorted([a, b]))
+    if sk in KO_PLAYED:
+        return KO_PLAYED[sk]['winner']
     hg, ag = sim_score(lg, a, b)
     if hg > ag: return a
     if ag > hg: return b
@@ -201,13 +212,19 @@ def ko_match_pred(team_a_info, team_b_info):
     if a == "TBD" or b == "TBD":
         return {"home":a,"away":b,"score":"?–?","winner":"TBD","win_pct":0}
     lam, mu = LG_MEAN[(a, b)]
-    ph, pd, pa = hda(a, b)                       # regulation-result H/D/A probs
-    pw = ko_win_prob(a, b)                        # P(a advances, incl. shootout)
+    ph, pd, pa = hda(a, b)
+    pw = ko_win_prob(a, b)
+    reg = a if ph > pa else (b if pa > ph else "Draw")
+    sk = '|'.join(sorted([a, b]))
+    if sk in KO_PLAYED:
+        # Match already played — lock actual result; keep model probs for reference.
+        actual = KO_PLAYED[sk]
+        return {"home":a,"away":b,"lam":round(lam,2),"mu":round(mu,2),
+                "score":actual['score'],"winner":actual['winner'],
+                "win_pct":round(max(pw,1-pw)*100,1),
+                "ph":round(ph,3),"pd":round(pd,3),"pa":round(pa,3),"reg_winner":reg}
     winner = a if pw >= 0.5 else b
     wp = pw if pw >= 0.5 else 1-pw
-    reg = a if ph > pa else (b if pa > ph else "Draw")  # regulation favourite
-    # Score consistent with the advancer: a decisive win for them, or — if the
-    # model expects it level after 90/120' — the modal draw, flagged as a shootout.
     win_oc = 'H' if winner == a else 'A'
     hs, as_ = likely_score(lam, mu, allowed={win_oc, 'D'})
     score = f"{hs}–{as_}" + (" (p)" if hs == as_ else "")

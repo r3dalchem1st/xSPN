@@ -14,7 +14,7 @@ import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
 from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
                           load_ensemble, rank_group, assign_thirds, played_group_results,
-                          draw_mix, sample_inflated_score, DRAW_INFLATE)
+                          played_ko_results, draw_mix, sample_inflated_score, DRAW_INFLATE)
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -26,9 +26,12 @@ ELO  = cache["elo"]
 # every group game each run, so standings/odds ignore what actually happened.
 try:
     with open(os.path.join(_DIR, "wc_schedule.json")) as f:
-        PLAYED = played_group_results(json.load(f))
+        _sched_data = json.load(f)
+    PLAYED = played_group_results(_sched_data)
+    KO_PLAYED = played_ko_results(_sched_data)
 except (FileNotFoundError, ValueError):
     PLAYED = {g: {} for g in GROUPS}
+    KO_PLAYED = {}
 
 # Bootstrap ensemble: one (host-aware, squad-symmetric) lambda table per refit.
 # Each simulated tournament draws a random member, propagating parameter
@@ -60,6 +63,9 @@ def sim_score_g(lg, home, away):
     return _pois(lam), _pois(mu)
 
 def ko_result(lg, a, b):
+    sk = '|'.join(sorted([a, b]))
+    if sk in KO_PLAYED:
+        return KO_PLAYED[sk]['winner']
     hg, ag = sim_score_g(lg, a, b)
     if hg > ag: return a
     if ag > hg: return b
