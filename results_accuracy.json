@@ -1519,15 +1519,35 @@
       "total_goal_error": 1,
       "brier": 0.7366,
       "logloss": 1.1973
+    },
+    {
+      "date": "2026-06-30",
+      "home": "Ivory Coast",
+      "away": "Norway",
+      "group": "R32",
+      "predicted_score": "0\u20132",
+      "actual_score": "1\u20132",
+      "predicted_winner": "Norway",
+      "ph": 0.16,
+      "pd": 0.204,
+      "pa": 0.635,
+      "actual_winner": "Norway",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.2004,
+      "logloss": 0.4541
     }
   ],
   "summary": {
-    "total_matches": 76,
-    "correct_winners": 43,
-    "accuracy": 0.5658,
-    "avg_goal_error": 2.224,
-    "avg_brier": 0.5593,
-    "avg_logloss": 0.9364,
+    "total_matches": 77,
+    "correct_winners": 44,
+    "accuracy": 0.5714,
+    "avg_goal_error": 2.208,
+    "avg_brier": 0.5546,
+    "avg_logloss": 0.9302,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1543,9 +1563,9 @@
       },
       {
         "bin": "55\u201365%",
-        "n": 12,
-        "predicted": 0.584,
-        "actual": 0.583
+        "n": 13,
+        "predicted": 0.587,
+        "actual": 0.615
       },
       {
         "bin": "65\u201375%",
@@ -1560,8 +1580,8 @@
         "actual": 0.769
       }
     ],
-    "predicted_draw_rate": 0.2537,
-    "actual_draw_rate": 0.2895,
-    "ece": 0.0537
+    "predicted_draw_rate": 0.2531,
+    "actual_draw_rate": 0.2857,
+    "ece": 0.0576
   }
 }

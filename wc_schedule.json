@@ -619,10 +619,10 @@
   },
   "Ivory Coast|Norway": {
     "date": "2026-06-30",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Ivory Coast": null,
-      "Norway": null
+      "Ivory Coast": 1,
+      "Norway": 2
     }
   },
   "France|Sweden": {
