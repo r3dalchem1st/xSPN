@@ -161,6 +161,40 @@ def played_group_results(schedule):
     return out
 
 
+def played_ko_results(schedule):
+    """Returns {sorted_key: {home,away,winner,score}} for FINISHED knockout matches.
+    Identifies KO fixtures by exclusion: any FINISHED match whose team pair is NOT
+    in the group-stage pairing list. This avoids a date-cutoff (UTC offsets make
+    late evening matches appear on the next calendar day) and auto-handles R32
+    through Final as results arrive."""
+    _gps = frozenset(
+        frozenset([GROUPS[g][i], GROUPS[g][j]])
+        for g in GROUPS
+        for i in range(len(GROUPS[g]))
+        for j in range(i + 1, len(GROUPS[g]))
+    )
+    result = {}
+    for key, v in schedule.items():
+        if v.get('status') != 'FINISHED':
+            continue
+        teams = key.split('|')
+        h, a = teams[0], teams[1]
+        if frozenset([h, a]) in _gps:
+            continue  # group stage fixture
+        g_data = v.get('goals') or {}
+        hg, ag = g_data.get(h), g_data.get(a)
+        if hg is None or ag is None:
+            continue
+        pen_w = v.get('pen_winner')
+        if hg > ag:   winner = h
+        elif ag > hg: winner = a
+        elif pen_w:   winner = pen_w
+        else:         continue  # drawn with no pen_winner (shouldn't happen for FINISHED)
+        score = f"{hg}–{ag}" + (" (p)" if hg == ag else "")
+        result[key] = {'home': h, 'away': a, 'winner': winner, 'score': score}
+    return result
+
+
 def assign_thirds(best8, r32_var):
     """Assign the 8 best third-place teams to the variable R32 slots so each third
     lands in an ELIGIBLE slot, one-to-one. Each slot's eligibility set excludes its
