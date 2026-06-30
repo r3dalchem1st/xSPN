@@ -148,7 +148,9 @@ def fetch_competition(code, label, neutral):
         # (not cumulative), so final score = fullTime + extraTime.
         # For regular/ET matches the existing cumulative-ET logic applies.
         if duration_m == 'PENALTY_SHOOTOUT' and ft_h is not None and ft_a is not None:
-            hg, ag = ft_h, ft_a   # fullTime is cumulative reg+ET; extraTime = pen scores
+            pen_m = sc.get('penalties') or {}
+            hg = ft_h - (pen_m.get('home') or 0)
+            ag = ft_a - (pen_m.get('away') or 0)
         elif et_h is not None and et_a is not None:
             hg, ag = et_h, et_a
         else:
@@ -191,7 +193,9 @@ def fetch_schedule():
             ft_h2, ft_a2 = ft.get('home'), ft.get('away')
             et_h, et_a = et.get('home'), et.get('away')
             if duration == 'PENALTY_SHOOTOUT' and ft_h2 is not None and ft_a2 is not None:
-                final_h, final_a = ft_h2, ft_a2   # fullTime is cumulative reg+ET
+                # API stores fullTime = field_goals + pen_goals; subtract pens to get field score
+                final_h = ft_h2 - (pen.get('home') or 0)
+                final_a = ft_a2 - (pen.get('away') or 0)
             elif et_h is not None and et_a is not None:
                 final_h, final_a = et_h, et_a
             else:
