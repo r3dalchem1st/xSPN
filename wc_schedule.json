@@ -627,7 +627,7 @@
   },
   "France|Sweden": {
     "date": "2026-06-30",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
       "France": null,
       "Sweden": null
