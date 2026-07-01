@@ -1183,29 +1183,29 @@
     },
     {
       "home": "Belgium",
-      "away": "Algeria",
+      "away": "Senegal",
       "score": "1\u20131 (p)",
       "winner": "Belgium",
-      "win_pct": 60.1,
-      "ph": 0.465,
-      "pd": 0.268,
-      "pa": 0.268,
+      "win_pct": 50.3,
+      "ph": 0.368,
+      "pd": 0.27,
+      "pa": 0.362,
       "reg_winner": "Belgium",
-      "lam": 1.42,
-      "mu": 1.0
+      "lam": 1.26,
+      "mu": 1.24
     },
     {
       "home": "Switzerland",
-      "away": "Senegal",
+      "away": "Algeria",
       "score": "1\u20131 (p)",
-      "winner": "Senegal",
-      "win_pct": 53.5,
-      "ph": 0.369,
-      "pd": 0.239,
-      "pa": 0.393,
-      "reg_winner": "Senegal",
-      "lam": 1.5,
-      "mu": 1.55
+      "winner": "Switzerland",
+      "win_pct": 59.4,
+      "ph": 0.497,
+      "pd": 0.236,
+      "pa": 0.267,
+      "reg_winner": "Switzerland",
+      "lam": 1.73,
+      "mu": 1.19
     },
     {
       "home": "Colombia",
@@ -1302,16 +1302,16 @@
     },
     {
       "home": "USA",
-      "away": "Senegal",
-      "score": "2\u20132 (p)",
-      "winner": "Senegal",
+      "away": "Switzerland",
+      "score": "1\u20131 (p)",
+      "winner": "USA",
       "win_pct": 51.9,
-      "ph": 0.396,
-      "pd": 0.189,
-      "pa": 0.415,
-      "reg_winner": "Senegal",
-      "lam": 2.22,
-      "mu": 2.28
+      "ph": 0.408,
+      "pd": 0.202,
+      "pa": 0.39,
+      "reg_winner": "USA",
+      "lam": 2.0,
+      "mu": 1.96
     },
     {
       "home": "Belgium",
@@ -1368,17 +1368,17 @@
       "mu": 1.15
     },
     {
-      "home": "Senegal",
+      "home": "USA",
       "away": "Colombia",
       "score": "1\u20131 (p)",
       "winner": "Colombia",
-      "win_pct": 58.8,
-      "ph": 0.273,
-      "pd": 0.26,
-      "pa": 0.467,
+      "win_pct": 63.5,
+      "ph": 0.259,
+      "pd": 0.219,
+      "pa": 0.523,
       "reg_winner": "Colombia",
-      "lam": 1.07,
-      "mu": 1.48
+      "lam": 1.29,
+      "mu": 1.94
     }
   ],
   "sf": [
