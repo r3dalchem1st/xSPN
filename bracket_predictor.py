@@ -32,8 +32,31 @@ try:
     PLAYED = played_group_results(_sched_data)
     KO_PLAYED = played_ko_results(_sched_data)
 except (FileNotFoundError, ValueError):
+    _sched_data = {}
     PLAYED = {g: {} for g in GROUPS}
     KO_PLAYED = {}
+
+# Real R32 draw, when known: the schedule carries the actual cross-group KO
+# fixtures (with real dates) as they're drawn. A group winner's EARLIEST KO-window
+# fixture is its R32 game, so we can seed the variable third-place slots from the
+# real draw instead of guessing the third→slot mapping with assign_thirds — FIFA's
+# official mapping depends on WHICH thirds qualify and a bare eligible matching can
+# pick a different (valid-but-wrong) pairing (e.g. Belgium–Algeria instead of the
+# real Belgium–Senegal, which also let Senegal advance against the wrong opponent).
+_GP_PAIRS = frozenset(frozenset([GROUPS[g][i], GROUPS[g][j]])
+                      for g in GROUPS for i in range(len(GROUPS[g]))
+                      for j in range(i + 1, len(GROUPS[g])))
+def _real_r32_opponent(winner):
+    cand = []
+    for key, v in _sched_data.items():
+        ts = key.split('|')
+        if winner not in ts or frozenset(ts) in _GP_PAIRS:
+            continue
+        if v.get("date", "") < "2026-06-28":
+            continue
+        cand.append((v["date"], ts[0] if ts[1] == winner else ts[1]))
+    return min(cand)[1] if cand else None
+
 if KO_PLAYED:
     print("  KO results locked: " + ", ".join(
         f"{v['home']} {v['score']} {v['away']} → {v['winner']}"
@@ -312,7 +335,10 @@ var_asgn = assign_thirds(_thirds[:8], R32_VAR)
 
 r32_matchups = [(modal_res(a, var_asgn), modal_res(b, var_asgn)) for a,b in R32_FIXED]
 for slot,_ in R32_VAR:
-    r32_matchups.append((modal_gw[slot[1]], var_asgn.get(slot, "TBD")))
+    w = modal_gw[slot[1]]
+    # Prefer the actual drawn opponent (real fixture in the schedule); fall back to
+    # the assign_thirds guess only for slots not yet drawn.
+    r32_matchups.append((w, _real_r32_opponent(w) or var_asgn.get(slot, "TBD")))
 
 r32_preds = [ko_match_pred((a,0),(b,0)) for a,b in r32_matchups]
 r32w_modal = [p["winner"] for p in r32_preds]
