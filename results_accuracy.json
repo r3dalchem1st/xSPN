@@ -1565,7 +1565,7 @@
       "home": "Mexico",
       "away": "Ecuador",
       "group": "R32",
-      "predicted_score": "0\u20130 (p)",
+      "predicted_score": "1\u20130",
       "actual_score": "2\u20130",
       "predicted_winner": "Mexico",
       "ph": 0.382,
@@ -1574,9 +1574,9 @@
       "actual_winner": "Mexico",
       "actual_outcome": "H",
       "correct_winner": true,
-      "home_error": 2,
+      "home_error": 1,
       "away_error": 0,
-      "total_goal_error": 2,
+      "total_goal_error": 1,
       "brier": 0.5743,
       "logloss": 0.9623
     }
@@ -1585,7 +1585,7 @@
     "total_matches": 79,
     "correct_winners": 46,
     "accuracy": 0.5823,
-    "avg_goal_error": 2.177,
+    "avg_goal_error": 2.165,
     "avg_brier": 0.5486,
     "avg_logloss": 0.9217,
     "reliability": [
