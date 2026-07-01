@@ -1539,15 +1539,35 @@
       "total_goal_error": 1,
       "brier": 0.2004,
       "logloss": 0.4541
+    },
+    {
+      "date": "2026-06-30",
+      "home": "France",
+      "away": "Sweden",
+      "group": "R32",
+      "predicted_score": "3\u20130",
+      "actual_score": "3\u20130",
+      "predicted_winner": "France",
+      "ph": 0.798,
+      "pd": 0.121,
+      "pa": 0.082,
+      "actual_winner": "France",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.0622,
+      "logloss": 0.2256
     }
   ],
   "summary": {
-    "total_matches": 77,
-    "correct_winners": 44,
-    "accuracy": 0.5714,
-    "avg_goal_error": 2.208,
-    "avg_brier": 0.5546,
-    "avg_logloss": 0.9302,
+    "total_matches": 78,
+    "correct_winners": 45,
+    "accuracy": 0.5769,
+    "avg_goal_error": 2.179,
+    "avg_brier": 0.5483,
+    "avg_logloss": 0.9211,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1575,13 +1595,13 @@
       },
       {
         "bin": "75%+",
-        "n": 13,
-        "predicted": 0.83,
-        "actual": 0.769
+        "n": 14,
+        "predicted": 0.828,
+        "actual": 0.786
       }
     ],
-    "predicted_draw_rate": 0.2531,
-    "actual_draw_rate": 0.2857,
-    "ece": 0.0576
+    "predicted_draw_rate": 0.2514,
+    "actual_draw_rate": 0.2821,
+    "ece": 0.0542
   }
 }
