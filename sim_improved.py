@@ -30,6 +30,7 @@ try:
     PLAYED = played_group_results(_sched_data)
     KO_PLAYED = played_ko_results(_sched_data)
 except (FileNotFoundError, ValueError):
+    _sched_data = {}
     PLAYED = {g: {} for g in GROUPS}
     KO_PLAYED = {}
 
@@ -83,6 +84,49 @@ R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
 QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
+# The R16/QF/SF pairing above assumes a fixed bracket topology that can be
+# wrong for the portion of the draw seeded from variable third-place teams
+# (mirrors the R32 third-place guess issue in bracket_predictor.py — see
+# resolve_round() there for the full rationale). Once the real schedule names
+# a concrete fixture between two teams from the previous round, trust it over
+# the guessed index pairing.
+_GP_PAIRS = frozenset(frozenset([GROUPS[g][i], GROUPS[g][j]])
+                      for g in GROUPS for i in range(len(GROUPS[g]))
+                      for j in range(i + 1, len(GROUPS[g])))
+_ROUND_WINDOWS = {"r16": ("2026-07-04", "2026-07-09"),
+                  "qf":  ("2026-07-09", "2026-07-14"),
+                  "sf":  ("2026-07-14", "2026-07-18")}
+def _real_pairs_within(teams, window):
+    ws, we = window
+    real = {}
+    for key, v in _sched_data.items():
+        ts = key.split('|')
+        if frozenset(ts) in _GP_PAIRS:
+            continue
+        d = v.get("date", "")
+        if d < ws or d >= we:
+            continue
+        if ts[0] in teams and ts[1] in teams:
+            real[ts[0]] = ts[1]; real[ts[1]] = ts[0]
+    return real
+
+def resolve_round(prev_winners, guessed_pairs, round_key):
+    real = _real_pairs_within(prev_winners, _ROUND_WINDOWS[round_key])
+    used, out = set(), []
+    for i, j in guessed_pairs:
+        a, b = prev_winners[i], prev_winners[j]
+        if a in used or b in used:
+            continue
+        ra = real.get(a)
+        if ra is not None and ra != b and ra not in used:
+            out.append((a, ra)); used.update((a, ra))
+        else:
+            out.append((a, b)); used.update((a, b))
+    leftover = [t for t in prev_winners if t not in used]
+    for k in range(0, len(leftover) - 1, 2):
+        out.append((leftover[k], leftover[k + 1]))
+    return out
+
 def sim_group(lg, teams, played, infl):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
@@ -115,9 +159,9 @@ def sim_tournament(lg, infl):
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
     r32w = [ko_result(lg,a,b) for a,b in r32p]
-    r16w = [ko_result(lg,r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
-    qfw  = [ko_result(lg,r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
-    sfw  = [ko_result(lg,qfw[p[0]], qfw[p[1]])  for p in SF_PAIRS]
+    r16w = [ko_result(lg,a,b) for a,b in resolve_round(r32w, R16_PAIRS, "r16")]
+    qfw  = [ko_result(lg,a,b) for a,b in resolve_round(r16w, QF_PAIRS,  "qf")]
+    sfw  = [ko_result(lg,a,b) for a,b in resolve_round(qfw,  SF_PAIRS,  "sf")]
     champ = ko_result(lg,sfw[0],sfw[1])
     return champ, set(sfw), set(qfw), set(r16w)
 
