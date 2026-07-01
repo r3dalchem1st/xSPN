@@ -76,7 +76,7 @@ tr:hover td{background:#fafafa}
   <div class="hdr-text">
     <h1>2026 FIFA World Cup Predictions</h1>
     <p>Dixon-Coles &middot; L2 regularisation &middot; host advantage &middot; 75,000 simulations</p>
-    <p class="updated">Last updated: 01 Jul 2026 09:48 UTC</p>
+    <p class="updated">Last updated: 01 Jul 2026 15:58 UTC</p>
   </div>
 </header>
 <div class="tabs">
@@ -84,7 +84,7 @@ tr:hover td{background:#fafafa}
   <div class="tab" onclick="show('groups')">Groups</div>
   <div class="tab" onclick="show('matches')">All 104 Matches</div>
   <div class="tab" onclick="show('bracket')">Bracket</div>
-  <div class="tab" onclick="show('win')">Win Odds</div>
+  <div class="tab" onclick="show('win')">Title Odds</div>
   <div class="tab" onclick="show('podium')">Podium</div>
 </div>
 <div id="tab-results" class="pane active"></div>
@@ -143,11 +143,14 @@ function show(n){
   const elim=ranked.length-active.length;
   const mx=active.length?active[0][1].win:1;
   const note=`<div style="font-size:.78rem;color:var(--muted);background:var(--card);border-radius:6px;padding:10px 14px;margin-bottom:10px;line-height:1.5">
-    <strong>How to read this tab:</strong> Win% is each team&rsquo;s probability of lifting the trophy,
-    averaged across 75,000 simulated tournaments. The <strong>Bracket</strong> tab shows the single
-    most-likely knockout path (modal outcome) &mdash; these can differ because the odds here
-    aggregate every possible scenario, not just the most likely one. A team can lead in Win% while
-    losing in the modal bracket, or vice versa.
+    <strong>This is NOT a single predicted winner.</strong> Win% is each team&rsquo;s title probability
+    <em>averaged across 75,000 simulated tournaments</em> &mdash; every possible draw, upset, and bracket
+    path, all blended together. The <strong>Bracket</strong> and <strong>Podium</strong> tabs show one
+    specific outcome instead: the single most-likely path if the favorite wins every match. These two
+    views can name <em>different champions</em>, and both are correct: a team can top this table by being
+    a strong bet across many possible tournaments, while still losing in the one specific path where every
+    favorite wins &mdash; for example if that path happens to pit them against another top team in the
+    final. <strong>For "who does the model predict will win," use the Bracket/Podium tabs, not the top row here.</strong>
     ${elim?`<br><span style="color:var(--hint)">${elim} eliminated team${elim===1?'':'s'} hidden (0% odds).</span>`:''}
   </div>`;
   let h=note+`<table><thead><tr><th>#</th><th>Team</th><th title="Title odds (90% range across model variants below)">Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th title="10-day win% trend">Trend</th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
