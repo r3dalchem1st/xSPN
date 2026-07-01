@@ -635,10 +635,10 @@
   },
   "Ecuador|Mexico": {
     "date": "2026-07-01",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Mexico": null,
-      "Ecuador": null
+      "Mexico": 2,
+      "Ecuador": 0
     }
   },
   "DR Congo|England": {

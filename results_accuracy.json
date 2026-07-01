@@ -1559,21 +1559,41 @@
       "total_goal_error": 0,
       "brier": 0.0622,
       "logloss": 0.2256
+    },
+    {
+      "date": "2026-07-01",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "group": "R32",
+      "predicted_score": "0\u20130 (p)",
+      "actual_score": "2\u20130",
+      "predicted_winner": "Mexico",
+      "ph": 0.382,
+      "pd": 0.33,
+      "pa": 0.289,
+      "actual_winner": "Mexico",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.5743,
+      "logloss": 0.9623
     }
   ],
   "summary": {
-    "total_matches": 78,
-    "correct_winners": 45,
-    "accuracy": 0.5769,
-    "avg_goal_error": 2.179,
-    "avg_brier": 0.5483,
-    "avg_logloss": 0.9211,
+    "total_matches": 79,
+    "correct_winners": 46,
+    "accuracy": 0.5823,
+    "avg_goal_error": 2.177,
+    "avg_brier": 0.5486,
+    "avg_logloss": 0.9217,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 20,
-        "predicted": 0.404,
-        "actual": 0.4
+        "n": 21,
+        "predicted": 0.403,
+        "actual": 0.429
       },
       {
         "bin": "45\u201355%",
@@ -1600,8 +1620,8 @@
         "actual": 0.786
       }
     ],
-    "predicted_draw_rate": 0.2514,
-    "actual_draw_rate": 0.2821,
-    "ece": 0.0542
+    "predicted_draw_rate": 0.2524,
+    "actual_draw_rate": 0.2785,
+    "ece": 0.0594
   }
 }
