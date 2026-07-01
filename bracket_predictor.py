@@ -198,14 +198,25 @@ for g, preds in group_predictions.items():
 SF_WINS  = defaultdict(Counter)  # slot_idx -> Counter (feeds reach_final)
 CHAMPION = Counter()             # modal champion across the sim
 
+# R16_PAIRS/QF_PAIRS verified 1 Jul against the official match-number bracket
+# structure (openfootball/worldcup.json 2026 feed, which lists e.g. "W80" =
+# winner of match 80 for every KO slot, independent of results) — cross-checked
+# by mapping each of our 16 R32 slots to its real match number (73-88) and
+# resolving the W-references for R16 (89-96) and QF (97-100). Two errors found
+# this way: R16_PAIRS' last 4 pairs were guessed as (8,10)(9,11)(12,14)(13,15)
+# but the real bracket is (8,9)(10,11)(12,13)(14,15); QF_PAIRS was guessed as
+# simple adjacent pairs but the real bracket is (0,4)(2,6)(1,5)(3,7). SF_PAIRS
+# checked out correct as originally written. resolve_round() below is kept as
+# a defense-in-depth safety net (prefers a live-confirmed real fixture over
+# even this verified guess) in case a future round has the same class of bug.
 R32_FIXED = [("2A","2B"),("1C","2F"),("1F","2C"),("2E","2I"),
              ("1H","2J"),("1J","2H"),("2K","2L"),("2D","2G")]
 R32_VAR   = [("1E",{"A","B","C","D","F"}),("1I",{"C","D","F","G","H"}),
              ("1A",{"C","E","F","H","I"}),("1L",{"E","H","I","J","K"}),
              ("1D",{"B","E","F","I","J"}),("1G",{"A","E","H","I","J"}),
              ("1B",{"E","F","G","I","J"}),("1K",{"D","E","I","J","L"})]
-R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,10),(9,11),(12,14),(13,15)]
-QF_PAIRS  = [(0,1),(2,3),(4,5),(6,7)]
+R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,9),(10,11),(12,13),(14,15)]
+QF_PAIRS  = [(0,4),(2,6),(1,5),(3,7)]
 SF_PAIRS  = [(0,1),(2,3)]
 
 def sim_score(lg, h, a):
