@@ -191,7 +191,11 @@ def played_ko_results(schedule):
         elif pen_w:   winner = pen_w
         else:         continue  # drawn with no pen_winner (shouldn't happen for FINISHED)
         score = f"{hg}–{ag}" + (" (p)" if hg == ag else "")
-        result[key] = {'home': h, 'away': a, 'winner': winner, 'score': score}
+        # goals keyed by team NAME (not h/a position) so a consumer with its own
+        # home/away orientation (e.g. the bracket's fixed slot order) can render
+        # the score correctly instead of assuming this function's h/a order.
+        result[key] = {'home': h, 'away': a, 'winner': winner, 'score': score,
+                        'goals': {h: hg, a: ag}}
     return result
 
 
