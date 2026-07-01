@@ -258,9 +258,15 @@ def ko_match_pred(team_a_info, team_b_info):
     sk = '|'.join(sorted([a, b]))
     if sk in KO_PLAYED:
         # Match already played — lock actual result; keep model probs for reference.
+        # KO_PLAYED's own home/away is an arbitrary alphabetical pair, not this
+        # bracket slot's (a, b) order, so re-derive the score from goals-by-NAME
+        # rather than reusing its score string (which was oriented to ITS h/a and
+        # would show swapped digits whenever alphabetical order != slot order).
         actual = KO_PLAYED[sk]
+        ag_, bg_ = actual['goals'][a], actual['goals'][b]
+        score = f"{ag_}–{bg_}" + (" (p)" if ag_ == bg_ else "")
         return {"home":a,"away":b,"lam":round(lam,2),"mu":round(mu,2),
-                "score":actual['score'],"winner":actual['winner'],
+                "score":score,"winner":actual['winner'],
                 "win_pct":round(max(pw,1-pw)*100,1),
                 "ph":round(ph,3),"pd":round(pd,3),"pa":round(pa,3),"reg_winner":reg}
     winner = a if pw >= 0.5 else b
