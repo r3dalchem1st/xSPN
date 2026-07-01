@@ -651,7 +651,7 @@
   },
   "Belgium|Senegal": {
     "date": "2026-07-01",
-    "status": "IN_PLAY",
+    "status": "PAUSED",
     "goals": {
       "Belgium": null,
       "Senegal": null
