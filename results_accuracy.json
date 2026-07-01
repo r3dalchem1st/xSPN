@@ -1579,15 +1579,35 @@
       "total_goal_error": 1,
       "brier": 0.5743,
       "logloss": 0.9623
+    },
+    {
+      "date": "2026-07-01",
+      "home": "England",
+      "away": "DR Congo",
+      "group": "R32",
+      "predicted_score": "1\u20130",
+      "actual_score": "2\u20131",
+      "predicted_winner": "England",
+      "ph": 0.48,
+      "pd": 0.291,
+      "pa": 0.229,
+      "actual_winner": "England",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.4075,
+      "logloss": 0.734
     }
   ],
   "summary": {
-    "total_matches": 79,
-    "correct_winners": 46,
-    "accuracy": 0.5823,
-    "avg_goal_error": 2.165,
-    "avg_brier": 0.5486,
-    "avg_logloss": 0.9217,
+    "total_matches": 80,
+    "correct_winners": 47,
+    "accuracy": 0.5875,
+    "avg_goal_error": 2.163,
+    "avg_brier": 0.5468,
+    "avg_logloss": 0.9193,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1597,9 +1617,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 21,
+        "n": 22,
         "predicted": 0.486,
-        "actual": 0.381
+        "actual": 0.409
       },
       {
         "bin": "55\u201365%",
@@ -1620,8 +1640,8 @@
         "actual": 0.786
       }
     ],
-    "predicted_draw_rate": 0.2524,
-    "actual_draw_rate": 0.2785,
-    "ece": 0.0594
+    "predicted_draw_rate": 0.2528,
+    "actual_draw_rate": 0.275,
+    "ece": 0.0523
   }
 }

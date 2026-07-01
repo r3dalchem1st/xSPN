@@ -643,10 +643,10 @@
   },
   "DR Congo|England": {
     "date": "2026-07-01",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "England": null,
-      "DR Congo": null
+      "England": 2,
+      "DR Congo": 1
     }
   },
   "Belgium|Senegal": {
