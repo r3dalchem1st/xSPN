@@ -720,5 +720,21 @@
       "Canada": null,
       "Morocco": null
     }
+  },
+  "France|Paraguay": {
+    "date": "2026-07-04",
+    "status": "TIMED",
+    "goals": {
+      "Paraguay": null,
+      "France": null
+    }
+  },
+  "Brazil|Norway": {
+    "date": "2026-07-05",
+    "status": "TIMED",
+    "goals": {
+      "Brazil": null,
+      "Norway": null
+    }
   }
 }
