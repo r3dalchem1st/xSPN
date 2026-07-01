@@ -57,6 +57,51 @@ def _real_r32_opponent(winner):
         cand.append((v["date"], ts[0] if ts[1] == winner else ts[1]))
     return min(cand)[1] if cand else None
 
+# Post-R32 rounds (R16/QF/SF) also have a fixed guessed pairing (R16_PAIRS etc.
+# below) that assumes a specific bracket topology. Like the R32 third-place
+# slots, this guess can be wrong for the portion of the draw seeded from
+# variable third-place teams — e.g. the guess paired Paraguay-Mexico/France-
+# England in R16, but the real schedule (once both legs of a pairing are
+# decided) confirmed France-Paraguay/Canada-Morocco, which by elimination
+# means Mexico-England, not the guessed pairing. Once the real fixture list
+# names a concrete match between two teams from `prev_winners`, trust it over
+# the guess; any winner not confirmed either way keeps its guessed partner.
+_ROUND_WINDOWS = {"r16": ("2026-07-04", "2026-07-09"),
+                  "qf":  ("2026-07-09", "2026-07-14"),
+                  "sf":  ("2026-07-14", "2026-07-18")}
+def _real_pairs_within(teams, window):
+    ws, we = window
+    real = {}
+    for key, v in _sched_data.items():
+        ts = key.split('|')
+        if frozenset(ts) in _GP_PAIRS:
+            continue
+        d = v.get("date", "")
+        if d < ws or d >= we:
+            continue
+        if ts[0] in teams and ts[1] in teams:
+            real[ts[0]] = ts[1]; real[ts[1]] = ts[0]
+    return real
+
+def resolve_round(prev_winners, guessed_pairs, round_key):
+    """Pair up `prev_winners` (slot order) for this round, preferring a
+    confirmed real fixture over the index-based `guessed_pairs` fallback."""
+    real = _real_pairs_within(prev_winners, _ROUND_WINDOWS[round_key])
+    used, out = set(), []
+    for i, j in guessed_pairs:
+        a, b = prev_winners[i], prev_winners[j]
+        if a in used or b in used:
+            continue
+        ra = real.get(a)
+        if ra is not None and ra != b and ra not in used:
+            out.append((a, ra)); used.update((a, ra))
+        else:
+            out.append((a, b)); used.update((a, b))
+    leftover = [t for t in prev_winners if t not in used]
+    for k in range(0, len(leftover) - 1, 2):
+        out.append((leftover[k], leftover[k + 1]))
+    return out
+
 if KO_PLAYED:
     print("  KO results locked: " + ", ".join(
         f"{v['home']} {v['score']} {v['away']} → {v['winner']}"
@@ -213,9 +258,9 @@ for _ in range(N):
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
     r32w = [ko_result(lg,a,b) for a,b in r32p]
-    r16w = [ko_result(lg,r32w[p[0]],r32w[p[1]]) for p in R16_PAIRS]
-    qfw  = [ko_result(lg,r16w[p[0]],r16w[p[1]]) for p in QF_PAIRS]
-    sfw  = [ko_result(lg,qfw[p[0]],qfw[p[1]])   for p in SF_PAIRS]
+    r16w = [ko_result(lg,a,b) for a,b in resolve_round(r32w, R16_PAIRS, "r16")]
+    qfw  = [ko_result(lg,a,b) for a,b in resolve_round(r16w, QF_PAIRS,  "qf")]
+    sfw  = [ko_result(lg,a,b) for a,b in resolve_round(qfw,  SF_PAIRS,  "sf")]
     for i,w in enumerate(sfw):  SF_WINS[i][w]  += 1   # only SF_WINS is consumed (reach_final)
     champ = ko_result(lg,sfw[0], sfw[1])
     CHAMPION[champ] += 1
@@ -349,15 +394,15 @@ for slot,_ in R32_VAR:
 r32_preds = [ko_match_pred((a,0),(b,0)) for a,b in r32_matchups]
 r32w_modal = [p["winner"] for p in r32_preds]
 
-r16_matchups = [(r32w_modal[p[0]], r32w_modal[p[1]]) for p in R16_PAIRS]
+r16_matchups = resolve_round(r32w_modal, R16_PAIRS, "r16")
 r16_preds = [ko_match_pred((a,0),(b,0)) for a,b in r16_matchups]
 r16w_modal = [p["winner"] for p in r16_preds]
 
-qf_matchups = [(r16w_modal[p[0]], r16w_modal[p[1]]) for p in QF_PAIRS]
+qf_matchups = resolve_round(r16w_modal, QF_PAIRS, "qf")
 qf_preds = [ko_match_pred((a,0),(b,0)) for a,b in qf_matchups]
 qfw_modal = [p["winner"] for p in qf_preds]
 
-sf_matchups = [(qfw_modal[p[0]], qfw_modal[p[1]]) for p in SF_PAIRS]
+sf_matchups = resolve_round(qfw_modal, SF_PAIRS, "sf")
 sf_preds = [ko_match_pred((a,0),(b,0)) for a,b in sf_matchups]
 sfw_modal = [p["winner"] for p in sf_preds]
 
