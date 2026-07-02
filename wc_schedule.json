@@ -667,7 +667,7 @@
   },
   "Austria|Spain": {
     "date": "2026-07-02",
-    "status": "TIMED",
+    "status": "PAUSED",
     "goals": {
       "Spain": null,
       "Austria": null
