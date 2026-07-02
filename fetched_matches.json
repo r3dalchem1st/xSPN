@@ -718,5 +718,23 @@
     1,
     "World Cup",
     true
+  ],
+  [
+    "2026-07-01",
+    "Belgium",
+    "Senegal",
+    1,
+    0,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-07-02",
+    "USA",
+    "Bosnia",
+    2,
+    0,
+    "World Cup",
+    true
   ]
 ]
