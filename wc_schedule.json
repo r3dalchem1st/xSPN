@@ -667,10 +667,10 @@
   },
   "Austria|Spain": {
     "date": "2026-07-02",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "goals": {
-      "Spain": null,
-      "Austria": null
+      "Spain": 3,
+      "Austria": 0
     }
   },
   "Croatia|Portugal": {
