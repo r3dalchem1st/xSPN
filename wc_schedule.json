@@ -736,5 +736,21 @@
       "Brazil": null,
       "Norway": null
     }
+  },
+  "England|Mexico": {
+    "date": "2026-07-06",
+    "status": "TIMED",
+    "goals": {
+      "Mexico": null,
+      "England": null
+    }
+  },
+  "Belgium|USA": {
+    "date": "2026-07-07",
+    "status": "TIMED",
+    "goals": {
+      "USA": null,
+      "Belgium": null
+    }
   }
 }
