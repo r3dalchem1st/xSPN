@@ -60,9 +60,15 @@ def resolve_of(raw):
     return OF_TEAM_MAP.get(raw)
 
 def fetch_openfootball_results():
-    """Finished-match results from openfootball, keyed by sorted team pair, used to
-    override football-data.org whenever the two disagree. Network/schema failure ->
-    empty dict (no-op; football-data.org stays authoritative on its own)."""
+    """Ground-truth match dates + finished-match results from openfootball, keyed by
+    sorted team pair. Used to override football-data.org's score (see module docstring
+    history) AND its schedule date: football-data.org only exposes a UTC timestamp, and
+    truncating it to a date rolls late local kickoffs (common for 2026 US/CA/MX host
+    times, e.g. 19:00 UTC-6 = 01:00 UTC the NEXT day) onto the wrong calendar day —
+    this is what made R32/R16 (and some group) matches show a day late. openfootball's
+    `date` field is already the local match-day FIFA schedules against (also what
+    shadymccoy.github.io/WC26 shows), so it's authoritative for both. Network/schema
+    failure -> empty dict (no-op; football-data.org stays authoritative on its own)."""
     try:
         resp = requests.get(OPENFOOTBALL_URL, timeout=10)
         resp.raise_for_status()
@@ -72,23 +78,24 @@ def fetch_openfootball_results():
         return {}
     out = {}
     for m in matches:
-        score = m.get('score')
-        if not score:
-            continue  # not yet played
         home = resolve_of(m.get('team1', '')); away = resolve_of(m.get('team2', ''))
         if not home or not away:
             continue  # unresolved KO placeholder (e.g. "W83"/"L101") or unmapped name
-        if 'et' in score:
-            hg, ag = score['et']
-        elif 'ft' in score:
-            hg, ag = score['ft']
-        else:
-            continue
-        entry = {'goals': {home: hg, away: ag}}
-        pens = score.get('p')
-        if pens and pens[0] != pens[1]:
-            entry['pen_winner'] = home if pens[0] > pens[1] else away
-            entry['pen_scores'] = {home: pens[0], away: pens[1]}
+        entry = {'date': m.get('date')}
+        score = m.get('score')
+        if score:
+            if 'et' in score:
+                hg, ag = score['et']
+            elif 'ft' in score:
+                hg, ag = score['ft']
+            else:
+                hg = ag = None
+            if hg is not None:
+                entry['goals'] = {home: hg, away: ag}
+                pens = score.get('p')
+                if pens and pens[0] != pens[1]:
+                    entry['pen_winner'] = home if pens[0] > pens[1] else away
+                    entry['pen_scores'] = {home: pens[0], away: pens[1]}
         out['|'.join(sorted([home, away]))] = entry
     return out
 
@@ -100,7 +107,8 @@ def _apply_openfootball(match, of_results):
     of = of_results.get('|'.join(sorted([home, away])))
     if not of:
         return match
-    of_hg, of_ag = of['goals'].get(home), of['goals'].get(away)
+    of_goals = of.get('goals', {})
+    of_hg, of_ag = of_goals.get(home), of_goals.get(away)
     if of_hg is None or of_ag is None or (of_hg, of_ag) == (hg, ag):
         return match
     print(f"    ~ openfootball override {date} {home} {hg}-{ag} {away} -> {of_hg}-{of_ag}")
@@ -275,8 +283,14 @@ def fetch_schedule(of_results=None):
                 final_h, final_a = ft_h2, ft_a2
         else:
             final_h, final_a = None, None
+        of = of_results.get('|'.join(sorted([home, away])))
+        # football-data.org's utcDate rolls late local kickoffs (common for 2026 host
+        # cities, e.g. 19:00 UTC-6 = 01:00 UTC next day) onto the wrong calendar day —
+        # openfootball's date is the local match-day, so prefer it whenever known
+        # (independent of whether the match has been played yet).
+        real_date = of.get('date') if of else None
         entry = {
-            "date": m.get('utcDate', '')[:10], "status": m.get('status'),
+            "date": real_date or m.get('utcDate', '')[:10], "status": m.get('status'),
             "goals": {home: final_h, away: final_a},  # by team name (orientation-safe)
         }
         if is_finished and duration == 'PENALTY_SHOOTOUT' and pen.get('home') is not None:
@@ -286,20 +300,19 @@ def fetch_schedule(of_results=None):
                 entry['pen_scores'] = {home: pen_h, away: pen_a}
             else:
                 print(f"    ~ pen equal ({pen_h}–{pen_a}) on {entry['date']} {home}–{away} — pen_winner omitted")
-        if is_finished:
-            of = of_results.get('|'.join(sorted([home, away])))
-            if of:
-                of_h, of_a = of['goals'].get(home), of['goals'].get(away)
-                if of_h is not None and of_a is not None and (of_h, of_a) != (final_h, final_a):
-                    print(f"    ~ openfootball override (schedule) {home} {final_h}-{final_a} -> {of_h}-{of_a} {away}")
-                    entry['goals'] = {home: of_h, away: of_a}
-                if 'pen_winner' in of:
-                    entry['pen_winner'] = of['pen_winner']
-                    entry['pen_scores'] = of['pen_scores']
-                elif 'pen_winner' in entry:
-                    # openfootball has this match resolved with no shootout —
-                    # trust it over a spurious PENALTY_SHOOTOUT flag from the other API
-                    entry.pop('pen_winner'); entry.pop('pen_scores', None)
+        if is_finished and of:
+            of_goals = of.get('goals', {})
+            of_h, of_a = of_goals.get(home), of_goals.get(away)
+            if of_h is not None and of_a is not None and (of_h, of_a) != (final_h, final_a):
+                print(f"    ~ openfootball override (schedule) {home} {final_h}-{final_a} -> {of_h}-{of_a} {away}")
+                entry['goals'] = {home: of_h, away: of_a}
+            if 'pen_winner' in of:
+                entry['pen_winner'] = of['pen_winner']
+                entry['pen_scores'] = of['pen_scores']
+            elif 'pen_winner' in entry:
+                # openfootball has this match resolved with no shootout —
+                # trust it over a spurious PENALTY_SHOOTOUT flag from the other API
+                entry.pop('pen_winner'); entry.pop('pen_scores', None)
         sched['|'.join(sorted([home, away]))] = entry
     print(f"  schedule: {len(sched)} fixtures with both teams resolved")
     if unmapped:
