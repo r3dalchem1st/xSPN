@@ -40,6 +40,72 @@ TEAM_MAP = {
 }
 TEAM_SET = set(ALL_TEAMS)
 
+# openfootball/worldcup.json is a community-maintained cross-check source (also
+# used by shadymccoy.github.io/WC26). Its score shape is unambiguous — score.et
+# (or score.ft if no extra time) is always the true final field score, and a
+# shootout is a separate score.p field — unlike football-data.org's
+# PENALTY_SHOOTOUT fullTime, which combines field+shootout goals and has caused
+# repeated wrong scores (28/30 Jun fixes, and the 2 Jul Belgium–Senegal incident
+# that prompted this: fetched as 1–0, actually 3–2 in extra time). Only 3 team
+# names differ from our model spelling; everything else passes through.
+OPENFOOTBALL_URL = 'https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json'
+OF_TEAM_MAP = {
+    'Bosnia & Herzegovina': 'Bosnia',
+    'Curaçao': 'Curacao',
+    'Czech Republic': 'Czechia',
+}
+
+def resolve_of(raw):
+    if raw in TEAM_SET: return raw
+    return OF_TEAM_MAP.get(raw)
+
+def fetch_openfootball_results():
+    """Finished-match results from openfootball, keyed by sorted team pair, used to
+    override football-data.org whenever the two disagree. Network/schema failure ->
+    empty dict (no-op; football-data.org stays authoritative on its own)."""
+    try:
+        resp = requests.get(OPENFOOTBALL_URL, timeout=10)
+        resp.raise_for_status()
+        matches = resp.json().get('matches', [])
+    except Exception as e:
+        print(f"  openfootball fetch failed (cross-check skipped): {e}")
+        return {}
+    out = {}
+    for m in matches:
+        score = m.get('score')
+        if not score:
+            continue  # not yet played
+        home = resolve_of(m.get('team1', '')); away = resolve_of(m.get('team2', ''))
+        if not home or not away:
+            continue  # unresolved KO placeholder (e.g. "W83"/"L101") or unmapped name
+        if 'et' in score:
+            hg, ag = score['et']
+        elif 'ft' in score:
+            hg, ag = score['ft']
+        else:
+            continue
+        entry = {'goals': {home: hg, away: ag}}
+        pens = score.get('p')
+        if pens and pens[0] != pens[1]:
+            entry['pen_winner'] = home if pens[0] > pens[1] else away
+            entry['pen_scores'] = {home: pens[0], away: pens[1]}
+        out['|'.join(sorted([home, away]))] = entry
+    return out
+
+def _apply_openfootball(match, of_results):
+    """Override a fetch_competition() row's score if openfootball disagrees."""
+    date, home, away, hg, ag, label, neutral = match
+    if label != "World Cup":
+        return match
+    of = of_results.get('|'.join(sorted([home, away])))
+    if not of:
+        return match
+    of_hg, of_ag = of['goals'].get(home), of['goals'].get(away)
+    if of_hg is None or of_ag is None or (of_hg, of_ag) == (hg, ag):
+        return match
+    print(f"    ~ openfootball override {date} {home} {hg}-{ag} {away} -> {of_hg}-{of_ag}")
+    return [date, home, away, of_hg, of_ag, label, neutral]
+
 _WC26_GROUP_CUTOFF = "2026-06-28"   # R32 starts here; group stage is before this
 
 def _co_host_home(match):
@@ -166,11 +232,13 @@ def fetch_competition(code, label, neutral):
         matches.append([match_date, home, away, int(hg), int(ag), label, is_neutral])
     return matches
 
-def fetch_schedule():
+def fetch_schedule(of_results=None):
     """Full WC fixture list (any status) -> {sorted_pair: {date,status,hg,ag}}.
     Gives real game dates (and results once played) for ordering / display in the
     All-104-Matches table. Group fixtures resolve immediately; KO fills in as teams
-    are decided."""
+    are decided. `of_results` (from fetch_openfootball_results()) overrides the
+    score/pens whenever it disagrees with football-data.org."""
+    of_results = of_results or {}
     url = f'{BASE}/competitions/WC/matches'
     try:
         resp = requests.get(url, headers=HEADERS, timeout=10)
@@ -218,6 +286,20 @@ def fetch_schedule():
                 entry['pen_scores'] = {home: pen_h, away: pen_a}
             else:
                 print(f"    ~ pen equal ({pen_h}–{pen_a}) on {entry['date']} {home}–{away} — pen_winner omitted")
+        if is_finished:
+            of = of_results.get('|'.join(sorted([home, away])))
+            if of:
+                of_h, of_a = of['goals'].get(home), of['goals'].get(away)
+                if of_h is not None and of_a is not None and (of_h, of_a) != (final_h, final_a):
+                    print(f"    ~ openfootball override (schedule) {home} {final_h}-{final_a} -> {of_h}-{of_a} {away}")
+                    entry['goals'] = {home: of_h, away: of_a}
+                if 'pen_winner' in of:
+                    entry['pen_winner'] = of['pen_winner']
+                    entry['pen_scores'] = of['pen_scores']
+                elif 'pen_winner' in entry:
+                    # openfootball has this match resolved with no shootout —
+                    # trust it over a spurious PENALTY_SHOOTOUT flag from the other API
+                    entry.pop('pen_winner'); entry.pop('pen_scores', None)
         sched['|'.join(sorted([home, away]))] = entry
     print(f"  schedule: {len(sched)} fixtures with both teams resolved")
     if unmapped:
@@ -228,9 +310,14 @@ def main():
     print("Fetching new match data...")
     existing = load_existing()
 
+    # Cross-check source (see fetch_openfootball_results() docstring); reused below
+    # for both the training cache and the schedule/results the UI reads.
+    of_results = fetch_openfootball_results()
+    print(f"  openfootball cross-check: {len(of_results)} finished results loaded")
+
     # World Cup 2026 group stage
     print("  Fetching World Cup 2026 matches...")
-    wc = [_co_host_home(m) for m in fetch_competition('WC', 'World Cup', True)]
+    wc = [_apply_openfootball(_co_host_home(m), of_results) for m in fetch_competition('WC', 'World Cup', True)]
 
     # (Nations League fetch removed: not on the free tier — it only 403'd every
     # run — and irrelevant during the World Cup, which the WC fetch above covers.)
@@ -244,7 +331,7 @@ def main():
     # Schedule (dates + results for the All-104-Matches table). Keep the previous
     # file if the API hiccups, so we never blank out the dates.
     print("  Fetching full WC schedule...")
-    sched = fetch_schedule()
+    sched = fetch_schedule(of_results)
     sched_file = os.path.join(SCRIPT_DIR, 'wc_schedule.json')
     if sched:
         with open(sched_file, 'w') as f:
