@@ -651,18 +651,18 @@
   },
   "Belgium|Senegal": {
     "date": "2026-07-01",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "goals": {
-      "Belgium": null,
-      "Senegal": null
+      "Belgium": 1,
+      "Senegal": 0
     }
   },
   "Bosnia|USA": {
     "date": "2026-07-02",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "USA": null,
-      "Bosnia": null
+      "USA": 2,
+      "Bosnia": 0
     }
   },
   "Austria|Spain": {
