@@ -683,10 +683,10 @@
   },
   "Algeria|Switzerland": {
     "date": "2026-07-02",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Switzerland": null,
-      "Algeria": null
+      "Switzerland": 2,
+      "Algeria": 0
     }
   },
   "Australia|Egypt": {
