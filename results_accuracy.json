@@ -1679,21 +1679,41 @@
       "total_goal_error": 1,
       "brier": 0.4327,
       "logloss": 0.77
+    },
+    {
+      "date": "2026-07-03",
+      "home": "Switzerland",
+      "away": "Algeria",
+      "group": "R32",
+      "predicted_score": "0\u20130 (p)",
+      "actual_score": "2\u20130",
+      "predicted_winner": "Switzerland",
+      "ph": 0.363,
+      "pd": 0.352,
+      "pa": 0.285,
+      "actual_winner": "Switzerland",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.6109,
+      "logloss": 1.0134
     }
   ],
   "summary": {
-    "total_matches": 84,
-    "correct_winners": 51,
-    "accuracy": 0.6071,
-    "avg_goal_error": 2.155,
-    "avg_brier": 0.5371,
-    "avg_logloss": 0.9057,
+    "total_matches": 85,
+    "correct_winners": 52,
+    "accuracy": 0.6118,
+    "avg_goal_error": 2.153,
+    "avg_brier": 0.538,
+    "avg_logloss": 0.9069,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 22,
-        "predicted": 0.402,
-        "actual": 0.455
+        "n": 23,
+        "predicted": 0.4,
+        "actual": 0.478
       },
       {
         "bin": "45\u201355%",
@@ -1720,8 +1740,8 @@
         "actual": 0.8
       }
     ],
-    "predicted_draw_rate": 0.2514,
-    "actual_draw_rate": 0.2619,
-    "ece": 0.054
+    "predicted_draw_rate": 0.2526,
+    "actual_draw_rate": 0.2588,
+    "ece": 0.0608
   }
 }
