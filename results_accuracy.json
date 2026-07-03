@@ -1699,21 +1699,41 @@
       "total_goal_error": 2,
       "brier": 0.6109,
       "logloss": 1.0134
+    },
+    {
+      "date": "2026-07-03",
+      "home": "Australia",
+      "away": "Egypt",
+      "group": "R32",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "1(2)\u20131(4)",
+      "predicted_winner": "Australia",
+      "ph": 0.372,
+      "pd": 0.29,
+      "pa": 0.338,
+      "actual_winner": "Egypt",
+      "actual_outcome": "D",
+      "correct_winner": false,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.7567,
+      "logloss": 1.2379
     }
   ],
   "summary": {
-    "total_matches": 85,
+    "total_matches": 86,
     "correct_winners": 52,
-    "accuracy": 0.6118,
-    "avg_goal_error": 2.153,
-    "avg_brier": 0.538,
-    "avg_logloss": 0.9069,
+    "accuracy": 0.6047,
+    "avg_goal_error": 2.128,
+    "avg_brier": 0.5405,
+    "avg_logloss": 0.9108,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 23,
-        "predicted": 0.4,
-        "actual": 0.478
+        "n": 24,
+        "predicted": 0.399,
+        "actual": 0.458
       },
       {
         "bin": "45\u201355%",
@@ -1740,8 +1760,8 @@
         "actual": 0.8
       }
     ],
-    "predicted_draw_rate": 0.2526,
-    "actual_draw_rate": 0.2588,
-    "ece": 0.0608
+    "predicted_draw_rate": 0.253,
+    "actual_draw_rate": 0.2674,
+    "ece": 0.0557
   }
 }
