@@ -691,15 +691,20 @@
   },
   "Australia|Egypt": {
     "date": "2026-07-03",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Australia": null,
-      "Egypt": null
+      "Australia": 1,
+      "Egypt": 1
+    },
+    "pen_winner": "Egypt",
+    "pen_scores": {
+      "Australia": 2,
+      "Egypt": 4
     }
   },
   "Argentina|Cape Verde": {
     "date": "2026-07-03",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
       "Argentina": null,
       "Cape Verde": null
