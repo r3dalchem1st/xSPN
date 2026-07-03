@@ -1659,15 +1659,35 @@
       "total_goal_error": 2,
       "brier": 0.2998,
       "logloss": 0.587
+    },
+    {
+      "date": "2026-07-02",
+      "home": "Portugal",
+      "away": "Croatia",
+      "group": "R32",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "2\u20131",
+      "predicted_winner": "Portugal",
+      "ph": 0.463,
+      "pd": 0.25,
+      "pa": 0.286,
+      "actual_winner": "Portugal",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.4327,
+      "logloss": 0.77
     }
   ],
   "summary": {
-    "total_matches": 83,
-    "correct_winners": 50,
-    "accuracy": 0.6024,
-    "avg_goal_error": 2.169,
-    "avg_brier": 0.5384,
-    "avg_logloss": 0.9073,
+    "total_matches": 84,
+    "correct_winners": 51,
+    "accuracy": 0.6071,
+    "avg_goal_error": 2.155,
+    "avg_brier": 0.5371,
+    "avg_logloss": 0.9057,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1677,9 +1697,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 22,
-        "predicted": 0.486,
-        "actual": 0.409
+        "n": 23,
+        "predicted": 0.485,
+        "actual": 0.435
       },
       {
         "bin": "55\u201365%",
@@ -1701,7 +1721,7 @@
       }
     ],
     "predicted_draw_rate": 0.2514,
-    "actual_draw_rate": 0.2651,
-    "ece": 0.0612
+    "actual_draw_rate": 0.2619,
+    "ece": 0.054
   }
 }
