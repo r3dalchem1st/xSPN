@@ -675,15 +675,15 @@
   },
   "Croatia|Portugal": {
     "date": "2026-07-02",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Portugal": null,
-      "Croatia": null
+      "Portugal": 2,
+      "Croatia": 1
     }
   },
   "Algeria|Switzerland": {
     "date": "2026-07-02",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "goals": {
       "Switzerland": null,
       "Algeria": null
