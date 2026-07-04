@@ -817,7 +817,7 @@
   },
   "France|Paraguay": {
     "date": "2026-07-04",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "utc": "2026-07-04T21:00:00Z",
     "goals": {
       "Paraguay": null,
