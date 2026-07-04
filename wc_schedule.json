@@ -808,11 +808,11 @@
   },
   "Canada|Morocco": {
     "date": "2026-07-04",
-    "status": "TIMED",
+    "status": "FINISHED",
     "utc": "2026-07-04T17:00:00Z",
     "goals": {
-      "Canada": null,
-      "Morocco": null
+      "Canada": 0,
+      "Morocco": 3
     }
   },
   "France|Paraguay": {
