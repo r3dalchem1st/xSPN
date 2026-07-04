@@ -1601,6 +1601,26 @@
       "logloss": 1.5051
     },
     {
+      "date": "2026-07-01",
+      "home": "Belgium",
+      "away": "Senegal",
+      "group": "R32",
+      "predicted_score": "3\u20132",
+      "actual_score": "3\u20132",
+      "predicted_winner": "Belgium",
+      "ph": 0.444,
+      "pd": 0.244,
+      "pa": 0.312,
+      "actual_winner": "Belgium",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.466,
+      "logloss": 0.8119
+    },
+    {
       "date": "2026-07-02",
       "home": "Bosnia",
       "away": "USA",
@@ -1739,21 +1759,41 @@
       "total_goal_error": 0,
       "brier": 0.3789,
       "logloss": 0.6951
+    },
+    {
+      "date": "2026-07-04",
+      "home": "Canada",
+      "away": "Morocco",
+      "group": "R16",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20133",
+      "predicted_winner": "Morocco",
+      "ph": 0.29,
+      "pd": 0.283,
+      "pa": 0.427,
+      "actual_winner": "Morocco",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 2,
+      "total_goal_error": 2,
+      "brier": 0.4925,
+      "logloss": 0.851
     }
   ],
   "summary": {
-    "total_matches": 87,
-    "correct_winners": 53,
-    "accuracy": 0.6092,
-    "avg_goal_error": 2.172,
-    "avg_brier": 0.59,
-    "avg_logloss": 0.9849,
+    "total_matches": 89,
+    "correct_winners": 55,
+    "accuracy": 0.618,
+    "avg_goal_error": 2.146,
+    "avg_brier": 0.5875,
+    "avg_logloss": 0.9815,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 22,
-        "predicted": 0.4,
-        "actual": 0.364
+        "n": 24,
+        "predicted": 0.403,
+        "actual": 0.417
       },
       {
         "bin": "45\u201355%",
@@ -1780,8 +1820,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2501,
-    "actual_draw_rate": 0.2644,
-    "ece": 0.0757
+    "predicted_draw_rate": 0.2504,
+    "actual_draw_rate": 0.2584,
+    "ece": 0.0689
   }
 }
