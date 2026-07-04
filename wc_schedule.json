@@ -750,12 +750,36 @@
       "England": null
     }
   },
+  "Portugal|Spain": {
+    "date": "2026-07-06",
+    "status": "TIMED",
+    "goals": {
+      "Portugal": null,
+      "Spain": null
+    }
+  },
   "Belgium|USA": {
     "date": "2026-07-06",
     "status": "TIMED",
     "goals": {
       "USA": null,
       "Belgium": null
+    }
+  },
+  "Argentina|Egypt": {
+    "date": "2026-07-07",
+    "status": "TIMED",
+    "goals": {
+      "Argentina": null,
+      "Egypt": null
+    }
+  },
+  "Colombia|Switzerland": {
+    "date": "2026-07-07",
+    "status": "TIMED",
+    "goals": {
+      "Switzerland": null,
+      "Colombia": null
     }
   }
 }
