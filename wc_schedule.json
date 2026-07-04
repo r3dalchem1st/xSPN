@@ -704,18 +704,18 @@
   },
   "Argentina|Cape Verde": {
     "date": "2026-07-03",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "goals": {
-      "Argentina": null,
-      "Cape Verde": null
+      "Argentina": 3,
+      "Cape Verde": 2
     }
   },
   "Colombia|Ghana": {
     "date": "2026-07-03",
-    "status": "TIMED",
+    "status": "FINISHED",
     "goals": {
-      "Colombia": null,
-      "Ghana": null
+      "Colombia": 1,
+      "Ghana": 0
     }
   },
   "Canada|Morocco": {

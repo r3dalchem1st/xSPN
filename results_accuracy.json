@@ -1719,15 +1719,55 @@
       "total_goal_error": 0,
       "brier": 0.7567,
       "logloss": 1.2379
+    },
+    {
+      "date": "2026-07-03",
+      "home": "Argentina",
+      "away": "Cape Verde",
+      "group": "R32",
+      "predicted_score": "1\u20130",
+      "actual_score": "3\u20132",
+      "predicted_winner": "Argentina",
+      "ph": 0.644,
+      "pd": 0.217,
+      "pa": 0.139,
+      "actual_winner": "Argentina",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 2,
+      "total_goal_error": 4,
+      "brier": 0.1931,
+      "logloss": 0.4401
+    },
+    {
+      "date": "2026-07-04",
+      "home": "Colombia",
+      "away": "Ghana",
+      "group": "R32",
+      "predicted_score": "1\u20130",
+      "actual_score": "1\u20130",
+      "predicted_winner": "Colombia",
+      "ph": 0.615,
+      "pd": 0.213,
+      "pa": 0.172,
+      "actual_winner": "Colombia",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.2232,
+      "logloss": 0.4861
     }
   ],
   "summary": {
-    "total_matches": 86,
-    "correct_winners": 52,
-    "accuracy": 0.6047,
-    "avg_goal_error": 2.128,
-    "avg_brier": 0.5405,
-    "avg_logloss": 0.9108,
+    "total_matches": 88,
+    "correct_winners": 54,
+    "accuracy": 0.6136,
+    "avg_goal_error": 2.125,
+    "avg_brier": 0.533,
+    "avg_logloss": 0.9006,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1743,9 +1783,9 @@
       },
       {
         "bin": "55\u201365%",
-        "n": 14,
-        "predicted": 0.585,
-        "actual": 0.643
+        "n": 16,
+        "predicted": 0.591,
+        "actual": 0.688
       },
       {
         "bin": "65\u201375%",
@@ -1760,8 +1800,8 @@
         "actual": 0.8
       }
     ],
-    "predicted_draw_rate": 0.253,
-    "actual_draw_rate": 0.2674,
-    "ece": 0.0557
+    "predicted_draw_rate": 0.2522,
+    "actual_draw_rate": 0.2614,
+    "ece": 0.0628
   }
 }

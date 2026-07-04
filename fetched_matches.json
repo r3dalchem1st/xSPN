@@ -772,5 +772,23 @@
     1,
     "World Cup",
     true
+  ],
+  [
+    "2026-07-03",
+    "Argentina",
+    "Cape Verde",
+    3,
+    2,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-07-04",
+    "Colombia",
+    "Ghana",
+    1,
+    0,
+    "World Cup",
+    true
   ]
 ]
