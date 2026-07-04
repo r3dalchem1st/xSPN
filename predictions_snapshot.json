@@ -2858,5 +2858,18 @@
     "lam": 1.21,
     "mu": 0.91,
     "snapped_at": "2026-07-03"
+  },
+  "Belgium|Senegal": {
+    "home": "Belgium",
+    "away": "Senegal",
+    "group": "R32",
+    "predicted_score": "3\u20132",
+    "predicted_winner": "Belgium",
+    "ph": 0.444,
+    "pd": 0.244,
+    "pa": 0.312,
+    "lam": 1.62,
+    "mu": 1.31,
+    "snapped_at": "2026-07-04"
   }
 }

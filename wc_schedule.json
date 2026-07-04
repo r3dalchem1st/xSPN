@@ -2,6 +2,7 @@
   "Mexico|South Africa": {
     "date": "2026-06-11",
     "status": "FINISHED",
+    "utc": "2026-06-11T19:00:00Z",
     "goals": {
       "Mexico": 2,
       "South Africa": 0
@@ -10,6 +11,7 @@
   "Czechia|South Korea": {
     "date": "2026-06-11",
     "status": "FINISHED",
+    "utc": "2026-06-12T02:00:00Z",
     "goals": {
       "South Korea": 2,
       "Czechia": 1
@@ -18,6 +20,7 @@
   "Bosnia|Canada": {
     "date": "2026-06-12",
     "status": "FINISHED",
+    "utc": "2026-06-12T19:00:00Z",
     "goals": {
       "Canada": 1,
       "Bosnia": 1
@@ -26,6 +29,7 @@
   "Paraguay|USA": {
     "date": "2026-06-12",
     "status": "FINISHED",
+    "utc": "2026-06-13T01:00:00Z",
     "goals": {
       "USA": 4,
       "Paraguay": 1
@@ -34,6 +38,7 @@
   "Qatar|Switzerland": {
     "date": "2026-06-13",
     "status": "FINISHED",
+    "utc": "2026-06-13T19:00:00Z",
     "goals": {
       "Qatar": 1,
       "Switzerland": 1
@@ -42,6 +47,7 @@
   "Brazil|Morocco": {
     "date": "2026-06-13",
     "status": "FINISHED",
+    "utc": "2026-06-13T22:00:00Z",
     "goals": {
       "Brazil": 1,
       "Morocco": 1
@@ -50,6 +56,7 @@
   "Haiti|Scotland": {
     "date": "2026-06-13",
     "status": "FINISHED",
+    "utc": "2026-06-14T01:00:00Z",
     "goals": {
       "Haiti": 0,
       "Scotland": 1
@@ -58,6 +65,7 @@
   "Australia|Turkey": {
     "date": "2026-06-13",
     "status": "FINISHED",
+    "utc": "2026-06-14T04:00:00Z",
     "goals": {
       "Australia": 2,
       "Turkey": 0
@@ -66,6 +74,7 @@
   "Curacao|Germany": {
     "date": "2026-06-14",
     "status": "FINISHED",
+    "utc": "2026-06-14T17:00:00Z",
     "goals": {
       "Germany": 7,
       "Curacao": 1
@@ -74,6 +83,7 @@
   "Japan|Netherlands": {
     "date": "2026-06-14",
     "status": "FINISHED",
+    "utc": "2026-06-14T20:00:00Z",
     "goals": {
       "Netherlands": 2,
       "Japan": 2
@@ -82,6 +92,7 @@
   "Ecuador|Ivory Coast": {
     "date": "2026-06-14",
     "status": "FINISHED",
+    "utc": "2026-06-14T23:00:00Z",
     "goals": {
       "Ivory Coast": 1,
       "Ecuador": 0
@@ -90,6 +101,7 @@
   "Sweden|Tunisia": {
     "date": "2026-06-14",
     "status": "FINISHED",
+    "utc": "2026-06-15T02:00:00Z",
     "goals": {
       "Sweden": 5,
       "Tunisia": 1
@@ -98,6 +110,7 @@
   "Cape Verde|Spain": {
     "date": "2026-06-15",
     "status": "FINISHED",
+    "utc": "2026-06-15T16:00:00Z",
     "goals": {
       "Spain": 0,
       "Cape Verde": 0
@@ -106,6 +119,7 @@
   "Belgium|Egypt": {
     "date": "2026-06-15",
     "status": "FINISHED",
+    "utc": "2026-06-15T19:00:00Z",
     "goals": {
       "Belgium": 1,
       "Egypt": 1
@@ -114,6 +128,7 @@
   "Saudi Arabia|Uruguay": {
     "date": "2026-06-15",
     "status": "FINISHED",
+    "utc": "2026-06-15T22:00:00Z",
     "goals": {
       "Saudi Arabia": 1,
       "Uruguay": 1
@@ -122,6 +137,7 @@
   "Iran|New Zealand": {
     "date": "2026-06-15",
     "status": "FINISHED",
+    "utc": "2026-06-16T01:00:00Z",
     "goals": {
       "Iran": 2,
       "New Zealand": 2
@@ -130,6 +146,7 @@
   "France|Senegal": {
     "date": "2026-06-16",
     "status": "FINISHED",
+    "utc": "2026-06-16T19:00:00Z",
     "goals": {
       "France": 3,
       "Senegal": 1
@@ -138,6 +155,7 @@
   "Iraq|Norway": {
     "date": "2026-06-16",
     "status": "FINISHED",
+    "utc": "2026-06-16T22:00:00Z",
     "goals": {
       "Iraq": 1,
       "Norway": 4
@@ -146,6 +164,7 @@
   "Algeria|Argentina": {
     "date": "2026-06-16",
     "status": "FINISHED",
+    "utc": "2026-06-17T01:00:00Z",
     "goals": {
       "Argentina": 3,
       "Algeria": 0
@@ -154,6 +173,7 @@
   "Austria|Jordan": {
     "date": "2026-06-16",
     "status": "FINISHED",
+    "utc": "2026-06-17T04:00:00Z",
     "goals": {
       "Austria": 3,
       "Jordan": 1
@@ -162,6 +182,7 @@
   "DR Congo|Portugal": {
     "date": "2026-06-17",
     "status": "FINISHED",
+    "utc": "2026-06-17T17:00:00Z",
     "goals": {
       "Portugal": 1,
       "DR Congo": 1
@@ -170,6 +191,7 @@
   "Croatia|England": {
     "date": "2026-06-17",
     "status": "FINISHED",
+    "utc": "2026-06-17T20:00:00Z",
     "goals": {
       "England": 4,
       "Croatia": 2
@@ -178,6 +200,7 @@
   "Ghana|Panama": {
     "date": "2026-06-17",
     "status": "FINISHED",
+    "utc": "2026-06-17T23:00:00Z",
     "goals": {
       "Ghana": 1,
       "Panama": 0
@@ -186,6 +209,7 @@
   "Colombia|Uzbekistan": {
     "date": "2026-06-17",
     "status": "FINISHED",
+    "utc": "2026-06-18T02:00:00Z",
     "goals": {
       "Uzbekistan": 1,
       "Colombia": 3
@@ -194,6 +218,7 @@
   "Czechia|South Africa": {
     "date": "2026-06-18",
     "status": "FINISHED",
+    "utc": "2026-06-18T16:00:00Z",
     "goals": {
       "Czechia": 1,
       "South Africa": 1
@@ -202,6 +227,7 @@
   "Bosnia|Switzerland": {
     "date": "2026-06-18",
     "status": "FINISHED",
+    "utc": "2026-06-18T19:00:00Z",
     "goals": {
       "Switzerland": 4,
       "Bosnia": 1
@@ -210,6 +236,7 @@
   "Canada|Qatar": {
     "date": "2026-06-18",
     "status": "FINISHED",
+    "utc": "2026-06-18T22:00:00Z",
     "goals": {
       "Canada": 6,
       "Qatar": 0
@@ -218,6 +245,7 @@
   "Mexico|South Korea": {
     "date": "2026-06-18",
     "status": "FINISHED",
+    "utc": "2026-06-19T01:00:00Z",
     "goals": {
       "Mexico": 1,
       "South Korea": 0
@@ -226,6 +254,7 @@
   "Australia|USA": {
     "date": "2026-06-19",
     "status": "FINISHED",
+    "utc": "2026-06-19T19:00:00Z",
     "goals": {
       "USA": 2,
       "Australia": 0
@@ -234,6 +263,7 @@
   "Morocco|Scotland": {
     "date": "2026-06-19",
     "status": "FINISHED",
+    "utc": "2026-06-19T22:00:00Z",
     "goals": {
       "Scotland": 0,
       "Morocco": 1
@@ -242,6 +272,7 @@
   "Brazil|Haiti": {
     "date": "2026-06-19",
     "status": "FINISHED",
+    "utc": "2026-06-20T00:30:00Z",
     "goals": {
       "Brazil": 3,
       "Haiti": 0
@@ -250,6 +281,7 @@
   "Paraguay|Turkey": {
     "date": "2026-06-19",
     "status": "FINISHED",
+    "utc": "2026-06-20T03:00:00Z",
     "goals": {
       "Turkey": 0,
       "Paraguay": 1
@@ -258,6 +290,7 @@
   "Netherlands|Sweden": {
     "date": "2026-06-20",
     "status": "FINISHED",
+    "utc": "2026-06-20T17:00:00Z",
     "goals": {
       "Netherlands": 5,
       "Sweden": 1
@@ -266,6 +299,7 @@
   "Germany|Ivory Coast": {
     "date": "2026-06-20",
     "status": "FINISHED",
+    "utc": "2026-06-20T20:00:00Z",
     "goals": {
       "Germany": 2,
       "Ivory Coast": 1
@@ -274,6 +308,7 @@
   "Curacao|Ecuador": {
     "date": "2026-06-20",
     "status": "FINISHED",
+    "utc": "2026-06-21T00:00:00Z",
     "goals": {
       "Ecuador": 0,
       "Curacao": 0
@@ -282,6 +317,7 @@
   "Japan|Tunisia": {
     "date": "2026-06-20",
     "status": "FINISHED",
+    "utc": "2026-06-21T04:00:00Z",
     "goals": {
       "Tunisia": 0,
       "Japan": 4
@@ -290,6 +326,7 @@
   "Saudi Arabia|Spain": {
     "date": "2026-06-21",
     "status": "FINISHED",
+    "utc": "2026-06-21T16:00:00Z",
     "goals": {
       "Spain": 4,
       "Saudi Arabia": 0
@@ -298,6 +335,7 @@
   "Belgium|Iran": {
     "date": "2026-06-21",
     "status": "FINISHED",
+    "utc": "2026-06-21T19:00:00Z",
     "goals": {
       "Belgium": 0,
       "Iran": 0
@@ -306,6 +344,7 @@
   "Cape Verde|Uruguay": {
     "date": "2026-06-21",
     "status": "FINISHED",
+    "utc": "2026-06-21T22:00:00Z",
     "goals": {
       "Uruguay": 2,
       "Cape Verde": 2
@@ -314,6 +353,7 @@
   "Egypt|New Zealand": {
     "date": "2026-06-21",
     "status": "FINISHED",
+    "utc": "2026-06-22T01:00:00Z",
     "goals": {
       "New Zealand": 1,
       "Egypt": 3
@@ -322,6 +362,7 @@
   "Argentina|Austria": {
     "date": "2026-06-22",
     "status": "FINISHED",
+    "utc": "2026-06-22T17:00:00Z",
     "goals": {
       "Argentina": 2,
       "Austria": 0
@@ -330,6 +371,7 @@
   "France|Iraq": {
     "date": "2026-06-22",
     "status": "FINISHED",
+    "utc": "2026-06-22T21:00:00Z",
     "goals": {
       "France": 3,
       "Iraq": 0
@@ -338,6 +380,7 @@
   "Norway|Senegal": {
     "date": "2026-06-22",
     "status": "FINISHED",
+    "utc": "2026-06-23T00:00:00Z",
     "goals": {
       "Norway": 3,
       "Senegal": 2
@@ -346,6 +389,7 @@
   "Algeria|Jordan": {
     "date": "2026-06-22",
     "status": "FINISHED",
+    "utc": "2026-06-23T03:00:00Z",
     "goals": {
       "Jordan": 1,
       "Algeria": 2
@@ -354,6 +398,7 @@
   "Portugal|Uzbekistan": {
     "date": "2026-06-23",
     "status": "FINISHED",
+    "utc": "2026-06-23T17:00:00Z",
     "goals": {
       "Portugal": 5,
       "Uzbekistan": 0
@@ -362,6 +407,7 @@
   "England|Ghana": {
     "date": "2026-06-23",
     "status": "FINISHED",
+    "utc": "2026-06-23T20:00:00Z",
     "goals": {
       "England": 0,
       "Ghana": 0
@@ -370,6 +416,7 @@
   "Croatia|Panama": {
     "date": "2026-06-23",
     "status": "FINISHED",
+    "utc": "2026-06-23T23:00:00Z",
     "goals": {
       "Panama": 0,
       "Croatia": 1
@@ -378,6 +425,7 @@
   "Colombia|DR Congo": {
     "date": "2026-06-23",
     "status": "FINISHED",
+    "utc": "2026-06-24T02:00:00Z",
     "goals": {
       "Colombia": 1,
       "DR Congo": 0
@@ -386,6 +434,7 @@
   "Canada|Switzerland": {
     "date": "2026-06-24",
     "status": "FINISHED",
+    "utc": "2026-06-24T19:00:00Z",
     "goals": {
       "Switzerland": 2,
       "Canada": 1
@@ -394,6 +443,7 @@
   "Bosnia|Qatar": {
     "date": "2026-06-24",
     "status": "FINISHED",
+    "utc": "2026-06-24T19:00:00Z",
     "goals": {
       "Bosnia": 3,
       "Qatar": 1
@@ -402,6 +452,7 @@
   "Haiti|Morocco": {
     "date": "2026-06-24",
     "status": "FINISHED",
+    "utc": "2026-06-24T22:00:00Z",
     "goals": {
       "Morocco": 4,
       "Haiti": 2
@@ -410,6 +461,7 @@
   "Brazil|Scotland": {
     "date": "2026-06-24",
     "status": "FINISHED",
+    "utc": "2026-06-24T22:00:00Z",
     "goals": {
       "Scotland": 0,
       "Brazil": 3
@@ -418,6 +470,7 @@
   "Czechia|Mexico": {
     "date": "2026-06-24",
     "status": "FINISHED",
+    "utc": "2026-06-25T01:00:00Z",
     "goals": {
       "Czechia": 0,
       "Mexico": 3
@@ -426,6 +479,7 @@
   "South Africa|South Korea": {
     "date": "2026-06-24",
     "status": "FINISHED",
+    "utc": "2026-06-25T01:00:00Z",
     "goals": {
       "South Africa": 1,
       "South Korea": 0
@@ -434,6 +488,7 @@
   "Ecuador|Germany": {
     "date": "2026-06-25",
     "status": "FINISHED",
+    "utc": "2026-06-25T20:00:00Z",
     "goals": {
       "Ecuador": 2,
       "Germany": 1
@@ -442,6 +497,7 @@
   "Curacao|Ivory Coast": {
     "date": "2026-06-25",
     "status": "FINISHED",
+    "utc": "2026-06-25T20:00:00Z",
     "goals": {
       "Curacao": 0,
       "Ivory Coast": 2
@@ -450,6 +506,7 @@
   "Netherlands|Tunisia": {
     "date": "2026-06-25",
     "status": "FINISHED",
+    "utc": "2026-06-25T23:00:00Z",
     "goals": {
       "Tunisia": 1,
       "Netherlands": 3
@@ -458,6 +515,7 @@
   "Japan|Sweden": {
     "date": "2026-06-25",
     "status": "FINISHED",
+    "utc": "2026-06-25T23:00:00Z",
     "goals": {
       "Japan": 1,
       "Sweden": 1
@@ -466,6 +524,7 @@
   "Turkey|USA": {
     "date": "2026-06-25",
     "status": "FINISHED",
+    "utc": "2026-06-26T02:00:00Z",
     "goals": {
       "Turkey": 3,
       "USA": 2
@@ -474,6 +533,7 @@
   "Australia|Paraguay": {
     "date": "2026-06-25",
     "status": "FINISHED",
+    "utc": "2026-06-26T02:00:00Z",
     "goals": {
       "Paraguay": 0,
       "Australia": 0
@@ -482,6 +542,7 @@
   "France|Norway": {
     "date": "2026-06-26",
     "status": "FINISHED",
+    "utc": "2026-06-26T19:00:00Z",
     "goals": {
       "Norway": 1,
       "France": 4
@@ -490,6 +551,7 @@
   "Iraq|Senegal": {
     "date": "2026-06-26",
     "status": "FINISHED",
+    "utc": "2026-06-26T19:00:00Z",
     "goals": {
       "Senegal": 5,
       "Iraq": 0
@@ -498,6 +560,7 @@
   "Spain|Uruguay": {
     "date": "2026-06-26",
     "status": "FINISHED",
+    "utc": "2026-06-27T00:00:00Z",
     "goals": {
       "Uruguay": 0,
       "Spain": 1
@@ -506,6 +569,7 @@
   "Cape Verde|Saudi Arabia": {
     "date": "2026-06-26",
     "status": "FINISHED",
+    "utc": "2026-06-27T00:00:00Z",
     "goals": {
       "Cape Verde": 0,
       "Saudi Arabia": 0
@@ -514,6 +578,7 @@
   "Belgium|New Zealand": {
     "date": "2026-06-26",
     "status": "FINISHED",
+    "utc": "2026-06-27T03:00:00Z",
     "goals": {
       "New Zealand": 1,
       "Belgium": 5
@@ -522,6 +587,7 @@
   "Egypt|Iran": {
     "date": "2026-06-26",
     "status": "FINISHED",
+    "utc": "2026-06-27T03:00:00Z",
     "goals": {
       "Egypt": 1,
       "Iran": 1
@@ -530,6 +596,7 @@
   "England|Panama": {
     "date": "2026-06-27",
     "status": "FINISHED",
+    "utc": "2026-06-27T21:00:00Z",
     "goals": {
       "Panama": 0,
       "England": 2
@@ -538,6 +605,7 @@
   "Croatia|Ghana": {
     "date": "2026-06-27",
     "status": "FINISHED",
+    "utc": "2026-06-27T21:00:00Z",
     "goals": {
       "Croatia": 2,
       "Ghana": 1
@@ -546,6 +614,7 @@
   "Colombia|Portugal": {
     "date": "2026-06-27",
     "status": "FINISHED",
+    "utc": "2026-06-27T23:30:00Z",
     "goals": {
       "Colombia": 0,
       "Portugal": 0
@@ -554,6 +623,7 @@
   "DR Congo|Uzbekistan": {
     "date": "2026-06-27",
     "status": "FINISHED",
+    "utc": "2026-06-27T23:30:00Z",
     "goals": {
       "DR Congo": 3,
       "Uzbekistan": 1
@@ -562,6 +632,7 @@
   "Argentina|Jordan": {
     "date": "2026-06-27",
     "status": "FINISHED",
+    "utc": "2026-06-28T02:00:00Z",
     "goals": {
       "Jordan": 1,
       "Argentina": 3
@@ -570,6 +641,7 @@
   "Algeria|Austria": {
     "date": "2026-06-27",
     "status": "FINISHED",
+    "utc": "2026-06-28T02:00:00Z",
     "goals": {
       "Algeria": 3,
       "Austria": 3
@@ -578,6 +650,7 @@
   "Canada|South Africa": {
     "date": "2026-06-28",
     "status": "FINISHED",
+    "utc": "2026-06-28T19:00:00Z",
     "goals": {
       "South Africa": 0,
       "Canada": 1
@@ -586,6 +659,7 @@
   "Brazil|Japan": {
     "date": "2026-06-29",
     "status": "FINISHED",
+    "utc": "2026-06-29T17:00:00Z",
     "goals": {
       "Brazil": 2,
       "Japan": 1
@@ -594,6 +668,7 @@
   "Germany|Paraguay": {
     "date": "2026-06-29",
     "status": "FINISHED",
+    "utc": "2026-06-29T20:30:00Z",
     "goals": {
       "Germany": 1,
       "Paraguay": 1
@@ -607,6 +682,7 @@
   "Morocco|Netherlands": {
     "date": "2026-06-29",
     "status": "FINISHED",
+    "utc": "2026-06-30T01:00:00Z",
     "goals": {
       "Netherlands": 1,
       "Morocco": 1
@@ -620,6 +696,7 @@
   "Ivory Coast|Norway": {
     "date": "2026-06-30",
     "status": "FINISHED",
+    "utc": "2026-06-30T17:00:00Z",
     "goals": {
       "Ivory Coast": 1,
       "Norway": 2
@@ -628,6 +705,7 @@
   "France|Sweden": {
     "date": "2026-06-30",
     "status": "FINISHED",
+    "utc": "2026-06-30T21:00:00Z",
     "goals": {
       "France": 3,
       "Sweden": 0
@@ -636,6 +714,7 @@
   "Ecuador|Mexico": {
     "date": "2026-06-30",
     "status": "FINISHED",
+    "utc": "2026-07-01T02:00:00Z",
     "goals": {
       "Mexico": 2,
       "Ecuador": 0
@@ -644,6 +723,7 @@
   "DR Congo|England": {
     "date": "2026-07-01",
     "status": "FINISHED",
+    "utc": "2026-07-01T16:00:00Z",
     "goals": {
       "England": 2,
       "DR Congo": 1
@@ -652,6 +732,7 @@
   "Belgium|Senegal": {
     "date": "2026-07-01",
     "status": "FINISHED",
+    "utc": "2026-07-01T20:00:00Z",
     "goals": {
       "Belgium": 3,
       "Senegal": 2
@@ -660,6 +741,7 @@
   "Bosnia|USA": {
     "date": "2026-07-01",
     "status": "FINISHED",
+    "utc": "2026-07-02T00:00:00Z",
     "goals": {
       "USA": 2,
       "Bosnia": 0
@@ -668,6 +750,7 @@
   "Austria|Spain": {
     "date": "2026-07-02",
     "status": "FINISHED",
+    "utc": "2026-07-02T19:00:00Z",
     "goals": {
       "Spain": 3,
       "Austria": 0
@@ -676,6 +759,7 @@
   "Croatia|Portugal": {
     "date": "2026-07-02",
     "status": "FINISHED",
+    "utc": "2026-07-02T23:00:00Z",
     "goals": {
       "Portugal": 2,
       "Croatia": 1
@@ -684,6 +768,7 @@
   "Algeria|Switzerland": {
     "date": "2026-07-02",
     "status": "FINISHED",
+    "utc": "2026-07-03T03:00:00Z",
     "goals": {
       "Switzerland": 2,
       "Algeria": 0
@@ -692,6 +777,7 @@
   "Australia|Egypt": {
     "date": "2026-07-03",
     "status": "FINISHED",
+    "utc": "2026-07-03T18:00:00Z",
     "goals": {
       "Australia": 1,
       "Egypt": 1
@@ -705,6 +791,7 @@
   "Argentina|Cape Verde": {
     "date": "2026-07-03",
     "status": "FINISHED",
+    "utc": "2026-07-03T22:00:00Z",
     "goals": {
       "Argentina": 3,
       "Cape Verde": 2
@@ -713,6 +800,7 @@
   "Colombia|Ghana": {
     "date": "2026-07-03",
     "status": "FINISHED",
+    "utc": "2026-07-04T01:30:00Z",
     "goals": {
       "Colombia": 1,
       "Ghana": 0
@@ -721,6 +809,7 @@
   "Canada|Morocco": {
     "date": "2026-07-04",
     "status": "TIMED",
+    "utc": "2026-07-04T17:00:00Z",
     "goals": {
       "Canada": null,
       "Morocco": null
@@ -729,6 +818,7 @@
   "France|Paraguay": {
     "date": "2026-07-04",
     "status": "TIMED",
+    "utc": "2026-07-04T21:00:00Z",
     "goals": {
       "Paraguay": null,
       "France": null
@@ -737,6 +827,7 @@
   "Brazil|Norway": {
     "date": "2026-07-05",
     "status": "TIMED",
+    "utc": "2026-07-05T20:00:00Z",
     "goals": {
       "Brazil": null,
       "Norway": null
@@ -745,6 +836,7 @@
   "England|Mexico": {
     "date": "2026-07-05",
     "status": "TIMED",
+    "utc": "2026-07-06T00:00:00Z",
     "goals": {
       "Mexico": null,
       "England": null
@@ -753,6 +845,7 @@
   "Portugal|Spain": {
     "date": "2026-07-06",
     "status": "TIMED",
+    "utc": "2026-07-06T19:00:00Z",
     "goals": {
       "Portugal": null,
       "Spain": null
@@ -761,6 +854,7 @@
   "Belgium|USA": {
     "date": "2026-07-06",
     "status": "TIMED",
+    "utc": "2026-07-07T00:00:00Z",
     "goals": {
       "USA": null,
       "Belgium": null
@@ -769,6 +863,7 @@
   "Argentina|Egypt": {
     "date": "2026-07-07",
     "status": "TIMED",
+    "utc": "2026-07-07T16:00:00Z",
     "goals": {
       "Argentina": null,
       "Egypt": null
@@ -777,6 +872,7 @@
   "Colombia|Switzerland": {
     "date": "2026-07-07",
     "status": "TIMED",
+    "utc": "2026-07-07T20:00:00Z",
     "goals": {
       "Switzerland": null,
       "Colombia": null
