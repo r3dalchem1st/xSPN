@@ -291,6 +291,7 @@ def fetch_schedule(of_results=None):
         real_date = of.get('date') if of else None
         entry = {
             "date": real_date or m.get('utcDate', '')[:10], "status": m.get('status'),
+            "utc": m.get('utcDate', ''),  # full timestamp, for same-day kickoff-time ordering
             "goals": {home: final_h, away: final_a},  # by team name (orientation-safe)
         }
         if is_finished and duration == 'PENALTY_SHOOTOUT' and pen.get('home') is not None:

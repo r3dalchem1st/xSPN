@@ -352,8 +352,11 @@ function show(n){
     const _ko_match=m.sk!=='group';
     const _use_s=s&&(!_ko_match||s.date>='2026-06-28');
     const real=_use_s&&s.date;
-    m._date=real||(_ko_match?m._ko:null);                             // shown date
-    m._sort=real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99'; // ordering key
+    m._date=real||(_ko_match?m._ko:null);                             // shown date (local match-day)
+    // Sort by the real kickoff instant (full UTC timestamp) when known, so same-day
+    // matches order by actual time-of-day rather than array position; falls back to
+    // the calendar-date-only ordering when no timestamp is available yet.
+    m._sort=(_use_s&&s.utc)||real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99';
     const g=_use_s&&s.goals;
     const pw=_use_s&&s.pen_winner;
     const ps=_use_s&&s.pen_scores;

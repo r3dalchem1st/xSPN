@@ -952,27 +952,27 @@
     "home": "Brazil",
     "away": "Japan",
     "group": "R32",
-    "predicted_score": "1\u20131",
+    "predicted_score": "1\u20131 (p)",
     "predicted_winner": "Brazil",
-    "ph": 0.444,
-    "pd": 0.262,
-    "pa": 0.295,
-    "lam": 1.45,
-    "mu": 1.12,
-    "snapped_at": "2026-06-11"
+    "ph": 0.456,
+    "pd": 0.265,
+    "pa": 0.279,
+    "lam": 1.44,
+    "mu": 1.06,
+    "snapped_at": "2026-06-28"
   },
   "Morocco|Netherlands": {
-    "home": "Netherlands",
-    "away": "Morocco",
+    "home": "Morocco",
+    "away": "Netherlands",
     "group": "R32",
-    "predicted_score": "0\u20131",
-    "predicted_winner": "Morocco",
-    "ph": 0.295,
-    "pd": 0.302,
-    "pa": 0.403,
-    "lam": 0.91,
-    "mu": 1.12,
-    "snapped_at": "2026-06-11"
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Netherlands",
+    "ph": 0.377,
+    "pd": 0.26,
+    "pa": 0.363,
+    "lam": 1.35,
+    "mu": 1.32,
+    "snapped_at": "2026-06-28"
   },
   "France|Ivory Coast": {
     "home": "Ivory Coast",
@@ -988,17 +988,17 @@
     "snapped_at": "2026-06-11"
   },
   "Austria|Spain": {
-    "home": "Spain",
-    "away": "Austria",
+    "home": "Austria",
+    "away": "Spain",
     "group": "R32",
-    "predicted_score": "1\u20130",
+    "predicted_score": "2\u20130",
     "predicted_winner": "Spain",
-    "ph": 0.556,
-    "pd": 0.267,
-    "pa": 0.177,
-    "lam": 1.5,
-    "mu": 0.7,
-    "snapped_at": "2026-06-11"
+    "ph": 0.744,
+    "pd": 0.159,
+    "pa": 0.097,
+    "lam": 2.5,
+    "mu": 0.76,
+    "snapped_at": "2026-07-01"
   },
   "Argentina|Cape Verde": {
     "home": "Argentina",
@@ -1006,12 +1006,12 @@
     "group": "R32",
     "predicted_score": "1\u20130",
     "predicted_winner": "Argentina",
-    "ph": 0.644,
-    "pd": 0.217,
-    "pa": 0.139,
-    "lam": 1.91,
-    "mu": 0.65,
-    "snapped_at": "2026-06-11"
+    "ph": 0.583,
+    "pd": 0.246,
+    "pa": 0.171,
+    "lam": 1.73,
+    "mu": 0.74,
+    "snapped_at": "2026-07-02"
   },
   "Colombia|Croatia": {
     "home": "Colombia",
@@ -1849,14 +1849,14 @@
     "home": "Ivory Coast",
     "away": "Norway",
     "group": "R32",
-    "predicted_score": "0\u20132",
+    "predicted_score": "1\u20131 (p)",
     "predicted_winner": "Norway",
-    "ph": 0.16,
-    "pd": 0.204,
-    "pa": 0.635,
-    "lam": 0.89,
-    "mu": 2.12,
-    "snapped_at": "2026-06-15"
+    "ph": 0.356,
+    "pd": 0.237,
+    "pa": 0.408,
+    "lam": 1.47,
+    "mu": 1.6,
+    "snapped_at": "2026-06-29"
   },
   "Germany|Sweden": {
     "home": "Germany",
@@ -1885,17 +1885,17 @@
     "snapped_at": "2026-06-15"
   },
   "Algeria|Switzerland": {
-    "home": "Switzerland",
-    "away": "Algeria",
+    "home": "Algeria",
+    "away": "Switzerland",
     "group": "R32",
-    "predicted_score": "0\u20130 (p)",
+    "predicted_score": "1\u20131 (p)",
     "predicted_winner": "Switzerland",
-    "ph": 0.363,
-    "pd": 0.352,
-    "pa": 0.285,
-    "lam": 0.87,
-    "mu": 0.71,
-    "snapped_at": "2026-06-15"
+    "ph": 0.505,
+    "pd": 0.235,
+    "pa": 0.26,
+    "lam": 1.73,
+    "mu": 1.16,
+    "snapped_at": "2026-07-01"
   },
   "England|Uruguay": {
     "home": "England",
@@ -2015,17 +2015,17 @@
     "snapped_at": "2026-06-17"
   },
   "Croatia|Portugal": {
-    "home": "Portugal",
-    "away": "Croatia",
+    "home": "Croatia",
+    "away": "Portugal",
     "group": "R32",
     "predicted_score": "1\u20131 (p)",
     "predicted_winner": "Portugal",
-    "ph": 0.463,
-    "pd": 0.25,
-    "pa": 0.286,
-    "lam": 1.57,
-    "mu": 1.18,
-    "snapped_at": "2026-06-18"
+    "ph": 0.549,
+    "pd": 0.225,
+    "pa": 0.226,
+    "lam": 1.89,
+    "mu": 1.12,
+    "snapped_at": "2026-07-01"
   },
   "South Korea|Uruguay": {
     "home": "South Korea",
@@ -2041,17 +2041,17 @@
     "snapped_at": "2026-06-18"
   },
   "DR Congo|England": {
-    "home": "England",
-    "away": "DR Congo",
+    "home": "DR Congo",
+    "away": "England",
     "group": "R32",
     "predicted_score": "1\u20130",
     "predicted_winner": "England",
-    "ph": 0.48,
-    "pd": 0.291,
-    "pa": 0.229,
-    "lam": 1.28,
-    "mu": 0.78,
-    "snapped_at": "2026-06-18"
+    "ph": 0.505,
+    "pd": 0.273,
+    "pa": 0.222,
+    "lam": 1.42,
+    "mu": 0.84,
+    "snapped_at": "2026-06-30"
   },
   "Ecuador|USA": {
     "home": "USA",
@@ -2213,14 +2213,14 @@
     "home": "Australia",
     "away": "Egypt",
     "group": "R32",
-    "predicted_score": "1\u20131 (p)",
-    "predicted_winner": "Australia",
-    "ph": 0.372,
-    "pd": 0.29,
-    "pa": 0.338,
-    "lam": 1.13,
-    "mu": 1.07,
-    "snapped_at": "2026-06-18"
+    "predicted_score": "0\u20131",
+    "predicted_winner": "Egypt",
+    "ph": 0.318,
+    "pd": 0.311,
+    "pa": 0.372,
+    "lam": 0.93,
+    "mu": 1.03,
+    "snapped_at": "2026-07-02"
   },
   "Ivory Coast|Sweden": {
     "home": "Ivory Coast",
@@ -2501,12 +2501,12 @@
     "group": "R32",
     "predicted_score": "1\u20130",
     "predicted_winner": "Colombia",
-    "ph": 0.615,
-    "pd": 0.213,
-    "pa": 0.172,
-    "lam": 1.99,
-    "mu": 0.92,
-    "snapped_at": "2026-06-19"
+    "ph": 0.499,
+    "pd": 0.285,
+    "pa": 0.216,
+    "lam": 1.35,
+    "mu": 0.76,
+    "snapped_at": "2026-07-02"
   },
   "Morocco|Switzerland": {
     "home": "Switzerland",
@@ -2564,14 +2564,14 @@
     "home": "Germany",
     "away": "Paraguay",
     "group": "R32",
-    "predicted_score": "1\u20130",
+    "predicted_score": "1\u20131 (p)",
     "predicted_winner": "Germany",
-    "ph": 0.576,
-    "pd": 0.226,
-    "pa": 0.198,
-    "lam": 1.85,
-    "mu": 0.97,
-    "snapped_at": "2026-06-20"
+    "ph": 0.582,
+    "pd": 0.217,
+    "pa": 0.201,
+    "lam": 1.98,
+    "mu": 1.05,
+    "snapped_at": "2026-06-28"
   },
   "France|Uruguay": {
     "home": "France",
@@ -2665,17 +2665,17 @@
     "snapped_at": "2026-06-22"
   },
   "Bosnia|USA": {
-    "home": "USA",
-    "away": "Bosnia",
+    "home": "Bosnia",
+    "away": "USA",
     "group": "R32",
     "predicted_score": "3\u20131",
     "predicted_winner": "USA",
-    "ph": 0.831,
-    "pd": 0.1,
-    "pa": 0.07,
-    "lam": 3.67,
-    "mu": 1.01,
-    "snapped_at": "2026-06-22"
+    "ph": 0.782,
+    "pd": 0.113,
+    "pa": 0.105,
+    "lam": 3.73,
+    "mu": 1.31,
+    "snapped_at": "2026-06-30"
   },
   "Algeria|Egypt": {
     "home": "Egypt",
@@ -2743,17 +2743,17 @@
     "snapped_at": "2026-06-24"
   },
   "Canada|South Africa": {
-    "home": "South Africa",
-    "away": "Canada",
+    "home": "Canada",
+    "away": "South Africa",
     "group": "R32",
     "predicted_score": "1\u20131 (p)",
     "predicted_winner": "Canada",
-    "ph": 0.288,
-    "pd": 0.261,
-    "pa": 0.452,
-    "lam": 1.08,
-    "mu": 1.45,
-    "snapped_at": "2026-06-25"
+    "ph": 0.25,
+    "pd": 0.25,
+    "pa": 0.5,
+    "lam": 1.03,
+    "mu": 1.6,
+    "snapped_at": "2026-06-27"
   },
   "Germany|Scotland": {
     "home": "Germany",
@@ -2808,17 +2808,17 @@
     "snapped_at": "2026-06-26"
   },
   "Ecuador|Mexico": {
-    "home": "Mexico",
-    "away": "Ecuador",
+    "home": "Ecuador",
+    "away": "Mexico",
     "group": "R32",
-    "predicted_score": "1\u20130",
+    "predicted_score": "0\u20130 (p)",
     "predicted_winner": "Mexico",
-    "ph": 0.382,
-    "pd": 0.33,
-    "pa": 0.289,
-    "lam": 0.97,
-    "mu": 0.8,
-    "snapped_at": "2026-06-26"
+    "ph": 0.397,
+    "pd": 0.334,
+    "pa": 0.269,
+    "lam": 0.98,
+    "mu": 0.74,
+    "snapped_at": "2026-06-29"
   },
   "Ecuador|Egypt": {
     "home": "Egypt",
@@ -2832,19 +2832,6 @@
     "lam": 0.9,
     "mu": 0.96,
     "snapped_at": "2026-06-26"
-  },
-  "Belgium|Senegal": {
-    "home": "Belgium",
-    "away": "Senegal",
-    "group": "R32",
-    "predicted_score": "1\u20131 (p)",
-    "predicted_winner": "Belgium",
-    "ph": 0.372,
-    "pd": 0.274,
-    "pa": 0.353,
-    "lam": 1.24,
-    "mu": 1.2,
-    "snapped_at": "2026-06-27"
   },
   "France|Sweden": {
     "home": "France",
