@@ -1799,15 +1799,35 @@
       "total_goal_error": 1,
       "brier": 0.1873,
       "logloss": 0.4339
+    },
+    {
+      "date": "2026-07-05",
+      "home": "Brazil",
+      "away": "Norway",
+      "group": "R16",
+      "predicted_score": "1\u20131",
+      "actual_score": "1\u20132",
+      "predicted_winner": "Norway",
+      "ph": 0.288,
+      "pd": 0.256,
+      "pa": 0.456,
+      "actual_winner": "Norway",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.4444,
+      "logloss": 0.7853
     }
   ],
   "summary": {
-    "total_matches": 90,
-    "correct_winners": 56,
-    "accuracy": 0.6222,
-    "avg_goal_error": 2.133,
-    "avg_brier": 0.5831,
-    "avg_logloss": 0.9754,
+    "total_matches": 91,
+    "correct_winners": 57,
+    "accuracy": 0.6264,
+    "avg_goal_error": 2.121,
+    "avg_brier": 0.5816,
+    "avg_logloss": 0.9733,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1817,9 +1837,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 26,
-        "predicted": 0.491,
-        "actual": 0.346
+        "n": 27,
+        "predicted": 0.49,
+        "actual": 0.37
       },
       {
         "bin": "55\u201365%",
@@ -1840,8 +1860,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2499,
-    "actual_draw_rate": 0.2556,
-    "ece": 0.072
+    "predicted_draw_rate": 0.25,
+    "actual_draw_rate": 0.2527,
+    "ece": 0.0654
   }
 }

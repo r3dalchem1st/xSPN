@@ -826,11 +826,11 @@
   },
   "Brazil|Norway": {
     "date": "2026-07-05",
-    "status": "TIMED",
+    "status": "FINISHED",
     "utc": "2026-07-05T20:00:00Z",
     "goals": {
-      "Brazil": null,
-      "Norway": null
+      "Brazil": 1,
+      "Norway": 2
     }
   },
   "England|Mexico": {
