@@ -1779,15 +1779,35 @@
       "total_goal_error": 2,
       "brier": 0.4925,
       "logloss": 0.851
+    },
+    {
+      "date": "2026-07-04",
+      "home": "France",
+      "away": "Paraguay",
+      "group": "R32",
+      "predicted_score": "2\u20130",
+      "actual_score": "1\u20130",
+      "predicted_winner": "France",
+      "ph": 0.648,
+      "pd": 0.203,
+      "pa": 0.149,
+      "actual_winner": "France",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 0,
+      "total_goal_error": 1,
+      "brier": 0.1873,
+      "logloss": 0.4339
     }
   ],
   "summary": {
-    "total_matches": 89,
-    "correct_winners": 55,
-    "accuracy": 0.618,
-    "avg_goal_error": 2.146,
-    "avg_brier": 0.5875,
-    "avg_logloss": 0.9815,
+    "total_matches": 90,
+    "correct_winners": 56,
+    "accuracy": 0.6222,
+    "avg_goal_error": 2.133,
+    "avg_brier": 0.5831,
+    "avg_logloss": 0.9754,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1803,9 +1823,9 @@
       },
       {
         "bin": "55\u201365%",
-        "n": 13,
-        "predicted": 0.584,
-        "actual": 0.615
+        "n": 14,
+        "predicted": 0.589,
+        "actual": 0.643
       },
       {
         "bin": "65\u201375%",
@@ -1820,8 +1840,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2504,
-    "actual_draw_rate": 0.2584,
-    "ece": 0.0689
+    "predicted_draw_rate": 0.2499,
+    "actual_draw_rate": 0.2556,
+    "ece": 0.072
   }
 }
