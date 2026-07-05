@@ -877,5 +877,14 @@
       "Switzerland": null,
       "Colombia": null
     }
+  },
+  "France|Morocco": {
+    "date": "2026-07-09",
+    "status": "TIMED",
+    "utc": "2026-07-09T20:00:00Z",
+    "goals": {
+      "France": null,
+      "Morocco": null
+    }
   }
 }
