@@ -2871,5 +2871,18 @@
     "lam": 1.62,
     "mu": 1.31,
     "snapped_at": "2026-07-04"
+  },
+  "Colombia|Switzerland": {
+    "home": "Switzerland",
+    "away": "Colombia",
+    "group": "R16",
+    "predicted_score": "0\u20131",
+    "predicted_winner": "Colombia",
+    "ph": 0.279,
+    "pd": 0.288,
+    "pa": 0.432,
+    "lam": 0.94,
+    "mu": 1.24,
+    "snapped_at": "2026-07-05"
   }
 }

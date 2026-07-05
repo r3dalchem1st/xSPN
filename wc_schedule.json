@@ -817,11 +817,11 @@
   },
   "France|Paraguay": {
     "date": "2026-07-04",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "utc": "2026-07-04T21:00:00Z",
     "goals": {
-      "Paraguay": null,
-      "France": null
+      "Paraguay": 0,
+      "France": 1
     }
   },
   "Brazil|Norway": {
