@@ -1601,26 +1601,6 @@
       "logloss": 1.5051
     },
     {
-      "date": "2026-07-01",
-      "home": "Belgium",
-      "away": "Senegal",
-      "group": "R32",
-      "predicted_score": "3\u20132",
-      "actual_score": "3\u20132",
-      "predicted_winner": "Belgium",
-      "ph": 0.444,
-      "pd": 0.244,
-      "pa": 0.312,
-      "actual_winner": "Belgium",
-      "actual_outcome": "H",
-      "correct_winner": true,
-      "home_error": 0,
-      "away_error": 0,
-      "total_goal_error": 0,
-      "brier": 0.466,
-      "logloss": 0.8119
-    },
-    {
       "date": "2026-07-02",
       "home": "Bosnia",
       "away": "USA",
@@ -1842,18 +1822,18 @@
     }
   ],
   "summary": {
-    "total_matches": 92,
-    "correct_winners": 56,
-    "accuracy": 0.6087,
-    "avg_goal_error": 2.141,
-    "avg_brier": 0.5898,
-    "avg_logloss": 0.9846,
+    "total_matches": 91,
+    "correct_winners": 55,
+    "accuracy": 0.6044,
+    "avg_goal_error": 2.165,
+    "avg_brier": 0.5911,
+    "avg_logloss": 0.9865,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 25,
-        "predicted": 0.403,
-        "actual": 0.4
+        "n": 24,
+        "predicted": 0.401,
+        "actual": 0.375
       },
       {
         "bin": "45\u201355%",
@@ -1880,8 +1860,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2503,
-    "actual_draw_rate": 0.25,
-    "ece": 0.0742
+    "predicted_draw_rate": 0.2504,
+    "actual_draw_rate": 0.2527,
+    "ece": 0.0811
   }
 }
