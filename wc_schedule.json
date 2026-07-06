@@ -844,7 +844,7 @@
   },
   "Portugal|Spain": {
     "date": "2026-07-06",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "utc": "2026-07-06T19:00:00Z",
     "goals": {
       "Portugal": null,
