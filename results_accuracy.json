@@ -1819,21 +1819,41 @@
       "total_goal_error": 1,
       "brier": 0.4444,
       "logloss": 0.7853
+    },
+    {
+      "date": "2026-07-06",
+      "home": "Mexico",
+      "away": "England",
+      "group": "R16",
+      "predicted_score": "1\u20130",
+      "actual_score": "2\u20133",
+      "predicted_winner": "Mexico",
+      "ph": 0.431,
+      "pd": 0.293,
+      "pa": 0.276,
+      "actual_winner": "England",
+      "actual_outcome": "A",
+      "correct_winner": false,
+      "home_error": 1,
+      "away_error": 3,
+      "total_goal_error": 4,
+      "brier": 0.7958,
+      "logloss": 1.2874
     }
   ],
   "summary": {
-    "total_matches": 91,
+    "total_matches": 92,
     "correct_winners": 57,
-    "accuracy": 0.6264,
-    "avg_goal_error": 2.121,
-    "avg_brier": 0.5816,
-    "avg_logloss": 0.9733,
+    "accuracy": 0.6196,
+    "avg_goal_error": 2.141,
+    "avg_brier": 0.5839,
+    "avg_logloss": 0.9767,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 24,
-        "predicted": 0.403,
-        "actual": 0.417
+        "n": 25,
+        "predicted": 0.404,
+        "actual": 0.4
       },
       {
         "bin": "45\u201355%",
@@ -1860,8 +1880,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.25,
-    "actual_draw_rate": 0.2527,
-    "ece": 0.0654
+    "predicted_draw_rate": 0.2504,
+    "actual_draw_rate": 0.25,
+    "ece": 0.0622
   }
 }
