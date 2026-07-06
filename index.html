@@ -76,7 +76,7 @@ tr:hover td{background:#fafafa}
   <div class="hdr-text">
     <h1>2026 FIFA World Cup Predictions</h1>
     <p>Dixon-Coles &middot; L2 regularisation &middot; host advantage &middot; 75,000 simulations</p>
-    <p class="updated">Last updated: 06 Jul 2026 04:48 UTC</p>
+    <p class="updated">Last updated: 06 Jul 2026 04:54 UTC</p>
   </div>
 </header>
 <div class="tabs">
@@ -409,7 +409,7 @@ function show(n){
     '<div class="filter-row">'+['all','group','r32','r16','qf','sf','final'].map((f,i)=>
       `<button class="fb${i===0?' active':''}" onclick="filt('${f}',this)">${['All 104','Groups','R32','R16','QF','SF','Final'][i]}</button>`
     ).join('')+'</div>'+
-    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Winner</th><th>Odds</th><th>Conf</th></tr></thead>
+    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Favored</th><th>Odds</th><th>Conf</th></tr></thead>
     <tbody id="mrows"></tbody></table>`;
   draw();
 })();
