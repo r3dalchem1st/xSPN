@@ -835,11 +835,11 @@
   },
   "England|Mexico": {
     "date": "2026-07-05",
-    "status": "TIMED",
-    "utc": "2026-07-06T00:00:00Z",
+    "status": "FINISHED",
+    "utc": "2026-07-06T01:00:00Z",
     "goals": {
-      "Mexico": null,
-      "England": null
+      "Mexico": 2,
+      "England": 3
     }
   },
   "Portugal|Spain": {
