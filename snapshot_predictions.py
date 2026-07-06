@@ -35,7 +35,14 @@ today_d = date.today()
 today = today_d.isoformat()
 
 def fixture_due(home, away):
-    """Lock a match only once its real fixture date is within LOCK_WINDOW_DAYS.
+    """Lock a match only once its real fixture date is within LOCK_WINDOW_DAYS
+    (and not already in the past — a fixture whose date has already passed has
+    no genuine pre-match prediction left to capture; locking it would just copy
+    the now-known actual result out of bracket_data.json as a fabricated
+    "prediction". Concretely hit this 6 Jul: Belgium|Senegal's snapshot entry
+    was deliberately removed on 4 Jul since no legitimate pre-kickoff lock for
+    it ever existed, but the missing lower bound here let a later run silently
+    re-lock it 3 days after the match with the real 3-2 score baked in).
     Unknown date → don't lock (locking weeks early with a stale model is worse
     than briefly risking a miss; the date always arrives before the match).
     TBD bracket slots (ph=None) are separately guarded in lock() and never
@@ -45,7 +52,8 @@ def fixture_due(home, away):
     if not d:
         return False
     try:
-        return (date.fromisoformat(d) - today_d).days <= LOCK_WINDOW_DAYS
+        days_until = (date.fromisoformat(d) - today_d).days
+        return 0 <= days_until <= LOCK_WINDOW_DAYS
     except ValueError:
         return False
 
