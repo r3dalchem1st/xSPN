@@ -89,6 +89,9 @@ jobs:
       - name: Snapshot pre-match predictions
         run: python snapshot_predictions.py
 
+      - name: Validate prediction snapshot (fails on fabricated/mislabeled locks)
+        run: python validate_snapshot.py
+
       - name: Build index.html
         run: python build_html.py
 
