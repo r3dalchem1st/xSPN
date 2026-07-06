@@ -886,5 +886,14 @@
       "France": null,
       "Morocco": null
     }
+  },
+  "England|Norway": {
+    "date": "2026-07-11",
+    "status": "TIMED",
+    "utc": "2026-07-11T21:00:00Z",
+    "goals": {
+      "Norway": null,
+      "England": null
+    }
   }
 }
