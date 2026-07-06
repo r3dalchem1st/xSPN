@@ -1,6 +1,14 @@
 """
-Snapshot current group stage predictions before matches are played.
-Run AFTER fetch_matches.py — needs today's wc_schedule.json for the fixture_due() date gate.
+Snapshot pre-match predictions before matches are played, so accuracy can
+later be scored against a genuinely pre-kickoff call instead of today's model.
+Run AFTER fetch_matches.py — needs today's wc_schedule.json.
+
+Group stage: locked per-match once its real fixture is within
+LOCK_WINDOW_DAYS (fixture_due()). Knockout rounds: locked a whole round at a
+time, the moment every match of the PRECEDING round is FINISHED
+(round_resolved()) — see that function's docstring for why this replaced the
+old per-match date gate for KO stages.
+
 Keys by sorted team pair so API home/away reversal doesn't break matching.
 """
 import json, os
@@ -79,17 +87,57 @@ for grp, matches in bracket['group_predictions'].items():
             continue
         lock(m, grp, m.get("likely_winner") or m.get("winner"))
 
-# Knockout rounds — same date gate as group matches so predictions aren't locked
-# weeks before the fixture with a stale model. Only pairings within LOCK_WINDOW_DAYS
-# of their real date (from wc_schedule) get a snapshot; others wait until closer.
-for stage, key in [("R32","r32"),("R16","r16"),("QF","qf"),("SF","sf")]:
+def finished(home, away):
+    info = schedule.get('|'.join(sorted([home, away])))
+    return bool(info) and info.get('status') == 'FINISHED'
+
+def round_resolved(prev_pairs):
+    """A round is lockable once every match of the PRECEDING round has an
+    actual FINISHED result. Knockout rounds never overlap — R16 can't kick
+    off until every R32 match (including 3rd-place tiebreakers) is decided —
+    so this is a hard guarantee, not a heuristic, and it needs no fixed
+    calendar date at all. Replaces the old per-match LOCK_WINDOW_DAYS check
+    for KO stages (6 Jul): that per-match date logic was the root cause of
+    every recent snapshot bug (locked-before-bracket-known guesses that stuck
+    once they happened to match reality, the missing lower-bound that let a
+    deleted entry get refabricated, orientation drift) because it treated
+    each match's real date as it trickled into wc_schedule.json instead of
+    gating on the one fact that actually matters: is the previous round over.
+    Locking every match of a round at once also means they're all scored
+    against the same day's model, instead of drifting apart if one match's
+    fixture_due() window opened days before another's."""
+    return all(finished(h, a) for h, a in prev_pairs)
+
+group_pairs = [(m['home'], m['away']) for ms in bracket['group_predictions'].values() for m in ms]
+r32_pairs   = [(m['home'], m['away']) for m in bracket.get('r32', [])]
+r16_pairs   = [(m['home'], m['away']) for m in bracket.get('r16', [])]
+qf_pairs    = [(m['home'], m['away']) for m in bracket.get('qf', [])]
+sf_pairs    = [(m['home'], m['away']) for m in bracket.get('sf', [])]
+
+for stage, key, prev_pairs in [("R32", "r32", group_pairs), ("R16", "r16", r32_pairs),
+                                ("QF", "qf", r16_pairs), ("SF", "sf", qf_pairs)]:
+    if not round_resolved(prev_pairs):
+        continue
     for m in bracket.get(key, []):
-        if fixture_due(m['home'], m['away']):
-            lock(m, stage, m.get("reg_winner"))
-for stage, key in [("Final","final"),("3rd","third_place")]:
-    m = bracket.get(key)
-    if m and fixture_due(m['home'], m['away']):
+        # round_resolved() only guards against locking too EARLY. On its own
+        # it doesn't guard against locking too LATE: this loop reruns every
+        # pipeline run forever, and once a round is resolved it stays resolved
+        # — so any match still missing from the snapshot for *any* reason
+        # (a bug, a deliberate deletion, a missed run) would otherwise get
+        # backfilled from bracket_data.json's current state, which for an
+        # already-decided match IS the real result. Skipping already-FINISHED
+        # matches here is what actually prevents that fabrication (hit live,
+        # 6 Jul: Belgium|Senegal came back a *second* time under this new
+        # round-based logic during testing, for exactly this reason).
+        if finished(m['home'], m['away']):
+            continue
         lock(m, stage, m.get("reg_winner"))
+
+if round_resolved(sf_pairs):
+    for stage, key in [("Final", "final"), ("3rd", "third_place")]:
+        m = bracket.get(key)
+        if m and not finished(m['home'], m['away']):
+            lock(m, stage, m.get("reg_winner"))
 
 with open(SNAPSHOT_FILE, 'w') as f:
     json.dump(snapshot, f, indent=2)

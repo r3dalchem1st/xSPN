@@ -1195,19 +1195,6 @@
     "mu": 0.82,
     "snapped_at": "2026-06-11"
   },
-  "England|Norway": {
-    "home": "Norway",
-    "away": "England",
-    "group": "R16",
-    "predicted_score": "1\u20130",
-    "predicted_winner": "Norway",
-    "ph": 0.383,
-    "pd": 0.32,
-    "pa": 0.297,
-    "lam": 1.01,
-    "mu": 0.85,
-    "snapped_at": "2026-06-11"
-  },
   "Switzerland|Turkey": {
     "home": "Turkey",
     "away": "Switzerland",
@@ -1245,19 +1232,6 @@
     "pa": 0.381,
     "lam": 0.62,
     "mu": 0.85,
-    "snapped_at": "2026-06-11"
-  },
-  "Argentina|Spain": {
-    "home": "Spain",
-    "away": "Argentina",
-    "group": "QF",
-    "predicted_score": "0\u20130",
-    "predicted_winner": "Spain",
-    "ph": 0.399,
-    "pd": 0.358,
-    "pa": 0.243,
-    "lam": 0.91,
-    "mu": 0.63,
     "snapped_at": "2026-06-11"
   },
   "Germany|Norway": {
@@ -1531,19 +1505,6 @@
     "pa": 0.17,
     "lam": 2.26,
     "mu": 1.02,
-    "snapped_at": "2026-06-12"
-  },
-  "England|France": {
-    "home": "France",
-    "away": "England",
-    "group": "R16",
-    "predicted_score": "0\u20130",
-    "predicted_winner": "France",
-    "ph": 0.366,
-    "pd": 0.353,
-    "pa": 0.281,
-    "lam": 0.88,
-    "mu": 0.73,
     "snapped_at": "2026-06-12"
   },
   "Morocco|Norway": {
