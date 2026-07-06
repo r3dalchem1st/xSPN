@@ -844,11 +844,11 @@
   },
   "Portugal|Spain": {
     "date": "2026-07-06",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "utc": "2026-07-06T19:00:00Z",
     "goals": {
-      "Portugal": null,
-      "Spain": null
+      "Portugal": 0,
+      "Spain": 1
     }
   },
   "Belgium|USA": {

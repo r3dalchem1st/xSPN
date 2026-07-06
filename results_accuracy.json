@@ -1819,15 +1819,35 @@
       "total_goal_error": 4,
       "brier": 0.7958,
       "logloss": 1.2874
+    },
+    {
+      "date": "2026-07-06",
+      "home": "Spain",
+      "away": "Portugal",
+      "group": "R16",
+      "predicted_score": "1\u20130",
+      "actual_score": "1\u20130",
+      "predicted_winner": "Spain",
+      "ph": 0.502,
+      "pd": 0.288,
+      "pa": 0.21,
+      "actual_winner": "Spain",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 0,
+      "total_goal_error": 0,
+      "brier": 0.375,
+      "logloss": 0.6892
     }
   ],
   "summary": {
-    "total_matches": 91,
-    "correct_winners": 55,
-    "accuracy": 0.6044,
-    "avg_goal_error": 2.165,
-    "avg_brier": 0.5911,
-    "avg_logloss": 0.9865,
+    "total_matches": 92,
+    "correct_winners": 56,
+    "accuracy": 0.6087,
+    "avg_goal_error": 2.141,
+    "avg_brier": 0.5888,
+    "avg_logloss": 0.9833,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1837,9 +1857,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 27,
+        "n": 28,
         "predicted": 0.493,
-        "actual": 0.333
+        "actual": 0.357
       },
       {
         "bin": "55\u201365%",
@@ -1860,8 +1880,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2504,
-    "actual_draw_rate": 0.2527,
-    "ece": 0.0811
+    "predicted_draw_rate": 0.2508,
+    "actual_draw_rate": 0.25,
+    "ece": 0.0746
   }
 }
