@@ -1765,60 +1765,60 @@
       "home": "Canada",
       "away": "Morocco",
       "group": "R16",
-      "predicted_score": "0\u20131",
+      "predicted_score": "1\u20131 (p)",
       "actual_score": "0\u20133",
       "predicted_winner": "Morocco",
-      "ph": 0.29,
-      "pd": 0.283,
-      "pa": 0.427,
+      "ph": 0.32,
+      "pd": 0.273,
+      "pa": 0.407,
       "actual_winner": "Morocco",
       "actual_outcome": "A",
       "correct_winner": true,
-      "home_error": 0,
+      "home_error": 1,
       "away_error": 2,
-      "total_goal_error": 2,
-      "brier": 0.4925,
-      "logloss": 0.851
+      "total_goal_error": 3,
+      "brier": 0.5286,
+      "logloss": 0.8989
     },
     {
       "date": "2026-07-04",
-      "home": "France",
-      "away": "Paraguay",
-      "group": "R32",
-      "predicted_score": "2\u20130",
-      "actual_score": "1\u20130",
+      "home": "Paraguay",
+      "away": "France",
+      "group": "R16",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20131",
       "predicted_winner": "France",
-      "ph": 0.648,
-      "pd": 0.203,
-      "pa": 0.149,
+      "ph": 0.165,
+      "pd": 0.238,
+      "pa": 0.597,
       "actual_winner": "France",
-      "actual_outcome": "H",
+      "actual_outcome": "A",
       "correct_winner": true,
-      "home_error": 1,
+      "home_error": 0,
       "away_error": 0,
-      "total_goal_error": 1,
-      "brier": 0.1873,
-      "logloss": 0.4339
+      "total_goal_error": 0,
+      "brier": 0.2463,
+      "logloss": 0.5158
     },
     {
       "date": "2026-07-05",
       "home": "Brazil",
       "away": "Norway",
       "group": "R16",
-      "predicted_score": "1\u20131",
+      "predicted_score": "1\u20131 (p)",
       "actual_score": "1\u20132",
-      "predicted_winner": "Norway",
-      "ph": 0.288,
-      "pd": 0.256,
-      "pa": 0.456,
+      "predicted_winner": "Brazil",
+      "ph": 0.531,
+      "pd": 0.218,
+      "pa": 0.251,
       "actual_winner": "Norway",
       "actual_outcome": "A",
-      "correct_winner": true,
+      "correct_winner": false,
       "home_error": 0,
       "away_error": 1,
       "total_goal_error": 1,
-      "brier": 0.4444,
-      "logloss": 0.7853
+      "brier": 0.8905,
+      "logloss": 1.3823
     },
     {
       "date": "2026-07-06",
@@ -1843,28 +1843,28 @@
   ],
   "summary": {
     "total_matches": 92,
-    "correct_winners": 57,
-    "accuracy": 0.6196,
+    "correct_winners": 56,
+    "accuracy": 0.6087,
     "avg_goal_error": 2.141,
-    "avg_brier": 0.5839,
-    "avg_logloss": 0.9767,
+    "avg_brier": 0.5898,
+    "avg_logloss": 0.9846,
     "reliability": [
       {
         "bin": "34\u201345%",
         "n": 25,
-        "predicted": 0.404,
+        "predicted": 0.403,
         "actual": 0.4
       },
       {
         "bin": "45\u201355%",
         "n": 27,
-        "predicted": 0.49,
-        "actual": 0.37
+        "predicted": 0.493,
+        "actual": 0.333
       },
       {
         "bin": "55\u201365%",
         "n": 14,
-        "predicted": 0.589,
+        "predicted": 0.585,
         "actual": 0.643
       },
       {
@@ -1880,8 +1880,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2504,
+    "predicted_draw_rate": 0.2503,
     "actual_draw_rate": 0.25,
-    "ece": 0.0622
+    "ece": 0.0742
   }
 }
