@@ -871,7 +871,7 @@
   },
   "Colombia|Switzerland": {
     "date": "2026-07-07",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "utc": "2026-07-07T20:00:00Z",
     "goals": {
       "Switzerland": null,
