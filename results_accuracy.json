@@ -1859,15 +1859,35 @@
       "total_goal_error": 3,
       "brier": 0.5767,
       "logloss": 0.9545
+    },
+    {
+      "date": "2026-07-07",
+      "home": "Argentina",
+      "away": "Egypt",
+      "group": "R16",
+      "predicted_score": "1\u20130",
+      "actual_score": "3\u20132",
+      "predicted_winner": "Argentina",
+      "ph": 0.612,
+      "pd": 0.219,
+      "pa": 0.169,
+      "actual_winner": "Argentina",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 2,
+      "total_goal_error": 4,
+      "brier": 0.2271,
+      "logloss": 0.491
     }
   ],
   "summary": {
-    "total_matches": 93,
-    "correct_winners": 57,
-    "accuracy": 0.6129,
-    "avg_goal_error": 2.151,
-    "avg_brier": 0.5887,
-    "avg_logloss": 0.983,
+    "total_matches": 94,
+    "correct_winners": 58,
+    "accuracy": 0.617,
+    "avg_goal_error": 2.17,
+    "avg_brier": 0.5848,
+    "avg_logloss": 0.9777,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1883,9 +1903,9 @@
       },
       {
         "bin": "55\u201365%",
-        "n": 14,
-        "predicted": 0.585,
-        "actual": 0.643
+        "n": 15,
+        "predicted": 0.587,
+        "actual": 0.667
       },
       {
         "bin": "65\u201375%",
@@ -1900,8 +1920,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2507,
-    "actual_draw_rate": 0.2473,
-    "ece": 0.0674
+    "predicted_draw_rate": 0.2504,
+    "actual_draw_rate": 0.2447,
+    "ece": 0.0708
   }
 }
