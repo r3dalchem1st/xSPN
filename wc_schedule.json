@@ -853,11 +853,11 @@
   },
   "Belgium|USA": {
     "date": "2026-07-06",
-    "status": "TIMED",
+    "status": "FINISHED",
     "utc": "2026-07-07T00:00:00Z",
     "goals": {
-      "USA": null,
-      "Belgium": null
+      "USA": 1,
+      "Belgium": 4
     }
   },
   "Argentina|Egypt": {

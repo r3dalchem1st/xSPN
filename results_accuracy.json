@@ -1839,21 +1839,41 @@
       "total_goal_error": 0,
       "brier": 0.375,
       "logloss": 0.6892
+    },
+    {
+      "date": "2026-07-07",
+      "home": "USA",
+      "away": "Belgium",
+      "group": "R16",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "1\u20134",
+      "predicted_winner": "Belgium",
+      "ph": 0.374,
+      "pd": 0.242,
+      "pa": 0.385,
+      "actual_winner": "Belgium",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 3,
+      "total_goal_error": 3,
+      "brier": 0.5767,
+      "logloss": 0.9545
     }
   ],
   "summary": {
-    "total_matches": 92,
-    "correct_winners": 56,
-    "accuracy": 0.6087,
-    "avg_goal_error": 2.141,
-    "avg_brier": 0.5888,
-    "avg_logloss": 0.9833,
+    "total_matches": 93,
+    "correct_winners": 57,
+    "accuracy": 0.6129,
+    "avg_goal_error": 2.151,
+    "avg_brier": 0.5887,
+    "avg_logloss": 0.983,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 24,
+        "n": 25,
         "predicted": 0.401,
-        "actual": 0.375
+        "actual": 0.4
       },
       {
         "bin": "45\u201355%",
@@ -1880,8 +1900,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2508,
-    "actual_draw_rate": 0.25,
-    "ece": 0.0746
+    "predicted_draw_rate": 0.2507,
+    "actual_draw_rate": 0.2473,
+    "ece": 0.0674
   }
 }
