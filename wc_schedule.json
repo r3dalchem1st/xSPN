@@ -887,6 +887,15 @@
       "Morocco": null
     }
   },
+  "Belgium|Spain": {
+    "date": "2026-07-10",
+    "status": "TIMED",
+    "utc": "2026-07-10T19:00:00Z",
+    "goals": {
+      "Spain": null,
+      "Belgium": null
+    }
+  },
   "England|Norway": {
     "date": "2026-07-11",
     "status": "TIMED",
