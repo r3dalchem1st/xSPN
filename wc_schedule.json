@@ -862,11 +862,11 @@
   },
   "Argentina|Egypt": {
     "date": "2026-07-07",
-    "status": "TIMED",
+    "status": "FINISHED",
     "utc": "2026-07-07T16:00:00Z",
     "goals": {
-      "Argentina": null,
-      "Egypt": null
+      "Argentina": 3,
+      "Egypt": 2
     }
   },
   "Colombia|Switzerland": {
