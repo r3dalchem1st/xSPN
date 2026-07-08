@@ -2832,5 +2832,44 @@
     "lam": 0.94,
     "mu": 1.24,
     "snapped_at": "2026-07-05"
+  },
+  "Belgium|Spain": {
+    "home": "Spain",
+    "away": "Belgium",
+    "group": "QF",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Spain",
+    "ph": 0.52,
+    "pd": 0.282,
+    "pa": 0.198,
+    "lam": 1.36,
+    "mu": 0.72,
+    "snapped_at": "2026-07-08"
+  },
+  "England|Norway": {
+    "home": "Norway",
+    "away": "England",
+    "group": "QF",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "England",
+    "ph": 0.348,
+    "pd": 0.217,
+    "pa": 0.436,
+    "lam": 1.69,
+    "mu": 1.92,
+    "snapped_at": "2026-07-08"
+  },
+  "Argentina|Switzerland": {
+    "home": "Argentina",
+    "away": "Switzerland",
+    "group": "QF",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Argentina",
+    "ph": 0.495,
+    "pd": 0.252,
+    "pa": 0.253,
+    "lam": 1.58,
+    "mu": 1.05,
+    "snapped_at": "2026-07-08"
   }
 }

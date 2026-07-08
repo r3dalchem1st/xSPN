@@ -871,11 +871,16 @@
   },
   "Colombia|Switzerland": {
     "date": "2026-07-07",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "utc": "2026-07-07T20:00:00Z",
     "goals": {
-      "Switzerland": null,
-      "Colombia": null
+      "Switzerland": 0,
+      "Colombia": 0
+    },
+    "pen_winner": "Switzerland",
+    "pen_scores": {
+      "Switzerland": 4,
+      "Colombia": 3
     }
   },
   "France|Morocco": {
