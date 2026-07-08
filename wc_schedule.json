@@ -909,5 +909,14 @@
       "Norway": null,
       "England": null
     }
+  },
+  "Argentina|Switzerland": {
+    "date": "2026-07-12",
+    "status": "TIMED",
+    "utc": "2026-07-12T01:00:00Z",
+    "goals": {
+      "Argentina": null,
+      "Switzerland": null
+    }
   }
 }
