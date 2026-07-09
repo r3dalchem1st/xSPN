@@ -885,7 +885,7 @@
   },
   "France|Morocco": {
     "date": "2026-07-09",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "utc": "2026-07-09T20:00:00Z",
     "goals": {
       "France": null,
