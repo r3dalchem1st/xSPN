@@ -45,13 +45,13 @@
     "win_delta": 0.0
   },
   "Switzerland": {
-    "win": 0.0262,
-    "final": 0.0768,
-    "sf": 0.1792,
-    "qf": 0.5297,
-    "win_lo": 0.0126,
-    "win_hi": 0.0437,
-    "win_delta": 0.0171
+    "win": 0.0264,
+    "final": 0.0767,
+    "sf": 0.1789,
+    "qf": 0.5299,
+    "win_lo": 0.0118,
+    "win_hi": 0.043,
+    "win_delta": 0.0002
   },
   "Qatar": {
     "win": 0.0,
@@ -81,13 +81,13 @@
     "win_delta": 0.0
   },
   "Morocco": {
-    "win": 0.0767,
-    "final": 0.1618,
-    "sf": 0.3787,
+    "win": 0.0765,
+    "final": 0.1615,
+    "sf": 0.378,
     "qf": 1.0,
-    "win_lo": 0.0498,
-    "win_hi": 0.1006,
-    "win_delta": 0.0095
+    "win_lo": 0.0508,
+    "win_hi": 0.1021,
+    "win_delta": -0.0002
   },
   "Haiti": {
     "win": 0.0,
@@ -108,13 +108,13 @@
     "win_delta": 0.0
   },
   "USA": {
-    "win": 0.0018,
-    "final": 0.0065,
-    "sf": 0.0277,
-    "qf": 0.167,
+    "win": 0.0017,
+    "final": 0.0064,
+    "sf": 0.0278,
+    "qf": 0.1673,
     "win_lo": 0.0,
-    "win_hi": 0.0041,
-    "win_delta": -0.001
+    "win_hi": 0.0034,
+    "win_delta": -0.0001
   },
   "Paraguay": {
     "win": 0.0,
@@ -217,12 +217,12 @@
   },
   "Belgium": {
     "win": 0.0514,
-    "final": 0.1093,
-    "sf": 0.2673,
-    "qf": 0.7499,
-    "win_lo": 0.0309,
-    "win_hi": 0.0745,
-    "win_delta": 0.0011
+    "final": 0.1095,
+    "sf": 0.2674,
+    "qf": 0.7494,
+    "win_lo": 0.0336,
+    "win_hi": 0.0734,
+    "win_delta": 0.0
   },
   "Egypt": {
     "win": 0.0,
@@ -252,13 +252,13 @@
     "win_delta": 0.0
   },
   "Spain": {
-    "win": 0.2489,
-    "final": 0.3877,
-    "sf": 0.6902,
+    "win": 0.2491,
+    "final": 0.3883,
+    "sf": 0.69,
     "qf": 1.0,
-    "win_lo": 0.207,
-    "win_hi": 0.2872,
-    "win_delta": -0.0083
+    "win_lo": 0.2112,
+    "win_hi": 0.2911,
+    "win_delta": 0.0002
   },
   "Cape Verde": {
     "win": 0.0,
@@ -288,31 +288,31 @@
     "win_delta": 0.0
   },
   "France": {
-    "win": 0.2142,
-    "final": 0.332,
-    "sf": 0.6213,
+    "win": 0.2138,
+    "final": 0.3317,
+    "sf": 0.622,
     "qf": 1.0,
-    "win_lo": 0.1741,
-    "win_hi": 0.2502,
-    "win_delta": -0.0029
+    "win_lo": 0.1751,
+    "win_hi": 0.2466,
+    "win_delta": -0.0004
   },
   "Senegal": {
-    "win": 0.0043,
-    "final": 0.0173,
-    "sf": 0.0491,
-    "qf": 0.1865,
-    "win_lo": 0.0015,
-    "win_hi": 0.0069,
-    "win_delta": 0.0003
+    "win": 0.0042,
+    "final": 0.0174,
+    "sf": 0.0492,
+    "qf": 0.1868,
+    "win_lo": 0.0016,
+    "win_hi": 0.007,
+    "win_delta": -0.0001
   },
   "Norway": {
-    "win": 0.0719,
-    "final": 0.2047,
+    "win": 0.0721,
+    "final": 0.205,
     "sf": 0.4698,
     "qf": 1.0,
-    "win_lo": 0.0399,
-    "win_hi": 0.1041,
-    "win_delta": 0.0101
+    "win_lo": 0.04,
+    "win_hi": 0.1062,
+    "win_delta": 0.0002
   },
   "Iraq": {
     "win": 0.0,
@@ -324,19 +324,19 @@
     "win_delta": 0.0
   },
   "Argentina": {
-    "win": 0.1851,
-    "final": 0.398,
-    "sf": 0.6482,
+    "win": 0.1854,
+    "final": 0.3977,
+    "sf": 0.6488,
     "qf": 1.0,
-    "win_lo": 0.1274,
-    "win_hi": 0.2312,
-    "win_delta": 0.0002
+    "win_lo": 0.1303,
+    "win_hi": 0.2357,
+    "win_delta": 0.0003
   },
   "Algeria": {
     "win": 0.0005,
     "final": 0.0027,
-    "sf": 0.0147,
-    "qf": 0.0831,
+    "sf": 0.0148,
+    "qf": 0.0833,
     "win_lo": 0.0,
     "win_hi": 0.0016,
     "win_delta": -0.0
@@ -387,22 +387,22 @@
     "win_delta": 0.0
   },
   "Colombia": {
-    "win": 0.0279,
-    "final": 0.0637,
-    "sf": 0.1235,
-    "qf": 0.2838,
+    "win": 0.0277,
+    "final": 0.0634,
+    "sf": 0.1232,
+    "qf": 0.2833,
     "win_lo": 0.0167,
-    "win_hi": 0.0398,
-    "win_delta": -0.0254
+    "win_hi": 0.0396,
+    "win_delta": -0.0002
   },
   "England": {
-    "win": 0.0911,
-    "final": 0.2396,
+    "win": 0.0912,
+    "final": 0.2398,
     "sf": 0.5302,
     "qf": 1.0,
-    "win_lo": 0.0674,
-    "win_hi": 0.1215,
-    "win_delta": -0.0008
+    "win_lo": 0.0655,
+    "win_hi": 0.1195,
+    "win_delta": 0.0001
   },
   "Croatia": {
     "win": 0.0,
