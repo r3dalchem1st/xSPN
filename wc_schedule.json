@@ -885,11 +885,11 @@
   },
   "France|Morocco": {
     "date": "2026-07-09",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "utc": "2026-07-09T20:00:00Z",
     "goals": {
-      "France": null,
-      "Morocco": null
+      "France": 2,
+      "Morocco": 0
     }
   },
   "Belgium|Spain": {
