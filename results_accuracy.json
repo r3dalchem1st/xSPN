@@ -1899,21 +1899,41 @@
       "total_goal_error": 1,
       "brier": 0.7714,
       "logloss": 1.2448
+    },
+    {
+      "date": "2026-07-09",
+      "home": "Morocco",
+      "away": "France",
+      "group": "QF",
+      "predicted_score": "0\u20130",
+      "actual_score": "0\u20132",
+      "predicted_winner": "France",
+      "ph": 0.248,
+      "pd": 0.37,
+      "pa": 0.381,
+      "actual_winner": "France",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 2,
+      "total_goal_error": 2,
+      "brier": 0.5816,
+      "logloss": 0.965
     }
   ],
   "summary": {
-    "total_matches": 95,
-    "correct_winners": 58,
-    "accuracy": 0.6105,
-    "avg_goal_error": 2.158,
-    "avg_brier": 0.5868,
-    "avg_logloss": 0.9806,
+    "total_matches": 96,
+    "correct_winners": 59,
+    "accuracy": 0.6146,
+    "avg_goal_error": 2.156,
+    "avg_brier": 0.5867,
+    "avg_logloss": 0.9804,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 26,
-        "predicted": 0.402,
-        "actual": 0.385
+        "n": 27,
+        "predicted": 0.401,
+        "actual": 0.407
       },
       {
         "bin": "45\u201355%",
@@ -1940,8 +1960,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2507,
-    "actual_draw_rate": 0.2526,
-    "ece": 0.0744
+    "predicted_draw_rate": 0.252,
+    "actual_draw_rate": 0.25,
+    "ece": 0.0707
   }
 }
