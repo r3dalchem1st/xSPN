@@ -894,11 +894,11 @@
   },
   "Belgium|Spain": {
     "date": "2026-07-10",
-    "status": "PAUSED",
+    "status": "FINISHED",
     "utc": "2026-07-10T19:00:00Z",
     "goals": {
-      "Spain": null,
-      "Belgium": null
+      "Spain": 2,
+      "Belgium": 1
     }
   },
   "England|Norway": {

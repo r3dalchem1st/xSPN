@@ -1919,15 +1919,35 @@
       "total_goal_error": 2,
       "brier": 0.5816,
       "logloss": 0.965
+    },
+    {
+      "date": "2026-07-10",
+      "home": "Spain",
+      "away": "Belgium",
+      "group": "QF",
+      "predicted_score": "1\u20130",
+      "actual_score": "2\u20131",
+      "predicted_winner": "Spain",
+      "ph": 0.52,
+      "pd": 0.282,
+      "pa": 0.198,
+      "actual_winner": "Spain",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 1,
+      "away_error": 1,
+      "total_goal_error": 2,
+      "brier": 0.3491,
+      "logloss": 0.6539
     }
   ],
   "summary": {
-    "total_matches": 96,
-    "correct_winners": 59,
-    "accuracy": 0.6146,
-    "avg_goal_error": 2.156,
-    "avg_brier": 0.5867,
-    "avg_logloss": 0.9804,
+    "total_matches": 97,
+    "correct_winners": 60,
+    "accuracy": 0.6186,
+    "avg_goal_error": 2.155,
+    "avg_brier": 0.5843,
+    "avg_logloss": 0.977,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1937,9 +1957,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 28,
-        "predicted": 0.493,
-        "actual": 0.357
+        "n": 29,
+        "predicted": 0.494,
+        "actual": 0.379
       },
       {
         "bin": "55\u201365%",
@@ -1960,8 +1980,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.252,
-    "actual_draw_rate": 0.25,
-    "ece": 0.0707
+    "predicted_draw_rate": 0.2523,
+    "actual_draw_rate": 0.2474,
+    "ece": 0.0651
   }
 }
