@@ -108,7 +108,7 @@
         "lam": 3.34,
         "mu": 0.77,
         "score": "3\u20130",
-        "ph": 0.788,
+        "ph": 0.789,
         "pd": 0.151,
         "pa": 0.06,
         "likely_winner": "Switzerland"
@@ -367,7 +367,7 @@
         "home": "Netherlands",
         "away": "Tunisia",
         "lam": 3.63,
-        "mu": 0.86,
+        "mu": 0.85,
         "score": "3\u20130",
         "ph": 0.822,
         "pd": 0.128,
@@ -732,7 +732,7 @@
         "mu": 1.32,
         "score": "0\u20131",
         "ph": 0.188,
-        "pd": 0.376,
+        "pd": 0.375,
         "pa": 0.436,
         "likely_winner": "Colombia"
       },
@@ -1084,7 +1084,7 @@
       "winner": "Argentina",
       "win_pct": 79.5,
       "ph": 0.688,
-      "pd": 0.176,
+      "pd": 0.175,
       "pa": 0.137,
       "reg_winner": "Argentina",
       "lam": 2.49,
@@ -1230,7 +1230,7 @@
       "win_pct": 68.0,
       "ph": 0.212,
       "pd": 0.23,
-      "pa": 0.557,
+      "pa": 0.558,
       "reg_winner": "Morocco",
       "lam": 0.98,
       "mu": 1.79
@@ -1346,7 +1346,7 @@
       "away": "Belgium",
       "score": "1\u20130",
       "winner": "Spain",
-      "win_pct": 64.1,
+      "win_pct": 64.0,
       "ph": 0.517,
       "pd": 0.285,
       "pa": 0.198,
@@ -1378,7 +1378,7 @@
       "pa": 0.245,
       "reg_winner": "Argentina",
       "lam": 1.6,
-      "mu": 1.03
+      "mu": 1.02
     }
   ],
   "sf": [
@@ -1436,18 +1436,18 @@
     "mu": 0.91
   },
   "champion": "France",
-  "champion_pct": 35.2,
+  "champion_pct": 34.9,
   "reach_final": {
-    "France": 54.2,
-    "Argentina": 39.2,
-    "Spain": 35.9,
-    "England": 22.9,
-    "Norway": 22.8,
-    "Belgium": 9.3,
-    "Switzerland": 6.6,
-    "Colombia": 6.5,
-    "Senegal": 1.9,
-    "USA": 0.4,
+    "France": 53.7,
+    "Argentina": 38.5,
+    "Spain": 36.2,
+    "Norway": 23.0,
+    "England": 23.0,
+    "Belgium": 9.5,
+    "Colombia": 6.8,
+    "Switzerland": 6.7,
+    "Senegal": 2.0,
+    "USA": 0.5,
     "Algeria": 0.2
   }
 }
