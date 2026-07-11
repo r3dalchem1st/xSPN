@@ -918,5 +918,14 @@
       "Argentina": null,
       "Switzerland": null
     }
+  },
+  "France|Spain": {
+    "date": "2026-07-14",
+    "status": "TIMED",
+    "utc": "2026-07-14T19:00:00Z",
+    "goals": {
+      "France": null,
+      "Spain": null
+    }
   }
 }
