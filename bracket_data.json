@@ -1346,7 +1346,7 @@
       "away": "Belgium",
       "score": "2\u20131",
       "winner": "Spain",
-      "win_pct": 67.1,
+      "win_pct": 67.0,
       "ph": 0.559,
       "pd": 0.256,
       "pa": 0.185,
@@ -1436,17 +1436,17 @@
     "mu": 0.88
   },
   "champion": "France",
-  "champion_pct": 33.5,
+  "champion_pct": 33.6,
   "reach_final": {
-    "France": 50.8,
-    "Spain": 48.5,
-    "Argentina": 39.3,
-    "England": 23.2,
-    "Norway": 21.6,
-    "Switzerland": 7.3,
-    "Colombia": 6.6,
-    "Senegal": 2.0,
-    "USA": 0.5,
+    "France": 51.0,
+    "Spain": 48.3,
+    "Argentina": 39.0,
+    "England": 23.7,
+    "Norway": 21.4,
+    "Switzerland": 7.6,
+    "Colombia": 6.2,
+    "Senegal": 2.1,
+    "USA": 0.6,
     "Algeria": 0.1
   }
 }
