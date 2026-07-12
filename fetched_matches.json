@@ -880,5 +880,23 @@
     1,
     "World Cup",
     true
+  ],
+  [
+    "2026-07-11",
+    "Norway",
+    "England",
+    1,
+    2,
+    "World Cup",
+    true
+  ],
+  [
+    "2026-07-12",
+    "Argentina",
+    "Switzerland",
+    3,
+    1,
+    "World Cup",
+    true
   ]
 ]
