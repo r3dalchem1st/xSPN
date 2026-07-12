@@ -1290,7 +1290,7 @@
     {
       "home": "Mexico",
       "away": "England",
-      "score": "1\u20131 (p)",
+      "score": "2\u20133",
       "winner": "England",
       "win_pct": 57.6,
       "ph": 0.328,
@@ -1435,17 +1435,15 @@
     "lam": 1.51,
     "mu": 0.93
   },
-  "champion": "France",
-  "champion_pct": 31.0,
+  "champion": "Spain",
+  "champion_pct": 31.3,
   "reach_final": {
-    "France": 50.1,
-    "Argentina": 50.0,
-    "Spain": 49.2,
-    "England": 25.8,
-    "Mexico": 8.9,
-    "Norway": 7.2,
-    "Colombia": 6.2,
-    "Senegal": 1.8,
+    "Spain": 49.9,
+    "France": 49.5,
+    "Argentina": 48.0,
+    "England": 44.3,
+    "Colombia": 6.0,
+    "Senegal": 1.7,
     "USA": 0.5,
     "Algeria": 0.2
   }
