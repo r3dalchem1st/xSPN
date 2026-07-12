@@ -2871,5 +2871,18 @@
     "lam": 1.58,
     "mu": 1.05,
     "snapped_at": "2026-07-08"
+  },
+  "Argentina|England": {
+    "home": "England",
+    "away": "Argentina",
+    "group": "SF",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "Argentina",
+    "ph": 0.33,
+    "pd": 0.251,
+    "pa": 0.419,
+    "lam": 1.31,
+    "mu": 1.51,
+    "snapped_at": "2026-07-12"
   }
 }

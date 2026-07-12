@@ -903,20 +903,20 @@
   },
   "England|Norway": {
     "date": "2026-07-11",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "utc": "2026-07-11T21:00:00Z",
     "goals": {
-      "Norway": null,
-      "England": null
+      "Norway": 1,
+      "England": 2
     }
   },
   "Argentina|Switzerland": {
     "date": "2026-07-11",
-    "status": "TIMED",
+    "status": "FINISHED",
     "utc": "2026-07-12T01:00:00Z",
     "goals": {
-      "Argentina": null,
-      "Switzerland": null
+      "Argentina": 3,
+      "Switzerland": 1
     }
   },
   "France|Spain": {

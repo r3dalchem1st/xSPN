@@ -1939,27 +1939,67 @@
       "total_goal_error": 2,
       "brier": 0.3491,
       "logloss": 0.6539
+    },
+    {
+      "date": "2026-07-11",
+      "home": "Norway",
+      "away": "England",
+      "group": "QF",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "1\u20132",
+      "predicted_winner": "England",
+      "ph": 0.348,
+      "pd": 0.217,
+      "pa": 0.436,
+      "actual_winner": "England",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.4863,
+      "logloss": 0.8301
+    },
+    {
+      "date": "2026-07-12",
+      "home": "Argentina",
+      "away": "Switzerland",
+      "group": "QF",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "3\u20131",
+      "predicted_winner": "Argentina",
+      "ph": 0.495,
+      "pd": 0.252,
+      "pa": 0.253,
+      "actual_winner": "Argentina",
+      "actual_outcome": "H",
+      "correct_winner": true,
+      "home_error": 2,
+      "away_error": 0,
+      "total_goal_error": 2,
+      "brier": 0.3825,
+      "logloss": 0.7032
     }
   ],
   "summary": {
-    "total_matches": 97,
-    "correct_winners": 60,
-    "accuracy": 0.6186,
-    "avg_goal_error": 2.155,
-    "avg_brier": 0.5843,
-    "avg_logloss": 0.977,
+    "total_matches": 99,
+    "correct_winners": 62,
+    "accuracy": 0.6263,
+    "avg_goal_error": 2.141,
+    "avg_brier": 0.5812,
+    "avg_logloss": 0.9728,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 27,
-        "predicted": 0.401,
-        "actual": 0.407
+        "n": 28,
+        "predicted": 0.402,
+        "actual": 0.429
       },
       {
         "bin": "45\u201355%",
-        "n": 29,
+        "n": 30,
         "predicted": 0.494,
-        "actual": 0.379
+        "actual": 0.4
       },
       {
         "bin": "55\u201365%",
@@ -1980,8 +2020,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2523,
-    "actual_draw_rate": 0.2474,
-    "ece": 0.0651
+    "predicted_draw_rate": 0.2519,
+    "actual_draw_rate": 0.2424,
+    "ece": 0.0646
   }
 }
