@@ -140,7 +140,7 @@
       {
         "home": "Brazil",
         "away": "Morocco",
-        "lam": 1.27,
+        "lam": 1.26,
         "mu": 1.06,
         "score": "1\u20131",
         "ph": 0.36,
@@ -660,7 +660,7 @@
       {
         "home": "Algeria",
         "away": "Jordan",
-        "lam": 1.8,
+        "lam": 1.79,
         "mu": 1.03,
         "score": "1\u20130",
         "ph": 0.492,
@@ -1436,14 +1436,14 @@
     "mu": 0.93
   },
   "champion": "Spain",
-  "champion_pct": 31.3,
+  "champion_pct": 31.0,
   "reach_final": {
-    "Spain": 49.9,
-    "France": 49.5,
-    "Argentina": 48.0,
-    "England": 44.3,
-    "Colombia": 6.0,
-    "Senegal": 1.7,
+    "Spain": 49.8,
+    "France": 49.4,
+    "Argentina": 48.1,
+    "England": 44.2,
+    "Colombia": 6.1,
+    "Senegal": 1.6,
     "USA": 0.5,
     "Algeria": 0.2
   }
