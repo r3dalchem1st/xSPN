@@ -921,11 +921,11 @@
   },
   "France|Spain": {
     "date": "2026-07-14",
-    "status": "IN_PLAY",
+    "status": "FINISHED",
     "utc": "2026-07-14T19:00:00Z",
     "goals": {
-      "France": null,
-      "Spain": null
+      "France": 0,
+      "Spain": 2
     }
   },
   "Argentina|England": {

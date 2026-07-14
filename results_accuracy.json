@@ -1979,15 +1979,35 @@
       "total_goal_error": 2,
       "brier": 0.3825,
       "logloss": 0.7032
+    },
+    {
+      "date": "2026-07-14",
+      "home": "France",
+      "away": "Spain",
+      "group": "SF",
+      "predicted_score": "0\u20131",
+      "actual_score": "0\u20132",
+      "predicted_winner": "Spain",
+      "ph": 0.217,
+      "pd": 0.332,
+      "pa": 0.451,
+      "actual_winner": "Spain",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.4587,
+      "logloss": 0.7963
     }
   ],
   "summary": {
-    "total_matches": 99,
-    "correct_winners": 62,
-    "accuracy": 0.6263,
-    "avg_goal_error": 2.141,
-    "avg_brier": 0.5812,
-    "avg_logloss": 0.9728,
+    "total_matches": 100,
+    "correct_winners": 63,
+    "accuracy": 0.63,
+    "avg_goal_error": 2.13,
+    "avg_brier": 0.58,
+    "avg_logloss": 0.971,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -1997,9 +2017,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 30,
-        "predicted": 0.494,
-        "actual": 0.4
+        "n": 31,
+        "predicted": 0.493,
+        "actual": 0.419
       },
       {
         "bin": "55\u201365%",
@@ -2020,8 +2040,8 @@
         "actual": 0.733
       }
     ],
-    "predicted_draw_rate": 0.2519,
-    "actual_draw_rate": 0.2424,
-    "ece": 0.0646
+    "predicted_draw_rate": 0.2527,
+    "actual_draw_rate": 0.24,
+    "ece": 0.0587
   }
 }
