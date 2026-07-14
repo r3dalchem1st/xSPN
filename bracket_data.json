@@ -140,7 +140,7 @@
       {
         "home": "Brazil",
         "away": "Morocco",
-        "lam": 1.26,
+        "lam": 1.27,
         "mu": 1.06,
         "score": "1\u20131",
         "ph": 0.36,
@@ -314,7 +314,7 @@
         "score": "0\u20132",
         "ph": 0.085,
         "pd": 0.217,
-        "pa": 0.699,
+        "pa": 0.698,
         "likely_winner": "Ivory Coast"
       },
       {
@@ -676,7 +676,7 @@
         "score": "2\u20131",
         "ph": 0.633,
         "pd": 0.235,
-        "pa": 0.131,
+        "pa": 0.132,
         "likely_winner": "Austria"
       }
     ],
@@ -1436,15 +1436,15 @@
     "mu": 0.93
   },
   "champion": "Spain",
-  "champion_pct": 31.0,
+  "champion_pct": 30.8,
   "reach_final": {
-    "Spain": 49.8,
-    "France": 49.4,
-    "Argentina": 48.1,
-    "England": 44.2,
-    "Colombia": 6.1,
-    "Senegal": 1.6,
-    "USA": 0.5,
+    "France": 50.0,
+    "Spain": 49.3,
+    "Argentina": 47.6,
+    "England": 44.6,
+    "Colombia": 6.0,
+    "Senegal": 1.7,
+    "USA": 0.6,
     "Algeria": 0.2
   }
 }
