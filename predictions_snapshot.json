@@ -2884,5 +2884,31 @@
     "lam": 1.31,
     "mu": 1.51,
     "snapped_at": "2026-07-12"
+  },
+  "Argentina|Spain": {
+    "home": "Spain",
+    "away": "Argentina",
+    "group": "Final",
+    "predicted_score": "1\u20130",
+    "predicted_winner": "Spain",
+    "ph": 0.508,
+    "pd": 0.275,
+    "pa": 0.218,
+    "lam": 1.4,
+    "mu": 0.81,
+    "snapped_at": "2026-07-15"
+  },
+  "England|France": {
+    "home": "France",
+    "away": "England",
+    "group": "3rd",
+    "predicted_score": "1\u20131 (p)",
+    "predicted_winner": "France",
+    "ph": 0.5,
+    "pd": 0.253,
+    "pa": 0.247,
+    "lam": 1.56,
+    "mu": 1.01,
+    "snapped_at": "2026-07-15"
   }
 }

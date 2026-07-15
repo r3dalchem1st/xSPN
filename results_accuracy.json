@@ -1999,21 +1999,41 @@
       "total_goal_error": 1,
       "brier": 0.4587,
       "logloss": 0.7963
+    },
+    {
+      "date": "2026-07-15",
+      "home": "England",
+      "away": "Argentina",
+      "group": "SF",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "1\u20132",
+      "predicted_winner": "Argentina",
+      "ph": 0.33,
+      "pd": 0.251,
+      "pa": 0.419,
+      "actual_winner": "Argentina",
+      "actual_outcome": "A",
+      "correct_winner": true,
+      "home_error": 0,
+      "away_error": 1,
+      "total_goal_error": 1,
+      "brier": 0.5095,
+      "logloss": 0.8699
     }
   ],
   "summary": {
-    "total_matches": 100,
-    "correct_winners": 63,
-    "accuracy": 0.63,
-    "avg_goal_error": 2.13,
-    "avg_brier": 0.58,
-    "avg_logloss": 0.971,
+    "total_matches": 101,
+    "correct_winners": 64,
+    "accuracy": 0.6337,
+    "avg_goal_error": 2.119,
+    "avg_brier": 0.5793,
+    "avg_logloss": 0.97,
     "reliability": [
       {
         "bin": "34\u201345%",
-        "n": 28,
-        "predicted": 0.402,
-        "actual": 0.429
+        "n": 29,
+        "predicted": 0.403,
+        "actual": 0.448
       },
       {
         "bin": "45\u201355%",
@@ -2041,7 +2061,7 @@
       }
     ],
     "predicted_draw_rate": 0.2527,
-    "actual_draw_rate": 0.24,
-    "ece": 0.0587
+    "actual_draw_rate": 0.2376,
+    "ece": 0.0636
   }
 }
