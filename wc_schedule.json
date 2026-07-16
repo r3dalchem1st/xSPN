@@ -936,5 +936,23 @@
       "England": 1,
       "Argentina": 2
     }
+  },
+  "England|France": {
+    "date": "2026-07-18",
+    "status": "TIMED",
+    "utc": "2026-07-18T21:00:00Z",
+    "goals": {
+      "France": null,
+      "England": null
+    }
+  },
+  "Argentina|Spain": {
+    "date": "2026-07-19",
+    "status": "TIMED",
+    "utc": "2026-07-19T19:00:00Z",
+    "goals": {
+      "Spain": null,
+      "Argentina": null
+    }
   }
 }
