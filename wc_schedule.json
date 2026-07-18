@@ -939,7 +939,7 @@
   },
   "England|France": {
     "date": "2026-07-18",
-    "status": "TIMED",
+    "status": "IN_PLAY",
     "utc": "2026-07-18T21:00:00Z",
     "goals": {
       "France": null,
