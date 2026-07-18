@@ -1256,7 +1256,7 @@
       "win_pct": 64.8,
       "ph": 0.549,
       "pd": 0.268,
-      "pa": 0.183,
+      "pa": 0.184,
       "reg_winner": "Spain",
       "lam": 1.46,
       "mu": 0.71
@@ -1292,7 +1292,7 @@
       "away": "England",
       "score": "2\u20133",
       "winner": "England",
-      "win_pct": 56.5,
+      "win_pct": 56.6,
       "ph": 0.338,
       "pd": 0.252,
       "pa": 0.409,
@@ -1359,7 +1359,7 @@
       "away": "England",
       "score": "1\u20132",
       "winner": "England",
-      "win_pct": 58.1,
+      "win_pct": 58.2,
       "ph": 0.296,
       "pd": 0.217,
       "pa": 0.486,
@@ -1436,15 +1436,15 @@
     "mu": 1.01
   },
   "champion": "Spain",
-  "champion_pct": 59.2,
+  "champion_pct": 59.6,
   "reach_final": {
-    "Spain": 96.6,
-    "Argentina": 83.3,
-    "England": 9.0,
-    "Colombia": 6.2,
+    "Spain": 96.7,
+    "Argentina": 83.6,
+    "England": 8.7,
+    "Colombia": 6.1,
     "France": 2.7,
     "Senegal": 1.5,
-    "USA": 0.5,
+    "USA": 0.4,
     "Algeria": 0.2
   }
 }
