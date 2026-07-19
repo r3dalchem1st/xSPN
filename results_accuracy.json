@@ -2019,15 +2019,35 @@
       "total_goal_error": 1,
       "brier": 0.5095,
       "logloss": 0.8699
+    },
+    {
+      "date": "2026-07-18",
+      "home": "France",
+      "away": "England",
+      "group": "3rd",
+      "predicted_score": "1\u20131 (p)",
+      "actual_score": "4\u20136",
+      "predicted_winner": "France",
+      "ph": 0.5,
+      "pd": 0.253,
+      "pa": 0.247,
+      "actual_winner": "England",
+      "actual_outcome": "A",
+      "correct_winner": false,
+      "home_error": 3,
+      "away_error": 5,
+      "total_goal_error": 8,
+      "brier": 0.881,
+      "logloss": 1.3984
     }
   ],
   "summary": {
-    "total_matches": 101,
+    "total_matches": 102,
     "correct_winners": 64,
-    "accuracy": 0.6337,
-    "avg_goal_error": 2.119,
-    "avg_brier": 0.5793,
-    "avg_logloss": 0.97,
+    "accuracy": 0.6275,
+    "avg_goal_error": 2.176,
+    "avg_brier": 0.5823,
+    "avg_logloss": 0.9742,
     "reliability": [
       {
         "bin": "34\u201345%",
@@ -2037,9 +2057,9 @@
       },
       {
         "bin": "45\u201355%",
-        "n": 31,
+        "n": 32,
         "predicted": 0.493,
-        "actual": 0.419
+        "actual": 0.406
       },
       {
         "bin": "55\u201365%",
@@ -2061,7 +2081,7 @@
       }
     ],
     "predicted_draw_rate": 0.2527,
-    "actual_draw_rate": 0.2376,
-    "ece": 0.0636
+    "actual_draw_rate": 0.2353,
+    "ece": 0.0678
   }
 }
