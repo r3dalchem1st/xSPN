@@ -948,11 +948,11 @@
   },
   "Argentina|Spain": {
     "date": "2026-07-19",
-    "status": "LIVE",
+    "status": "FINISHED",
     "utc": "2026-07-19T19:00:00Z",
     "goals": {
-      "Spain": null,
-      "Argentina": null
+      "Spain": 1,
+      "Argentina": 0
     }
   }
 }
