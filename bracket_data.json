@@ -603,7 +603,7 @@
       {
         "home": "Norway",
         "away": "Iraq",
-        "lam": 3.67,
+        "lam": 3.68,
         "mu": 0.76,
         "score": "3\u20130",
         "ph": 0.845,
@@ -1436,15 +1436,15 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.9,
+  "champion_pct": 92.0,
   "reach_final": {
     "Spain": 96.6,
-    "Argentina": 83.8,
+    "Argentina": 84.0,
     "England": 9.3,
-    "Colombia": 5.8,
+    "Colombia": 5.6,
     "France": 2.6,
     "Senegal": 1.1,
     "USA": 0.7,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
