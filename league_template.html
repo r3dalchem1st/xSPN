@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>__COMPETITION_NAME__</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --red:#cc0000; --dark:#1a1a1a; }
+  body { font-family:'Barlow',sans-serif; background:#f2f2f2; color:var(--dark); margin:0; padding:24px; }
+  h1 { color:var(--red); margin-bottom:4px; }
+  .subtitle { color:#666; margin-bottom:20px; font-size:14px; }
+  table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,.1); }
+  th, td { padding:8px 10px; text-align:center; border-bottom:1px solid #eee; }
+  th { background:var(--dark); color:#fff; font-weight:600; }
+  td:nth-child(2) { text-align:left; font-weight:600; }
+  tbody tr:nth-child(-n+4) td:nth-child(2) { border-left:3px solid #2a9d5c; }
+  tbody tr:nth-last-child(-n+__RELEGATION_ZONE__) td:nth-child(2) { border-left:3px solid var(--red); }
+  .odds { font-weight:600; }
+  .legend { margin-top:12px; font-size:12px; color:#666; }
+  .swatch { display:inline-block; width:10px; height:10px; margin-right:4px; }
+</style>
+</head>
+<body>
+<h1>__COMPETITION_NAME__</h1>
+<div class="subtitle">xSPN model projections — generated __GENERATED_DATE__ · __N_SIMS__ simulated seasons</div>
+<table>
+  <thead>
+    <tr><th>Pos</th><th>Team</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Title %</th><th>Relegation %</th></tr>
+  </thead>
+  <tbody>
+__STANDINGS_ROWS__
+  </tbody>
+</table>
+<div class="legend">
+  <span class="swatch" style="background:#2a9d5c"></span>Top 4 &nbsp;&nbsp;
+  <span class="swatch" style="background:#cc0000"></span>Relegation zone (bottom __RELEGATION_ZONE__)
+</div>
+</body>
+</html>
