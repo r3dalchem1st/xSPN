@@ -1,0 +1,12 @@
+{
+  "slug": "premier_league",
+  "name": "Premier League",
+  "format": "round_robin",
+  "openfootball_repo": "openfootball/england",
+  "openfootball_files": [
+    {"season": "2026-27", "path": "2026-27/1-premierleague.txt"},
+    {"season": "2025-26", "path": "2025-26/1-premierleague.txt"},
+    {"season": "2024-25", "path": "2024-25/1-premierleague.txt"}
+  ],
+  "team_aliases": {}
+}
