@@ -1,0 +1,3422 @@
+{
+  "Club Atl\u00e9tico de Madrid|M\u00e1laga CF": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 1"
+  },
+  "Real Racing Club de Santander|Villarreal CF": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 1"
+  },
+  "FC Barcelona|Athletic Club": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 1"
+  },
+  "Real Madrid CF|Real Sociedad de F\u00fatbol": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 1"
+  },
+  "RCD Espanyol de Barcelona|Levante UD": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 1"
+  },
+  "Sevilla FC|Rayo Vallecano de Madrid": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 1"
+  },
+  "Deportivo Alav\u00e9s|Getafe CF": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 1"
+  },
+  "RC Deportivo La Coru\u00f1a|Elche CF": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 1"
+  },
+  "RC Celta de Vigo|CA Osasuna": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 1"
+  },
+  "Valencia CF|Real Betis Balompi\u00e9": {
+    "date": "2026-08-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 1"
+  },
+  "Rayo Vallecano de Madrid|Deportivo Alav\u00e9s": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 2"
+  },
+  "CA Osasuna|Levante UD": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 2"
+  },
+  "M\u00e1laga CF|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 2"
+  },
+  "Athletic Club|Sevilla FC": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 2"
+  },
+  "Elche CF|FC Barcelona": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 2"
+  },
+  "Valencia CF|RC Celta de Vigo": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 2"
+  },
+  "Getafe CF|Real Racing Club de Santander": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 2"
+  },
+  "RCD Espanyol de Barcelona|Real Madrid CF": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 2"
+  },
+  "Club Atl\u00e9tico de Madrid|Villarreal CF": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 2"
+  },
+  "Real Betis Balompi\u00e9|Real Sociedad de F\u00fatbol": {
+    "date": "2026-08-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 2"
+  },
+  "Deportivo Alav\u00e9s|Villarreal CF": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 3"
+  },
+  "Sevilla FC|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 3"
+  },
+  "FC Barcelona|Rayo Vallecano de Madrid": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 3"
+  },
+  "RC Deportivo La Coru\u00f1a|Valencia CF": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 3"
+  },
+  "RC Celta de Vigo|Athletic Club": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 3"
+  },
+  "Real Sociedad de F\u00fatbol|RCD Espanyol de Barcelona": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 3"
+  },
+  "Real Racing Club de Santander|Elche CF": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 3"
+  },
+  "Levante UD|Real Betis Balompi\u00e9": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 3"
+  },
+  "Real Madrid CF|M\u00e1laga CF": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 3"
+  },
+  "CA Osasuna|Getafe CF": {
+    "date": "2026-08-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 3"
+  },
+  "Elche CF|Real Sociedad de F\u00fatbol": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 4"
+  },
+  "Valencia CF|FC Barcelona": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 4"
+  },
+  "Rayo Vallecano de Madrid|Real Racing Club de Santander": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 4"
+  },
+  "RCD Espanyol de Barcelona|Sevilla FC": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 4"
+  },
+  "Villarreal CF|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 4"
+  },
+  "Athletic Club|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 4"
+  },
+  "Deportivo Alav\u00e9s|CA Osasuna": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 4"
+  },
+  "Getafe CF|RC Celta de Vigo": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 4"
+  },
+  "M\u00e1laga CF|Levante UD": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 4"
+  },
+  "Real Betis Balompi\u00e9|Real Madrid CF": {
+    "date": "2026-09-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 4"
+  },
+  "Getafe CF|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 5"
+  },
+  "Sevilla FC|Valencia CF": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 5"
+  },
+  "Real Racing Club de Santander|Deportivo Alav\u00e9s": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 5"
+  },
+  "Villarreal CF|Real Betis Balompi\u00e9": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 5"
+  },
+  "RC Celta de Vigo|M\u00e1laga CF": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 5"
+  },
+  "CA Osasuna|RCD Espanyol de Barcelona": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 5"
+  },
+  "Real Sociedad de F\u00fatbol|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 5"
+  },
+  "Levante UD|FC Barcelona": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 5"
+  },
+  "Athletic Club|Elche CF": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 5"
+  },
+  "Real Madrid CF|Rayo Vallecano de Madrid": {
+    "date": "2026-09-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 5"
+  },
+  "Rayo Vallecano de Madrid|RCD Espanyol de Barcelona": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 6"
+  },
+  "RC Deportivo La Coru\u00f1a|Sevilla FC": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 6"
+  },
+  "Deportivo Alav\u00e9s|Valencia CF": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 6"
+  },
+  "Elche CF|Real Madrid CF": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 6"
+  },
+  "Real Sociedad de F\u00fatbol|RC Celta de Vigo": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 6"
+  },
+  "M\u00e1laga CF|Villarreal CF": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 6"
+  },
+  "Club Atl\u00e9tico de Madrid|CA Osasuna": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 6"
+  },
+  "Levante UD|Athletic Club": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 6"
+  },
+  "Real Betis Balompi\u00e9|Getafe CF": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 6"
+  },
+  "FC Barcelona|Real Racing Club de Santander": {
+    "date": "2026-09-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 6"
+  },
+  "Club Atl\u00e9tico de Madrid|Real Madrid CF": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 7"
+  },
+  "Valencia CF|Real Sociedad de F\u00fatbol": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 7"
+  },
+  "Sevilla FC|FC Barcelona": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 7"
+  },
+  "Athletic Club|Deportivo Alav\u00e9s": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 7"
+  },
+  "RCD Espanyol de Barcelona|Elche CF": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 7"
+  },
+  "CA Osasuna|Rayo Vallecano de Madrid": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 7"
+  },
+  "RC Celta de Vigo|Real Racing Club de Santander": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 7"
+  },
+  "RC Deportivo La Coru\u00f1a|Real Betis Balompi\u00e9": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 7"
+  },
+  "Villarreal CF|Levante UD": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 7"
+  },
+  "Getafe CF|M\u00e1laga CF": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 7"
+  },
+  "Rayo Vallecano de Madrid|Athletic Club": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 8"
+  },
+  "Deportivo Alav\u00e9s|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 8"
+  },
+  "FC Barcelona|Getafe CF": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 8"
+  },
+  "Real Betis Balompi\u00e9|CA Osasuna": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 8"
+  },
+  "Real Madrid CF|Villarreal CF": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 8"
+  },
+  "Elche CF|RC Celta de Vigo": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 8"
+  },
+  "Levante UD|Sevilla FC": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 8"
+  },
+  "Real Racing Club de Santander|Valencia CF": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 8"
+  },
+  "M\u00e1laga CF|RCD Espanyol de Barcelona": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 8"
+  },
+  "Real Sociedad de F\u00fatbol|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 8"
+  },
+  "Villarreal CF|Elche CF": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 9"
+  },
+  "Real Madrid CF|Sevilla FC": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 9"
+  },
+  "RCD Espanyol de Barcelona|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 9"
+  },
+  "Valencia CF|Athletic Club": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 9"
+  },
+  "RC Celta de Vigo|Deportivo Alav\u00e9s": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 9"
+  },
+  "Real Betis Balompi\u00e9|FC Barcelona": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 9"
+  },
+  "M\u00e1laga CF|Real Sociedad de F\u00fatbol": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 9"
+  },
+  "CA Osasuna|Real Racing Club de Santander": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 9"
+  },
+  "RC Deportivo La Coru\u00f1a|Levante UD": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 9"
+  },
+  "Getafe CF|Rayo Vallecano de Madrid": {
+    "date": "2026-10-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 9"
+  },
+  "Rayo Vallecano de Madrid|Elche CF": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 10"
+  },
+  "Deportivo Alav\u00e9s|M\u00e1laga CF": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 10"
+  },
+  "Athletic Club|Getafe CF": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 10"
+  },
+  "Sevilla FC|CA Osasuna": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 10"
+  },
+  "Valencia CF|Villarreal CF": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 10"
+  },
+  "FC Barcelona|Real Madrid CF": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 10"
+  },
+  "Club Atl\u00e9tico de Madrid|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 10"
+  },
+  "RC Celta de Vigo|Real Betis Balompi\u00e9": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 10"
+  },
+  "Real Sociedad de F\u00fatbol|Levante UD": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 10"
+  },
+  "Real Racing Club de Santander|RCD Espanyol de Barcelona": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 10"
+  },
+  "Real Betis Balompi\u00e9|M\u00e1laga CF": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 11"
+  },
+  "Villarreal CF|RCD Espanyol de Barcelona": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 11"
+  },
+  "Elche CF|Valencia CF": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 11"
+  },
+  "Athletic Club|Real Sociedad de F\u00fatbol": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 11"
+  },
+  "Levante UD|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 11"
+  },
+  "RC Deportivo La Coru\u00f1a|CA Osasuna": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 11"
+  },
+  "FC Barcelona|Deportivo Alav\u00e9s": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 11"
+  },
+  "Getafe CF|Sevilla FC": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 11"
+  },
+  "Real Racing Club de Santander|Real Madrid CF": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 11"
+  },
+  "Rayo Vallecano de Madrid|RC Celta de Vigo": {
+    "date": "2026-11-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 11"
+  },
+  "Elche CF|Real Betis Balompi\u00e9": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 12"
+  },
+  "CA Osasuna|Athletic Club": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 12"
+  },
+  "Sevilla FC|Deportivo Alav\u00e9s": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 12"
+  },
+  "Valencia CF|Real Madrid CF": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 12"
+  },
+  "RC Celta de Vigo|Levante UD": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 12"
+  },
+  "Real Sociedad de F\u00fatbol|Rayo Vallecano de Madrid": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 12"
+  },
+  "M\u00e1laga CF|Real Racing Club de Santander": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 12"
+  },
+  "RCD Espanyol de Barcelona|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 12"
+  },
+  "Club Atl\u00e9tico de Madrid|FC Barcelona": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 12"
+  },
+  "Villarreal CF|Getafe CF": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 12"
+  },
+  "Athletic Club|RCD Espanyol de Barcelona": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 13"
+  },
+  "FC Barcelona|Villarreal CF": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 13"
+  },
+  "Real Racing Club de Santander|Real Sociedad de F\u00fatbol": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 13"
+  },
+  "Rayo Vallecano de Madrid|Valencia CF": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 13"
+  },
+  "CA Osasuna|M\u00e1laga CF": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 13"
+  },
+  "Getafe CF|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 13"
+  },
+  "Real Madrid CF|RC Celta de Vigo": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 13"
+  },
+  "Deportivo Alav\u00e9s|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 13"
+  },
+  "Sevilla FC|Real Betis Balompi\u00e9": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 13"
+  },
+  "Levante UD|Elche CF": {
+    "date": "2026-11-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 13"
+  },
+  "RC Celta de Vigo|Villarreal CF": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 14"
+  },
+  "Elche CF|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 14"
+  },
+  "Real Betis Balompi\u00e9|Rayo Vallecano de Madrid": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 14"
+  },
+  "Valencia CF|CA Osasuna": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 14"
+  },
+  "Real Madrid CF|Deportivo Alav\u00e9s": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 14"
+  },
+  "RCD Espanyol de Barcelona|Getafe CF": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 14"
+  },
+  "Real Sociedad de F\u00fatbol|Sevilla FC": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 14"
+  },
+  "Levante UD|Real Racing Club de Santander": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 14"
+  },
+  "RC Deportivo La Coru\u00f1a|FC Barcelona": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 14"
+  },
+  "M\u00e1laga CF|Athletic Club": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 14"
+  },
+  "CA Osasuna|Elche CF": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 15"
+  },
+  "Sevilla FC|M\u00e1laga CF": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 15"
+  },
+  "Deportivo Alav\u00e9s|RCD Espanyol de Barcelona": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 15"
+  },
+  "Club Atl\u00e9tico de Madrid|Real Betis Balompi\u00e9": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 15"
+  },
+  "Real Racing Club de Santander|RC Deportivo La Coru\u00f1a": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 15"
+  },
+  "FC Barcelona|RC Celta de Vigo": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 15"
+  },
+  "Getafe CF|Valencia CF": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 15"
+  },
+  "Athletic Club|Real Madrid CF": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 15"
+  },
+  "Villarreal CF|Real Sociedad de F\u00fatbol": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 15"
+  },
+  "Rayo Vallecano de Madrid|Levante UD": {
+    "date": "2026-12-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 15"
+  },
+  "RCD Espanyol de Barcelona|RC Celta de Vigo": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 16"
+  },
+  "M\u00e1laga CF|FC Barcelona": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 16"
+  },
+  "Real Madrid CF|CA Osasuna": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 16"
+  },
+  "RC Deportivo La Coru\u00f1a|Athletic Club": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 16"
+  },
+  "Levante UD|Deportivo Alav\u00e9s": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 16"
+  },
+  "Elche CF|Sevilla FC": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 16"
+  },
+  "Villarreal CF|Rayo Vallecano de Madrid": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 16"
+  },
+  "Real Betis Balompi\u00e9|Real Racing Club de Santander": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 16"
+  },
+  "Real Sociedad de F\u00fatbol|Getafe CF": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 16"
+  },
+  "Club Atl\u00e9tico de Madrid|Valencia CF": {
+    "date": "2026-12-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 16"
+  },
+  "Athletic Club|Real Betis Balompi\u00e9": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 17"
+  },
+  "Getafe CF|Levante UD": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 17"
+  },
+  "Deportivo Alav\u00e9s|Elche CF": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 17"
+  },
+  "Valencia CF|RCD Espanyol de Barcelona": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 17"
+  },
+  "CA Osasuna|Villarreal CF": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 17"
+  },
+  "FC Barcelona|Real Sociedad de F\u00fatbol": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 17"
+  },
+  "RC Celta de Vigo|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 17"
+  },
+  "Rayo Vallecano de Madrid|M\u00e1laga CF": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 17"
+  },
+  "RC Deportivo La Coru\u00f1a|Real Madrid CF": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 17"
+  },
+  "Sevilla FC|Real Racing Club de Santander": {
+    "date": "2026-12-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 17"
+  },
+  "Real Madrid CF|Getafe CF": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 18"
+  },
+  "Real Sociedad de F\u00fatbol|CA Osasuna": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 18"
+  },
+  "Levante UD|Valencia CF": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 18"
+  },
+  "Real Racing Club de Santander|Athletic Club": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 18"
+  },
+  "M\u00e1laga CF|Elche CF": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 18"
+  },
+  "Real Betis Balompi\u00e9|Deportivo Alav\u00e9s": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 18"
+  },
+  "RC Celta de Vigo|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 18"
+  },
+  "RCD Espanyol de Barcelona|FC Barcelona": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 18"
+  },
+  "Villarreal CF|Sevilla FC": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 18"
+  },
+  "Rayo Vallecano de Madrid|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 18"
+  },
+  "Athletic Club|Villarreal CF": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 19"
+  },
+  "Elche CF|Getafe CF": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 19"
+  },
+  "Real Madrid CF|Levante UD": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 19"
+  },
+  "CA Osasuna|FC Barcelona": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 19"
+  },
+  "RC Deportivo La Coru\u00f1a|Rayo Vallecano de Madrid": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 19"
+  },
+  "Club Atl\u00e9tico de Madrid|Real Racing Club de Santander": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 19"
+  },
+  "Deportivo Alav\u00e9s|Real Sociedad de F\u00fatbol": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 19"
+  },
+  "Sevilla FC|RC Celta de Vigo": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 19"
+  },
+  "RCD Espanyol de Barcelona|Real Betis Balompi\u00e9": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 19"
+  },
+  "Valencia CF|M\u00e1laga CF": {
+    "date": "2027-01-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 19"
+  },
+  "M\u00e1laga CF|Real Madrid CF": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 20"
+  },
+  "FC Barcelona|Elche CF": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 20"
+  },
+  "Villarreal CF|Deportivo Alav\u00e9s": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 20"
+  },
+  "Real Racing Club de Santander|CA Osasuna": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 20"
+  },
+  "Levante UD|RCD Espanyol de Barcelona": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 20"
+  },
+  "RC Celta de Vigo|Valencia CF": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 20"
+  },
+  "Getafe CF|Athletic Club": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 20"
+  },
+  "Rayo Vallecano de Madrid|Sevilla FC": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 20"
+  },
+  "Real Betis Balompi\u00e9|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 20"
+  },
+  "Club Atl\u00e9tico de Madrid|Real Sociedad de F\u00fatbol": {
+    "date": "2027-01-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 20"
+  },
+  "Real Madrid CF|Real Betis Balompi\u00e9": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 21"
+  },
+  "Getafe CF|CA Osasuna": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 21"
+  },
+  "Valencia CF|Sevilla FC": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 21"
+  },
+  "Elche CF|Rayo Vallecano de Madrid": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 21"
+  },
+  "Deportivo Alav\u00e9s|FC Barcelona": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 21"
+  },
+  "Real Sociedad de F\u00fatbol|M\u00e1laga CF": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 21"
+  },
+  "Real Racing Club de Santander|RC Celta de Vigo": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 21"
+  },
+  "Athletic Club|Levante UD": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 21"
+  },
+  "RCD Espanyol de Barcelona|Villarreal CF": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 21"
+  },
+  "RC Deportivo La Coru\u00f1a|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-01-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 21"
+  },
+  "Real Betis Balompi\u00e9|Elche CF": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 22"
+  },
+  "Rayo Vallecano de Madrid|Real Madrid CF": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 22"
+  },
+  "Club Atl\u00e9tico de Madrid|RCD Espanyol de Barcelona": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 22"
+  },
+  "RC Celta de Vigo|Getafe CF": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 22"
+  },
+  "Villarreal CF|Real Racing Club de Santander": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 22"
+  },
+  "Levante UD|Real Sociedad de F\u00fatbol": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 22"
+  },
+  "FC Barcelona|Valencia CF": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 22"
+  },
+  "Sevilla FC|Athletic Club": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 22"
+  },
+  "CA Osasuna|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 22"
+  },
+  "M\u00e1laga CF|Deportivo Alav\u00e9s": {
+    "date": "2027-01-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 22"
+  },
+  "Athletic Club|CA Osasuna": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 23"
+  },
+  "Deportivo Alav\u00e9s|RC Celta de Vigo": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 23"
+  },
+  "Real Betis Balompi\u00e9|Sevilla FC": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 23"
+  },
+  "Elche CF|Levante UD": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 23"
+  },
+  "RCD Espanyol de Barcelona|Rayo Vallecano de Madrid": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 23"
+  },
+  "Getafe CF|Villarreal CF": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 23"
+  },
+  "RC Deportivo La Coru\u00f1a|M\u00e1laga CF": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 23"
+  },
+  "Real Sociedad de F\u00fatbol|Real Madrid CF": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 23"
+  },
+  "Valencia CF|Real Racing Club de Santander": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 23"
+  },
+  "FC Barcelona|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-02-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 23"
+  },
+  "Sevilla FC|RCD Espanyol de Barcelona": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 24"
+  },
+  "CA Osasuna|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 24"
+  },
+  "RC Celta de Vigo|Rayo Vallecano de Madrid": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 24"
+  },
+  "Villarreal CF|FC Barcelona": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 24"
+  },
+  "Real Sociedad de F\u00fatbol|Real Betis Balompi\u00e9": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 24"
+  },
+  "Elche CF|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 24"
+  },
+  "Valencia CF|Deportivo Alav\u00e9s": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 24"
+  },
+  "Levante UD|M\u00e1laga CF": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 24"
+  },
+  "Real Racing Club de Santander|Getafe CF": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 24"
+  },
+  "Real Madrid CF|Athletic Club": {
+    "date": "2027-02-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 24"
+  },
+  "Deportivo Alav\u00e9s|Real Racing Club de Santander": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 25"
+  },
+  "M\u00e1laga CF|Real Betis Balompi\u00e9": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 25"
+  },
+  "Villarreal CF|Valencia CF": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 25"
+  },
+  "FC Barcelona|Levante UD": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 25"
+  },
+  "Athletic Club|RC Celta de Vigo": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 25"
+  },
+  "RCD Espanyol de Barcelona|CA Osasuna": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 25"
+  },
+  "Sevilla FC|Real Madrid CF": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 25"
+  },
+  "Club Atl\u00e9tico de Madrid|Elche CF": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 25"
+  },
+  "RC Deportivo La Coru\u00f1a|Real Sociedad de F\u00fatbol": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 25"
+  },
+  "Rayo Vallecano de Madrid|Getafe CF": {
+    "date": "2027-02-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 25"
+  },
+  "RC Celta de Vigo|RCD Espanyol de Barcelona": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 26"
+  },
+  "Levante UD|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 26"
+  },
+  "M\u00e1laga CF|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 26"
+  },
+  "CA Osasuna|Sevilla FC": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 26"
+  },
+  "Real Madrid CF|Valencia CF": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 26"
+  },
+  "Getafe CF|Deportivo Alav\u00e9s": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 26"
+  },
+  "Athletic Club|FC Barcelona": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 26"
+  },
+  "Real Racing Club de Santander|Rayo Vallecano de Madrid": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 26"
+  },
+  "Real Betis Balompi\u00e9|Villarreal CF": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 26"
+  },
+  "Real Sociedad de F\u00fatbol|Elche CF": {
+    "date": "2027-02-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 26"
+  },
+  "FC Barcelona|Real Betis Balompi\u00e9": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 27"
+  },
+  "Elche CF|M\u00e1laga CF": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 27"
+  },
+  "Deportivo Alav\u00e9s|Athletic Club": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 27"
+  },
+  "Rayo Vallecano de Madrid|CA Osasuna": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 27"
+  },
+  "Sevilla FC|Real Sociedad de F\u00fatbol": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 27"
+  },
+  "Club Atl\u00e9tico de Madrid|RC Celta de Vigo": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 27"
+  },
+  "Villarreal CF|Real Madrid CF": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 27"
+  },
+  "Valencia CF|Levante UD": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 27"
+  },
+  "RC Deportivo La Coru\u00f1a|Getafe CF": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 27"
+  },
+  "RCD Espanyol de Barcelona|Real Racing Club de Santander": {
+    "date": "2027-03-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 27"
+  },
+  "CA Osasuna|RC Celta de Vigo": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 28"
+  },
+  "Elche CF|Villarreal CF": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 28"
+  },
+  "Deportivo Alav\u00e9s|Sevilla FC": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 28"
+  },
+  "Athletic Club|Valencia CF": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 28"
+  },
+  "Real Betis Balompi\u00e9|Levante UD": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 28"
+  },
+  "Real Racing Club de Santander|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 28"
+  },
+  "M\u00e1laga CF|Rayo Vallecano de Madrid": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 28"
+  },
+  "Getafe CF|Real Sociedad de F\u00fatbol": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 28"
+  },
+  "FC Barcelona|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 28"
+  },
+  "Real Madrid CF|RCD Espanyol de Barcelona": {
+    "date": "2027-03-14",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 28"
+  },
+  "Villarreal CF|M\u00e1laga CF": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 29"
+  },
+  "Sevilla FC|Elche CF": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 29"
+  },
+  "Levante UD|CA Osasuna": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 29"
+  },
+  "RC Celta de Vigo|Real Madrid CF": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 29"
+  },
+  "Rayo Vallecano de Madrid|FC Barcelona": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 29"
+  },
+  "Real Sociedad de F\u00fatbol|Deportivo Alav\u00e9s": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 29"
+  },
+  "RCD Espanyol de Barcelona|Athletic Club": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 29"
+  },
+  "Real Racing Club de Santander|Real Betis Balompi\u00e9": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 29"
+  },
+  "Valencia CF|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 29"
+  },
+  "Club Atl\u00e9tico de Madrid|Getafe CF": {
+    "date": "2027-03-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 29"
+  },
+  "Levante UD|Rayo Vallecano de Madrid": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 30"
+  },
+  "FC Barcelona|Sevilla FC": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 30"
+  },
+  "M\u00e1laga CF|CA Osasuna": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 30"
+  },
+  "Athletic Club|Real Racing Club de Santander": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 30"
+  },
+  "RC Deportivo La Coru\u00f1a|Villarreal CF": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 30"
+  },
+  "Real Sociedad de F\u00fatbol|Valencia CF": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 30"
+  },
+  "Elche CF|Deportivo Alav\u00e9s": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 30"
+  },
+  "Real Madrid CF|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 30"
+  },
+  "Getafe CF|RCD Espanyol de Barcelona": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 30"
+  },
+  "Real Betis Balompi\u00e9|RC Celta de Vigo": {
+    "date": "2027-04-04",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 30"
+  },
+  "Rayo Vallecano de Madrid|Real Sociedad de F\u00fatbol": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 31"
+  },
+  "RCD Espanyol de Barcelona|M\u00e1laga CF": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 31"
+  },
+  "Villarreal CF|Athletic Club": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 31"
+  },
+  "Deportivo Alav\u00e9s|Real Betis Balompi\u00e9": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 31"
+  },
+  "Valencia CF|Getafe CF": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 31"
+  },
+  "Sevilla FC|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 31"
+  },
+  "RC Celta de Vigo|Elche CF": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 31"
+  },
+  "Real Racing Club de Santander|FC Barcelona": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 31"
+  },
+  "CA Osasuna|Real Madrid CF": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 31"
+  },
+  "Club Atl\u00e9tico de Madrid|Levante UD": {
+    "date": "2027-04-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 31"
+  },
+  "Club Atl\u00e9tico de Madrid|Sevilla FC": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 32"
+  },
+  "FC Barcelona|RCD Espanyol de Barcelona": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 32"
+  },
+  "Levante UD|Villarreal CF": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 32"
+  },
+  "Real Sociedad de F\u00fatbol|Real Racing Club de Santander": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 32"
+  },
+  "M\u00e1laga CF|Valencia CF": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 32"
+  },
+  "RC Deportivo La Coru\u00f1a|RC Celta de Vigo": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 32"
+  },
+  "Elche CF|CA Osasuna": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 32"
+  },
+  "Deportivo Alav\u00e9s|Rayo Vallecano de Madrid": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 32"
+  },
+  "Real Betis Balompi\u00e9|Athletic Club": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 32"
+  },
+  "Getafe CF|Real Madrid CF": {
+    "date": "2027-04-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 32"
+  },
+  "Getafe CF|Real Betis Balompi\u00e9": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 33"
+  },
+  "Valencia CF|Rayo Vallecano de Madrid": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 33"
+  },
+  "RC Celta de Vigo|FC Barcelona": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 33"
+  },
+  "CA Osasuna|Deportivo Alav\u00e9s": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 33"
+  },
+  "Real Madrid CF|Elche CF": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 33"
+  },
+  "Athletic Club|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 33"
+  },
+  "Real Racing Club de Santander|M\u00e1laga CF": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 33"
+  },
+  "Villarreal CF|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 33"
+  },
+  "Sevilla FC|Levante UD": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 33"
+  },
+  "RCD Espanyol de Barcelona|Real Sociedad de F\u00fatbol": {
+    "date": "2027-04-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 33"
+  },
+  "RC Deportivo La Coru\u00f1a|Real Racing Club de Santander": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 34"
+  },
+  "RC Celta de Vigo|Sevilla FC": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 34"
+  },
+  "Real Sociedad de F\u00fatbol|Athletic Club": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 34"
+  },
+  "FC Barcelona|CA Osasuna": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 34"
+  },
+  "Rayo Vallecano de Madrid|Villarreal CF": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 34"
+  },
+  "M\u00e1laga CF|Getafe CF": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 34"
+  },
+  "Real Betis Balompi\u00e9|Valencia CF": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 34"
+  },
+  "Elche CF|RCD Espanyol de Barcelona": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 34"
+  },
+  "Levante UD|Real Madrid CF": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 34"
+  },
+  "Club Atl\u00e9tico de Madrid|Deportivo Alav\u00e9s": {
+    "date": "2027-05-02",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 34"
+  },
+  "Valencia CF|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 35"
+  },
+  "CA Osasuna|Real Sociedad de F\u00fatbol": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 35"
+  },
+  "Deportivo Alav\u00e9s|Levante UD": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 35"
+  },
+  "Athletic Club|M\u00e1laga CF": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 35"
+  },
+  "Real Racing Club de Santander|Sevilla FC": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 35"
+  },
+  "Rayo Vallecano de Madrid|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 35"
+  },
+  "Real Betis Balompi\u00e9|RCD Espanyol de Barcelona": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 35"
+  },
+  "Real Madrid CF|FC Barcelona": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 35"
+  },
+  "Getafe CF|Elche CF": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 35"
+  },
+  "Villarreal CF|RC Celta de Vigo": {
+    "date": "2027-05-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 35"
+  },
+  "Club Atl\u00e9tico de Madrid|Rayo Vallecano de Madrid": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 36"
+  },
+  "Sevilla FC|Villarreal CF": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 36"
+  },
+  "Real Sociedad de F\u00fatbol|FC Barcelona": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 36"
+  },
+  "Elche CF|Athletic Club": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 36"
+  },
+  "M\u00e1laga CF|RC Celta de Vigo": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 36"
+  },
+  "RC Deportivo La Coru\u00f1a|Deportivo Alav\u00e9s": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 36"
+  },
+  "Levante UD|Getafe CF": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 36"
+  },
+  "RCD Espanyol de Barcelona|Valencia CF": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 36"
+  },
+  "Real Madrid CF|Real Racing Club de Santander": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 36"
+  },
+  "CA Osasuna|Real Betis Balompi\u00e9": {
+    "date": "2027-05-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 36"
+  },
+  "Club Atl\u00e9tico de Madrid|Athletic Club": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 37"
+  },
+  "Deportivo Alav\u00e9s|Real Madrid CF": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Deportivo Alav\u00e9s": null,
+      "Real Madrid CF": null
+    },
+    "round": "Matchday 37"
+  },
+  "Sevilla FC|Getafe CF": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Sevilla FC": null,
+      "Getafe CF": null
+    },
+    "round": "Matchday 37"
+  },
+  "Villarreal CF|CA Osasuna": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Villarreal CF": null,
+      "CA Osasuna": null
+    },
+    "round": "Matchday 37"
+  },
+  "Real Racing Club de Santander|Levante UD": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Racing Club de Santander": null,
+      "Levante UD": null
+    },
+    "round": "Matchday 37"
+  },
+  "RC Deportivo La Coru\u00f1a|RCD Espanyol de Barcelona": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Deportivo La Coru\u00f1a": null,
+      "RCD Espanyol de Barcelona": null
+    },
+    "round": "Matchday 37"
+  },
+  "Rayo Vallecano de Madrid|Real Betis Balompi\u00e9": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Rayo Vallecano de Madrid": null,
+      "Real Betis Balompi\u00e9": null
+    },
+    "round": "Matchday 37"
+  },
+  "FC Barcelona|M\u00e1laga CF": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Barcelona": null,
+      "M\u00e1laga CF": null
+    },
+    "round": "Matchday 37"
+  },
+  "Valencia CF|Elche CF": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 37"
+  },
+  "RC Celta de Vigo|Real Sociedad de F\u00fatbol": {
+    "date": "2027-05-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "RC Celta de Vigo": null,
+      "Real Sociedad de F\u00fatbol": null
+    },
+    "round": "Matchday 37"
+  },
+  "Levante UD|RC Celta de Vigo": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "RC Celta de Vigo": null
+    },
+    "round": "Matchday 38"
+  },
+  "Real Madrid CF|RC Deportivo La Coru\u00f1a": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Madrid CF": null,
+      "RC Deportivo La Coru\u00f1a": null
+    },
+    "round": "Matchday 38"
+  },
+  "Real Betis Balompi\u00e9|Club Atl\u00e9tico de Madrid": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Betis Balompi\u00e9": null,
+      "Club Atl\u00e9tico de Madrid": null
+    },
+    "round": "Matchday 38"
+  },
+  "Real Sociedad de F\u00fatbol|Villarreal CF": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Real Sociedad de F\u00fatbol": null,
+      "Villarreal CF": null
+    },
+    "round": "Matchday 38"
+  },
+  "M\u00e1laga CF|Sevilla FC": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "M\u00e1laga CF": null,
+      "Sevilla FC": null
+    },
+    "round": "Matchday 38"
+  },
+  "Elche CF|Real Racing Club de Santander": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Elche CF": null,
+      "Real Racing Club de Santander": null
+    },
+    "round": "Matchday 38"
+  },
+  "Athletic Club|Rayo Vallecano de Madrid": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Athletic Club": null,
+      "Rayo Vallecano de Madrid": null
+    },
+    "round": "Matchday 38"
+  },
+  "RCD Espanyol de Barcelona|Deportivo Alav\u00e9s": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Deportivo Alav\u00e9s": null
+    },
+    "round": "Matchday 38"
+  },
+  "Getafe CF|FC Barcelona": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Getafe CF": null,
+      "FC Barcelona": null
+    },
+    "round": "Matchday 38"
+  },
+  "CA Osasuna|Valencia CF": {
+    "date": "2027-05-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "CA Osasuna": null,
+      "Valencia CF": null
+    },
+    "round": "Matchday 38"
+  }
+}

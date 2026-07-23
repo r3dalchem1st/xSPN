@@ -1,0 +1,9 @@
+{
+  "matches": [],
+  "summary": {
+    "n_scored": 0,
+    "accuracy": null,
+    "avg_brier": null,
+    "avg_log_loss": null
+  }
+}
