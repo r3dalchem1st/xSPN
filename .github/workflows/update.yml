@@ -92,14 +92,24 @@ jobs:
       - name: Validate prediction snapshot (fails on fabricated/mislabeled locks)
         run: python validate_snapshot.py
 
-      - name: Build index.html
+      # World Cup page now lives at competitions/world_cup_2026/ (moved off root
+      # 23 Jul — root is the site-wide hub, see build_hub_html.py below).
+      - name: Build World Cup page
         run: python build_html.py
+
+      - name: Build site-wide hub page
+        # Rebuilds root index.html (every competition's card, including this one's
+        # champion/results snapshot) whenever the WC's own data changes — the
+        # round-robin workflow (update-leagues.yml) rebuilds the same hub for the
+        # same reason on its own schedule, so whichever last touched the site keeps
+        # the hub current.
+        run: python build_hub_html.py
 
       - name: Commit and push updated files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json backtest_results.json wc_schedule.json injuries.json cards.json
+          git add index.html competitions/world_cup_2026/index.html model_params.json wc2026_v2_results.json bracket_data.json fetched_matches.json predictions_snapshot.json results_accuracy.json win_history.json backtest_results.json wc_schedule.json injuries.json cards.json
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
           # Retry push against concurrent updates (overlapping runs / manual pushes):
