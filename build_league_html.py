@@ -17,6 +17,10 @@ import re
 import sys
 from datetime import date
 
+DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, DIR)
+from render_nav import nav_entries, render_nav_html
+
 RELEGATION_ZONE = 3  # Premier League specific; a display choice, not baked
                        # into sim_league.py (cutoffs vary by league/season)
 
@@ -134,9 +138,11 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     rows = build_standings_rows(schedule, rank_dist, relegation_zone)
     rows_html = render_rows_html(rows)
     top_zone = top_zone_for(config.name)
+    nav_html = render_nav_html(nav_entries(base_dir, active=config.slug))
 
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
+    page = page.replace("__NAV__", nav_html)
     page = page.replace("__COMPETITION_NAME__", html_lib.escape(config.name))
     page = page.replace("__GENERATED_DATE__", date.today().isoformat())
     page = page.replace("__N_SIMS__", str(n_sims))
