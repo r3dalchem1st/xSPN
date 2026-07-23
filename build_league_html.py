@@ -20,6 +20,22 @@ from datetime import date
 RELEGATION_ZONE = 3  # Premier League specific; a display choice, not baked
                        # into sim_league.py (cutoffs vary by league/season)
 
+DEFAULT_TOP_ZONE = 4  # Champions-League-style qualification (PL, La Liga, Bundesliga)
+# Championship-style leagues have a SMALLER automatic-promotion count, with
+# a separate playoff tier below it for the remaining spot(s) — highlighting
+# all 4 rows the same as a top-flight league's European-qualification zone
+# would be factually wrong, not just a simplification (a real bug found in
+# the 22 Jul audit of the live Championship page, which showed 4 green rows
+# when only the top 2 are actually automatically promoted).
+TOP_ZONE_OVERRIDES = {"Championship": 2}
+
+
+def top_zone_for(competition_name):
+    """Size of the promotion/qualification highlight zone (the green-
+    bordered top rows). Keyed by competition NAME (config.name), not slug —
+    that's what callers already have in scope without a schema change."""
+    return TOP_ZONE_OVERRIDES.get(competition_name, DEFAULT_TOP_ZONE)
+
 
 def compute_full_standings(schedule):
     """Full current standings from FINISHED schedule entries:
@@ -117,6 +133,7 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
 
     rows = build_standings_rows(schedule, rank_dist, relegation_zone)
     rows_html = render_rows_html(rows)
+    top_zone = top_zone_for(config.name)
 
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
@@ -124,6 +141,7 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     page = page.replace("__GENERATED_DATE__", date.today().isoformat())
     page = page.replace("__N_SIMS__", str(n_sims))
     page = page.replace("__RELEGATION_ZONE__", str(relegation_zone))
+    page = page.replace("__TOP_ZONE__", str(top_zone))
     page = page.replace("__STANDINGS_ROWS__", rows_html)
 
     leftover = re.findall(r"__[A-Z_]+__", page)

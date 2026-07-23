@@ -1,4 +1,5 @@
 import json
+import os
 
 import pytest
 import requests
@@ -105,7 +106,8 @@ def test_fetch_and_save_writes_artifacts(tmp_path, monkeypatch):
 
     summary = fetch_and_save(config, str(tmp_path))
 
-    assert summary == {"matches": 1, "scheduled": 1, "skipped": 0, "failed_seasons": []}
+    assert summary == {"matches": 1, "scheduled": 1, "skipped": 0, "failed_seasons": [],
+                        "current_season_failed": False}
     out_dir = tmp_path / "competitions" / "test_league"
     with open(out_dir / "fetched_matches.json") as f:
         assert json.load(f) == [["2026-08-14", "Manchester United FC", "Fulham FC", 1, 0, "Test League", False]]
@@ -132,3 +134,61 @@ def test_fetch_and_save_records_failed_season(tmp_path, monkeypatch):
     summary = fetch_and_save(config, str(tmp_path))
     assert summary["failed_seasons"] == ["2025-26/1-test.txt"]
     assert summary["matches"] == 0  # the only season that fetched had no played matches
+    assert summary["current_season_failed"] is False  # the OLDER season failed, not the current one
+
+
+def test_fetch_and_save_preserves_schedule_when_current_season_fetch_fails(tmp_path, monkeypatch):
+    # Regression test for a real bug: fetch_and_save used to write an EMPTY
+    # schedule.json whenever the current (index-0) season's fetch failed,
+    # silently wiping a previously-good live schedule (CI would then commit
+    # the wipe, since an empty file still counts as "changed"). This proves
+    # a pre-existing good schedule.json survives a current-season failure.
+    config = CompetitionConfig(CONFIG_DATA)
+    out_dir = os.path.join(str(tmp_path), "competitions", config.slug)
+    os.makedirs(out_dir, exist_ok=True)
+    preexisting_schedule = {"Manchester United FC|Fulham FC": {
+        "date": "2026-08-14", "status": "SCHEDULED",
+        "goals": {"Manchester United FC": None, "Fulham FC": None}, "round": "Matchday 1",
+    }}
+    with open(os.path.join(out_dir, "schedule.json"), "w") as f:
+        json.dump(preexisting_schedule, f)
+
+    def fake_fetch(repo, path, timeout=10):
+        if path == "2026-27/1-test.txt":  # the current season
+            raise requests.RequestException("boom")
+        return "prior-season"
+
+    def fake_parse(text):
+        return [ALIASED_MATCH]
+
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", fake_fetch)
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt", fake_parse)
+
+    summary = fetch_and_save(config, str(tmp_path))
+
+    assert summary["current_season_failed"] is True
+    assert summary["failed_seasons"] == ["2026-27/1-test.txt"]
+    with open(os.path.join(out_dir, "schedule.json")) as f:
+        assert json.load(f) == preexisting_schedule  # untouched, not wiped to {}
+
+
+def test_main_exits_nonzero_when_current_season_fetch_fails(tmp_path, monkeypatch):
+    # Verifies main()'s new fail-loudly branch directly, without fighting
+    # main()'s hardcoded base_dir (= this script's own directory, not
+    # tmp_path) — mock fetch_and_save itself rather than the filesystem.
+    config_path = tmp_path / "test_league.json"
+    config_path.write_text(json.dumps(CONFIG_DATA))
+
+    monkeypatch.setattr(fetch_league, "load_competition",
+                         lambda path: CompetitionConfig(CONFIG_DATA))
+    monkeypatch.setattr(fetch_league, "fetch_and_save",
+                         lambda config, base_dir: {
+                             "matches": 0, "scheduled": 0, "skipped": 0,
+                             "failed_seasons": ["2026-27/1-test.txt"],
+                             "current_season_failed": True,
+                         })
+    monkeypatch.setattr(fetch_league.sys, "argv", ["fetch_league.py", str(config_path)])
+
+    with pytest.raises(SystemExit) as exc_info:
+        fetch_league.main()
+    assert exc_info.value.code == 1

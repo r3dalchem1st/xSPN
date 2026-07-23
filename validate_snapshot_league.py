@@ -17,21 +17,33 @@ def find_violations(schedule, snapshot):
     matching schedule key are ignored (a stale/orphaned entry for a fixture
     that no longer exists is a separate, lower-priority concern, same as
     the WC's validate_snapshot.py leaving pre-28-Jun orphaned guesses
-    alone)."""
+    alone).
+
+    A malformed/unparseable date FAILS CLOSED (is itself reported as a
+    violation) rather than being silently skipped: this gate's entire job
+    is catching bad data in predictions_snapshot.json, so an entry whose
+    dates can't even be compared is exactly the kind of thing it should
+    flag, not wave through."""
     violations = []
     for key, entry in snapshot.items():
         sched_info = schedule.get(key)
         real_date = sched_info.get("date") if sched_info else None
         snapped_at = entry.get("snapped_at")
-        if real_date and snapped_at:
-            try:
-                if date.fromisoformat(snapped_at) > date.fromisoformat(real_date):
-                    violations.append(
-                        f"{key}: snapped_at={snapped_at} is AFTER its real fixture "
-                        f"date {real_date} — locked post-hoc, likely fabricated."
-                    )
-            except ValueError:
-                pass
+        if not (real_date and snapped_at):
+            continue
+        try:
+            fabricated = date.fromisoformat(snapped_at) > date.fromisoformat(real_date)
+        except ValueError:
+            violations.append(
+                f"{key}: unparseable date(s) — snapped_at={snapped_at!r}, "
+                f"real fixture date={real_date!r} — failing closed."
+            )
+            continue
+        if fabricated:
+            violations.append(
+                f"{key}: snapped_at={snapped_at} is AFTER its real fixture "
+                f"date {real_date} — locked post-hoc, likely fabricated."
+            )
     return violations
 
 

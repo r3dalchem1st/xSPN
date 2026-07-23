@@ -1,7 +1,18 @@
 import json
 import os
 
-from snapshot_league import fixture_due, hda_probs, likely_score
+from snapshot_league import LOCK_WINDOW_DAYS, fixture_due, hda_probs, likely_score
+
+
+def test_lock_window_is_wide_enough_to_survive_a_few_missed_daily_runs():
+    # Regression test for a real bug: LOCK_WINDOW_DAYS=2 with a once-daily
+    # workflow left almost no redundancy — a single missed/failed run could
+    # let a fixture flip to FINISHED before ever being locked, permanently
+    # skipping it (fixture_due() only matches SCHEDULED fixtures, so there's
+    # no retroactive catch-up). Pin the default itself, not just the
+    # explicit-argument test cases below, so a future accidental narrowing
+    # doesn't slip through unnoticed.
+    assert LOCK_WINDOW_DAYS >= 5
 
 DC_SAMPLE = {
     "attack": {"Strong FC": 0.8, "Weak FC": -0.6},

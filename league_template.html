@@ -14,7 +14,7 @@
   th, td { padding:8px 10px; text-align:center; border-bottom:1px solid #eee; }
   th { background:var(--dark); color:#fff; font-weight:600; }
   td:nth-child(2) { text-align:left; font-weight:600; }
-  tbody tr:nth-child(-n+4) td:nth-child(2) { border-left:3px solid #2a9d5c; }
+  tbody tr:nth-child(-n+__TOP_ZONE__) td:nth-child(2) { border-left:3px solid #2a9d5c; }
   tbody tr:nth-last-child(-n+__RELEGATION_ZONE__) td:nth-child(2) { border-left:3px solid var(--red); }
   .odds { font-weight:600; }
   .legend { margin-top:12px; font-size:12px; color:#666; }
@@ -33,7 +33,7 @@ __STANDINGS_ROWS__
   </tbody>
 </table>
 <div class="legend">
-  <span class="swatch" style="background:#2a9d5c"></span>Top 4 &nbsp;&nbsp;
+  <span class="swatch" style="background:#2a9d5c"></span>Top __TOP_ZONE__ &nbsp;&nbsp;
   <span class="swatch" style="background:#cc0000"></span>Relegation zone (bottom __RELEGATION_ZONE__)
 </div>
 </body>
