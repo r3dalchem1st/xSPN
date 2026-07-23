@@ -113,11 +113,19 @@ jobs:
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update predictions: $(date +'%Y-%m-%d')"
           # Retry push against concurrent updates (overlapping runs / manual pushes):
-          # rebase the auto-commit onto the latest main and try again.
+          # rebase the auto-commit onto the latest main and try again. index.html is the
+          # one file update-leagues.yml also rebuilds independently, so a conflict there is
+          # spurious (both sides are just a stale build of the same script) rather than real
+          # data loss -- auto-resolve with -X ours (whichever text wins doesn't matter) then
+          # rebuild it fresh from the merged data before pushing again.
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "Push rejected (attempt $i) — rebasing on latest main and retrying..."
-            git pull --rebase --autostash origin main || true
+            git rebase --abort >/dev/null 2>&1 || true
+            git pull --rebase --autostash -X ours origin main || { git rebase --abort >/dev/null 2>&1 || true; git pull --no-rebase --autostash -X ours origin main; }
+            python build_hub_html.py
+            git add index.html
+            git commit --amend --no-edit
           done
           echo "Push failed after 5 attempts." >&2
           exit 1
