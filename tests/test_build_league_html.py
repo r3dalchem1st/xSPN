@@ -1,4 +1,5 @@
-from build_league_html import compute_full_standings, build_standings_rows, render_rows_html
+from build_league_html import (compute_full_standings, build_standings_rows,
+                                 render_rows_html, top_zone_for)
 
 SCHEDULE_SAMPLE = {
     "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
@@ -44,6 +45,23 @@ def test_build_standings_rows_uses_expected_rank_as_tiebreak_when_tied():
     # expected_rank should still put the model's stronger pick first
     assert rows[0]["team"] == "Contender FC"
     assert rows[0]["pos"] == 1
+
+
+def test_top_zone_for_championship_is_two_not_four():
+    # Regression test for a real bug found in the 22 Jul audit: the live
+    # Championship page highlighted 4 rows as "promoted" using the same
+    # Champions-League-qualification zone size as Premier League, but
+    # Championship promotion is top-2-automatic + a playoff for the 3rd
+    # spot (3rd-6th) -- highlighting rows 3-4 as promoted was factually
+    # wrong, not just a display simplification.
+    assert top_zone_for("Championship") == 2
+
+
+def test_top_zone_for_defaults_to_four_for_other_leagues():
+    assert top_zone_for("Premier League") == 4
+    assert top_zone_for("La Liga") == 4
+    assert top_zone_for("Bundesliga") == 4
+    assert top_zone_for("Some Future League") == 4
 
 
 def test_render_rows_html_escapes_team_names():
@@ -105,6 +123,39 @@ def test_build_league_html_raises_on_unconsumed_placeholder(tmp_path):
 
     with pytest.raises(AssertionError, match="unconsumed placeholder"):
         build_league_html(config, str(tmp_path), str(template_path))
+
+
+def test_build_league_html_substitutes_top_zone_per_competition(tmp_path):
+    from build_league_html import build_league_html
+    from competition_config import CompetitionConfig
+
+    template_path = tmp_path / "league_template.html"
+    template_path.write_text(
+        "<html><title>__COMPETITION_NAME__</title>"
+        "<style>tr:nth-child(-n+__TOP_ZONE__){}</style>"
+        "<p>__GENERATED_DATE__ __N_SIMS__ __RELEGATION_ZONE__</p>"
+        "<table>__STANDINGS_ROWS__</table></html>"
+    )
+
+    def _build(name, slug):
+        config = CompetitionConfig({
+            "slug": slug, "name": name, "format": "round_robin",
+            "openfootball_repo": "openfootball/example",
+            "openfootball_files": [{"season": "2026-27", "path": "x.txt"}],
+            "team_aliases": {},
+        })
+        out_dir = tmp_path / "competitions" / slug
+        out_dir.mkdir(parents=True)
+        (out_dir / "schedule.json").write_text(json.dumps(SCHEDULE_SAMPLE))
+        (out_dir / "league_sim.json").write_text(json.dumps(RANK_DIST_SAMPLE))
+        out_path = build_league_html(config, str(tmp_path), str(template_path))
+        return open(out_path, encoding="utf-8").read()
+
+    championship_html = _build("Championship", "championship_test")
+    premier_league_html = _build("Premier League", "premier_league_test")
+
+    assert "nth-child(-n+2)" in championship_html
+    assert "nth-child(-n+4)" in premier_league_html
 
 
 def test_build_league_html_raises_without_league_sim(tmp_path):

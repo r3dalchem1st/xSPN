@@ -26,7 +26,16 @@ from datetime import date
 
 from sim_league import build_lambda_tables
 
-LOCK_WINDOW_DAYS = 2  # matches the WC's LOCK_WINDOW_DAYS for group-stage fixtures
+LOCK_WINDOW_DAYS = 5  # WIDER than the WC's LOCK_WINDOW_DAYS=2 on purpose: this
+# runs once daily (update-leagues.yml), not the WC's 4x/day, so a window this
+# tight left a real permanent-miss risk — if any single daily run failed or
+# was skipped inside a 2-day window, the fixture would flip to FINISHED
+# before ever being locked, and fixture_due()'s own SCHEDULED-only check
+# means it could never be locked retroactively (score_league.py would then
+# silently skip it forever). Round-robin fixtures are known a full season
+# ahead, unlike the WC's, so there's no freshness reason to lock any closer
+# to kickoff than this — widening costs nothing and buys real redundancy
+# against a few consecutive missed runs.
 
 
 def hda_probs(home, away, lg_ens, max_g=10):

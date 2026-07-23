@@ -76,11 +76,19 @@ def fetch_and_save(config, base_dir):
       competitions/<slug>/schedule.json         -- ALL fixtures from the
         newest (current) season only, played + unplayed
 
+    schedule.json is left UNTOUCHED if the current season's fetch fails: a
+    transient failure must never wipe a good schedule to empty (an empty
+    file still counts as "changed", so CI would happily commit and push the
+    wipe over a previously-good live schedule). fetched_matches.json is
+    unaffected by this guard — losing one OLDER season's training rows just
+    means slightly less training data, not a corrupted live artifact.
+
     Returns a summary dict: {"matches": int, "scheduled": int, "skipped": int,
-    "failed_seasons": [path, ...]}."""
+    "failed_seasons": [path, ...], "current_season_failed": bool}."""
     out_dir = artifact_dir(config, base_dir)
     all_rows, current_schedule = [], {}
     total_skipped, failed = 0, []
+    current_season_failed = False
 
     for i, entry in enumerate(config.openfootball_files):
         try:
@@ -88,6 +96,8 @@ def fetch_and_save(config, base_dir):
         except requests.RequestException as e:
             print(f"  ! failed to fetch {entry['path']}: {e}")
             failed.append(entry["path"])
+            if i == 0:
+                current_season_failed = True
             continue
         parsed = parse_openfootball_txt(text)
         rows, n_skipped = build_training_rows(config, parsed)
@@ -99,11 +109,16 @@ def fetch_and_save(config, base_dir):
 
     with open(os.path.join(out_dir, "fetched_matches.json"), "w") as f:
         json.dump(all_rows, f, indent=2)
-    with open(os.path.join(out_dir, "schedule.json"), "w") as f:
-        json.dump(current_schedule, f, indent=2)
+
+    if current_season_failed:
+        print("  ! current-season fetch failed — leaving existing schedule.json untouched")
+    else:
+        with open(os.path.join(out_dir, "schedule.json"), "w") as f:
+            json.dump(current_schedule, f, indent=2)
 
     return {"matches": len(all_rows), "scheduled": len(current_schedule),
-            "skipped": total_skipped, "failed_seasons": failed}
+            "skipped": total_skipped, "failed_seasons": failed,
+            "current_season_failed": current_season_failed}
 
 
 def main():
@@ -117,6 +132,10 @@ def main():
           f"{summary['scheduled']} current-season fixtures, "
           f"{summary['skipped']} skipped, "
           f"{len(summary['failed_seasons'])} season(s) failed to fetch.")
+    if summary["current_season_failed"]:
+        print("FATAL: current-season fetch failed — aborting so CI surfaces this loudly "
+              "instead of silently leaving a stale (but intact) schedule.json in place.")
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

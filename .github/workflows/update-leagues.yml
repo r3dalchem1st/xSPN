@@ -36,6 +36,14 @@ jobs:
         competition: ${{ fromJson(needs.discover.outputs.competitions) }}
       max-parallel: 1
       fail-fast: false
+    env:
+      # Passed through env, not interpolated directly into run: blocks below
+      # (GitHub's own documented script-injection risk: a raw ${{ }} in a
+      # shell script is substituted BEFORE the shell parses it, so a slug
+      # containing e.g. `;` or `$()` could break word-splitting or execute
+      # arbitrary shell. Low real risk today since slugs come only from
+      # filenames maintainers control, but the fix is free.)
+      COMPETITION: ${{ matrix.competition }}
     steps:
       - uses: actions/checkout@v4
 
@@ -48,39 +56,39 @@ jobs:
         run: pip install numpy scipy requests
 
       - name: Fetch new match results
-        run: python fetch_league.py competitions/${{ matrix.competition }}.json
+        run: python fetch_league.py "competitions/$COMPETITION.json"
 
       - name: Refit model (Dixon-Coles + Elo)
-        run: python fit_league.py competitions/${{ matrix.competition }}.json
+        run: python fit_league.py "competitions/$COMPETITION.json"
 
       - name: Run season simulation
-        run: python sim_league.py competitions/${{ matrix.competition }}.json
+        run: python sim_league.py "competitions/$COMPETITION.json"
 
       - name: Snapshot pre-match predictions
-        run: python snapshot_league.py competitions/${{ matrix.competition }}.json
+        run: python snapshot_league.py "competitions/$COMPETITION.json"
 
       - name: Score predictions against actual results
-        run: python score_league.py competitions/${{ matrix.competition }}.json
+        run: python score_league.py "competitions/$COMPETITION.json"
 
       - name: Validate prediction snapshot (fails on fabricated/mislabeled locks)
-        run: python validate_snapshot_league.py competitions/${{ matrix.competition }}.json
+        run: python validate_snapshot_league.py "competitions/$COMPETITION.json"
 
       - name: Build standings page
-        run: python build_league_html.py competitions/${{ matrix.competition }}.json
+        run: python build_league_html.py "competitions/$COMPETITION.json"
 
       - name: Commit and push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add competitions/${{ matrix.competition }}/fetched_matches.json \
-                  competitions/${{ matrix.competition }}/schedule.json \
-                  competitions/${{ matrix.competition }}/model_params.json \
-                  competitions/${{ matrix.competition }}/league_sim.json \
-                  competitions/${{ matrix.competition }}/predictions_snapshot.json \
-                  competitions/${{ matrix.competition }}/results_accuracy.json \
-                  competitions/${{ matrix.competition }}/index.html
+          git add "competitions/$COMPETITION/fetched_matches.json" \
+                  "competitions/$COMPETITION/schedule.json" \
+                  "competitions/$COMPETITION/model_params.json" \
+                  "competitions/$COMPETITION/league_sim.json" \
+                  "competitions/$COMPETITION/predictions_snapshot.json" \
+                  "competitions/$COMPETITION/results_accuracy.json" \
+                  "competitions/$COMPETITION/index.html"
           git diff --staged --quiet && echo "No changes to commit." && exit 0
-          git commit -m "Auto-update ${{ matrix.competition }}: $(date +'%Y-%m-%d')"
+          git commit -m "Auto-update $COMPETITION: $(date +'%Y-%m-%d')"
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "Push rejected (attempt $i) — rebasing on latest main and retrying..."
