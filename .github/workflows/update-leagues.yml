@@ -5,8 +5,10 @@ on:
     # Once daily — round-robin league fixtures are known far in advance and
     # don't need the World Cup workflow's 4x/day cadence (that existed for
     # same-day knockout-round snapshot/score updates during live matches).
-    # 21:40 UTC reuses update.yml's first existing cron time exactly.
-    - cron: '40 21 * * *'
+    # 10:40 UTC is deliberately offset from all 4 of update.yml's slots
+    # (21:40/00:20/04:40/18:40 UTC) -- both workflows rebuild the shared
+    # index.html hub page, and same-minute crons hit that race every day.
+    - cron: '40 10 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -98,10 +100,17 @@ jobs:
                   index.html
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update $COMPETITION: $(date +'%Y-%m-%d')"
+          # index.html is also rebuilt independently by update.yml and by sibling
+          # matrix jobs in this same workflow, so a conflict on it is spurious --
+          # auto-resolve with -X ours then rebuild it fresh before pushing again.
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "Push rejected (attempt $i) — rebasing on latest main and retrying..."
-            git pull --rebase --autostash origin main || true
+            git rebase --abort >/dev/null 2>&1 || true
+            git pull --rebase --autostash -X ours origin main || { git rebase --abort >/dev/null 2>&1 || true; git pull --no-rebase --autostash -X ours origin main; }
+            python build_hub_html.py
+            git add index.html
+            git commit --amend --no-edit
           done
           echo "Push failed after 5 attempts." >&2
           exit 1
