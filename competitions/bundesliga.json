@@ -1,0 +1,12 @@
+{
+  "slug": "bundesliga",
+  "name": "Bundesliga",
+  "format": "round_robin",
+  "openfootball_repo": "openfootball/deutschland",
+  "openfootball_files": [
+    {"season": "2026-27", "path": "2026-27/1-bundesliga.txt"},
+    {"season": "2025-26", "path": "2025-26/1-bundesliga.txt"},
+    {"season": "2024-25", "path": "2024-25/1-bundesliga.txt"}
+  ],
+  "team_aliases": {}
+}
