@@ -1,0 +1,2756 @@
+{
+  "FC Bayern M\u00fcnchen|VfB Stuttgart": {
+    "date": "2026-08-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 1"
+  },
+  "RB Leipzig|Borussia M\u00f6nchengladbach": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 1"
+  },
+  "1. FSV Mainz 05|SC Paderborn 07": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 1"
+  },
+  "1. FC Union Berlin|Eintracht Frankfurt": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 1"
+  },
+  "SV 07 Elversberg|Bayer 04 Leverkusen": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 1"
+  },
+  "Borussia Dortmund|Hamburger SV": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 1"
+  },
+  "FC Augsburg|FC Schalke 04": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 1"
+  },
+  "1. FC K\u00f6ln|TSG 1899 Hoffenheim": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 1"
+  },
+  "SC Freiburg|SV Werder Bremen": {
+    "date": "2026-08-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 1"
+  },
+  "SV Werder Bremen|RB Leipzig": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 2"
+  },
+  "Eintracht Frankfurt|FC Augsburg": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 2"
+  },
+  "TSG 1899 Hoffenheim|Borussia Dortmund": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 2"
+  },
+  "Hamburger SV|1. FSV Mainz 05": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 2"
+  },
+  "FC Schalke 04|FC Bayern M\u00fcnchen": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 2"
+  },
+  "Bayer 04 Leverkusen|1. FC Union Berlin": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 2"
+  },
+  "VfB Stuttgart|1. FC K\u00f6ln": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 2"
+  },
+  "Borussia M\u00f6nchengladbach|SV 07 Elversberg": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 2"
+  },
+  "SC Paderborn 07|SC Freiburg": {
+    "date": "2026-09-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 2"
+  },
+  "TSG 1899 Hoffenheim|VfB Stuttgart": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 3"
+  },
+  "Borussia Dortmund|SC Paderborn 07": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 3"
+  },
+  "FC Augsburg|Bayer 04 Leverkusen": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 3"
+  },
+  "1. FC Union Berlin|FC Schalke 04": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 3"
+  },
+  "1. FC K\u00f6ln|SV Werder Bremen": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 3"
+  },
+  "RB Leipzig|Hamburger SV": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 3"
+  },
+  "SV 07 Elversberg|FC Bayern M\u00fcnchen": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 3"
+  },
+  "1. FSV Mainz 05|Eintracht Frankfurt": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 3"
+  },
+  "SC Freiburg|Borussia M\u00f6nchengladbach": {
+    "date": "2026-09-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 3"
+  },
+  "SC Paderborn 07|TSG 1899 Hoffenheim": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 4"
+  },
+  "FC Bayern M\u00fcnchen|1. FC Union Berlin": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 4"
+  },
+  "FC Schalke 04|SV 07 Elversberg": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 4"
+  },
+  "VfB Stuttgart|Borussia Dortmund": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 4"
+  },
+  "Bayer 04 Leverkusen|RB Leipzig": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 4"
+  },
+  "Hamburger SV|1. FC K\u00f6ln": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 4"
+  },
+  "Borussia M\u00f6nchengladbach|1. FSV Mainz 05": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 4"
+  },
+  "SV Werder Bremen|FC Augsburg": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 4"
+  },
+  "Eintracht Frankfurt|SC Freiburg": {
+    "date": "2026-09-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 4"
+  },
+  "1. FSV Mainz 05|Bayer 04 Leverkusen": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 5"
+  },
+  "SC Paderborn 07|VfB Stuttgart": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 5"
+  },
+  "1. FC K\u00f6ln|Borussia M\u00f6nchengladbach": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 5"
+  },
+  "RB Leipzig|Eintracht Frankfurt": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 5"
+  },
+  "SC Freiburg|FC Schalke 04": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 5"
+  },
+  "1. FC Union Berlin|SV 07 Elversberg": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 5"
+  },
+  "TSG 1899 Hoffenheim|Hamburger SV": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 5"
+  },
+  "FC Augsburg|FC Bayern M\u00fcnchen": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 5"
+  },
+  "Borussia Dortmund|SV Werder Bremen": {
+    "date": "2026-10-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 5"
+  },
+  "1. FC Union Berlin|Borussia Dortmund": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 6"
+  },
+  "Hamburger SV|VfB Stuttgart": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 6"
+  },
+  "SV Werder Bremen|SC Paderborn 07": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 6"
+  },
+  "SV 07 Elversberg|FC Augsburg": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 6"
+  },
+  "FC Bayern M\u00fcnchen|RB Leipzig": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 6"
+  },
+  "Borussia M\u00f6nchengladbach|TSG 1899 Hoffenheim": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 6"
+  },
+  "Bayer 04 Leverkusen|SC Freiburg": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 6"
+  },
+  "Eintracht Frankfurt|1. FC K\u00f6ln": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 6"
+  },
+  "FC Schalke 04|1. FSV Mainz 05": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 6"
+  },
+  "1. FSV Mainz 05|SV Werder Bremen": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 7"
+  },
+  "1. FC K\u00f6ln|FC Schalke 04": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 7"
+  },
+  "RB Leipzig|SV 07 Elversberg": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 7"
+  },
+  "VfB Stuttgart|Borussia M\u00f6nchengladbach": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 7"
+  },
+  "SC Paderborn 07|Hamburger SV": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 7"
+  },
+  "TSG 1899 Hoffenheim|Bayer 04 Leverkusen": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 7"
+  },
+  "SC Freiburg|FC Bayern M\u00fcnchen": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 7"
+  },
+  "Borussia Dortmund|Eintracht Frankfurt": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 7"
+  },
+  "FC Augsburg|1. FC Union Berlin": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 7"
+  },
+  "Borussia M\u00f6nchengladbach|SC Paderborn 07": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 8"
+  },
+  "FC Schalke 04|RB Leipzig": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 8"
+  },
+  "1. FC Union Berlin|1. FC K\u00f6ln": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 8"
+  },
+  "FC Augsburg|SC Freiburg": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 8"
+  },
+  "SV Werder Bremen|TSG 1899 Hoffenheim": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 8"
+  },
+  "Eintracht Frankfurt|Hamburger SV": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 8"
+  },
+  "FC Bayern M\u00fcnchen|Borussia Dortmund": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 8"
+  },
+  "SV 07 Elversberg|1. FSV Mainz 05": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 8"
+  },
+  "Bayer 04 Leverkusen|VfB Stuttgart": {
+    "date": "2026-10-31",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 8"
+  },
+  "RB Leipzig|FC Augsburg": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 9"
+  },
+  "VfB Stuttgart|SV Werder Bremen": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 9"
+  },
+  "Borussia Dortmund|SV 07 Elversberg": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 9"
+  },
+  "1. FSV Mainz 05|FC Bayern M\u00fcnchen": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 9"
+  },
+  "Hamburger SV|Borussia M\u00f6nchengladbach": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 9"
+  },
+  "SC Paderborn 07|Eintracht Frankfurt": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 9"
+  },
+  "SC Freiburg|1. FC Union Berlin": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 9"
+  },
+  "1. FC K\u00f6ln|Bayer 04 Leverkusen": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 9"
+  },
+  "TSG 1899 Hoffenheim|FC Schalke 04": {
+    "date": "2026-11-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 9"
+  },
+  "Bayer 04 Leverkusen|SC Paderborn 07": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 10"
+  },
+  "1. FC Union Berlin|RB Leipzig": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 10"
+  },
+  "FC Bayern M\u00fcnchen|1. FC K\u00f6ln": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 10"
+  },
+  "SV 07 Elversberg|SC Freiburg": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 10"
+  },
+  "FC Schalke 04|VfB Stuttgart": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 10"
+  },
+  "Borussia M\u00f6nchengladbach|Borussia Dortmund": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 10"
+  },
+  "SV Werder Bremen|Hamburger SV": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 10"
+  },
+  "FC Augsburg|1. FSV Mainz 05": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 10"
+  },
+  "Eintracht Frankfurt|TSG 1899 Hoffenheim": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 10"
+  },
+  "1. FC K\u00f6ln|SV 07 Elversberg": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 11"
+  },
+  "1. FSV Mainz 05|1. FC Union Berlin": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 11"
+  },
+  "SC Paderborn 07|FC Schalke 04": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 11"
+  },
+  "SV Werder Bremen|Borussia M\u00f6nchengladbach": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 11"
+  },
+  "VfB Stuttgart|Eintracht Frankfurt": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 11"
+  },
+  "TSG 1899 Hoffenheim|FC Augsburg": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 11"
+  },
+  "Borussia Dortmund|Bayer 04 Leverkusen": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 11"
+  },
+  "SC Freiburg|RB Leipzig": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 11"
+  },
+  "Hamburger SV|FC Bayern M\u00fcnchen": {
+    "date": "2026-11-28",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 11"
+  },
+  "1. FC Union Berlin|Hamburger SV": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 12"
+  },
+  "FC Schalke 04|Borussia Dortmund": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 12"
+  },
+  "Bayer 04 Leverkusen|Borussia M\u00f6nchengladbach": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 12"
+  },
+  "Eintracht Frankfurt|SV Werder Bremen": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 12"
+  },
+  "RB Leipzig|1. FSV Mainz 05": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 12"
+  },
+  "SV 07 Elversberg|VfB Stuttgart": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 12"
+  },
+  "SC Freiburg|TSG 1899 Hoffenheim": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 12"
+  },
+  "FC Bayern M\u00fcnchen|SC Paderborn 07": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 12"
+  },
+  "FC Augsburg|1. FC K\u00f6ln": {
+    "date": "2026-12-05",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 12"
+  },
+  "SC Paderborn 07|SV 07 Elversberg": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 13"
+  },
+  "SV Werder Bremen|Bayer 04 Leverkusen": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 13"
+  },
+  "VfB Stuttgart|1. FC Union Berlin": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 13"
+  },
+  "Borussia Dortmund|FC Augsburg": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 13"
+  },
+  "Hamburger SV|FC Schalke 04": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 13"
+  },
+  "1. FSV Mainz 05|SC Freiburg": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 13"
+  },
+  "1. FC K\u00f6ln|RB Leipzig": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 13"
+  },
+  "TSG 1899 Hoffenheim|FC Bayern M\u00fcnchen": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 13"
+  },
+  "Borussia M\u00f6nchengladbach|Eintracht Frankfurt": {
+    "date": "2026-12-12",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 13"
+  },
+  "FC Schalke 04|Borussia M\u00f6nchengladbach": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 14"
+  },
+  "FC Bayern M\u00fcnchen|SV Werder Bremen": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 14"
+  },
+  "SV 07 Elversberg|Hamburger SV": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 14"
+  },
+  "Bayer 04 Leverkusen|Eintracht Frankfurt": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 14"
+  },
+  "SC Freiburg|VfB Stuttgart": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 14"
+  },
+  "RB Leipzig|Borussia Dortmund": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 14"
+  },
+  "1. FSV Mainz 05|1. FC K\u00f6ln": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 14"
+  },
+  "1. FC Union Berlin|TSG 1899 Hoffenheim": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 14"
+  },
+  "FC Augsburg|SC Paderborn 07": {
+    "date": "2026-12-19",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 14"
+  },
+  "VfB Stuttgart|FC Augsburg": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 15"
+  },
+  "Hamburger SV|Bayer 04 Leverkusen": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 15"
+  },
+  "1. FC K\u00f6ln|SC Freiburg": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 15"
+  },
+  "Eintracht Frankfurt|FC Schalke 04": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 15"
+  },
+  "TSG 1899 Hoffenheim|SV 07 Elversberg": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 15"
+  },
+  "Borussia M\u00f6nchengladbach|FC Bayern M\u00fcnchen": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 15"
+  },
+  "Borussia Dortmund|1. FSV Mainz 05": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 15"
+  },
+  "SV Werder Bremen|1. FC Union Berlin": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 15"
+  },
+  "SC Paderborn 07|RB Leipzig": {
+    "date": "2027-01-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 15"
+  },
+  "1. FSV Mainz 05|TSG 1899 Hoffenheim": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 16"
+  },
+  "SC Freiburg|Hamburger SV": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 16"
+  },
+  "FC Schalke 04|SV Werder Bremen": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 16"
+  },
+  "RB Leipzig|VfB Stuttgart": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 16"
+  },
+  "1. FC Union Berlin|SC Paderborn 07": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 16"
+  },
+  "FC Bayern M\u00fcnchen|Bayer 04 Leverkusen": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 16"
+  },
+  "FC Augsburg|Borussia M\u00f6nchengladbach": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 16"
+  },
+  "SV 07 Elversberg|Eintracht Frankfurt": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 16"
+  },
+  "1. FC K\u00f6ln|Borussia Dortmund": {
+    "date": "2027-01-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 16"
+  },
+  "SV Werder Bremen|SV 07 Elversberg": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 17"
+  },
+  "Eintracht Frankfurt|FC Bayern M\u00fcnchen": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 17"
+  },
+  "SC Paderborn 07|1. FC K\u00f6ln": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 17"
+  },
+  "TSG 1899 Hoffenheim|RB Leipzig": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 17"
+  },
+  "Bayer 04 Leverkusen|FC Schalke 04": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 17"
+  },
+  "VfB Stuttgart|1. FSV Mainz 05": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 17"
+  },
+  "Hamburger SV|FC Augsburg": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 17"
+  },
+  "Borussia M\u00f6nchengladbach|1. FC Union Berlin": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 17"
+  },
+  "Borussia Dortmund|SC Freiburg": {
+    "date": "2027-01-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 17"
+  },
+  "SV Werder Bremen|SC Freiburg": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 18"
+  },
+  "Hamburger SV|Borussia Dortmund": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 18"
+  },
+  "SC Paderborn 07|1. FSV Mainz 05": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 18"
+  },
+  "FC Schalke 04|FC Augsburg": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 18"
+  },
+  "TSG 1899 Hoffenheim|1. FC K\u00f6ln": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 18"
+  },
+  "VfB Stuttgart|FC Bayern M\u00fcnchen": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 18"
+  },
+  "Borussia M\u00f6nchengladbach|RB Leipzig": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 18"
+  },
+  "Eintracht Frankfurt|1. FC Union Berlin": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 18"
+  },
+  "Bayer 04 Leverkusen|SV 07 Elversberg": {
+    "date": "2027-01-23",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 18"
+  },
+  "SV 07 Elversberg|Borussia M\u00f6nchengladbach": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 19"
+  },
+  "FC Augsburg|Eintracht Frankfurt": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 19"
+  },
+  "1. FSV Mainz 05|Hamburger SV": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 19"
+  },
+  "RB Leipzig|SV Werder Bremen": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 19"
+  },
+  "1. FC K\u00f6ln|VfB Stuttgart": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 19"
+  },
+  "1. FC Union Berlin|Bayer 04 Leverkusen": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 19"
+  },
+  "SC Freiburg|SC Paderborn 07": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 19"
+  },
+  "Borussia Dortmund|TSG 1899 Hoffenheim": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 19"
+  },
+  "FC Bayern M\u00fcnchen|FC Schalke 04": {
+    "date": "2027-01-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 19"
+  },
+  "Eintracht Frankfurt|1. FSV Mainz 05": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 20"
+  },
+  "Borussia M\u00f6nchengladbach|SC Freiburg": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 20"
+  },
+  "FC Schalke 04|1. FC Union Berlin": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 20"
+  },
+  "Hamburger SV|RB Leipzig": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 20"
+  },
+  "Bayer 04 Leverkusen|FC Augsburg": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 20"
+  },
+  "SV Werder Bremen|1. FC K\u00f6ln": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 20"
+  },
+  "VfB Stuttgart|TSG 1899 Hoffenheim": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 20"
+  },
+  "FC Bayern M\u00fcnchen|SV 07 Elversberg": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 20"
+  },
+  "SC Paderborn 07|Borussia Dortmund": {
+    "date": "2027-02-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 20"
+  },
+  "1. FC K\u00f6ln|Hamburger SV": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 21"
+  },
+  "1. FSV Mainz 05|Borussia M\u00f6nchengladbach": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 21"
+  },
+  "1. FC Union Berlin|FC Bayern M\u00fcnchen": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 21"
+  },
+  "SV 07 Elversberg|FC Schalke 04": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 21"
+  },
+  "Borussia Dortmund|VfB Stuttgart": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 21"
+  },
+  "TSG 1899 Hoffenheim|SC Paderborn 07": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 21"
+  },
+  "SC Freiburg|Eintracht Frankfurt": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 21"
+  },
+  "FC Augsburg|SV Werder Bremen": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 21"
+  },
+  "RB Leipzig|Bayer 04 Leverkusen": {
+    "date": "2027-02-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 21"
+  },
+  "FC Schalke 04|SC Freiburg": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 22"
+  },
+  "VfB Stuttgart|SC Paderborn 07": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 22"
+  },
+  "Borussia M\u00f6nchengladbach|1. FC K\u00f6ln": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 22"
+  },
+  "SV Werder Bremen|Borussia Dortmund": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 22"
+  },
+  "Hamburger SV|TSG 1899 Hoffenheim": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 22"
+  },
+  "Bayer 04 Leverkusen|1. FSV Mainz 05": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 22"
+  },
+  "Eintracht Frankfurt|RB Leipzig": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 22"
+  },
+  "FC Bayern M\u00fcnchen|FC Augsburg": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 22"
+  },
+  "SV 07 Elversberg|1. FC Union Berlin": {
+    "date": "2027-02-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 22"
+  },
+  "VfB Stuttgart|Hamburger SV": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 23"
+  },
+  "1. FC K\u00f6ln|Eintracht Frankfurt": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 23"
+  },
+  "SC Freiburg|Bayer 04 Leverkusen": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 23"
+  },
+  "FC Augsburg|SV 07 Elversberg": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 23"
+  },
+  "1. FSV Mainz 05|FC Schalke 04": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 23"
+  },
+  "TSG 1899 Hoffenheim|Borussia M\u00f6nchengladbach": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 23"
+  },
+  "SC Paderborn 07|SV Werder Bremen": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 23"
+  },
+  "RB Leipzig|FC Bayern M\u00fcnchen": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 23"
+  },
+  "Borussia Dortmund|1. FC Union Berlin": {
+    "date": "2027-02-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 23"
+  },
+  "Eintracht Frankfurt|Borussia Dortmund": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 24"
+  },
+  "FC Schalke 04|1. FC K\u00f6ln": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 24"
+  },
+  "Bayer 04 Leverkusen|TSG 1899 Hoffenheim": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 24"
+  },
+  "FC Bayern M\u00fcnchen|SC Freiburg": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 24"
+  },
+  "SV Werder Bremen|1. FSV Mainz 05": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 24"
+  },
+  "1. FC Union Berlin|FC Augsburg": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 24"
+  },
+  "SV 07 Elversberg|RB Leipzig": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 24"
+  },
+  "Borussia M\u00f6nchengladbach|VfB Stuttgart": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 24"
+  },
+  "Hamburger SV|SC Paderborn 07": {
+    "date": "2027-03-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 24"
+  },
+  "Borussia Dortmund|FC Bayern M\u00fcnchen": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 25"
+  },
+  "SC Freiburg|FC Augsburg": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 25"
+  },
+  "1. FSV Mainz 05|SV 07 Elversberg": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 25"
+  },
+  "Hamburger SV|Eintracht Frankfurt": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 25"
+  },
+  "VfB Stuttgart|Bayer 04 Leverkusen": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 25"
+  },
+  "RB Leipzig|FC Schalke 04": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 25"
+  },
+  "SC Paderborn 07|Borussia M\u00f6nchengladbach": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 25"
+  },
+  "1. FC K\u00f6ln|1. FC Union Berlin": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 25"
+  },
+  "TSG 1899 Hoffenheim|SV Werder Bremen": {
+    "date": "2027-03-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 25"
+  },
+  "1. FC Union Berlin|SC Freiburg": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 26"
+  },
+  "SV 07 Elversberg|Borussia Dortmund": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 26"
+  },
+  "Eintracht Frankfurt|SC Paderborn 07": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 26"
+  },
+  "FC Augsburg|RB Leipzig": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 26"
+  },
+  "Borussia M\u00f6nchengladbach|Hamburger SV": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 26"
+  },
+  "SV Werder Bremen|VfB Stuttgart": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 26"
+  },
+  "FC Schalke 04|TSG 1899 Hoffenheim": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 26"
+  },
+  "FC Bayern M\u00fcnchen|1. FSV Mainz 05": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 26"
+  },
+  "Bayer 04 Leverkusen|1. FC K\u00f6ln": {
+    "date": "2027-03-13",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 26"
+  },
+  "1. FC K\u00f6ln|FC Bayern M\u00fcnchen": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 27"
+  },
+  "TSG 1899 Hoffenheim|Eintracht Frankfurt": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 27"
+  },
+  "Borussia Dortmund|Borussia M\u00f6nchengladbach": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 27"
+  },
+  "1. FSV Mainz 05|FC Augsburg": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 27"
+  },
+  "VfB Stuttgart|FC Schalke 04": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 27"
+  },
+  "RB Leipzig|1. FC Union Berlin": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 27"
+  },
+  "SC Freiburg|SV 07 Elversberg": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 27"
+  },
+  "Hamburger SV|SV Werder Bremen": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 27"
+  },
+  "SC Paderborn 07|Bayer 04 Leverkusen": {
+    "date": "2027-03-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 27"
+  },
+  "RB Leipzig|SC Freiburg": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 28"
+  },
+  "SV 07 Elversberg|1. FC K\u00f6ln": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 28"
+  },
+  "FC Bayern M\u00fcnchen|Hamburger SV": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 28"
+  },
+  "FC Augsburg|TSG 1899 Hoffenheim": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 28"
+  },
+  "Borussia M\u00f6nchengladbach|SV Werder Bremen": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 28"
+  },
+  "Eintracht Frankfurt|VfB Stuttgart": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 28"
+  },
+  "1. FC Union Berlin|1. FSV Mainz 05": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 28"
+  },
+  "Bayer 04 Leverkusen|Borussia Dortmund": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 28"
+  },
+  "FC Schalke 04|SC Paderborn 07": {
+    "date": "2027-04-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 28"
+  },
+  "VfB Stuttgart|SV 07 Elversberg": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 29"
+  },
+  "SC Paderborn 07|FC Bayern M\u00fcnchen": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 29"
+  },
+  "TSG 1899 Hoffenheim|SC Freiburg": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 29"
+  },
+  "1. FSV Mainz 05|RB Leipzig": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 29"
+  },
+  "SV Werder Bremen|Eintracht Frankfurt": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 29"
+  },
+  "Borussia Dortmund|FC Schalke 04": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 29"
+  },
+  "Hamburger SV|1. FC Union Berlin": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 29"
+  },
+  "Borussia M\u00f6nchengladbach|Bayer 04 Leverkusen": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 29"
+  },
+  "1. FC K\u00f6ln|FC Augsburg": {
+    "date": "2027-04-10",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 29"
+  },
+  "Bayer 04 Leverkusen|SV Werder Bremen": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 30"
+  },
+  "Eintracht Frankfurt|Borussia M\u00f6nchengladbach": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 30"
+  },
+  "1. FC Union Berlin|VfB Stuttgart": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 30"
+  },
+  "FC Bayern M\u00fcnchen|TSG 1899 Hoffenheim": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 30"
+  },
+  "FC Schalke 04|Hamburger SV": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 30"
+  },
+  "SV 07 Elversberg|SC Paderborn 07": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 30"
+  },
+  "FC Augsburg|Borussia Dortmund": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 30"
+  },
+  "SC Freiburg|1. FSV Mainz 05": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 30"
+  },
+  "RB Leipzig|1. FC K\u00f6ln": {
+    "date": "2027-04-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 30"
+  },
+  "SV Werder Bremen|FC Bayern M\u00fcnchen": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 31"
+  },
+  "1. FC K\u00f6ln|1. FSV Mainz 05": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 31"
+  },
+  "Hamburger SV|SV 07 Elversberg": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 31"
+  },
+  "Borussia Dortmund|RB Leipzig": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 31"
+  },
+  "TSG 1899 Hoffenheim|1. FC Union Berlin": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 31"
+  },
+  "SC Paderborn 07|FC Augsburg": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 31"
+  },
+  "VfB Stuttgart|SC Freiburg": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 31"
+  },
+  "Borussia M\u00f6nchengladbach|FC Schalke 04": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 31"
+  },
+  "Eintracht Frankfurt|Bayer 04 Leverkusen": {
+    "date": "2027-04-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 31"
+  },
+  "FC Schalke 04|Eintracht Frankfurt": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 32"
+  },
+  "RB Leipzig|SC Paderborn 07": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 32"
+  },
+  "SC Freiburg|1. FC K\u00f6ln": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 32"
+  },
+  "1. FSV Mainz 05|Borussia Dortmund": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 32"
+  },
+  "FC Augsburg|VfB Stuttgart": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 32"
+  },
+  "1. FC Union Berlin|SV Werder Bremen": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 32"
+  },
+  "SV 07 Elversberg|TSG 1899 Hoffenheim": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 32"
+  },
+  "Bayer 04 Leverkusen|Hamburger SV": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 32"
+  },
+  "FC Bayern M\u00fcnchen|Borussia M\u00f6nchengladbach": {
+    "date": "2027-05-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 32"
+  },
+  "Eintracht Frankfurt|SV 07 Elversberg": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "SV 07 Elversberg": null
+    },
+    "round": "Matchday 33"
+  },
+  "SC Paderborn 07|1. FC Union Berlin": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Paderborn 07": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 33"
+  },
+  "VfB Stuttgart|RB Leipzig": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "VfB Stuttgart": null,
+      "RB Leipzig": null
+    },
+    "round": "Matchday 33"
+  },
+  "Borussia Dortmund|1. FC K\u00f6ln": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 33"
+  },
+  "Hamburger SV|SC Freiburg": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "SC Freiburg": null
+    },
+    "round": "Matchday 33"
+  },
+  "Bayer 04 Leverkusen|FC Bayern M\u00fcnchen": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "Bayer 04 Leverkusen": null,
+      "FC Bayern M\u00fcnchen": null
+    },
+    "round": "Matchday 33"
+  },
+  "SV Werder Bremen|FC Schalke 04": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 33"
+  },
+  "Borussia M\u00f6nchengladbach|FC Augsburg": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia M\u00f6nchengladbach": null,
+      "FC Augsburg": null
+    },
+    "round": "Matchday 33"
+  },
+  "TSG 1899 Hoffenheim|1. FSV Mainz 05": {
+    "date": "2027-05-15",
+    "status": "SCHEDULED",
+    "goals": {
+      "TSG 1899 Hoffenheim": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 33"
+  },
+  "RB Leipzig|TSG 1899 Hoffenheim": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "RB Leipzig": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 34"
+  },
+  "1. FC Union Berlin|Borussia M\u00f6nchengladbach": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC Union Berlin": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 34"
+  },
+  "1. FSV Mainz 05|VfB Stuttgart": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FSV Mainz 05": null,
+      "VfB Stuttgart": null
+    },
+    "round": "Matchday 34"
+  },
+  "FC Schalke 04|Bayer 04 Leverkusen": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "Bayer 04 Leverkusen": null
+    },
+    "round": "Matchday 34"
+  },
+  "SV 07 Elversberg|SV Werder Bremen": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV 07 Elversberg": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 34"
+  },
+  "FC Bayern M\u00fcnchen|Eintracht Frankfurt": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 34"
+  },
+  "FC Augsburg|Hamburger SV": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "Hamburger SV": null
+    },
+    "round": "Matchday 34"
+  },
+  "SC Freiburg|Borussia Dortmund": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "Borussia Dortmund": null
+    },
+    "round": "Matchday 34"
+  },
+  "1. FC K\u00f6ln|SC Paderborn 07": {
+    "date": "2027-05-22",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "SC Paderborn 07": null
+    },
+    "round": "Matchday 34"
+  }
+}
