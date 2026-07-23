@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>xSPN &mdash; Predictions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
+header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
+.xspn-logo{background:var(--red);color:#fff;font-size:1.25rem;font-weight:600;letter-spacing:2px;padding:4px 10px;border-radius:3px;flex-shrink:0}
+.xspn-logo span{opacity:.65;font-weight:400}
+.hdr-text h1{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}
+.hdr-text p{color:#888;font-size:.76rem;margin-top:2px}
+.xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.xspn-nav a:hover{color:#fff}
+.xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+main{max-width:900px;margin:0 auto;padding:28px 20px}
+.hub-intro{color:var(--muted);font-size:.9rem;margin-bottom:20px;max-width:640px;line-height:1.5}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.hub-card{display:block;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);
+  border-radius:5px;padding:16px 18px;text-decoration:none;color:var(--text);
+  box-shadow:0 1px 3px rgba(0,0,0,.06);transition:transform .12s,box-shadow .12s}
+.hub-card:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.hub-card-name{font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.hub-card-snapshot{color:var(--muted);font-size:.84rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="xspn-logo">x<span>SPN</span></div>
+  <div class="hdr-text">
+    <h1>Expected Sports Prediction Network</h1>
+    <p>Dixon-Coles &middot; Monte Carlo simulation &middot; statistical predictions</p>
+  </div>
+</header>
+__NAV__
+<main>
+  <div class="hub-intro">Model-driven predictions across football's biggest competitions — Dixon-Coles Poisson modelling with Elo priors and Monte Carlo simulation, scored against real results as they come in.</div>
+  <div class="hub-grid">
+__HUB_CARDS__
+  </div>
+</main>
+</body>
+</html>

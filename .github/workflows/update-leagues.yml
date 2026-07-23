@@ -76,6 +76,14 @@ jobs:
       - name: Build standings page
         run: python build_league_html.py "competitions/$COMPETITION.json"
 
+      - name: Build site-wide hub page
+        # Rebuilds root index.html (every competition's card, including this
+        # one's fresh title-odds snapshot) whenever any competition's data
+        # changes. The WC's own workflow (update.yml) rebuilds the same hub
+        # for the same reason on its own schedule -- whichever last touched
+        # the site keeps the hub current.
+        run: python build_hub_html.py
+
       - name: Commit and push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -86,7 +94,8 @@ jobs:
                   "competitions/$COMPETITION/league_sim.json" \
                   "competitions/$COMPETITION/predictions_snapshot.json" \
                   "competitions/$COMPETITION/results_accuracy.json" \
-                  "competitions/$COMPETITION/index.html"
+                  "competitions/$COMPETITION/index.html" \
+                  index.html
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update $COMPETITION: $(date +'%Y-%m-%d')"
           for i in 1 2 3 4 5; do

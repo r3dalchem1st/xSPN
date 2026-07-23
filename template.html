@@ -16,26 +16,18 @@ header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;
 .hdr-text h1{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}
 .hdr-text p{color:#888;font-size:.76rem;margin-top:2px}
 .updated{font-size:.7rem;color:#555;margin-top:1px}
+.xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.xspn-nav a:hover{color:#fff}
+.xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
 .tabs{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto;position:sticky;top:0;z-index:10}
 .tab{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
 .tab:hover{color:#fff}.tab.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
 .pane{display:none;padding:20px;max-width:1100px;margin:0 auto}.pane.active{display:block}
 table{width:100%;border-collapse:collapse}
 th{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:left;border-bottom:2px solid var(--border);position:sticky;top:42px}
-.group-card th{position:static;top:auto}
 td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem}
 tr:hover td{background:#fafafa}
-.bar-bg{background:#e8e8e8;border-radius:3px;height:7px;width:110px}
-.bar-fill{height:100%;border-radius:3px;background:var(--red)}
-.pct-high{color:#cc0000;font-weight:600}.pct-mid{color:#e07000;font-weight:600}.pct-low{color:var(--hint)}
-.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
-.group-card{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.group-hdr{background:var(--dark);padding:7px 12px;font-weight:600;color:#fff;letter-spacing:1.5px;font-size:.82rem;display:flex;align-items:center;gap:7px}
-.group-hdr::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
-.match-row{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-bottom:1px solid var(--border);font-size:.8rem;gap:4px}
-.t{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.t.r{text-align:right}
-.sc{background:var(--dark);color:#fff;padding:2px 7px;border-radius:2px;font-weight:600;font-size:.82rem;min-width:34px;text-align:center}
-.odds{font-size:.7rem;color:var(--hint);text-align:center;padding:1px 10px 5px}
 .bracket-wrap{overflow-x:auto}.bracket{display:flex;gap:0;min-width:860px}
 .br-col{display:flex;flex-direction:column;flex:1;padding:0 5px}
 .br-title{text-align:center;font-size:.7rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.8px;padding:6px 0;background:var(--red);border-radius:3px;margin-bottom:8px}
@@ -44,14 +36,6 @@ tr:hover td{background:#fafafa}
 .bm-t{display:flex;align-items:center;gap:3px;padding:2px 0}
 .bm-t.win{color:var(--dark);font-weight:600}.bm-t.lose{color:var(--hint)}
 .bm-sc{margin-left:auto;font-weight:600}.bm-pct{font-size:.68rem;color:var(--hint);text-align:center;padding-top:2px}
-.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.fb{padding:4px 12px;border-radius:3px;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;font-size:.78rem;font-family:'Barlow',sans-serif;transition:all .12s}
-.fb.active{background:var(--red);color:#fff;border-color:var(--red)}
-.sbadge{display:inline-block;padding:1px 6px;border-radius:2px;font-size:.68rem;font-weight:600}
-.sb-g{background:#e8f0fb;color:#1a56a0}.sb-r32{background:#e8f5e9;color:#2e7d32}
-.sb-r16{background:#f3e8fd;color:#6b21a8}.sb-qf{background:#fff3e0;color:#b35900}
-.sb-sf{background:#ffebee;color:#c62828}.sb-f{background:#1a1a1a;color:#fff}
-.sb-3{background:#e0f7fa;color:#00838f}.win-cell{color:var(--red);font-weight:600}
 .podium-wrap{max-width:560px;margin:0 auto}
 .pod-stage{display:flex;align-items:flex-end;justify-content:center;gap:6px;margin:24px 0 16px}
 .pod{text-align:center;display:flex;flex-direction:column;align-items:center}
@@ -79,230 +63,28 @@ tr:hover td{background:#fafafa}
     <p class="updated">Last updated: __UPDATED__</p>
   </div>
 </header>
+__NAV__
 <div class="tabs">
   <div class="tab active" onclick="show('results')">Results</div>
-  <div class="tab" onclick="show('groups')">Groups</div>
-  <div class="tab" onclick="show('matches')">All 104 Matches</div>
   <div class="tab" onclick="show('bracket')">Bracket</div>
-  <div class="tab" onclick="show('win')">Title Odds</div>
   <div class="tab" onclick="show('podium')">Podium</div>
 </div>
 <div id="tab-results" class="pane active"></div>
-<div id="tab-groups" class="pane"></div>
-<div id="tab-matches" class="pane"></div>
 <div id="tab-bracket" class="pane"></div>
-<div id="tab-win" class="pane"></div>
 <div id="tab-podium" class="pane"></div>
 <script>
 const R=__RESULTS__;
 const B=__BRACKET__;
-const ELO=__ELO__;
-const SQ=__SQUAD__;
 const FL=__FLAGS__;
-const GR=__GROUPS__;
 const AC=__ACCURACY__;
-const WH=__WINHIST__;
-const SCH=__SCHEDULE__;
-const INJ=__INJURIES__;   // team -> {total_m, players[]} factored into squad value
-const CARDS=__CARDS__;    // sorted-pair -> {YC:{team:n}, RC:{team:n}} from played games
-// Compact red note under an affected team's name (nothing if no injuries logged).
-function injNote(t){
-  const x=INJ[t]; if(!x) return '';
-  return `<div style="font-size:.66rem;color:#cc0000;font-weight:500" title="Unavailable players, subtracted from squad value">&minus;&euro;${x.total_m}M out: ${x.players.join(', ')}</div>`;
-}
-// Knockout matchups are predicted (no real fixture yet), so spread each round's
-// matches by bracket index across that round's REAL calendar window
-// [start, span days] rather than stamping every match in the round one date.
-const ROUND_WIN={r32:['2026-06-28',6],r16:['2026-07-04',4],qf:['2026-07-09',3],sf:['2026-07-14',2],'3rd':['2026-07-18',1],final:['2026-07-19',1]};
-function addDays(iso,n){const d=new Date(iso+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
-function koDate(sk,i,n){const w=ROUND_WIN[sk];if(!w)return null;const off=n<=1?0:Math.min(w[1]-1,Math.floor(i*w[1]/n));return addDays(w[0],off);}
-const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-function fmtDate(d){if(!d)return'';const p=d.split('-');return p.length===3?MON[+p[1]-1]+' '+(+p[2]):d;}
-// Tiny inline SVG sparkline of a team's daily win% (returns '' if <2 days yet).
-function spark(team){
-  const s=WH[team]; if(!s||s.length<2) return '';
-  const w=46,h=14,mx=Math.max(...s),mn=Math.min(...s),rng=(mx-mn)||1;
-  const pts=s.map((v,i)=>`${(i/(s.length-1)*w).toFixed(1)},${(h-((v-mn)/rng)*h).toFixed(1)}`).join(' ');
-  const up=s[s.length-1]>=s[0], col=up?'#1a8a1a':'#cc0000';
-  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="vertical-align:middle"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.3"/></svg>`;
-}
 function fi(cc){return cc?'https://flagcdn.com/20x15/'+cc+'.png':''}
 function ft(t){const c=FL[t];return c?`<img src="${fi(c)}" style="vertical-align:middle;margin-right:4px;border-radius:1px"> ${t}`:t}
 const NODATA='<div style="padding:40px;text-align:center;color:var(--hint);font-size:.9rem">Data unavailable.</div>';
 function show(n){
-  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','groups','matches','bracket','win','podium'][i]===n));
+  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','bracket','podium'][i]===n));
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+n).classList.add('active');
 }
-(function(){
-  if(!Object.keys(R).length){document.getElementById('tab-win').innerHTML=NODATA;return;}
-  const ranked=Object.entries(R).sort((a,b)=>b[1].win-a[1].win);
-  // Only show teams still in the tournament; eliminated teams have win=0 after
-  // the sim conditions on actual KO results.
-  const active=ranked.filter(([t,r])=>r.win>0);
-  const elim=ranked.length-active.length;
-  const mx=active.length?active[0][1].win:1;
-  const note=`<div style="font-size:.78rem;color:var(--muted);background:var(--card);border-radius:6px;padding:10px 14px;margin-bottom:10px;line-height:1.5">
-    <strong>This is NOT a single predicted winner.</strong> Win% is each team&rsquo;s title probability
-    <em>averaged across 75,000 simulated tournaments</em> &mdash; every possible draw, upset, and bracket
-    path, all blended together. The <strong>Bracket</strong> and <strong>Podium</strong> tabs show one
-    specific outcome instead: the single most-likely path if the favorite wins every match. These two
-    views can name <em>different champions</em>, and both are correct: a team can top this table by being
-    a strong bet across many possible tournaments, while still losing in the one specific path where every
-    favorite wins &mdash; for example if that path happens to pit them against another top team in the
-    final. <strong>For "who does the model predict will win," use the Bracket/Podium tabs, not the top row here.</strong>
-    ${elim?`<br><span style="color:var(--hint)">${elim} eliminated team${elim===1?'':'s'} hidden (0% odds).</span>`:''}
-  </div>`;
-  let h=note+`<table><thead><tr><th>#</th><th>Team</th><th title="Title odds (90% range across model variants below)">Win%</th><th title="Change in win % vs the previous day">1d &Delta;</th><th></th><th title="10-day win% trend">Trend</th><th>Final%</th><th>SF%</th><th>QF%</th><th>Elo</th><th>Squad</th></tr></thead><tbody>`;
-  active.forEach(([t,r],i)=>{
-    const m=i===0?'&#129351;':i===1?'&#129352;':i===2?'&#129353;':'';
-    const bw=(r.win/mx*100).toFixed(1);
-    const pc=r.win>=0.15?'pct-high':r.win>=0.05?'pct-mid':'pct-low';
-    const d=r.win_delta;
-    let dcell='<span style="color:var(--hint)">&mdash;</span>';
-    if(d!==null&&d!==undefined){
-      const dp=d*100;
-      if(Math.abs(dp)<0.05) dcell='<span style="color:var(--hint)">&plusmn;0.0</span>';
-      else if(dp>0) dcell=`<span style="color:#1a8a1a;font-weight:600">&#9650;${dp.toFixed(1)}</span>`;
-      else dcell=`<span style="color:#cc0000;font-weight:600">&#9660;${Math.abs(dp).toFixed(1)}</span>`;
-    }
-    const band=(r.win_hi!=null&&r.win_hi>r.win_lo)?`<div style="font-size:.66rem;color:var(--hint);font-weight:400">${(r.win_lo*100).toFixed(0)}&ndash;${(r.win_hi*100).toFixed(0)}%</div>`:'';
-    h+=`<tr><td style="color:var(--hint);font-size:.8rem">${i+1}</td><td>${ft(t)} ${m}${injNote(t)}</td>
-    <td><strong class="${pc}">${(r.win*100).toFixed(1)}%</strong>${band}</td>
-    <td style="font-size:.8rem;white-space:nowrap">${dcell}</td>
-    <td><div class="bar-bg"><div class="bar-fill" style="width:${bw}%"></div></div></td>
-    <td>${spark(t)}</td>
-    <td>${(r.final*100).toFixed(1)}%</td><td>${(r.sf*100).toFixed(1)}%</td><td>${(r.qf*100).toFixed(1)}%</td>
-    <td style="color:var(--hint)">${Math.round(ELO[t]||1500)}</td><td style="color:var(--hint)">&euro;${SQ[t]||0}M</td></tr>`;
-  });
-  document.getElementById('tab-win').innerHTML=h+'</tbody></table>';
-})();
-(function(){
-  if(!B.group_predictions){document.getElementById('tab-groups').innerHTML=NODATA;return;}
-  function played(m){const s=SCH[[m.home,m.away].sort().join('|')];const g=s&&s.goals;
-    return (s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null)?[g[m.home],g[m.away]]:null;}
-  // ACTUAL standings: only games already played count toward points/W-D-L/goals —
-  // no predicted/expected points (unplayed fixtures contribute nothing). GF/GA/GD
-  // from real scores; yellow/red cards from CARDS (booking data, when available).
-  function computeStandings(teams,ms){
-    const S={};const RES={};
-    teams.forEach(t=>{S[t]={pts:0,w:0,d:0,l:0,pld:0,gf:0,ga:0,yc:0,rc:0};});
-    ms.forEach(m=>{
-      const r=played(m); if(!r)return;
-      const[hg,ag]=r,H=S[m.home],A=S[m.away];
-      H.pld++;A.pld++;H.gf+=hg;H.ga+=ag;A.gf+=ag;A.ga+=hg;
-      RES[m.home+'|'+m.away]=[hg,ag];
-      if(hg>ag){H.pts+=3;H.w++;A.l++;}
-      else if(hg<ag){A.pts+=3;A.w++;H.l++;}
-      else{H.pts++;A.pts++;H.d++;A.d++;}
-      const c=CARDS[[m.home,m.away].sort().join('|')];
-      if(c){const yc=c.YC||{},rc=c.RC||{};
-        H.yc+=yc[m.home]||0;A.yc+=yc[m.away]||0;H.rc+=rc[m.home]||0;A.rc+=rc[m.away]||0;}
-    });
-    const rows=teams.map(t=>({t,...S[t],gd:S[t].gf-S[t].ga}));
-    rows.sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf);
-    // Head-to-head tiebreaker within clusters tied on pts/gd/gf (FIFA 2026 rules 4-6)
-    function h2hSort(cl){
-      if(cl.length<2)return cl;
-      const cs=new Set(cl.map(r=>r.t));
-      const hp={},hd={},hf={};
-      cl.forEach(r=>{hp[r.t]=0;hd[r.t]=0;hf[r.t]=0;});
-      Object.entries(RES).forEach(([k,[hg,ag]])=>{
-        const[h,a]=k.split('|');
-        if(!cs.has(h)||!cs.has(a))return;
-        hf[h]+=hg;hf[a]+=ag;hd[h]+=hg-ag;hd[a]+=ag-hg;
-        if(hg>ag)hp[h]+=3;else if(hg<ag)hp[a]+=3;else{hp[h]++;hp[a]++;}
-      });
-      const sorted=[...cl].sort((a,b)=>hp[b.t]-hp[a.t]||hd[b.t]-hd[a.t]||hf[b.t]-hf[a.t]);
-      // Recursively break remaining sub-ties; if the whole cluster is still equal
-      // (circular H2H) there is no further resolution under FIFA rules — leave as-is.
-      const out=[];let i=0;
-      while(i<sorted.length){
-        let j=i+1;
-        while(j<sorted.length&&hp[sorted[j].t]===hp[sorted[i].t]&&hd[sorted[j].t]===hd[sorted[i].t]&&hf[sorted[j].t]===hf[sorted[i].t])j++;
-        const sub=sorted.slice(i,j);
-        // sub.length<cl.length guarantees progress — circular ties fall through as-is
-        out.push(...(sub.length>1&&sub.length<cl.length?h2hSort(sub):sub));
-        i=j;
-      }
-      return out;
-    }
-    const out=[];let i=0;
-    while(i<rows.length){
-      let j=i+1;
-      while(j<rows.length&&rows[j].pts===rows[i].pts&&rows[j].gd===rows[i].gd&&rows[j].gf===rows[i].gf)j++;
-      out.push(...h2hSort(rows.slice(i,j)));
-      i=j;
-    }
-    return out;
-  }
-  let h='<div style="max-width:780px;margin:0 auto 14px;font-size:.76rem;color:var(--muted);line-height:1.5">'
-    +'<strong>Standings</strong> reflect <strong>actual results only</strong> — points, W-D-L, goals (GF/GA/GD) and cards (YC/RC) are tallied from games already played (greyed below); fixtures still to come do not count. <em>Pld</em> = games played. '
-    +'The predicted winner is each match’s single most-likely result; a draw is rarely any one game’s most-likely outcome even though ~30% of games end level, so look to the draw % in the odds for that.</div>'
-    +'<div class="groups-grid">';
-  Object.entries(GR).forEach(([g,teams])=>{
-    const ms=B.group_predictions[g]||[];
-    h+=`<div class="group-card"><div class="group-hdr">GROUP ${g}</div>`;
-    const st=computeStandings(teams,ms);
-    h+=`<table style="width:100%;border-collapse:collapse;font-size:.76rem">
-      <thead><tr style="background:#f5f5f5">
-        <th style="padding:5px 8px;text-align:left;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">Team</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Games already played (real)">Pld</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">W</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">D</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)">L</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Goals for">GF</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Goals against">GA</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Goal difference">GD</th>
-        <th style="padding:5px 6px;text-align:center;color:var(--red);font-weight:700;font-size:.7rem;border-bottom:1px solid var(--border)">Pts</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Yellow cards">🟨</th>
-        <th style="padding:5px 4px;text-align:center;color:var(--muted);font-weight:600;font-size:.7rem;border-bottom:1px solid var(--border)" title="Red cards">🟥</th>
-      </tr></thead><tbody>`;
-    st.forEach((row,i)=>{
-      const ql=i<2?'3px solid var(--red)':'3px solid transparent';
-      const gd=(row.gd>0?'+':'')+row.gd;
-      h+=`<tr style="border-left:${ql};border-bottom:1px solid var(--border)">
-        <td style="padding:4px 8px">${ft(row.t)}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.pld}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.w}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.d}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.l}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.gf}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${row.ga}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--muted)">${gd}</td>
-        <td style="padding:4px 6px;text-align:center;font-weight:700;color:${i<2?'var(--red)':'var(--text)'}">${row.pts}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.yc||0}</td>
-        <td style="padding:4px 4px;text-align:center;color:var(--hint)">${row.rc||0}</td>
-      </tr>`;
-    });
-    h+='</tbody></table><div style="border-top:2px solid var(--border);padding-top:4px">';
-    ms.forEach(m=>{
-      const r=played(m);
-      if(r){   // CONCLUDED game — greyed, real score, real winner bolded (no odds)
-        const[hg,ag]=r;
-        h+=`<div class="match-row" style="opacity:.5">
-          <span class="t" style="${hg>ag?'font-weight:700':''}">${ft(m.home)}</span>
-          <span class="sc" title="Full-time result">${hg}–${ag}</span>
-          <span class="t r" style="${ag>hg?'font-weight:700':''}">${ft(m.away)}</span></div>`;
-        return;
-      }
-      // UPCOMING game — prediction (white) + odds. Winner = argmax(H/D/A), so the
-      // bolded team is always the one leading the odds beside it (draws are rare).
-      const hw=(m.ph*100).toFixed(0),dw=(m.pd*100).toFixed(0),aw=(m.pa*100).toFixed(0);
-      const win=m.winner||m.likely_winner;
-      const isH=win===m.home, isA=win===m.away;
-      h+=`<div class="match-row">
-        <span class="t" style="${isH?'color:var(--red);font-weight:600':''}">${ft(m.home)}</span>
-        <span class="sc">${m.score}</span>
-        <span class="t r" style="${isA?'color:var(--red);font-weight:600':''}">${ft(m.away)}</span></div>
-      <div class="odds"><span style="color:var(--win)">${hw}%</span> &middot;
-        <span style="color:var(--draw)">${dw}%</span> &middot;
-        <span style="color:var(--lose)">${aw}%</span></div>`;
-    });
-    h+='</div></div>';
-  });
-  document.getElementById('tab-groups').innerHTML=h+'</div>';
-})();
 (function(){
   if(!B.final||!B.group_predictions){document.getElementById('tab-bracket').innerHTML=NODATA;return;}
   function bm(m){
@@ -326,92 +108,6 @@ function show(n){
     <strong>How to read this:</strong> the bracket shows the single <em>most-likely path</em> — at each match the favourite advances. Because co-favourites drawn into the same half meet before the final, a strong team can exit early even with high title odds, so the shown final isn't always the two best teams overall.
     ${top?'<div style="margin-top:6px"><strong>Most likely finalists</strong> (chance of reaching the final): '+top+'</div>':''}</div>`;
   document.getElementById('tab-bracket').innerHTML=h+'</div></div>'+legend;
-})();
-(function(){
-  if(!B.group_predictions){document.getElementById('tab-matches').innerHTML=NODATA;return;}
-  // Once a match is played its prediction FREEZES to the locked pre-match snapshot
-  // (from the Results data) — we never re-predict a completed game with today's model.
-  const frozen={};
-  (AC.matches||[]).forEach(x=>{frozen[[x.home,x.away].sort().join('|')]=
-    {score:x.predicted_score,winner:x.predicted_winner,ph:x.ph,pd:x.pd,pa:x.pa};});
-  const all=[];
-  Object.entries(B.group_predictions).forEach(([g,ms])=>ms.forEach(m=>all.push({...m,stage:'Group '+g,sk:'group',badge:'sb-g'})));
-  [{k:'r32',l:'R32',b:'sb-r32'},{k:'r16',l:'R16',b:'sb-r16'},{k:'qf',l:'QF',b:'sb-qf'},{k:'sf',l:'SF',b:'sb-sf'}]
-    .forEach(({k,l,b})=>{const arr=B[k]||[];arr.forEach((m,i)=>all.push({...m,stage:l,sk:k,badge:b,_ko:koDate(k,i,arr.length)}));});
-  all.push({...B.final,stage:'Final',sk:'final',badge:'sb-f',_ko:koDate('final',0,1)});
-  all.push({...B.third_place,stage:'3rd Place',sk:'3rd',badge:'sb-3',_ko:koDate('3rd',0,1)});
-  // Attach real fixture date + actual result (keyed by sorted team pair) from SCH;
-  // knockout predicted matchups fall back to a per-round ordering date.
-  const GROUP_FALLBACK='2026-06-27';   // keep date-less group games in the group block
-  all.forEach(m=>{
-    const s=SCH[[m.home,m.away].sort().join('|')];
-    // For KO matches, only treat a SCH entry as a real KO result if its date falls
-    // in the KO window (≥ 2026-06-28). Without this guard a predicted QF/SF rematch
-    // between two group-stage opponents (e.g. Brazil vs Morocco, both Group C) picks
-    // up their group-stage fixture date and score instead of the KO match.
-    const _ko_match=m.sk!=='group';
-    const _use_s=s&&(!_ko_match||s.date>='2026-06-28');
-    const real=_use_s&&s.date;
-    m._date=real||(_ko_match?m._ko:null);                             // shown date (local match-day)
-    // Sort by the real kickoff instant (full UTC timestamp) when known, so same-day
-    // matches order by actual time-of-day rather than array position; falls back to
-    // the calendar-date-only ordering when no timestamp is available yet.
-    m._sort=(_use_s&&s.utc)||real||(m.sk==='group'?GROUP_FALLBACK:m._ko)||'9999-99-99';
-    const g=_use_s&&s.goals;
-    const pw=_use_s&&s.pen_winner;
-    const ps=_use_s&&s.pen_scores;
-    const _fin=_use_s&&s.status==='FINISHED'&&g&&g[m.home]!=null&&g[m.away]!=null;
-    m._result=_fin?(ps&&ps[m.home]!=null?`${g[m.home]}(${ps[m.home]})–${g[m.away]}(${ps[m.away]})`:`${g[m.home]}–${g[m.away]}`):null;
-    m._pen_winner=pw||null;
-    m._actual_winner=_fin&&g?(g[m.home]>g[m.away]?m.home:g[m.away]>g[m.home]?m.away:pw||null):null;
-  });
-  all.sort((a,b)=>String(a._sort).localeCompare(String(b._sort)));
-  window._AM=all;
-  function rowHtml(m){
-    const fz=m._result?frozen[[m.home,m.away].sort().join('|')]:null;   // frozen once played
-    const score=fz?fz.score:m.score;
-    const w=fz?fz.winner:(m.winner||m.likely_winner);
-    const ph=fz&&fz.ph!=null?fz.ph:m.ph, pd=fz&&fz.pd!=null?fz.pd:m.pd, pa=fz&&fz.pa!=null?fz.pa:m.pa;
-    const pct=(fz==null&&m.win_pct!=null)?m.win_pct+'%':(ph!=null?`${(ph*100).toFixed(0)}/${(pd*100).toFixed(0)}/${(pa*100).toFixed(0)}%`:'');
-    const conf=ph!=null?Math.max(ph,pd??0,pa??0):0;
-    const confBin=conf>=0.75?'75%+':conf>=0.65?'65–75%':conf>=0.55?'55–65%':conf>=0.45?'45–55%':conf>0?'34–45%':'';
-    const confClr=conf>=0.75?'var(--win)':conf>=0.65?'#b35900':conf>=0.55?'var(--draw)':'var(--hint)';
-    return`<tr><td style="color:var(--hint);font-size:.74rem;white-space:nowrap">${fmtDate(m._date)}</td>
-      <td><span class="sbadge ${m.badge}">${m.stage}</span></td>
-      <td>${ft(m.home)}</td><td style="text-align:center;color:var(--hint)">${score}</td>
-      <td>${ft(m.away)}</td>
-      <td class="win-cell">${ft(w)}</td>
-      <td style="color:var(--hint);font-size:.76rem">${pct}</td>
-      <td style="font-size:.74rem;font-weight:600;color:${confClr}">${confBin}</td></tr>`;
-  }
-  window._rowHtml=rowHtml;
-  // Already-played matches are collapsed behind an expandable divider row, so the
-  // table opens on the upcoming fixtures. Filter buttons + the toggle re-draw here.
-  let curFilter='all', showPlayed=false;
-  function draw(){
-    const arr=curFilter==='all'?all:all.filter(m=>curFilter==='group'?m.sk==='group':m.sk===curFilter);
-    const played=arr.filter(m=>m._result), upcoming=arr.filter(m=>!m._result);
-    let rows='';
-    if(played.length){
-      rows+=`<tr class="played-toggle" onclick="_togglePlayed()"><td colspan="8" style="cursor:pointer;background:#efefef;color:var(--muted);font-weight:600;font-size:.8rem;padding:9px 12px">`
-        +`${showPlayed?'&#9662;':'&#9656;'} ${played.length} completed match${played.length===1?'':'es'} &mdash; tap to ${showPlayed?'hide':'show'}</td></tr>`;
-      if(showPlayed) rows+=played.map(rowHtml).join('');
-    }
-    rows+=upcoming.map(rowHtml).join('');
-    document.getElementById('mrows').innerHTML=rows||`<tr><td colspan="8" style="padding:24px;text-align:center;color:var(--hint)">No matches.</td></tr>`;
-  }
-  window._togglePlayed=function(){showPlayed=!showPlayed; draw();};
-  window.filt=function(f,btn){
-    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
-    curFilter=f; draw();
-  };
-  document.getElementById('tab-matches').innerHTML=
-    '<div class="filter-row">'+['all','group','r32','r16','qf','sf','final'].map((f,i)=>
-      `<button class="fb${i===0?' active':''}" onclick="filt('${f}',this)">${['All 104','Groups','R32','R16','QF','SF','Final'][i]}</button>`
-    ).join('')+'</div>'+
-    `<table><thead><tr><th>Date</th><th>Stage</th><th>Home</th><th>Pred</th><th>Away</th><th>Favored</th><th>Odds</th><th>Conf</th></tr></thead>
-    <tbody id="mrows"></tbody></table>`;
-  draw();
 })();
 (function(){
   if(!Object.keys(R).length||!B.final||!B.third_place||B.final.winner==='TBD'){

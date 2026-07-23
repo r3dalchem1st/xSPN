@@ -1,0 +1,59 @@
+import json
+import os
+
+from render_nav import nav_entries, render_nav_html
+
+
+def _make_competitions_dir(tmp_path, configs):
+    comp_dir = tmp_path / "competitions"
+    comp_dir.mkdir()
+    for slug, name in configs.items():
+        (comp_dir / f"{slug}.json").write_text(json.dumps({
+            "slug": slug, "name": name, "format": "round_robin",
+            "openfootball_repo": "openfootball/example",
+            "openfootball_files": [{"season": "2026-27", "path": "x.txt"}],
+            "team_aliases": {},
+        }))
+
+
+def test_nav_entries_includes_hub_and_world_cup_first():
+    entries = nav_entries(os.path.dirname(os.path.abspath(__file__)) + "/..", active=None)
+    assert entries[0]["label"] == "xSPN"
+    assert entries[1]["label"] == "World Cup 2026"
+
+
+def test_nav_entries_discovers_competitions_dynamically(tmp_path):
+    _make_competitions_dir(tmp_path, {"premier_league": "Premier League", "bundesliga": "Bundesliga"})
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries]
+    assert "Premier League" in labels
+    assert "Bundesliga" in labels
+    # discovered slugs come after the two fixed entries, alphabetically
+    assert labels[2:] == sorted(labels[2:])
+
+
+def test_nav_entries_marks_the_active_page(tmp_path):
+    _make_competitions_dir(tmp_path, {"premier_league": "Premier League"})
+    entries = nav_entries(str(tmp_path), active="premier_league")
+    active = [e for e in entries if e["active"]]
+    assert len(active) == 1
+    assert active[0]["label"] == "Premier League"
+
+
+def test_nav_entries_falls_back_to_slug_on_malformed_config(tmp_path):
+    comp_dir = tmp_path / "competitions"
+    comp_dir.mkdir()
+    (comp_dir / "broken_league.json").write_text("not valid json {{{")
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries]
+    assert "broken_league" in labels  # falls back to the slug, doesn't crash
+
+
+def test_render_nav_html_marks_active_entry_and_links_every_entry():
+    entries = [
+        {"label": "xSPN", "href": "/xSPN/", "active": True},
+        {"label": "World Cup 2026", "href": "/xSPN/competitions/world_cup_2026/", "active": False},
+    ]
+    html = render_nav_html(entries)
+    assert '<a href="/xSPN/" class="active">xSPN</a>' in html
+    assert '<a href="/xSPN/competitions/world_cup_2026/">World Cup 2026</a>' in html
