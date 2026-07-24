@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--win:#2e7d32}
+:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--hint:#999;--win:#2e7d32;--lose:#c62828}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
 header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
@@ -19,9 +19,16 @@ header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;
 .xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
 .xspn-nav a:hover{color:#fff}
 .xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
-main{max-width:900px;margin:0 auto;padding:28px 20px}
-.subtitle{color:var(--muted);font-size:.84rem;margin-bottom:18px}
-.standings-card{background:var(--card);border:1px solid var(--border);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.tabs{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.tab{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.tab:hover{color:#fff}
+.tab.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+.pane{display:none;padding:20px;max-width:1000px;margin:0 auto}
+.pane.active{display:block}
+.season-note{color:var(--muted);font-size:.84rem;margin-bottom:16px}
+.champ-line{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.champ-line strong{color:var(--red)}
+.empty-note{padding:24px;text-align:center;color:var(--hint);font-size:.88rem}
 table{width:100%;border-collapse:collapse}
 th{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:center;border-bottom:2px solid var(--border)}
 th:nth-child(2){text-align:left}
@@ -29,11 +36,35 @@ td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem;text-
 td:nth-child(2){text-align:left;font-weight:600}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:#fafafa}
-tbody tr:nth-child(-n+4) td:nth-child(2){border-left:3px solid var(--win)}
-tbody tr:nth-last-child(-n+3) td:nth-child(2){border-left:3px solid var(--red)}
+.standings-card,.results-card{background:var(--card);border:1px solid var(--border);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.standings-card tbody tr:nth-child(-n+4) td:nth-child(2){border-left:3px solid var(--win)}
+.standings-card tbody tr:nth-last-child(-n+3) td:nth-child(2){border-left:3px solid var(--red)}
 .odds{font-weight:600}
 .legend{margin-top:12px;font-size:.76rem;color:var(--muted)}
 .swatch{display:inline-block;width:10px;height:10px;margin-right:4px;border-radius:2px}
+.acc-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.acc-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 16px;min-width:130px}
+.acc-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.acc-val{font-size:1.35rem;font-weight:700;color:var(--red);margin:3px 0}
+.acc-sub{font-size:.74rem;color:var(--hint)}
+.res-ok{color:var(--win);font-weight:700}
+.res-err{color:var(--lose);font-weight:700}
+.hint{color:var(--hint) !important}
+.center{text-align:center}
+.strong{font-weight:700}
+.results-card td:nth-child(2){font-weight:400}
+.bracket-wrap{overflow-x:auto}
+.bracket{display:flex;gap:0;min-width:860px}
+.br-col{display:flex;flex-direction:column;flex:1;padding:0 5px;min-width:130px}
+.br-title{text-align:center;font-size:.7rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.8px;padding:6px 0;background:var(--red);border-radius:3px;margin-bottom:8px}
+.br-matches{display:flex;flex-direction:column;gap:4px}
+.bm{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:5px 7px;font-size:.75rem}
+.bm-date{font-size:.66rem;color:var(--hint);margin-bottom:2px}
+.bm-t{display:flex;align-items:center;gap:3px;padding:2px 0}
+.bm-t.win{color:var(--dark);font-weight:600}
+.bm-t.lose{color:var(--hint)}
+.bm-sc{margin-left:auto;font-weight:600}
+.bm-pct{font-size:.68rem;color:var(--muted);padding-top:2px}
 </style>
 </head>
 <body>
@@ -45,8 +76,485 @@ tbody tr:nth-last-child(-n+3) td:nth-child(2){border-left:3px solid var(--red)}
   </div>
 </header>
 <nav class="xspn-nav"><a href="/xSPN/">xSPN</a><a href="/xSPN/competitions/world_cup_2026/">World Cup 2026</a><a href="/xSPN/competitions/bundesliga/">Bundesliga</a><a href="/xSPN/competitions/la_liga/">La Liga</a><a href="/xSPN/competitions/premier_league/" class="active">Premier League</a></nav>
-<main>
-  <div class="subtitle">xSPN model projections — generated 2026-07-24 &middot; 10000 simulated seasons</div>
+<div class="tabs">
+  <div class="tab active" onclick="show('results')">Results</div>
+  <div class="tab" onclick="show('bracket')">Bracket</div>
+  <div class="tab" onclick="show('podium')">Podium</div>
+</div>
+<div id="tab-results" class="pane active">
+  <div class="season-note">Season runs 21 Aug 2026 &ndash; 30 May 2027 &middot; 10000 simulated seasons &middot; generated 2026-07-24</div>
+  <div class="empty-note">No matches scored yet this season.</div>
+  <div class="results-card">
+  <table>
+    <thead><tr><th>Date</th><th>Match</th><th>Predicted</th><th>Actual</th><th>Winner</th><th>Brier</th></tr></thead>
+    <tbody>
+<tr><td colspan="6" class="empty-note">No matches scored yet this season.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<div id="tab-bracket" class="pane">
+<div class="bracket-wrap"><div class="bracket">
+<div class="br-col"><div class="br-title">Matchday 1</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-08-21</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Everton FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Brentford FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-23</div><div class="bm-t">Manchester City FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-23</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-23</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-24</div><div class="bm-t">Fulham FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 2</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-08-29</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 3</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Brentford FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Everton FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Fulham FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-05</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 4</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 5</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Fulham FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Everton FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-09-19</div><div class="bm-t">Brentford FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 6</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Chelsea FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-10</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 7</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Fulham FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Everton FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-17</div><div class="bm-t">Brentford FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 8</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Manchester United FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-24</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 9</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Brentford FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-10-31</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 10</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Fulham FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Everton FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-07</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 11</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Brentford FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-21</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 12</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Everton FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Fulham FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-11-28</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 13</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Brentford FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-02</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 14</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Brentford FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-05</div><div class="bm-t">Everton FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 15</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Arsenal FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-12</div><div class="bm-t">Fulham FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 16</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Brentford FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-19</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 17</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Everton FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Fulham FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-26</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 18</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Fulham FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Everton FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2026-12-30</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 19</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Brentford FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-02</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 20</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Fulham FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Everton FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-06</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 21</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Brentford FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-16</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 22</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Everton FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Fulham FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-23</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 23</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Brentford FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-01-30</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 24</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Everton FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Fulham FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Leeds United FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-06</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 25</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Everton FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Fulham FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-10</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 26</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Brentford FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-20</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 27</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Coventry City FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Everton FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Fulham FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-02-27</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 28</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Brentford FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-03</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 29</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-13</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 30</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Brentford FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Fulham FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Everton FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-03-20</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 31</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-10</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 32</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Fulham FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Brentford FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-17</div><div class="bm-t">Everton FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 33</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Everton FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Brentford FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-04-24</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 34</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Hull City AFC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Fulham FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-01</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 35</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Fulham FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Brentford FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">Everton FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-08</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 36</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Liverpool FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-15</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 37</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Brentford FC</div><div class="bm-t">Hull City AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Leeds United FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Ipswich Town FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">AFC Bournemouth</div><div class="bm-t">Chelsea FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Fulham FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Everton FC</div><div class="bm-t">Arsenal FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-23</div><div class="bm-t">Manchester City FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+<div class="br-col"><div class="br-title">Matchday 38</div><div class="br-matches">
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Everton FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Liverpool FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Coventry City FC</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Aston Villa FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Newcastle United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Manchester United FC</div><div class="bm-t">Fulham FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Sunderland AFC</div><div class="bm-t">Manchester City FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Chelsea FC</div><div class="bm-t">Brentford FC</div><div class="bm-pct hint">not yet predicted</div></div>
+<div class="bm"><div class="bm-date">2027-05-30</div><div class="bm-t">Crystal Palace FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">not yet predicted</div></div>
+</div></div>
+</div></div>
+</div>
+<div id="tab-podium" class="pane">
+  <div class="champ-line">Predicted champion: <strong>Arsenal FC</strong> (49.1% title odds)</div>
   <div class="standings-card">
   <table>
     <thead>
@@ -80,6 +588,13 @@ tbody tr:nth-last-child(-n+3) td:nth-child(2){border-left:3px solid var(--red)}
     <span class="swatch" style="background:var(--win)"></span>Top 4 &nbsp;&nbsp;
     <span class="swatch" style="background:var(--red)"></span>Relegation zone (bottom 3)
   </div>
-</main>
+</div>
+<script>
+function show(n){
+  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','bracket','podium'][i]===n));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+}
+</script>
 </body>
 </html>
