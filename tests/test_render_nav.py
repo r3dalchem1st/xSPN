@@ -16,10 +16,14 @@ def _make_competitions_dir(tmp_path, configs):
         }))
 
 
-def test_nav_entries_includes_hub_and_world_cup_first():
+def test_nav_entries_hub_first_then_explicit_nav_order():
+    # Real, live repo: hub, then the explicit NAV_ORDER sequence (24 Jul
+    # reorder request) -- World Cup moved from 2nd to LAST here, a direct
+    # instruction, not something derivable from season-start date.
     entries = nav_entries(os.path.dirname(os.path.abspath(__file__)) + "/..", active=None)
-    assert entries[0]["label"] == "xSPN"
-    assert entries[1]["label"] == "World Cup 2026"
+    labels = [e["label"] for e in entries]
+    assert labels == ["xSPN", "La Liga", "Premier League", "Bundesliga",
+                       "UEFA Champions League", "World Cup 2026"]
 
 
 def test_nav_entries_discovers_competitions_dynamically(tmp_path):
@@ -40,50 +44,74 @@ def _write_schedule(tmp_path, slug, first_date):
     }))
 
 
-def test_nav_entries_orders_leagues_by_season_start_not_alphabetically(tmp_path):
-    # Real-world case this is a regression test for: alphabetically,
-    # "bundesliga" sorts before "la_liga" and "premier_league" -- but the
-    # Bundesliga season actually starts LAST of the three, so alphabetical
-    # order put the tabs in the wrong reading order on the live site.
+def test_nav_entries_uses_explicit_nav_order_not_season_start(tmp_path):
+    # NAV_ORDER is now an explicit, hand-picked sequence (24 Jul reorder
+    # request), not derived from season-start date -- proven by setting up
+    # schedule dates in the OPPOSITE order from NAV_ORDER and confirming
+    # the explicit order still wins.
     _make_competitions_dir(tmp_path, {
         "bundesliga": "Bundesliga", "la_liga": "La Liga", "premier_league": "Premier League",
     })
-    _write_schedule(tmp_path, "la_liga", "2026-08-16")
-    _write_schedule(tmp_path, "premier_league", "2026-08-21")
-    _write_schedule(tmp_path, "bundesliga", "2026-08-28")
+    _write_schedule(tmp_path, "bundesliga", "2026-08-01")   # earliest date...
+    _write_schedule(tmp_path, "premier_league", "2026-08-10")
+    _write_schedule(tmp_path, "la_liga", "2026-08-20")      # ...latest date
 
     entries = nav_entries(str(tmp_path), active=None)
-    labels = [e["label"] for e in entries[2:]]
-    assert labels == ["La Liga", "Premier League", "Bundesliga"]
+    labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]  # skip hub + the always-present WC entry
+    assert labels == ["La Liga", "Premier League", "Bundesliga"]  # NAV_ORDER wins, not dates
 
 
-def test_nav_entries_sorts_competition_without_schedule_yet_last(tmp_path):
-    _make_competitions_dir(tmp_path, {"la_liga": "La Liga", "new_league": "New League"})
+def test_nav_entries_appends_unnamed_competitions_after_named_ones(tmp_path):
+    # A competition not yet added to NAV_ORDER (e.g. a freshly onboarded
+    # Copa del Rey) sorts after every explicitly-ordered entry, regardless
+    # of its own season start date.
+    _make_competitions_dir(tmp_path, {"la_liga": "La Liga", "copa_del_rey": "Copa del Rey"})
     _write_schedule(tmp_path, "la_liga", "2026-08-16")
-    # "new_league" has no schedule.json yet (not fetched for the first time)
+    _write_schedule(tmp_path, "copa_del_rey", "2026-01-01")  # earlier date, still sorts after
 
     entries = nav_entries(str(tmp_path), active=None)
-    labels = [e["label"] for e in entries[2:]]
-    assert labels == ["La Liga", "New League"]
+    labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]
+    assert labels == ["La Liga", "Copa del Rey"]
+
+
+def test_nav_entries_sorts_unnamed_competitions_by_season_start_among_themselves(tmp_path):
+    _make_competitions_dir(tmp_path, {"copa_del_rey": "Copa del Rey", "afcon": "AFCON"})
+    _write_schedule(tmp_path, "afcon", "2027-01-10")
+    _write_schedule(tmp_path, "copa_del_rey", "2026-11-01")
+
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]
+    assert labels == ["Copa del Rey", "AFCON"]
+
+
+def test_nav_entries_sorts_unnamed_competition_without_schedule_yet_last(tmp_path):
+    _make_competitions_dir(tmp_path, {"copa_del_rey": "Copa del Rey", "afcon": "AFCON"})
+    _write_schedule(tmp_path, "copa_del_rey", "2026-11-01")
+    # "afcon" has no schedule.json yet (not fetched for the first time)
+
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]
+    assert labels == ["Copa del Rey", "AFCON"]
 
 
 def test_nav_entries_orders_a_league_phase_knockout_competition_by_its_own_schedule_filename(tmp_path):
     # Regression test for a real gap: league_phase_knockout competitions
     # write "league_schedule.json", not "schedule.json" -- without a
-    # fallback, _season_start() would never find their fixtures and every
-    # cup competition would sort last forever, never reflecting its real
-    # season start once fetched.
-    _make_competitions_dir(tmp_path, {"la_liga": "La Liga", "champions_league": "UEFA Champions League"})
-    _write_schedule(tmp_path, "la_liga", "2026-08-16")
-    comp_dir = tmp_path / "competitions" / "champions_league"
+    # fallback, _season_start() would never find their fixtures. Uses an
+    # id NOT in NAV_ORDER (champions_league now is, and would always sort
+    # by NAV_ORDER regardless of date) so this still isolates the
+    # fallback-filename mechanism itself.
+    _make_competitions_dir(tmp_path, {"copa_del_rey": "Copa del Rey", "afcon": "AFCON"})
+    comp_dir = tmp_path / "competitions" / "afcon"
     comp_dir.mkdir(parents=True)
     (comp_dir / "league_schedule.json").write_text(json.dumps({
         "A|B": {"date": "2026-07-01", "status": "SCHEDULED", "goals": {"A": None, "B": None}, "round": "League, Matchday 1"},
     }))
+    _write_schedule(tmp_path, "copa_del_rey", "2026-08-16")
 
     entries = nav_entries(str(tmp_path), active=None)
-    labels = [e["label"] for e in entries[2:]]
-    assert labels == ["UEFA Champions League", "La Liga"]  # July < August
+    labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]
+    assert labels == ["AFCON", "Copa del Rey"]  # July < August
 
 
 def test_nav_entries_marks_the_active_page(tmp_path):
