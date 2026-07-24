@@ -1,0 +1,1298 @@
+{
+  "AZ Alkmaar|IF Elfsborg": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "AZ Alkmaar": 3,
+      "IF Elfsborg": 2
+    },
+    "round": "League phase"
+  },
+  "FK Bod\u00f8/Glimt|FC Porto": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 3,
+      "FC Porto": 2
+    },
+    "round": "League phase"
+  },
+  "Manchester United|FC Twente": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester United": 1,
+      "FC Twente": 1
+    },
+    "round": "League phase"
+  },
+  "PFC Ludogorets Razgrad|Slavia Praha": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "PFC Ludogorets Razgrad": 0,
+      "Slavia Praha": 2
+    },
+    "round": "League phase"
+  },
+  "Galatasaray|PAOK Saloniki": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray": 3,
+      "PAOK Saloniki": 1
+    },
+    "round": "League phase"
+  },
+  "Dinamo Kiev|Lazio Roma": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "Dinamo Kiev": 0,
+      "Lazio Roma": 3
+    },
+    "round": "League phase"
+  },
+  "FC Midtjylland|1899 Hoffenheim": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "FC Midtjylland": 1,
+      "1899 Hoffenheim": 1
+    },
+    "round": "League phase"
+  },
+  "RSC Anderlecht|Ferencv\u00e1rosi TC": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "RSC Anderlecht": 2,
+      "Ferencv\u00e1rosi TC": 1
+    },
+    "round": "League phase"
+  },
+  "OGC Nice|Real Sociedad": {
+    "date": "2024-09-25",
+    "status": "FINISHED",
+    "goals": {
+      "OGC Nice": 1,
+      "Real Sociedad": 1
+    },
+    "round": "League phase"
+  },
+  "Fenerbah\u00e7e|Union Saint-Gilloise": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "Fenerbah\u00e7e": 2,
+      "Union Saint-Gilloise": 1
+    },
+    "round": "League phase"
+  },
+  "Malm\u00f6 FF|Rangers FC": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "Malm\u00f6 FF": 0,
+      "Rangers FC": 2
+    },
+    "round": "League phase"
+  },
+  "AS Roma|Athletic Club": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "AS Roma": 1,
+      "Athletic Club": 1
+    },
+    "round": "League phase"
+  },
+  "Eintracht Frankfurt|Viktoria Plze\u0148": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 3,
+      "Viktoria Plze\u0148": 3
+    },
+    "round": "League phase"
+  },
+  "AFC Ajax|Be\u015fikta\u015f": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 4,
+      "Be\u015fikta\u015f": 0
+    },
+    "round": "League phase"
+  },
+  "Sporting Braga|Maccabi Tel Aviv": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Braga": 2,
+      "Maccabi Tel Aviv": 1
+    },
+    "round": "League phase"
+  },
+  "Olympique Lyonnais|Olympiakos Piraeus": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique Lyonnais": 2,
+      "Olympiakos Piraeus": 0
+    },
+    "round": "League phase"
+  },
+  "FCSB|FK RFS": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "FCSB": 4,
+      "FK RFS": 1
+    },
+    "round": "League phase"
+  },
+  "Tottenham Hotspur|Qaraba\u011f FK": {
+    "date": "2024-09-26",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur": 3,
+      "Qaraba\u011f FK": 0
+    },
+    "round": "League phase"
+  },
+  "Slavia Praha|AFC Ajax": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Slavia Praha": 1,
+      "AFC Ajax": 1
+    },
+    "round": "League phase"
+  },
+  "Lazio Roma|OGC Nice": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Lazio Roma": 4,
+      "OGC Nice": 1
+    },
+    "round": "League phase"
+  },
+  "Maccabi Tel Aviv|FC Midtjylland": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Maccabi Tel Aviv": 0,
+      "FC Midtjylland": 2
+    },
+    "round": "League phase"
+  },
+  "Ferencv\u00e1rosi TC|Tottenham Hotspur": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Ferencv\u00e1rosi TC": 1,
+      "Tottenham Hotspur": 2
+    },
+    "round": "League phase"
+  },
+  "Real Sociedad|RSC Anderlecht": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Real Sociedad": 1,
+      "RSC Anderlecht": 2
+    },
+    "round": "League phase"
+  },
+  "Olympiakos Piraeus|Sporting Braga": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Olympiakos Piraeus": 3,
+      "Sporting Braga": 0
+    },
+    "round": "League phase"
+  },
+  "Qaraba\u011f FK|Malm\u00f6 FF": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f FK": 1,
+      "Malm\u00f6 FF": 2
+    },
+    "round": "League phase"
+  },
+  "1899 Hoffenheim|Dinamo Kiev": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "1899 Hoffenheim": 2,
+      "Dinamo Kiev": 0
+    },
+    "round": "League phase"
+  },
+  "FK RFS|Galatasaray": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "FK RFS": 2,
+      "Galatasaray": 2
+    },
+    "round": "League phase"
+  },
+  "Rangers FC|Olympique Lyonnais": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Rangers FC": 1,
+      "Olympique Lyonnais": 4
+    },
+    "round": "League phase"
+  },
+  "FC Porto|Manchester United": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "FC Porto": 3,
+      "Manchester United": 3
+    },
+    "round": "League phase"
+  },
+  "PAOK Saloniki|FCSB": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "PAOK Saloniki": 0,
+      "FCSB": 1
+    },
+    "round": "League phase"
+  },
+  "Union Saint-Gilloise|FK Bod\u00f8/Glimt": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Union Saint-Gilloise": 0,
+      "FK Bod\u00f8/Glimt": 0
+    },
+    "round": "League phase"
+  },
+  "Viktoria Plze\u0148|PFC Ludogorets Razgrad": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Viktoria Plze\u0148": 0,
+      "PFC Ludogorets Razgrad": 0
+    },
+    "round": "League phase"
+  },
+  "Be\u015fikta\u015f|Eintracht Frankfurt": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Be\u015fikta\u015f": 1,
+      "Eintracht Frankfurt": 3
+    },
+    "round": "League phase"
+  },
+  "FC Twente|Fenerbah\u00e7e": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "FC Twente": 1,
+      "Fenerbah\u00e7e": 1
+    },
+    "round": "League phase"
+  },
+  "IF Elfsborg|AS Roma": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "IF Elfsborg": 1,
+      "AS Roma": 0
+    },
+    "round": "League phase"
+  },
+  "Athletic Club|AZ Alkmaar": {
+    "date": "2024-10-03",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 2,
+      "AZ Alkmaar": 0
+    },
+    "round": "League phase"
+  },
+  "Sporting Braga|FK Bod\u00f8/Glimt": {
+    "date": "2024-10-23",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Braga": 1,
+      "FK Bod\u00f8/Glimt": 2
+    },
+    "round": "League phase"
+  },
+  "Galatasaray|IF Elfsborg": {
+    "date": "2024-10-23",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray": 4,
+      "IF Elfsborg": 3
+    },
+    "round": "League phase"
+  },
+  "AS Roma|Dinamo Kiev": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "AS Roma": 1,
+      "Dinamo Kiev": 0
+    },
+    "round": "League phase"
+  },
+  "Eintracht Frankfurt|FK RFS": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 1,
+      "FK RFS": 0
+    },
+    "round": "League phase"
+  },
+  "Maccabi Tel Aviv|Real Sociedad": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Maccabi Tel Aviv": 1,
+      "Real Sociedad": 2
+    },
+    "round": "League phase"
+  },
+  "Ferencv\u00e1rosi TC|OGC Nice": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Ferencv\u00e1rosi TC": 1,
+      "OGC Nice": 0
+    },
+    "round": "League phase"
+  },
+  "PAOK Saloniki|Viktoria Plze\u0148": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "PAOK Saloniki": 2,
+      "Viktoria Plze\u0148": 2
+    },
+    "round": "League phase"
+  },
+  "FC Midtjylland|Union Saint-Gilloise": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "FC Midtjylland": 1,
+      "Union Saint-Gilloise": 0
+    },
+    "round": "League phase"
+  },
+  "Qaraba\u011f FK|AFC Ajax": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f FK": 0,
+      "AFC Ajax": 3
+    },
+    "round": "League phase"
+  },
+  "Rangers FC|FCSB": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Rangers FC": 4,
+      "FCSB": 0
+    },
+    "round": "League phase"
+  },
+  "FC Porto|1899 Hoffenheim": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "FC Porto": 2,
+      "1899 Hoffenheim": 0
+    },
+    "round": "League phase"
+  },
+  "Tottenham Hotspur|AZ Alkmaar": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur": 1,
+      "AZ Alkmaar": 0
+    },
+    "round": "League phase"
+  },
+  "Fenerbah\u00e7e|Manchester United": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Fenerbah\u00e7e": 1,
+      "Manchester United": 1
+    },
+    "round": "League phase"
+  },
+  "Olympique Lyonnais|Be\u015fikta\u015f": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique Lyonnais": 0,
+      "Be\u015fikta\u015f": 1
+    },
+    "round": "League phase"
+  },
+  "Malm\u00f6 FF|Olympiakos Piraeus": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Malm\u00f6 FF": 0,
+      "Olympiakos Piraeus": 1
+    },
+    "round": "League phase"
+  },
+  "FC Twente|Lazio Roma": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "FC Twente": 0,
+      "Lazio Roma": 2
+    },
+    "round": "League phase"
+  },
+  "Athletic Club|Slavia Praha": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 1,
+      "Slavia Praha": 0
+    },
+    "round": "League phase"
+  },
+  "RSC Anderlecht|PFC Ludogorets Razgrad": {
+    "date": "2024-10-24",
+    "status": "FINISHED",
+    "goals": {
+      "RSC Anderlecht": 2,
+      "PFC Ludogorets Razgrad": 0
+    },
+    "round": "League phase"
+  },
+  "Be\u015fikta\u015f|Malm\u00f6 FF": {
+    "date": "2024-11-06",
+    "status": "FINISHED",
+    "goals": {
+      "Be\u015fikta\u015f": 2,
+      "Malm\u00f6 FF": 1
+    },
+    "round": "League phase"
+  },
+  "Eintracht Frankfurt|Slavia Praha": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 1,
+      "Slavia Praha": 0
+    },
+    "round": "League phase"
+  },
+  "Olympiakos Piraeus|Rangers FC": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Olympiakos Piraeus": 1,
+      "Rangers FC": 1
+    },
+    "round": "League phase"
+  },
+  "Union Saint-Gilloise|AS Roma": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Union Saint-Gilloise": 1,
+      "AS Roma": 1
+    },
+    "round": "League phase"
+  },
+  "PFC Ludogorets Razgrad|Athletic Club": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "PFC Ludogorets Razgrad": 1,
+      "Athletic Club": 2
+    },
+    "round": "League phase"
+  },
+  "Galatasaray|Tottenham Hotspur": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray": 3,
+      "Tottenham Hotspur": 2
+    },
+    "round": "League phase"
+  },
+  "FK Bod\u00f8/Glimt|Qaraba\u011f FK": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 1,
+      "Qaraba\u011f FK": 2
+    },
+    "round": "League phase"
+  },
+  "IF Elfsborg|Sporting Braga": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "IF Elfsborg": 1,
+      "Sporting Braga": 1
+    },
+    "round": "League phase"
+  },
+  "FCSB|FC Midtjylland": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "FCSB": 2,
+      "FC Midtjylland": 0
+    },
+    "round": "League phase"
+  },
+  "OGC Nice|FC Twente": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "OGC Nice": 2,
+      "FC Twente": 2
+    },
+    "round": "League phase"
+  },
+  "Manchester United|PAOK Saloniki": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester United": 2,
+      "PAOK Saloniki": 0
+    },
+    "round": "League phase"
+  },
+  "Lazio Roma|FC Porto": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Lazio Roma": 2,
+      "FC Porto": 1
+    },
+    "round": "League phase"
+  },
+  "AFC Ajax|Maccabi Tel Aviv": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 5,
+      "Maccabi Tel Aviv": 0
+    },
+    "round": "League phase"
+  },
+  "AZ Alkmaar|Fenerbah\u00e7e": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "AZ Alkmaar": 3,
+      "Fenerbah\u00e7e": 1
+    },
+    "round": "League phase"
+  },
+  "Dinamo Kiev|Ferencv\u00e1rosi TC": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Dinamo Kiev": 0,
+      "Ferencv\u00e1rosi TC": 4
+    },
+    "round": "League phase"
+  },
+  "Viktoria Plze\u0148|Real Sociedad": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "Viktoria Plze\u0148": 2,
+      "Real Sociedad": 1
+    },
+    "round": "League phase"
+  },
+  "1899 Hoffenheim|Olympique Lyonnais": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "1899 Hoffenheim": 2,
+      "Olympique Lyonnais": 2
+    },
+    "round": "League phase"
+  },
+  "FK RFS|RSC Anderlecht": {
+    "date": "2024-11-07",
+    "status": "FINISHED",
+    "goals": {
+      "FK RFS": 1,
+      "RSC Anderlecht": 1
+    },
+    "round": "League phase"
+  },
+  "Lazio Roma|PFC Ludogorets Razgrad": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Lazio Roma": 0,
+      "PFC Ludogorets Razgrad": 0
+    },
+    "round": "League phase"
+  },
+  "AZ Alkmaar|Galatasaray": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "AZ Alkmaar": 1,
+      "Galatasaray": 1
+    },
+    "round": "League phase"
+  },
+  "Dinamo Kiev|Viktoria Plze\u0148": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Dinamo Kiev": 1,
+      "Viktoria Plze\u0148": 2
+    },
+    "round": "League phase"
+  },
+  "Qaraba\u011f FK|Olympique Lyonnais": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f FK": 1,
+      "Olympique Lyonnais": 4
+    },
+    "round": "League phase"
+  },
+  "Be\u015fikta\u015f|Maccabi Tel Aviv": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Be\u015fikta\u015f": 1,
+      "Maccabi Tel Aviv": 3
+    },
+    "round": "League phase"
+  },
+  "Athletic Club|IF Elfsborg": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 3,
+      "IF Elfsborg": 0
+    },
+    "round": "League phase"
+  },
+  "RSC Anderlecht|FC Porto": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "RSC Anderlecht": 2,
+      "FC Porto": 2
+    },
+    "round": "League phase"
+  },
+  "FK RFS|PAOK Saloniki": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "FK RFS": 0,
+      "PAOK Saloniki": 2
+    },
+    "round": "League phase"
+  },
+  "Slavia Praha|Fenerbah\u00e7e": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Slavia Praha": 1,
+      "Fenerbah\u00e7e": 2
+    },
+    "round": "League phase"
+  },
+  "Manchester United|FK Bod\u00f8/Glimt": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester United": 3,
+      "FK Bod\u00f8/Glimt": 2
+    },
+    "round": "League phase"
+  },
+  "Tottenham Hotspur|AS Roma": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur": 2,
+      "AS Roma": 2
+    },
+    "round": "League phase"
+  },
+  "Ferencv\u00e1rosi TC|Malm\u00f6 FF": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Ferencv\u00e1rosi TC": 4,
+      "Malm\u00f6 FF": 1
+    },
+    "round": "League phase"
+  },
+  "Sporting Braga|1899 Hoffenheim": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Braga": 3,
+      "1899 Hoffenheim": 0
+    },
+    "round": "League phase"
+  },
+  "Real Sociedad|AFC Ajax": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "Real Sociedad": 2,
+      "AFC Ajax": 0
+    },
+    "round": "League phase"
+  },
+  "FC Midtjylland|Eintracht Frankfurt": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "FC Midtjylland": 1,
+      "Eintracht Frankfurt": 2
+    },
+    "round": "League phase"
+  },
+  "FC Twente|Union Saint-Gilloise": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "FC Twente": 0,
+      "Union Saint-Gilloise": 1
+    },
+    "round": "League phase"
+  },
+  "FCSB|Olympiakos Piraeus": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "FCSB": 0,
+      "Olympiakos Piraeus": 0
+    },
+    "round": "League phase"
+  },
+  "OGC Nice|Rangers FC": {
+    "date": "2024-11-28",
+    "status": "FINISHED",
+    "goals": {
+      "OGC Nice": 1,
+      "Rangers FC": 4
+    },
+    "round": "League phase"
+  },
+  "Fenerbah\u00e7e|Athletic Club": {
+    "date": "2024-12-11",
+    "status": "FINISHED",
+    "goals": {
+      "Fenerbah\u00e7e": 0,
+      "Athletic Club": 2
+    },
+    "round": "League phase"
+  },
+  "AS Roma|Sporting Braga": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "AS Roma": 3,
+      "Sporting Braga": 0
+    },
+    "round": "League phase"
+  },
+  "PAOK Saloniki|Ferencv\u00e1rosi TC": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "PAOK Saloniki": 5,
+      "Ferencv\u00e1rosi TC": 0
+    },
+    "round": "League phase"
+  },
+  "Olympiakos Piraeus|FC Twente": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Olympiakos Piraeus": 0,
+      "FC Twente": 0
+    },
+    "round": "League phase"
+  },
+  "Union Saint-Gilloise|OGC Nice": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Union Saint-Gilloise": 2,
+      "OGC Nice": 1
+    },
+    "round": "League phase"
+  },
+  "PFC Ludogorets Razgrad|AZ Alkmaar": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "PFC Ludogorets Razgrad": 2,
+      "AZ Alkmaar": 2
+    },
+    "round": "League phase"
+  },
+  "Malm\u00f6 FF|Galatasaray": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Malm\u00f6 FF": 2,
+      "Galatasaray": 2
+    },
+    "round": "League phase"
+  },
+  "Viktoria Plze\u0148|Manchester United": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Viktoria Plze\u0148": 1,
+      "Manchester United": 2
+    },
+    "round": "League phase"
+  },
+  "1899 Hoffenheim|FCSB": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "1899 Hoffenheim": 0,
+      "FCSB": 0
+    },
+    "round": "League phase"
+  },
+  "Rangers FC|Tottenham Hotspur": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Rangers FC": 1,
+      "Tottenham Hotspur": 1
+    },
+    "round": "League phase"
+  },
+  "FC Porto|FC Midtjylland": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "FC Porto": 2,
+      "FC Midtjylland": 0
+    },
+    "round": "League phase"
+  },
+  "Slavia Praha|RSC Anderlecht": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Slavia Praha": 1,
+      "RSC Anderlecht": 2
+    },
+    "round": "League phase"
+  },
+  "AFC Ajax|Lazio Roma": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 1,
+      "Lazio Roma": 3
+    },
+    "round": "League phase"
+  },
+  "Maccabi Tel Aviv|FK RFS": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Maccabi Tel Aviv": 2,
+      "FK RFS": 1
+    },
+    "round": "League phase"
+  },
+  "Real Sociedad|Dinamo Kiev": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Real Sociedad": 3,
+      "Dinamo Kiev": 0
+    },
+    "round": "League phase"
+  },
+  "Olympique Lyonnais|Eintracht Frankfurt": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique Lyonnais": 3,
+      "Eintracht Frankfurt": 2
+    },
+    "round": "League phase"
+  },
+  "FK Bod\u00f8/Glimt|Be\u015fikta\u015f": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 2,
+      "Be\u015fikta\u015f": 1
+    },
+    "round": "League phase"
+  },
+  "IF Elfsborg|Qaraba\u011f FK": {
+    "date": "2024-12-12",
+    "status": "FINISHED",
+    "goals": {
+      "IF Elfsborg": 1,
+      "Qaraba\u011f FK": 0
+    },
+    "round": "League phase"
+  },
+  "Galatasaray|Dinamo Kiev": {
+    "date": "2025-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray": 3,
+      "Dinamo Kiev": 3
+    },
+    "round": "League phase"
+  },
+  "Be\u015fikta\u015f|Athletic Club": {
+    "date": "2025-01-22",
+    "status": "FINISHED",
+    "goals": {
+      "Be\u015fikta\u015f": 4,
+      "Athletic Club": 1
+    },
+    "round": "League phase"
+  },
+  "FC Porto|Olympiakos Piraeus": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "FC Porto": 0,
+      "Olympiakos Piraeus": 1
+    },
+    "round": "League phase"
+  },
+  "Fenerbah\u00e7e|Olympique Lyonnais": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Fenerbah\u00e7e": 0,
+      "Olympique Lyonnais": 0
+    },
+    "round": "League phase"
+  },
+  "AZ Alkmaar|AS Roma": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "AZ Alkmaar": 1,
+      "AS Roma": 0
+    },
+    "round": "League phase"
+  },
+  "Malm\u00f6 FF|FC Twente": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Malm\u00f6 FF": 2,
+      "FC Twente": 3
+    },
+    "round": "League phase"
+  },
+  "Qaraba\u011f FK|FCSB": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f FK": 2,
+      "FCSB": 3
+    },
+    "round": "League phase"
+  },
+  "FK Bod\u00f8/Glimt|Maccabi Tel Aviv": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 3,
+      "Maccabi Tel Aviv": 1
+    },
+    "round": "League phase"
+  },
+  "Viktoria Plze\u0148|RSC Anderlecht": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Viktoria Plze\u0148": 2,
+      "RSC Anderlecht": 0
+    },
+    "round": "League phase"
+  },
+  "1899 Hoffenheim|Tottenham Hotspur": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "1899 Hoffenheim": 2,
+      "Tottenham Hotspur": 3
+    },
+    "round": "League phase"
+  },
+  "Eintracht Frankfurt|Ferencv\u00e1rosi TC": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 2,
+      "Ferencv\u00e1rosi TC": 0
+    },
+    "round": "League phase"
+  },
+  "Manchester United|Rangers FC": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester United": 2,
+      "Rangers FC": 1
+    },
+    "round": "League phase"
+  },
+  "Lazio Roma|Real Sociedad": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Lazio Roma": 3,
+      "Real Sociedad": 1
+    },
+    "round": "League phase"
+  },
+  "PAOK Saloniki|Slavia Praha": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "PAOK Saloniki": 2,
+      "Slavia Praha": 0
+    },
+    "round": "League phase"
+  },
+  "Union Saint-Gilloise|Sporting Braga": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "Union Saint-Gilloise": 2,
+      "Sporting Braga": 1
+    },
+    "round": "League phase"
+  },
+  "PFC Ludogorets Razgrad|FC Midtjylland": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "PFC Ludogorets Razgrad": 0,
+      "FC Midtjylland": 2
+    },
+    "round": "League phase"
+  },
+  "IF Elfsborg|OGC Nice": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "IF Elfsborg": 1,
+      "OGC Nice": 0
+    },
+    "round": "League phase"
+  },
+  "FK RFS|AFC Ajax": {
+    "date": "2025-01-23",
+    "status": "FINISHED",
+    "goals": {
+      "FK RFS": 1,
+      "AFC Ajax": 0
+    },
+    "round": "League phase"
+  },
+  "Rangers FC|Union Saint-Gilloise": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Rangers FC": 2,
+      "Union Saint-Gilloise": 1
+    },
+    "round": "League phase"
+  },
+  "AS Roma|Eintracht Frankfurt": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "AS Roma": 2,
+      "Eintracht Frankfurt": 0
+    },
+    "round": "League phase"
+  },
+  "Slavia Praha|Malm\u00f6 FF": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Slavia Praha": 2,
+      "Malm\u00f6 FF": 2
+    },
+    "round": "League phase"
+  },
+  "Tottenham Hotspur|IF Elfsborg": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur": 3,
+      "IF Elfsborg": 0
+    },
+    "round": "League phase"
+  },
+  "AFC Ajax|Galatasaray": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 2,
+      "Galatasaray": 1
+    },
+    "round": "League phase"
+  },
+  "Maccabi Tel Aviv|FC Porto": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Maccabi Tel Aviv": 0,
+      "FC Porto": 1
+    },
+    "round": "League phase"
+  },
+  "Ferencv\u00e1rosi TC|AZ Alkmaar": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Ferencv\u00e1rosi TC": 4,
+      "AZ Alkmaar": 3
+    },
+    "round": "League phase"
+  },
+  "Sporting Braga|Lazio Roma": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Braga": 1,
+      "Lazio Roma": 0
+    },
+    "round": "League phase"
+  },
+  "Real Sociedad|PAOK Saloniki": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Real Sociedad": 2,
+      "PAOK Saloniki": 0
+    },
+    "round": "League phase"
+  },
+  "Olympiakos Piraeus|Qaraba\u011f FK": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Olympiakos Piraeus": 3,
+      "Qaraba\u011f FK": 0
+    },
+    "round": "League phase"
+  },
+  "Olympique Lyonnais|PFC Ludogorets Razgrad": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique Lyonnais": 1,
+      "PFC Ludogorets Razgrad": 1
+    },
+    "round": "League phase"
+  },
+  "Dinamo Kiev|FK RFS": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Dinamo Kiev": 1,
+      "FK RFS": 0
+    },
+    "round": "League phase"
+  },
+  "FC Midtjylland|Fenerbah\u00e7e": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "FC Midtjylland": 2,
+      "Fenerbah\u00e7e": 2
+    },
+    "round": "League phase"
+  },
+  "FC Twente|Be\u015fikta\u015f": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "FC Twente": 1,
+      "Be\u015fikta\u015f": 0
+    },
+    "round": "League phase"
+  },
+  "Athletic Club|Viktoria Plze\u0148": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 3,
+      "Viktoria Plze\u0148": 1
+    },
+    "round": "League phase"
+  },
+  "RSC Anderlecht|1899 Hoffenheim": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "RSC Anderlecht": 3,
+      "1899 Hoffenheim": 4
+    },
+    "round": "League phase"
+  },
+  "FCSB|Manchester United": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "FCSB": 0,
+      "Manchester United": 2
+    },
+    "round": "League phase"
+  },
+  "OGC Nice|FK Bod\u00f8/Glimt": {
+    "date": "2025-01-30",
+    "status": "FINISHED",
+    "goals": {
+      "OGC Nice": 1,
+      "FK Bod\u00f8/Glimt": 1
+    },
+    "round": "League phase"
+  }
+}
