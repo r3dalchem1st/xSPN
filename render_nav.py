@@ -12,22 +12,42 @@ of this project. The World Cup and the hub itself are added as fixed extra
 entries since neither has a competitions/<slug>.json config (the WC predates
 that system entirely; the hub isn't a competition at all).
 """
+import json
 import os
 
 from list_competitions import list_competition_slugs
 
 
+def _season_start(base_dir, slug):
+    """A competition's earliest fixture date, ISO-formatted so string
+    comparison sorts chronologically. Ordering the league tabs by season
+    start (La Liga mid-Aug, Premier League a week later, Bundesliga late
+    Aug) reads correctly to a visitor; alphabetical-by-slug doesn't (it
+    happened to put Bundesliga first, the last of the three to kick off).
+    Falls back to a date far in the future — sorting a not-yet-fetched
+    competition (no schedule.json yet) last, not first — rather than
+    letting a missing file crash the whole nav bar for every competition."""
+    try:
+        with open(os.path.join(base_dir, "competitions", slug, "schedule.json")) as f:
+            schedule = json.load(f)
+        dates = [e["date"] for e in schedule.values() if e.get("date")]
+        return min(dates) if dates else "9999-99-99"
+    except (FileNotFoundError, ValueError, KeyError):
+        return "9999-99-99"
+
+
 def nav_entries(base_dir, active=None):
     """List of {"label": str, "href": str, "active": bool} nav entries, in
     display order: hub first, World Cup second, then every discovered
-    round-robin competition alphabetically by slug. `active` is the current
-    page's identifier ("hub", "world_cup", or a competition slug) — the
-    matching entry gets active=True for the caller to highlight."""
+    round-robin competition ordered by season start date. `active` is the
+    current page's identifier ("hub", "world_cup", or a competition slug) —
+    the matching entry gets active=True for the caller to highlight."""
     entries = [
         {"id": "hub", "label": "xSPN", "href": "/xSPN/"},
         {"id": "world_cup", "label": "World Cup 2026", "href": "/xSPN/competitions/world_cup_2026/"},
     ]
-    for slug in list_competition_slugs(base_dir):
+    slugs = sorted(list_competition_slugs(base_dir), key=lambda s: _season_start(base_dir, s))
+    for slug in slugs:
         entries.append({
             "id": slug,
             "label": _display_name(base_dir, slug),

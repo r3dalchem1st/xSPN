@@ -28,8 +28,43 @@ def test_nav_entries_discovers_competitions_dynamically(tmp_path):
     labels = [e["label"] for e in entries]
     assert "Premier League" in labels
     assert "Bundesliga" in labels
-    # discovered slugs come after the two fixed entries, alphabetically
-    assert labels[2:] == sorted(labels[2:])
+    # discovered slugs come after the two fixed entries
+    assert len(labels) == 4
+
+
+def _write_schedule(tmp_path, slug, first_date):
+    comp_dir = tmp_path / "competitions" / slug
+    comp_dir.mkdir(parents=True)
+    (comp_dir / "schedule.json").write_text(json.dumps({
+        "A|B": {"date": first_date, "status": "SCHEDULED", "goals": {"A": None, "B": None}, "round": "Matchday 1"},
+    }))
+
+
+def test_nav_entries_orders_leagues_by_season_start_not_alphabetically(tmp_path):
+    # Real-world case this is a regression test for: alphabetically,
+    # "bundesliga" sorts before "la_liga" and "premier_league" -- but the
+    # Bundesliga season actually starts LAST of the three, so alphabetical
+    # order put the tabs in the wrong reading order on the live site.
+    _make_competitions_dir(tmp_path, {
+        "bundesliga": "Bundesliga", "la_liga": "La Liga", "premier_league": "Premier League",
+    })
+    _write_schedule(tmp_path, "la_liga", "2026-08-16")
+    _write_schedule(tmp_path, "premier_league", "2026-08-21")
+    _write_schedule(tmp_path, "bundesliga", "2026-08-28")
+
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries[2:]]
+    assert labels == ["La Liga", "Premier League", "Bundesliga"]
+
+
+def test_nav_entries_sorts_competition_without_schedule_yet_last(tmp_path):
+    _make_competitions_dir(tmp_path, {"la_liga": "La Liga", "new_league": "New League"})
+    _write_schedule(tmp_path, "la_liga", "2026-08-16")
+    # "new_league" has no schedule.json yet (not fetched for the first time)
+
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries[2:]]
+    assert labels == ["La Liga", "New League"]
 
 
 def test_nav_entries_marks_the_active_page(tmp_path):
