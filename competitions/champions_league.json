@@ -1,0 +1,11 @@
+{
+  "slug": "champions_league",
+  "name": "UEFA Champions League",
+  "format": "league_phase_knockout",
+  "openfootball_repo": "openfootball/champions-league",
+  "openfootball_files": [
+    {"season": "2025-26", "path": "2025-26/cl.txt"},
+    {"season": "2024-25", "path": "2024-25/cl.txt"}
+  ],
+  "team_aliases": {}
+}

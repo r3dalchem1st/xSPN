@@ -1,18 +1,20 @@
-name: Update Round-Robin League Predictions
+name: Update Cup Competition Predictions
 
 on:
   schedule:
-    # Once daily — round-robin league fixtures are known far in advance and
-    # don't need the World Cup workflow's 4x/day cadence (that existed for
-    # same-day knockout-round snapshot/score updates during live matches).
-    # 10:40 UTC is deliberately offset from all 4 of update.yml's slots
-    # (21:40/00:20/04:40/18:40 UTC) -- both workflows rebuild the shared
-    # index.html hub page, and same-minute crons hit that race every day.
-    - cron: '40 10 * * *'
+    # Once daily -- same cadence reasoning as update-leagues.yml (no live,
+    # same-day knockout-round cadence need the way the World Cup had).
+    # 16:15 UTC is offset from every existing cron slot (update.yml's
+    # 21:40/00:20/04:40/18:40 UTC, update-leagues.yml's 10:40 UTC) -- all
+    # three workflows rebuild the shared index.html hub page, and a
+    # same-minute cron hits that race every day (see CONTEXT.md's 23 Jul
+    # incident, since fixed with a rebuild-and-retry loop, but avoiding the
+    # race in the first place is still free and worth doing).
+    - cron: '15 16 * * *'
   workflow_dispatch:
 
 concurrency:
-  group: update-leagues
+  group: update-cups
   cancel-in-progress: false
 
 jobs:
@@ -26,7 +28,7 @@ jobs:
         with:
           python-version: '3.11'
       - id: list
-        run: echo "competitions=$(python list_competitions.py round_robin)" >> "$GITHUB_OUTPUT"
+        run: echo "competitions=$(python list_competitions.py league_phase_knockout)" >> "$GITHUB_OUTPUT"
 
   update:
     needs: discover
@@ -39,12 +41,6 @@ jobs:
       max-parallel: 1
       fail-fast: false
     env:
-      # Passed through env, not interpolated directly into run: blocks below
-      # (GitHub's own documented script-injection risk: a raw ${{ }} in a
-      # shell script is substituted BEFORE the shell parses it, so a slug
-      # containing e.g. `;` or `$()` could break word-splitting or execute
-      # arbitrary shell. Low real risk today since slugs come only from
-      # filenames maintainers control, but the fix is free.)
       COMPETITION: ${{ matrix.competition }}
     steps:
       - uses: actions/checkout@v4
@@ -58,32 +54,36 @@ jobs:
         run: pip install numpy scipy requests
 
       - name: Fetch new match results
-        run: python fetch_league.py "competitions/$COMPETITION.json"
+        run: python fetch_cup.py "competitions/$COMPETITION.json"
 
       - name: Refit model (Dixon-Coles + Elo)
         run: python fit_league.py "competitions/$COMPETITION.json"
 
-      - name: Run season simulation
-        run: python sim_league.py "competitions/$COMPETITION.json"
+      - name: Run league-phase + knockout simulation
+        # Allowed to fail: sim_cup.py deliberately refuses to run until the
+        # real league-phase draw is released (needs >=24 teams in
+        # league_schedule.json) -- a real, expected, WEEKS-long state for a
+        # newly onboarded competition (UCL/UEL's 2026-27 draw isn't out as
+        # of this workflow's creation), not a broken pipeline. Every
+        # downstream step here tolerates a missing cup_sim.json already
+        # (build_cup_html.py renders an explicit empty-state instead of
+        # crashing; snapshot/score/validate don't need it at all).
+        run: python sim_cup.py "competitions/$COMPETITION.json"
+        continue-on-error: true
 
       - name: Snapshot pre-match predictions
-        run: python snapshot_league.py "competitions/$COMPETITION.json"
+        run: python snapshot_cup.py "competitions/$COMPETITION.json"
 
       - name: Score predictions against actual results
-        run: python score_league.py "competitions/$COMPETITION.json"
+        run: python score_cup.py "competitions/$COMPETITION.json"
 
       - name: Validate prediction snapshot (fails on fabricated/mislabeled locks)
-        run: python validate_snapshot_league.py "competitions/$COMPETITION.json"
+        run: python validate_snapshot_cup.py "competitions/$COMPETITION.json"
 
-      - name: Build standings page
-        run: python build_league_html.py "competitions/$COMPETITION.json"
+      - name: Build competition page
+        run: python build_cup_html.py "competitions/$COMPETITION.json"
 
       - name: Build site-wide hub page
-        # Rebuilds root index.html (every competition's card, including this
-        # one's fresh title-odds snapshot) whenever any competition's data
-        # changes. The WC's own workflow (update.yml) rebuilds the same hub
-        # for the same reason on its own schedule -- whichever last touched
-        # the site keeps the hub current.
         run: python build_hub_html.py
 
       - name: Commit and push
@@ -91,18 +91,16 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add "competitions/$COMPETITION/fetched_matches.json" \
-                  "competitions/$COMPETITION/schedule.json" \
+                  "competitions/$COMPETITION/league_schedule.json" \
+                  "competitions/$COMPETITION/knockout_fixtures.json" \
                   "competitions/$COMPETITION/model_params.json" \
-                  "competitions/$COMPETITION/league_sim.json" \
+                  "competitions/$COMPETITION/cup_sim.json" \
                   "competitions/$COMPETITION/predictions_snapshot.json" \
                   "competitions/$COMPETITION/results_accuracy.json" \
                   "competitions/$COMPETITION/index.html" \
                   index.html
           git diff --staged --quiet && echo "No changes to commit." && exit 0
           git commit -m "Auto-update $COMPETITION: $(date +'%Y-%m-%d')"
-          # index.html is also rebuilt independently by update.yml and by sibling
-          # matrix jobs in this same workflow, so a conflict on it is spurious --
-          # auto-resolve with -X ours then rebuild it fresh before pushing again.
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "Push rejected (attempt $i) — rebasing on latest main and retrying..."

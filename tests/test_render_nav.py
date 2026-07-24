@@ -67,6 +67,25 @@ def test_nav_entries_sorts_competition_without_schedule_yet_last(tmp_path):
     assert labels == ["La Liga", "New League"]
 
 
+def test_nav_entries_orders_a_league_phase_knockout_competition_by_its_own_schedule_filename(tmp_path):
+    # Regression test for a real gap: league_phase_knockout competitions
+    # write "league_schedule.json", not "schedule.json" -- without a
+    # fallback, _season_start() would never find their fixtures and every
+    # cup competition would sort last forever, never reflecting its real
+    # season start once fetched.
+    _make_competitions_dir(tmp_path, {"la_liga": "La Liga", "champions_league": "UEFA Champions League"})
+    _write_schedule(tmp_path, "la_liga", "2026-08-16")
+    comp_dir = tmp_path / "competitions" / "champions_league"
+    comp_dir.mkdir(parents=True)
+    (comp_dir / "league_schedule.json").write_text(json.dumps({
+        "A|B": {"date": "2026-07-01", "status": "SCHEDULED", "goals": {"A": None, "B": None}, "round": "League, Matchday 1"},
+    }))
+
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries[2:]]
+    assert labels == ["UEFA Champions League", "La Liga"]  # July < August
+
+
 def test_nav_entries_marks_the_active_page(tmp_path):
     _make_competitions_dir(tmp_path, {"premier_league": "Premier League"})
     entries = nav_entries(str(tmp_path), active="premier_league")

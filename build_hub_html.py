@@ -26,6 +26,24 @@ def league_snapshot(base_dir, slug):
     return f"{html_lib.escape(leader)} leads at {dist[0]:.0%} to win the title"
 
 
+def cup_snapshot(base_dir, slug):
+    """One-line snapshot for a league_phase_knockout competition's hub card:
+    current champion-odds leader + percentage, or None if no simulation has
+    run yet -- the real state UCL/UEL start in (sim_cup.py needs at least
+    24 teams in league_schedule.json, which won't exist until each
+    competition's real league-phase draw is released)."""
+    sim_path = os.path.join(base_dir, "competitions", slug, "cup_sim.json")
+    if not os.path.exists(sim_path):
+        return None
+    with open(sim_path) as f:
+        sim = json.load(f)
+    stage_odds = sim.get("stage_odds") or {}
+    if not stage_odds:
+        return None
+    leader, odds = max(stage_odds.items(), key=lambda kv: kv[1]["champion"])
+    return f"{html_lib.escape(leader)} leads at {odds['champion']:.0%} to win the title"
+
+
 def world_cup_snapshot(base_dir):
     """One-line snapshot for the World Cup hub card: the actual champion,
     once decided, since the tournament is over (falls back to a generic
@@ -52,10 +70,14 @@ def build_hub_cards(base_dir):
     from list_competitions import list_competition_slugs
     for slug in list_competition_slugs(base_dir):
         config = load_competition(os.path.join(base_dir, "competitions", f"{slug}.json"))
+        if config.format == "league_phase_knockout":
+            snapshot = cup_snapshot(base_dir, slug)
+        else:
+            snapshot = league_snapshot(base_dir, slug)
         cards.append({
             "name": html_lib.escape(config.name),
             "href": f"/xSPN/competitions/{slug}/",
-            "snapshot": league_snapshot(base_dir, slug) or "Season predictions",
+            "snapshot": snapshot or "Season predictions",
         })
     return cards
 
