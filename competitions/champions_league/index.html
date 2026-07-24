@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UEFA Champions League</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--hint:#999;--win:#2e7d32;--lose:#c62828}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
+header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
+.xspn-logo{background:var(--red);color:#fff;font-size:1.25rem;font-weight:600;letter-spacing:2px;padding:4px 10px;border-radius:3px;flex-shrink:0}
+.xspn-logo span{opacity:.65;font-weight:400}
+.hdr-text h1{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}
+.hdr-text p{color:#888;font-size:.76rem;margin-top:2px}
+.xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.xspn-nav a:hover{color:#fff}
+.xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+.tabs{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.tab{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.tab:hover{color:#fff}
+.tab.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+.pane{display:none;padding:20px;max-width:1000px;margin:0 auto}
+.pane.active{display:block}
+.season-note{color:var(--muted);font-size:.84rem;margin-bottom:16px}
+.champ-line{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.champ-line strong{color:var(--red)}
+.empty-note{padding:24px;text-align:center;color:var(--hint);font-size:.88rem}
+table{width:100%;border-collapse:collapse}
+th{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:center;border-bottom:2px solid var(--border)}
+th:nth-child(2){text-align:left}
+td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem;text-align:center}
+td:nth-child(2){text-align:left;font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#fafafa}
+.standings-card,.odds-card{background:var(--card);border:1px solid var(--border);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.standings-card tbody tr:nth-child(-n+8) td:nth-child(2){border-left:3px solid var(--win)}
+.standings-card tbody tr:nth-child(n+9):nth-child(-n+24) td:nth-child(2){border-left:3px solid #e6a700}
+.odds{font-weight:600}
+.legend{margin-top:12px;font-size:.76rem;color:var(--muted)}
+.swatch{display:inline-block;width:10px;height:10px;margin-right:4px;border-radius:2px}
+.hint{color:var(--hint) !important}
+.bracket-wrap{overflow-x:auto}
+.bracket{display:flex;gap:0;min-width:860px}
+.br-col{display:flex;flex-direction:column;flex:1;padding:0 5px;min-width:150px}
+.br-title{text-align:center;font-size:.7rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.8px;padding:6px 0;background:var(--red);border-radius:3px;margin-bottom:8px}
+.br-matches{display:flex;flex-direction:column;gap:4px}
+.bm{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:5px 7px;font-size:.75rem;margin-bottom:6px}
+.bm-date{font-size:.66rem;color:var(--hint);margin-bottom:2px}
+.bm-t{display:flex;align-items:center;gap:3px;padding:2px 0}
+.bm-t.win{color:var(--dark);font-weight:600}
+.bm-t.lose{color:var(--hint)}
+.bm-sc{margin-left:auto;font-weight:600}
+.bm-pct{font-size:.68rem;color:var(--muted);padding-top:2px}
+</style>
+</head>
+<body>
+<header>
+  <div class="xspn-logo">x<span>SPN</span></div>
+  <div class="hdr-text">
+    <h1>UEFA Champions League</h1>
+    <p>Dixon-Coles &middot; Elo priors &middot; Monte Carlo simulation</p>
+  </div>
+</header>
+<nav class="xspn-nav"><a href="/xSPN/">xSPN</a><a href="/xSPN/competitions/world_cup_2026/">World Cup 2026</a><a href="/xSPN/competitions/champions_league/" class="active">UEFA Champions League</a><a href="/xSPN/competitions/la_liga/">La Liga</a><a href="/xSPN/competitions/premier_league/">Premier League</a><a href="/xSPN/competitions/bundesliga/">Bundesliga</a><a href="/xSPN/competitions/europa_league/">UEFA Europa League</a></nav>
+<div class="tabs">
+  <div class="tab active" onclick="show('table')">League Table</div>
+  <div class="tab" onclick="show('bracket')">Bracket</div>
+  <div class="tab" onclick="show('odds')">Title Odds</div>
+</div>
+<div id="tab-table" class="pane active">
+  <div class="season-note">League phase: 36 teams, 8 fixtures each &middot; generated 2026-07-24</div>
+  <div class="standings-card">
+  <table>
+    <thead>
+      <tr><th>Pos</th><th>Team</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Top 8 %</th><th>Playoff %</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td>Arsenal FC</td><td>8</td><td>8</td><td>0</td><td>0</td><td>23</td><td>4</td><td>19</td><td>24</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>2</td><td>FC Bayern München</td><td>8</td><td>7</td><td>0</td><td>1</td><td>22</td><td>8</td><td>14</td><td>21</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>3</td><td>Liverpool FC</td><td>8</td><td>6</td><td>0</td><td>2</td><td>20</td><td>8</td><td>12</td><td>18</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>4</td><td>Tottenham Hotspur FC</td><td>8</td><td>5</td><td>2</td><td>1</td><td>17</td><td>7</td><td>10</td><td>17</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>5</td><td>FC Barcelona</td><td>8</td><td>5</td><td>1</td><td>2</td><td>22</td><td>14</td><td>8</td><td>16</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>6</td><td>Chelsea FC</td><td>8</td><td>5</td><td>1</td><td>2</td><td>17</td><td>10</td><td>7</td><td>16</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>7</td><td>Sporting Clube de Portugal</td><td>8</td><td>5</td><td>1</td><td>2</td><td>17</td><td>11</td><td>6</td><td>16</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>8</td><td>Manchester City FC</td><td>8</td><td>5</td><td>1</td><td>2</td><td>15</td><td>9</td><td>6</td><td>16</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>9</td><td>Real Madrid CF</td><td>8</td><td>5</td><td>0</td><td>3</td><td>21</td><td>12</td><td>9</td><td>15</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>10</td><td>FC Internazionale Milano</td><td>8</td><td>5</td><td>0</td><td>3</td><td>15</td><td>7</td><td>8</td><td>15</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>11</td><td>Paris Saint-Germain FC</td><td>8</td><td>4</td><td>2</td><td>2</td><td>21</td><td>11</td><td>10</td><td>14</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>12</td><td>Newcastle United FC</td><td>8</td><td>4</td><td>2</td><td>2</td><td>17</td><td>7</td><td>10</td><td>14</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>13</td><td>Juventus FC</td><td>8</td><td>3</td><td>4</td><td>1</td><td>14</td><td>10</td><td>4</td><td>13</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>14</td><td>Club Atlético de Madrid</td><td>8</td><td>4</td><td>1</td><td>3</td><td>17</td><td>15</td><td>2</td><td>13</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>15</td><td>Atalanta BC</td><td>8</td><td>4</td><td>1</td><td>3</td><td>10</td><td>10</td><td>0</td><td>13</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>16</td><td>Bayer 04 Leverkusen</td><td>8</td><td>3</td><td>3</td><td>2</td><td>13</td><td>14</td><td>-1</td><td>12</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>17</td><td>Borussia Dortmund</td><td>8</td><td>3</td><td>2</td><td>3</td><td>19</td><td>17</td><td>2</td><td>11</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>18</td><td>PAE Olympiakos SFP</td><td>8</td><td>3</td><td>2</td><td>3</td><td>10</td><td>14</td><td>-4</td><td>11</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>19</td><td>Club Brugge KV</td><td>8</td><td>3</td><td>1</td><td>4</td><td>15</td><td>17</td><td>-2</td><td>10</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>20</td><td>Galatasaray SK</td><td>8</td><td>3</td><td>1</td><td>4</td><td>9</td><td>11</td><td>-2</td><td>10</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>21</td><td>AS Monaco FC</td><td>8</td><td>2</td><td>4</td><td>2</td><td>8</td><td>14</td><td>-6</td><td>10</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>22</td><td>Qarabağ Ağdam FK</td><td>8</td><td>3</td><td>1</td><td>4</td><td>13</td><td>21</td><td>-8</td><td>10</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>23</td><td>FK Bodø/Glimt</td><td>8</td><td>2</td><td>3</td><td>3</td><td>14</td><td>15</td><td>-1</td><td>9</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>24</td><td>Sport Lisboa e Benfica</td><td>8</td><td>3</td><td>0</td><td>5</td><td>10</td><td>12</td><td>-2</td><td>9</td><td class="odds">0.0%</td><td class="odds">100.0%</td></tr>
+    <tr><td>25</td><td>Olympique de Marseille</td><td>8</td><td>3</td><td>0</td><td>5</td><td>11</td><td>14</td><td>-3</td><td>9</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>26</td><td>Paphos FC</td><td>8</td><td>2</td><td>3</td><td>3</td><td>8</td><td>11</td><td>-3</td><td>9</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>27</td><td>Royale Union Saint-Gilloise</td><td>8</td><td>3</td><td>0</td><td>5</td><td>8</td><td>17</td><td>-9</td><td>9</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>28</td><td>PSV</td><td>8</td><td>2</td><td>2</td><td>4</td><td>16</td><td>16</td><td>0</td><td>8</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>29</td><td>Athletic Club</td><td>8</td><td>2</td><td>2</td><td>4</td><td>9</td><td>14</td><td>-5</td><td>8</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>30</td><td>SSC Napoli</td><td>8</td><td>2</td><td>2</td><td>4</td><td>9</td><td>15</td><td>-6</td><td>8</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>31</td><td>FC København</td><td>8</td><td>2</td><td>2</td><td>4</td><td>12</td><td>21</td><td>-9</td><td>8</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>32</td><td>AFC Ajax</td><td>8</td><td>2</td><td>0</td><td>6</td><td>8</td><td>21</td><td>-13</td><td>6</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>33</td><td>Eintracht Frankfurt</td><td>8</td><td>1</td><td>1</td><td>6</td><td>10</td><td>21</td><td>-11</td><td>4</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>34</td><td>SK Slavia Praha</td><td>8</td><td>0</td><td>3</td><td>5</td><td>5</td><td>19</td><td>-14</td><td>3</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>35</td><td>Villarreal CF</td><td>8</td><td>0</td><td>1</td><td>7</td><td>5</td><td>18</td><td>-13</td><td>1</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>36</td><td>FK Kairat</td><td>8</td><td>0</td><td>1</td><td>7</td><td>7</td><td>22</td><td>-15</td><td>1</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="legend">
+    <span class="swatch" style="background:var(--win)"></span>Top 8 (direct to Round of 16) &nbsp;&nbsp;
+    <span class="swatch" style="background:#e6a700"></span>9th&ndash;24th (play-off for the remaining 8 spots)
+  </div>
+</div>
+<div id="tab-bracket" class="pane">
+<div class="bracket-wrap"><div class="bracket">
+<div class="br-col"><div class="br-title">Play-offs</div><div class="br-matches">
+<div class="bm">
+<div class="bm-date">2026-02-17</div><div class="bm-t win">Galatasaray SK<span class="bm-sc">5</span></div><div class="bm-t lose">Juventus FC<span class="bm-sc">2</span></div>
+<div class="bm-date">2026-02-25</div><div class="bm-t win">Juventus FC<span class="bm-sc">3</span></div><div class="bm-t lose">Galatasaray SK<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Galatasaray SK</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-17</div><div class="bm-t lose">Sport Lisboa e Benfica<span class="bm-sc">0</span></div><div class="bm-t win">Real Madrid CF<span class="bm-sc">1</span></div>
+<div class="bm-date">2026-02-25</div><div class="bm-t win">Real Madrid CF<span class="bm-sc">2</span></div><div class="bm-t lose">Sport Lisboa e Benfica<span class="bm-sc">1</span></div>
+<div class="bm-pct"><strong>Advances: Real Madrid CF</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-17</div><div class="bm-t lose">AS Monaco FC<span class="bm-sc">2</span></div><div class="bm-t win">Paris Saint-Germain FC<span class="bm-sc">3</span></div>
+<div class="bm-date">2026-02-25</div><div class="bm-t ">Paris Saint-Germain FC<span class="bm-sc">2</span></div><div class="bm-t ">AS Monaco FC<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Paris Saint-Germain FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-17</div><div class="bm-t win">Borussia Dortmund<span class="bm-sc">2</span></div><div class="bm-t lose">Atalanta BC<span class="bm-sc">0</span></div>
+<div class="bm-date">2026-02-25</div><div class="bm-t win">Atalanta BC<span class="bm-sc">4</span></div><div class="bm-t lose">Borussia Dortmund<span class="bm-sc">1</span></div>
+<div class="bm-pct"><strong>Advances: Atalanta BC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-18</div><div class="bm-t lose">Qarabağ Ağdam FK<span class="bm-sc">1</span></div><div class="bm-t win">Newcastle United FC<span class="bm-sc">6</span></div>
+<div class="bm-date">2026-02-24</div><div class="bm-t win">Newcastle United FC<span class="bm-sc">3</span></div><div class="bm-t lose">Qarabağ Ağdam FK<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Newcastle United FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-18</div><div class="bm-t ">Club Brugge KV<span class="bm-sc">3</span></div><div class="bm-t ">Club Atlético de Madrid<span class="bm-sc">3</span></div>
+<div class="bm-date">2026-02-24</div><div class="bm-t win">Club Atlético de Madrid<span class="bm-sc">4</span></div><div class="bm-t lose">Club Brugge KV<span class="bm-sc">1</span></div>
+<div class="bm-pct"><strong>Advances: Club Atlético de Madrid</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-18</div><div class="bm-t lose">PAE Olympiakos SFP<span class="bm-sc">0</span></div><div class="bm-t win">Bayer 04 Leverkusen<span class="bm-sc">2</span></div>
+<div class="bm-date">2026-02-24</div><div class="bm-t ">Bayer 04 Leverkusen<span class="bm-sc">0</span></div><div class="bm-t ">PAE Olympiakos SFP<span class="bm-sc">0</span></div>
+<div class="bm-pct"><strong>Advances: Bayer 04 Leverkusen</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-02-18</div><div class="bm-t win">FK Bodø/Glimt<span class="bm-sc">3</span></div><div class="bm-t lose">FC Internazionale Milano<span class="bm-sc">1</span></div>
+<div class="bm-date">2026-02-24</div><div class="bm-t lose">FC Internazionale Milano<span class="bm-sc">1</span></div><div class="bm-t win">FK Bodø/Glimt<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: FK Bodø/Glimt</strong></div>
+</div>
+</div></div>
+<div class="br-col"><div class="br-title">Round of 16</div><div class="br-matches">
+<div class="bm">
+<div class="bm-date">2026-03-10</div><div class="bm-t win">Galatasaray SK<span class="bm-sc">1</span></div><div class="bm-t lose">Liverpool FC<span class="bm-sc">0</span></div>
+<div class="bm-date">2026-03-18</div><div class="bm-t win">Liverpool FC<span class="bm-sc">4</span></div><div class="bm-t lose">Galatasaray SK<span class="bm-sc">0</span></div>
+<div class="bm-pct"><strong>Advances: Liverpool FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-10</div><div class="bm-t lose">Atalanta BC<span class="bm-sc">1</span></div><div class="bm-t win">FC Bayern München<span class="bm-sc">6</span></div>
+<div class="bm-date">2026-03-18</div><div class="bm-t win">FC Bayern München<span class="bm-sc">4</span></div><div class="bm-t lose">Atalanta BC<span class="bm-sc">1</span></div>
+<div class="bm-pct"><strong>Advances: FC Bayern München</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-10</div><div class="bm-t ">Newcastle United FC<span class="bm-sc">1</span></div><div class="bm-t ">FC Barcelona<span class="bm-sc">1</span></div>
+<div class="bm-date">2026-03-18</div><div class="bm-t win">FC Barcelona<span class="bm-sc">7</span></div><div class="bm-t lose">Newcastle United FC<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: FC Barcelona</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-10</div><div class="bm-t win">Club Atlético de Madrid<span class="bm-sc">5</span></div><div class="bm-t lose">Tottenham Hotspur FC<span class="bm-sc">2</span></div>
+<div class="bm-date">2026-03-18</div><div class="bm-t win">Tottenham Hotspur FC<span class="bm-sc">3</span></div><div class="bm-t lose">Club Atlético de Madrid<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Club Atlético de Madrid</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-11</div><div class="bm-t ">Bayer 04 Leverkusen<span class="bm-sc">1</span></div><div class="bm-t ">Arsenal FC<span class="bm-sc">1</span></div>
+<div class="bm-date">2026-03-17</div><div class="bm-t win">Arsenal FC<span class="bm-sc">2</span></div><div class="bm-t lose">Bayer 04 Leverkusen<span class="bm-sc">0</span></div>
+<div class="bm-pct"><strong>Advances: Arsenal FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-11</div><div class="bm-t win">Paris Saint-Germain FC<span class="bm-sc">5</span></div><div class="bm-t lose">Chelsea FC<span class="bm-sc">2</span></div>
+<div class="bm-date">2026-03-17</div><div class="bm-t lose">Chelsea FC<span class="bm-sc">0</span></div><div class="bm-t win">Paris Saint-Germain FC<span class="bm-sc">3</span></div>
+<div class="bm-pct"><strong>Advances: Paris Saint-Germain FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-11</div><div class="bm-t win">Real Madrid CF<span class="bm-sc">3</span></div><div class="bm-t lose">Manchester City FC<span class="bm-sc">0</span></div>
+<div class="bm-date">2026-03-17</div><div class="bm-t lose">Manchester City FC<span class="bm-sc">1</span></div><div class="bm-t win">Real Madrid CF<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Real Madrid CF</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-03-11</div><div class="bm-t win">FK Bodø/Glimt<span class="bm-sc">3</span></div><div class="bm-t lose">Sporting Clube de Portugal<span class="bm-sc">0</span></div>
+<div class="bm-date">2026-03-17</div><div class="bm-t win">Sporting Clube de Portugal<span class="bm-sc">5</span></div><div class="bm-t lose">FK Bodø/Glimt<span class="bm-sc">0</span></div>
+<div class="bm-pct"><strong>Advances: Sporting Clube de Portugal</strong></div>
+</div>
+</div></div>
+<div class="br-col"><div class="br-title">Quarterfinal</div><div class="br-matches">
+<div class="bm">
+<div class="bm-date">2026-04-07</div><div class="bm-t lose">Real Madrid CF<span class="bm-sc">1</span></div><div class="bm-t win">FC Bayern München<span class="bm-sc">2</span></div>
+<div class="bm-date">2026-04-15</div><div class="bm-t win">FC Bayern München<span class="bm-sc">4</span></div><div class="bm-t lose">Real Madrid CF<span class="bm-sc">3</span></div>
+<div class="bm-pct"><strong>Advances: FC Bayern München</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-04-07</div><div class="bm-t lose">Sporting Clube de Portugal<span class="bm-sc">0</span></div><div class="bm-t win">Arsenal FC<span class="bm-sc">1</span></div>
+<div class="bm-date">2026-04-15</div><div class="bm-t ">Arsenal FC<span class="bm-sc">0</span></div><div class="bm-t ">Sporting Clube de Portugal<span class="bm-sc">0</span></div>
+<div class="bm-pct"><strong>Advances: Arsenal FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-04-08</div><div class="bm-t win">Paris Saint-Germain FC<span class="bm-sc">2</span></div><div class="bm-t lose">Liverpool FC<span class="bm-sc">0</span></div>
+<div class="bm-date">2026-04-14</div><div class="bm-t lose">Liverpool FC<span class="bm-sc">0</span></div><div class="bm-t win">Paris Saint-Germain FC<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Paris Saint-Germain FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-04-08</div><div class="bm-t lose">FC Barcelona<span class="bm-sc">0</span></div><div class="bm-t win">Club Atlético de Madrid<span class="bm-sc">2</span></div>
+<div class="bm-date">2026-04-14</div><div class="bm-t lose">Club Atlético de Madrid<span class="bm-sc">1</span></div><div class="bm-t win">FC Barcelona<span class="bm-sc">2</span></div>
+<div class="bm-pct"><strong>Advances: Club Atlético de Madrid</strong></div>
+</div>
+</div></div>
+<div class="br-col"><div class="br-title">Semifinal</div><div class="br-matches">
+<div class="bm">
+<div class="bm-date">2026-04-28</div><div class="bm-t win">Paris Saint-Germain FC<span class="bm-sc">5</span></div><div class="bm-t lose">FC Bayern München<span class="bm-sc">4</span></div>
+<div class="bm-date">2026-05-06</div><div class="bm-t ">FC Bayern München<span class="bm-sc">1</span></div><div class="bm-t ">Paris Saint-Germain FC<span class="bm-sc">1</span></div>
+<div class="bm-pct"><strong>Advances: Paris Saint-Germain FC</strong></div>
+</div>
+<div class="bm">
+<div class="bm-date">2026-04-29</div><div class="bm-t ">Club Atlético de Madrid<span class="bm-sc">1</span></div><div class="bm-t ">Arsenal FC<span class="bm-sc">1</span></div>
+<div class="bm-date">2026-05-05</div><div class="bm-t win">Arsenal FC<span class="bm-sc">1</span></div><div class="bm-t lose">Club Atlético de Madrid<span class="bm-sc">0</span></div>
+<div class="bm-pct"><strong>Advances: Arsenal FC</strong></div>
+</div>
+</div></div>
+<div class="br-col"><div class="br-title">Final</div><div class="br-matches">
+<div class="bm">
+<div class="bm-date">2026-05-30</div><div class="bm-t ">Paris Saint-Germain FC<span class="bm-sc">1</span></div><div class="bm-t ">Arsenal FC<span class="bm-sc">1 <span class="hint">(pens 4-3)</span></span></div>
+<div class="bm-pct"><strong>Advances: Paris Saint-Germain FC</strong></div>
+</div>
+</div></div>
+</div></div>
+</div>
+<div id="tab-odds" class="pane">
+  <div class="champ-line">Current title-odds leader: <strong>Paris Saint-Germain FC</strong> (100.0%)</div>
+  <div class="odds-card">
+  <table>
+    <thead><tr><th>Team</th><th>Round of 16</th><th>Quarterfinal</th><th>Semifinal</th><th>Final</th><th>Champion</th></tr></thead>
+    <tbody>
+<tr><td>Paris Saint-Germain FC</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td></tr>
+<tr><td>AFC Ajax</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>AS Monaco FC</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Arsenal FC</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Atalanta BC</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Athletic Club</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Bayer 04 Leverkusen</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Borussia Dortmund</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Chelsea FC</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Club Atlético de Madrid</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Club Brugge KV</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Eintracht Frankfurt</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>FC Barcelona</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>FC Bayern München</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>FC Internazionale Milano</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>FC København</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>FK Bodø/Glimt</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>FK Kairat</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Galatasaray SK</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Juventus FC</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Liverpool FC</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Manchester City FC</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Newcastle United FC</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Olympique de Marseille</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>PAE Olympiakos SFP</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>PSV</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Paphos FC</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Qarabağ Ağdam FK</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Real Madrid CF</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Royale Union Saint-Gilloise</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>SK Slavia Praha</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>SSC Napoli</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Sport Lisboa e Benfica</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Sporting Clube de Portugal</td><td class="odds">100.0%</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Tottenham Hotspur FC</td><td class="odds">100.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+<tr><td>Villarreal CF</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td><td class="odds">0.0%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="legend">10000 simulated tournaments &middot; each column is the standalone probability of REACHING that stage, not exclusive of later stages.</div>
+</div>
+<script>
+function show(n){
+  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['table','bracket','odds'][i]===n));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+}
+</script>
+</body>
+</html>

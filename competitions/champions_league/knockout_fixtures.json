@@ -1,0 +1,500 @@
+[
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-17",
+    "home": "Galatasaray SK",
+    "away": "Juventus FC",
+    "score": [
+      5,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-17",
+    "home": "Sport Lisboa e Benfica",
+    "away": "Real Madrid CF",
+    "score": [
+      0,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-17",
+    "home": "AS Monaco FC",
+    "away": "Paris Saint-Germain FC",
+    "score": [
+      2,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-17",
+    "home": "Borussia Dortmund",
+    "away": "Atalanta BC",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-18",
+    "home": "Qaraba\u011f A\u011fdam FK",
+    "away": "Newcastle United FC",
+    "score": [
+      1,
+      6
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-18",
+    "home": "Club Brugge KV",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "score": [
+      3,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-18",
+    "home": "PAE Olympiakos SFP",
+    "away": "Bayer 04 Leverkusen",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 1",
+    "date": "2026-02-18",
+    "home": "FK Bod\u00f8/Glimt",
+    "away": "FC Internazionale Milano",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-24",
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "Club Brugge KV",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-24",
+    "home": "Newcastle United FC",
+    "away": "Qaraba\u011f A\u011fdam FK",
+    "score": [
+      3,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-24",
+    "home": "Bayer 04 Leverkusen",
+    "away": "PAE Olympiakos SFP",
+    "score": [
+      0,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-24",
+    "home": "FC Internazionale Milano",
+    "away": "FK Bod\u00f8/Glimt",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-25",
+    "home": "Atalanta BC",
+    "away": "Borussia Dortmund",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-25",
+    "home": "Real Madrid CF",
+    "away": "Sport Lisboa e Benfica",
+    "score": [
+      2,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-25",
+    "home": "Paris Saint-Germain FC",
+    "away": "AS Monaco FC",
+    "score": [
+      2,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs, Matchday 2",
+    "date": "2026-02-25",
+    "home": "Juventus FC",
+    "away": "Galatasaray SK",
+    "score": [
+      3,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-10",
+    "home": "Galatasaray SK",
+    "away": "Liverpool FC",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-10",
+    "home": "Atalanta BC",
+    "away": "FC Bayern M\u00fcnchen",
+    "score": [
+      1,
+      6
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-10",
+    "home": "Newcastle United FC",
+    "away": "FC Barcelona",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-10",
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "Tottenham Hotspur FC",
+    "score": [
+      5,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-11",
+    "home": "Bayer 04 Leverkusen",
+    "away": "Arsenal FC",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-11",
+    "home": "Paris Saint-Germain FC",
+    "away": "Chelsea FC",
+    "score": [
+      5,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-11",
+    "home": "Real Madrid CF",
+    "away": "Manchester City FC",
+    "score": [
+      3,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-11",
+    "home": "FK Bod\u00f8/Glimt",
+    "away": "Sporting Clube de Portugal",
+    "score": [
+      3,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-17",
+    "home": "Sporting Clube de Portugal",
+    "away": "FK Bod\u00f8/Glimt",
+    "score": [
+      5,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-17",
+    "home": "Chelsea FC",
+    "away": "Paris Saint-Germain FC",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-17",
+    "home": "Manchester City FC",
+    "away": "Real Madrid CF",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-17",
+    "home": "Arsenal FC",
+    "away": "Bayer 04 Leverkusen",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-18",
+    "home": "FC Barcelona",
+    "away": "Newcastle United FC",
+    "score": [
+      7,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-18",
+    "home": "Liverpool FC",
+    "away": "Galatasaray SK",
+    "score": [
+      4,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-18",
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "Atalanta BC",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Round of 16",
+    "date": "2026-03-18",
+    "home": "Tottenham Hotspur FC",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "score": [
+      3,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-07",
+    "home": "Real Madrid CF",
+    "away": "FC Bayern M\u00fcnchen",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-07",
+    "home": "Sporting Clube de Portugal",
+    "away": "Arsenal FC",
+    "score": [
+      0,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-08",
+    "home": "Paris Saint-Germain FC",
+    "away": "Liverpool FC",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-08",
+    "home": "FC Barcelona",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-14",
+    "home": "Liverpool FC",
+    "away": "Paris Saint-Germain FC",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-14",
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "FC Barcelona",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-15",
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "Real Madrid CF",
+    "score": [
+      4,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Quarterfinals",
+    "date": "2026-04-15",
+    "home": "Arsenal FC",
+    "away": "Sporting Clube de Portugal",
+    "score": [
+      0,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Semifinals",
+    "date": "2026-04-28",
+    "home": "Paris Saint-Germain FC",
+    "away": "FC Bayern M\u00fcnchen",
+    "score": [
+      5,
+      4
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Semifinals",
+    "date": "2026-04-29",
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "Arsenal FC",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Semifinals",
+    "date": "2026-05-05",
+    "home": "Arsenal FC",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Semifinals",
+    "date": "2026-05-06",
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "Paris Saint-Germain FC",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Finals, Final",
+    "date": "2026-05-30",
+    "home": "Paris Saint-Germain FC",
+    "away": "Arsenal FC",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": [
+      4,
+      3
+    ]
+  }
+]

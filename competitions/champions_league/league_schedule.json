@@ -1,0 +1,1298 @@
+{
+  "Athletic Club|Arsenal FC": {
+    "date": "2025-09-16",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 0,
+      "Arsenal FC": 2
+    },
+    "round": "League, Matchday 1"
+  },
+  "PSV|Royale Union Saint-Gilloise": {
+    "date": "2025-09-16",
+    "status": "FINISHED",
+    "goals": {
+      "PSV": 1,
+      "Royale Union Saint-Gilloise": 3
+    },
+    "round": "League, Matchday 1"
+  },
+  "Juventus FC|Borussia Dortmund": {
+    "date": "2025-09-16",
+    "status": "FINISHED",
+    "goals": {
+      "Juventus FC": 4,
+      "Borussia Dortmund": 4
+    },
+    "round": "League, Matchday 1"
+  },
+  "Sport Lisboa e Benfica|Qaraba\u011f A\u011fdam FK": {
+    "date": "2025-09-16",
+    "status": "FINISHED",
+    "goals": {
+      "Sport Lisboa e Benfica": 2,
+      "Qaraba\u011f A\u011fdam FK": 3
+    },
+    "round": "League, Matchday 1"
+  },
+  "Tottenham Hotspur FC|Villarreal CF": {
+    "date": "2025-09-16",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur FC": 1,
+      "Villarreal CF": 0
+    },
+    "round": "League, Matchday 1"
+  },
+  "Real Madrid CF|Olympique de Marseille": {
+    "date": "2025-09-16",
+    "status": "FINISHED",
+    "goals": {
+      "Real Madrid CF": 2,
+      "Olympique de Marseille": 1
+    },
+    "round": "League, Matchday 1"
+  },
+  "SK Slavia Praha|FK Bod\u00f8/Glimt": {
+    "date": "2025-09-17",
+    "status": "FINISHED",
+    "goals": {
+      "SK Slavia Praha": 2,
+      "FK Bod\u00f8/Glimt": 2
+    },
+    "round": "League, Matchday 1"
+  },
+  "PAE Olympiakos SFP|Paphos FC": {
+    "date": "2025-09-17",
+    "status": "FINISHED",
+    "goals": {
+      "PAE Olympiakos SFP": 0,
+      "Paphos FC": 0
+    },
+    "round": "League, Matchday 1"
+  },
+  "AFC Ajax|FC Internazionale Milano": {
+    "date": "2025-09-17",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 0,
+      "FC Internazionale Milano": 2
+    },
+    "round": "League, Matchday 1"
+  },
+  "Liverpool FC|Club Atl\u00e9tico de Madrid": {
+    "date": "2025-09-17",
+    "status": "FINISHED",
+    "goals": {
+      "Liverpool FC": 3,
+      "Club Atl\u00e9tico de Madrid": 2
+    },
+    "round": "League, Matchday 1"
+  },
+  "Paris Saint-Germain FC|Atalanta BC": {
+    "date": "2025-09-17",
+    "status": "FINISHED",
+    "goals": {
+      "Paris Saint-Germain FC": 4,
+      "Atalanta BC": 0
+    },
+    "round": "League, Matchday 1"
+  },
+  "FC Bayern M\u00fcnchen|Chelsea FC": {
+    "date": "2025-09-17",
+    "status": "FINISHED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": 3,
+      "Chelsea FC": 1
+    },
+    "round": "League, Matchday 1"
+  },
+  "FC K\u00f8benhavn|Bayer 04 Leverkusen": {
+    "date": "2025-09-18",
+    "status": "FINISHED",
+    "goals": {
+      "FC K\u00f8benhavn": 2,
+      "Bayer 04 Leverkusen": 2
+    },
+    "round": "League, Matchday 1"
+  },
+  "Club Brugge KV|AS Monaco FC": {
+    "date": "2025-09-18",
+    "status": "FINISHED",
+    "goals": {
+      "Club Brugge KV": 4,
+      "AS Monaco FC": 1
+    },
+    "round": "League, Matchday 1"
+  },
+  "Newcastle United FC|FC Barcelona": {
+    "date": "2025-09-18",
+    "status": "FINISHED",
+    "goals": {
+      "Newcastle United FC": 1,
+      "FC Barcelona": 2
+    },
+    "round": "League, Matchday 1"
+  },
+  "Manchester City FC|SSC Napoli": {
+    "date": "2025-09-18",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester City FC": 2,
+      "SSC Napoli": 0
+    },
+    "round": "League, Matchday 1"
+  },
+  "Eintracht Frankfurt|Galatasaray SK": {
+    "date": "2025-09-18",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 5,
+      "Galatasaray SK": 1
+    },
+    "round": "League, Matchday 1"
+  },
+  "Sporting Clube de Portugal|FK Kairat": {
+    "date": "2025-09-18",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Clube de Portugal": 4,
+      "FK Kairat": 1
+    },
+    "round": "League, Matchday 1"
+  },
+  "Atalanta BC|Club Brugge KV": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "Atalanta BC": 2,
+      "Club Brugge KV": 1
+    },
+    "round": "League, Matchday 2"
+  },
+  "FK Kairat|Real Madrid CF": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "FK Kairat": 0,
+      "Real Madrid CF": 5
+    },
+    "round": "League, Matchday 2"
+  },
+  "Galatasaray SK|Liverpool FC": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray SK": 1,
+      "Liverpool FC": 0
+    },
+    "round": "League, Matchday 2"
+  },
+  "Club Atl\u00e9tico de Madrid|Eintracht Frankfurt": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": 5,
+      "Eintracht Frankfurt": 1
+    },
+    "round": "League, Matchday 2"
+  },
+  "Olympique de Marseille|AFC Ajax": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique de Marseille": 4,
+      "AFC Ajax": 0
+    },
+    "round": "League, Matchday 2"
+  },
+  "FK Bod\u00f8/Glimt|Tottenham Hotspur FC": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 2,
+      "Tottenham Hotspur FC": 2
+    },
+    "round": "League, Matchday 2"
+  },
+  "Paphos FC|FC Bayern M\u00fcnchen": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "Paphos FC": 1,
+      "FC Bayern M\u00fcnchen": 5
+    },
+    "round": "League, Matchday 2"
+  },
+  "Chelsea FC|Sport Lisboa e Benfica": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "Chelsea FC": 1,
+      "Sport Lisboa e Benfica": 0
+    },
+    "round": "League, Matchday 2"
+  },
+  "FC Internazionale Milano|SK Slavia Praha": {
+    "date": "2025-09-30",
+    "status": "FINISHED",
+    "goals": {
+      "FC Internazionale Milano": 3,
+      "SK Slavia Praha": 0
+    },
+    "round": "League, Matchday 2"
+  },
+  "Qaraba\u011f A\u011fdam FK|FC K\u00f8benhavn": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f A\u011fdam FK": 2,
+      "FC K\u00f8benhavn": 0
+    },
+    "round": "League, Matchday 2"
+  },
+  "Royale Union Saint-Gilloise|Newcastle United FC": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "Royale Union Saint-Gilloise": 0,
+      "Newcastle United FC": 4
+    },
+    "round": "League, Matchday 2"
+  },
+  "Borussia Dortmund|Athletic Club": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "Borussia Dortmund": 4,
+      "Athletic Club": 1
+    },
+    "round": "League, Matchday 2"
+  },
+  "FC Barcelona|Paris Saint-Germain FC": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "FC Barcelona": 1,
+      "Paris Saint-Germain FC": 2
+    },
+    "round": "League, Matchday 2"
+  },
+  "AS Monaco FC|Manchester City FC": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "AS Monaco FC": 2,
+      "Manchester City FC": 2
+    },
+    "round": "League, Matchday 2"
+  },
+  "Bayer 04 Leverkusen|PSV": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "Bayer 04 Leverkusen": 1,
+      "PSV": 1
+    },
+    "round": "League, Matchday 2"
+  },
+  "Arsenal FC|PAE Olympiakos SFP": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "Arsenal FC": 2,
+      "PAE Olympiakos SFP": 0
+    },
+    "round": "League, Matchday 2"
+  },
+  "Villarreal CF|Juventus FC": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "Villarreal CF": 2,
+      "Juventus FC": 2
+    },
+    "round": "League, Matchday 2"
+  },
+  "SSC Napoli|Sporting Clube de Portugal": {
+    "date": "2025-10-01",
+    "status": "FINISHED",
+    "goals": {
+      "SSC Napoli": 2,
+      "Sporting Clube de Portugal": 1
+    },
+    "round": "League, Matchday 2"
+  },
+  "FC Barcelona|PAE Olympiakos SFP": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "FC Barcelona": 6,
+      "PAE Olympiakos SFP": 1
+    },
+    "round": "League, Matchday 3"
+  },
+  "FK Kairat|Paphos FC": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "FK Kairat": 0,
+      "Paphos FC": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "Royale Union Saint-Gilloise|FC Internazionale Milano": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "Royale Union Saint-Gilloise": 0,
+      "FC Internazionale Milano": 4
+    },
+    "round": "League, Matchday 3"
+  },
+  "FC K\u00f8benhavn|Borussia Dortmund": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "FC K\u00f8benhavn": 2,
+      "Borussia Dortmund": 4
+    },
+    "round": "League, Matchday 3"
+  },
+  "Bayer 04 Leverkusen|Paris Saint-Germain FC": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "Bayer 04 Leverkusen": 2,
+      "Paris Saint-Germain FC": 7
+    },
+    "round": "League, Matchday 3"
+  },
+  "Villarreal CF|Manchester City FC": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "Villarreal CF": 0,
+      "Manchester City FC": 2
+    },
+    "round": "League, Matchday 3"
+  },
+  "Arsenal FC|Club Atl\u00e9tico de Madrid": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "Arsenal FC": 4,
+      "Club Atl\u00e9tico de Madrid": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "Newcastle United FC|Sport Lisboa e Benfica": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "Newcastle United FC": 3,
+      "Sport Lisboa e Benfica": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "PSV|SSC Napoli": {
+    "date": "2025-10-21",
+    "status": "FINISHED",
+    "goals": {
+      "PSV": 6,
+      "SSC Napoli": 2
+    },
+    "round": "League, Matchday 3"
+  },
+  "Galatasaray SK|FK Bod\u00f8/Glimt": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray SK": 3,
+      "FK Bod\u00f8/Glimt": 1
+    },
+    "round": "League, Matchday 3"
+  },
+  "Athletic Club|Qaraba\u011f A\u011fdam FK": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 3,
+      "Qaraba\u011f A\u011fdam FK": 1
+    },
+    "round": "League, Matchday 3"
+  },
+  "Eintracht Frankfurt|Liverpool FC": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 1,
+      "Liverpool FC": 5
+    },
+    "round": "League, Matchday 3"
+  },
+  "Atalanta BC|SK Slavia Praha": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Atalanta BC": 0,
+      "SK Slavia Praha": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "Sporting Clube de Portugal|Olympique de Marseille": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Clube de Portugal": 2,
+      "Olympique de Marseille": 1
+    },
+    "round": "League, Matchday 3"
+  },
+  "AS Monaco FC|Tottenham Hotspur FC": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "AS Monaco FC": 0,
+      "Tottenham Hotspur FC": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "FC Bayern M\u00fcnchen|Club Brugge KV": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": 4,
+      "Club Brugge KV": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "Chelsea FC|AFC Ajax": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Chelsea FC": 5,
+      "AFC Ajax": 1
+    },
+    "round": "League, Matchday 3"
+  },
+  "Real Madrid CF|Juventus FC": {
+    "date": "2025-10-22",
+    "status": "FINISHED",
+    "goals": {
+      "Real Madrid CF": 1,
+      "Juventus FC": 0
+    },
+    "round": "League, Matchday 3"
+  },
+  "SK Slavia Praha|Arsenal FC": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "SK Slavia Praha": 0,
+      "Arsenal FC": 3
+    },
+    "round": "League, Matchday 4"
+  },
+  "SSC Napoli|Eintracht Frankfurt": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "SSC Napoli": 0,
+      "Eintracht Frankfurt": 0
+    },
+    "round": "League, Matchday 4"
+  },
+  "Juventus FC|Sporting Clube de Portugal": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "Juventus FC": 1,
+      "Sporting Clube de Portugal": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "Club Atl\u00e9tico de Madrid|Royale Union Saint-Gilloise": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": 3,
+      "Royale Union Saint-Gilloise": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "Tottenham Hotspur FC|FC K\u00f8benhavn": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur FC": 4,
+      "FC K\u00f8benhavn": 0
+    },
+    "round": "League, Matchday 4"
+  },
+  "FK Bod\u00f8/Glimt|AS Monaco FC": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 0,
+      "AS Monaco FC": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "PAE Olympiakos SFP|PSV": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "PAE Olympiakos SFP": 1,
+      "PSV": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "Paris Saint-Germain FC|FC Bayern M\u00fcnchen": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "Paris Saint-Germain FC": 1,
+      "FC Bayern M\u00fcnchen": 2
+    },
+    "round": "League, Matchday 4"
+  },
+  "Liverpool FC|Real Madrid CF": {
+    "date": "2025-11-04",
+    "status": "FINISHED",
+    "goals": {
+      "Liverpool FC": 1,
+      "Real Madrid CF": 0
+    },
+    "round": "League, Matchday 4"
+  },
+  "Paphos FC|Villarreal CF": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Paphos FC": 1,
+      "Villarreal CF": 0
+    },
+    "round": "League, Matchday 4"
+  },
+  "Qaraba\u011f A\u011fdam FK|Chelsea FC": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f A\u011fdam FK": 2,
+      "Chelsea FC": 2
+    },
+    "round": "League, Matchday 4"
+  },
+  "FC Internazionale Milano|FK Kairat": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "FC Internazionale Milano": 2,
+      "FK Kairat": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "Manchester City FC|Borussia Dortmund": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester City FC": 4,
+      "Borussia Dortmund": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "Club Brugge KV|FC Barcelona": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Club Brugge KV": 3,
+      "FC Barcelona": 3
+    },
+    "round": "League, Matchday 4"
+  },
+  "Sport Lisboa e Benfica|Bayer 04 Leverkusen": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Sport Lisboa e Benfica": 0,
+      "Bayer 04 Leverkusen": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "Olympique de Marseille|Atalanta BC": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique de Marseille": 0,
+      "Atalanta BC": 1
+    },
+    "round": "League, Matchday 4"
+  },
+  "AFC Ajax|Galatasaray SK": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 0,
+      "Galatasaray SK": 3
+    },
+    "round": "League, Matchday 4"
+  },
+  "Newcastle United FC|Athletic Club": {
+    "date": "2025-11-05",
+    "status": "FINISHED",
+    "goals": {
+      "Newcastle United FC": 2,
+      "Athletic Club": 0
+    },
+    "round": "League, Matchday 4"
+  },
+  "AFC Ajax|Sport Lisboa e Benfica": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 0,
+      "Sport Lisboa e Benfica": 2
+    },
+    "round": "League, Matchday 5"
+  },
+  "Galatasaray SK|Royale Union Saint-Gilloise": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray SK": 0,
+      "Royale Union Saint-Gilloise": 1
+    },
+    "round": "League, Matchday 5"
+  },
+  "Borussia Dortmund|Villarreal CF": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "Borussia Dortmund": 4,
+      "Villarreal CF": 0
+    },
+    "round": "League, Matchday 5"
+  },
+  "Manchester City FC|Bayer 04 Leverkusen": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester City FC": 0,
+      "Bayer 04 Leverkusen": 2
+    },
+    "round": "League, Matchday 5"
+  },
+  "FK Bod\u00f8/Glimt|Juventus FC": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 2,
+      "Juventus FC": 3
+    },
+    "round": "League, Matchday 5"
+  },
+  "Olympique de Marseille|Newcastle United FC": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique de Marseille": 2,
+      "Newcastle United FC": 1
+    },
+    "round": "League, Matchday 5"
+  },
+  "SK Slavia Praha|Athletic Club": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "SK Slavia Praha": 0,
+      "Athletic Club": 0
+    },
+    "round": "League, Matchday 5"
+  },
+  "SSC Napoli|Qaraba\u011f A\u011fdam FK": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "SSC Napoli": 2,
+      "Qaraba\u011f A\u011fdam FK": 0
+    },
+    "round": "League, Matchday 5"
+  },
+  "Chelsea FC|FC Barcelona": {
+    "date": "2025-11-25",
+    "status": "FINISHED",
+    "goals": {
+      "Chelsea FC": 3,
+      "FC Barcelona": 0
+    },
+    "round": "League, Matchday 5"
+  },
+  "Paphos FC|AS Monaco FC": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Paphos FC": 2,
+      "AS Monaco FC": 2
+    },
+    "round": "League, Matchday 5"
+  },
+  "FC K\u00f8benhavn|FK Kairat": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "FC K\u00f8benhavn": 3,
+      "FK Kairat": 2
+    },
+    "round": "League, Matchday 5"
+  },
+  "Liverpool FC|PSV": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Liverpool FC": 1,
+      "PSV": 4
+    },
+    "round": "League, Matchday 5"
+  },
+  "Paris Saint-Germain FC|Tottenham Hotspur FC": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Paris Saint-Germain FC": 5,
+      "Tottenham Hotspur FC": 3
+    },
+    "round": "League, Matchday 5"
+  },
+  "Eintracht Frankfurt|Atalanta BC": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 0,
+      "Atalanta BC": 3
+    },
+    "round": "League, Matchday 5"
+  },
+  "Sporting Clube de Portugal|Club Brugge KV": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Clube de Portugal": 3,
+      "Club Brugge KV": 0
+    },
+    "round": "League, Matchday 5"
+  },
+  "Arsenal FC|FC Bayern M\u00fcnchen": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Arsenal FC": 3,
+      "FC Bayern M\u00fcnchen": 1
+    },
+    "round": "League, Matchday 5"
+  },
+  "PAE Olympiakos SFP|Real Madrid CF": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "PAE Olympiakos SFP": 3,
+      "Real Madrid CF": 4
+    },
+    "round": "League, Matchday 5"
+  },
+  "Club Atl\u00e9tico de Madrid|FC Internazionale Milano": {
+    "date": "2025-11-26",
+    "status": "FINISHED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": 2,
+      "FC Internazionale Milano": 1
+    },
+    "round": "League, Matchday 5"
+  },
+  "FK Kairat|PAE Olympiakos SFP": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "FK Kairat": 0,
+      "PAE Olympiakos SFP": 1
+    },
+    "round": "League, Matchday 6"
+  },
+  "FC Bayern M\u00fcnchen|Sporting Clube de Portugal": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": 3,
+      "Sporting Clube de Portugal": 1
+    },
+    "round": "League, Matchday 6"
+  },
+  "FC Barcelona|Eintracht Frankfurt": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "FC Barcelona": 2,
+      "Eintracht Frankfurt": 1
+    },
+    "round": "League, Matchday 6"
+  },
+  "PSV|Club Atl\u00e9tico de Madrid": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "PSV": 2,
+      "Club Atl\u00e9tico de Madrid": 3
+    },
+    "round": "League, Matchday 6"
+  },
+  "Royale Union Saint-Gilloise|Olympique de Marseille": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "Royale Union Saint-Gilloise": 2,
+      "Olympique de Marseille": 3
+    },
+    "round": "League, Matchday 6"
+  },
+  "Tottenham Hotspur FC|SK Slavia Praha": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur FC": 3,
+      "SK Slavia Praha": 0
+    },
+    "round": "League, Matchday 6"
+  },
+  "AS Monaco FC|Galatasaray SK": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "AS Monaco FC": 1,
+      "Galatasaray SK": 0
+    },
+    "round": "League, Matchday 6"
+  },
+  "Atalanta BC|Chelsea FC": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "Atalanta BC": 2,
+      "Chelsea FC": 1
+    },
+    "round": "League, Matchday 6"
+  },
+  "FC Internazionale Milano|Liverpool FC": {
+    "date": "2025-12-09",
+    "status": "FINISHED",
+    "goals": {
+      "FC Internazionale Milano": 0,
+      "Liverpool FC": 1
+    },
+    "round": "League, Matchday 6"
+  },
+  "Villarreal CF|FC K\u00f8benhavn": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Villarreal CF": 2,
+      "FC K\u00f8benhavn": 3
+    },
+    "round": "League, Matchday 6"
+  },
+  "Qaraba\u011f A\u011fdam FK|AFC Ajax": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f A\u011fdam FK": 2,
+      "AFC Ajax": 4
+    },
+    "round": "League, Matchday 6"
+  },
+  "Borussia Dortmund|FK Bod\u00f8/Glimt": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Borussia Dortmund": 2,
+      "FK Bod\u00f8/Glimt": 2
+    },
+    "round": "League, Matchday 6"
+  },
+  "Athletic Club|Paris Saint-Germain FC": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 0,
+      "Paris Saint-Germain FC": 0
+    },
+    "round": "League, Matchday 6"
+  },
+  "Bayer 04 Leverkusen|Newcastle United FC": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Bayer 04 Leverkusen": 2,
+      "Newcastle United FC": 2
+    },
+    "round": "League, Matchday 6"
+  },
+  "Club Brugge KV|Arsenal FC": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Club Brugge KV": 0,
+      "Arsenal FC": 3
+    },
+    "round": "League, Matchday 6"
+  },
+  "Sport Lisboa e Benfica|SSC Napoli": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Sport Lisboa e Benfica": 2,
+      "SSC Napoli": 0
+    },
+    "round": "League, Matchday 6"
+  },
+  "Juventus FC|Paphos FC": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Juventus FC": 2,
+      "Paphos FC": 0
+    },
+    "round": "League, Matchday 6"
+  },
+  "Real Madrid CF|Manchester City FC": {
+    "date": "2025-12-10",
+    "status": "FINISHED",
+    "goals": {
+      "Real Madrid CF": 1,
+      "Manchester City FC": 2
+    },
+    "round": "League, Matchday 6"
+  },
+  "FK Kairat|Club Brugge KV": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "FK Kairat": 1,
+      "Club Brugge KV": 4
+    },
+    "round": "League, Matchday 7"
+  },
+  "FK Bod\u00f8/Glimt|Manchester City FC": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "FK Bod\u00f8/Glimt": 3,
+      "Manchester City FC": 1
+    },
+    "round": "League, Matchday 7"
+  },
+  "Tottenham Hotspur FC|Borussia Dortmund": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "Tottenham Hotspur FC": 2,
+      "Borussia Dortmund": 0
+    },
+    "round": "League, Matchday 7"
+  },
+  "Sporting Clube de Portugal|Paris Saint-Germain FC": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "Sporting Clube de Portugal": 2,
+      "Paris Saint-Germain FC": 1
+    },
+    "round": "League, Matchday 7"
+  },
+  "PAE Olympiakos SFP|Bayer 04 Leverkusen": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "PAE Olympiakos SFP": 2,
+      "Bayer 04 Leverkusen": 0
+    },
+    "round": "League, Matchday 7"
+  },
+  "Villarreal CF|AFC Ajax": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "Villarreal CF": 1,
+      "AFC Ajax": 2
+    },
+    "round": "League, Matchday 7"
+  },
+  "FC K\u00f8benhavn|SSC Napoli": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "FC K\u00f8benhavn": 1,
+      "SSC Napoli": 1
+    },
+    "round": "League, Matchday 7"
+  },
+  "Real Madrid CF|AS Monaco FC": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "Real Madrid CF": 6,
+      "AS Monaco FC": 1
+    },
+    "round": "League, Matchday 7"
+  },
+  "FC Internazionale Milano|Arsenal FC": {
+    "date": "2026-01-20",
+    "status": "FINISHED",
+    "goals": {
+      "FC Internazionale Milano": 1,
+      "Arsenal FC": 3
+    },
+    "round": "League, Matchday 7"
+  },
+  "Qaraba\u011f A\u011fdam FK|Eintracht Frankfurt": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Qaraba\u011f A\u011fdam FK": 3,
+      "Eintracht Frankfurt": 2
+    },
+    "round": "League, Matchday 7"
+  },
+  "Galatasaray SK|Club Atl\u00e9tico de Madrid": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Galatasaray SK": 1,
+      "Club Atl\u00e9tico de Madrid": 1
+    },
+    "round": "League, Matchday 7"
+  },
+  "Olympique de Marseille|Liverpool FC": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Olympique de Marseille": 0,
+      "Liverpool FC": 3
+    },
+    "round": "League, Matchday 7"
+  },
+  "SK Slavia Praha|FC Barcelona": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "SK Slavia Praha": 2,
+      "FC Barcelona": 4
+    },
+    "round": "League, Matchday 7"
+  },
+  "Atalanta BC|Athletic Club": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Atalanta BC": 2,
+      "Athletic Club": 3
+    },
+    "round": "League, Matchday 7"
+  },
+  "Juventus FC|Sport Lisboa e Benfica": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Juventus FC": 2,
+      "Sport Lisboa e Benfica": 0
+    },
+    "round": "League, Matchday 7"
+  },
+  "Newcastle United FC|PSV": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Newcastle United FC": 3,
+      "PSV": 0
+    },
+    "round": "League, Matchday 7"
+  },
+  "FC Bayern M\u00fcnchen|Royale Union Saint-Gilloise": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": 2,
+      "Royale Union Saint-Gilloise": 0
+    },
+    "round": "League, Matchday 7"
+  },
+  "Chelsea FC|Paphos FC": {
+    "date": "2026-01-21",
+    "status": "FINISHED",
+    "goals": {
+      "Chelsea FC": 1,
+      "Paphos FC": 0
+    },
+    "round": "League, Matchday 7"
+  },
+  "Liverpool FC|Qaraba\u011f A\u011fdam FK": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Liverpool FC": 6,
+      "Qaraba\u011f A\u011fdam FK": 0
+    },
+    "round": "League, Matchday 8"
+  },
+  "FC Barcelona|FC K\u00f8benhavn": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "FC Barcelona": 4,
+      "FC K\u00f8benhavn": 1
+    },
+    "round": "League, Matchday 8"
+  },
+  "Manchester City FC|Galatasaray SK": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Manchester City FC": 2,
+      "Galatasaray SK": 0
+    },
+    "round": "League, Matchday 8"
+  },
+  "Bayer 04 Leverkusen|Villarreal CF": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Bayer 04 Leverkusen": 3,
+      "Villarreal CF": 0
+    },
+    "round": "League, Matchday 8"
+  },
+  "Arsenal FC|FK Kairat": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Arsenal FC": 3,
+      "FK Kairat": 2
+    },
+    "round": "League, Matchday 8"
+  },
+  "Royale Union Saint-Gilloise|Atalanta BC": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Royale Union Saint-Gilloise": 1,
+      "Atalanta BC": 0
+    },
+    "round": "League, Matchday 8"
+  },
+  "Club Brugge KV|Olympique de Marseille": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Club Brugge KV": 3,
+      "Olympique de Marseille": 0
+    },
+    "round": "League, Matchday 8"
+  },
+  "Eintracht Frankfurt|Tottenham Hotspur FC": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Eintracht Frankfurt": 0,
+      "Tottenham Hotspur FC": 2
+    },
+    "round": "League, Matchday 8"
+  },
+  "AS Monaco FC|Juventus FC": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "AS Monaco FC": 0,
+      "Juventus FC": 0
+    },
+    "round": "League, Matchday 8"
+  },
+  "Club Atl\u00e9tico de Madrid|FK Bod\u00f8/Glimt": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Club Atl\u00e9tico de Madrid": 1,
+      "FK Bod\u00f8/Glimt": 2
+    },
+    "round": "League, Matchday 8"
+  },
+  "Athletic Club|Sporting Clube de Portugal": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Athletic Club": 2,
+      "Sporting Clube de Portugal": 3
+    },
+    "round": "League, Matchday 8"
+  },
+  "AFC Ajax|PAE Olympiakos SFP": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "AFC Ajax": 1,
+      "PAE Olympiakos SFP": 2
+    },
+    "round": "League, Matchday 8"
+  },
+  "Paris Saint-Germain FC|Newcastle United FC": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Paris Saint-Germain FC": 1,
+      "Newcastle United FC": 1
+    },
+    "round": "League, Matchday 8"
+  },
+  "Paphos FC|SK Slavia Praha": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Paphos FC": 4,
+      "SK Slavia Praha": 1
+    },
+    "round": "League, Matchday 8"
+  },
+  "PSV|FC Bayern M\u00fcnchen": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "PSV": 1,
+      "FC Bayern M\u00fcnchen": 2
+    },
+    "round": "League, Matchday 8"
+  },
+  "SSC Napoli|Chelsea FC": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "SSC Napoli": 2,
+      "Chelsea FC": 3
+    },
+    "round": "League, Matchday 8"
+  },
+  "Sport Lisboa e Benfica|Real Madrid CF": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Sport Lisboa e Benfica": 4,
+      "Real Madrid CF": 2
+    },
+    "round": "League, Matchday 8"
+  },
+  "Borussia Dortmund|FC Internazionale Milano": {
+    "date": "2026-01-28",
+    "status": "FINISHED",
+    "goals": {
+      "Borussia Dortmund": 0,
+      "FC Internazionale Milano": 2
+    },
+    "round": "League, Matchday 8"
+  }
+}
