@@ -1,14 +1,18 @@
 """
-Renders a static standings + title/relegation-odds page for a round-robin
-competition, from schedule.json (fetch_league.py) + league_sim.json
-(sim_league.py). Follows the same __PLACEHOLDER__ substitution pattern as
+Renders a static Results/Bracket/Podium page for a round-robin competition,
+from schedule.json (fetch_league.py), league_sim.json (sim_league.py),
+predictions_snapshot.json (snapshot_league.py), and results_accuracy.json
+(score_league.py). Follows the same __PLACEHOLDER__ substitution pattern as
 build_html.py/template.html (this project's established convention, avoids
-Python f-string escaping issues with large HTML).
+Python f-string escaping issues with large HTML) -- but unlike the WC page,
+every pane here is rendered server-side in Python rather than client-side
+JS, since nothing in a league page needs runtime recomputation.
 
 Deliberately a separate template/script rather than extending template.html:
-that template is World-Cup-specific (Bracket/Podium tabs, group logic) and
-lives on the production GitHub Pages site — a new, unrelated competition's
-page shouldn't risk it.
+that template is World-Cup-specific and lives on the production GitHub Pages
+site -- a new, unrelated competition's page shouldn't risk it. The two DO
+deliberately share the same tab-bar/pane visual language (23 Jul restyle)
+so a visitor doesn't hit a jarring style change moving between them.
 """
 import html as html_lib
 import json
@@ -30,8 +34,12 @@ DEFAULT_TOP_ZONE = 4  # Champions-League-style qualification (PL, La Liga, Bunde
 # all 4 rows the same as a top-flight league's European-qualification zone
 # would be factually wrong, not just a simplification (a real bug found in
 # the 22 Jul audit of the live Championship page, which showed 4 green rows
-# when only the top 2 are actually automatically promoted).
+# when only the top 2 are actually automatically promoted). Kept here even
+# though Championship itself was removed 23 Jul -- this tests the override
+# *mechanism* generically, for whatever future competition needs it.
 TOP_ZONE_OVERRIDES = {"Championship": 2}
+
+_ROUND_NUM_RE = re.compile(r"(\d+)")
 
 
 def top_zone_for(competition_name):
@@ -116,14 +124,152 @@ def render_rows_html(rows):
     return "\n".join(lines)
 
 
+def _fmt_date(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.day} {d.strftime('%b %Y')}"
+
+
+def season_span(schedule):
+    """(display start date, display end date) spanning every fixture in the
+    schedule -- the season's opening and closing matchday. (None, None) if
+    the schedule is empty."""
+    dates = sorted(e["date"] for e in schedule.values())
+    if not dates:
+        return None, None
+    return _fmt_date(dates[0]), _fmt_date(dates[-1])
+
+
+def build_accuracy_html(accuracy):
+    """Results-tab summary cards from results_accuracy.json's "summary", or
+    an empty-state note if nothing has been scored yet (correct for a
+    season that hasn't started, not a bug). "Correct Winners" is counted
+    directly off the match list rather than back-derived from the
+    "accuracy" fraction, to avoid a rounding mismatch."""
+    matches = accuracy.get("matches") or []
+    summary = accuracy.get("summary") or {}
+    n = summary.get("n_scored") or 0
+    if not n:
+        return '<div class="empty-note">No matches scored yet this season.</div>'
+    correct = sum(1 for m in matches if m["correct_winner"])
+    return (
+        '<div class="acc-cards">'
+        '<div class="acc-card"><div class="acc-lbl">Correct Winners</div>'
+        f'<div class="acc-val">{correct}/{n}</div>'
+        f'<div class="acc-sub">{summary["accuracy"]:.1%} accuracy</div></div>'
+        '<div class="acc-card"><div class="acc-lbl">Avg Brier Score</div>'
+        f'<div class="acc-val">{summary["avg_brier"]:.3f}</div>'
+        '<div class="acc-sub">vs baseline 0.67</div></div>'
+        '<div class="acc-card"><div class="acc-lbl">Avg Log-Loss</div>'
+        f'<div class="acc-val">{summary["avg_log_loss"]:.3f}</div>'
+        '<div class="acc-sub">lower is better</div></div>'
+        '</div>'
+    )
+
+
+def build_results_rows_html(accuracy, schedule, snapshot):
+    """Scored-match rows (newest first): predicted vs actual score, correct-
+    winner mark, Brier. Falls back to a single empty-state row rather than
+    an empty <tbody> so the table doesn't look broken before any match has
+    been scored. Team names escaped (external openfootball data)."""
+    matches = sorted(accuracy.get("matches") or [], key=lambda m: m["date"], reverse=True)
+    if not matches:
+        return '<tr><td colspan="6" class="empty-note">No matches scored yet this season.</td></tr>'
+    lines = []
+    for m in matches:
+        key = f"{m['home']}|{m['away']}"
+        goals = schedule.get(key, {}).get("goals", {})
+        actual = f"{goals.get(m['home'])}-{goals.get(m['away'])}"
+        predicted = snapshot.get(key, {}).get("predicted_score", "—")
+        mark = ('<span class="res-ok">&#10003;</span>' if m["correct_winner"]
+                else '<span class="res-err">&#10007;</span>')
+        home, away = html_lib.escape(m["home"]), html_lib.escape(m["away"])
+        lines.append(
+            f'<tr><td class="hint">{m["date"]}</td>'
+            f'<td>{home} <span class="hint">vs</span> {away}</td>'
+            f'<td class="center hint">{predicted}</td>'
+            f'<td class="center strong">{actual}</td>'
+            f'<td class="center">{mark}</td>'
+            f'<td class="center hint">{m["brier"]:.3f}</td></tr>'
+        )
+    return "\n".join(lines)
+
+
+def _round_sort_key(round_label):
+    """Numeric sort key from a "Matchday N" label -- lexical sort would put
+    "Matchday 10" before "Matchday 2"."""
+    m = _ROUND_NUM_RE.search(round_label or "")
+    return int(m.group(1)) if m else 0
+
+
+def build_bracket_html(schedule, snapshot):
+    """Every fixture grouped into a bracket-styled column per round/
+    matchday (sorted numerically), each match card showing its date and
+    either the actual score (once FINISHED), the locked prediction (once
+    due), or an "unplayed" placeholder."""
+    by_round = {}
+    for key, entry in schedule.items():
+        by_round.setdefault(entry.get("round") or "Unscheduled", []).append((key, entry))
+
+    lines = ['<div class="bracket-wrap"><div class="bracket">']
+    for round_label in sorted(by_round, key=_round_sort_key):
+        lines.append(
+            f'<div class="br-col"><div class="br-title">{html_lib.escape(round_label)}</div>'
+            '<div class="br-matches">'
+        )
+        for key, entry in sorted(by_round[round_label], key=lambda kv: kv[1]["date"]):
+            home, away = key.split("|")
+            h, a = html_lib.escape(home), html_lib.escape(away)
+            date_line = f'<div class="bm-date">{entry["date"]}</div>'
+            if entry["status"] == "FINISHED":
+                hg, ag = entry["goals"][home], entry["goals"][away]
+                home_cls = "win" if hg > ag else ("lose" if hg < ag else "")
+                away_cls = "win" if ag > hg else ("lose" if ag < hg else "")
+                lines.append(
+                    f'<div class="bm">{date_line}'
+                    f'<div class="bm-t {home_cls}">{h}<span class="bm-sc">{hg}</span></div>'
+                    f'<div class="bm-t {away_cls}">{a}<span class="bm-sc">{ag}</span></div></div>'
+                )
+            elif key in snapshot:
+                s = snapshot[key]
+                lines.append(
+                    f'<div class="bm">{date_line}'
+                    f'<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
+                    f'<div class="bm-pct">{s["predicted_score"]} &middot; {s["predicted_winner"]}</div></div>'
+                )
+            else:
+                lines.append(
+                    f'<div class="bm">{date_line}<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
+                    '<div class="bm-pct hint">not yet predicted</div></div>'
+                )
+        lines.append('</div></div>')
+    lines.append('</div></div>')
+    return "\n".join(lines)
+
+
+def build_champion_html(rows):
+    """Podium-tab callout: the model's current title-odds leader, mirroring
+    the WC podium's "Predicted Tournament Winner" -- picked by title_pct,
+    NOT standings position (early season, real points and title odds can
+    disagree, e.g. a slow starter the model still rates highest)."""
+    if not rows:
+        return ""
+    leader = max(rows, key=lambda r: r["title_pct"])
+    team = html_lib.escape(leader["team"])
+    return (
+        '<div class="champ-line">Predicted champion: '
+        f'<strong>{team}</strong> ({leader["title_pct"]:.1%} title odds)</div>'
+    )
+
+
 def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATION_ZONE,
                         n_sims=10000):
-    """Load <slug>/schedule.json + league_sim.json, render the standings
-    table into `template_path`'s __PLACEHOLDER__ tokens, and write
-    <slug>/index.html. Raises AssertionError if any __PLACEHOLDER__-shaped
-    token survives substitution — the WC's build_html.py has no such check
-    (flagged by the 22 Jul audit as a gap); this module adds it from the
-    start rather than repeating the omission."""
+    """Load <slug>/schedule.json + league_sim.json (+ optional
+    predictions_snapshot.json / results_accuracy.json), render the
+    Results/Bracket/Podium panes into `template_path`'s __PLACEHOLDER__
+    tokens, and write <slug>/index.html. Raises AssertionError if any
+    __PLACEHOLDER__-shaped token survives substitution — the WC's
+    build_html.py has no such check (flagged by the 22 Jul audit as a gap);
+    this module adds it from the start rather than repeating the omission."""
     from competition_config import artifact_dir
     out_dir = artifact_dir(config, base_dir)
 
@@ -135,10 +281,16 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     with open(sim_path) as f:
         rank_dist = json.load(f)
 
+    snapshot_path = os.path.join(out_dir, "predictions_snapshot.json")
+    snapshot = json.load(open(snapshot_path)) if os.path.exists(snapshot_path) else {}
+    accuracy_path = os.path.join(out_dir, "results_accuracy.json")
+    accuracy = json.load(open(accuracy_path)) if os.path.exists(accuracy_path) else {}
+
     rows = build_standings_rows(schedule, rank_dist, relegation_zone)
     rows_html = render_rows_html(rows)
     top_zone = top_zone_for(config.name)
     nav_html = render_nav_html(nav_entries(base_dir, active=config.slug))
+    season_start, season_end = season_span(schedule)
 
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
@@ -149,6 +301,12 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     page = page.replace("__RELEGATION_ZONE__", str(relegation_zone))
     page = page.replace("__TOP_ZONE__", str(top_zone))
     page = page.replace("__STANDINGS_ROWS__", rows_html)
+    page = page.replace("__SEASON_START__", season_start or "TBD")
+    page = page.replace("__SEASON_END__", season_end or "TBD")
+    page = page.replace("__ACCURACY_CARDS__", build_accuracy_html(accuracy))
+    page = page.replace("__RESULTS_ROWS__", build_results_rows_html(accuracy, schedule, snapshot))
+    page = page.replace("__BRACKET_HTML__", build_bracket_html(schedule, snapshot))
+    page = page.replace("__CHAMPION_LINE__", build_champion_html(rows))
 
     leftover = re.findall(r"__[A-Z_]+__", page)
     assert not leftover, f"unconsumed placeholder(s) in output: {leftover}"

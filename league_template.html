@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--win:#2e7d32}
+:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--hint:#999;--win:#2e7d32;--lose:#c62828}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
 header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
@@ -19,9 +19,16 @@ header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;
 .xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
 .xspn-nav a:hover{color:#fff}
 .xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
-main{max-width:900px;margin:0 auto;padding:28px 20px}
-.subtitle{color:var(--muted);font-size:.84rem;margin-bottom:18px}
-.standings-card{background:var(--card);border:1px solid var(--border);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.tabs{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.tab{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.tab:hover{color:#fff}
+.tab.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+.pane{display:none;padding:20px;max-width:1000px;margin:0 auto}
+.pane.active{display:block}
+.season-note{color:var(--muted);font-size:.84rem;margin-bottom:16px}
+.champ-line{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.champ-line strong{color:var(--red)}
+.empty-note{padding:24px;text-align:center;color:var(--hint);font-size:.88rem}
 table{width:100%;border-collapse:collapse}
 th{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:center;border-bottom:2px solid var(--border)}
 th:nth-child(2){text-align:left}
@@ -29,11 +36,35 @@ td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem;text-
 td:nth-child(2){text-align:left;font-weight:600}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:#fafafa}
-tbody tr:nth-child(-n+__TOP_ZONE__) td:nth-child(2){border-left:3px solid var(--win)}
-tbody tr:nth-last-child(-n+__RELEGATION_ZONE__) td:nth-child(2){border-left:3px solid var(--red)}
+.standings-card,.results-card{background:var(--card);border:1px solid var(--border);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.standings-card tbody tr:nth-child(-n+__TOP_ZONE__) td:nth-child(2){border-left:3px solid var(--win)}
+.standings-card tbody tr:nth-last-child(-n+__RELEGATION_ZONE__) td:nth-child(2){border-left:3px solid var(--red)}
 .odds{font-weight:600}
 .legend{margin-top:12px;font-size:.76rem;color:var(--muted)}
 .swatch{display:inline-block;width:10px;height:10px;margin-right:4px;border-radius:2px}
+.acc-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.acc-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 16px;min-width:130px}
+.acc-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.acc-val{font-size:1.35rem;font-weight:700;color:var(--red);margin:3px 0}
+.acc-sub{font-size:.74rem;color:var(--hint)}
+.res-ok{color:var(--win);font-weight:700}
+.res-err{color:var(--lose);font-weight:700}
+.hint{color:var(--hint) !important}
+.center{text-align:center}
+.strong{font-weight:700}
+.results-card td:nth-child(2){font-weight:400}
+.bracket-wrap{overflow-x:auto}
+.bracket{display:flex;gap:0;min-width:860px}
+.br-col{display:flex;flex-direction:column;flex:1;padding:0 5px;min-width:130px}
+.br-title{text-align:center;font-size:.7rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.8px;padding:6px 0;background:var(--red);border-radius:3px;margin-bottom:8px}
+.br-matches{display:flex;flex-direction:column;gap:4px}
+.bm{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:5px 7px;font-size:.75rem}
+.bm-date{font-size:.66rem;color:var(--hint);margin-bottom:2px}
+.bm-t{display:flex;align-items:center;gap:3px;padding:2px 0}
+.bm-t.win{color:var(--dark);font-weight:600}
+.bm-t.lose{color:var(--hint)}
+.bm-sc{margin-left:auto;font-weight:600}
+.bm-pct{font-size:.68rem;color:var(--muted);padding-top:2px}
 </style>
 </head>
 <body>
@@ -45,8 +76,28 @@ tbody tr:nth-last-child(-n+__RELEGATION_ZONE__) td:nth-child(2){border-left:3px 
   </div>
 </header>
 __NAV__
-<main>
-  <div class="subtitle">xSPN model projections — generated __GENERATED_DATE__ &middot; __N_SIMS__ simulated seasons</div>
+<div class="tabs">
+  <div class="tab active" onclick="show('results')">Results</div>
+  <div class="tab" onclick="show('bracket')">Bracket</div>
+  <div class="tab" onclick="show('podium')">Podium</div>
+</div>
+<div id="tab-results" class="pane active">
+  <div class="season-note">Season runs __SEASON_START__ &ndash; __SEASON_END__ &middot; __N_SIMS__ simulated seasons &middot; generated __GENERATED_DATE__</div>
+  __ACCURACY_CARDS__
+  <div class="results-card">
+  <table>
+    <thead><tr><th>Date</th><th>Match</th><th>Predicted</th><th>Actual</th><th>Winner</th><th>Brier</th></tr></thead>
+    <tbody>
+__RESULTS_ROWS__
+    </tbody>
+  </table>
+  </div>
+</div>
+<div id="tab-bracket" class="pane">
+__BRACKET_HTML__
+</div>
+<div id="tab-podium" class="pane">
+  __CHAMPION_LINE__
   <div class="standings-card">
   <table>
     <thead>
@@ -61,6 +112,13 @@ __STANDINGS_ROWS__
     <span class="swatch" style="background:var(--win)"></span>Top __TOP_ZONE__ &nbsp;&nbsp;
     <span class="swatch" style="background:var(--red)"></span>Relegation zone (bottom __RELEGATION_ZONE__)
   </div>
-</main>
+</div>
+<script>
+function show(n){
+  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','bracket','podium'][i]===n));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+}
+</script>
 </body>
 </html>
