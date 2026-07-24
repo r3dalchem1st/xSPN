@@ -1,0 +1,503 @@
+[
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "Fenerbah\u00e7e",
+    "away": "RSC Anderlecht",
+    "score": [
+      3,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "Union Saint-Gilloise",
+    "away": "AFC Ajax",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "FC Midtjylland",
+    "away": "Real Sociedad",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "Ferencv\u00e1rosi TC",
+    "away": "Viktoria Plze\u0148",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "FC Twente",
+    "away": "FK Bod\u00f8/Glimt",
+    "score": [
+      2,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "PAOK Saloniki",
+    "away": "FCSB",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "AZ Alkmaar",
+    "away": "Galatasaray",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-13",
+    "home": "FC Porto",
+    "away": "AS Roma",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "FK Bod\u00f8/Glimt",
+    "away": "FC Twente",
+    "score": [
+      5,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "FCSB",
+    "away": "PAOK Saloniki",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "Galatasaray",
+    "away": "AZ Alkmaar",
+    "score": [
+      2,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "AS Roma",
+    "away": "FC Porto",
+    "score": [
+      3,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "RSC Anderlecht",
+    "away": "Fenerbah\u00e7e",
+    "score": [
+      2,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "AFC Ajax",
+    "away": "Union Saint-Gilloise",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "Real Sociedad",
+    "away": "FC Midtjylland",
+    "score": [
+      5,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Playoffs",
+    "date": "2025-02-20",
+    "home": "Viktoria Plze\u0148",
+    "away": "Ferencv\u00e1rosi TC",
+    "score": [
+      3,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "AZ Alkmaar",
+    "away": "Tottenham Hotspur",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "Real Sociedad",
+    "away": "Manchester United",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "FCSB",
+    "away": "Olympique Lyonnais",
+    "score": [
+      1,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "Fenerbah\u00e7e",
+    "away": "Rangers FC",
+    "score": [
+      1,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "AS Roma",
+    "away": "Athletic Club",
+    "score": [
+      2,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "FK Bod\u00f8/Glimt",
+    "away": "Olympiakos Piraeus",
+    "score": [
+      3,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "AFC Ajax",
+    "away": "Eintracht Frankfurt",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-06",
+    "home": "Viktoria Plze\u0148",
+    "away": "Lazio Roma",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Lazio Roma",
+    "away": "Viktoria Plze\u0148",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Olympiakos Piraeus",
+    "away": "FK Bod\u00f8/Glimt",
+    "score": [
+      2,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Eintracht Frankfurt",
+    "away": "AFC Ajax",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Athletic Club",
+    "away": "AS Roma",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Tottenham Hotspur",
+    "away": "AZ Alkmaar",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Manchester United",
+    "away": "Real Sociedad",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Olympique Lyonnais",
+    "away": "FCSB",
+    "score": [
+      4,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round of 16",
+    "date": "2025-03-13",
+    "home": "Rangers FC",
+    "away": "Fenerbah\u00e7e",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": [
+      3,
+      2
+    ]
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-10",
+    "home": "FK Bod\u00f8/Glimt",
+    "away": "Lazio Roma",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-10",
+    "home": "Tottenham Hotspur",
+    "away": "Eintracht Frankfurt",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-10",
+    "home": "Rangers FC",
+    "away": "Athletic Club",
+    "score": [
+      0,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-10",
+    "home": "Olympique Lyonnais",
+    "away": "Manchester United",
+    "score": [
+      2,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-17",
+    "home": "Eintracht Frankfurt",
+    "away": "Tottenham Hotspur",
+    "score": [
+      0,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-17",
+    "home": "Lazio Roma",
+    "away": "FK Bod\u00f8/Glimt",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": [
+      2,
+      3
+    ]
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-17",
+    "home": "Athletic Club",
+    "away": "Rangers FC",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Quarterfinals",
+    "date": "2025-04-17",
+    "home": "Manchester United",
+    "away": "Olympique Lyonnais",
+    "score": [
+      5,
+      4
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Semifinals",
+    "date": "2025-05-01",
+    "home": "Tottenham Hotspur",
+    "away": "FK Bod\u00f8/Glimt",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Semifinals",
+    "date": "2025-05-01",
+    "home": "Athletic Club",
+    "away": "Manchester United",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Semifinals",
+    "date": "2025-05-08",
+    "home": "FK Bod\u00f8/Glimt",
+    "away": "Tottenham Hotspur",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Semifinals",
+    "date": "2025-05-08",
+    "home": "Manchester United",
+    "away": "Athletic Club",
+    "score": [
+      4,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Final",
+    "date": "2025-05-21",
+    "home": "Tottenham Hotspur",
+    "away": "Manchester United",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  }
+]
