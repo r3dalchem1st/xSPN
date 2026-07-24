@@ -6,16 +6,25 @@ Sport pattern: a persistent row of competition tabs, each a real link to
 that competition's own static page.
 
 The league tabs are discovered dynamically via list_competitions.py rather
-than hand-listed here, so adding Copa del Rey/Champions League/AFCON later
-needs zero template edits — same "just add a config" philosophy as the rest
-of this project. The World Cup and the hub itself are added as fixed extra
-entries since neither has a competitions/<slug>.json config (the WC predates
-that system entirely; the hub isn't a competition at all).
+than hand-listed here, so adding a new competition's config never requires
+a template edit. Display ORDER, though, is an explicit hand-picked list
+(NAV_ORDER, direct 24 Jul reorder request) rather than purely derived from
+season-start date: that heuristic broke down once a competition's "season"
+could be a placeholder historical one (Champions League currently trains
+on 2025-26 real data, which sorted it before every 2026-27 league by date
+despite the user wanting it after Bundesliga). A competition not yet in
+NAV_ORDER (newly onboarded, e.g. Copa del Rey/AFCON later) is appended
+after every named entry, ordered by season start among themselves — so
+onboarding still needs no nav edit, it just won't get a hand-picked
+position until someone adds it to NAV_ORDER. The hub itself is always
+first and outside this ordering entirely (it isn't a competition).
 """
 import json
 import os
 
 from list_competitions import list_competition_slugs
+
+NAV_ORDER = ["la_liga", "premier_league", "bundesliga", "champions_league", "world_cup"]
 
 
 def _season_start(base_dir, slug):
@@ -46,22 +55,23 @@ def _season_start(base_dir, slug):
 
 
 def nav_entries(base_dir, active=None):
-    """List of {"label": str, "href": str, "active": bool} nav entries, in
-    display order: hub first, World Cup second, then every discovered
-    round-robin competition ordered by season start date. `active` is the
-    current page's identifier ("hub", "world_cup", or a competition slug) —
-    the matching entry gets active=True for the caller to highlight."""
-    entries = [
-        {"id": "hub", "label": "xSPN", "href": "/xSPN/"},
-        {"id": "world_cup", "label": "World Cup 2026", "href": "/xSPN/competitions/world_cup_2026/"},
+    """List of {"label": str, "href": str, "active": bool} nav entries. Hub
+    is always first; every other entry (World Cup + every discovered
+    competition) is ordered by NAV_ORDER, with anything not on that list
+    appended after, sorted by season start among themselves. `active` is
+    the current page's identifier ("hub", "world_cup", or a competition
+    slug) — the matching entry gets active=True for the caller to
+    highlight."""
+    hub = {"id": "hub", "label": "xSPN", "href": "/xSPN/"}
+    world_cup = {"id": "world_cup", "label": "World Cup 2026", "href": "/xSPN/competitions/world_cup_2026/"}
+    discovered = [
+        {"id": slug, "label": _display_name(base_dir, slug), "href": f"/xSPN/competitions/{slug}/"}
+        for slug in list_competition_slugs(base_dir)
     ]
-    slugs = sorted(list_competition_slugs(base_dir), key=lambda s: _season_start(base_dir, s))
-    for slug in slugs:
-        entries.append({
-            "id": slug,
-            "label": _display_name(base_dir, slug),
-            "href": f"/xSPN/competitions/{slug}/",
-        })
+    rest = [world_cup] + discovered
+    named = sorted((e for e in rest if e["id"] in NAV_ORDER), key=lambda e: NAV_ORDER.index(e["id"]))
+    unnamed = sorted((e for e in rest if e["id"] not in NAV_ORDER), key=lambda e: _season_start(base_dir, e["id"]))
+    entries = [hub] + named + unnamed
     for e in entries:
         e["active"] = (e["id"] == active)
         del e["id"]
