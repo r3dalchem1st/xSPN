@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>La Liga</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --red:#cc0000; --dark:#1a1a1a; }
-  body { font-family:'Barlow',sans-serif; background:#f2f2f2; color:var(--dark); margin:0; }
-  .xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
-  .xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
-  .xspn-nav a:hover{color:#fff}
-  .xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
-  .page-content { padding:24px; }
-  h1 { color:var(--red); margin-bottom:4px; }
-  .subtitle { color:#666; margin-bottom:20px; font-size:14px; }
-  table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,.1); }
-  th, td { padding:8px 10px; text-align:center; border-bottom:1px solid #eee; }
-  th { background:var(--dark); color:#fff; font-weight:600; }
-  td:nth-child(2) { text-align:left; font-weight:600; }
-  tbody tr:nth-child(-n+4) td:nth-child(2) { border-left:3px solid #2a9d5c; }
-  tbody tr:nth-last-child(-n+3) td:nth-child(2) { border-left:3px solid var(--red); }
-  .odds { font-weight:600; }
-  .legend { margin-top:12px; font-size:12px; color:#666; }
-  .swatch { display:inline-block; width:10px; height:10px; margin-right:4px; }
+:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--win:#2e7d32}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
+header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
+.xspn-logo{background:var(--red);color:#fff;font-size:1.25rem;font-weight:600;letter-spacing:2px;padding:4px 10px;border-radius:3px;flex-shrink:0}
+.xspn-logo span{opacity:.65;font-weight:400}
+.hdr-text h1{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}
+.hdr-text p{color:#888;font-size:.76rem;margin-top:2px}
+.xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.xspn-nav a:hover{color:#fff}
+.xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+main{max-width:900px;margin:0 auto;padding:28px 20px}
+.subtitle{color:var(--muted);font-size:.84rem;margin-bottom:18px}
+.standings-card{background:var(--card);border:1px solid var(--border);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:center;border-bottom:2px solid var(--border)}
+th:nth-child(2){text-align:left}
+td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem;text-align:center}
+td:nth-child(2){text-align:left;font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#fafafa}
+tbody tr:nth-child(-n+4) td:nth-child(2){border-left:3px solid var(--win)}
+tbody tr:nth-last-child(-n+3) td:nth-child(2){border-left:3px solid var(--red)}
+.odds{font-weight:600}
+.legend{margin-top:12px;font-size:.76rem;color:var(--muted)}
+.swatch{display:inline-block;width:10px;height:10px;margin-right:4px;border-radius:2px}
 </style>
 </head>
 <body>
+<header>
+  <div class="xspn-logo">x<span>SPN</span></div>
+  <div class="hdr-text">
+    <h1>La Liga</h1>
+    <p>Dixon-Coles &middot; Elo priors &middot; Monte Carlo simulation</p>
+  </div>
+</header>
 <nav class="xspn-nav"><a href="/xSPN/">xSPN</a><a href="/xSPN/competitions/world_cup_2026/">World Cup 2026</a><a href="/xSPN/competitions/bundesliga/">Bundesliga</a><a href="/xSPN/competitions/la_liga/" class="active">La Liga</a><a href="/xSPN/competitions/premier_league/">Premier League</a></nav>
-<div class="page-content">
-<h1>La Liga</h1>
-<div class="subtitle">xSPN model projections — generated 2026-07-23 · 10000 simulated seasons</div>
-<table>
-  <thead>
-    <tr><th>Pos</th><th>Team</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Title %</th><th>Relegation %</th></tr>
-  </thead>
-  <tbody>
+<main>
+  <div class="subtitle">xSPN model projections — generated 2026-07-24 &middot; 10000 simulated seasons</div>
+  <div class="standings-card">
+  <table>
+    <thead>
+      <tr><th>Pos</th><th>Team</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Title %</th><th>Relegation %</th></tr>
+    </thead>
+    <tbody>
     <tr><td>1</td><td>FC Barcelona</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">73.2%</td><td class="odds">0.0%</td></tr>
-    <tr><td>2</td><td>Real Madrid CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">19.9%</td><td class="odds">0.0%</td></tr>
-    <tr><td>3</td><td>Club Atlético de Madrid</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">3.8%</td><td class="odds">0.1%</td></tr>
+    <tr><td>2</td><td>Real Madrid CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">19.8%</td><td class="odds">0.0%</td></tr>
+    <tr><td>3</td><td>Club Atlético de Madrid</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">3.9%</td><td class="odds">0.1%</td></tr>
     <tr><td>4</td><td>Villarreal CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">2.5%</td><td class="odds">0.2%</td></tr>
-    <tr><td>5</td><td>Real Betis Balompié</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">2.2%</td></tr>
-    <tr><td>6</td><td>RC Celta de Vigo</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.3%</td><td class="odds">4.5%</td></tr>
-    <tr><td>7</td><td>Athletic Club</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">8.2%</td></tr>
-    <tr><td>8</td><td>Rayo Vallecano de Madrid</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">13.9%</td></tr>
-    <tr><td>9</td><td>Real Sociedad de Fútbol</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">16.2%</td></tr>
-    <tr><td>10</td><td>CA Osasuna</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">16.1%</td></tr>
-    <tr><td>11</td><td>RC Deportivo La Coruña</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">14.5%</td></tr>
-    <tr><td>12</td><td>Málaga CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">15.5%</td></tr>
-    <tr><td>13</td><td>Real Racing Club de Santander</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">16.0%</td></tr>
-    <tr><td>14</td><td>Valencia CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">20.5%</td></tr>
+    <tr><td>5</td><td>Real Betis Balompié</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">2.0%</td></tr>
+    <tr><td>6</td><td>RC Celta de Vigo</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">4.3%</td></tr>
+    <tr><td>7</td><td>Athletic Club</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">8.4%</td></tr>
+    <tr><td>8</td><td>Rayo Vallecano de Madrid</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">13.6%</td></tr>
+    <tr><td>9</td><td>Real Sociedad de Fútbol</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">15.9%</td></tr>
+    <tr><td>10</td><td>CA Osasuna</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">16.0%</td></tr>
+    <tr><td>11</td><td>RC Deportivo La Coruña</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">14.8%</td></tr>
+    <tr><td>12</td><td>Málaga CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">15.0%</td></tr>
+    <tr><td>13</td><td>Real Racing Club de Santander</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">15.5%</td></tr>
+    <tr><td>14</td><td>Valencia CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">20.4%</td></tr>
     <tr><td>15</td><td>Getafe CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">21.9%</td></tr>
-    <tr><td>16</td><td>Elche CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">23.9%</td></tr>
-    <tr><td>17</td><td>RCD Espanyol de Barcelona</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">26.2%</td></tr>
-    <tr><td>18</td><td>Levante UD</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">30.9%</td></tr>
-    <tr><td>19</td><td>Deportivo Alavés</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">31.9%</td></tr>
-    <tr><td>20</td><td>Sevilla FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">37.3%</td></tr>
-  </tbody>
-</table>
-<div class="legend">
-  <span class="swatch" style="background:#2a9d5c"></span>Top 4 &nbsp;&nbsp;
-  <span class="swatch" style="background:#cc0000"></span>Relegation zone (bottom 3)
-</div>
-</div>
+    <tr><td>16</td><td>Elche CF</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">24.9%</td></tr>
+    <tr><td>17</td><td>RCD Espanyol de Barcelona</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">26.5%</td></tr>
+    <tr><td>18</td><td>Levante UD</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">31.3%</td></tr>
+    <tr><td>19</td><td>Deportivo Alavés</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">31.8%</td></tr>
+    <tr><td>20</td><td>Sevilla FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">37.4%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="legend">
+    <span class="swatch" style="background:var(--win)"></span>Top 4 &nbsp;&nbsp;
+    <span class="swatch" style="background:var(--red)"></span>Relegation zone (bottom 3)
+  </div>
+</main>
 </body>
 </html>
