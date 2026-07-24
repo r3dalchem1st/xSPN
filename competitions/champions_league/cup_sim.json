@@ -1,0 +1,476 @@
+{
+  "zone_odds": {
+    "AFC Ajax": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "AS Monaco FC": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Arsenal FC": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "Atalanta BC": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Athletic Club": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "Bayer 04 Leverkusen": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Borussia Dortmund": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Chelsea FC": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "Club Atl\u00e9tico de Madrid": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Club Brugge KV": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Eintracht Frankfurt": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "FC Barcelona": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "FC Bayern M\u00fcnchen": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "FC Internazionale Milano": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "FC K\u00f8benhavn": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "FK Bod\u00f8/Glimt": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "FK Kairat": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "Galatasaray SK": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Juventus FC": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Liverpool FC": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "Manchester City FC": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "Newcastle United FC": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Olympique de Marseille": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "PAE Olympiakos SFP": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "PSV": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "Paphos FC": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "Paris Saint-Germain FC": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Qaraba\u011f A\u011fdam FK": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Real Madrid CF": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Royale Union Saint-Gilloise": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "SK Slavia Praha": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "SSC Napoli": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    },
+    "Sport Lisboa e Benfica": {
+      "top8": 0.0,
+      "playoff_zone": 1.0,
+      "eliminated": 0.0
+    },
+    "Sporting Clube de Portugal": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "Tottenham Hotspur FC": {
+      "top8": 1.0,
+      "playoff_zone": 0.0,
+      "eliminated": 0.0
+    },
+    "Villarreal CF": {
+      "top8": 0.0,
+      "playoff_zone": 0.0,
+      "eliminated": 1.0
+    }
+  },
+  "stage_odds": {
+    "AFC Ajax": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "AS Monaco FC": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Arsenal FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 1.0,
+      "final": 1.0,
+      "champion": 0.0
+    },
+    "Atalanta BC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Athletic Club": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Bayer 04 Leverkusen": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Borussia Dortmund": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Chelsea FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Club Atl\u00e9tico de Madrid": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 1.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Club Brugge KV": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Eintracht Frankfurt": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "FC Barcelona": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "FC Bayern M\u00fcnchen": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 1.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "FC Internazionale Milano": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "FC K\u00f8benhavn": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "FK Bod\u00f8/Glimt": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "FK Kairat": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Galatasaray SK": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Juventus FC": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Liverpool FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Manchester City FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Newcastle United FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Olympique de Marseille": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "PAE Olympiakos SFP": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "PSV": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Paphos FC": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Paris Saint-Germain FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 1.0,
+      "final": 1.0,
+      "champion": 1.0
+    },
+    "Qaraba\u011f A\u011fdam FK": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Real Madrid CF": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Royale Union Saint-Gilloise": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "SK Slavia Praha": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "SSC Napoli": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Sport Lisboa e Benfica": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Sporting Clube de Portugal": {
+      "round_of_16": 1.0,
+      "quarterfinal": 1.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Tottenham Hotspur FC": {
+      "round_of_16": 1.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    "Villarreal CF": {
+      "round_of_16": 0.0,
+      "quarterfinal": 0.0,
+      "semifinal": 0.0,
+      "final": 0.0,
+      "champion": 0.0
+    }
+  },
+  "expected_pos": {
+    "AFC Ajax": 32.0,
+    "AS Monaco FC": 21.0,
+    "Arsenal FC": 1.0,
+    "Atalanta BC": 15.0,
+    "Athletic Club": 29.0,
+    "Bayer 04 Leverkusen": 16.0,
+    "Borussia Dortmund": 17.0,
+    "Chelsea FC": 6.0,
+    "Club Atl\u00e9tico de Madrid": 14.0,
+    "Club Brugge KV": 19.0,
+    "Eintracht Frankfurt": 33.0,
+    "FC Barcelona": 5.0,
+    "FC Bayern M\u00fcnchen": 2.0,
+    "FC Internazionale Milano": 10.0,
+    "FC K\u00f8benhavn": 31.0,
+    "FK Bod\u00f8/Glimt": 23.0,
+    "FK Kairat": 36.0,
+    "Galatasaray SK": 20.0,
+    "Juventus FC": 13.0,
+    "Liverpool FC": 3.0,
+    "Manchester City FC": 8.0,
+    "Newcastle United FC": 12.0,
+    "Olympique de Marseille": 25.0,
+    "PAE Olympiakos SFP": 18.0,
+    "PSV": 28.0,
+    "Paphos FC": 26.0,
+    "Paris Saint-Germain FC": 11.0,
+    "Qaraba\u011f A\u011fdam FK": 22.0,
+    "Real Madrid CF": 9.0,
+    "Royale Union Saint-Gilloise": 27.0,
+    "SK Slavia Praha": 34.0,
+    "SSC Napoli": 30.0,
+    "Sport Lisboa e Benfica": 24.0,
+    "Sporting Clube de Portugal": 7.0,
+    "Tottenham Hotspur FC": 4.0,
+    "Villarreal CF": 35.0
+  }
+}
