@@ -33,6 +33,12 @@ def test_invalid_format_raises():
         CompetitionConfig(bad)
 
 
+def test_league_phase_knockout_format_accepted():
+    data = dict(VALID_DATA, format="league_phase_knockout")
+    config = CompetitionConfig(data)
+    assert config.format == "league_phase_knockout"
+
+
 def test_empty_openfootball_files_raises():
     bad = dict(VALID_DATA, openfootball_files=[])
     with pytest.raises(ValueError, match="openfootball_files"):

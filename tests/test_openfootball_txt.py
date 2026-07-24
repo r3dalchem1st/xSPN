@@ -88,3 +88,39 @@ def test_year_rolls_over_at_a_dateless_month_boundary():
 def test_match_line_before_any_date_line_raises():
     with pytest.raises(ValueError, match="before any date line"):
         parse_openfootball_txt("▪ Matchday 1\n    20:00  Team A v Team B\n")
+
+
+# Real lines from openfootball/champions-league's 2025-26/cl.txt (Playoffs +
+# Finals, Round of 16) — before the a.e.t./pen. fix, all three of these
+# silently failed to match and were dropped from the parsed output entirely.
+KNOCKOUT = """= UEFA Champions League 2025/26
+
+▪ Playoffs, Matchday 2
+  Wed Feb 25 2026
+    21:00  Juventus FC (ITA)       v Galatasaray SK (TUR)     3-2 a.e.t. (3-0, 1-0)
+
+
+▪ Finals, Final
+  Sat May 30 2026
+    18:00  Paris Saint-Germain FC (FRA) v Arsenal FC (ENG)         4-3 pen. 1-1 a.e.t. (1-1, 0-1)
+"""
+
+
+def test_extra_time_score_parsed_with_true_final_score():
+    matches = parse_openfootball_txt(KNOCKOUT)
+    et_match = matches[0]
+    assert et_match["home"] == "Juventus FC (ITA)"
+    assert et_match["away"] == "Galatasaray SK (TUR)"
+    assert et_match["score"] == (3, 2)
+    assert "pen_score" not in et_match
+
+
+def test_penalty_shootout_score_parsed_separately_from_true_final_score():
+    matches = parse_openfootball_txt(KNOCKOUT)
+    final = matches[1]
+    assert final["home"] == "Paris Saint-Germain FC (FRA)"
+    assert final["away"] == "Arsenal FC (ENG)"
+    # true score (goals, incl. extra time) is 1-1 -- the "4-3" is the
+    # shootout tally, not a goal count, and must not be trained on
+    assert final["score"] == (1, 1)
+    assert final["pen_score"] == (4, 3)

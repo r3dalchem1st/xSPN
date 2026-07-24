@@ -14,7 +14,7 @@ import os
 REQUIRED_FIELDS = [
     "slug", "name", "format", "openfootball_repo", "openfootball_files", "team_aliases",
 ]
-VALID_FORMATS = {"round_robin", "groups_then_knockout", "knockout_only"}
+VALID_FORMATS = {"round_robin", "groups_then_knockout", "knockout_only", "league_phase_knockout"}
 
 
 class CompetitionConfig:

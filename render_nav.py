@@ -26,14 +26,23 @@ def _season_start(base_dir, slug):
     happened to put Bundesliga first, the last of the three to kick off).
     Falls back to a date far in the future — sorting a not-yet-fetched
     competition (no schedule.json yet) last, not first — rather than
-    letting a missing file crash the whole nav bar for every competition."""
-    try:
-        with open(os.path.join(base_dir, "competitions", slug, "schedule.json")) as f:
-            schedule = json.load(f)
-        dates = [e["date"] for e in schedule.values() if e.get("date")]
-        return min(dates) if dates else "9999-99-99"
-    except (FileNotFoundError, ValueError, KeyError):
-        return "9999-99-99"
+    letting a missing file crash the whole nav bar for every competition.
+
+    Tries "schedule.json" (round_robin) first, then "league_schedule.json"
+    (league_phase_knockout) — without this fallback, every cup competition
+    would silently sort last forever (wrong filename, not "not fetched
+    yet"), never reflecting its real season start once fetched."""
+    comp_dir = os.path.join(base_dir, "competitions", slug)
+    for filename in ("schedule.json", "league_schedule.json"):
+        try:
+            with open(os.path.join(comp_dir, filename)) as f:
+                schedule = json.load(f)
+            dates = [e["date"] for e in schedule.values() if e.get("date")]
+            if dates:
+                return min(dates)
+        except (FileNotFoundError, ValueError, KeyError):
+            continue
+    return "9999-99-99"
 
 
 def nav_entries(base_dir, active=None):
