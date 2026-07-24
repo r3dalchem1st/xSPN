@@ -1,5 +1,7 @@
 from build_league_html import (compute_full_standings, build_standings_rows,
-                                 render_rows_html, top_zone_for)
+                                 render_rows_html, top_zone_for, season_span,
+                                 build_accuracy_html, build_results_rows_html,
+                                 build_bracket_html, build_champion_html)
 
 SCHEDULE_SAMPLE = {
     "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
@@ -69,6 +71,106 @@ def test_render_rows_html_escapes_team_names():
              "gf": 0, "ga": 0, "gd": 0, "pts": 0, "title_pct": 0.5, "releg_pct": 0.1}]
     out = render_rows_html(rows)
     assert "A &amp; B FC" in out
+
+
+def test_season_span_covers_earliest_to_latest_fixture():
+    start, end = season_span(SCHEDULE_SAMPLE)
+    assert start == "1 Aug 2026"
+    assert end == "1 Dec 2026"
+
+
+def test_season_span_empty_schedule():
+    assert season_span({}) == (None, None)
+
+
+def test_build_accuracy_html_empty_state_before_any_match_scored():
+    out = build_accuracy_html({})
+    assert "No matches scored yet" in out
+
+
+def test_build_accuracy_html_renders_cards_from_summary():
+    accuracy = {
+        "matches": [{"correct_winner": True}, {"correct_winner": False}, {"correct_winner": True}],
+        "summary": {"n_scored": 3, "accuracy": 2 / 3, "avg_brier": 0.55, "avg_log_loss": 0.9},
+    }
+    out = build_accuracy_html(accuracy)
+    assert "2/3" in out
+    assert "66.7%" in out
+    assert "0.550" in out
+
+
+def test_build_results_rows_html_empty_state():
+    out = build_results_rows_html({}, SCHEDULE_SAMPLE, {})
+    assert "No matches scored yet" in out
+
+
+def test_build_results_rows_html_shows_actual_and_predicted_score_newest_first():
+    accuracy = {"matches": [
+        {"home": "Strong FC", "away": "Weak FC", "date": "2026-08-01",
+         "correct_winner": True, "brier": 0.2, "log_loss": 0.3},
+        {"home": "Weak FC", "away": "Strong FC", "date": "2026-09-01",
+         "correct_winner": False, "brier": 0.8, "log_loss": 1.2},
+    ]}
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
+                               "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"},
+        "Weak FC|Strong FC": {"date": "2026-09-01", "status": "FINISHED",
+                               "goals": {"Weak FC": 0, "Strong FC": 2}, "round": "Matchday 2"},
+    }
+    snapshot = {"Strong FC|Weak FC": {"predicted_score": "2-0"}}
+    out = build_results_rows_html(accuracy, schedule, snapshot)
+    # newest first: the Sep match's row appears before the Aug match's row
+    assert out.index("2026-09-01") < out.index("2026-08-01")
+    assert "2-0" in out  # locked prediction for the Aug match
+    assert "0-2" in out  # actual score for the Sep match
+    assert "res-ok" in out and "res-err" in out
+
+
+def test_build_bracket_html_sorts_matchdays_numerically_not_lexically():
+    schedule = {
+        "A|B": {"date": "2026-08-01", "status": "SCHEDULED", "goals": {"A": None, "B": None}, "round": "Matchday 2"},
+        "C|D": {"date": "2026-08-08", "status": "SCHEDULED", "goals": {"C": None, "D": None}, "round": "Matchday 10"},
+    }
+    out = build_bracket_html(schedule, {})
+    # "Matchday 2" must render before "Matchday 10" (lexical sort would reverse this)
+    assert out.index("Matchday 2") < out.index("Matchday 10")
+
+
+def test_build_bracket_html_shows_score_for_finished_and_prediction_for_locked():
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
+                               "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"},
+        "Weak FC|Strong FC": {"date": "2026-12-01", "status": "SCHEDULED",
+                               "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 20"},
+    }
+    snapshot = {"Weak FC|Strong FC": {"predicted_score": "1-2", "predicted_winner": "A"}}
+    out = build_bracket_html(schedule, snapshot)
+    assert "2026-08-01" in out and "2026-12-01" in out
+    assert '<span class="bm-sc">3</span>' in out  # finished match shows the actual score
+    assert "1-2" in out  # locked prediction for the unplayed match
+
+
+def test_build_bracket_html_unpredicted_match_shows_placeholder():
+    schedule = {
+        "A|B": {"date": "2026-08-01", "status": "SCHEDULED", "goals": {"A": None, "B": None}, "round": "Matchday 1"},
+    }
+    out = build_bracket_html(schedule, {})
+    assert "not yet predicted" in out
+
+
+def test_build_champion_html_picks_highest_title_pct_not_first_row():
+    rows = [
+        {"team": "Standings Leader FC", "title_pct": 0.10},
+        {"team": "Model Favourite FC", "title_pct": 0.80},
+    ]
+    out = build_champion_html(rows)
+    assert "Model Favourite FC" in out
+    assert "80.0%" in out
+    assert "Standings Leader FC" not in out
+
+
+def test_build_champion_html_empty_rows():
+    assert build_champion_html([]) == ""
 
 
 import json
