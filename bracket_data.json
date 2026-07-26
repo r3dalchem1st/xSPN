@@ -224,7 +224,7 @@
         "score": "1\u20130",
         "ph": 0.408,
         "pd": 0.331,
-        "pa": 0.262,
+        "pa": 0.261,
         "likely_winner": "USA"
       },
       {
@@ -1095,7 +1095,7 @@
       "away": "Croatia",
       "score": "2\u20131",
       "winner": "Portugal",
-      "win_pct": 64.6,
+      "win_pct": 64.5,
       "ph": 0.532,
       "pd": 0.236,
       "pa": 0.232,
@@ -1436,15 +1436,15 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 92.0,
+  "champion_pct": 91.9,
   "reach_final": {
     "Spain": 96.7,
-    "Argentina": 83.7,
-    "England": 9.4,
-    "Colombia": 5.6,
+    "Argentina": 83.8,
+    "England": 9.3,
+    "Colombia": 5.7,
     "France": 2.5,
     "Senegal": 1.2,
-    "USA": 0.6,
+    "USA": 0.7,
     "Algeria": 0.2
   }
 }
