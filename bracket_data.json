@@ -595,7 +595,7 @@
         "lam": 3.05,
         "mu": 0.81,
         "score": "3\u20130",
-        "ph": 0.764,
+        "ph": 0.765,
         "pd": 0.168,
         "pa": 0.068,
         "likely_winner": "Senegal"
@@ -1161,7 +1161,7 @@
       "score": "2\u20131",
       "winner": "England",
       "win_pct": 76.6,
-      "ph": 0.676,
+      "ph": 0.677,
       "pd": 0.183,
       "pa": 0.14,
       "reg_winner": "England",
@@ -1436,14 +1436,14 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.9,
+  "champion_pct": 91.8,
   "reach_final": {
-    "Spain": 96.7,
-    "Argentina": 83.8,
-    "England": 9.3,
+    "Spain": 96.5,
+    "Argentina": 83.6,
+    "England": 9.5,
     "Colombia": 5.7,
-    "France": 2.5,
-    "Senegal": 1.2,
+    "France": 2.6,
+    "Senegal": 1.1,
     "USA": 0.7,
     "Algeria": 0.2
   }
