@@ -8,7 +8,7 @@
         "mu": 0.74,
         "score": "1\u20130",
         "ph": 0.576,
-        "pd": 0.295,
+        "pd": 0.294,
         "pa": 0.129,
         "likely_winner": "Mexico"
       },
@@ -1438,12 +1438,12 @@
   "champion": "Spain",
   "champion_pct": 91.8,
   "reach_final": {
-    "Spain": 96.5,
-    "Argentina": 83.6,
-    "England": 9.5,
-    "Colombia": 5.7,
-    "France": 2.6,
-    "Senegal": 1.1,
+    "Spain": 96.6,
+    "Argentina": 83.7,
+    "England": 9.4,
+    "Colombia": 5.8,
+    "France": 2.5,
+    "Senegal": 1.2,
     "USA": 0.7,
     "Algeria": 0.2
   }
