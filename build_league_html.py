@@ -24,6 +24,8 @@ from datetime import date
 DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DIR)
 from render_nav import nav_entries, render_nav_html
+from sim_league import build_lambda_tables
+from snapshot_league import hda_probs, likely_score
 
 RELEGATION_ZONE = 3  # Premier League specific; a display choice, not baked
                        # into sim_league.py (cutoffs vary by league/season)
@@ -201,11 +203,23 @@ def _round_sort_key(round_label):
     return int(m.group(1)) if m else 0
 
 
-def build_bracket_html(schedule, snapshot):
+def build_bracket_html(schedule, snapshot, lg_ens=None):
     """Every fixture grouped into a bracket-styled column per round/
     matchday (sorted numerically), each match card showing its date and
-    either the actual score (once FINISHED), the locked prediction (once
-    due), or an "unplayed" placeholder."""
+    one of: the actual score (once FINISHED), the LOCKED prediction (once
+    within the lock window -- the permanent record score_league.py grades
+    against), a LIVE preview (any other still-scheduled match, if `lg_ens`
+    is given -- the model's current view, recomputed fresh every build,
+    never written to predictions_snapshot.json), or an "unplayed"
+    placeholder if no ensemble is available at all.
+
+    The live preview is deliberately NOT a lock: locking today's fit for a
+    fixture 3+ weeks out would freeze a stale early guess into the
+    permanent scoring record instead of the model's latest view close to
+    kickoff, defeating the whole point of the lock window (see
+    snapshot_league.py's LOCK_WINDOW_DAYS docstring). This just shows the
+    same not-yet-locked information a visitor can already see reflected in
+    the standings' title/relegation odds, at the individual-match level."""
     by_round = {}
     for key, entry in schedule.items():
         by_round.setdefault(entry.get("round") or "Unscheduled", []).append((key, entry))
@@ -236,6 +250,15 @@ def build_bracket_html(schedule, snapshot):
                     f'<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
                     f'<div class="bm-pct">{s["predicted_score"]} &middot; {s["predicted_winner"]}</div></div>'
                 )
+            elif lg_ens:
+                ph, pd, pa = hda_probs(home, away, lg_ens)
+                outcome = max([("H", ph), ("D", pd), ("A", pa)], key=lambda x: x[1])[0]
+                lam, mu = lg_ens[0][(home, away)]
+                hg, ag = likely_score(lam, mu, allowed={outcome})
+                lines.append(
+                    f'<div class="bm">{date_line}<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
+                    f'<div class="bm-pct hint">{hg}-{ag} &middot; {outcome} (preview, not yet locked)</div></div>'
+                )
             else:
                 lines.append(
                     f'<div class="bm">{date_line}<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
@@ -264,12 +287,19 @@ def build_champion_html(rows):
 def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATION_ZONE,
                         n_sims=10000):
     """Load <slug>/schedule.json + league_sim.json (+ optional
-    predictions_snapshot.json / results_accuracy.json), render the
-    Results/Bracket/Podium panes into `template_path`'s __PLACEHOLDER__
-    tokens, and write <slug>/index.html. Raises AssertionError if any
-    __PLACEHOLDER__-shaped token survives substitution — the WC's
-    build_html.py has no such check (flagged by the 22 Jul audit as a gap);
-    this module adds it from the start rather than repeating the omission."""
+    predictions_snapshot.json / results_accuracy.json / dc_ensemble.json),
+    render the Results/Bracket/Podium panes into `template_path`'s
+    __PLACEHOLDER__ tokens, and write <slug>/index.html. Raises
+    AssertionError if any __PLACEHOLDER__-shaped token survives
+    substitution — the WC's build_html.py has no such check (flagged by
+    the 22 Jul audit as a gap); this module adds it from the start rather
+    than repeating the omission.
+
+    When dc_ensemble.json is available (same CI job that just ran
+    fit_league.py, or a local session that did), every not-yet-locked
+    Bracket match gets a live model-preview prediction instead of "not yet
+    predicted" -- see build_bracket_html's docstring for why this is
+    deliberately separate from the lock/scoring mechanism."""
     from competition_config import artifact_dir
     out_dir = artifact_dir(config, base_dir)
 
@@ -285,6 +315,19 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     snapshot = json.load(open(snapshot_path)) if os.path.exists(snapshot_path) else {}
     accuracy_path = os.path.join(out_dir, "results_accuracy.json")
     accuracy = json.load(open(accuracy_path)) if os.path.exists(accuracy_path) else {}
+
+    # dc_ensemble.json is never committed (see fit_league.py) -- present
+    # only within the same CI job that just ran fit_league.py, or a local
+    # session that ran it manually. Missing it just means the Bracket tab
+    # falls back to "not yet predicted" for anything not yet locked,
+    # rather than a live preview -- no different from before this existed.
+    ensemble_path = os.path.join(out_dir, "dc_ensemble.json")
+    lg_ens = None
+    if os.path.exists(ensemble_path):
+        teams = sorted({t for key in schedule for t in key.split("|")})
+        with open(ensemble_path) as f:
+            dc_ensemble = json.load(f)
+        lg_ens = build_lambda_tables(teams, dc_ensemble)
 
     rows = build_standings_rows(schedule, rank_dist, relegation_zone)
     rows_html = render_rows_html(rows)
@@ -305,7 +348,7 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     page = page.replace("__SEASON_END__", season_end or "TBD")
     page = page.replace("__ACCURACY_CARDS__", build_accuracy_html(accuracy))
     page = page.replace("__RESULTS_ROWS__", build_results_rows_html(accuracy, schedule, snapshot))
-    page = page.replace("__BRACKET_HTML__", build_bracket_html(schedule, snapshot))
+    page = page.replace("__BRACKET_HTML__", build_bracket_html(schedule, snapshot, lg_ens))
     page = page.replace("__CHAMPION_LINE__", build_champion_html(rows))
 
     leftover = re.findall(r"__[A-Z_]+__", page)
