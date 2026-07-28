@@ -158,6 +158,58 @@ def test_build_bracket_html_unpredicted_match_shows_placeholder():
     assert "not yet predicted" in out
 
 
+DC_SAMPLE_FOR_BRACKET = {
+    "attack": {"Strong FC": 0.8, "Weak FC": -0.6},
+    "defense": {"Strong FC": -0.3, "Weak FC": 0.4},
+    "home_adv": 0.2,
+    "rho": -0.1,
+    "teams": ["Strong FC", "Weak FC"],
+}
+
+
+def test_build_bracket_html_shows_live_preview_when_ensemble_given_but_not_locked():
+    # The main behaviour this covers: a match far outside the lock window
+    # (so it's NOT in `snapshot`) still gets an actual model prediction
+    # shown, instead of "not yet predicted" -- as long as an ensemble is
+    # passed in.
+    from sim_league import build_lambda_tables
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-12-01", "status": "SCHEDULED",
+                               "goals": {"Strong FC": None, "Weak FC": None}, "round": "Matchday 20"},
+    }
+    lg_ens = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE_FOR_BRACKET])
+    out = build_bracket_html(schedule, {}, lg_ens)
+    assert "not yet predicted" not in out
+    assert "preview, not yet locked" in out
+    assert "-" in out  # some "H-A" score rendered
+
+
+def test_build_bracket_html_locked_prediction_takes_priority_over_live_preview():
+    # A match that IS in `snapshot` (already locked) must show the frozen
+    # locked prediction, not a freshly recomputed live one -- the whole
+    # point of locking is grading against what the model said before
+    # kickoff, not what it says today.
+    from sim_league import build_lambda_tables
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-08-01", "status": "SCHEDULED",
+                               "goals": {"Strong FC": None, "Weak FC": None}, "round": "Matchday 1"},
+    }
+    snapshot = {"Strong FC|Weak FC": {"predicted_score": "3-0", "predicted_winner": "H"}}
+    lg_ens = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE_FOR_BRACKET])
+    out = build_bracket_html(schedule, snapshot, lg_ens)
+    assert "3-0" in out
+    assert "preview, not yet locked" not in out
+
+
+def test_build_bracket_html_falls_back_to_placeholder_without_an_ensemble():
+    schedule = {
+        "A|B": {"date": "2026-08-01", "status": "SCHEDULED", "goals": {"A": None, "B": None}, "round": "Matchday 1"},
+    }
+    out = build_bracket_html(schedule, {}, lg_ens=None)
+    assert "not yet predicted" in out
+    assert "preview" not in out
+
+
 def test_build_champion_html_picks_highest_title_pct_not_first_row():
     rows = [
         {"team": "Standings Leader FC", "title_pct": 0.10},
@@ -204,6 +256,38 @@ def test_build_league_html_writes_index_and_consumes_all_placeholders(tmp_path):
     assert "Test League" in content
     assert "__" not in content  # no leftover placeholder tokens
     assert "Strong FC" in content
+
+
+def test_build_league_html_shows_live_preview_when_dc_ensemble_present(tmp_path):
+    from build_league_html import build_league_html
+    from competition_config import CompetitionConfig
+    config = CompetitionConfig({
+        "slug": "test_league", "name": "Test League", "format": "round_robin",
+        "openfootball_repo": "openfootball/example",
+        "openfootball_files": [{"season": "2026-27", "path": "x.txt"}],
+        "team_aliases": {},
+    })
+    out_dir = tmp_path / "competitions" / "test_league"
+    out_dir.mkdir(parents=True)
+    (out_dir / "schedule.json").write_text(json.dumps(SCHEDULE_SAMPLE))  # unplayed leg is far out, unlocked
+    (out_dir / "league_sim.json").write_text(json.dumps(RANK_DIST_SAMPLE))
+    (out_dir / "dc_ensemble.json").write_text(json.dumps([{
+        "attack": {"Strong FC": 0.8, "Weak FC": -0.6},
+        "defense": {"Strong FC": -0.3, "Weak FC": 0.4},
+        "home_adv": 0.2, "rho": -0.1, "teams": ["Strong FC", "Weak FC"],
+    }]))
+
+    template_path = tmp_path / "league_template.html"
+    template_path.write_text(
+        "<html><title>__COMPETITION_NAME__</title>"
+        "<p>__GENERATED_DATE__ __N_SIMS__ __RELEGATION_ZONE__</p>"
+        "<table>__STANDINGS_ROWS__</table><div>__BRACKET_HTML__</div></html>"
+    )
+
+    out_path = build_league_html(config, str(tmp_path), str(template_path))
+    content = open(out_path, encoding="utf-8").read()
+    assert "preview, not yet locked" in content
+    assert "not yet predicted" not in content
 
 
 def test_build_league_html_raises_on_unconsumed_placeholder(tmp_path):
