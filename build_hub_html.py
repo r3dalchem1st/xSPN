@@ -44,6 +44,25 @@ def cup_snapshot(base_dir, slug):
     return f"{html_lib.escape(leader)} leads at {odds['champion']:.0%} to win the title"
 
 
+def copa_snapshot(base_dir, slug):
+    """One-line snapshot for a knockout_only competition's hub card:
+    current champion-odds leader (excluding any team already eliminated,
+    same convention as build_copa_html.py's odds table), or None if no
+    simulation has run yet or every team is eliminated/empty -- the real
+    state Copa del Rey starts in until the 2026-27 draw appears (~October,
+    see docs/superpowers/specs/2026-07-28-copa-del-rey-design.md)."""
+    sim_path = os.path.join(base_dir, "competitions", slug, "copa_sim.json")
+    if not os.path.exists(sim_path):
+        return None
+    with open(sim_path) as f:
+        stage_odds = json.load(f)
+    contenders = {t: o for t, o in stage_odds.items() if o.get("champion", 0.0) > 0.0}
+    if not contenders:
+        return None
+    leader, odds = max(contenders.items(), key=lambda kv: kv[1]["champion"])
+    return f"{html_lib.escape(leader)} leads at {odds['champion']:.0%} to win the title"
+
+
 def world_cup_snapshot(base_dir):
     """One-line snapshot for the World Cup hub card: the actual champion,
     once decided, since the tournament is over (falls back to a generic
@@ -71,13 +90,15 @@ def build_hub_cards(base_dir):
     for slug in list_competition_slugs(base_dir):
         config = load_competition(os.path.join(base_dir, "competitions", f"{slug}.json"))
         if config.format == "league_phase_knockout":
-            snapshot = cup_snapshot(base_dir, slug)
+            snapshot, fallback = cup_snapshot(base_dir, slug), "Season predictions"
+        elif config.format == "knockout_only":
+            snapshot, fallback = copa_snapshot(base_dir, slug), "Draw not yet released"
         else:
-            snapshot = league_snapshot(base_dir, slug)
+            snapshot, fallback = league_snapshot(base_dir, slug), "Season predictions"
         cards.append({
             "name": html_lib.escape(config.name),
             "href": f"/xSPN/competitions/{slug}/",
-            "snapshot": snapshot or "Season predictions",
+            "snapshot": snapshot or fallback,
         })
     return cards
 

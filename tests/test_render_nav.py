@@ -19,11 +19,13 @@ def _make_competitions_dir(tmp_path, configs):
 def test_nav_entries_hub_first_then_explicit_nav_order():
     # Real, live repo: hub, then the explicit NAV_ORDER sequence (24 Jul
     # reorder request) -- World Cup moved from 2nd to LAST here, a direct
-    # instruction, not something derivable from season-start date.
+    # instruction, not something derivable from season-start date. Copa del
+    # Rey is a real config now (not yet in NAV_ORDER) so it's appended after
+    # every named entry, exactly as the module docstring anticipates.
     entries = nav_entries(os.path.dirname(os.path.abspath(__file__)) + "/..", active=None)
     labels = [e["label"] for e in entries]
     assert labels == ["xSPN", "La Liga", "Premier League", "Bundesliga",
-                       "UEFA Champions League", "World Cup 2026"]
+                       "UEFA Champions League", "World Cup 2026", "Copa del Rey"]
 
 
 def test_nav_entries_discovers_competitions_dynamically(tmp_path):
@@ -112,6 +114,26 @@ def test_nav_entries_orders_a_league_phase_knockout_competition_by_its_own_sched
     entries = nav_entries(str(tmp_path), active=None)
     labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]
     assert labels == ["AFCON", "Copa del Rey"]  # July < August
+
+
+def test_nav_entries_orders_a_knockout_only_competition_by_its_own_fixture_filename(tmp_path):
+    # Regression test for the third format needing this lookup: knockout_only
+    # competitions write "knockout_fixtures.json" -- a JSON LIST of fixture
+    # dicts, not the {key: entry} dict shape schedule.json/league_schedule.json
+    # use. Uses an id NOT in NAV_ORDER so this isolates the fallback-filename
+    # mechanism itself (copa_del_rey isn't in NAV_ORDER as of this test).
+    _make_competitions_dir(tmp_path, {"copa_del_rey": "Copa del Rey", "afcon": "AFCON"})
+    comp_dir = tmp_path / "competitions" / "copa_del_rey"
+    comp_dir.mkdir(parents=True)
+    (comp_dir / "knockout_fixtures.json").write_text(json.dumps([
+        {"round": "Round 1", "date": "2026-10-29", "home": "A", "away": "B",
+         "score": None, "pen_score": None},
+    ]))
+    _write_schedule(tmp_path, "afcon", "2027-01-10")
+
+    entries = nav_entries(str(tmp_path), active=None)
+    labels = [e["label"] for e in entries[1:] if e["label"] != "World Cup 2026"]
+    assert labels == ["Copa del Rey", "AFCON"]  # October < January
 
 
 def test_nav_entries_marks_the_active_page(tmp_path):
