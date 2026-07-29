@@ -3,8 +3,8 @@ import os
 
 import pytest
 
-from build_hub_html import (build_hub_cards, build_hub_html, cup_snapshot,
-                             league_snapshot, world_cup_snapshot)
+from build_hub_html import (build_hub_cards, build_hub_html, copa_snapshot,
+                             cup_snapshot, league_snapshot, world_cup_snapshot)
 
 
 def _write_league(tmp_path, slug, name, rank_dist=None):
@@ -66,6 +66,44 @@ def test_build_hub_cards_uses_cup_snapshot_for_league_phase_knockout_competition
     cards = build_hub_cards(str(tmp_path))
     cup_card = next(c for c in cards if c["name"] == "UEFA Champions League")
     assert "PSG" in cup_card["snapshot"]
+
+
+def test_copa_snapshot_returns_none_when_no_sim_yet(tmp_path):
+    os.makedirs(tmp_path / "competitions" / "copa_del_rey")
+    assert copa_snapshot(str(tmp_path), "copa_del_rey") is None
+
+
+def test_copa_snapshot_returns_none_when_every_team_eliminated_or_empty(tmp_path):
+    comp_dir = tmp_path / "competitions" / "copa_del_rey"
+    comp_dir.mkdir(parents=True)
+    (comp_dir / "copa_sim.json").write_text(json.dumps({
+        "A": {"champion": 0.0}, "B": {"champion": 0.0},
+    }))
+    assert copa_snapshot(str(tmp_path), "copa_del_rey") is None
+
+
+def test_copa_snapshot_shows_the_title_odds_leader(tmp_path):
+    comp_dir = tmp_path / "competitions" / "copa_del_rey"
+    comp_dir.mkdir(parents=True)
+    (comp_dir / "copa_sim.json").write_text(json.dumps({
+        "Real Madrid": {"champion": 0.18}, "Minnow FC": {"champion": 0.0},
+    }))
+    snapshot = copa_snapshot(str(tmp_path), "copa_del_rey")
+    assert snapshot == "Real Madrid leads at 18% to win the title"
+
+
+def test_build_hub_cards_uses_copa_snapshot_fallback_for_knockout_only(tmp_path):
+    comp_dir = tmp_path / "competitions"
+    comp_dir.mkdir()
+    (comp_dir / "copa_del_rey.json").write_text(json.dumps({
+        "slug": "copa_del_rey", "name": "Copa del Rey", "format": "knockout_only",
+        "openfootball_repo": "openfootball/espana",
+        "openfootball_files": [{"season": "2024-25", "path": "2024-25/cup.txt"}],
+        "team_aliases": {},
+    }))
+    cards = build_hub_cards(str(tmp_path))
+    copa_card = next(c for c in cards if c["name"] == "Copa del Rey")
+    assert copa_card["snapshot"] == "Draw not yet released"
 
 
 def test_world_cup_snapshot_shows_champion_when_decided(tmp_path):

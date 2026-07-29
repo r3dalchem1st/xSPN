@@ -29,24 +29,26 @@ NAV_ORDER = ["la_liga", "premier_league", "bundesliga", "champions_league", "wor
 
 def _season_start(base_dir, slug):
     """A competition's earliest fixture date, ISO-formatted so string
-    comparison sorts chronologically. Ordering the league tabs by season
-    start (La Liga mid-Aug, Premier League a week later, Bundesliga late
-    Aug) reads correctly to a visitor; alphabetical-by-slug doesn't (it
-    happened to put Bundesliga first, the last of the three to kick off).
-    Falls back to a date far in the future — sorting a not-yet-fetched
-    competition (no schedule.json yet) last, not first — rather than
-    letting a missing file crash the whole nav bar for every competition.
+    comparison sorts chronologically. Falls back to a date far in the
+    future -- sorting a not-yet-fetched competition last, not first --
+    rather than letting a missing file crash the whole nav bar.
 
-    Tries "schedule.json" (round_robin) first, then "league_schedule.json"
-    (league_phase_knockout) — without this fallback, every cup competition
-    would silently sort last forever (wrong filename, not "not fetched
-    yet"), never reflecting its real season start once fetched."""
+    Tries "schedule.json" (round_robin), then "league_schedule.json"
+    (league_phase_knockout), then "knockout_fixtures.json" (knockout_only)
+    -- the third format to need this lookup, generalized here instead of
+    adding a fourth hardcoded special-case next time. The first two are a
+    {"home|away": {"date": ...}} dict; knockout_fixtures.json is a flat
+    LIST of {"date": ...} fixture dicts -- handled by branching on which
+    filename matched, not by assuming a uniform shape."""
     comp_dir = os.path.join(base_dir, "competitions", slug)
-    for filename in ("schedule.json", "league_schedule.json"):
+    for filename in ("schedule.json", "league_schedule.json", "knockout_fixtures.json"):
         try:
             with open(os.path.join(comp_dir, filename)) as f:
-                schedule = json.load(f)
-            dates = [e["date"] for e in schedule.values() if e.get("date")]
+                data = json.load(f)
+            if filename == "knockout_fixtures.json":
+                dates = [fx["date"] for fx in data if fx.get("date")]
+            else:
+                dates = [e["date"] for e in data.values() if e.get("date")]
             if dates:
                 return min(dates)
         except (FileNotFoundError, ValueError, KeyError):

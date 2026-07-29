@@ -35,6 +35,7 @@ class CompetitionConfig:
         self.openfootball_files = data["openfootball_files"]
         self.team_aliases = data["team_aliases"]
         self.teams = data.get("teams")  # optional explicit roster whitelist
+        self.extra_training_sources = data.get("extra_training_sources", [])
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

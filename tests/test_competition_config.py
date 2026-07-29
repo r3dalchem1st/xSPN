@@ -67,3 +67,24 @@ def test_load_competition_from_file(tmp_path):
     p.write_text(json.dumps(VALID_DATA))
     config = load_competition(str(p))
     assert config.name == "Premier League"
+
+
+def test_extra_training_sources_defaults_to_empty_list():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.extra_training_sources == []
+
+
+def test_extra_training_sources_read_when_present():
+    data = dict(VALID_DATA, extra_training_sources=[
+        {"repo": "openfootball/espana", "path": "2024-25/2-liga2.txt"},
+    ])
+    config = CompetitionConfig(data)
+    assert config.extra_training_sources == [
+        {"repo": "openfootball/espana", "path": "2024-25/2-liga2.txt"},
+    ]
+
+
+def test_knockout_only_format_accepted():
+    data = dict(VALID_DATA, format="knockout_only")
+    config = CompetitionConfig(data)
+    assert config.format == "knockout_only"

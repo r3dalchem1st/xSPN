@@ -1,0 +1,102 @@
+name: Update Copa del Rey Predictions
+
+on:
+  schedule:
+    # Once daily -- same cadence reasoning as update-leagues.yml/update-cups.yml
+    # (no live, same-day cadence need the way the World Cup had). 13:25 UTC is
+    # offset from every existing cron slot (update.yml's 21:40/00:20/04:40/18:40,
+    # update-leagues.yml's 10:40, update-cups.yml's 16:15) -- all four workflows
+    # rebuild the shared index.html hub page, and a same-minute cron hits that
+    # race every day (see CONTEXT.md's 23 Jul incident).
+    - cron: '25 13 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: update-copa
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      competitions: ${{ steps.list.outputs.competitions }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - id: list
+        run: echo "competitions=$(python list_competitions.py knockout_only)" >> "$GITHUB_OUTPUT"
+
+  update:
+    needs: discover
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        competition: ${{ fromJson(needs.discover.outputs.competitions) }}
+      max-parallel: 1
+      fail-fast: false
+    env:
+      COMPETITION: ${{ matrix.competition }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install numpy scipy requests
+
+      - name: Fetch new match results
+        run: python fetch_copa.py "competitions/$COMPETITION.json"
+
+      - name: Refit model (Dixon-Coles + Elo)
+        run: python fit_league.py "competitions/$COMPETITION.json"
+
+      - name: Run bracket simulation
+        run: python sim_copa.py "competitions/$COMPETITION.json"
+
+      - name: Snapshot pre-match predictions
+        run: python snapshot_copa.py "competitions/$COMPETITION.json"
+
+      - name: Score predictions against actual results
+        run: python score_copa.py "competitions/$COMPETITION.json"
+
+      - name: Validate prediction snapshot (fails on fabricated/mislabeled locks)
+        run: python validate_snapshot_copa.py "competitions/$COMPETITION.json"
+
+      - name: Build competition page
+        run: python build_copa_html.py "competitions/$COMPETITION.json"
+
+      - name: Build site-wide hub page
+        run: python build_hub_html.py
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add "competitions/$COMPETITION/fetched_matches.json" \
+                  "competitions/$COMPETITION/knockout_fixtures.json" \
+                  "competitions/$COMPETITION/model_params.json" \
+                  "competitions/$COMPETITION/copa_sim.json" \
+                  "competitions/$COMPETITION/predictions_snapshot.json" \
+                  "competitions/$COMPETITION/results_accuracy.json" \
+                  "competitions/$COMPETITION/index.html" \
+                  index.html
+          git diff --staged --quiet && echo "No changes to commit." && exit 0
+          git commit -m "Auto-update $COMPETITION: $(date +'%Y-%m-%d')"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "Push rejected (attempt $i) — rebasing on latest main and retrying..."
+            git rebase --abort >/dev/null 2>&1 || true
+            git pull --rebase --autostash -X ours origin main || { git rebase --abort >/dev/null 2>&1 || true; git pull --no-rebase --autostash -X ours origin main; }
+            python build_hub_html.py
+            git add index.html
+            git commit --amend --no-edit
+          done
+          echo "Push failed after 5 attempts." >&2
+          exit 1

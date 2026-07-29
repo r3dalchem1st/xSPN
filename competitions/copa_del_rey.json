@@ -1,0 +1,26 @@
+{
+  "slug": "copa_del_rey",
+  "name": "Copa del Rey",
+  "format": "knockout_only",
+  "openfootball_repo": "openfootball/espana",
+  "openfootball_files": [
+    {"season": "2024-25", "path": "2024-25/cup.txt"}
+  ],
+  "extra_training_sources": [
+    {"repo": "openfootball/espana", "path": "2025-26/1-liga.txt"},
+    {"repo": "openfootball/espana", "path": "2024-25/1-liga.txt"},
+    {"repo": "openfootball/espana", "path": "2025-26/2-liga2.txt"},
+    {"repo": "openfootball/espana", "path": "2024-25/2-liga2.txt"}
+  ],
+  "team_aliases": {
+    "Real Madrid": "Real Madrid CF",
+    "Atlético Madrid": "Club Atlético de Madrid",
+    "RC Celta": "RC Celta de Vigo",
+    "Rayo Vallecano": "Rayo Vallecano de Madrid",
+    "Real Betis": "Real Betis Balompié",
+    "Real Sociedad": "Real Sociedad de Fútbol",
+    "Espanyol Barcelona": "RCD Espanyol de Barcelona",
+    "Real Valladolid": "Real Valladolid CF",
+    "CD Alavés": "Deportivo Alavés"
+  }
+}
