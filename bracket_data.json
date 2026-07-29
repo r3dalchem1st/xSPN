@@ -516,7 +516,7 @@
         "lam": 1.63,
         "mu": 0.89,
         "score": "1\u20130",
-        "ph": 0.479,
+        "ph": 0.478,
         "pd": 0.337,
         "pa": 0.184,
         "likely_winner": "Cape Verde"
@@ -687,7 +687,7 @@
         "lam": 1.47,
         "mu": 0.85,
         "score": "1\u20130",
-        "ph": 0.457,
+        "ph": 0.458,
         "pd": 0.351,
         "pa": 0.192,
         "likely_winner": "Portugal"
@@ -1360,7 +1360,7 @@
       "score": "1\u20132",
       "winner": "England",
       "win_pct": 62.6,
-      "ph": 0.264,
+      "ph": 0.263,
       "pd": 0.199,
       "pa": 0.537,
       "reg_winner": "England",
@@ -1438,11 +1438,11 @@
   "champion": "Spain",
   "champion_pct": 91.8,
   "reach_final": {
-    "Spain": 96.6,
-    "Argentina": 83.7,
-    "England": 9.4,
-    "Colombia": 5.8,
-    "France": 2.5,
+    "Spain": 96.5,
+    "Argentina": 83.8,
+    "England": 9.3,
+    "Colombia": 5.7,
+    "France": 2.6,
     "Senegal": 1.2,
     "USA": 0.7,
     "Algeria": 0.2
