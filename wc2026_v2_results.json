@@ -48,7 +48,7 @@
     "win": 0.0,
     "final": 0.0,
     "sf": 0.0,
-    "qf": 0.5138,
+    "qf": 0.5141,
     "win_lo": 0.0,
     "win_hi": 0.0,
     "win_delta": 0.0
@@ -111,7 +111,7 @@
     "win": 0.0015,
     "final": 0.0062,
     "sf": 0.0234,
-    "qf": 0.1731,
+    "qf": 0.173,
     "win_lo": 0.0,
     "win_hi": 0.0032,
     "win_delta": 0.0
@@ -252,13 +252,13 @@
     "win_delta": 0.0
   },
   "Spain": {
-    "win": 0.9202,
+    "win": 0.9201,
     "final": 0.9669,
     "sf": 0.9669,
     "qf": 1.0,
-    "win_lo": 0.8971,
-    "win_hi": 0.9427,
-    "win_delta": 0.0
+    "win_lo": 0.8961,
+    "win_hi": 0.9419,
+    "win_delta": -0.0001
   },
   "Cape Verde": {
     "win": 0.0,
@@ -293,14 +293,14 @@
     "sf": 1.0,
     "qf": 1.0,
     "win_lo": 0.0032,
-    "win_hi": 0.0163,
-    "win_delta": -0.0
+    "win_hi": 0.0164,
+    "win_delta": 0.0
   },
   "Senegal": {
     "win": 0.0019,
     "final": 0.0116,
-    "sf": 0.0434,
-    "qf": 0.1908,
+    "sf": 0.0433,
+    "qf": 0.1906,
     "win_lo": 0.0,
     "win_hi": 0.004,
     "win_delta": 0.0
@@ -325,18 +325,18 @@
   },
   "Argentina": {
     "win": 0.0171,
-    "final": 0.838,
-    "sf": 0.838,
+    "final": 0.8382,
+    "sf": 0.8382,
     "qf": 1.0,
     "win_lo": 0.0072,
-    "win_hi": 0.0292,
-    "win_delta": 0.0001
+    "win_hi": 0.0284,
+    "win_delta": -0.0
   },
   "Algeria": {
     "win": 0.0004,
     "final": 0.0018,
     "sf": 0.0097,
-    "qf": 0.0754,
+    "qf": 0.0753,
     "win_lo": 0.0,
     "win_hi": 0.0016,
     "win_delta": 0.0
@@ -388,21 +388,21 @@
   },
   "Colombia": {
     "win": 0.0222,
-    "final": 0.0574,
-    "sf": 0.1186,
+    "final": 0.0572,
+    "sf": 0.1185,
     "qf": 0.2954,
     "win_lo": 0.0122,
-    "win_hi": 0.034,
-    "win_delta": -0.0001
+    "win_hi": 0.0335,
+    "win_delta": 0.0
   },
   "England": {
     "win": 0.0264,
-    "final": 0.093,
+    "final": 0.0931,
     "sf": 1.0,
     "qf": 1.0,
-    "win_lo": 0.0161,
-    "win_hi": 0.0343,
-    "win_delta": -0.0001
+    "win_lo": 0.0159,
+    "win_hi": 0.0337,
+    "win_delta": 0.0
   },
   "Croatia": {
     "win": 0.0,
