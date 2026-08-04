@@ -1022,7 +1022,7 @@
       "pd": 0.278,
       "pa": 0.46,
       "reg_winner": "Canada",
-      "lam": 0.92,
+      "lam": 0.93,
       "mu": 1.33
     },
     {
@@ -1436,12 +1436,12 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.8,
+  "champion_pct": 91.9,
   "reach_final": {
     "Spain": 96.6,
-    "Argentina": 83.7,
+    "Argentina": 83.9,
     "England": 9.3,
-    "Colombia": 5.8,
+    "Colombia": 5.7,
     "France": 2.5,
     "Senegal": 1.2,
     "USA": 0.7,
