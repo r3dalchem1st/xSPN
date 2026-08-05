@@ -37,7 +37,7 @@
       {
         "home": "South Africa",
         "away": "South Korea",
-        "lam": 0.91,
+        "lam": 0.9,
         "mu": 1.11,
         "score": "1\u20131",
         "ph": 0.256,
@@ -671,7 +671,7 @@
       {
         "home": "Austria",
         "away": "Jordan",
-        "lam": 2.5,
+        "lam": 2.49,
         "mu": 1.06,
         "score": "2\u20131",
         "ph": 0.629,
