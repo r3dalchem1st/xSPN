@@ -789,7 +789,7 @@
         "mu": 0.97,
         "score": "1\u20131",
         "ph": 0.369,
-        "pd": 0.378,
+        "pd": 0.377,
         "pa": 0.253,
         "likely_winner": "Draw"
       },
@@ -1436,15 +1436,15 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.8,
+  "champion_pct": 91.9,
   "reach_final": {
     "Spain": 96.6,
-    "Argentina": 83.7,
-    "England": 9.5,
-    "Colombia": 5.5,
+    "Argentina": 83.8,
+    "England": 9.4,
+    "Colombia": 5.6,
     "France": 2.5,
     "Senegal": 1.2,
-    "USA": 0.6,
+    "USA": 0.7,
     "Algeria": 0.2
   }
 }
