@@ -314,7 +314,7 @@
         "score": "0\u20132",
         "ph": 0.085,
         "pd": 0.216,
-        "pa": 0.699,
+        "pa": 0.698,
         "likely_winner": "Ivory Coast"
       },
       {
@@ -402,7 +402,7 @@
         "lam": 2.61,
         "mu": 1.1,
         "score": "2\u20131",
-        "ph": 0.632,
+        "ph": 0.631,
         "pd": 0.229,
         "pa": 0.139,
         "likely_winner": "Sweden"
@@ -1199,7 +1199,7 @@
       "away": "Algeria",
       "score": "2\u20130",
       "winner": "Switzerland",
-      "win_pct": 65.2,
+      "win_pct": 65.3,
       "ph": 0.557,
       "pd": 0.231,
       "pa": 0.212,
@@ -1440,10 +1440,10 @@
   "reach_final": {
     "Spain": 96.5,
     "Argentina": 83.7,
-    "England": 9.3,
-    "Colombia": 5.8,
+    "England": 9.4,
+    "Colombia": 5.7,
     "France": 2.6,
-    "Senegal": 1.3,
+    "Senegal": 1.2,
     "USA": 0.7,
     "Algeria": 0.2
   }
