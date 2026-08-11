@@ -1,1 +1,112 @@
-{}
+{
+  "Club Atl\u00e9tico de Madrid|M\u00e1laga CF": {
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "M\u00e1laga CF",
+    "date": "2026-08-16",
+    "ph": 0.6443694647204268,
+    "pd": 0.21911832271120715,
+    "pa": 0.13651221256836588,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "Real Racing Club de Santander|Villarreal CF": {
+    "home": "Real Racing Club de Santander",
+    "away": "Villarreal CF",
+    "date": "2026-08-16",
+    "ph": 0.3302872521476525,
+    "pd": 0.24330783606588258,
+    "pa": 0.42640491178646495,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-11"
+  },
+  "FC Barcelona|Athletic Club": {
+    "home": "FC Barcelona",
+    "away": "Athletic Club",
+    "date": "2026-08-16",
+    "ph": 0.5401005936966619,
+    "pd": 0.23703492340692114,
+    "pa": 0.22286448289641703,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "Real Madrid CF|Real Sociedad de F\u00fatbol": {
+    "home": "Real Madrid CF",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-08-16",
+    "ph": 0.6841702119381391,
+    "pd": 0.19847177779003775,
+    "pa": 0.11735801027182312,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-08-11"
+  },
+  "RCD Espanyol de Barcelona|Levante UD": {
+    "home": "RCD Espanyol de Barcelona",
+    "away": "Levante UD",
+    "date": "2026-08-16",
+    "ph": 0.3752454123263214,
+    "pd": 0.2933582319017037,
+    "pa": 0.33139635577197485,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "Sevilla FC|Rayo Vallecano de Madrid": {
+    "home": "Sevilla FC",
+    "away": "Rayo Vallecano de Madrid",
+    "date": "2026-08-16",
+    "ph": 0.37056698840153784,
+    "pd": 0.29486284607721164,
+    "pa": 0.3345701655212506,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "Deportivo Alav\u00e9s|Getafe CF": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "Getafe CF",
+    "date": "2026-08-16",
+    "ph": 0.34380473719018584,
+    "pd": 0.3386640139277022,
+    "pa": 0.31753124888211204,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "RC Deportivo La Coru\u00f1a|Elche CF": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "Elche CF",
+    "date": "2026-08-16",
+    "ph": 0.4161645471938414,
+    "pd": 0.28570801391915024,
+    "pa": 0.2981274388870085,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "RC Celta de Vigo|CA Osasuna": {
+    "home": "RC Celta de Vigo",
+    "away": "CA Osasuna",
+    "date": "2026-08-16",
+    "ph": 0.48689158201776345,
+    "pd": 0.22914231341858535,
+    "pa": 0.28396610456365134,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-11"
+  },
+  "Valencia CF|Real Betis Balompi\u00e9": {
+    "home": "Valencia CF",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-08-16",
+    "ph": 0.3496713035827927,
+    "pd": 0.25215989131446037,
+    "pa": 0.3981688051027466,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-11"
+  }
+}
