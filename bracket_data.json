@@ -582,7 +582,7 @@
         "home": "Senegal",
         "away": "Norway",
         "lam": 1.58,
-        "mu": 2.2,
+        "mu": 2.19,
         "score": "1\u20132",
         "ph": 0.253,
         "pd": 0.278,
@@ -755,7 +755,7 @@
         "lam": 2.83,
         "mu": 1.24,
         "score": "2\u20131",
-        "ph": 0.649,
+        "ph": 0.648,
         "pd": 0.218,
         "pa": 0.133,
         "likely_winner": "England"
@@ -788,7 +788,7 @@
         "lam": 1.25,
         "mu": 0.97,
         "score": "1\u20131",
-        "ph": 0.369,
+        "ph": 0.37,
         "pd": 0.377,
         "pa": 0.253,
         "likely_winner": "Draw"
@@ -1436,13 +1436,13 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.8,
+  "champion_pct": 92.0,
   "reach_final": {
-    "Spain": 96.5,
+    "Spain": 96.7,
     "Argentina": 83.7,
     "England": 9.4,
     "Colombia": 5.7,
-    "France": 2.6,
+    "France": 2.4,
     "Senegal": 1.2,
     "USA": 0.7,
     "Algeria": 0.2
