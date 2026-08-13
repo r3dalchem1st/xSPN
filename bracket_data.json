@@ -720,7 +720,7 @@
         "lam": 2.33,
         "mu": 0.93,
         "score": "2\u20130",
-        "ph": 0.626,
+        "ph": 0.625,
         "pd": 0.248,
         "pa": 0.127,
         "likely_winner": "DR Congo"
@@ -1043,7 +1043,7 @@
       "away": "Morocco",
       "score": "1\u20131 (p)",
       "winner": "Morocco",
-      "win_pct": 50.1,
+      "win_pct": 50.0,
       "ph": 0.384,
       "pd": 0.26,
       "pa": 0.356,
@@ -1098,7 +1098,7 @@
       "win_pct": 64.5,
       "ph": 0.531,
       "pd": 0.236,
-      "pa": 0.232,
+      "pa": 0.233,
       "reg_winner": "Portugal",
       "lam": 1.75,
       "mu": 1.07
@@ -1436,15 +1436,15 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.8,
+  "champion_pct": 91.9,
   "reach_final": {
-    "Spain": 96.6,
+    "Spain": 96.8,
     "Argentina": 83.8,
     "England": 9.3,
-    "Colombia": 5.8,
-    "France": 2.5,
-    "Senegal": 1.2,
-    "USA": 0.7,
+    "Colombia": 5.7,
+    "France": 2.4,
+    "Senegal": 1.3,
+    "USA": 0.6,
     "Algeria": 0.2
   }
 }
