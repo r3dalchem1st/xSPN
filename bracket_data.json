@@ -592,7 +592,7 @@
       {
         "home": "Senegal",
         "away": "Iraq",
-        "lam": 3.05,
+        "lam": 3.06,
         "mu": 0.81,
         "score": "3\u20130",
         "ph": 0.765,
@@ -1436,11 +1436,11 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.9,
+  "champion_pct": 91.8,
   "reach_final": {
     "Spain": 96.6,
-    "Argentina": 83.8,
-    "England": 9.3,
+    "Argentina": 83.7,
+    "England": 9.4,
     "Colombia": 5.7,
     "France": 2.6,
     "Senegal": 1.2,
