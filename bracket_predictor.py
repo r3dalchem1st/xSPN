@@ -7,7 +7,11 @@ import sys, json, random
 import numpy as np
 from collections import defaultdict, Counter
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from model_common import GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble, rank_group, assign_thirds, likely_score, played_group_results, played_ko_results, draw_mix, sample_inflated_score, DRAW_INFLATE
+from model_common import (GROUPS, pen_prob, build_lambda_table, hda_probs_ensemble, load_ensemble,
+                          rank_group, assign_thirds, likely_score, played_group_results,
+                          played_ko_results, draw_mix, sample_inflated_score, DRAW_INFLATE,
+                          R32_FIXED, R32_VAR, R16_PAIRS, QF_PAIRS, SF_PAIRS,
+                          GROUP_PAIRS_SET, resolve_round)
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -43,64 +47,16 @@ except (FileNotFoundError, ValueError):
 # official mapping depends on WHICH thirds qualify and a bare eligible matching can
 # pick a different (valid-but-wrong) pairing (e.g. Belgium–Algeria instead of the
 # real Belgium–Senegal, which also let Senegal advance against the wrong opponent).
-_GP_PAIRS = frozenset(frozenset([GROUPS[g][i], GROUPS[g][j]])
-                      for g in GROUPS for i in range(len(GROUPS[g]))
-                      for j in range(i + 1, len(GROUPS[g])))
 def _real_r32_opponent(winner):
     cand = []
     for key, v in _sched_data.items():
         ts = key.split('|')
-        if winner not in ts or frozenset(ts) in _GP_PAIRS:
+        if winner not in ts or frozenset(ts) in GROUP_PAIRS_SET:
             continue
         if v.get("date", "") < "2026-06-28":
             continue
         cand.append((v["date"], ts[0] if ts[1] == winner else ts[1]))
     return min(cand)[1] if cand else None
-
-# Post-R32 rounds (R16/QF/SF) also have a fixed guessed pairing (R16_PAIRS etc.
-# below) that assumes a specific bracket topology. Like the R32 third-place
-# slots, this guess can be wrong for the portion of the draw seeded from
-# variable third-place teams — e.g. the guess paired Paraguay-Mexico/France-
-# England in R16, but the real schedule (once both legs of a pairing are
-# decided) confirmed France-Paraguay/Canada-Morocco, which by elimination
-# means Mexico-England, not the guessed pairing. Once the real fixture list
-# names a concrete match between two teams from `prev_winners`, trust it over
-# the guess; any winner not confirmed either way keeps its guessed partner.
-_ROUND_WINDOWS = {"r16": ("2026-07-04", "2026-07-09"),
-                  "qf":  ("2026-07-09", "2026-07-14"),
-                  "sf":  ("2026-07-14", "2026-07-18")}
-def _real_pairs_within(teams, window):
-    ws, we = window
-    real = {}
-    for key, v in _sched_data.items():
-        ts = key.split('|')
-        if frozenset(ts) in _GP_PAIRS:
-            continue
-        d = v.get("date", "")
-        if d < ws or d >= we:
-            continue
-        if ts[0] in teams and ts[1] in teams:
-            real[ts[0]] = ts[1]; real[ts[1]] = ts[0]
-    return real
-
-def resolve_round(prev_winners, guessed_pairs, round_key):
-    """Pair up `prev_winners` (slot order) for this round, preferring a
-    confirmed real fixture over the index-based `guessed_pairs` fallback."""
-    real = _real_pairs_within(prev_winners, _ROUND_WINDOWS[round_key])
-    used, out = set(), []
-    for i, j in guessed_pairs:
-        a, b = prev_winners[i], prev_winners[j]
-        if a in used or b in used:
-            continue
-        ra = real.get(a)
-        if ra is not None and ra != b and ra not in used:
-            out.append((a, ra)); used.update((a, ra))
-        else:
-            out.append((a, b)); used.update((a, b))
-    leftover = [t for t in prev_winners if t not in used]
-    for k in range(0, len(leftover) - 1, 2):
-        out.append((leftover[k], leftover[k + 1]))
-    return out
 
 if KO_PLAYED:
     print("  KO results locked: " + ", ".join(
@@ -198,26 +154,9 @@ for g, preds in group_predictions.items():
 SF_WINS  = defaultdict(Counter)  # slot_idx -> Counter (feeds reach_final)
 CHAMPION = Counter()             # modal champion across the sim
 
-# R16_PAIRS/QF_PAIRS verified 1 Jul against the official match-number bracket
-# structure (openfootball/worldcup.json 2026 feed, which lists e.g. "W80" =
-# winner of match 80 for every KO slot, independent of results) — cross-checked
-# by mapping each of our 16 R32 slots to its real match number (73-88) and
-# resolving the W-references for R16 (89-96) and QF (97-100). Two errors found
-# this way: R16_PAIRS' last 4 pairs were guessed as (8,10)(9,11)(12,14)(13,15)
-# but the real bracket is (8,9)(10,11)(12,13)(14,15); QF_PAIRS was guessed as
-# simple adjacent pairs but the real bracket is (0,4)(2,6)(1,5)(3,7). SF_PAIRS
-# checked out correct as originally written. resolve_round() below is kept as
-# a defense-in-depth safety net (prefers a live-confirmed real fixture over
-# even this verified guess) in case a future round has the same class of bug.
-R32_FIXED = [("2A","2B"),("1C","2F"),("1F","2C"),("2E","2I"),
-             ("1H","2J"),("1J","2H"),("2K","2L"),("2D","2G")]
-R32_VAR   = [("1E",{"A","B","C","D","F"}),("1I",{"C","D","F","G","H"}),
-             ("1A",{"C","E","F","H","I"}),("1L",{"E","H","I","J","K"}),
-             ("1D",{"B","E","F","I","J"}),("1G",{"A","E","H","I","J"}),
-             ("1B",{"E","F","G","I","J"}),("1K",{"D","E","I","J","L"})]
-R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,9),(10,11),(12,13),(14,15)]
-QF_PAIRS  = [(0,4),(2,6),(1,5),(3,7)]
-SF_PAIRS  = [(0,1),(2,3)]
+# R32_FIXED/R32_VAR/R16_PAIRS/QF_PAIRS/SF_PAIRS now live in model_common.py
+# (imported above) -- see that module for the verification history. Kept
+# shared with sim_improved.py so the two copies can no longer diverge.
 
 def sim_score(lg, h, a):
     lam, mu = lg[(h, a)]
@@ -269,9 +208,9 @@ for _ in range(N):
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
     r32w = [ko_result(lg,a,b) for a,b in r32p]
-    r16w = [ko_result(lg,a,b) for a,b in resolve_round(r32w, R16_PAIRS, "r16")]
-    qfw  = [ko_result(lg,a,b) for a,b in resolve_round(r16w, QF_PAIRS,  "qf")]
-    sfw  = [ko_result(lg,a,b) for a,b in resolve_round(qfw,  SF_PAIRS,  "sf")]
+    r16w = [ko_result(lg,a,b) for a,b in resolve_round(r32w, R16_PAIRS, "r16", _sched_data)]
+    qfw  = [ko_result(lg,a,b) for a,b in resolve_round(r16w, QF_PAIRS,  "qf", _sched_data)]
+    sfw  = [ko_result(lg,a,b) for a,b in resolve_round(qfw,  SF_PAIRS,  "sf", _sched_data)]
     for i,w in enumerate(sfw):  SF_WINS[i][w]  += 1   # only SF_WINS is consumed (reach_final)
     champ = ko_result(lg,sfw[0], sfw[1])
     CHAMPION[champ] += 1
@@ -405,15 +344,15 @@ for slot,_ in R32_VAR:
 r32_preds = [ko_match_pred((a,0),(b,0)) for a,b in r32_matchups]
 r32w_modal = [p["winner"] for p in r32_preds]
 
-r16_matchups = resolve_round(r32w_modal, R16_PAIRS, "r16")
+r16_matchups = resolve_round(r32w_modal, R16_PAIRS, "r16", _sched_data)
 r16_preds = [ko_match_pred((a,0),(b,0)) for a,b in r16_matchups]
 r16w_modal = [p["winner"] for p in r16_preds]
 
-qf_matchups = resolve_round(r16w_modal, QF_PAIRS, "qf")
+qf_matchups = resolve_round(r16w_modal, QF_PAIRS, "qf", _sched_data)
 qf_preds = [ko_match_pred((a,0),(b,0)) for a,b in qf_matchups]
 qfw_modal = [p["winner"] for p in qf_preds]
 
-sf_matchups = resolve_round(qfw_modal, SF_PAIRS, "sf")
+sf_matchups = resolve_round(qfw_modal, SF_PAIRS, "sf", _sched_data)
 sf_preds = [ko_match_pred((a,0),(b,0)) for a,b in sf_matchups]
 sfw_modal = [p["winner"] for p in sf_preds]
 

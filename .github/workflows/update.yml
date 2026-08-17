@@ -43,7 +43,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install numpy scipy requests
+        run: pip install -r requirements.txt
 
       - name: Backtest quality gate (fails on model regression)
         run: python backtest.py

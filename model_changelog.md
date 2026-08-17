@@ -68,4 +68,23 @@ Model was the broken June 1 pipeline; all 72 group snapshots locked with stale p
 
 ---
 
+## 2026-08-17 — WC_2026_MULTIPLIER retrospective validation (no change made)
+
+**File:** `fit_improved.py`
+**Status:** validated against real data; **value left unchanged at 3.0** — evidence is real but weak, and the parameter is currently inert (see below).
+**Background:** P7 (28 Jun, above) shipped `WC_2026_MULTIPLIER = 3.0` with a comment promising a "review after each round by comparing Brier at 2.0/3.0/4.0" — that review was never run while the tournament was live, and the 22 Jul codebase audit flagged it as still unvalidated.
+**Method:** now that the full 2026 bracket is known, fit on every match before the R32/knockout boundary (2026-06-28 — includes all 72 real group-stage results, each receiving the multiplier's weight) and score the out-of-sample forecast for the 32-34 knockout matches at M ∈ {2.0, 3.0, 4.0}. Same methodology as `backtest.py` (days_ago() monkeypatched to the cutoff, same Brier/log-loss scoring). Script: `docs/experiments/wc2026_multiplier_grid.py` (local, not committed — mirrors the existing `docs/experiments/` convention).
+
+| multiplier | n  | accuracy | Brier  | log-loss |
+|-----------:|---:|---------:|-------:|---------:|
+| 2.0        | 34 | 0.735    | 0.4707 | 0.8135   |
+| 3.0 (shipped) | 34 | 0.735 | 0.4737 | 0.8173   |
+| 4.0        | 34 | 0.706    | 0.4766 | 0.8211   |
+
+**Reading:** monotonically worse as M increases — 2.0 would have scored slightly better than the shipped 3.0 on this holdout, and 4.0 worse still. Directionally consistent with "3.0 over-weighted live evidence a little," but this is a **single cutoff, n=34** — not the multi-round grid the original comment envisioned, and the gap between 2.0 and 3.0 (Brier 0.4707 vs 0.4737) is small relative to what a single retrospective test can distinguish.
+**Decision:** don't change the shipped value. The World Cup concluded 19 Jul, so `WC_2026_MULTIPLIER`'s condition (`tournament == "World Cup" and date >= "2026-06-01"`) has no live matches to apply to until the next World Cup (2030) — changing it now would have zero effect on anything currently running. Recorded here so a future session doesn't re-flag this as "never validated": it has been, the evidence just isn't strong enough to act on yet.
+**If revisited for a future tournament:** run the fuller multi-cutoff grid the original comment intended (score after each round, not just once from the group-stage boundary) before committing to a value; this one data point leans toward starting from something closer to 2.0 rather than 3.0.
+
+---
+
 *To review accuracy before/after any change: check `accuracy_history.json` for entries around the change date.*

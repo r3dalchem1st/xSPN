@@ -25,6 +25,86 @@ GROUPS = {
 }
 ALL_TEAMS = [t for g in GROUPS.values() for t in g]
 
+# ── Knockout bracket topology ────────────────────────────────────────────────
+# Previously duplicated verbatim in both sim_improved.py and bracket_predictor.py
+# -- that exact duplication once let the two copies diverge and ship a wrong
+# R16/QF pairing in one file but not the other. Centralised here per this
+# module's own stated purpose (see docstring above).
+#
+# R16_PAIRS/QF_PAIRS verified 1 Jul 2026 against the official match-numbered
+# bracket structure (openfootball/worldcup.json 2026 feed, which lists e.g.
+# "W80" = winner of match 80 for every KO slot, independent of results) --
+# cross-checked by mapping each of the 16 R32 slots to its real match number
+# (73-88) and resolving the W-references for R16 (89-96) and QF (97-100). Two
+# errors found this way: R16_PAIRS' last 4 pairs were guessed as
+# (8,10)(9,11)(12,14)(13,15) but the real bracket is (8,9)(10,11)(12,13)(14,15);
+# QF_PAIRS was guessed as simple adjacent pairs but the real bracket is
+# (0,4)(2,6)(1,5)(3,7). SF_PAIRS checked out correct as originally written.
+# resolve_round() below is kept as a defense-in-depth safety net (prefers a
+# live-confirmed real fixture over even this verified guess) in case a future
+# round has the same class of bug.
+R32_FIXED = [("2A","2B"),("1C","2F"),("1F","2C"),("2E","2I"),
+             ("1H","2J"),("1J","2H"),("2K","2L"),("2D","2G")]
+R32_VAR   = [("1E",{"A","B","C","D","F"}),("1I",{"C","D","F","G","H"}),
+             ("1A",{"C","E","F","H","I"}),("1L",{"E","H","I","J","K"}),
+             ("1D",{"B","E","F","I","J"}),("1G",{"A","E","H","I","J"}),
+             ("1B",{"E","F","G","I","J"}),("1K",{"D","E","I","J","L"})]
+R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,9),(10,11),(12,13),(14,15)]
+QF_PAIRS  = [(0,4),(2,6),(1,5),(3,7)]
+SF_PAIRS  = [(0,1),(2,3)]
+
+# The R16/QF/SF pairing above assumes a fixed bracket topology that can be
+# wrong for the portion of the draw seeded from variable third-place teams
+# (mirrors the R32 third-place guess issue -- see resolve_round() below for
+# the full rationale). Once the real schedule names a concrete fixture
+# between two teams from the previous round, trust it over the guessed index
+# pairing.
+GROUP_PAIRS_SET = frozenset(frozenset([GROUPS[g][i], GROUPS[g][j]])
+                      for g in GROUPS for i in range(len(GROUPS[g]))
+                      for j in range(i + 1, len(GROUPS[g])))
+KO_ROUND_WINDOWS = {"r16": ("2026-07-04", "2026-07-09"),
+                     "qf":  ("2026-07-09", "2026-07-14"),
+                     "sf":  ("2026-07-14", "2026-07-18")}
+
+
+def real_pairs_within(sched_data, teams, window):
+    """Real (already-scheduled) fixtures among `teams` whose date falls in
+    `window`, keyed both directions -- lets resolve_round() prefer a
+    confirmed real pairing over the guessed bracket-index pairing."""
+    ws, we = window
+    real = {}
+    for key, v in sched_data.items():
+        ts = key.split('|')
+        if frozenset(ts) in GROUP_PAIRS_SET:
+            continue
+        d = v.get("date", "")
+        if d < ws or d >= we:
+            continue
+        if ts[0] in teams and ts[1] in teams:
+            real[ts[0]] = ts[1]; real[ts[1]] = ts[0]
+    return real
+
+
+def resolve_round(prev_winners, guessed_pairs, round_key, sched_data):
+    """Pair up `prev_winners` (slot order) for this round, preferring a
+    confirmed real fixture (from `sched_data`) over the index-based
+    `guessed_pairs` fallback."""
+    real = real_pairs_within(sched_data, prev_winners, KO_ROUND_WINDOWS[round_key])
+    used, out = set(), []
+    for i, j in guessed_pairs:
+        a, b = prev_winners[i], prev_winners[j]
+        if a in used or b in used:
+            continue
+        ra = real.get(a)
+        if ra is not None and ra != b and ra not in used:
+            out.append((a, ra)); used.update((a, ra))
+        else:
+            out.append((a, b)); used.update((a, b))
+    leftover = [t for t in prev_winners if t not in used]
+    for k in range(0, len(leftover) - 1, 2):
+        out.append((leftover[k], leftover[k + 1]))
+    return out
+
 # ── Host advantage ───────────────────────────────────────────────────────────
 HOST_NATIONS = {"USA", "Canada", "Mexico"}
 # 65% of the DC-fitted home advantage applied to co-hosts (USA/Canada/Mexico).

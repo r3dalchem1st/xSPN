@@ -1,0 +1,55 @@
+/*
+ * Shared chrome for every xSPN page (hub, World Cup, leagues, cups) --
+ * header/logo, top nav bar, and the tab-bar/pane pattern every competition
+ * page uses. Previously copy-pasted into each template's own <style> block
+ * (deliberately kept in sync by hand across templates so a visitor doesn't
+ * hit a jarring style change moving between pages -- see build_league_html.py's
+ * module docstring); centralised here so that intent is enforced by a single
+ * file instead of four manually-synced copies. Each template's own <style>
+ * block keeps only what's genuinely page-specific (table columns, bracket
+ * card layout, podium, standings zone highlighting, accuracy cards) and may
+ * add narrow overrides (e.g. a wider .pane max-width) after this stylesheet
+ * is linked, since a page's own <style> always comes after this <link> in
+ * <head> and wins ties on source order.
+ */
+:root{
+  --red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;
+  --text:#111;--muted:#666;--hint:#999;--win:#2e7d32;--draw:#e07000;--lose:#c62828;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
+
+header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
+.xspn-logo{background:var(--red);color:#fff;font-size:1.25rem;font-weight:600;letter-spacing:2px;padding:4px 10px;border-radius:3px;flex-shrink:0}
+.xspn-logo span{opacity:.65;font-weight:400}
+.hdr-text h1{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}
+.hdr-text p{color:#888;font-size:.76rem;margin-top:2px}
+
+.xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.xspn-nav a:hover{color:#fff}
+.xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+
+.tabs{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
+.tab{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
+.tab:hover{color:#fff}
+.tab.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
+/* Visible focus ring for keyboard users tabbing/arrowing through the tablist
+   -- the click-only version this replaces had no focus style at all. */
+.tab:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+
+.pane{display:none;padding:20px;margin:0 auto}
+.pane.active{display:block}
+.pane:focus-visible{outline:none}
+
+table{width:100%;border-collapse:collapse}
+
+/* Accuracy summary cards (Results tabs) -- byte-identical wherever used
+   (WC + league pages); harmless if a page (cup/copa) never uses the class. */
+.acc-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.acc-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 16px;min-width:130px}
+.acc-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.acc-val{font-size:1.35rem;font-weight:700;color:var(--red);margin:3px 0}
+.acc-sub{font-size:.74rem;color:var(--hint)}
+.res-ok{color:var(--win);font-weight:700}
+.res-err{color:var(--lose);font-weight:700}
