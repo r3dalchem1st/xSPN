@@ -6,30 +6,15 @@
 <title>Premier League</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/xSPN/assets/xspn.css">
 <style>
-:root{--red:#cc0000;--dark:#1a1a1a;--bg:#f0f0f0;--card:#ffffff;--border:#e0e0e0;--text:#111;--muted:#666;--hint:#999;--win:#2e7d32;--lose:#c62828}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Barlow',system-ui,sans-serif;min-height:100vh}
-header{background:var(--dark);padding:12px 20px;display:flex;align-items:center;gap:14px;border-bottom:3px solid var(--red)}
-.xspn-logo{background:var(--red);color:#fff;font-size:1.25rem;font-weight:600;letter-spacing:2px;padding:4px 10px;border-radius:3px;flex-shrink:0}
-.xspn-logo span{opacity:.65;font-weight:400}
-.hdr-text h1{font-size:.98rem;font-weight:600;color:#fff;letter-spacing:.2px}
-.hdr-text p{color:#888;font-size:.76rem;margin-top:2px}
-.xspn-nav{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
-.xspn-nav a{padding:10px 16px;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
-.xspn-nav a:hover{color:#fff}
-.xspn-nav a.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
-.tabs{display:flex;background:var(--dark);border-bottom:2px solid var(--red);overflow-x:auto}
-.tab{padding:10px 16px;cursor:pointer;font-size:.82rem;font-weight:500;color:#888;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;letter-spacing:.2px}
-.tab:hover{color:#fff}
-.tab.active{color:#fff;background:var(--red);border-bottom-color:var(--red)}
-.pane{display:none;padding:20px;max-width:1000px;margin:0 auto}
-.pane.active{display:block}
+/* Page-specific overrides of the shared chrome (assets/xspn.css), plus
+   everything unique to this page's table/bracket/podium layout. */
+.pane{max-width:1000px}
 .season-note{color:var(--muted);font-size:.84rem;margin-bottom:16px}
 .champ-line{color:var(--muted);font-size:.9rem;margin-bottom:14px}
 .champ-line strong{color:var(--red)}
 .empty-note{padding:24px;text-align:center;color:var(--hint);font-size:.88rem}
-table{width:100%;border-collapse:collapse}
 th{background:#f5f5f5;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;text-align:center;border-bottom:2px solid var(--border)}
 th:nth-child(2){text-align:left}
 td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:.86rem;text-align:center}
@@ -42,13 +27,6 @@ tbody tr:hover td{background:#fafafa}
 .odds{font-weight:600}
 .legend{margin-top:12px;font-size:.76rem;color:var(--muted)}
 .swatch{display:inline-block;width:10px;height:10px;margin-right:4px;border-radius:2px}
-.acc-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.acc-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 16px;min-width:130px}
-.acc-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-.acc-val{font-size:1.35rem;font-weight:700;color:var(--red);margin:3px 0}
-.acc-sub{font-size:.74rem;color:var(--hint)}
-.res-ok{color:var(--win);font-weight:700}
-.res-err{color:var(--lose);font-weight:700}
 .hint{color:var(--hint) !important}
 .center{text-align:center}
 .strong{font-weight:700}
@@ -76,13 +54,13 @@ tbody tr:hover td{background:#fafafa}
   </div>
 </header>
 <nav class="xspn-nav"><a href="/xSPN/">xSPN</a><a href="/xSPN/competitions/la_liga/">La Liga</a><a href="/xSPN/competitions/premier_league/" class="active">Premier League</a><a href="/xSPN/competitions/bundesliga/">Bundesliga</a><a href="/xSPN/competitions/champions_league/">UEFA Champions League</a><a href="/xSPN/competitions/world_cup_2026/">World Cup 2026</a><a href="/xSPN/competitions/copa_del_rey/">Copa del Rey</a></nav>
-<div class="tabs">
-  <div class="tab active" onclick="show('results')">Results</div>
-  <div class="tab" onclick="show('bracket')">Bracket</div>
-  <div class="tab" onclick="show('podium')">Podium</div>
+<div class="tabs" role="tablist" aria-label="Page sections">
+  <div class="tab active" role="tab" id="tabbtn-results" aria-selected="true" aria-controls="tab-results" tabindex="0">Results</div>
+  <div class="tab" role="tab" id="tabbtn-bracket" aria-selected="false" aria-controls="tab-bracket" tabindex="-1">Bracket</div>
+  <div class="tab" role="tab" id="tabbtn-podium" aria-selected="false" aria-controls="tab-podium" tabindex="-1">Podium</div>
 </div>
-<div id="tab-results" class="pane active">
-  <div class="season-note">Season runs 21 Aug 2026 &ndash; 30 May 2027 &middot; 10000 simulated seasons &middot; generated 2026-08-16</div>
+<div id="tab-results" class="pane active" role="tabpanel" aria-labelledby="tabbtn-results" tabindex="0">
+  <div class="season-note">Season runs 21 Aug 2026 &ndash; 30 May 2027 &middot; 10000 simulated seasons &middot; generated 2026-08-17</div>
   <div class="empty-note">No matches scored yet this season.</div>
   <div class="results-card">
   <table>
@@ -93,15 +71,15 @@ tbody tr:hover td{background:#fafafa}
   </table>
   </div>
 </div>
-<div id="tab-bracket" class="pane">
+<div id="tab-bracket" class="pane" role="tabpanel" aria-labelledby="tabbtn-bracket" tabindex="0">
 <div class="bracket-wrap"><div class="bracket">
 <div class="br-col"><div class="br-title">Matchday 1</div><div class="br-matches">
 <div class="bm"><div class="bm-date">2026-08-21</div><div class="bm-t">Arsenal FC</div><div class="bm-t">Coventry City FC</div><div class="bm-pct">1-0 &middot; H</div></div>
-<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct hint">1-0 &middot; H (preview, not yet locked)</div></div>
-<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct hint">0-1 &middot; A (preview, not yet locked)</div></div>
-<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct hint">1-0 &middot; H (preview, not yet locked)</div></div>
-<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Everton FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct hint">1-0 &middot; H (preview, not yet locked)</div></div>
-<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Brentford FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct hint">2-1 &middot; H (preview, not yet locked)</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Hull City AFC</div><div class="bm-t">Manchester United FC</div><div class="bm-pct">1-0 &middot; H</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Ipswich Town FC</div><div class="bm-t">Sunderland AFC</div><div class="bm-pct">0-1 &middot; A</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Nottingham Forest FC</div><div class="bm-t">Leeds United FC</div><div class="bm-pct">1-0 &middot; H</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Everton FC</div><div class="bm-t">Crystal Palace FC</div><div class="bm-pct">1-0 &middot; H</div></div>
+<div class="bm"><div class="bm-date">2026-08-22</div><div class="bm-t">Brentford FC</div><div class="bm-t">Tottenham Hotspur FC</div><div class="bm-pct">2-1 &middot; H</div></div>
 <div class="bm"><div class="bm-date">2026-08-23</div><div class="bm-t">Manchester City FC</div><div class="bm-t">AFC Bournemouth</div><div class="bm-pct hint">1-0 &middot; H (preview, not yet locked)</div></div>
 <div class="bm"><div class="bm-date">2026-08-23</div><div class="bm-t">Brighton &amp; Hove Albion FC</div><div class="bm-t">Aston Villa FC</div><div class="bm-pct hint">2-1 &middot; H (preview, not yet locked)</div></div>
 <div class="bm"><div class="bm-date">2026-08-23</div><div class="bm-t">Newcastle United FC</div><div class="bm-t">Liverpool FC</div><div class="bm-pct hint">1-2 &middot; A (preview, not yet locked)</div></div>
@@ -553,33 +531,33 @@ tbody tr:hover td{background:#fafafa}
 </div></div>
 </div></div>
 </div>
-<div id="tab-podium" class="pane">
-  <div class="champ-line">Predicted champion: <strong>Liverpool FC</strong> (37.5% title odds)</div>
+<div id="tab-podium" class="pane" role="tabpanel" aria-labelledby="tabbtn-podium" tabindex="0">
+  <div class="champ-line">Predicted champion: <strong>Liverpool FC</strong> (37.3% title odds)</div>
   <div class="standings-card">
   <table>
     <thead>
       <tr><th>Pos</th><th>Team</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Title %</th><th>Relegation %</th></tr>
     </thead>
     <tbody>
-    <tr><td>1</td><td>Liverpool FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">37.5%</td><td class="odds">0.0%</td></tr>
-    <tr><td>2</td><td>Arsenal FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">26.2%</td><td class="odds">0.0%</td></tr>
-    <tr><td>3</td><td>Manchester City FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">13.8%</td><td class="odds">0.4%</td></tr>
-    <tr><td>4</td><td>Chelsea FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">5.7%</td><td class="odds">0.9%</td></tr>
-    <tr><td>5</td><td>Newcastle United FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">6.6%</td><td class="odds">2.7%</td></tr>
+    <tr><td>1</td><td>Liverpool FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">37.3%</td><td class="odds">0.0%</td></tr>
+    <tr><td>2</td><td>Arsenal FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">26.0%</td><td class="odds">0.0%</td></tr>
+    <tr><td>3</td><td>Manchester City FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">14.1%</td><td class="odds">0.4%</td></tr>
+    <tr><td>4</td><td>Chelsea FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">5.9%</td><td class="odds">1.0%</td></tr>
+    <tr><td>5</td><td>Newcastle United FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">6.6%</td><td class="odds">2.8%</td></tr>
     <tr><td>6</td><td>AFC Bournemouth</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">2.9%</td><td class="odds">3.5%</td></tr>
-    <tr><td>7</td><td>Nottingham Forest FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">2.9%</td><td class="odds">6.4%</td></tr>
-    <tr><td>8</td><td>Aston Villa FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">1.4%</td><td class="odds">8.9%</td></tr>
-    <tr><td>9</td><td>Brentford FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.7%</td><td class="odds">7.3%</td></tr>
-    <tr><td>10</td><td>Brighton &amp; Hove Albion FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">1.0%</td><td class="odds">10.7%</td></tr>
-    <tr><td>11</td><td>Crystal Palace FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.5%</td><td class="odds">14.9%</td></tr>
-    <tr><td>12</td><td>Everton FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">16.2%</td></tr>
-    <tr><td>13</td><td>Coventry City FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">11.6%</td></tr>
-    <tr><td>14</td><td>Fulham FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">15.9%</td></tr>
-    <tr><td>15</td><td>Sunderland AFC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">11.9%</td></tr>
-    <tr><td>16</td><td>Hull City AFC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">11.8%</td></tr>
-    <tr><td>17</td><td>Leeds United FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">11.8%</td></tr>
-    <tr><td>18</td><td>Tottenham Hotspur FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">28.4%</td></tr>
-    <tr><td>19</td><td>Manchester United FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">40.5%</td></tr>
+    <tr><td>7</td><td>Nottingham Forest FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">2.7%</td><td class="odds">6.4%</td></tr>
+    <tr><td>8</td><td>Aston Villa FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">1.3%</td><td class="odds">8.7%</td></tr>
+    <tr><td>9</td><td>Brentford FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.7%</td><td class="odds">7.4%</td></tr>
+    <tr><td>10</td><td>Brighton &amp; Hove Albion FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">1.1%</td><td class="odds">10.9%</td></tr>
+    <tr><td>11</td><td>Crystal Palace FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.4%</td><td class="odds">14.8%</td></tr>
+    <tr><td>12</td><td>Everton FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">16.4%</td></tr>
+    <tr><td>13</td><td>Coventry City FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">11.3%</td></tr>
+    <tr><td>14</td><td>Fulham FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">15.6%</td></tr>
+    <tr><td>15</td><td>Hull City AFC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">11.7%</td></tr>
+    <tr><td>16</td><td>Sunderland AFC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">12.2%</td></tr>
+    <tr><td>17</td><td>Leeds United FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">12.1%</td></tr>
+    <tr><td>18</td><td>Tottenham Hotspur FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.2%</td><td class="odds">28.6%</td></tr>
+    <tr><td>19</td><td>Manchester United FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.1%</td><td class="odds">40.2%</td></tr>
     <tr><td>20</td><td>Ipswich Town FC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="odds">0.0%</td><td class="odds">96.0%</td></tr>
     </tbody>
   </table>
@@ -589,12 +567,6 @@ tbody tr:hover td{background:#fafafa}
     <span class="swatch" style="background:var(--red)"></span>Relegation zone (bottom 3)
   </div>
 </div>
-<script>
-function show(n){
-  document.querySelectorAll('.tab').forEach((e,i)=>e.classList.toggle('active',['results','bracket','podium'][i]===n));
-  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
-  document.getElementById('tab-'+n).classList.add('active');
-}
-</script>
+<script src="/xSPN/assets/tabs.js"></script>
 </body>
 </html>
