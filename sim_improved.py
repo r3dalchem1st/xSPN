@@ -14,7 +14,8 @@ import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fit_improved import SQUAD_VALUES, INIT_ELO
 from model_common import (GROUPS, ALL_TEAMS, PEN, pen_prob, build_lambda_table,
                           load_ensemble, rank_group, assign_thirds, played_group_results,
-                          played_ko_results, draw_mix, sample_inflated_score, DRAW_INFLATE)
+                          played_ko_results, draw_mix, sample_inflated_score, DRAW_INFLATE,
+                          R32_FIXED, R32_VAR, R16_PAIRS, QF_PAIRS, SF_PAIRS, resolve_round)
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 with open("model_params.json") as f:
@@ -72,61 +73,6 @@ def ko_result(lg, a, b):
     if ag > hg: return b
     return a if random.random() < PEN_PROB[(a, b)] else b
 
-# Correct R32 bracket
-R32_FIXED = [("2A","2B"),("1C","2F"),("1F","2C"),("2E","2I"),
-             ("1H","2J"),("1J","2H"),("2K","2L"),("2D","2G")]
-R32_VAR   = [("1E",{"A","B","C","D","F"}),("1I",{"C","D","F","G","H"}),
-             ("1A",{"C","E","F","H","I"}),("1L",{"E","H","I","J","K"}),
-             ("1D",{"B","E","F","I","J"}),("1G",{"A","E","H","I","J"}),
-             ("1B",{"E","F","G","I","J"}),("1K",{"D","E","I","J","L"})]
-
-R16_PAIRS = [(0,2),(1,3),(4,6),(5,7),(8,9),(10,11),(12,13),(14,15)]
-QF_PAIRS  = [(0,4),(2,6),(1,5),(3,7)]
-SF_PAIRS  = [(0,1),(2,3)]
-
-# The R16/QF/SF pairing above assumes a fixed bracket topology that can be
-# wrong for the portion of the draw seeded from variable third-place teams
-# (mirrors the R32 third-place guess issue in bracket_predictor.py — see
-# resolve_round() there for the full rationale). Once the real schedule names
-# a concrete fixture between two teams from the previous round, trust it over
-# the guessed index pairing.
-_GP_PAIRS = frozenset(frozenset([GROUPS[g][i], GROUPS[g][j]])
-                      for g in GROUPS for i in range(len(GROUPS[g]))
-                      for j in range(i + 1, len(GROUPS[g])))
-_ROUND_WINDOWS = {"r16": ("2026-07-04", "2026-07-09"),
-                  "qf":  ("2026-07-09", "2026-07-14"),
-                  "sf":  ("2026-07-14", "2026-07-18")}
-def _real_pairs_within(teams, window):
-    ws, we = window
-    real = {}
-    for key, v in _sched_data.items():
-        ts = key.split('|')
-        if frozenset(ts) in _GP_PAIRS:
-            continue
-        d = v.get("date", "")
-        if d < ws or d >= we:
-            continue
-        if ts[0] in teams and ts[1] in teams:
-            real[ts[0]] = ts[1]; real[ts[1]] = ts[0]
-    return real
-
-def resolve_round(prev_winners, guessed_pairs, round_key):
-    real = _real_pairs_within(prev_winners, _ROUND_WINDOWS[round_key])
-    used, out = set(), []
-    for i, j in guessed_pairs:
-        a, b = prev_winners[i], prev_winners[j]
-        if a in used or b in used:
-            continue
-        ra = real.get(a)
-        if ra is not None and ra != b and ra not in used:
-            out.append((a, ra)); used.update((a, ra))
-        else:
-            out.append((a, b)); used.update((a, b))
-    leftover = [t for t in prev_winners if t not in used]
-    for k in range(0, len(leftover) - 1, 2):
-        out.append((leftover[k], leftover[k + 1]))
-    return out
-
 def sim_group(lg, teams, played, infl):
     s = {t:[0,0,0] for t in teams}; res = {}
     for i in range(len(teams)):
@@ -159,9 +105,9 @@ def sim_tournament(lg, infl):
     r32p = [(res(a),res(b)) for a,b in R32_FIXED]
     for slot,_ in R32_VAR: r32p.append((gw[slot[1]], var.get(slot,"Unknown")))
     r32w = [ko_result(lg,a,b) for a,b in r32p]
-    r16w = [ko_result(lg,a,b) for a,b in resolve_round(r32w, R16_PAIRS, "r16")]
-    qfw  = [ko_result(lg,a,b) for a,b in resolve_round(r16w, QF_PAIRS,  "qf")]
-    sfw  = [ko_result(lg,a,b) for a,b in resolve_round(qfw,  SF_PAIRS,  "sf")]
+    r16w = [ko_result(lg,a,b) for a,b in resolve_round(r32w, R16_PAIRS, "r16", _sched_data)]
+    qfw  = [ko_result(lg,a,b) for a,b in resolve_round(r16w, QF_PAIRS,  "qf", _sched_data)]
+    sfw  = [ko_result(lg,a,b) for a,b in resolve_round(qfw,  SF_PAIRS,  "sf", _sched_data)]
     champ = ko_result(lg,sfw[0],sfw[1])
     return champ, set(sfw), set(qfw), set(r16w)
 

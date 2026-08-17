@@ -241,11 +241,19 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
         w_scale = e / e.mean()          # Dirichlet weights, mean 1
         res = _fit_rows(rows, teams, x0, maxiter=1500, w_scale=w_scale)
         if not res.success:
+            # A non-converged refit is an arbitrary, non-fitted parameter
+            # vector -- keeping it would silently skew the ensemble's
+            # confidence bands/lambda tables rather than just narrowing the
+            # ensemble by one member. Drop it; the >5% check below still
+            # catches a genuinely unhealthy fit.
             n_failed += 1
+            continue
         ensemble.append(_unpack(res.x, teams))
     fail_rate = n_failed / B
     warn = " — WARNING: >5% threshold exceeded, check model fit!" if fail_rate > 0.05 else ""
     print(f"  Bootstrap convergence: {B - n_failed}/{B} converged ({n_failed} failed){warn}")
+    if not ensemble:
+        raise RuntimeError(f"fit_dc_bootstrap: all {B} bootstrap refits failed to converge")
     return ensemble
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────

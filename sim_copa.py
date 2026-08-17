@@ -219,18 +219,26 @@ def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42):
 
     stage_counts = {t: {s: 0 for s in ROUND_ORDER + ["champion"]} for t in all_teams}
 
+    # knockout_fixtures is real, already-known data -- identical on every
+    # simulated iteration -- so both derivations are computed once here
+    # rather than re-scanned n_sims times inside the loop below (the same
+    # precompute-once fix sim_cup.py already applies to its own equivalent
+    # known_pairs_by_round()).
+    real_entrants_by_stage = {stage: round_entrants(stage, knockout_fixtures) for stage in ROUND_ORDER}
+    known_pairs_by_stage = {stage: known_pairs_for_round(stage, knockout_fixtures) for stage in ROUND_ORDER}
+
     for _ in range(n_sims):
         lg = lg_ens[rng.integers(len(lg_ens))]
         field = None
         for stage in ROUND_ORDER:
-            real_entrants = round_entrants(stage, knockout_fixtures)
+            real_entrants = real_entrants_by_stage[stage]
             if real_entrants is not None:
                 field = real_entrants
             if field is None:
                 continue  # this stage (and every earlier one) has no real data yet
             for t in field:
                 stage_counts[t][stage] += 1
-            known_pairs = known_pairs_for_round(stage, knockout_fixtures)
+            known_pairs = known_pairs_by_stage[stage]
             if known_pairs and set(t for pair in known_pairs for t in pair) == set(field):
                 winners = [resolve_known_tie(stage, pair, legs, decided, lg, rng)
                            for pair, legs in known_pairs.items()]

@@ -55,7 +55,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install numpy scipy requests
+        run: pip install -r requirements.txt
 
       - name: Fetch new match results
         run: python fetch_league.py "competitions/$COMPETITION.json"

@@ -46,10 +46,20 @@ FLAGS = {
 
 UPDATED = datetime.utcnow().strftime('%d %b %Y %H:%M UTC')
 
-results_json  = json.dumps(results)
-bracket_json  = json.dumps(bracket)
-flags_json    = json.dumps(FLAGS)
-accuracy_json = json.dumps(accuracy)
+
+def _safe_json(obj):
+    """json.dumps() output gets embedded directly inside a <script> block
+    below -- escape '</' so a string value that ever contained something like
+    '</script>' can't prematurely close the tag and inject arbitrary HTML/JS.
+    '<\\/' round-trips through JSON.parse/eval identically to '</', so this
+    changes nothing about the parsed value."""
+    return json.dumps(obj).replace('</', '<\\/')
+
+
+results_json  = _safe_json(results)
+bracket_json  = _safe_json(bracket)
+flags_json    = _safe_json(FLAGS)
+accuracy_json = _safe_json(accuracy)
 nav_html      = render_nav_html(nav_entries(DIR, active="world_cup"))
 
 with open(os.path.join(DIR, 'template.html'), encoding='utf-8') as f:

@@ -100,19 +100,31 @@ def fetch_openfootball_results():
     return out
 
 def _apply_openfootball(match, of_results):
-    """Override a fetch_competition() row's score if openfootball disagrees."""
+    """Override a fetch_competition() row's score AND date if openfootball
+    disagrees -- see fetch_openfootball_results()'s docstring: football-data.org's
+    utcDate rolls late local kickoffs onto the wrong calendar day, and
+    openfootball's date is the authoritative local match-day. fetch_schedule()
+    already applies this same date correction for wc_schedule.json (the display
+    data); this keeps the training cache (fetched_matches.json, which feeds
+    fit_improved.py's recency-weighted fit) consistent with it."""
     date, home, away, hg, ag, label, neutral = match
     if label != "World Cup":
         return match
     of = of_results.get('|'.join(sorted([home, away])))
     if not of:
         return match
+    of_date = of.get('date') or date
     of_goals = of.get('goals', {})
     of_hg, of_ag = of_goals.get(home), of_goals.get(away)
-    if of_hg is None or of_ag is None or (of_hg, of_ag) == (hg, ag):
+    if of_hg is None or of_ag is None:
+        of_hg, of_ag = hg, ag
+    if of_date == date and (of_hg, of_ag) == (hg, ag):
         return match
-    print(f"    ~ openfootball override {date} {home} {hg}-{ag} {away} -> {of_hg}-{of_ag}")
-    return [date, home, away, of_hg, of_ag, label, neutral]
+    if (of_hg, of_ag) != (hg, ag):
+        print(f"    ~ openfootball score override {date} {home} {hg}-{ag} {away} -> {of_hg}-{of_ag}")
+    if of_date != date:
+        print(f"    ~ openfootball date override {home} vs {away}: {date} -> {of_date}")
+    return [of_date, home, away, of_hg, of_ag, label, neutral]
 
 _WC26_GROUP_CUTOFF = "2026-06-28"   # R32 starts here; group stage is before this
 

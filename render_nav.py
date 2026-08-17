@@ -19,6 +19,7 @@ onboarding still needs no nav edit, it just won't get a hand-picked
 position until someone adds it to NAV_ORDER. The hub itself is always
 first and outside this ordering entirely (it isn't a competition).
 """
+import html as html_lib
 import json
 import os
 
@@ -95,9 +96,14 @@ def _display_name(base_dir, slug):
 def render_nav_html(entries):
     """Nav entries -> a <nav> HTML fragment. The active entry gets
     class="active" for the caller's CSS to style; every entry is a real
-    <a href> (no JavaScript routing)."""
+    <a href> (no JavaScript routing). label/href are escaped even though
+    today's values are all repo-committed config, not third-party data --
+    matching the escaping discipline the rest of the codebase already
+    applies to every other externally-sourced string."""
     links = []
     for e in entries:
         cls = ' class="active"' if e["active"] else ""
-        links.append(f'<a href="{e["href"]}"{cls}>{e["label"]}</a>')
+        href = html_lib.escape(e["href"])
+        label = html_lib.escape(e["label"])
+        links.append(f'<a href="{href}"{cls}>{label}</a>')
     return '<nav class="xspn-nav">' + "".join(links) + '</nav>'
