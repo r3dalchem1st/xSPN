@@ -64,7 +64,7 @@
         "score": "1\u20130",
         "ph": 0.395,
         "pd": 0.35,
-        "pa": 0.256,
+        "pa": 0.255,
         "likely_winner": "South Korea"
       }
     ],
@@ -313,7 +313,7 @@
         "mu": 2.53,
         "score": "0\u20132",
         "ph": 0.085,
-        "pd": 0.216,
+        "pd": 0.217,
         "pa": 0.698,
         "likely_winner": "Ivory Coast"
       },
@@ -457,7 +457,7 @@
         "home": "Egypt",
         "away": "New Zealand",
         "lam": 3.26,
-        "mu": 1.2,
+        "mu": 1.19,
         "score": "3\u20131",
         "ph": 0.72,
         "pd": 0.181,
@@ -665,7 +665,7 @@
         "score": "1\u20130",
         "ph": 0.5,
         "pd": 0.305,
-        "pa": 0.194,
+        "pa": 0.195,
         "likely_winner": "Algeria"
       },
       {
@@ -1436,13 +1436,13 @@
     "mu": 1.61
   },
   "champion": "Spain",
-  "champion_pct": 91.8,
+  "champion_pct": 91.9,
   "reach_final": {
     "Spain": 96.6,
     "Argentina": 83.7,
-    "England": 9.4,
-    "Colombia": 5.7,
-    "France": 2.6,
+    "England": 9.3,
+    "Colombia": 5.8,
+    "France": 2.5,
     "Senegal": 1.2,
     "USA": 0.7,
     "Algeria": 0.2
