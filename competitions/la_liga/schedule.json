@@ -10,10 +10,10 @@
   },
   "Real Racing Club de Santander|Villarreal CF": {
     "date": "2026-08-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "Villarreal CF": null
+      "Real Racing Club de Santander": 2,
+      "Villarreal CF": 2
     },
     "round": "Matchday 1"
   },
@@ -37,37 +37,37 @@
   },
   "RCD Espanyol de Barcelona|Levante UD": {
     "date": "2026-08-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RCD Espanyol de Barcelona": null,
-      "Levante UD": null
+      "RCD Espanyol de Barcelona": 3,
+      "Levante UD": 0
     },
     "round": "Matchday 1"
   },
   "Sevilla FC|Rayo Vallecano de Madrid": {
     "date": "2026-08-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "Rayo Vallecano de Madrid": null
+      "Sevilla FC": 2,
+      "Rayo Vallecano de Madrid": 1
     },
     "round": "Matchday 1"
   },
   "Deportivo Alav\u00e9s|Getafe CF": {
     "date": "2026-08-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Deportivo Alav\u00e9s": null,
-      "Getafe CF": null
+      "Deportivo Alav\u00e9s": 3,
+      "Getafe CF": 0
     },
     "round": "Matchday 1"
   },
   "RC Deportivo La Coru\u00f1a|Elche CF": {
     "date": "2026-08-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Deportivo La Coru\u00f1a": null,
-      "Elche CF": null
+      "RC Deportivo La Coru\u00f1a": 1,
+      "Elche CF": 1
     },
     "round": "Matchday 1"
   },
