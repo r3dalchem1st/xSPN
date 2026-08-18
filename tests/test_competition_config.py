@@ -88,3 +88,14 @@ def test_knockout_only_format_accepted():
     data = dict(VALID_DATA, format="knockout_only")
     config = CompetitionConfig(data)
     assert config.format == "knockout_only"
+
+
+def test_football_data_code_defaults_to_none():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.football_data_code is None
+
+
+def test_football_data_code_read_when_present():
+    data = dict(VALID_DATA, football_data_code="PL")
+    config = CompetitionConfig(data)
+    assert config.football_data_code == "PL"

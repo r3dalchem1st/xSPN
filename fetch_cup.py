@@ -22,6 +22,7 @@ import sys
 
 from competition_config import artifact_dir, load_competition
 from fetch_league import fetch_openfootball_file
+from fetch_live_scores import fetch_finished_matches, overlay_live_results
 from openfootball_txt import parse_openfootball_txt
 
 _COUNTRY_SUFFIX_RE = re.compile(r'\s*\([A-Z]{3}\)$')
@@ -191,6 +192,15 @@ def fetch_and_save(config, base_dir):
         print("  ! current-season fetch failed — leaving existing league_schedule.json "
               "/ knockout_fixtures.json untouched")
     else:
+        if config.football_data_code:
+            # Only the league phase is a home|away-keyed schedule dict --
+            # knockout_fixtures.json is a flat leg list (see its own
+            # docstring above) and isn't in scope for this overlay.
+            raw = fetch_finished_matches(config.football_data_code)
+            if raw:
+                _, n_overlaid, _ = overlay_live_results(config, current_league_sched, raw)
+                if n_overlaid:
+                    print(f"  live-score overlay: {n_overlaid} result(s) patched in from football-data.org")
         with open(os.path.join(out_dir, "league_schedule.json"), "w") as f:
             json.dump(current_league_sched, f, indent=2)
         with open(os.path.join(out_dir, "knockout_fixtures.json"), "w") as f:

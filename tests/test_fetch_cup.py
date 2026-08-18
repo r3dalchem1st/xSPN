@@ -167,6 +167,52 @@ def test_fetch_and_save_preserves_knockout_fixtures_when_current_season_fetch_fa
         assert json.load(f) == preexisting  # untouched, not wiped
 
 
+def test_fetch_and_save_overlays_live_results_into_league_schedule(tmp_path, monkeypatch):
+    data = dict(CONFIG_DATA, football_data_code="CL")
+    config = CompetitionConfig(data)
+
+    def fake_fetch(repo, path, timeout=10):
+        return "current-season"
+
+    def fake_parse(text):
+        return [UNPLAYED_LEAGUE_MATCH]  # Real Madrid CF vs Fulham FC, SCHEDULED
+
+    monkeypatch.setattr(fetch_cup, "fetch_openfootball_file", fake_fetch)
+    monkeypatch.setattr(fetch_cup, "parse_openfootball_txt", fake_parse)
+    monkeypatch.setattr(fetch_cup, "fetch_finished_matches",
+                         lambda code: [{"homeTeam": {"name": "Real Madrid CF"},
+                                        "awayTeam": {"name": "Fulham FC"},
+                                        "score": {"fullTime": {"home": 3, "away": 1}}}])
+
+    summary = fetch_and_save(config, str(tmp_path))
+    out_dir = tmp_path / "competitions" / "test_cup"
+    with open(out_dir / "league_schedule.json") as f:
+        sched = json.load(f)
+    key = "Real Madrid CF|Fulham FC"
+    assert sched[key]["status"] == "FINISHED"
+    assert sched[key]["goals"] == {"Real Madrid CF": 3, "Fulham FC": 1}
+
+
+def test_fetch_and_save_skips_live_overlay_when_not_configured(tmp_path, monkeypatch):
+    config = CompetitionConfig(CONFIG_DATA)  # no football_data_code
+
+    def fake_fetch(repo, path, timeout=10):
+        return "current-season"
+
+    def fake_parse(text):
+        return [UNPLAYED_LEAGUE_MATCH]
+
+    def fail_if_called(code):
+        raise AssertionError("fetch_finished_matches should not be called without football_data_code")
+
+    monkeypatch.setattr(fetch_cup, "fetch_openfootball_file", fake_fetch)
+    monkeypatch.setattr(fetch_cup, "parse_openfootball_txt", fake_parse)
+    monkeypatch.setattr(fetch_cup, "fetch_finished_matches", fail_if_called)
+
+    summary = fetch_and_save(config, str(tmp_path))
+    assert summary["league_scheduled"] == 1  # ran fine, never touched the live fetch
+
+
 def test_main_exits_nonzero_when_current_season_fetch_fails(tmp_path, monkeypatch):
     config_path = tmp_path / "test_cup.json"
     config_path.write_text(json.dumps(CONFIG_DATA))

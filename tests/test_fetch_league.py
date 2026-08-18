@@ -172,6 +172,53 @@ def test_fetch_and_save_preserves_schedule_when_current_season_fetch_fails(tmp_p
         assert json.load(f) == preexisting_schedule  # untouched, not wiped to {}
 
 
+def test_fetch_and_save_overlays_live_results_when_configured(tmp_path, monkeypatch):
+    data = dict(CONFIG_DATA, football_data_code="PD")
+    config = CompetitionConfig(data)
+
+    def fake_fetch(repo, path, timeout=10):
+        return "current-season"
+
+    def fake_parse(text):
+        return [UNPLAYED_MATCH]  # Man Utd vs Brentford, SCHEDULED
+
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", fake_fetch)
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt", fake_parse)
+    monkeypatch.setattr(fetch_league, "fetch_finished_matches",
+                         lambda code: [{"homeTeam": {"name": "Man Utd"},
+                                        "awayTeam": {"name": "Brentford FC"},
+                                        "score": {"fullTime": {"home": 2, "away": 0}}}])
+
+    summary = fetch_and_save(config, str(tmp_path))
+    assert summary["scheduled"] == 1
+    out_dir = tmp_path / "competitions" / "test_league"
+    with open(out_dir / "schedule.json") as f:
+        sched = json.load(f)
+    key = "Manchester United FC|Brentford FC"
+    assert sched[key]["status"] == "FINISHED"
+    assert sched[key]["goals"] == {"Manchester United FC": 2, "Brentford FC": 0}
+
+
+def test_fetch_and_save_skips_live_overlay_when_not_configured(tmp_path, monkeypatch):
+    config = CompetitionConfig(CONFIG_DATA)  # no football_data_code
+
+    def fake_fetch(repo, path, timeout=10):
+        return "current-season"
+
+    def fake_parse(text):
+        return [UNPLAYED_MATCH]
+
+    def fail_if_called(code):
+        raise AssertionError("fetch_finished_matches should not be called without football_data_code")
+
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", fake_fetch)
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt", fake_parse)
+    monkeypatch.setattr(fetch_league, "fetch_finished_matches", fail_if_called)
+
+    summary = fetch_and_save(config, str(tmp_path))
+    assert summary["scheduled"] == 1  # ran fine, never touched the live fetch
+
+
 def test_main_exits_nonzero_when_current_season_fetch_fails(tmp_path, monkeypatch):
     # Verifies main()'s new fail-loudly branch directly, without fighting
     # main()'s hardcoded base_dir (= this script's own directory, not

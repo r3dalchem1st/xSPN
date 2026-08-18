@@ -59,6 +59,10 @@ jobs:
 
       - name: Fetch new match results
         run: python fetch_league.py "competitions/$COMPETITION.json"
+        env:
+          # Only competitions with a football_data_code configured make use
+          # of this (see fetch_live_scores.py) -- no-op for the rest.
+          FD_API_KEY: ${{ secrets.FD_API_KEY }}
 
       - name: Refit model (Dixon-Coles + Elo)
         run: python fit_league.py "competitions/$COMPETITION.json"
