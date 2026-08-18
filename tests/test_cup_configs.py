@@ -14,6 +14,7 @@ def test_champions_league_config_loads():
     assert config.openfootball_repo == "openfootball/champions-league"
     seasons = [f["season"] for f in config.openfootball_files]
     assert seasons == sorted(seasons, reverse=True)
+    assert config.football_data_code == "CL"
 
 
 def test_copa_del_rey_config_loads():
@@ -22,3 +23,5 @@ def test_copa_del_rey_config_loads():
     assert config.format == "knockout_only"
     assert config.openfootball_repo == "openfootball/espana"
     assert config.extra_training_sources  # non-empty, per the design doc
+    # Not on football-data.org's free tier -- openfootball stays the sole source.
+    assert config.football_data_code is None

@@ -36,6 +36,12 @@ class CompetitionConfig:
         self.team_aliases = data["team_aliases"]
         self.teams = data.get("teams")  # optional explicit roster whitelist
         self.extra_training_sources = data.get("extra_training_sources", [])
+        # Optional football-data.org competition code (e.g. "PD" for La Liga).
+        # Only set for competitions on football-data.org's free tier -- lets
+        # fetch_live_scores.py patch in fast official results on top of
+        # openfootball's fixtures/training data, which volunteers can take
+        # days to update with a played match's score. None -> no live overlay.
+        self.football_data_code = data.get("football_data_code")
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

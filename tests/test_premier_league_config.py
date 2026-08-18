@@ -13,6 +13,7 @@ def test_premier_league_config_loads():
     assert config.slug == "premier_league"
     assert config.format == "round_robin"
     assert config.openfootball_repo == "openfootball/england"
+    assert config.football_data_code == "PL"
 
 
 def test_premier_league_seasons_are_newest_first():
