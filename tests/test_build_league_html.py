@@ -91,12 +91,15 @@ def test_build_accuracy_html_empty_state_before_any_match_scored():
 def test_build_accuracy_html_renders_cards_from_summary():
     accuracy = {
         "matches": [{"correct_winner": True}, {"correct_winner": False}, {"correct_winner": True}],
-        "summary": {"n_scored": 3, "accuracy": 2 / 3, "avg_brier": 0.55, "avg_log_loss": 0.9},
+        "summary": {"n_scored": 3, "accuracy": 2 / 3, "avg_brier": 0.55, "avg_log_loss": 0.9,
+                    "avg_goal_error": 1.667},
     }
     out = build_accuracy_html(accuracy)
     assert "2/3" in out
     assert "66.7%" in out
     assert "0.550" in out
+    assert "1.67" in out
+    assert "not a quality score" in out
 
 
 def test_build_results_rows_html_empty_state():
@@ -107,9 +110,9 @@ def test_build_results_rows_html_empty_state():
 def test_build_results_rows_html_shows_actual_and_predicted_score_newest_first():
     accuracy = {"matches": [
         {"home": "Strong FC", "away": "Weak FC", "date": "2026-08-01",
-         "correct_winner": True, "brier": 0.2, "log_loss": 0.3},
+         "correct_winner": True, "brier": 0.2, "log_loss": 0.3, "total_goal_error": 1},
         {"home": "Weak FC", "away": "Strong FC", "date": "2026-09-01",
-         "correct_winner": False, "brier": 0.8, "log_loss": 1.2},
+         "correct_winner": False, "brier": 0.8, "log_loss": 1.2, "total_goal_error": 3},
     ]}
     schedule = {
         "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
@@ -122,6 +125,8 @@ def test_build_results_rows_html_shows_actual_and_predicted_score_newest_first()
     # newest first: the Sep match's row appears before the Aug match's row
     assert out.index("2026-09-01") < out.index("2026-08-01")
     assert "2-0" in out  # locked prediction for the Aug match
+    assert ">1<" in out  # Aug match's total_goal_error rendered in its own cell
+    assert ">3<" in out  # Sep match's total_goal_error
     assert "0-2" in out  # actual score for the Sep match
     assert "res-ok" in out and "res-err" in out
 

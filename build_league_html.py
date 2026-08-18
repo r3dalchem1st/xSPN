@@ -158,6 +158,9 @@ def build_accuracy_html(accuracy):
         '<div class="acc-card"><div class="acc-lbl">Correct Winners</div>'
         f'<div class="acc-val">{correct}/{n}</div>'
         f'<div class="acc-sub">{summary["accuracy"]:.1%} accuracy</div></div>'
+        '<div class="acc-card"><div class="acc-lbl">Avg Goal Error</div>'
+        f'<div class="acc-val" style="color:var(--muted)">{summary["avg_goal_error"]:.2f}</div>'
+        '<div class="acc-sub">exact-score distance &middot; not a quality score</div></div>'
         '<div class="acc-card"><div class="acc-lbl">Avg Brier Score</div>'
         f'<div class="acc-val">{summary["avg_brier"]:.3f}</div>'
         '<div class="acc-sub">vs baseline 0.67</div></div>'
@@ -175,7 +178,7 @@ def build_results_rows_html(accuracy, schedule, snapshot):
     been scored. Team names escaped (external openfootball data)."""
     matches = sorted(accuracy.get("matches") or [], key=lambda m: m["date"], reverse=True)
     if not matches:
-        return '<tr><td colspan="6" class="empty-note">No matches scored yet this season.</td></tr>'
+        return '<tr><td colspan="7" class="empty-note">No matches scored yet this season.</td></tr>'
     lines = []
     for m in matches:
         key = f"{m['home']}|{m['away']}"
@@ -191,6 +194,7 @@ def build_results_rows_html(accuracy, schedule, snapshot):
             f'<td class="center hint">{predicted}</td>'
             f'<td class="center strong">{actual}</td>'
             f'<td class="center">{mark}</td>'
+            f'<td class="center hint" title="Exact-score distance |predicted − actual| — not a quality score; see Correct Winner / Brier for call quality">{m["total_goal_error"]}</td>'
             f'<td class="center hint">{m["brier"]:.3f}</td></tr>'
         )
     return "\n".join(lines)
