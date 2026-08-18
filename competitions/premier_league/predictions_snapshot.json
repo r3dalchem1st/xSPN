@@ -64,5 +64,38 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-08-17"
+  },
+  "Manchester City FC|AFC Bournemouth": {
+    "home": "Manchester City FC",
+    "away": "AFC Bournemouth",
+    "date": "2026-08-23",
+    "ph": 0.47558809651698847,
+    "pd": 0.2469923971463574,
+    "pa": 0.2774195063366542,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-18"
+  },
+  "Brighton & Hove Albion FC|Aston Villa FC": {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Aston Villa FC",
+    "date": "2026-08-23",
+    "ph": 0.3956001813419906,
+    "pd": 0.22863117842739591,
+    "pa": 0.3757686402306134,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-18"
+  },
+  "Newcastle United FC|Liverpool FC": {
+    "home": "Newcastle United FC",
+    "away": "Liverpool FC",
+    "date": "2026-08-23",
+    "ph": 0.30008100981142444,
+    "pd": 0.2209987843072197,
+    "pa": 0.4789202058813558,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-18"
   }
 }
