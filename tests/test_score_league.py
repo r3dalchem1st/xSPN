@@ -22,3 +22,15 @@ def test_score_match_log_loss_is_finite_even_on_a_confident_miss():
     result = score_match(PERFECT_HOME_CALL, actual_hg=0, actual_ag=1)
     import math
     assert math.isfinite(result["log_loss"])
+
+
+def test_score_match_total_goal_error_is_exact_score_distance():
+    # predicted_score "2-0" vs actual 2-0 -> exact match, zero error
+    result = score_match(PERFECT_HOME_CALL, actual_hg=2, actual_ag=0)
+    assert result["total_goal_error"] == 0
+
+
+def test_score_match_total_goal_error_sums_both_legs_of_the_miss():
+    # predicted_score "2-0" vs actual 4-1 -> |2-4| + |0-1| = 3
+    result = score_match(PERFECT_HOME_CALL, actual_hg=4, actual_ag=1)
+    assert result["total_goal_error"] == 3

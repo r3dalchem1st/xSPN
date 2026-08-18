@@ -13,8 +13,13 @@ import sys
 
 def score_match(entry, actual_hg, actual_ag):
     """Score one locked prediction against its actual result. Returns
-    {"correct_winner": bool, "brier": float in [0,2], "log_loss": float}
-    (log_loss clamped away from -inf on a fully-confident miss)."""
+    {"correct_winner": bool, "brier": float in [0,2], "log_loss": float,
+    "total_goal_error": int} (log_loss clamped away from -inf on a fully-
+    confident miss). total_goal_error is |predicted − actual| goal distance
+    (WC's score_predictions.py convention) — an honest exact-scoreline
+    distance, not a quality grade (a 2-0 call that finishes 4-0 is a
+    correct-winner + clean-sheet hit, not a 2-goal demerit); Brier/log-loss/
+    correct_winner remain the metrics that grade call quality."""
     if actual_hg > actual_ag: actual = "H"
     elif actual_hg < actual_ag: actual = "A"
     else: actual = "D"
@@ -24,7 +29,10 @@ def score_match(entry, actual_hg, actual_ag):
     brier = (ph - oh) ** 2 + (pd_ - od) ** 2 + (pa - oa) ** 2
     p_actual = {"H": ph, "D": pd_, "A": pa}[actual]
     log_loss = -math.log(max(p_actual, 1e-10))
-    return {"correct_winner": correct, "brier": brier, "log_loss": log_loss}
+    pred_hg, pred_ag = (int(x) for x in entry["predicted_score"].split("-"))
+    total_goal_error = abs(pred_hg - actual_hg) + abs(pred_ag - actual_ag)
+    return {"correct_winner": correct, "brier": brier, "log_loss": log_loss,
+            "total_goal_error": total_goal_error}
 
 
 def score_and_save(config, base_dir):
@@ -64,6 +72,7 @@ def score_and_save(config, base_dir):
         "accuracy": sum(m["correct_winner"] for m in matches) / n if n else None,
         "avg_brier": sum(m["brier"] for m in matches) / n if n else None,
         "avg_log_loss": sum(m["log_loss"] for m in matches) / n if n else None,
+        "avg_goal_error": sum(m["total_goal_error"] for m in matches) / n if n else None,
     }
 
     out = {"matches": matches, "summary": summary}
