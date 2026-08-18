@@ -1,6 +1,6 @@
 {
   "Club Atl\u00e9tico de Madrid|M\u00e1laga CF": {
-    "date": "2026-08-16",
+    "date": "2026-08-19",
     "status": "SCHEDULED",
     "goals": {
       "Club Atl\u00e9tico de Madrid": null,
@@ -18,7 +18,7 @@
     "round": "Matchday 1"
   },
   "FC Barcelona|Athletic Club": {
-    "date": "2026-08-16",
+    "date": "2026-08-27",
     "status": "SCHEDULED",
     "goals": {
       "FC Barcelona": null,
@@ -27,7 +27,7 @@
     "round": "Matchday 1"
   },
   "Real Madrid CF|Real Sociedad de F\u00fatbol": {
-    "date": "2026-08-16",
+    "date": "2026-08-26",
     "status": "SCHEDULED",
     "goals": {
       "Real Madrid CF": null,
@@ -72,7 +72,7 @@
     "round": "Matchday 1"
   },
   "RC Celta de Vigo|CA Osasuna": {
-    "date": "2026-08-16",
+    "date": "2026-08-27",
     "status": "SCHEDULED",
     "goals": {
       "RC Celta de Vigo": null,
@@ -81,7 +81,7 @@
     "round": "Matchday 1"
   },
   "Valencia CF|Real Betis Balompi\u00e9": {
-    "date": "2026-08-16",
+    "date": "2026-08-25",
     "status": "SCHEDULED",
     "goals": {
       "Valencia CF": null,
@@ -90,7 +90,7 @@
     "round": "Matchday 1"
   },
   "Rayo Vallecano de Madrid|Deportivo Alav\u00e9s": {
-    "date": "2026-08-23",
+    "date": "2026-08-20",
     "status": "SCHEDULED",
     "goals": {
       "Rayo Vallecano de Madrid": null,
@@ -99,7 +99,7 @@
     "round": "Matchday 2"
   },
   "CA Osasuna|Levante UD": {
-    "date": "2026-08-23",
+    "date": "2026-08-24",
     "status": "SCHEDULED",
     "goals": {
       "CA Osasuna": null,
@@ -108,7 +108,7 @@
     "round": "Matchday 2"
   },
   "M\u00e1laga CF|RC Deportivo La Coru\u00f1a": {
-    "date": "2026-08-23",
+    "date": "2026-08-24",
     "status": "SCHEDULED",
     "goals": {
       "M\u00e1laga CF": null,
@@ -117,7 +117,7 @@
     "round": "Matchday 2"
   },
   "Athletic Club|Sevilla FC": {
-    "date": "2026-08-23",
+    "date": "2026-08-22",
     "status": "SCHEDULED",
     "goals": {
       "Athletic Club": null,
@@ -135,7 +135,7 @@
     "round": "Matchday 2"
   },
   "Valencia CF|RC Celta de Vigo": {
-    "date": "2026-08-23",
+    "date": "2026-08-22",
     "status": "SCHEDULED",
     "goals": {
       "Valencia CF": null,
@@ -153,7 +153,7 @@
     "round": "Matchday 2"
   },
   "RCD Espanyol de Barcelona|Real Madrid CF": {
-    "date": "2026-08-23",
+    "date": "2026-08-22",
     "status": "SCHEDULED",
     "goals": {
       "RCD Espanyol de Barcelona": null,
@@ -171,7 +171,7 @@
     "round": "Matchday 2"
   },
   "Real Betis Balompi\u00e9|Real Sociedad de F\u00fatbol": {
-    "date": "2026-08-23",
+    "date": "2026-08-21",
     "status": "SCHEDULED",
     "goals": {
       "Real Betis Balompi\u00e9": null,
@@ -180,7 +180,7 @@
     "round": "Matchday 2"
   },
   "Deportivo Alav\u00e9s|Villarreal CF": {
-    "date": "2026-08-30",
+    "date": "2026-08-28",
     "status": "SCHEDULED",
     "goals": {
       "Deportivo Alav\u00e9s": null,
@@ -189,7 +189,7 @@
     "round": "Matchday 3"
   },
   "Sevilla FC|Club Atl\u00e9tico de Madrid": {
-    "date": "2026-08-30",
+    "date": "2026-08-29",
     "status": "SCHEDULED",
     "goals": {
       "Sevilla FC": null,
@@ -198,7 +198,7 @@
     "round": "Matchday 3"
   },
   "FC Barcelona|Rayo Vallecano de Madrid": {
-    "date": "2026-08-30",
+    "date": "2026-08-31",
     "status": "SCHEDULED",
     "goals": {
       "FC Barcelona": null,
@@ -225,7 +225,7 @@
     "round": "Matchday 3"
   },
   "Real Sociedad de F\u00fatbol|RCD Espanyol de Barcelona": {
-    "date": "2026-08-30",
+    "date": "2026-08-29",
     "status": "SCHEDULED",
     "goals": {
       "Real Sociedad de F\u00fatbol": null,
@@ -234,7 +234,7 @@
     "round": "Matchday 3"
   },
   "Real Racing Club de Santander|Elche CF": {
-    "date": "2026-08-30",
+    "date": "2026-08-28",
     "status": "SCHEDULED",
     "goals": {
       "Real Racing Club de Santander": null,
@@ -243,7 +243,7 @@
     "round": "Matchday 3"
   },
   "Levante UD|Real Betis Balompi\u00e9": {
-    "date": "2026-08-30",
+    "date": "2026-08-29",
     "status": "SCHEDULED",
     "goals": {
       "Levante UD": null,
@@ -261,7 +261,7 @@
     "round": "Matchday 3"
   },
   "CA Osasuna|Getafe CF": {
-    "date": "2026-08-30",
+    "date": "2026-08-31",
     "status": "SCHEDULED",
     "goals": {
       "CA Osasuna": null,
@@ -270,7 +270,7 @@
     "round": "Matchday 3"
   },
   "Elche CF|Real Sociedad de F\u00fatbol": {
-    "date": "2026-09-06",
+    "date": "2026-09-07",
     "status": "SCHEDULED",
     "goals": {
       "Elche CF": null,
@@ -288,7 +288,7 @@
     "round": "Matchday 4"
   },
   "Rayo Vallecano de Madrid|Real Racing Club de Santander": {
-    "date": "2026-09-06",
+    "date": "2026-09-05",
     "status": "SCHEDULED",
     "goals": {
       "Rayo Vallecano de Madrid": null,
@@ -306,7 +306,7 @@
     "round": "Matchday 4"
   },
   "Villarreal CF|RC Deportivo La Coru\u00f1a": {
-    "date": "2026-09-06",
+    "date": "2026-09-05",
     "status": "SCHEDULED",
     "goals": {
       "Villarreal CF": null,
@@ -315,7 +315,7 @@
     "round": "Matchday 4"
   },
   "Athletic Club|Club Atl\u00e9tico de Madrid": {
-    "date": "2026-09-06",
+    "date": "2026-09-05",
     "status": "SCHEDULED",
     "goals": {
       "Athletic Club": null,
@@ -333,7 +333,7 @@
     "round": "Matchday 4"
   },
   "Getafe CF|RC Celta de Vigo": {
-    "date": "2026-09-06",
+    "date": "2026-09-07",
     "status": "SCHEDULED",
     "goals": {
       "Getafe CF": null,
@@ -351,7 +351,7 @@
     "round": "Matchday 4"
   },
   "Real Betis Balompi\u00e9|Real Madrid CF": {
-    "date": "2026-09-06",
+    "date": "2026-09-04",
     "status": "SCHEDULED",
     "goals": {
       "Real Betis Balompi\u00e9": null,
@@ -486,7 +486,7 @@
     "round": "Matchday 6"
   },
   "Real Sociedad de F\u00fatbol|RC Celta de Vigo": {
-    "date": "2026-09-16",
+    "date": "2026-09-03",
     "status": "SCHEDULED",
     "goals": {
       "Real Sociedad de F\u00fatbol": null,
