@@ -21,7 +21,7 @@
     {
       "home": "Sevilla FC",
       "away": "Rayo Vallecano de Madrid",
-      "date": "2026-08-16",
+      "date": "2026-08-15",
       "correct_winner": true,
       "brier": 0.5950672097435801,
       "log_loss": 0.9927210451870608,
@@ -30,7 +30,7 @@
     {
       "home": "Deportivo Alav\u00e9s",
       "away": "Getafe CF",
-      "date": "2026-08-16",
+      "date": "2026-08-15",
       "correct_winner": true,
       "brier": 0.6461116312802978,
       "log_loss": 1.0676814072156178,
@@ -39,7 +39,7 @@
     {
       "home": "RC Deportivo La Coru\u00f1a",
       "away": "Elche CF",
-      "date": "2026-08-16",
+      "date": "2026-08-17",
       "correct_winner": false,
       "brier": 0.772285941537707,
       "log_loss": 1.252784920019275,
