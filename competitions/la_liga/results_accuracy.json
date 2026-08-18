@@ -1,9 +1,50 @@
 {
-  "matches": [],
+  "matches": [
+    {
+      "home": "Real Racing Club de Santander",
+      "away": "Villarreal CF",
+      "date": "2026-08-16",
+      "correct_winner": false,
+      "brier": 0.8634938486861671,
+      "log_loss": 1.413427822288856
+    },
+    {
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Levante UD",
+      "date": "2026-08-16",
+      "correct_winner": true,
+      "brier": 0.5862008916627472,
+      "log_loss": 0.980175034189345
+    },
+    {
+      "home": "Sevilla FC",
+      "away": "Rayo Vallecano de Madrid",
+      "date": "2026-08-16",
+      "correct_winner": true,
+      "brier": 0.5950672097435801,
+      "log_loss": 0.9927210451870608
+    },
+    {
+      "home": "Deportivo Alav\u00e9s",
+      "away": "Getafe CF",
+      "date": "2026-08-16",
+      "correct_winner": true,
+      "brier": 0.6461116312802978,
+      "log_loss": 1.0676814072156178
+    },
+    {
+      "home": "RC Deportivo La Coru\u00f1a",
+      "away": "Elche CF",
+      "date": "2026-08-16",
+      "correct_winner": false,
+      "brier": 0.772285941537707,
+      "log_loss": 1.252784920019275
+    }
+  ],
   "summary": {
-    "n_scored": 0,
-    "accuracy": null,
-    "avg_brier": null,
-    "avg_log_loss": null
+    "n_scored": 5,
+    "accuracy": 0.6,
+    "avg_brier": 0.6926319045820998,
+    "avg_log_loss": 1.141358045780031
   }
 }
