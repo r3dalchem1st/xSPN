@@ -184,9 +184,10 @@ def test_fetch_and_save_overlays_live_results_when_configured(tmp_path, monkeypa
 
     monkeypatch.setattr(fetch_league, "fetch_openfootball_file", fake_fetch)
     monkeypatch.setattr(fetch_league, "parse_openfootball_txt", fake_parse)
-    monkeypatch.setattr(fetch_league, "fetch_finished_matches",
+    monkeypatch.setattr(fetch_league, "fetch_live_matches",
                          lambda code: [{"homeTeam": {"name": "Man Utd"},
                                         "awayTeam": {"name": "Brentford FC"},
+                                        "status": "FINISHED",
                                         "score": {"fullTime": {"home": 2, "away": 0}}}])
 
     summary = fetch_and_save(config, str(tmp_path))
@@ -209,11 +210,11 @@ def test_fetch_and_save_skips_live_overlay_when_not_configured(tmp_path, monkeyp
         return [UNPLAYED_MATCH]
 
     def fail_if_called(code):
-        raise AssertionError("fetch_finished_matches should not be called without football_data_code")
+        raise AssertionError("fetch_live_matches should not be called without football_data_code")
 
     monkeypatch.setattr(fetch_league, "fetch_openfootball_file", fake_fetch)
     monkeypatch.setattr(fetch_league, "parse_openfootball_txt", fake_parse)
-    monkeypatch.setattr(fetch_league, "fetch_finished_matches", fail_if_called)
+    monkeypatch.setattr(fetch_league, "fetch_live_matches", fail_if_called)
 
     summary = fetch_and_save(config, str(tmp_path))
     assert summary["scheduled"] == 1  # ran fine, never touched the live fetch

@@ -12,7 +12,8 @@ import sys
 import requests
 
 from competition_config import artifact_dir, load_competition
-from fetch_live_scores import fetch_finished_matches, overlay_live_results
+from fetch_live_scores import fetch_matches as fetch_live_matches
+from fetch_live_scores import overlay_live_results
 from openfootball_txt import parse_openfootball_txt
 
 
@@ -115,11 +116,12 @@ def fetch_and_save(config, base_dir):
         print("  ! current-season fetch failed — leaving existing schedule.json untouched")
     else:
         if config.football_data_code:
-            raw = fetch_finished_matches(config.football_data_code)
+            raw = fetch_live_matches(config.football_data_code)
             if raw:
-                _, n_overlaid, _ = overlay_live_results(config, current_schedule, raw)
-                if n_overlaid:
-                    print(f"  live-score overlay: {n_overlaid} result(s) patched in from football-data.org")
+                _, n_overlaid, n_date_corrected, _ = overlay_live_results(config, current_schedule, raw)
+                if n_overlaid or n_date_corrected:
+                    print(f"  live-score overlay: {n_overlaid} result(s), "
+                          f"{n_date_corrected} date correction(s) from football-data.org")
         with open(os.path.join(out_dir, "schedule.json"), "w") as f:
             json.dump(current_schedule, f, indent=2)
 
