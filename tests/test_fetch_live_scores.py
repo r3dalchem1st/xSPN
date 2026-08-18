@@ -57,9 +57,12 @@ def test_fetch_matches_noop_on_request_exception(monkeypatch):
     assert fetch_matches("PD") == []
 
 
-def _finished(home, away, hg, ag):
-    return {"homeTeam": {"name": home}, "awayTeam": {"name": away}, "status": "FINISHED",
-            "score": {"fullTime": {"home": hg, "away": ag}}}
+def _finished(home, away, hg, ag, utc_date=None):
+    m = {"homeTeam": {"name": home}, "awayTeam": {"name": away}, "status": "FINISHED",
+         "score": {"fullTime": {"home": hg, "away": ag}}}
+    if utc_date:
+        m["utcDate"] = utc_date
+    return m
 
 
 def _unplayed(home, away, utc_date, status="TIMED"):
@@ -121,6 +124,26 @@ def test_overlay_skips_fixture_already_finished_by_openfootball():
     assert n_overlaid == 0
     assert n_date_corrected == 0
     assert schedule["Fulham FC|Brentford FC"]["goals"] == {"Fulham FC": 1, "Brentford FC": 1}
+
+
+def test_overlay_corrects_date_of_a_newly_finished_match_too():
+    # Regression test for a real bug caught live: 2 of La Liga's first 5
+    # live-overlaid results were actually played the day BEFORE
+    # openfootball's single placeholder date for the whole matchday, but the
+    # overlay's FINISHED branch only patched status+goals, never the date --
+    # so a scored match could carry a wrong date forever. The date
+    # correction must apply even when the match is finishing right now.
+    config = CompetitionConfig(CONFIG_DATA)
+    schedule = {"Fulham FC|Brentford FC": {
+        "date": "2026-08-16", "status": "SCHEDULED",
+        "goals": {"Fulham FC": None, "Brentford FC": None}, "round": "Matchday 1",
+    }}
+    _, n_overlaid, n_date_corrected, _ = overlay_live_results(
+        config, schedule, [_finished("Fulham FC", "Brentford FC", 3, 0, utc_date="2026-08-15T17:30:00Z")])
+    assert n_overlaid == 1
+    assert n_date_corrected == 1
+    assert schedule["Fulham FC|Brentford FC"]["date"] == "2026-08-15"
+    assert schedule["Fulham FC|Brentford FC"]["status"] == "FINISHED"
 
 
 def test_overlay_counts_a_resolved_name_with_no_matching_fixture_as_unmatched():

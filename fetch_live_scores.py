@@ -63,12 +63,15 @@ def overlay_live_results(config, schedule, raw_matches):
     """Patch football-data.org's `raw_matches` onto `schedule` (openfootball's
     own schedule dict, keyed "home|away") wherever it's more complete or more
     accurate than what openfootball has:
+      - ANY fixture not yet FINISHED in `schedule` -> date corrected first if
+        football-data.org's differs (openfootball's placeholder date for an
+        entire matchday can be badly wrong for individual fixtures -- see
+        module docstring -- and this applies even to a match football-data.org
+        itself now reports FINISHED, not just still-unplayed ones: 2 of La
+        Liga's first 5 live-overlaid results were actually played the day
+        BEFORE openfootball's single stamped date for the whole matchday).
       - a FINISHED match openfootball hasn't scored yet -> status + goals
-        filled in.
-      - a still-unplayed fixture whose football-data.org date differs from
-        openfootball's -> date corrected (openfootball's placeholder date
-        for an entire matchday can be badly wrong for individual fixtures --
-        see module docstring).
+        filled in too, after the date correction above.
     A fixture already FINISHED in `schedule` (openfootball caught up, or a
     prior overlay run) is left completely untouched either way -- openfootball
     is the permanent record once it has a result.
@@ -101,6 +104,18 @@ def overlay_live_results(config, schedule, raw_matches):
             continue
         if entry["status"] == "FINISHED":
             continue  # openfootball already has this result -- permanent, never touched
+
+        # Correct the date FIRST, regardless of whether this match is finished
+        # yet -- a FINISHED match keeps openfootball's placeholder date just as
+        # wrongly as an unplayed one otherwise (caught live: 2 of La Liga's 5
+        # live-overlaid results were actually played the day BEFORE
+        # openfootball's single stamped date for the whole matchday).
+        fd_date = (m.get("utcDate") or "")[:10]
+        if fd_date and fd_date != entry["date"]:
+            print(f"    ~ date correction {home} vs {away}: {entry['date']} -> {fd_date}")
+            entry["date"] = fd_date
+            n_date_corrected += 1
+
         if m.get("status") == "FINISHED":
             ft = ((m.get("score") or {}).get("fullTime")) or {}
             hg, ag = ft.get("home"), ft.get("away")
@@ -109,12 +124,6 @@ def overlay_live_results(config, schedule, raw_matches):
             entry["status"], entry["goals"] = "FINISHED", {home: hg, away: ag}
             n_overlaid += 1
             print(f"    + live result {home} {hg}-{ag} {away}")
-        else:
-            fd_date = (m.get("utcDate") or "")[:10]
-            if fd_date and fd_date != entry["date"]:
-                print(f"    ~ date correction {home} vs {away}: {entry['date']} -> {fd_date}")
-                entry["date"] = fd_date
-                n_date_corrected += 1
     if n_unmatched:
         print(f"    ! {n_unmatched} live result(s) could not be matched to a fixture — see above")
     return schedule, n_overlaid, n_date_corrected, n_unmatched
