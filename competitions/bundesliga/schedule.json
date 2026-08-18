@@ -54,7 +54,7 @@
     "round": "Matchday 1"
   },
   "FC Augsburg|FC Schalke 04": {
-    "date": "2026-08-29",
+    "date": "2026-08-30",
     "status": "SCHEDULED",
     "goals": {
       "FC Augsburg": null,
@@ -72,7 +72,7 @@
     "round": "Matchday 1"
   },
   "SC Freiburg|SV Werder Bremen": {
-    "date": "2026-08-29",
+    "date": "2026-08-30",
     "status": "SCHEDULED",
     "goals": {
       "SC Freiburg": null,
@@ -90,7 +90,7 @@
     "round": "Matchday 2"
   },
   "Eintracht Frankfurt|FC Augsburg": {
-    "date": "2026-09-05",
+    "date": "2026-09-06",
     "status": "SCHEDULED",
     "goals": {
       "Eintracht Frankfurt": null,
@@ -108,7 +108,7 @@
     "round": "Matchday 2"
   },
   "Hamburger SV|1. FSV Mainz 05": {
-    "date": "2026-09-05",
+    "date": "2026-09-06",
     "status": "SCHEDULED",
     "goals": {
       "Hamburger SV": null,
@@ -135,7 +135,7 @@
     "round": "Matchday 2"
   },
   "VfB Stuttgart|1. FC K\u00f6ln": {
-    "date": "2026-09-05",
+    "date": "2026-09-04",
     "status": "SCHEDULED",
     "goals": {
       "VfB Stuttgart": null,
@@ -189,7 +189,7 @@
     "round": "Matchday 3"
   },
   "1. FC Union Berlin|FC Schalke 04": {
-    "date": "2026-09-12",
+    "date": "2026-09-11",
     "status": "SCHEDULED",
     "goals": {
       "1. FC Union Berlin": null,
@@ -207,7 +207,7 @@
     "round": "Matchday 3"
   },
   "RB Leipzig|Hamburger SV": {
-    "date": "2026-09-12",
+    "date": "2026-09-13",
     "status": "SCHEDULED",
     "goals": {
       "RB Leipzig": null,
@@ -216,7 +216,7 @@
     "round": "Matchday 3"
   },
   "SV 07 Elversberg|FC Bayern M\u00fcnchen": {
-    "date": "2026-09-12",
+    "date": "2026-09-13",
     "status": "SCHEDULED",
     "goals": {
       "SV 07 Elversberg": null,
@@ -243,7 +243,7 @@
     "round": "Matchday 3"
   },
   "SC Paderborn 07|TSG 1899 Hoffenheim": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "status": "SCHEDULED",
     "goals": {
       "SC Paderborn 07": null,
@@ -252,7 +252,7 @@
     "round": "Matchday 4"
   },
   "FC Bayern M\u00fcnchen|1. FC Union Berlin": {
-    "date": "2026-09-19",
+    "date": "2026-09-18",
     "status": "SCHEDULED",
     "goals": {
       "FC Bayern M\u00fcnchen": null,
@@ -261,7 +261,7 @@
     "round": "Matchday 4"
   },
   "FC Schalke 04|SV 07 Elversberg": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "status": "SCHEDULED",
     "goals": {
       "FC Schalke 04": null,
@@ -279,7 +279,7 @@
     "round": "Matchday 4"
   },
   "Bayer 04 Leverkusen|RB Leipzig": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "status": "SCHEDULED",
     "goals": {
       "Bayer 04 Leverkusen": null,
