@@ -69,10 +69,10 @@ def test_overlay_patches_a_scheduled_fixture():
         "date": "2026-08-16", "status": "SCHEDULED",
         "goals": {"Fulham FC": None, "Brentford FC": None}, "round": "Matchday 1",
     }}
-    _, n_overlaid, n_unmapped = overlay_live_results(
+    _, n_overlaid, n_unmatched = overlay_live_results(
         config, schedule, [_match("Fulham FC", "Brentford FC", 2, 1)])
     assert n_overlaid == 1
-    assert n_unmapped == 0
+    assert n_unmatched == 0
     assert schedule["Fulham FC|Brentford FC"]["status"] == "FINISHED"
     assert schedule["Fulham FC|Brentford FC"]["goals"] == {"Fulham FC": 2, "Brentford FC": 1}
     assert schedule["Fulham FC|Brentford FC"]["round"] == "Matchday 1"  # untouched
@@ -92,16 +92,17 @@ def test_overlay_resolves_team_aliases():
     }
 
 
-def test_overlay_skips_unmapped_team_names():
+def test_overlay_skips_unresolved_team_names():
     # A roster-restricted config rejects any name not on the roster (same
-    # mechanism build_training_rows relies on) -- exercises the "genuinely
-    # unmapped" path distinctly from "resolved fine, just not in schedule".
+    # mechanism build_training_rows relies on) -- exercises the "resolve_team
+    # itself rejects it" path distinctly from "resolved fine, just not in
+    # schedule" (covered separately below).
     config = CompetitionConfig(dict(CONFIG_DATA, teams=["Manchester United FC", "Fulham FC"]))
     schedule = {}
-    _, n_overlaid, n_unmapped = overlay_live_results(
+    _, n_overlaid, n_unmatched = overlay_live_results(
         config, schedule, [_match("Some Random FC", "Fulham FC", 1, 0)])
     assert n_overlaid == 0
-    assert n_unmapped == 1
+    assert n_unmatched == 1
 
 
 def test_overlay_skips_fixture_already_finished_by_openfootball():
@@ -116,13 +117,20 @@ def test_overlay_skips_fixture_already_finished_by_openfootball():
     assert schedule["Fulham FC|Brentford FC"]["goals"] == {"Fulham FC": 1, "Brentford FC": 1}
 
 
-def test_overlay_skips_fixture_not_in_schedule():
+def test_overlay_counts_a_resolved_name_with_no_matching_fixture_as_unmatched():
+    # Regression test for a real bug caught live: a resolved-but-unrecognised
+    # pair used to be dropped with n_unmatched staying 0 and no log line at
+    # all -- exactly what happened to 5 of La Liga's real Matchday 1 results
+    # (football-data.org's shorter names for Atlético Madrid/Barcelona/Real
+    # Madrid/etc. passed resolve_team() unchanged with no roster configured,
+    # then matched no schedule key, and vanished silently). This must be
+    # visible and counted, not just as quiet as "already FINISHED".
     config = CompetitionConfig(CONFIG_DATA)
     schedule = {}
-    _, n_overlaid, n_unmapped = overlay_live_results(
+    _, n_overlaid, n_unmatched = overlay_live_results(
         config, schedule, [_match("Fulham FC", "Brentford FC", 2, 1)])
     assert n_overlaid == 0
-    assert n_unmapped == 0
+    assert n_unmatched == 1
 
 
 def test_overlay_skips_match_with_no_fulltime_score():

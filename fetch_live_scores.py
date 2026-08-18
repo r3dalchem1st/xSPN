@@ -54,32 +54,46 @@ def overlay_live_results(config, schedule, raw_matches):
 
     Team names resolve through the SAME config.team_aliases openfootball
     parsing already uses -- a name football-data.org and openfootball
-    disagree on needs an alias entry either way. Unmapped names are skipped
-    and logged, never guessed (mirrors fetch_matches.py's TEAM_MAP pattern:
-    built up from real observed API responses, not upfront).
+    disagree on needs an alias entry either way. A name that resolves (via
+    alias or passthrough) but still doesn't match any "home|away" key in
+    `schedule` is JUST AS real a miss as an outright-rejected name (caught
+    live: la_liga.json ships with empty team_aliases, so football-data.org's
+    shorter names for Atlético Madrid/Barcelona/Real Madrid/Celta Vigo/Real
+    Betis/Real Sociedad all silently passed resolve_team() unchanged, then
+    matched nothing in schedule, and were dropped with ZERO log output --
+    half of Matchday 1 stayed unscored with no trace of why). Both cases are
+    counted and logged here, with the raw names, so add-an-alias fixes have
+    ground truth to work from (mirrors fetch_matches.py's TEAM_MAP: built up
+    from real observed API responses, never guessed upfront).
 
     A fixture already FINISHED in `schedule` (openfootball caught up, or a
     second overlay run) is left untouched -- openfootball is the permanent
     record once it has one; this only fills gaps. Mutates and returns
-    `schedule`. Returns (schedule, n_overlaid, n_unmapped)."""
-    n_overlaid = n_unmapped = 0
+    `schedule`. Returns (schedule, n_overlaid, n_unmatched)."""
+    n_overlaid = n_unmatched = 0
     for m in raw_matches:
         home_raw = (m.get("homeTeam") or {}).get("name", "")
         away_raw = (m.get("awayTeam") or {}).get("name", "")
         home, away = config.resolve_team(home_raw), config.resolve_team(away_raw)
         if not home or not away:
-            n_unmapped += 1
+            n_unmatched += 1
+            print(f"    ! unresolved team name(s): {home_raw!r} / {away_raw!r} — add to team_aliases")
             continue
         ft = ((m.get("score") or {}).get("fullTime")) or {}
         hg, ag = ft.get("home"), ft.get("away")
         if hg is None or ag is None:
             continue
         entry = schedule.get(f"{home}|{away}")
-        if entry is None or entry["status"] == "FINISHED":
-            continue  # unknown fixture, or openfootball already has this result
+        if entry is None:
+            n_unmatched += 1
+            print(f"    ! no schedule fixture for {home!r} vs {away!r} "
+                  f"(raw: {home_raw!r} / {away_raw!r}) — team_aliases entry needed?")
+            continue
+        if entry["status"] == "FINISHED":
+            continue  # openfootball already has this result
         entry["status"], entry["goals"] = "FINISHED", {home: hg, away: ag}
         n_overlaid += 1
         print(f"    + live result {home} {hg}-{ag} {away}")
-    if n_unmapped:
-        print(f"    ! {n_unmapped} live result(s) with unmapped team name(s) — add to team_aliases")
-    return schedule, n_overlaid, n_unmapped
+    if n_unmatched:
+        print(f"    ! {n_unmatched} live result(s) could not be matched to a fixture — see above")
+    return schedule, n_overlaid, n_unmatched
