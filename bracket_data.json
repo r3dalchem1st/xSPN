@@ -18,7 +18,7 @@
         "lam": 1.9,
         "mu": 0.8,
         "score": "1\u20130",
-        "ph": 0.566,
+        "ph": 0.565,
         "pd": 0.295,
         "pa": 0.139,
         "likely_winner": "Mexico"
@@ -1439,10 +1439,10 @@
   "champion_pct": 92.5,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 83.9,
-    "England": 9.0,
-    "Colombia": 6.2,
-    "France": 1.9,
+    "Argentina": 84.0,
+    "England": 9.2,
+    "Colombia": 6.0,
+    "France": 2.0,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
