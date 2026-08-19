@@ -97,5 +97,16 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-08-18"
+  },
+  "Fulham FC|Chelsea FC": {
+    "home": "Fulham FC",
+    "away": "Chelsea FC",
+    "date": "2026-08-24",
+    "ph": 0.2822013474700007,
+    "pd": 0.25327215235986383,
+    "pa": 0.4645265001701355,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-19"
   }
 }
