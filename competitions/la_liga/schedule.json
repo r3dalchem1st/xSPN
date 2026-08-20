@@ -1,10 +1,10 @@
 {
   "Club Atl\u00e9tico de Madrid|M\u00e1laga CF": {
     "date": "2026-08-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Club Atl\u00e9tico de Madrid": null,
-      "M\u00e1laga CF": null
+      "Club Atl\u00e9tico de Madrid": 2,
+      "M\u00e1laga CF": 0
     },
     "round": "Matchday 1"
   },
