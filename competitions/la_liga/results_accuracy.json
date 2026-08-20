@@ -1,6 +1,15 @@
 {
   "matches": [
     {
+      "home": "Club Atl\u00e9tico de Madrid",
+      "away": "M\u00e1laga CF",
+      "date": "2026-08-19",
+      "correct_winner": true,
+      "brier": 0.19312150115131924,
+      "log_loss": 0.4394830144003952,
+      "total_goal_error": 1
+    },
+    {
       "home": "Real Racing Club de Santander",
       "away": "Villarreal CF",
       "date": "2026-08-16",
@@ -47,10 +56,10 @@
     }
   ],
   "summary": {
-    "n_scored": 5,
-    "accuracy": 0.6,
-    "avg_brier": 0.6926319045820998,
-    "avg_log_loss": 1.141358045780031,
-    "avg_goal_error": 1.6
+    "n_scored": 6,
+    "accuracy": 0.6666666666666666,
+    "avg_brier": 0.6093801706769698,
+    "avg_log_loss": 1.024378873883425,
+    "avg_goal_error": 1.5
   }
 }
