@@ -91,10 +91,10 @@
   },
   "Rayo Vallecano de Madrid|Deportivo Alav\u00e9s": {
     "date": "2026-08-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Rayo Vallecano de Madrid": null,
-      "Deportivo Alav\u00e9s": null
+      "Rayo Vallecano de Madrid": 1,
+      "Deportivo Alav\u00e9s": 1
     },
     "round": "Matchday 2"
   },

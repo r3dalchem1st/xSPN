@@ -53,13 +53,22 @@
       "brier": 0.772285941537707,
       "log_loss": 1.252784920019275,
       "total_goal_error": 1
+    },
+    {
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Deportivo Alav\u00e9s",
+      "date": "2026-08-20",
+      "correct_winner": false,
+      "brier": 0.725755179899132,
+      "log_loss": 1.1706080695530696,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 6,
-    "accuracy": 0.6666666666666666,
-    "avg_brier": 0.6093801706769698,
-    "avg_log_loss": 1.024378873883425,
-    "avg_goal_error": 1.5
+    "n_scored": 7,
+    "accuracy": 0.5714285714285714,
+    "avg_brier": 0.6260051719944215,
+    "avg_log_loss": 1.0452687589790886,
+    "avg_goal_error": 1.4285714285714286
   }
 }
