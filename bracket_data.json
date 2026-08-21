@@ -1436,15 +1436,15 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.6,
+  "champion_pct": 92.4,
   "reach_final": {
-    "Spain": 97.6,
-    "Argentina": 84.0,
+    "Spain": 97.7,
+    "Argentina": 83.8,
     "England": 9.2,
-    "Colombia": 6.0,
+    "Colombia": 6.2,
     "France": 1.9,
-    "Senegal": 0.8,
+    "Senegal": 0.7,
     "USA": 0.3,
-    "Algeria": 0.1
+    "Algeria": 0.2
   }
 }
