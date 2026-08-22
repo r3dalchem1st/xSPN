@@ -172,10 +172,10 @@
   },
   "Real Betis Balompi\u00e9|Real Sociedad de F\u00fatbol": {
     "date": "2026-08-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Betis Balompi\u00e9": null,
-      "Real Sociedad de F\u00fatbol": null
+      "Real Betis Balompi\u00e9": 1,
+      "Real Sociedad de F\u00fatbol": 0
     },
     "round": "Matchday 2"
   },

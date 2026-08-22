@@ -62,13 +62,22 @@
       "brier": 0.725755179899132,
       "log_loss": 1.1706080695530696,
       "total_goal_error": 1
+    },
+    {
+      "home": "Real Betis Balompi\u00e9",
+      "away": "Real Sociedad de F\u00fatbol",
+      "date": "2026-08-21",
+      "correct_winner": true,
+      "brier": 0.34559808974747935,
+      "log_loss": 0.6530261552027548,
+      "total_goal_error": 0
     }
   ],
   "summary": {
-    "n_scored": 7,
-    "accuracy": 0.5714285714285714,
-    "avg_brier": 0.6260051719944215,
-    "avg_log_loss": 1.0452687589790886,
-    "avg_goal_error": 1.4285714285714286
+    "n_scored": 8,
+    "accuracy": 0.625,
+    "avg_brier": 0.5909542867135538,
+    "avg_log_loss": 0.9962384335070469,
+    "avg_goal_error": 1.25
   }
 }
