@@ -1,10 +1,20 @@
 {
-  "matches": [],
+  "matches": [
+    {
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "date": "2026-08-21",
+      "correct_winner": true,
+      "brier": 0.2811418028881212,
+      "log_loss": 0.5630764969551492,
+      "total_goal_error": 2
+    }
+  ],
   "summary": {
-    "n_scored": 0,
-    "accuracy": null,
-    "avg_brier": null,
-    "avg_log_loss": null,
-    "avg_goal_error": null
+    "n_scored": 1,
+    "accuracy": 1.0,
+    "avg_brier": 0.2811418028881212,
+    "avg_log_loss": 0.5630764969551492,
+    "avg_goal_error": 2.0
   }
 }
