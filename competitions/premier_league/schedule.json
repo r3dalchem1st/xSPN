@@ -1,10 +1,10 @@
 {
   "Arsenal FC|Coventry City FC": {
     "date": "2026-08-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Arsenal FC": null,
-      "Coventry City FC": null
+      "Arsenal FC": 3,
+      "Coventry City FC": 0
     },
     "round": "Matchday 1"
   },
