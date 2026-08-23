@@ -218,5 +218,27 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-08-18"
+  },
+  "Deportivo Alav\u00e9s|Villarreal CF": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "Villarreal CF",
+    "date": "2026-08-28",
+    "ph": 0.27358431567525343,
+    "pd": 0.24766033597273282,
+    "pa": 0.4787553483520137,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-23"
+  },
+  "Real Racing Club de Santander|Elche CF": {
+    "home": "Real Racing Club de Santander",
+    "away": "Elche CF",
+    "date": "2026-08-28",
+    "ph": 0.41617638538674956,
+    "pd": 0.28570401546075,
+    "pa": 0.2981195991525002,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-23"
   }
 }
