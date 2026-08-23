@@ -108,5 +108,16 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-08-19"
+  },
+  "Crystal Palace FC|Manchester City FC": {
+    "home": "Crystal Palace FC",
+    "away": "Manchester City FC",
+    "date": "2026-08-28",
+    "ph": 0.2610526949120506,
+    "pd": 0.24279568381217578,
+    "pa": 0.4961516212757738,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-23"
   }
 }
