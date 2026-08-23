@@ -10,46 +10,46 @@
   },
   "Hull City AFC|Manchester United FC": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hull City AFC": null,
-      "Manchester United FC": null
+      "Hull City AFC": 2,
+      "Manchester United FC": 0
     },
     "round": "Matchday 1"
   },
   "Ipswich Town FC|Sunderland AFC": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Ipswich Town FC": null,
-      "Sunderland AFC": null
+      "Ipswich Town FC": 2,
+      "Sunderland AFC": 1
     },
     "round": "Matchday 1"
   },
   "Nottingham Forest FC|Leeds United FC": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Nottingham Forest FC": null,
-      "Leeds United FC": null
+      "Nottingham Forest FC": 0,
+      "Leeds United FC": 1
     },
     "round": "Matchday 1"
   },
   "Everton FC|Crystal Palace FC": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Everton FC": null,
-      "Crystal Palace FC": null
+      "Everton FC": 2,
+      "Crystal Palace FC": 0
     },
     "round": "Matchday 1"
   },
   "Brentford FC|Tottenham Hotspur FC": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brentford FC": null,
-      "Tottenham Hotspur FC": null
+      "Brentford FC": 3,
+      "Tottenham Hotspur FC": 0
     },
     "round": "Matchday 1"
   },
