@@ -118,10 +118,10 @@
   },
   "Athletic Club|Sevilla FC": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Athletic Club": null,
-      "Sevilla FC": null
+      "Athletic Club": 1,
+      "Sevilla FC": 3
     },
     "round": "Matchday 2"
   },
@@ -136,10 +136,10 @@
   },
   "Valencia CF|RC Celta de Vigo": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Valencia CF": null,
-      "RC Celta de Vigo": null
+      "Valencia CF": 0,
+      "RC Celta de Vigo": 0
     },
     "round": "Matchday 2"
   },
@@ -154,10 +154,10 @@
   },
   "RCD Espanyol de Barcelona|Real Madrid CF": {
     "date": "2026-08-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RCD Espanyol de Barcelona": null,
-      "Real Madrid CF": null
+      "RCD Espanyol de Barcelona": 1,
+      "Real Madrid CF": 2
     },
     "round": "Matchday 2"
   },
