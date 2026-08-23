@@ -1,1 +1,13 @@
-{}
+{
+  "FC Bayern M\u00fcnchen|VfB Stuttgart": {
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "VfB Stuttgart",
+    "date": "2026-08-28",
+    "ph": 0.7235318136280326,
+    "pd": 0.1488729126744462,
+    "pa": 0.12759527369752088,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-23"
+  }
+}
