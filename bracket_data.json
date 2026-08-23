@@ -720,7 +720,7 @@
         "lam": 2.18,
         "mu": 1.02,
         "score": "2\u20131",
-        "ph": 0.577,
+        "ph": 0.576,
         "pd": 0.268,
         "pa": 0.155,
         "likely_winner": "DR Congo"
@@ -1139,7 +1139,7 @@
       "pd": 0.118,
       "pa": 0.086,
       "reg_winner": "France",
-      "lam": 3.31,
+      "lam": 3.3,
       "mu": 1.05
     },
     {
@@ -1436,13 +1436,13 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.5,
+  "champion_pct": 92.7,
   "reach_final": {
-    "Spain": 97.5,
-    "Argentina": 84.2,
-    "England": 9.0,
-    "Colombia": 6.0,
-    "France": 2.0,
+    "Spain": 97.7,
+    "Argentina": 83.9,
+    "England": 9.1,
+    "Colombia": 6.2,
+    "France": 1.9,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
