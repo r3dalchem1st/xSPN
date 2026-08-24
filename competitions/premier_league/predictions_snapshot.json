@@ -119,5 +119,49 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-08-23"
+  },
+  "Liverpool FC|Nottingham Forest FC": {
+    "home": "Liverpool FC",
+    "away": "Nottingham Forest FC",
+    "date": "2026-08-29",
+    "ph": 0.5580210813999881,
+    "pd": 0.22199453905608124,
+    "pa": 0.21998437954393063,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-24"
+  },
+  "AFC Bournemouth|Everton FC": {
+    "home": "AFC Bournemouth",
+    "away": "Everton FC",
+    "date": "2026-08-29",
+    "ph": 0.38724633388507684,
+    "pd": 0.30331473947753074,
+    "pa": 0.3094389266373921,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-24"
+  },
+  "Coventry City FC|Hull City AFC": {
+    "home": "Coventry City FC",
+    "away": "Hull City AFC",
+    "date": "2026-08-29",
+    "ph": 0.07914277092798795,
+    "pd": 0.1765852888939376,
+    "pa": 0.7442719401780745,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-08-24"
+  },
+  "Tottenham Hotspur FC|Newcastle United FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Newcastle United FC",
+    "date": "2026-08-29",
+    "ph": 0.23782736074675526,
+    "pd": 0.20137827428071559,
+    "pa": 0.5607943649725292,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-24"
   }
 }
