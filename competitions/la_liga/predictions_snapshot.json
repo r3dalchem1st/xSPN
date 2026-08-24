@@ -240,5 +240,38 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-08-23"
+  },
+  "Levante UD|Real Betis Balompi\u00e9": {
+    "home": "Levante UD",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-08-29",
+    "ph": 0.12073377450971576,
+    "pd": 0.16049913772572183,
+    "pa": 0.7187670877645626,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-24"
+  },
+  "Real Sociedad de F\u00fatbol|RCD Espanyol de Barcelona": {
+    "home": "Real Sociedad de F\u00fatbol",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-08-29",
+    "ph": 0.3405734258242023,
+    "pd": 0.3232676048582307,
+    "pa": 0.336158969317567,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-24"
+  },
+  "Sevilla FC|Club Atl\u00e9tico de Madrid": {
+    "home": "Sevilla FC",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-08-29",
+    "ph": 0.2014472060429014,
+    "pd": 0.24084440337435822,
+    "pa": 0.5577083905827405,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-24"
   }
 }
