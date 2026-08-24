@@ -9,5 +9,71 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-08-23"
+  },
+  "RB Leipzig|Borussia M\u00f6nchengladbach": {
+    "home": "RB Leipzig",
+    "away": "Borussia M\u00f6nchengladbach",
+    "date": "2026-08-29",
+    "ph": 0.4536583747315699,
+    "pd": 0.2297913201662558,
+    "pa": 0.3165503051021744,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-24"
+  },
+  "1. FSV Mainz 05|SC Paderborn 07": {
+    "home": "1. FSV Mainz 05",
+    "away": "SC Paderborn 07",
+    "date": "2026-08-29",
+    "ph": 0.4607041975593642,
+    "pd": 0.27118331828059833,
+    "pa": 0.26811248416003736,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-24"
+  },
+  "1. FC Union Berlin|Eintracht Frankfurt": {
+    "home": "1. FC Union Berlin",
+    "away": "Eintracht Frankfurt",
+    "date": "2026-08-29",
+    "ph": 0.21638146921153834,
+    "pd": 0.2340553324616818,
+    "pa": 0.5495631983267797,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-24"
+  },
+  "SV 07 Elversberg|Bayer 04 Leverkusen": {
+    "home": "SV 07 Elversberg",
+    "away": "Bayer 04 Leverkusen",
+    "date": "2026-08-29",
+    "ph": 0.24832385345587135,
+    "pd": 0.24120860756005902,
+    "pa": 0.5104675389840696,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-24"
+  },
+  "1. FC K\u00f6ln|TSG 1899 Hoffenheim": {
+    "home": "1. FC K\u00f6ln",
+    "away": "TSG 1899 Hoffenheim",
+    "date": "2026-08-29",
+    "ph": 0.5056260280587422,
+    "pd": 0.2414143778046497,
+    "pa": 0.2529595941366081,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-24"
+  },
+  "Borussia Dortmund|Hamburger SV": {
+    "home": "Borussia Dortmund",
+    "away": "Hamburger SV",
+    "date": "2026-08-29",
+    "ph": 0.5242521185907495,
+    "pd": 0.2300156067630565,
+    "pa": 0.24573227464619396,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-24"
   }
 }
