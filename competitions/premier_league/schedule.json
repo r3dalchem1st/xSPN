@@ -82,10 +82,10 @@
   },
   "Fulham FC|Chelsea FC": {
     "date": "2026-08-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Fulham FC": null,
-      "Chelsea FC": null
+      "Fulham FC": 2,
+      "Chelsea FC": 3
     },
     "round": "Matchday 1"
   },
