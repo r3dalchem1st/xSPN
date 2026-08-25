@@ -273,5 +273,38 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-08-24"
+  },
+  "Real Madrid CF|M\u00e1laga CF": {
+    "home": "Real Madrid CF",
+    "away": "M\u00e1laga CF",
+    "date": "2026-08-30",
+    "ph": 0.7654389733095699,
+    "pd": 0.1595290067243621,
+    "pa": 0.07503201996606815,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-08-25"
+  },
+  "RC Deportivo La Coru\u00f1a|Valencia CF": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "Valencia CF",
+    "date": "2026-08-30",
+    "ph": 0.4095372849648739,
+    "pd": 0.2915457311758395,
+    "pa": 0.29891698385928656,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-25"
+  },
+  "RC Celta de Vigo|Athletic Club": {
+    "home": "RC Celta de Vigo",
+    "away": "Athletic Club",
+    "date": "2026-08-30",
+    "ph": 0.3097897765591494,
+    "pd": 0.2715521947759831,
+    "pa": 0.4186580286648676,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-25"
   }
 }

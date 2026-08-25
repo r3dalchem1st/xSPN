@@ -125,13 +125,31 @@
       "brier": 0.21756324879928807,
       "log_loss": 0.4792833079117922,
       "total_goal_error": 4
+    },
+    {
+      "home": "CA Osasuna",
+      "away": "Levante UD",
+      "date": "2026-08-24",
+      "correct_winner": false,
+      "brier": 0.7965401479474077,
+      "log_loss": 1.2953193065345274,
+      "total_goal_error": 1
+    },
+    {
+      "home": "M\u00e1laga CF",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "date": "2026-08-24",
+      "correct_winner": false,
+      "brier": 0.7722922721096455,
+      "log_loss": 1.2527930547677661,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 14,
-    "accuracy": 0.5714285714285714,
-    "avg_brier": 0.633799820840505,
-    "avg_log_loss": 1.0700346423586478,
-    "avg_goal_error": 1.3571428571428572
+    "n_scored": 16,
+    "accuracy": 0.5,
+    "avg_brier": 0.6526268694890077,
+    "avg_log_loss": 1.0955373346452102,
+    "avg_goal_error": 1.3125
   }
 }
