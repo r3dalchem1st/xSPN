@@ -163,5 +163,49 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-08-24"
+  },
+  "Sunderland AFC|Fulham FC": {
+    "home": "Sunderland AFC",
+    "away": "Fulham FC",
+    "date": "2026-08-30",
+    "ph": 0.2131580592113238,
+    "pd": 0.22105661756555176,
+    "pa": 0.5657853232231245,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-08-25"
+  },
+  "Chelsea FC|Brighton & Hove Albion FC": {
+    "home": "Chelsea FC",
+    "away": "Brighton & Hove Albion FC",
+    "date": "2026-08-30",
+    "ph": 0.4954982229346204,
+    "pd": 0.22667606588302056,
+    "pa": 0.27782571118235927,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-25"
+  },
+  "Leeds United FC|Brentford FC": {
+    "home": "Leeds United FC",
+    "away": "Brentford FC",
+    "date": "2026-08-30",
+    "ph": 0.5038653772665244,
+    "pd": 0.29017933172266497,
+    "pa": 0.2059552910108105,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-25"
+  },
+  "Manchester United FC|Ipswich Town FC": {
+    "home": "Manchester United FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-08-30",
+    "ph": 0.5629616590377972,
+    "pd": 0.23754435447519892,
+    "pa": 0.19949398648700375,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-25"
   }
 }

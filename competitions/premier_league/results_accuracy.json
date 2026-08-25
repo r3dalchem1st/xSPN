@@ -80,13 +80,22 @@
       "brier": 0.9262560701017141,
       "log_loss": 1.5095980783518232,
       "total_goal_error": 1
+    },
+    {
+      "home": "Fulham FC",
+      "away": "Chelsea FC",
+      "date": "2026-08-24",
+      "correct_winner": true,
+      "brier": 0.430516252694926,
+      "log_loss": 0.7667366713972767,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 9,
-    "accuracy": 0.6666666666666666,
-    "avg_brier": 0.6082948406967722,
-    "avg_log_loss": 1.0233879250829152,
-    "avg_goal_error": 1.7777777777777777
+    "n_scored": 10,
+    "accuracy": 0.7,
+    "avg_brier": 0.5905169818965876,
+    "avg_log_loss": 0.9977227997143514,
+    "avg_goal_error": 1.8
   }
 }
