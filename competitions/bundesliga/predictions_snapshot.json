@@ -75,5 +75,27 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-08-24"
+  },
+  "SC Freiburg|SV Werder Bremen": {
+    "home": "SC Freiburg",
+    "away": "SV Werder Bremen",
+    "date": "2026-08-30",
+    "ph": 0.37806914958791793,
+    "pd": 0.2368986743532954,
+    "pa": 0.38503217605878665,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-25"
+  },
+  "FC Augsburg|FC Schalke 04": {
+    "home": "FC Augsburg",
+    "away": "FC Schalke 04",
+    "date": "2026-08-30",
+    "ph": 0.2881211389431732,
+    "pd": 0.30430522320517334,
+    "pa": 0.40757363785165324,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-25"
   }
 }
