@@ -127,19 +127,19 @@
   },
   "CA Osasuna|Levante UD": {
     "date": "2026-08-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "CA Osasuna": null,
-      "Levante UD": null
+      "CA Osasuna": 0,
+      "Levante UD": 0
     },
     "round": "Matchday 2"
   },
   "M\u00e1laga CF|RC Deportivo La Coru\u00f1a": {
     "date": "2026-08-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "M\u00e1laga CF": null,
-      "RC Deportivo La Coru\u00f1a": null
+      "M\u00e1laga CF": 1,
+      "RC Deportivo La Coru\u00f1a": 1
     },
     "round": "Matchday 2"
   },
