@@ -143,13 +143,22 @@
       "brier": 0.7722922721096455,
       "log_loss": 1.2527930547677661,
       "total_goal_error": 1
+    },
+    {
+      "home": "Valencia CF",
+      "away": "Real Betis Balompi\u00e9",
+      "date": "2026-08-25",
+      "correct_winner": true,
+      "brier": 0.5480554184884658,
+      "log_loss": 0.9208792301928693,
+      "total_goal_error": 0
     }
   ],
   "summary": {
-    "n_scored": 16,
-    "accuracy": 0.5,
-    "avg_brier": 0.6526268694890077,
-    "avg_log_loss": 1.0955373346452102,
-    "avg_goal_error": 1.3125
+    "n_scored": 17,
+    "accuracy": 0.5294117647058824,
+    "avg_brier": 0.6464756076654464,
+    "avg_log_loss": 1.085263328500955,
+    "avg_goal_error": 1.2352941176470589
   }
 }

@@ -145,10 +145,10 @@
   },
   "Valencia CF|Real Betis Balompi\u00e9": {
     "date": "2026-08-25",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Valencia CF": null,
-      "Real Betis Balompi\u00e9": null
+      "Valencia CF": 0,
+      "Real Betis Balompi\u00e9": 1
     },
     "round": "Matchday 1"
   },
