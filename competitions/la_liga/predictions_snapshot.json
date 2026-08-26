@@ -306,5 +306,27 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-08-25"
+  },
+  "CA Osasuna|Getafe CF": {
+    "home": "CA Osasuna",
+    "away": "Getafe CF",
+    "date": "2026-08-31",
+    "ph": 0.43036274105328687,
+    "pd": 0.30987040527954457,
+    "pa": 0.2597668536671684,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-26"
+  },
+  "FC Barcelona|Rayo Vallecano de Madrid": {
+    "home": "FC Barcelona",
+    "away": "Rayo Vallecano de Madrid",
+    "date": "2026-08-31",
+    "ph": 0.7639977757616833,
+    "pd": 0.14565146289679914,
+    "pa": 0.09035076134151744,
+    "predicted_winner": "H",
+    "predicted_score": "3-1",
+    "snapped_at": "2026-08-26"
   }
 }
