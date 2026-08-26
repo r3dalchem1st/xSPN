@@ -207,5 +207,16 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-08-25"
+  },
+  "Aston Villa FC|Arsenal FC": {
+    "home": "Aston Villa FC",
+    "away": "Arsenal FC",
+    "date": "2026-08-31",
+    "ph": 0.22366005571383163,
+    "pd": 0.24681137405913273,
+    "pa": 0.5295285702270355,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-26"
   }
 }
