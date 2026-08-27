@@ -154,19 +154,19 @@
   },
   "Real Madrid CF|Real Sociedad de F\u00fatbol": {
     "date": "2026-08-26",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Madrid CF": null,
-      "Real Sociedad de F\u00fatbol": null
+      "Real Madrid CF": 4,
+      "Real Sociedad de F\u00fatbol": 1
     },
     "round": "Matchday 1"
   },
   "RC Celta de Vigo|CA Osasuna": {
     "date": "2026-08-27",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Celta de Vigo": null,
-      "CA Osasuna": null
+      "RC Celta de Vigo": 1,
+      "CA Osasuna": 2
     },
     "round": "Matchday 1"
   },
