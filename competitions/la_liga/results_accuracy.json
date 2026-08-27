@@ -152,13 +152,31 @@
       "brier": 0.5480554184884658,
       "log_loss": 0.9208792301928693,
       "total_goal_error": 0
+    },
+    {
+      "home": "Real Madrid CF",
+      "away": "Real Sociedad de F\u00fatbol",
+      "date": "2026-08-26",
+      "correct_winner": true,
+      "brier": 0.15291240418129942,
+      "log_loss": 0.37954854445430386,
+      "total_goal_error": 3
+    },
+    {
+      "home": "RC Celta de Vigo",
+      "away": "CA Osasuna",
+      "date": "2026-08-27",
+      "correct_winner": false,
+      "brier": 0.8022741518523335,
+      "log_loss": 1.2589003980717126,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 17,
-    "accuracy": 0.5294117647058824,
-    "avg_brier": 0.6464756076654464,
-    "avg_log_loss": 1.085263328500955,
-    "avg_goal_error": 1.2352941176470589
+    "n_scored": 19,
+    "accuracy": 0.5263157894736842,
+    "avg_brier": 0.6286985203340116,
+    "avg_log_loss": 1.0572592382653816,
+    "avg_goal_error": 1.368421052631579
   }
 }
