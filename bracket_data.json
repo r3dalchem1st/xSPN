@@ -72,7 +72,7 @@
       {
         "home": "Canada",
         "away": "Switzerland",
-        "lam": 1.14,
+        "lam": 1.13,
         "mu": 1.75,
         "score": "0\u20131",
         "ph": 0.225,
@@ -423,7 +423,7 @@
       {
         "home": "Belgium",
         "away": "Iran",
-        "lam": 1.68,
+        "lam": 1.69,
         "mu": 0.9,
         "score": "1\u20130",
         "ph": 0.492,
@@ -1043,7 +1043,7 @@
       "away": "Morocco",
       "score": "1\u20131 (p)",
       "winner": "Morocco",
-      "win_pct": 51.1,
+      "win_pct": 51.0,
       "ph": 0.371,
       "pd": 0.268,
       "pa": 0.362,
@@ -1436,14 +1436,14 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.5,
+  "champion_pct": 92.4,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 84.1,
-    "England": 9.0,
-    "Colombia": 6.2,
-    "France": 1.9,
-    "Senegal": 0.7,
+    "Argentina": 83.9,
+    "England": 8.9,
+    "Colombia": 6.4,
+    "France": 2.0,
+    "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
   }
