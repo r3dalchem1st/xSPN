@@ -1,10 +1,10 @@
 {
   "FC Bayern M\u00fcnchen|VfB Stuttgart": {
     "date": "2026-08-28",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Bayern M\u00fcnchen": null,
-      "VfB Stuttgart": null
+      "FC Bayern M\u00fcnchen": 5,
+      "VfB Stuttgart": 1
     },
     "round": "Matchday 1"
   },
