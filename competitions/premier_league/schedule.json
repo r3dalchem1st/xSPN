@@ -91,10 +91,10 @@
   },
   "Crystal Palace FC|Manchester City FC": {
     "date": "2026-08-28",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Crystal Palace FC": null,
-      "Manchester City FC": null
+      "Crystal Palace FC": 1,
+      "Manchester City FC": 4
     },
     "round": "Matchday 2"
   },

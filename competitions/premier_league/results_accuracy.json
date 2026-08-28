@@ -89,13 +89,22 @@
       "brier": 0.430516252694926,
       "log_loss": 0.7667366713972767,
       "total_goal_error": 2
+    },
+    {
+      "home": "Crystal Palace FC",
+      "away": "Manchester City FC",
+      "date": "2026-08-28",
+      "correct_winner": true,
+      "brier": 0.3809614423416976,
+      "log_loss": 0.7008737109142883,
+      "total_goal_error": 4
     }
   ],
   "summary": {
-    "n_scored": 10,
-    "accuracy": 0.7,
-    "avg_brier": 0.5905169818965876,
-    "avg_log_loss": 0.9977227997143514,
-    "avg_goal_error": 1.8
+    "n_scored": 11,
+    "accuracy": 0.7272727272727273,
+    "avg_brier": 0.5714664783006885,
+    "avg_log_loss": 0.9707365189143456,
+    "avg_goal_error": 2.0
   }
 }
