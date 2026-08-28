@@ -1,10 +1,20 @@
 {
-  "matches": [],
+  "matches": [
+    {
+      "home": "FC Bayern M\u00fcnchen",
+      "away": "VfB Stuttgart",
+      "date": "2026-08-28",
+      "correct_winner": true,
+      "brier": 0.11487835607392341,
+      "log_loss": 0.3236107620348539,
+      "total_goal_error": 3
+    }
+  ],
   "summary": {
-    "n_scored": 0,
-    "accuracy": null,
-    "avg_brier": null,
-    "avg_log_loss": null,
-    "avg_goal_error": null
+    "n_scored": 1,
+    "accuracy": 1.0,
+    "avg_brier": 0.11487835607392341,
+    "avg_log_loss": 0.3236107620348539,
+    "avg_goal_error": 3.0
   }
 }
