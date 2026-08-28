@@ -170,13 +170,31 @@
       "brier": 0.8022741518523335,
       "log_loss": 1.2589003980717126,
       "total_goal_error": 2
+    },
+    {
+      "home": "FC Barcelona",
+      "away": "Athletic Club",
+      "date": "2026-08-27",
+      "correct_winner": true,
+      "brier": 0.31736159656937524,
+      "log_loss": 0.615999872149195,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Real Racing Club de Santander",
+      "away": "Elche CF",
+      "date": "2026-08-28",
+      "correct_winner": true,
+      "brier": 0.5113520928293251,
+      "log_loss": 0.8766461052513538,
+      "total_goal_error": 4
     }
   ],
   "summary": {
-    "n_scored": 19,
-    "accuracy": 0.5263157894736842,
-    "avg_brier": 0.6286985203340116,
-    "avg_log_loss": 1.0572592382653816,
-    "avg_goal_error": 1.368421052631579
+    "n_scored": 21,
+    "accuracy": 0.5714285714285714,
+    "avg_brier": 0.6082850274164249,
+    "avg_log_loss": 1.0276462621163238,
+    "avg_goal_error": 1.4761904761904763
   }
 }
