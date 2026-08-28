@@ -172,19 +172,19 @@
   },
   "FC Barcelona|Athletic Club": {
     "date": "2026-08-27",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Barcelona": null,
-      "Athletic Club": null
+      "FC Barcelona": 2,
+      "Athletic Club": 0
     },
     "round": "Matchday 1"
   },
   "Real Racing Club de Santander|Elche CF": {
     "date": "2026-08-28",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "Elche CF": null
+      "Real Racing Club de Santander": 3,
+      "Elche CF": 2
     },
     "round": "Matchday 3"
   },
