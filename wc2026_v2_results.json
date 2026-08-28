@@ -48,7 +48,7 @@
     "win": 0.0,
     "final": 0.0,
     "sf": 0.0,
-    "qf": 0.5233,
+    "qf": 0.523,
     "win_lo": 0.0,
     "win_hi": 0.0,
     "win_delta": 0.0
@@ -108,13 +108,13 @@
     "win_delta": 0.0
   },
   "USA": {
-    "win": 0.0007,
+    "win": 0.0008,
     "final": 0.003,
-    "sf": 0.0157,
+    "sf": 0.0158,
     "qf": 0.1495,
     "win_lo": 0.0,
     "win_hi": 0.0016,
-    "win_delta": 0.0
+    "win_delta": 0.0001
   },
   "Paraguay": {
     "win": 0.0,
@@ -219,7 +219,7 @@
     "win": 0.0,
     "final": 0.0,
     "sf": 0.0,
-    "qf": 0.7786,
+    "qf": 0.7785,
     "win_lo": 0.0,
     "win_hi": 0.0,
     "win_delta": 0.0
@@ -252,13 +252,13 @@
     "win_delta": 0.0
   },
   "Spain": {
-    "win": 0.9256,
+    "win": 0.9255,
     "final": 0.9753,
     "sf": 0.9753,
     "qf": 1.0,
-    "win_lo": 0.9065,
-    "win_hi": 0.9403,
-    "win_delta": -0.0
+    "win_lo": 0.9057,
+    "win_hi": 0.9408,
+    "win_delta": -0.0001
   },
   "Cape Verde": {
     "win": 0.0,
@@ -293,14 +293,14 @@
     "sf": 1.0,
     "qf": 1.0,
     "win_lo": 0.004,
-    "win_hi": 0.0116,
-    "win_delta": -0.0
+    "win_hi": 0.0118,
+    "win_delta": 0.0
   },
   "Senegal": {
     "win": 0.0013,
     "final": 0.0074,
     "sf": 0.0343,
-    "qf": 0.1723,
+    "qf": 0.1724,
     "win_lo": 0.0,
     "win_hi": 0.0032,
     "win_delta": 0.0
@@ -328,15 +328,15 @@
     "final": 0.8392,
     "sf": 0.8392,
     "qf": 1.0,
-    "win_lo": 0.0048,
+    "win_lo": 0.0056,
     "win_hi": 0.0196,
     "win_delta": -0.0
   },
   "Algeria": {
     "win": 0.0002,
     "final": 0.0014,
-    "sf": 0.0089,
-    "qf": 0.0719,
+    "sf": 0.009,
+    "qf": 0.072,
     "win_lo": 0.0,
     "win_hi": 0.0008,
     "win_delta": 0.0
@@ -387,22 +387,22 @@
     "win_delta": 0.0
   },
   "Colombia": {
-    "win": 0.0247,
-    "final": 0.0615,
+    "win": 0.0245,
+    "final": 0.0614,
     "sf": 0.1265,
-    "qf": 0.3044,
-    "win_lo": 0.0121,
-    "win_hi": 0.0375,
-    "win_delta": -0.0
+    "qf": 0.3046,
+    "win_lo": 0.012,
+    "win_hi": 0.037,
+    "win_delta": -0.0002
   },
   "England": {
-    "win": 0.0267,
-    "final": 0.0918,
+    "win": 0.0268,
+    "final": 0.092,
     "sf": 1.0,
     "qf": 1.0,
-    "win_lo": 0.0193,
-    "win_hi": 0.0335,
-    "win_delta": -0.0
+    "win_lo": 0.0199,
+    "win_hi": 0.033,
+    "win_delta": 0.0001
   },
   "Croatia": {
     "win": 0.0,
