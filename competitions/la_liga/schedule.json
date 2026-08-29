@@ -190,10 +190,10 @@
   },
   "Deportivo Alav\u00e9s|Villarreal CF": {
     "date": "2026-08-28",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Deportivo Alav\u00e9s": null,
-      "Villarreal CF": null
+      "Deportivo Alav\u00e9s": 1,
+      "Villarreal CF": 0
     },
     "round": "Matchday 3"
   },

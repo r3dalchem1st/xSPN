@@ -328,5 +328,16 @@
     "predicted_winner": "H",
     "predicted_score": "3-1",
     "snapped_at": "2026-08-26"
+  },
+  "Real Sociedad de F\u00fatbol|RC Celta de Vigo": {
+    "home": "Real Sociedad de F\u00fatbol",
+    "away": "RC Celta de Vigo",
+    "date": "2026-09-03",
+    "ph": 0.3181120262155101,
+    "pd": 0.27739716199047026,
+    "pa": 0.40449081179401963,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-29"
   }
 }
