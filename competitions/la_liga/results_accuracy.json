@@ -188,13 +188,22 @@
       "brier": 0.5113520928293251,
       "log_loss": 0.8766461052513538,
       "total_goal_error": 4
+    },
+    {
+      "home": "Deportivo Alav\u00e9s",
+      "away": "Villarreal CF",
+      "date": "2026-08-28",
+      "correct_winner": false,
+      "brier": 0.8182220720227747,
+      "log_loss": 1.2961454206252678,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 21,
-    "accuracy": 0.5714285714285714,
-    "avg_brier": 0.6082850274164249,
-    "avg_log_loss": 1.0276462621163238,
-    "avg_goal_error": 1.4761904761904763
+    "n_scored": 22,
+    "accuracy": 0.5454545454545454,
+    "avg_brier": 0.617827620353077,
+    "avg_log_loss": 1.039850769321276,
+    "avg_goal_error": 1.5
   }
 }
