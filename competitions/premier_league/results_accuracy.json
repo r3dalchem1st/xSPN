@@ -98,13 +98,22 @@
       "brier": 0.3809614423416976,
       "log_loss": 0.7008737109142883,
       "total_goal_error": 4
+    },
+    {
+      "home": "Liverpool FC",
+      "away": "Nottingham Forest FC",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 0.9650731517886998,
+      "log_loss": 1.505102496258895,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 11,
-    "accuracy": 0.7272727272727273,
-    "avg_brier": 0.5714664783006885,
-    "avg_log_loss": 0.9707365189143456,
-    "avg_goal_error": 2.0
+    "n_scored": 12,
+    "accuracy": 0.6666666666666666,
+    "avg_brier": 0.6042670344246895,
+    "avg_log_loss": 1.0152670170263913,
+    "avg_goal_error": 1.9166666666666667
   }
 }

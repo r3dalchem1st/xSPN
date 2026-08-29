@@ -100,10 +100,10 @@
   },
   "Liverpool FC|Nottingham Forest FC": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Liverpool FC": null,
-      "Nottingham Forest FC": null
+      "Liverpool FC": 2,
+      "Nottingham Forest FC": 2
     },
     "round": "Matchday 2"
   },
@@ -414,7 +414,7 @@
     "round": "Matchday 5"
   },
   "Manchester City FC|Sunderland AFC": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "status": "SCHEDULED",
     "goals": {
       "Manchester City FC": null,
