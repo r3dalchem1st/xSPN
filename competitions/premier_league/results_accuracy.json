@@ -100,20 +100,20 @@
       "total_goal_error": 4
     },
     {
-      "home": "Liverpool FC",
-      "away": "Nottingham Forest FC",
-      "date": "2026-08-29",
+      "home": "Sunderland AFC",
+      "away": "Fulham FC",
+      "date": "2026-08-30",
       "correct_winner": false,
-      "brier": 0.9650731517886998,
-      "log_loss": 1.505102496258895,
-      "total_goal_error": 1
+      "brier": 0.9880992999283086,
+      "log_loss": 1.5457213264396108,
+      "total_goal_error": 3
     }
   ],
   "summary": {
     "n_scored": 12,
     "accuracy": 0.6666666666666666,
-    "avg_brier": 0.6042670344246895,
-    "avg_log_loss": 1.0152670170263913,
-    "avg_goal_error": 1.9166666666666667
+    "avg_brier": 0.6061858801029902,
+    "avg_log_loss": 1.0186519195414512,
+    "avg_goal_error": 2.0833333333333335
   }
 }

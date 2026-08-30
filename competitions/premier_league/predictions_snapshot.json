@@ -218,5 +218,16 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-08-26"
+  },
+  "Ipswich Town FC|Liverpool FC": {
+    "home": "Ipswich Town FC",
+    "away": "Liverpool FC",
+    "date": "2026-09-04",
+    "ph": 0.06957313142307504,
+    "pd": 0.11608189334254725,
+    "pa": 0.8143449752343774,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-08-30"
   }
 }
