@@ -97,5 +97,16 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-08-25"
+  },
+  "VfB Stuttgart|1. FC K\u00f6ln": {
+    "home": "VfB Stuttgart",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-09-04",
+    "ph": 0.4657198242186977,
+    "pd": 0.247482462227016,
+    "pa": 0.2867977135542865,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-30"
   }
 }
