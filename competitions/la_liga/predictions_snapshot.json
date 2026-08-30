@@ -339,5 +339,16 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-08-29"
+  },
+  "Real Betis Balompi\u00e9|Real Madrid CF": {
+    "home": "Real Betis Balompi\u00e9",
+    "away": "Real Madrid CF",
+    "date": "2026-09-04",
+    "ph": 0.27562567117891323,
+    "pd": 0.2286283358439083,
+    "pa": 0.49574599297717836,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-30"
   }
 }
