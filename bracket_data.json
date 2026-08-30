@@ -75,7 +75,7 @@
         "lam": 1.13,
         "mu": 1.75,
         "score": "0\u20131",
-        "ph": 0.225,
+        "ph": 0.224,
         "pd": 0.312,
         "pa": 0.463,
         "likely_winner": "Switzerland"
@@ -276,7 +276,7 @@
       {
         "home": "Germany",
         "away": "Curacao",
-        "lam": 4.41,
+        "lam": 4.4,
         "mu": 0.77,
         "score": "4\u20130",
         "ph": 0.889,
@@ -1436,15 +1436,15 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.5,
+  "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 83.8,
+    "Argentina": 83.9,
     "England": 9.2,
     "Colombia": 6.2,
     "France": 1.9,
-    "Senegal": 0.8,
+    "Senegal": 0.7,
     "USA": 0.3,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
