@@ -197,13 +197,49 @@
       "brier": 0.8182220720227747,
       "log_loss": 1.2961454206252678,
       "total_goal_error": 2
+    },
+    {
+      "home": "Levante UD",
+      "away": "Real Betis Balompi\u00e9",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 1.3154951949521818,
+      "log_loss": 2.114167368068606,
+      "total_goal_error": 6
+    },
+    {
+      "home": "Real Sociedad de F\u00fatbol",
+      "away": "RCD Espanyol de Barcelona",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.6523482037326549,
+      "log_loss": 1.0771245354527041,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Sevilla FC",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.29420887122015144,
+      "log_loss": 0.5839190507244755,
+      "total_goal_error": 3
+    },
+    {
+      "home": "Real Madrid CF",
+      "away": "M\u00e1laga CF",
+      "date": "2026-08-30",
+      "correct_winner": true,
+      "brier": 0.08609818324871868,
+      "log_loss": 0.2673057884084017,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 22,
-    "accuracy": 0.5454545454545454,
-    "avg_brier": 0.617827620353077,
-    "avg_log_loss": 1.039850769321276,
-    "avg_goal_error": 1.5
+    "n_scored": 26,
+    "accuracy": 0.5769230769230769,
+    "avg_brier": 0.6130906961892848,
+    "avg_log_loss": 1.0353551410662407,
+    "avg_goal_error": 1.7692307692307692
   }
 }

@@ -350,5 +350,38 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-08-30"
+  },
+  "Athletic Club|Club Atl\u00e9tico de Madrid": {
+    "home": "Athletic Club",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-09-05",
+    "ph": 0.32415420215463725,
+    "pd": 0.30372253598752746,
+    "pa": 0.37212326185783534,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-31"
+  },
+  "Rayo Vallecano de Madrid|Real Racing Club de Santander": {
+    "home": "Rayo Vallecano de Madrid",
+    "away": "Real Racing Club de Santander",
+    "date": "2026-09-05",
+    "ph": 0.4686985357644538,
+    "pd": 0.2837400984468606,
+    "pa": 0.24756136578868557,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-31"
+  },
+  "Villarreal CF|RC Deportivo La Coru\u00f1a": {
+    "home": "Villarreal CF",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "date": "2026-09-05",
+    "ph": 0.7689223665885975,
+    "pd": 0.1386098883916901,
+    "pa": 0.09246774501971247,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-08-31"
   }
 }
