@@ -108,5 +108,71 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-08-30"
+  },
+  "SV Werder Bremen|RB Leipzig": {
+    "home": "SV Werder Bremen",
+    "away": "RB Leipzig",
+    "date": "2026-09-05",
+    "ph": 0.3763050567084639,
+    "pd": 0.2380356522650048,
+    "pa": 0.3856592910265314,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-31"
+  },
+  "TSG 1899 Hoffenheim|Borussia Dortmund": {
+    "home": "TSG 1899 Hoffenheim",
+    "away": "Borussia Dortmund",
+    "date": "2026-09-05",
+    "ph": 0.19501966713824637,
+    "pd": 0.17422009988797807,
+    "pa": 0.6307602329737756,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-08-31"
+  },
+  "Bayer 04 Leverkusen|1. FC Union Berlin": {
+    "home": "Bayer 04 Leverkusen",
+    "away": "1. FC Union Berlin",
+    "date": "2026-09-05",
+    "ph": 0.6423720341459079,
+    "pd": 0.20336235216909962,
+    "pa": 0.1542656136849925,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-08-31"
+  },
+  "Borussia M\u00f6nchengladbach|SV 07 Elversberg": {
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "SV 07 Elversberg",
+    "date": "2026-09-05",
+    "ph": 0.38402764034861886,
+    "pd": 0.25483862041061583,
+    "pa": 0.3611337392407652,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-31"
+  },
+  "SC Paderborn 07|SC Freiburg": {
+    "home": "SC Paderborn 07",
+    "away": "SC Freiburg",
+    "date": "2026-09-05",
+    "ph": 0.40871292533106146,
+    "pd": 0.27322989135509546,
+    "pa": 0.318057183313843,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-31"
+  },
+  "FC Schalke 04|FC Bayern M\u00fcnchen": {
+    "home": "FC Schalke 04",
+    "away": "FC Bayern M\u00fcnchen",
+    "date": "2026-09-05",
+    "ph": 0.12616934502238697,
+    "pd": 0.18338264512499078,
+    "pa": 0.6904480098526221,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-08-31"
   }
 }

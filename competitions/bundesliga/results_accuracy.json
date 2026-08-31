@@ -8,13 +8,85 @@
       "brier": 0.11487835607392341,
       "log_loss": 0.3236107620348539,
       "total_goal_error": 3
+    },
+    {
+      "home": "RB Leipzig",
+      "away": "Borussia M\u00f6nchengladbach",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.4514973179849801,
+      "log_loss": 0.7904108427597124,
+      "total_goal_error": 2
+    },
+    {
+      "home": "1. FSV Mainz 05",
+      "away": "SC Paderborn 07",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 0.8153064173637636,
+      "log_loss": 1.3049602355725167,
+      "total_goal_error": 1
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "Eintracht Frankfurt",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 0.9355118829036879,
+      "log_loss": 1.4521977280660645,
+      "total_goal_error": 5
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "Bayer 04 Leverkusen",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 0.8837757300009454,
+      "log_loss": 1.3930215240025356,
+      "total_goal_error": 2
+    },
+    {
+      "home": "1. FC K\u00f6ln",
+      "away": "TSG 1899 Hoffenheim",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.36667508220953915,
+      "log_loss": 0.6819579579279528,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "Hamburger SV",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.3396275768227598,
+      "log_loss": 0.6457825680242018,
+      "total_goal_error": 1
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "SV Werder Bremen",
+      "date": "2026-08-30",
+      "correct_winner": false,
+      "brier": 0.5911687412052088,
+      "log_loss": 0.9726781646754202,
+      "total_goal_error": 4
+    },
+    {
+      "home": "FC Augsburg",
+      "away": "FC Schalke 04",
+      "date": "2026-08-30",
+      "correct_winner": false,
+      "brier": 0.7654894519611457,
+      "log_loss": 1.2443742659520824,
+      "total_goal_error": 4
     }
   ],
   "summary": {
-    "n_scored": 1,
-    "accuracy": 1.0,
-    "avg_brier": 0.11487835607392341,
-    "avg_log_loss": 0.3236107620348539,
-    "avg_goal_error": 3.0
+    "n_scored": 9,
+    "accuracy": 0.4444444444444444,
+    "avg_brier": 0.5848811729473282,
+    "avg_log_loss": 0.97877711655726,
+    "avg_goal_error": 2.888888888888889
   }
 }

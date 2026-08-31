@@ -10,73 +10,73 @@
   },
   "RB Leipzig|Borussia M\u00f6nchengladbach": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RB Leipzig": null,
-      "Borussia M\u00f6nchengladbach": null
+      "RB Leipzig": 3,
+      "Borussia M\u00f6nchengladbach": 0
     },
     "round": "Matchday 1"
   },
   "1. FSV Mainz 05|SC Paderborn 07": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FSV Mainz 05": null,
-      "SC Paderborn 07": null
+      "1. FSV Mainz 05": 0,
+      "SC Paderborn 07": 0
     },
     "round": "Matchday 1"
   },
   "1. FC Union Berlin|Eintracht Frankfurt": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC Union Berlin": null,
-      "Eintracht Frankfurt": null
+      "1. FC Union Berlin": 3,
+      "Eintracht Frankfurt": 3
     },
     "round": "Matchday 1"
   },
   "SV 07 Elversberg|Bayer 04 Leverkusen": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV 07 Elversberg": null,
-      "Bayer 04 Leverkusen": null
+      "SV 07 Elversberg": 3,
+      "Bayer 04 Leverkusen": 2
     },
     "round": "Matchday 1"
   },
   "1. FC K\u00f6ln|TSG 1899 Hoffenheim": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC K\u00f6ln": null,
-      "TSG 1899 Hoffenheim": null
+      "1. FC K\u00f6ln": 3,
+      "TSG 1899 Hoffenheim": 2
     },
     "round": "Matchday 1"
   },
   "Borussia Dortmund|Hamburger SV": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Borussia Dortmund": null,
-      "Hamburger SV": null
+      "Borussia Dortmund": 2,
+      "Hamburger SV": 0
     },
     "round": "Matchday 1"
   },
   "SC Freiburg|SV Werder Bremen": {
     "date": "2026-08-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SC Freiburg": null,
-      "SV Werder Bremen": null
+      "SC Freiburg": 4,
+      "SV Werder Bremen": 1
     },
     "round": "Matchday 1"
   },
   "FC Augsburg|FC Schalke 04": {
     "date": "2026-08-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Augsburg": null,
-      "FC Schalke 04": null
+      "FC Augsburg": 3,
+      "FC Schalke 04": 0
     },
     "round": "Matchday 1"
   },
