@@ -100,37 +100,37 @@
   },
   "Liverpool FC|Nottingham Forest FC": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Liverpool FC": null,
-      "Nottingham Forest FC": null
+      "Liverpool FC": 2,
+      "Nottingham Forest FC": 2
     },
     "round": "Matchday 2"
   },
   "AFC Bournemouth|Everton FC": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "AFC Bournemouth": null,
-      "Everton FC": null
+      "AFC Bournemouth": 1,
+      "Everton FC": 1
     },
     "round": "Matchday 2"
   },
   "Coventry City FC|Hull City AFC": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Coventry City FC": null,
-      "Hull City AFC": null
+      "Coventry City FC": 0,
+      "Hull City AFC": 1
     },
     "round": "Matchday 2"
   },
   "Tottenham Hotspur FC|Newcastle United FC": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Tottenham Hotspur FC": null,
-      "Newcastle United FC": null
+      "Tottenham Hotspur FC": 0,
+      "Newcastle United FC": 2
     },
     "round": "Matchday 2"
   },
@@ -145,28 +145,28 @@
   },
   "Chelsea FC|Brighton & Hove Albion FC": {
     "date": "2026-08-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Chelsea FC": null,
-      "Brighton & Hove Albion FC": null
+      "Chelsea FC": 4,
+      "Brighton & Hove Albion FC": 3
     },
     "round": "Matchday 2"
   },
   "Leeds United FC|Brentford FC": {
     "date": "2026-08-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Leeds United FC": null,
-      "Brentford FC": null
+      "Leeds United FC": 1,
+      "Brentford FC": 1
     },
     "round": "Matchday 2"
   },
   "Manchester United FC|Ipswich Town FC": {
     "date": "2026-08-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester United FC": null,
-      "Ipswich Town FC": null
+      "Manchester United FC": 5,
+      "Ipswich Town FC": 2
     },
     "round": "Matchday 2"
   },

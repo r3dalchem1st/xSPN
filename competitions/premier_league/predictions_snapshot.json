@@ -229,5 +229,82 @@
     "predicted_winner": "A",
     "predicted_score": "0-2",
     "snapped_at": "2026-08-30"
+  },
+  "Newcastle United FC|AFC Bournemouth": {
+    "home": "Newcastle United FC",
+    "away": "AFC Bournemouth",
+    "date": "2026-09-05",
+    "ph": 0.4626281023167118,
+    "pd": 0.24112075632636637,
+    "pa": 0.29625114135692177,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-31"
+  },
+  "Nottingham Forest FC|Tottenham Hotspur FC": {
+    "home": "Nottingham Forest FC",
+    "away": "Tottenham Hotspur FC",
+    "date": "2026-09-05",
+    "ph": 0.5296869966788419,
+    "pd": 0.22232648455010304,
+    "pa": 0.24798651877105532,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-31"
+  },
+  "Manchester City FC|Coventry City FC": {
+    "home": "Manchester City FC",
+    "away": "Coventry City FC",
+    "date": "2026-09-05",
+    "ph": 0.8004694132599794,
+    "pd": 0.13095644393838876,
+    "pa": 0.06857414280163185,
+    "predicted_winner": "H",
+    "predicted_score": "3-0",
+    "snapped_at": "2026-08-31"
+  },
+  "Brighton & Hove Albion FC|Leeds United FC": {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Leeds United FC",
+    "date": "2026-09-05",
+    "ph": 0.2805329564456473,
+    "pd": 0.2812450601626219,
+    "pa": 0.43822198339173096,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-08-31"
+  },
+  "Brentford FC|Sunderland AFC": {
+    "home": "Brentford FC",
+    "away": "Sunderland AFC",
+    "date": "2026-09-05",
+    "ph": 0.7385542906821773,
+    "pd": 0.15044641135184839,
+    "pa": 0.11099929796597466,
+    "predicted_winner": "H",
+    "predicted_score": "4-0",
+    "snapped_at": "2026-08-31"
+  },
+  "Fulham FC|Crystal Palace FC": {
+    "home": "Fulham FC",
+    "away": "Crystal Palace FC",
+    "date": "2026-09-05",
+    "ph": 0.4122267472513964,
+    "pd": 0.2537310305772762,
+    "pa": 0.3340422221713274,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-08-31"
+  },
+  "Hull City AFC|Aston Villa FC": {
+    "home": "Hull City AFC",
+    "away": "Aston Villa FC",
+    "date": "2026-09-05",
+    "ph": 0.6070945221521667,
+    "pd": 0.23071048493568014,
+    "pa": 0.16219499291215322,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-08-31"
   }
 }
