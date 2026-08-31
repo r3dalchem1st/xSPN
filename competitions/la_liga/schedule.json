@@ -199,37 +199,37 @@
   },
   "Levante UD|Real Betis Balompi\u00e9": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Levante UD": null,
-      "Real Betis Balompi\u00e9": null
+      "Levante UD": 5,
+      "Real Betis Balompi\u00e9": 2
     },
     "round": "Matchday 3"
   },
   "Real Sociedad de F\u00fatbol|RCD Espanyol de Barcelona": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": null,
-      "RCD Espanyol de Barcelona": null
+      "Real Sociedad de F\u00fatbol": 2,
+      "RCD Espanyol de Barcelona": 1
     },
     "round": "Matchday 3"
   },
   "Sevilla FC|Club Atl\u00e9tico de Madrid": {
     "date": "2026-08-29",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "Club Atl\u00e9tico de Madrid": null
+      "Sevilla FC": 1,
+      "Club Atl\u00e9tico de Madrid": 3
     },
     "round": "Matchday 3"
   },
   "Real Madrid CF|M\u00e1laga CF": {
     "date": "2026-08-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Madrid CF": null,
-      "M\u00e1laga CF": null
+      "Real Madrid CF": 4,
+      "M\u00e1laga CF": 0
     },
     "round": "Matchday 3"
   },
