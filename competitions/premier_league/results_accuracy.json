@@ -100,6 +100,42 @@
       "total_goal_error": 4
     },
     {
+      "home": "Liverpool FC",
+      "away": "Nottingham Forest FC",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 0.9650731517886998,
+      "log_loss": 1.505102496258895,
+      "total_goal_error": 1
+    },
+    {
+      "home": "AFC Bournemouth",
+      "away": "Everton FC",
+      "date": "2026-08-29",
+      "correct_winner": false,
+      "brier": 0.7310825246551946,
+      "log_loss": 1.1929842684438992,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Coventry City FC",
+      "away": "Hull City AFC",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.10284278302420169,
+      "log_loss": 0.29534879993987945,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Tottenham Hotspur FC",
+      "away": "Newcastle United FC",
+      "date": "2026-08-29",
+      "correct_winner": true,
+      "brier": 0.2900166527119302,
+      "log_loss": 0.5784009915067316,
+      "total_goal_error": 1
+    },
+    {
       "home": "Sunderland AFC",
       "away": "Fulham FC",
       "date": "2026-08-30",
@@ -107,13 +143,40 @@
       "brier": 0.9880992999283086,
       "log_loss": 1.5457213264396108,
       "total_goal_error": 3
+    },
+    {
+      "home": "Chelsea FC",
+      "away": "Brighton & Hove Albion FC",
+      "date": "2026-08-30",
+      "correct_winner": true,
+      "brier": 0.38309120770031313,
+      "log_loss": 0.7021915116269606,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Leeds United FC",
+      "away": "Brentford FC",
+      "date": "2026-08-30",
+      "correct_winner": false,
+      "brier": 0.800143281416967,
+      "log_loss": 1.2372561618724205,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Manchester United FC",
+      "away": "Ipswich Town FC",
+      "date": "2026-08-30",
+      "correct_winner": true,
+      "brier": 0.2872276824585105,
+      "log_loss": 0.574543754337641,
+      "total_goal_error": 6
     }
   ],
   "summary": {
-    "n_scored": 12,
-    "accuracy": 0.6666666666666666,
-    "avg_brier": 0.6061858801029902,
-    "avg_log_loss": 1.0186519195414512,
-    "avg_goal_error": 2.0833333333333335
+    "n_scored": 19,
+    "accuracy": 0.631578947368421,
+    "avg_brier": 0.5701951497364052,
+    "avg_log_loss": 0.9636658430780967,
+    "avg_goal_error": 2.1052631578947367
   }
 }
