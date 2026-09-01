@@ -152,7 +152,14 @@ def fit_dc(matches, elo_ratings):
 
 def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
     """Bayesian-bootstrap ensemble, same method as fit_improved.py: every
-    match kept every time, weight perturbed by a Dirichlet(1) draw (mean 1)."""
+    match kept every time, weight perturbed by a Dirichlet(1) draw (mean 1).
+
+    A non-converged refit is dropped, not kept -- it's an arbitrary,
+    non-fitted parameter vector that would silently skew the ensemble's
+    confidence bands/lambda tables rather than just narrowing the ensemble
+    by one member (mirrors fit_improved.py's fit_dc_bootstrap fix, 17 Aug
+    audit; this function had the same bug and was deliberately left for a
+    later session)."""
     teams = point_dc["teams"]
     idx = {t: i for i, t in enumerate(teams)}
     rows = _build_rows(matches, idx)
@@ -171,12 +178,15 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
         res = _fit_rows(rows, teams, x0, maxiter=1500, w_scale=w_scale)
         if not res.success:
             n_failed += 1
+            continue
         out = _unpack(res.x, teams)
         out.update(teams=teams)
         ensemble.append(out)
     fail_rate = n_failed / B
     if fail_rate > 0.05:
         print(f"  WARNING: bootstrap fail rate {fail_rate:.0%} exceeds 5% threshold")
+    if not ensemble:
+        raise RuntimeError(f"fit_dc_bootstrap: all {B} bootstrap refits failed to converge")
     return ensemble
 
 
