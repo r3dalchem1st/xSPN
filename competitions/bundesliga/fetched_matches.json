@@ -1,5 +1,86 @@
 [
   [
+    "2026-08-28",
+    "FC Bayern M\u00fcnchen",
+    "VfB Stuttgart",
+    5,
+    1,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-29",
+    "RB Leipzig",
+    "Borussia M\u00f6nchengladbach",
+    3,
+    0,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-29",
+    "1. FSV Mainz 05",
+    "SC Paderborn 07",
+    0,
+    0,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-29",
+    "1. FC Union Berlin",
+    "Eintracht Frankfurt",
+    3,
+    3,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-29",
+    "SV 07 Elversberg",
+    "Bayer 04 Leverkusen",
+    3,
+    2,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-29",
+    "1. FC K\u00f6ln",
+    "TSG 1899 Hoffenheim",
+    3,
+    2,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-29",
+    "Borussia Dortmund",
+    "Hamburger SV",
+    2,
+    0,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-30",
+    "SC Freiburg",
+    "SV Werder Bremen",
+    4,
+    1,
+    "Bundesliga",
+    false
+  ],
+  [
+    "2026-08-30",
+    "FC Augsburg",
+    "FC Schalke 04",
+    3,
+    0,
+    "Bundesliga",
+    false
+  ],
+  [
     "2024-08-23",
     "Borussia M\u00f6nchengladbach",
     "Bayer 04 Leverkusen",

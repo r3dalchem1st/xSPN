@@ -174,5 +174,27 @@
     "predicted_winner": "A",
     "predicted_score": "0-2",
     "snapped_at": "2026-08-31"
+  },
+  "Hamburger SV|1. FSV Mainz 05": {
+    "home": "Hamburger SV",
+    "away": "1. FSV Mainz 05",
+    "date": "2026-09-06",
+    "ph": 0.17282899139779923,
+    "pd": 0.28586616566587586,
+    "pa": 0.5413048429363246,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-01"
+  },
+  "Eintracht Frankfurt|FC Augsburg": {
+    "home": "Eintracht Frankfurt",
+    "away": "FC Augsburg",
+    "date": "2026-09-06",
+    "ph": 0.5877216370084398,
+    "pd": 0.22560475915165276,
+    "pa": 0.1866736038399072,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-01"
   }
 }
