@@ -1,8 +1,10 @@
 import json
 import os
 
+import numpy as np
 import pytest
 
+import fit_league
 from competition_config import CompetitionConfig
 from fit_league import compute_elos, fit_dc, fit_dc_bootstrap, fit_and_save
 
@@ -113,6 +115,49 @@ def test_fit_dc_bootstrap_returns_requested_ensemble_size():
         assert set(member["teams"]) == set(dc["teams"])
         assert isinstance(member["home_adv"], float)
         assert isinstance(member["rho"], float)
+
+
+class _FakeResult:
+    def __init__(self, success, x):
+        self.success = success
+        self.x = x
+
+
+def test_fit_dc_bootstrap_drops_non_converged_refits(monkeypatch):
+    # Regression test for a real bug (mirrors fit_improved.py's own fix,
+    # 17 Aug audit): a non-converged refit used to be kept anyway -- an
+    # arbitrary, non-fitted parameter vector silently skewing the ensemble's
+    # confidence bands instead of just narrowing it by one member.
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    dc = fit_dc(SYNTHETIC_MATCHES, elo)
+    n_teams = len(dc["teams"])
+    x_dim = 2 * n_teams + 2
+    calls = {"n": 0}
+
+    def fake_fit_rows(rows, teams, x0, l2_reg=fit_league.L2_REG, maxiter=2000, w_scale=None):
+        calls["n"] += 1
+        # Every other refit "fails" to converge.
+        success = calls["n"] % 2 == 0
+        return _FakeResult(success, np.zeros(x_dim))
+
+    monkeypatch.setattr(fit_league, "_fit_rows", fake_fit_rows)
+    ensemble = fit_dc_bootstrap(SYNTHETIC_MATCHES, elo, dc, B=6, seed=1)
+    assert len(ensemble) == 3  # only the 3 "successful" refits kept
+    assert calls["n"] == 6
+
+
+def test_fit_dc_bootstrap_raises_when_every_refit_fails(monkeypatch):
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    dc = fit_dc(SYNTHETIC_MATCHES, elo)
+    n_teams = len(dc["teams"])
+    x_dim = 2 * n_teams + 2
+
+    def always_fails(rows, teams, x0, l2_reg=fit_league.L2_REG, maxiter=2000, w_scale=None):
+        return _FakeResult(False, np.zeros(x_dim))
+
+    monkeypatch.setattr(fit_league, "_fit_rows", always_fails)
+    with pytest.raises(RuntimeError, match="all 4 bootstrap refits failed"):
+        fit_dc_bootstrap(SYNTHETIC_MATCHES, elo, dc, B=4, seed=1)
 
 
 IO_CONFIG_DATA = {
