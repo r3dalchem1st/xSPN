@@ -11,9 +11,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from model_common import ALL_TEAMS, HOST_NATIONS
 
 API_KEY = os.environ.get('FD_API_KEY', '')
-if not API_KEY:
-    print("No FD_API_KEY found — skipping fetch.")
-    raise SystemExit(0)
+# The no-key check lives in main(), not here -- a module-level `raise
+# SystemExit` fires on plain `import fetch_matches`, which is almost
+# certainly why this file (the highest-traffic, most load-bearing script in
+# the repo) had zero test coverage: nothing could even import it without a
+# real key or a faked env var (17 Aug audit finding, deferred until now).
 
 BASE    = 'https://api.football-data.org/v4'
 HEADERS = {'X-Auth-Token': API_KEY}
@@ -333,6 +335,10 @@ def fetch_schedule(of_results=None):
     return sched
 
 def main():
+    if not API_KEY:
+        print("No FD_API_KEY found — skipping fetch.")
+        raise SystemExit(0)
+
     print("Fetching new match data...")
     existing = load_existing()
 
