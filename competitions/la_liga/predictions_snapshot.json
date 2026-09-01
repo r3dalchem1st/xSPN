@@ -383,5 +383,49 @@
     "predicted_winner": "H",
     "predicted_score": "2-0",
     "snapped_at": "2026-08-31"
+  },
+  "Valencia CF|FC Barcelona": {
+    "home": "Valencia CF",
+    "away": "FC Barcelona",
+    "date": "2026-09-06",
+    "ph": 0.12234532001244919,
+    "pd": 0.16184102437165307,
+    "pa": 0.7158136556158976,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-09-01"
+  },
+  "Deportivo Alav\u00e9s|CA Osasuna": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "CA Osasuna",
+    "date": "2026-09-06",
+    "ph": 0.3995618088673764,
+    "pd": 0.30107641369052796,
+    "pa": 0.29936177744209563,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-01"
+  },
+  "M\u00e1laga CF|Levante UD": {
+    "home": "M\u00e1laga CF",
+    "away": "Levante UD",
+    "date": "2026-09-06",
+    "ph": 0.1609162429574734,
+    "pd": 0.21698738464098588,
+    "pa": 0.6220963724015406,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-09-01"
+  },
+  "RCD Espanyol de Barcelona|Sevilla FC": {
+    "home": "RCD Espanyol de Barcelona",
+    "away": "Sevilla FC",
+    "date": "2026-09-06",
+    "ph": 0.4306967531300891,
+    "pd": 0.2647929314328631,
+    "pa": 0.3045103154370479,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-01"
   }
 }
