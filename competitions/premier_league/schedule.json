@@ -172,10 +172,10 @@
   },
   "Aston Villa FC|Arsenal FC": {
     "date": "2026-08-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Aston Villa FC": null,
-      "Arsenal FC": null
+      "Aston Villa FC": 0,
+      "Arsenal FC": 1
     },
     "round": "Matchday 2"
   },
@@ -413,15 +413,6 @@
     },
     "round": "Matchday 5"
   },
-  "Manchester City FC|Sunderland AFC": {
-    "date": "2026-09-20",
-    "status": "SCHEDULED",
-    "goals": {
-      "Manchester City FC": null,
-      "Sunderland AFC": null
-    },
-    "round": "Matchday 5"
-  },
   "Nottingham Forest FC|Coventry City FC": {
     "date": "2026-09-19",
     "status": "SCHEDULED",
@@ -437,6 +428,15 @@
     "goals": {
       "AFC Bournemouth": null,
       "Liverpool FC": null
+    },
+    "round": "Matchday 5"
+  },
+  "Manchester City FC|Sunderland AFC": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Manchester City FC": null,
+      "Sunderland AFC": null
     },
     "round": "Matchday 5"
   },

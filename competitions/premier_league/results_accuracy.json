@@ -170,13 +170,22 @@
       "brier": 0.2872276824585105,
       "log_loss": 0.574543754337641,
       "total_goal_error": 6
+    },
+    {
+      "home": "Aston Villa FC",
+      "away": "Arsenal FC",
+      "date": "2026-08-31",
+      "correct_winner": true,
+      "brier": 0.3322830411194889,
+      "log_loss": 0.6357681584047336,
+      "total_goal_error": 0
     }
   ],
   "summary": {
-    "n_scored": 19,
-    "accuracy": 0.631578947368421,
-    "avg_brier": 0.5701951497364052,
-    "avg_log_loss": 0.9636658430780967,
-    "avg_goal_error": 2.1052631578947367
+    "n_scored": 20,
+    "accuracy": 0.65,
+    "avg_brier": 0.5582995443055594,
+    "avg_log_loss": 0.9472709588444286,
+    "avg_goal_error": 2.0
   }
 }

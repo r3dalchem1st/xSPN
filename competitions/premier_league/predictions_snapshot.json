@@ -306,5 +306,27 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-08-31"
+  },
+  "Everton FC|Manchester United FC": {
+    "home": "Everton FC",
+    "away": "Manchester United FC",
+    "date": "2026-09-06",
+    "ph": 0.440266438144928,
+    "pd": 0.2901946164050047,
+    "pa": 0.26953894545006735,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-01"
+  },
+  "Arsenal FC|Chelsea FC": {
+    "home": "Arsenal FC",
+    "away": "Chelsea FC",
+    "date": "2026-09-06",
+    "ph": 0.5084093544230307,
+    "pd": 0.2545455733456567,
+    "pa": 0.23704507223131263,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-01"
   }
 }
