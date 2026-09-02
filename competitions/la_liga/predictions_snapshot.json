@@ -427,5 +427,27 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-09-01"
+  },
+  "Getafe CF|RC Celta de Vigo": {
+    "home": "Getafe CF",
+    "away": "RC Celta de Vigo",
+    "date": "2026-09-07",
+    "ph": 0.35085245388645814,
+    "pd": 0.3070536553853879,
+    "pa": 0.34209389072815405,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-02"
+  },
+  "Elche CF|Real Sociedad de F\u00fatbol": {
+    "home": "Elche CF",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-09-07",
+    "ph": 0.2803341875181643,
+    "pd": 0.2515462832057534,
+    "pa": 0.4681195292760823,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-02"
   }
 }
