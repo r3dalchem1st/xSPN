@@ -314,7 +314,7 @@
         "score": "0\u20132",
         "ph": 0.094,
         "pd": 0.24,
-        "pa": 0.666,
+        "pa": 0.665,
         "likely_winner": "Ivory Coast"
       },
       {
@@ -709,7 +709,7 @@
         "lam": 0.91,
         "mu": 1.0,
         "score": "0\u20130",
-        "ph": 0.274,
+        "ph": 0.275,
         "pd": 0.41,
         "pa": 0.315,
         "likely_winner": "Draw"
@@ -1046,7 +1046,7 @@
       "win_pct": 51.0,
       "ph": 0.371,
       "pd": 0.268,
-      "pa": 0.362,
+      "pa": 0.361,
       "reg_winner": "Netherlands",
       "lam": 1.27,
       "mu": 1.25
@@ -1436,12 +1436,12 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.8,
+  "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 84.3,
-    "England": 9.1,
-    "Colombia": 5.9,
+    "Argentina": 83.9,
+    "England": 9.2,
+    "Colombia": 6.1,
     "France": 1.9,
     "Senegal": 0.8,
     "USA": 0.3,
