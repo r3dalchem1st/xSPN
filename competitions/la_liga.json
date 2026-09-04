@@ -32,16 +32,8 @@
     "Real Madrid": "Real Madrid CF",
     "Sociedad": "Real Sociedad de Fútbol",
     "Valencia": "Valencia CF",
-    "Vallecano": "Rayo Vallecano de Madrid",
-    "Alavés": "Deportivo Alavés",
-    "Athletic Bilbao": "Athletic Club",
-    "Atlético Madrid": "Club Atlético de Madrid",
-    "Celta Vigo": "RC Celta de Vigo",
-    "Deportivo La Coruña": "RC Deportivo La Coruña",
-    "Espanyol": "RCD Espanyol de Barcelona",
-    "Málaga": "Málaga CF"
+    "Vallecano": "Rayo Vallecano de Madrid"
   },
   "football_data_code": "PD",
-  "odds_history_code": "SP1",
-  "odds_api_sport_key": "soccer_spain_la_liga"
+  "odds_history_code": "SP1"
 }
