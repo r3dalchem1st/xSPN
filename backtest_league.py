@@ -71,6 +71,30 @@ def fit_point_estimate(train_matches, as_of_date):
         fl.days_ago = orig_days_ago
 
 
+def predict_match_probs(home, away, date_, neutral, dc, strength_shrink=1.0, delta=0.0,
+                         use_rho=False, momentum_weight=0.0, momentum_n=5, revealed=None):
+    """The model's own (ph, pd, pa) for ONE match, given a point-estimate
+    fit `dc` and calibration settings -- the same per-match computation
+    score_holdout() runs in its loop, factored out so a caller (e.g.
+    backtest_odds.py, blending this against a bookmaker's odds) can get a
+    single match's prediction without re-deriving this logic. `revealed`
+    is the running match history for momentum (see score_holdout's own
+    docstring); omit it if momentum_weight is 0.0."""
+    atk, dfn, home_adv, rho = dc["attack"], dc["defense"], dc["home_adv"], dc["rho"]
+    ah, dh = atk.get(home, 0.0), dfn.get(home, 0.0)
+    aa, da = atk.get(away, 0.0), dfn.get(away, 0.0)
+    if momentum_weight:
+        mom_h = compute_momentum(home, date_, revealed or [], momentum_n)
+        mom_a = compute_momentum(away, date_, revealed or [], momentum_n)
+        ah, dh = ah + momentum_weight * mom_h, dh - momentum_weight * mom_h
+        aa, da = aa + momentum_weight * mom_a, da - momentum_weight * mom_a
+    bonus = 0.0 if neutral else home_adv
+    lam = clamp_lambda(shrink_lambda(math.exp(ah + da + bonus), strength_shrink))
+    mu = clamp_lambda(shrink_lambda(math.exp(aa + dh), strength_shrink))
+    ph, pd, pa = hda_probs_from_lambda(lam, mu, rho if use_rho else 0.0)
+    return inflate_hda(ph, pd, pa, delta)
+
+
 def score_holdout(test_matches, dc, strength_shrink=1.0, delta=0.0, use_rho=False,
                    momentum_weight=0.0, momentum_n=5, momentum_history=None):
     """Score `test_matches` (real, already-known results — [date, home,
@@ -91,25 +115,14 @@ def score_holdout(test_matches, dc, strength_shrink=1.0, delta=0.0, use_rho=Fals
     `momentum_history` (typically the TRAIN matches) seeds the window so
     the very first test matches aren't scored with a bogus 0.0 momentum for
     every team; pass None for a cold start instead."""
-    atk, dfn, home_adv, rho = dc["attack"], dc["defense"], dc["home_adv"], dc["rho"]
     n = correct = 0
     brier_sum = logloss_sum = 0.0
     pred_draw_sum = act_draw_sum = 0
     revealed = list(momentum_history) if momentum_history else []
     for m in sorted(test_matches, key=lambda row: row[0]):
         date_, home, away, hg, ag, _label, neutral = m
-        ah, dh = atk.get(home, 0.0), dfn.get(home, 0.0)
-        aa, da = atk.get(away, 0.0), dfn.get(away, 0.0)
-        if momentum_weight:
-            mom_h = compute_momentum(home, date_, revealed, momentum_n)
-            mom_a = compute_momentum(away, date_, revealed, momentum_n)
-            ah, dh = ah + momentum_weight * mom_h, dh - momentum_weight * mom_h
-            aa, da = aa + momentum_weight * mom_a, da - momentum_weight * mom_a
-        bonus = 0.0 if neutral else home_adv
-        lam = clamp_lambda(shrink_lambda(math.exp(ah + da + bonus), strength_shrink))
-        mu = clamp_lambda(shrink_lambda(math.exp(aa + dh), strength_shrink))
-        ph, pd, pa = hda_probs_from_lambda(lam, mu, rho if use_rho else 0.0)
-        pred = inflate_hda(ph, pd, pa, delta)
+        pred = predict_match_probs(home, away, date_, neutral, dc, strength_shrink, delta,
+                                    use_rho, momentum_weight, momentum_n, revealed)
         if hg > ag:
             o, oi = (1, 0, 0), 0
         elif hg < ag:

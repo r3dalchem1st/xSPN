@@ -12,9 +12,22 @@
     "Union Berlin": "1. FC Union Berlin",
     "Werder Bremen": "SV Werder Bremen",
     "Bayer Leverkusen": "Bayer 04 Leverkusen",
-    "Borussia M'gladbach": "Borussia Mönchengladbach"
+    "Borussia M'gladbach": "Borussia Mönchengladbach",
+    "Augsburg": "FC Augsburg",
+    "Bayern Munich": "FC Bayern München",
+    "Dortmund": "Borussia Dortmund",
+    "Ein Frankfurt": "Eintracht Frankfurt",
+    "FC Koln": "1. FC Köln",
+    "Freiburg": "SC Freiburg",
+    "Hamburg": "Hamburger SV",
+    "Hoffenheim": "TSG 1899 Hoffenheim",
+    "Leverkusen": "Bayer 04 Leverkusen",
+    "M'gladbach": "Borussia Mönchengladbach",
+    "Mainz": "1. FSV Mainz 05",
+    "Stuttgart": "VfB Stuttgart"
   },
   "football_data_code": "BL1",
   "momentum_weight": 0.02,
-  "momentum_n": 5
+  "momentum_n": 5,
+  "odds_history_code": "D1"
 }

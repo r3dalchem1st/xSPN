@@ -60,6 +60,12 @@ class CompetitionConfig:
         # when a larger weight would score better on Brier alone.
         self.momentum_weight = data.get("momentum_weight", 0.0)
         self.momentum_n = data.get("momentum_n", 5)
+        # Optional football-data.co.uk league code (e.g. "E0" for the
+        # Premier League) -- lets fetch_odds_history.py/backtest_odds.py
+        # pull real historical betting odds for this competition (free, no
+        # API key, confirmed live: plain CSV over HTTP). None -> no odds
+        # feed configured for this competition.
+        self.odds_history_code = data.get("odds_history_code")
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

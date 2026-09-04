@@ -18,7 +18,22 @@
     "Real Madrid C.F.": "Real Madrid CF",
     "Real Sociedad": "Real Sociedad de Fútbol",
     "Sevilla": "Sevilla FC",
-    "Villarreal": "Villarreal CF"
+    "Villarreal": "Villarreal CF",
+    "Alaves": "Deportivo Alavés",
+    "Ath Bilbao": "Athletic Club",
+    "Ath Madrid": "Club Atlético de Madrid",
+    "Betis": "Real Betis Balompié",
+    "Celta": "RC Celta de Vigo",
+    "Elche": "Elche CF",
+    "Espanol": "RCD Espanyol de Barcelona",
+    "Getafe": "Getafe CF",
+    "Levante": "Levante UD",
+    "Osasuna": "CA Osasuna",
+    "Real Madrid": "Real Madrid CF",
+    "Sociedad": "Real Sociedad de Fútbol",
+    "Valencia": "Valencia CF",
+    "Vallecano": "Rayo Vallecano de Madrid"
   },
-  "football_data_code": "PD"
+  "football_data_code": "PD",
+  "odds_history_code": "SP1"
 }
