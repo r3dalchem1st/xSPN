@@ -31,6 +31,33 @@ def test_hda_probs_sums_to_one_and_favors_stronger_team():
     assert ph > pa  # Strong FC at home should be favored over Weak FC away
 
 
+def test_hda_probs_default_args_match_explicit_no_op_args():
+    # rhos=None, delta=0.0 must be exactly equivalent to omitting both --
+    # every pre-calibration caller relies on this being a true no-op.
+    from sim_league import build_lambda_tables
+    lg_ens = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE])
+    default = hda_probs("Strong FC", "Weak FC", lg_ens)
+    explicit = hda_probs("Strong FC", "Weak FC", lg_ens, rhos=None, delta=0.0)
+    assert default == explicit
+
+
+def test_hda_probs_delta_boosts_draw_probability():
+    from sim_league import build_lambda_tables
+    lg_ens = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE])
+    _, pd_no_inflate, _ = hda_probs("Strong FC", "Weak FC", lg_ens)
+    _, pd_inflated, _ = hda_probs("Strong FC", "Weak FC", lg_ens, delta=0.5)
+    assert pd_inflated > pd_no_inflate
+
+
+def test_hda_probs_rhos_list_changes_the_prediction():
+    from sim_league import build_lambda_tables
+    lg_ens = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE, DC_SAMPLE])
+    without_rho = hda_probs("Strong FC", "Weak FC", lg_ens)
+    with_rho = hda_probs("Strong FC", "Weak FC", lg_ens, rhos=[-0.15, -0.15])
+    assert without_rho != with_rho
+    assert abs(sum(with_rho) - 1.0) < 1e-9
+
+
 def test_likely_score_respects_allowed_outcomes():
     hg, ag = likely_score(2.0, 0.5, allowed={"H"})
     assert hg > ag

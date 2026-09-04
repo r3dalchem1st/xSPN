@@ -207,7 +207,7 @@ def _round_sort_key(round_label):
     return int(m.group(1)) if m else 0
 
 
-def build_bracket_html(schedule, snapshot, lg_ens=None):
+def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
     """Every fixture grouped into a bracket-styled column per round/
     matchday (sorted numerically), each match card showing its date and
     one of: the actual score (once FINISHED), the LOCKED prediction (once
@@ -255,7 +255,7 @@ def build_bracket_html(schedule, snapshot, lg_ens=None):
                     f'<div class="bm-pct">{s["predicted_score"]} &middot; {s["predicted_winner"]}</div></div>'
                 )
             elif lg_ens:
-                ph, pd, pa = hda_probs(home, away, lg_ens)
+                ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=delta)
                 outcome = max([("H", ph), ("D", pd), ("A", pa)], key=lambda x: x[1])[0]
                 lam, mu = lg_ens[0][(home, away)]
                 hg, ag = likely_score(lam, mu, allowed={outcome})
@@ -326,12 +326,13 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     # falls back to "not yet predicted" for anything not yet locked,
     # rather than a live preview -- no different from before this existed.
     ensemble_path = os.path.join(out_dir, "dc_ensemble.json")
-    lg_ens = None
+    lg_ens = rhos = None
     if os.path.exists(ensemble_path):
         teams = sorted({t for key in schedule for t in key.split("|")})
         with open(ensemble_path) as f:
             dc_ensemble = json.load(f)
-        lg_ens = build_lambda_tables(teams, dc_ensemble)
+        lg_ens = build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
+        rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     rows = build_standings_rows(schedule, rank_dist, relegation_zone)
     rows_html = render_rows_html(rows)
@@ -352,7 +353,8 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
     page = page.replace("__SEASON_END__", season_end or "TBD")
     page = page.replace("__ACCURACY_CARDS__", build_accuracy_html(accuracy))
     page = page.replace("__RESULTS_ROWS__", build_results_rows_html(accuracy, schedule, snapshot))
-    page = page.replace("__BRACKET_HTML__", build_bracket_html(schedule, snapshot, lg_ens))
+    page = page.replace("__BRACKET_HTML__",
+                         build_bracket_html(schedule, snapshot, lg_ens, rhos, config.draw_inflate))
     page = page.replace("__CHAMPION_LINE__", build_champion_html(rows))
 
     leftover = re.findall(r"__[A-Z_]+__", page)

@@ -15,6 +15,20 @@ version with none of that. (model_common.py's H/D/A Poisson helpers ARE
 already team-list-agnostic, but this module doesn't need them either — it
 samples full scorelines directly via Poisson draws for the season simulation
 rather than needing normalised H/D/A triples.)
+
+build_lambda_table()'s strength_shrink now goes through league_calibration.py
+(shared with snapshot_league.py/backtest_league.py — see that module's own
+docstring for why centralized rather than duplicated). This module still
+does NOT apply draw-inflation to its Monte Carlo sampling — shrink_lambda
+folds into lambda for free (this module reads the already-shrunk value from
+the same lambda table snapshot_league.py uses), but reproducing a target
+draw RATE in independent-Poisson sampling needs the WC's own draw_mix()
+exact-mixture technique (model_common.py), not implemented here. A
+documented gap, not an oversight: standings/title-odds simulation and
+match-level H/D/A prediction are different consumers, and this backtest's
+target is match-winner accuracy (snapshot_league.py's prediction, not this
+module's simulated standings) — closing that gap for the simulation is a
+reasonable future follow-up, not required for this one.
 """
 import json
 import math
@@ -22,6 +36,8 @@ import os
 import sys
 
 import numpy as np
+
+from league_calibration import clamp_lambda, shrink_lambda
 
 
 def _poisson(lam, rng):
@@ -38,15 +54,21 @@ def _poisson(lam, rng):
         k += 1
 
 
-def build_lambda_table(teams, dc):
+def build_lambda_table(teams, dc, strength_shrink=1.0):
     """(lam, mu) for every ordered pair of `teams`, from one Dixon-Coles
     parameter set (attack/defense/home_adv — the dict shape fit_league.fit_dc
     returns). A team absent from the fit (newly promoted, no match history
     in the training window — this happens every season, not an edge case)
     defaults to attack=0.0, defense=0.0, a neutral league-average prior.
-    NOT calibrated against real promoted-team performance (no backtest
-    infrastructure exists yet for round-robin competitions) — a known,
-    documented limitation, not a guess dressed up as a real adjustment."""
+
+    `strength_shrink` (default 1.0 = identity, unchanged behavior) compresses
+    every match's expected goals toward league_calibration.GOAL_ANCHOR before
+    the safety clamp — see backtest_league.py for how a competition's real
+    value is grid-searched against its own historical seasons; NOT calibrated
+    here by guessing. The clamp itself is unconditional (not gated on
+    strength_shrink) — a plain safety net against a nonsensically large
+    lambda from an extreme mismatch, same reasoning as model_common.py's own
+    LAMBDA_MIN/LAMBDA_MAX for the WC, which this had no equivalent of before."""
     atk, dfn, home_adv = dc["attack"], dc["defense"], dc["home_adv"]
     lg = {}
     for home in teams:
@@ -55,32 +77,35 @@ def build_lambda_table(teams, dc):
                 continue
             ah, dh = atk.get(home, 0.0), dfn.get(home, 0.0)
             aa, da = atk.get(away, 0.0), dfn.get(away, 0.0)
-            lam = math.exp(ah + da + home_adv)
-            mu = math.exp(aa + dh)
+            lam = clamp_lambda(shrink_lambda(math.exp(ah + da + home_adv), strength_shrink))
+            mu = clamp_lambda(shrink_lambda(math.exp(aa + dh), strength_shrink))
             lg[(home, away)] = (lam, mu)
     return lg
 
 
-def build_lambda_tables(teams, dc_ensemble):
+def build_lambda_tables(teams, dc_ensemble, strength_shrink=1.0):
     """One lambda table per bootstrap-ensemble member."""
-    return [build_lambda_table(teams, dc) for dc in dc_ensemble]
+    return [build_lambda_table(teams, dc, strength_shrink) for dc in dc_ensemble]
 
 
-def simulate_season(teams, standings, remaining_fixtures, dc_ensemble, n_sims=10000, seed=42):
+def simulate_season(teams, standings, remaining_fixtures, dc_ensemble, n_sims=10000, seed=42,
+                     strength_shrink=1.0):
     """Monte Carlo the season's remaining fixtures `n_sims` times. Each
     simulated season draws a random bootstrap-ensemble member (propagating
     parameter uncertainty, same method as sim_improved.py's WC simulator),
     samples every remaining fixture's score via independent Poisson draws
-    (no draw-inflation — that's a World-Cup-specific calibration against
-    international-match draw rates, unvalidated for round-robin so left
-    off rather than guessed at), and starts from the fixed already-played
-    standings. Returns {team: [rank_1_pct, rank_2_pct, ..., rank_N_pct]} —
-    the fraction of simulated seasons in which that team finished at each
-    exact position (index 0 = 1st place) — so ANY cutoff (top-4, relegation
-    zone, a playoff spot) can be computed by the caller by summing the
-    relevant slice; this module doesn't hardcode any competition's specific
-    cutoff rules, since those vary by league and by season."""
-    lg_ens = build_lambda_tables(teams, dc_ensemble)
+    (`strength_shrink` folds into the lambda table for free — see
+    build_lambda_table() — but this does NOT reproduce a target draw RATE
+    the way the WC's draw_mix() exact-mixture sampler does; see this
+    module's own docstring for why that gap is left for now), and starts
+    from the fixed already-played standings. Returns {team: [rank_1_pct,
+    rank_2_pct, ..., rank_N_pct]} — the fraction of simulated seasons in
+    which that team finished at each exact position (index 0 = 1st place) —
+    so ANY cutoff (top-4, relegation zone, a playoff spot) can be computed
+    by the caller by summing the relevant slice; this module doesn't
+    hardcode any competition's specific cutoff rules, since those vary by
+    league and by season."""
+    lg_ens = build_lambda_tables(teams, dc_ensemble, strength_shrink)
     rng = np.random.default_rng(seed)
     n_teams = len(teams)
     rank_counts = {t: [0] * n_teams for t in teams}

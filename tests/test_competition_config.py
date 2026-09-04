@@ -99,3 +99,18 @@ def test_football_data_code_read_when_present():
     data = dict(VALID_DATA, football_data_code="PL")
     config = CompetitionConfig(data)
     assert config.football_data_code == "PL"
+
+
+def test_calibration_fields_default_to_no_op():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.strength_shrink == 1.0
+    assert config.draw_inflate == 0.0
+    assert config.use_rho is False
+
+
+def test_calibration_fields_read_when_present():
+    data = dict(VALID_DATA, strength_shrink=0.6, draw_inflate=0.35, use_rho=True)
+    config = CompetitionConfig(data)
+    assert config.strength_shrink == 0.6
+    assert config.draw_inflate == 0.35
+    assert config.use_rho is True
