@@ -12,5 +12,5 @@ jobs:
       - run: pip install requests
       - run: python _debug_check_odds_injuries.py
         env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-          BIGBALLS_API_KEY: ${{ secrets.BIGBALLS_API_KEY }}
+          ODDS_API_KEY: ${{ secrets.THE_ODDS_KEY }}
+          BIGBALLS_API_KEY: ${{ secrets.BIG_BALLS_SPORTS_DATA_KEY }}
