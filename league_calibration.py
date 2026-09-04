@@ -22,6 +22,8 @@ has an actual backtested value configured.
 """
 import math
 
+import numpy as np
+
 # Same reference anchor as the WC's model_common.py -- 1.0 = no shrink,
 # <1 pulls a team's expected goals toward this common value (flatter H/D/A,
 # more draws). The ANCHOR is just the point shrinkage pulls toward, not a
@@ -88,6 +90,40 @@ def hda_probs_from_lambda(lam, mu, rho=0.0, max_g=10):
                 pd += p
     s = ph + pd + pa
     return (ph / s, pd / s, pa / s) if s else (0.0, 0.0, 0.0)
+
+
+def hda_probs_vectorized(lam, mu, rho=0.0, max_g=10):
+    """Vectorized twin of hda_probs_from_lambda: `lam`/`mu` are 1-D numpy
+    arrays of per-match expected home/away goals (one value per match);
+    `rho` is a single scalar shared across every match, since it's a
+    fit-level parameter, not a per-match one. Returns (ph, pd, pa) as 1-D
+    numpy arrays, one triple per match -- identical math to the scalar
+    version (see tests asserting exact agreement), just batched so
+    fit_league.py's odds-consistency fit term can call it inside an
+    optimizer's inner loop without a slow per-match Python nested loop."""
+    lam = np.asarray(lam, dtype=np.float64)
+    mu = np.asarray(mu, dtype=np.float64)
+    g = np.arange(max_g + 1)
+    log_fact = np.array([math.lgamma(k + 1) for k in range(max_g + 1)])
+    log_ph = g[None, :] * np.log(lam)[:, None] - lam[:, None] - log_fact[None, :]
+    log_pa = g[None, :] * np.log(mu)[:, None] - mu[:, None] - log_fact[None, :]
+    p_h = np.exp(log_ph)  # (M, G)
+    p_a = np.exp(log_pa)  # (M, G)
+    joint = p_h[:, :, None] * p_a[:, None, :]  # (M, G, G) -- joint[m,h,a]
+
+    if rho:
+        joint[:, 0, 0] *= np.maximum(1 - lam * mu * rho, 1e-10)
+        joint[:, 0, 1] *= np.maximum(1 + lam * rho, 1e-10)
+        joint[:, 1, 0] *= np.maximum(1 + mu * rho, 1e-10)
+        joint[:, 1, 1] *= (1 - rho if (1 - rho) > 1e-10 else 1e-10)
+
+    hh, aa = np.meshgrid(g, g, indexing="ij")
+    ph = joint[:, hh > aa].sum(axis=1)
+    pd = joint[:, hh == aa].sum(axis=1)
+    pa = joint[:, hh < aa].sum(axis=1)
+    s = ph + pd + pa
+    s = np.where(s > 0, s, 1.0)
+    return ph / s, pd / s, pa / s
 
 
 def compute_momentum(team, as_of_date, history, n=5):

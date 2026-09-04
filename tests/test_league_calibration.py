@@ -1,7 +1,10 @@
 import math
 
+import numpy as np
+
 from league_calibration import (GOAL_ANCHOR, clamp_lambda, compute_momentum,
-                                 hda_probs_from_lambda, inflate_hda, shrink_lambda)
+                                 hda_probs_from_lambda, hda_probs_vectorized,
+                                 inflate_hda, shrink_lambda)
 
 
 def test_shrink_lambda_is_identity_at_strength_1():
@@ -69,6 +72,35 @@ def test_hda_probs_from_lambda_rho_shifts_low_score_mass():
     # Still a valid probability triple.
     assert math.isclose(sum(adjusted), 1.0, abs_tol=1e-6)
     assert all(0.0 <= p <= 1.0 for p in adjusted)
+
+
+def test_hda_probs_vectorized_matches_scalar_version_no_rho():
+    lams = [1.6, 0.8, 2.5, 1.0]
+    mus = [1.1, 2.0, 0.8, 1.0]
+    ph, pd, pa = hda_probs_vectorized(np.array(lams), np.array(mus))
+    for i, (lam, mu) in enumerate(zip(lams, mus)):
+        expected = hda_probs_from_lambda(lam, mu)
+        assert math.isclose(ph[i], expected[0], abs_tol=1e-9)
+        assert math.isclose(pd[i], expected[1], abs_tol=1e-9)
+        assert math.isclose(pa[i], expected[2], abs_tol=1e-9)
+
+
+def test_hda_probs_vectorized_matches_scalar_version_with_rho():
+    lams = [1.0, 1.6, 0.9]
+    mus = [1.0, 1.1, 1.3]
+    rho = -0.15
+    ph, pd, pa = hda_probs_vectorized(np.array(lams), np.array(mus), rho=rho)
+    for i, (lam, mu) in enumerate(zip(lams, mus)):
+        expected = hda_probs_from_lambda(lam, mu, rho=rho)
+        assert math.isclose(ph[i], expected[0], abs_tol=1e-9)
+        assert math.isclose(pd[i], expected[1], abs_tol=1e-9)
+        assert math.isclose(pa[i], expected[2], abs_tol=1e-9)
+
+
+def test_hda_probs_vectorized_sums_to_one_for_every_row():
+    ph, pd, pa = hda_probs_vectorized(np.array([1.6, 0.3, 4.0]), np.array([1.1, 3.0, 0.4]))
+    totals = ph + pd + pa
+    assert np.allclose(totals, 1.0, atol=1e-6)
 
 
 # [date, home, away, hg, ag, label, neutral]
