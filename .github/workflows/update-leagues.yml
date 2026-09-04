@@ -73,6 +73,18 @@ jobs:
       - name: Snapshot pre-match predictions
         run: python snapshot_league.py "competitions/$COMPETITION.json"
 
+      - name: Sandbox odds-fit term (shadow predictions, does not affect the live site)
+        # Fits a SEPARATE pair of models (see shadow_fit_odds.py) and locks
+        # both into shadow_predictions.json -- not read by the live site or
+        # any other step. No-op for a competition with no odds_fit_weight
+        # configured. See CONTEXT.md for why: sandboxing the real
+        # backtested odds_fit_weight against real upcoming fixtures for
+        # ~2 weeks before deciding whether to fold it into the fit above.
+        run: python shadow_fit_odds.py "competitions/$COMPETITION.json"
+
+      - name: Report shadow-sandbox progress (informational only)
+        run: python score_shadow.py "competitions/$COMPETITION.json"
+
       - name: Score predictions against actual results
         run: python score_league.py "competitions/$COMPETITION.json"
 
@@ -99,6 +111,7 @@ jobs:
                   "competitions/$COMPETITION/model_params.json" \
                   "competitions/$COMPETITION/league_sim.json" \
                   "competitions/$COMPETITION/predictions_snapshot.json" \
+                  "competitions/$COMPETITION/shadow_predictions.json" \
                   "competitions/$COMPETITION/results_accuracy.json" \
                   "competitions/$COMPETITION/index.html" \
                   index.html

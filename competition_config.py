@@ -66,6 +66,16 @@ class CompetitionConfig:
         # API key, confirmed live: plain CSV over HTTP). None -> no odds
         # feed configured for this competition.
         self.odds_history_code = data.get("odds_history_code")
+        # Optional weight for fit_league.py's odds-consistency fit term
+        # (backtest_fit_odds.py grid-searches this against real historical
+        # odds, joined per training season -- never guessed). 0.0 (default)
+        # is a true no-op: fit_and_save() doesn't read this field yet, so
+        # setting it real here documents the backtested choice WITHOUT
+        # changing the live production fit -- shadow_fit_odds.py is the only
+        # current consumer, sandboxing the real value for ~2 weeks against
+        # real upcoming fixtures before it's wired into fit_and_save for
+        # real. See CONTEXT.md for the per-league backtest results.
+        self.odds_fit_weight = data.get("odds_fit_weight", 0.0)
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

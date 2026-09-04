@@ -40,5 +40,6 @@
     "Valladolid": "Real Valladolid CF"
   },
   "football_data_code": "PD",
-  "odds_history_code": "SP1"
+  "odds_history_code": "SP1",
+  "odds_fit_weight": 100.0
 }
