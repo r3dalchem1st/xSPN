@@ -121,6 +121,8 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None, odds_lookup=Non
         odds_lookup = {}
         if config.odds_api_sport_key:
             odds_lookup = build_odds_lookup(config, fetch_upcoming_odds(config.odds_api_sport_key))
+            print(f"  live odds: {len(odds_lookup)} upcoming fixture(s) available "
+                  f"from {config.odds_api_sport_key}")
 
     with open(os.path.join(out_dir, "schedule.json")) as f:
         schedule = json.load(f)
