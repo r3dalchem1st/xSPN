@@ -66,6 +66,17 @@ class CompetitionConfig:
         # API key, confirmed live: plain CSV over HTTP). None -> no odds
         # feed configured for this competition.
         self.odds_history_code = data.get("odds_history_code")
+        # Optional The Odds API sport_key (e.g. "soccer_epl") -- lets
+        # fetch_live_odds.py pull real upcoming-fixture bookmaker odds for
+        # this competition's pre-match H/D/A prediction (snapshot_league.py),
+        # per backtest_odds.py's finding that real odds decisively beat this
+        # project's own model. Real values come from a live GET
+        # /v4/sports/ call against The Odds API (see CONTEXT.md) -- their
+        # internal naming isn't a fixed pattern (e.g. "soccer_spain_la_liga",
+        # not "soccer_la_liga"), so never guessed. None -> no live odds feed
+        # configured, snapshot_league.py falls back to the model exactly as
+        # before this existed.
+        self.odds_api_sport_key = data.get("odds_api_sport_key")
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

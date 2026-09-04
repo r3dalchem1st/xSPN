@@ -138,3 +138,14 @@ def test_odds_history_code_read_when_present():
     data = dict(VALID_DATA, odds_history_code="E0")
     config = CompetitionConfig(data)
     assert config.odds_history_code == "E0"
+
+
+def test_odds_api_sport_key_defaults_to_none():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.odds_api_sport_key is None
+
+
+def test_odds_api_sport_key_read_when_present():
+    data = dict(VALID_DATA, odds_api_sport_key="soccer_epl")
+    config = CompetitionConfig(data)
+    assert config.odds_api_sport_key == "soccer_epl"

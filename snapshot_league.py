@@ -27,6 +27,7 @@ import os
 import sys
 from datetime import date
 
+from fetch_live_odds import build_odds_lookup, fetch_upcoming_odds
 from league_calibration import hda_probs_from_lambda, inflate_hda
 from sim_league import build_match_lambda_tables
 
@@ -95,16 +96,31 @@ def fixture_due(real_date, today, lock_window_days=LOCK_WINDOW_DAYS):
     return 0 <= days_until <= lock_window_days
 
 
-def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
+def snapshot_and_save(config, base_dir, dc_ensemble, today=None, odds_lookup=None):
     """Load <slug>/schedule.json + existing predictions_snapshot.json (if
-    any), lock any newly-due fixture's current model prediction, and write
-    the (possibly extended) snapshot back. `today` defaults to the real
-    date but can be overridden (e.g. for testing against a schedule whose
+    any), lock any newly-due fixture's current prediction, and write the
+    (possibly extended) snapshot back. `today` defaults to the real date
+    but can be overridden (e.g. for testing against a schedule whose
     fixtures are all in the future). Returns the number of newly locked
-    entries."""
+    entries.
+
+    `odds_lookup` ({("home","away"): (ph,pd,pa)}, from
+    fetch_live_odds.build_odds_lookup) defaults to a live fetch keyed off
+    config.odds_api_sport_key, but can be injected directly for testing.
+    Per backtest_odds.py's finding -- real bookmaker odds beat this
+    project's own model outright in all 3 leagues, and blending never won a
+    single grid point over pure odds -- a fixture WITH live odds available
+    uses them directly in place of the model's own H/D/A, full stop; only a
+    fixture with no odds yet (too far out for books to have posted a line)
+    falls back to the model. The model still supplies lam/mu for the
+    displayed scoreline either way -- odds have no scoreline of their own."""
     from competition_config import artifact_dir
     out_dir = artifact_dir(config, base_dir)
     today = today or date.today().isoformat()
+    if odds_lookup is None:
+        odds_lookup = {}
+        if config.odds_api_sport_key:
+            odds_lookup = build_odds_lookup(config, fetch_upcoming_odds(config.odds_api_sport_key))
 
     with open(os.path.join(out_dir, "schedule.json")) as f:
         schedule = json.load(f)
@@ -132,7 +148,11 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
         if not fixture_due(entry["date"], today):
             continue
         home, away = key.split("|")
-        ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=config.draw_inflate)
+        odds_probs = odds_lookup.get((home, away))
+        if odds_probs is not None:
+            ph, pd, pa = odds_probs
+        else:
+            ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=config.draw_inflate)
         outcome = max([("H", ph), ("D", pd), ("A", pa)], key=lambda x: x[1])[0]
         lam, mu = lg_ens[0][(home, away)]
         hg, ag = likely_score(lam, mu, allowed={outcome})
@@ -140,7 +160,7 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
             "home": home, "away": away, "date": entry["date"],
             "ph": ph, "pd": pd, "pa": pa,
             "predicted_winner": outcome, "predicted_score": f"{hg}-{ag}",
-            "snapped_at": today,
+            "snapped_at": today, "source": "odds" if odds_probs is not None else "model",
         }
         added += 1
 
