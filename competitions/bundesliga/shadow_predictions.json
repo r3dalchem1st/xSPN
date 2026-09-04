@@ -1,0 +1,182 @@
+{
+  "VfB Stuttgart|1. FC K\u00f6ln": {
+    "home": "VfB Stuttgart",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-09-04",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.6396915836873204,
+      "pd": 0.17834633834044394,
+      "pa": 0.18196207797223565,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.6152936287069484,
+      "pd": 0.1967667322468126,
+      "pa": 0.1879396390462391,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "SV Werder Bremen|RB Leipzig": {
+    "home": "SV Werder Bremen",
+    "away": "RB Leipzig",
+    "date": "2026-09-05",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.2580524867591738,
+      "pd": 0.23213960906898423,
+      "pa": 0.509807904171842,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.30688801941453225,
+      "pd": 0.22834372167925798,
+      "pa": 0.4647682589062097,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
+  },
+  "TSG 1899 Hoffenheim|Borussia Dortmund": {
+    "home": "TSG 1899 Hoffenheim",
+    "away": "Borussia Dortmund",
+    "date": "2026-09-05",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.2547488840529523,
+      "pd": 0.21315266860955698,
+      "pa": 0.5320984473374907,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.320783812261159,
+      "pd": 0.22280324309880123,
+      "pa": 0.4564129446400397,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
+  },
+  "Bayer 04 Leverkusen|1. FC Union Berlin": {
+    "home": "Bayer 04 Leverkusen",
+    "away": "1. FC Union Berlin",
+    "date": "2026-09-05",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.6576165864469233,
+      "pd": 0.1894469396823324,
+      "pa": 0.15293647387074422,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    },
+    "odds_fit": {
+      "ph": 0.6516092049998534,
+      "pd": 0.19118504808918557,
+      "pa": 0.157205746910961,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    }
+  },
+  "Borussia M\u00f6nchengladbach|SV 07 Elversberg": {
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "SV 07 Elversberg",
+    "date": "2026-09-05",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.2279227931653381,
+      "pd": 0.1863054429552941,
+      "pa": 0.5857717638793678,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.24903193497307702,
+      "pd": 0.18864242197366768,
+      "pa": 0.5623256430532553,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
+  },
+  "SC Paderborn 07|SC Freiburg": {
+    "home": "SC Paderborn 07",
+    "away": "SC Freiburg",
+    "date": "2026-09-05",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.32879591654275886,
+      "pd": 0.42796158200201545,
+      "pa": 0.24324250145522575,
+      "predicted_winner": "D",
+      "predicted_score": "0-0"
+    },
+    "odds_fit": {
+      "ph": 0.32646729239674166,
+      "pd": 0.4415306982630307,
+      "pa": 0.23200200934022758,
+      "predicted_winner": "D",
+      "predicted_score": "0-0"
+    }
+  },
+  "FC Schalke 04|FC Bayern M\u00fcnchen": {
+    "home": "FC Schalke 04",
+    "away": "FC Bayern M\u00fcnchen",
+    "date": "2026-09-05",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.005216896825900029,
+      "pd": 0.01958734894037564,
+      "pa": 0.9751957542337244,
+      "predicted_winner": "A",
+      "predicted_score": "0-4"
+    },
+    "odds_fit": {
+      "ph": 0.007281525315049782,
+      "pd": 0.02587910100852832,
+      "pa": 0.9668393736764219,
+      "predicted_winner": "A",
+      "predicted_score": "0-4"
+    }
+  },
+  "Hamburger SV|1. FSV Mainz 05": {
+    "home": "Hamburger SV",
+    "away": "1. FSV Mainz 05",
+    "date": "2026-09-06",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.33175192067647313,
+      "pd": 0.27747181463183357,
+      "pa": 0.3907762646916933,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.3779461947952692,
+      "pd": 0.25650797845311424,
+      "pa": 0.36554582675161645,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Eintracht Frankfurt|FC Augsburg": {
+    "home": "Eintracht Frankfurt",
+    "away": "FC Augsburg",
+    "date": "2026-09-06",
+    "snapped_at": "2026-09-04",
+    "baseline": {
+      "ph": 0.5727047035494877,
+      "pd": 0.20986364345130176,
+      "pa": 0.21743165299921055,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.560534272173651,
+      "pd": 0.21788002921665475,
+      "pa": 0.22158569860969426,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  }
+}
