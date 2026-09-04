@@ -269,22 +269,13 @@
       "brier": 0.08507465856440223,
       "log_loss": 0.26919040112655174,
       "total_goal_error": 3
-    },
-    {
-      "home": "Real Sociedad de F\u00fatbol",
-      "away": "RC Celta de Vigo",
-      "date": "2026-09-03",
-      "correct_winner": false,
-      "brier": 0.7869629395481491,
-      "log_loss": 1.2823050019018647,
-      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 31,
-    "accuracy": 0.6129032258064516,
-    "avg_brier": 0.5913240669156002,
-    "avg_log_loss": 1.0024930353445358,
-    "avg_goal_error": 1.7419354838709677
+    "n_scored": 30,
+    "accuracy": 0.6333333333333333,
+    "avg_brier": 0.584802771161182,
+    "avg_log_loss": 0.9931659697926247,
+    "avg_goal_error": 1.7666666666666666
   }
 }
