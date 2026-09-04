@@ -42,5 +42,6 @@
   "football_data_code": "PL",
   "momentum_weight": 0.1,
   "momentum_n": 8,
-  "odds_history_code": "E0"
+  "odds_history_code": "E0",
+  "odds_fit_weight": 5.0
 }

@@ -138,3 +138,14 @@ def test_odds_history_code_read_when_present():
     data = dict(VALID_DATA, odds_history_code="E0")
     config = CompetitionConfig(data)
     assert config.odds_history_code == "E0"
+
+
+def test_odds_fit_weight_defaults_to_zero():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.odds_fit_weight == 0.0
+
+
+def test_odds_fit_weight_read_when_present():
+    data = dict(VALID_DATA, odds_fit_weight=5.0)
+    config = CompetitionConfig(data)
+    assert config.odds_fit_weight == 5.0

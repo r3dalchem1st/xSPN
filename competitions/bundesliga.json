@@ -33,5 +33,6 @@
   "football_data_code": "BL1",
   "momentum_weight": 0.02,
   "momentum_n": 5,
-  "odds_history_code": "D1"
+  "odds_history_code": "D1",
+  "odds_fit_weight": 100.0
 }
