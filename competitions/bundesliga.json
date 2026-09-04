@@ -8,6 +8,11 @@
     {"season": "2025-26", "path": "2025-26/1-bundesliga.txt"},
     {"season": "2024-25", "path": "2024-25/1-bundesliga.txt"}
   ],
-  "team_aliases": {},
+  "team_aliases": {
+    "Union Berlin": "1. FC Union Berlin",
+    "Werder Bremen": "SV Werder Bremen",
+    "Bayer Leverkusen": "Bayer 04 Leverkusen",
+    "Borussia M'gladbach": "Borussia Mönchengladbach"
+  },
   "football_data_code": "BL1"
 }

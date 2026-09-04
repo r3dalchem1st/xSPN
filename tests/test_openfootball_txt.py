@@ -124,3 +124,54 @@ def test_penalty_shootout_score_parsed_separately_from_true_final_score():
     # shootout tally, not a goal count, and must not be trained on
     assert final["score"] == (1, 1)
     assert final["pen_score"] == (4, 3)
+
+
+# Real lines from openfootball/england's 2025-26/1-premierleague.txt (also
+# confirmed identical in structure for espana and deutschland's own 2025-26
+# files -- an openfootball tooling change, not a per-league quirk). Before
+# this fix, an entire season (~380 real matches) silently parsed to ZERO
+# training rows: no " v " between team names, no leading indent on the date
+# heading, "Regular Season - N" instead of "Matchday N".
+NO_V_FORMAT = """= England | Premier League 2025/26
+
+# Dates    Fri Aug 15 2025 - Sun May 24 2026 (282d)
+# Teams    20
+# Matches  380
+
+
+▪ Regular Season - 1
+Fri Aug 15 2025
+  19:00   Liverpool  4-2 (1-0)  Bournemouth
+                  (Hugo EKITIKE 37', Cody GAKPO 49', Federico Chiesa 88', MOHAMED SALAH 90+4';
+                   Antoine SEMENYO 64', 76')
+Sat Aug 16
+  12:30   Aston Villa  0-0 (0-0)  Newcastle United
+  14:00   Sunderland  3-0 (0-0)  West Ham United
+"""
+
+
+def test_no_v_format_parses_round_label_and_dateless_indent():
+    matches = parse_openfootball_txt(NO_V_FORMAT)
+    assert len(matches) == 3
+    assert matches[0] == {
+        "round": "Regular Season - 1", "date": "2025-08-15",
+        "home": "Liverpool", "away": "Bournemouth", "score": (4, 2),
+    }
+
+
+def test_no_v_format_dateless_continuation_line_and_zero_zero_score():
+    matches = parse_openfootball_txt(NO_V_FORMAT)
+    assert matches[1] == {
+        "round": "Regular Season - 1", "date": "2025-08-16",
+        "home": "Aston Villa", "away": "Newcastle United", "score": (0, 0),
+    }
+    assert matches[2]["home"] == "Sunderland"
+    assert matches[2]["away"] == "West Ham United"
+    assert matches[2]["score"] == (3, 0)
+
+
+def test_no_v_format_scorer_detail_lines_are_not_mistaken_for_matches():
+    # The two indented scorer lines under the first match must not produce
+    # spurious extra entries.
+    matches = parse_openfootball_txt(NO_V_FORMAT)
+    assert len(matches) == 3

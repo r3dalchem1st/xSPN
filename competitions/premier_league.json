@@ -8,6 +8,23 @@
     {"season": "2025-26", "path": "2025-26/1-premierleague.txt"},
     {"season": "2024-25", "path": "2024-25/1-premierleague.txt"}
   ],
-  "team_aliases": {},
+  "team_aliases": {
+    "Arsenal": "Arsenal FC",
+    "Aston Villa": "Aston Villa FC",
+    "Bournemouth": "AFC Bournemouth",
+    "Brentford": "Brentford FC",
+    "Brighton & Hove Albion": "Brighton & Hove Albion FC",
+    "Crystal Palace": "Crystal Palace FC",
+    "Everton": "Everton FC",
+    "Fulham": "Fulham FC",
+    "Leeds United": "Leeds United FC",
+    "Liverpool": "Liverpool FC",
+    "Manchester City": "Manchester City FC",
+    "Manchester United": "Manchester United FC",
+    "Newcastle United": "Newcastle United FC",
+    "Nottingham Forest": "Nottingham Forest FC",
+    "Sunderland": "Sunderland AFC",
+    "Tottenham Hotspur": "Tottenham Hotspur FC"
+  },
   "football_data_code": "PL"
 }
