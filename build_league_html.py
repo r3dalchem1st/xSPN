@@ -24,7 +24,7 @@ from datetime import date
 DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DIR)
 from render_nav import nav_entries, render_nav_html
-from sim_league import build_lambda_tables
+from sim_league import build_match_lambda_tables
 from snapshot_league import hda_probs, likely_score
 
 RELEGATION_ZONE = 3  # Premier League specific; a display choice, not baked
@@ -331,7 +331,9 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
         teams = sorted({t for key in schedule for t in key.split("|")})
         with open(ensemble_path) as f:
             dc_ensemble = json.load(f)
-        lg_ens = build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
+        matches_path = os.path.join(out_dir, "fetched_matches.json")
+        matches = json.load(open(matches_path)) if os.path.exists(matches_path) else []
+        lg_ens = build_match_lambda_tables(config, teams, dc_ensemble, matches, date.today().isoformat())
         rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     rows = build_standings_rows(schedule, rank_dist, relegation_zone)

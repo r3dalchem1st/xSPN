@@ -13,7 +13,7 @@ import os
 import sys
 from datetime import date
 
-from sim_copa import league_average_lambda_table
+from sim_copa import build_match_lambda_tables
 from snapshot_league import LOCK_WINDOW_DAYS, fixture_due, hda_probs, likely_score
 
 
@@ -47,8 +47,11 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
     else:
         snapshot = {}
 
+    matches_path = os.path.join(out_dir, "fetched_matches.json")
+    matches = json.load(open(matches_path)) if os.path.exists(matches_path) else []
+
     teams = sorted({t for fx in knockout_fixtures for t in (fx["home"], fx["away"])})
-    lg_ens = [league_average_lambda_table(teams, dc, config.strength_shrink) for dc in dc_ensemble]
+    lg_ens = build_match_lambda_tables(config, teams, dc_ensemble, matches, today)
     rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     added = 0

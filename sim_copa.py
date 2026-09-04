@@ -43,7 +43,7 @@ from collections import defaultdict
 
 import numpy as np
 
-from sim_league import _poisson, build_lambda_table
+from sim_league import _poisson, build_lambda_table, build_lambda_table_with_momentum
 
 ROUND_ORDER = ["preliminary", "round_1", "round_2", "round_3",
                "round_of_16", "quarterfinal", "semifinal", "final"]
@@ -198,6 +198,27 @@ def league_average_lambda_table(teams, dc, strength_shrink=1.0):
     missing from `dc` already defaults to a neutral league-average rating
     via that function's own existing behavior."""
     return build_lambda_table(teams, dc, strength_shrink)
+
+
+def league_average_lambda_table_with_momentum(teams, dc, matches, as_of_date, momentum_weight,
+                                               momentum_n=5, strength_shrink=1.0):
+    """Thin wrapper over sim_league.build_lambda_table_with_momentum, same
+    reasoning as league_average_lambda_table's own docstring."""
+    return build_lambda_table_with_momentum(teams, dc, matches, as_of_date, momentum_weight,
+                                             momentum_n, strength_shrink)
+
+
+def build_match_lambda_tables(config, teams, dc_ensemble, matches, as_of_date):
+    """Copa-side equivalent of sim_league.build_match_lambda_tables (same
+    momentum-or-plain choice), routed through league_average_lambda_table(s)
+    so snapshot_copa.py doesn't need to import sim_league directly -- same
+    reasoning as league_average_lambda_table's own docstring."""
+    if config.momentum_weight:
+        return [league_average_lambda_table_with_momentum(
+                    teams, dc, matches, as_of_date, config.momentum_weight,
+                    config.momentum_n, config.strength_shrink)
+                for dc in dc_ensemble]
+    return [league_average_lambda_table(teams, dc, config.strength_shrink) for dc in dc_ensemble]
 
 
 def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42):

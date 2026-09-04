@@ -114,3 +114,16 @@ def test_calibration_fields_read_when_present():
     assert config.strength_shrink == 0.6
     assert config.draw_inflate == 0.35
     assert config.use_rho is True
+
+
+def test_momentum_fields_default_to_no_op():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.momentum_weight == 0.0
+    assert config.momentum_n == 5
+
+
+def test_momentum_fields_read_when_present():
+    data = dict(VALID_DATA, momentum_weight=0.1, momentum_n=8)
+    config = CompetitionConfig(data)
+    assert config.momentum_weight == 0.1
+    assert config.momentum_n == 8

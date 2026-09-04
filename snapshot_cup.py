@@ -20,7 +20,7 @@ import os
 import sys
 from datetime import date
 
-from sim_league import build_lambda_tables
+from sim_league import build_match_lambda_tables
 from snapshot_league import LOCK_WINDOW_DAYS, fixture_due, hda_probs, likely_score
 
 
@@ -62,8 +62,11 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
     else:
         snapshot = {}
 
+    matches_path = os.path.join(out_dir, "fetched_matches.json")
+    matches = json.load(open(matches_path)) if os.path.exists(matches_path) else []
+
     teams = sorted({t for key in league_schedule for t in key.split("|")})
-    lg_ens = build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
+    lg_ens = build_match_lambda_tables(config, teams, dc_ensemble, matches, today)
     rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     added = 0

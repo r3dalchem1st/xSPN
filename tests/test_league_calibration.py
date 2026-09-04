@@ -1,7 +1,7 @@
 import math
 
-from league_calibration import (GOAL_ANCHOR, clamp_lambda, hda_probs_from_lambda,
-                                 inflate_hda, shrink_lambda)
+from league_calibration import (GOAL_ANCHOR, clamp_lambda, compute_momentum,
+                                 hda_probs_from_lambda, inflate_hda, shrink_lambda)
 
 
 def test_shrink_lambda_is_identity_at_strength_1():
@@ -69,3 +69,58 @@ def test_hda_probs_from_lambda_rho_shifts_low_score_mass():
     # Still a valid probability triple.
     assert math.isclose(sum(adjusted), 1.0, abs_tol=1e-6)
     assert all(0.0 <= p <= 1.0 for p in adjusted)
+
+
+# [date, home, away, hg, ag, label, neutral]
+STRONG_FORM = [
+    ["2026-01-01", "Team A", "Team B", 3, 0, "Test League", False],
+    ["2026-01-08", "Team C", "Team A", 0, 2, "Test League", False],
+    ["2026-01-15", "Team A", "Team D", 1, 0, "Test League", False],
+]
+COLD_FORM = [
+    ["2026-01-01", "Team A", "Team B", 0, 3, "Test League", False],
+    ["2026-01-08", "Team C", "Team A", 2, 0, "Test League", False],
+]
+
+
+def test_compute_momentum_returns_zero_with_no_history():
+    assert compute_momentum("Team A", "2026-01-01", []) == 0.0
+
+
+def test_compute_momentum_returns_zero_for_a_team_absent_from_history():
+    assert compute_momentum("Team Z", "2026-02-01", STRONG_FORM) == 0.0
+
+
+def test_compute_momentum_averages_goal_difference_home_and_away():
+    # Team A: +3 (home win 3-0), +2 (away win, 0-2 as away means +2 for A),
+    # +1 (home win 1-0) -> average (3+2+1)/3 = 2.0
+    momentum = compute_momentum("Team A", "2026-02-01", STRONG_FORM)
+    assert momentum == 2.0
+
+
+def test_compute_momentum_only_counts_matches_strictly_before_as_of_date():
+    # Cutting off before the 3rd match should only see the first two.
+    momentum = compute_momentum("Team A", "2026-01-15", STRONG_FORM)
+    assert momentum == (3 + 2) / 2
+
+
+def test_compute_momentum_excludes_matches_on_or_after_as_of_date_exactly():
+    # A match dated exactly as_of_date must not count (it hasn't been
+    # played "before" this prediction from the model's point of view).
+    momentum = compute_momentum("Team A", "2026-01-01", STRONG_FORM)
+    assert momentum == 0.0  # no qualifying matches before the very first one
+
+
+def test_compute_momentum_negative_for_a_cold_streak():
+    momentum = compute_momentum("Team A", "2026-02-01", COLD_FORM)
+    assert momentum < 0.0
+
+
+def test_compute_momentum_window_limits_to_last_n_matches():
+    long_history = [
+        ["2026-01-01", "Team A", "Team B", 5, 0, "Test League", False],  # +5, outside window
+        ["2026-01-08", "Team A", "Team B", 0, 0, "Test League", False],  # 0
+        ["2026-01-15", "Team A", "Team B", 0, 0, "Test League", False],  # 0
+    ]
+    momentum = compute_momentum("Team A", "2026-02-01", long_history, n=2)
+    assert momentum == 0.0  # only the last 2 (0, 0) counted, not the +5

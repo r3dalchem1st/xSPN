@@ -28,7 +28,7 @@ import sys
 from datetime import date
 
 from league_calibration import hda_probs_from_lambda, inflate_hda
-from sim_league import build_lambda_tables
+from sim_league import build_match_lambda_tables
 
 LOCK_WINDOW_DAYS = 5  # WIDER than the WC's LOCK_WINDOW_DAYS=2 on purpose: this
 # runs once daily (update-leagues.yml), not the WC's 4x/day, so a window this
@@ -116,8 +116,11 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
     else:
         snapshot = {}
 
+    matches_path = os.path.join(out_dir, "fetched_matches.json")
+    matches = json.load(open(matches_path)) if os.path.exists(matches_path) else []
+
     teams = sorted({t for key in schedule for t in key.split("|")})
-    lg_ens = build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
+    lg_ens = build_match_lambda_tables(config, teams, dc_ensemble, matches, today)
     rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     added = 0

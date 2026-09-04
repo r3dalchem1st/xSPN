@@ -1,6 +1,9 @@
 import math
 
-from sim_league import build_lambda_table, build_lambda_tables, compute_standings_and_remaining
+from competition_config import CompetitionConfig
+from sim_league import (build_lambda_table, build_lambda_table_with_momentum,
+                         build_lambda_tables, build_lambda_tables_with_momentum,
+                         build_match_lambda_tables, compute_standings_and_remaining)
 
 DC_SAMPLE = {
     "attack": {"Strong FC": 0.8, "Weak FC": -0.6},
@@ -62,6 +65,68 @@ def test_build_lambda_table_clamps_an_extreme_mismatch():
     lam, mu = lg[("Giant FC", "Minnow FC")]
     assert lam <= 5.0
     assert mu >= 0.20
+
+
+# [date, home, away, hg, ag, label, neutral]
+HOT_STREAK_HISTORY = [
+    ["2026-01-01", "Weak FC", "Strong FC", 0, 0, "Test League", False],
+    ["2026-01-08", "Weak FC", "Strong FC", 4, 0, "Test League", False],
+    ["2026-01-15", "Weak FC", "Strong FC", 3, 0, "Test League", False],
+]
+
+
+def test_build_lambda_table_with_momentum_zero_weight_equals_plain_table_shape():
+    # weight=0.0 doesn't multiply out to a true no-op numerically here since
+    # this function always calls compute_momentum, but it should still
+    # reproduce the SAME lambda values as the plain builder when the
+    # momentum contribution itself is zeroed out.
+    lg_plain = build_lambda_table(["Strong FC", "Weak FC"], DC_SAMPLE)
+    lg_momentum = build_lambda_table_with_momentum(
+        ["Strong FC", "Weak FC"], DC_SAMPLE, HOT_STREAK_HISTORY, "2026-02-01", momentum_weight=0.0)
+    assert lg_plain == lg_momentum
+
+
+def test_build_lambda_table_with_momentum_boosts_a_team_on_a_hot_streak():
+    lg_no_momentum = build_lambda_table_with_momentum(
+        ["Strong FC", "Weak FC"], DC_SAMPLE, HOT_STREAK_HISTORY, "2026-02-01", momentum_weight=0.0)
+    lg_with_momentum = build_lambda_table_with_momentum(
+        ["Strong FC", "Weak FC"], DC_SAMPLE, HOT_STREAK_HISTORY, "2026-02-01", momentum_weight=0.1)
+    lam_no_mom, _ = lg_no_momentum[("Weak FC", "Strong FC")]
+    lam_with_mom, _ = lg_with_momentum[("Weak FC", "Strong FC")]
+    # Weak FC has been on a hot streak (avg GD +7/3 over its last 3) -- its
+    # home lambda should rise once momentum is blended in.
+    assert lam_with_mom > lam_no_mom
+
+
+def test_build_lambda_tables_with_momentum_returns_one_per_ensemble_member():
+    tables = build_lambda_tables_with_momentum(
+        ["Strong FC", "Weak FC"], [DC_SAMPLE, DC_SAMPLE], HOT_STREAK_HISTORY, "2026-02-01", 0.1)
+    assert len(tables) == 2
+
+
+MOMENTUM_CONFIG_DATA = {
+    "slug": "test_league", "name": "Test League", "format": "round_robin",
+    "openfootball_repo": "openfootball/example",
+    "openfootball_files": [{"season": "2026-27", "path": "2026-27/1-test.txt"}],
+    "team_aliases": {},
+}
+
+
+def test_build_match_lambda_tables_uses_plain_builder_when_momentum_not_configured():
+    config = CompetitionConfig(MOMENTUM_CONFIG_DATA)
+    tables = build_match_lambda_tables(config, ["Strong FC", "Weak FC"], [DC_SAMPLE],
+                                        HOT_STREAK_HISTORY, "2026-02-01")
+    plain = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE])
+    assert tables == plain
+
+
+def test_build_match_lambda_tables_uses_momentum_builder_when_configured():
+    config = CompetitionConfig(dict(MOMENTUM_CONFIG_DATA, momentum_weight=0.1, momentum_n=3))
+    tables = build_match_lambda_tables(config, ["Strong FC", "Weak FC"], [DC_SAMPLE],
+                                        HOT_STREAK_HISTORY, "2026-02-01")
+    with_momentum = build_lambda_tables_with_momentum(
+        ["Strong FC", "Weak FC"], [DC_SAMPLE], HOT_STREAK_HISTORY, "2026-02-01", 0.1, 3)
+    assert tables == with_momentum
 
 
 SAMPLE_SCHEDULE = {

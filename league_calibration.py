@@ -88,3 +88,35 @@ def hda_probs_from_lambda(lam, mu, rho=0.0, max_g=10):
                 pd += p
     s = ph + pd + pa
     return (ph / s, pd / s, pa / s) if s else (0.0, 0.0, 0.0)
+
+
+def compute_momentum(team, as_of_date, history, n=5):
+    """Average goal difference per game for `team` over its last `n`
+    matches STRICTLY BEFORE as_of_date, drawn from `history` (an iterable
+    of [date, home, away, hg, ag, label, neutral] rows, any order -- both
+    home and away appearances count, oriented so a result is always
+    goals_for - goals_against for `team`). Returns 0.0 (neutral -- neither
+    hot nor cold) if the team has no qualifying match in `history`, e.g. a
+    newly-promoted team or the very first matches of a season with no
+    history behind it at all.
+
+    A short rolling window is a genuinely different signal from
+    fit_league.py's own recency weighting: that fit smooths ALL history
+    with an 18-month half-life, which reacts far too slowly to reflect a
+    team's last few weeks of form (a hot or cold streak). Whether this
+    signal actually improves predictions on real data, and what window
+    size / blend weight works best, is exactly what backtest_league.py's
+    grid search is for -- not assumed here."""
+    diffs = []
+    for date_, home, away, hg, ag, _label, _neutral in history:
+        if date_ >= as_of_date:
+            continue
+        if home == team:
+            diffs.append((date_, hg - ag))
+        elif away == team:
+            diffs.append((date_, ag - hg))
+    if not diffs:
+        return 0.0
+    diffs.sort(key=lambda d: d[0])
+    recent = diffs[-n:]
+    return sum(gd for _, gd in recent) / len(recent)
