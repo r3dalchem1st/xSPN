@@ -8,6 +8,17 @@
     {"season": "2025-26", "path": "2025-26/1-liga.txt"},
     {"season": "2024-25", "path": "2024-25/1-liga.txt"}
   ],
-  "team_aliases": {},
+  "team_aliases": {
+    "Atlético de Madrid": "Club Atlético de Madrid",
+    "Barcelona": "FC Barcelona",
+    "RC Celta": "RC Celta de Vigo",
+    "RCD Espanyol": "RCD Espanyol de Barcelona",
+    "Rayo Vallecano": "Rayo Vallecano de Madrid",
+    "Real Betis": "Real Betis Balompié",
+    "Real Madrid C.F.": "Real Madrid CF",
+    "Real Sociedad": "Real Sociedad de Fútbol",
+    "Sevilla": "Sevilla FC",
+    "Villarreal": "Villarreal CF"
+  },
   "football_data_code": "PD"
 }

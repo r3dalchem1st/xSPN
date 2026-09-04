@@ -17,13 +17,29 @@ Format recap (see any file under github.com/openfootball for real examples):
                                           score+half-time suffix is present
                                           only for a played match
 
-Known gap: openfootball/england's 2023-24 season and earlier use an OLDER
-format revision this parser does not handle (score sits between the teams
-with no "v", no 2-space date indent, no year on the first date line) — such
-a file silently parses to zero matches rather than raising. Confirmed via
-2023-24/1-premierleague.txt during Task 5's live smoke test; 2024-25 onward
-all use the format above. If older seasons are ever needed, this needs a
-second parsing branch — not attempted here, since 2+ recent seasons already
+Second format, confirmed live across England/Germany/Spain's 2025-26 season
+files (all three switched the same way — an openfootball tooling change,
+not a per-league quirk): round labels read "Regular Season - N" instead of
+"Matchday N", the date heading has NO leading indent (vs. 2 spaces), and a
+played match has no " v " between team names at all — the score sits
+directly between them instead:
+  Regular Season - 1
+  Fri Aug 15 2025
+    19:00   Liverpool  4-2 (1-0)  Bournemouth
+Found while building backtest_league.py: this meant La Liga/Premier League/
+Bundesliga's entire 2025-26 season (~380 real matches each) silently parsed
+to ZERO training rows in production — a real, live data-completeness bug,
+not a backtest-only inconvenience (confirmed via each competition's actual
+committed fetched_matches.json: exactly one season's worth of rows, not
+two). Round labels from this format are NOT translated to "Matchday N" —
+nothing downstream needs that for a pure training-data season (only the
+CURRENT season's schedule, still the older format as of this fix, drives
+bracket-column sorting).
+
+Older gap, still real: openfootball/england's 2023-24 season and earlier
+use a THIRD, different older revision (documented before this fix existed)
+that neither branch here handles — still silently parses to zero matches.
+Not attempted here either, since 3+ recent seasons per competition already
 give ample training data given the model's ~1.5yr Elo/DC recency half-life.
 
 Knockout-tie scores (two-legged cup ties, single-match finals) add extra
@@ -45,7 +61,7 @@ _MONTHS = {m: i + 1 for i, m in enumerate(
     ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])}
 
-_DATE_RE = re.compile(r'^\s{2}(\w{3}) (\w{3}) (\d{1,2})(?: (\d{4}))?\s*$')
+_DATE_RE = re.compile(r'^\s{0,2}(\w{3}) (\w{3}) (\d{1,2})(?: (\d{4}))?\s*$')
 _MATCH_RE = re.compile(
     r'^\s*(?:\d{2}:\d{2}\s+)?(.+?)\s+v\s+(.+?)'
     r'(?:\s{2,}'
@@ -55,6 +71,14 @@ _MATCH_RE = re.compile(
     r'(?:\s*\(\d+-\d+(?:,\s*\d+-\d+)?\))?'      # regulation/HT breakdown, discarded
     r')?'
     r'\s*$'
+)
+# Second format (see module docstring): no " v ", score sits directly
+# between the two team names. Only ever observed already-played (a
+# completed historical season), so — unlike _MATCH_RE — there's no
+# unplayed-match branch here; a real unplayed example in this style would
+# need confirming against live data before guessing its shape.
+_MATCH_RE_NOV = re.compile(
+    r'^\s*(?:\d{2}:\d{2}\s+)?(.+?)\s{2,}(\d+)-(\d+)(?:\s*\(\d+-\d+\))?\s{2,}(.+?)\s*$'
 )
 
 
@@ -93,14 +117,19 @@ def parse_openfootball_txt(text):
             current_date = f"{current_year:04d}-{month:02d}-{int(day_str):02d}"
             continue
 
-        if ' v ' not in line:
-            continue  # metadata/blank-ish line we don't otherwise recognise
-        match_m = _MATCH_RE.match(line)
-        if not match_m:
-            continue
+        pen_hg = pen_ag = None
+        if ' v ' in line:
+            match_m = _MATCH_RE.match(line)
+            if not match_m:
+                continue
+            home, away, pen_hg, pen_ag, hg, ag = match_m.groups()
+        else:
+            match_m = _MATCH_RE_NOV.match(line)
+            if not match_m:
+                continue  # metadata/blank-ish line we don't otherwise recognise
+            home, hg, ag, away = match_m.groups()
         if current_date is None:
             raise ValueError(f"match line before any date line: {line!r}")
-        home, away, pen_hg, pen_ag, hg, ag = match_m.groups()
         score = (int(hg), int(ag)) if hg is not None else None
         match = {
             "round": current_round, "date": current_date,
