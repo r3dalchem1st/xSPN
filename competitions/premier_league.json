@@ -31,7 +31,13 @@
     "Man United": "Manchester United FC",
     "Newcastle": "Newcastle United FC",
     "Nott'm Forest": "Nottingham Forest FC",
-    "Tottenham": "Tottenham Hotspur FC"
+    "Tottenham": "Tottenham Hotspur FC",
+    "Chelsea": "Chelsea FC",
+    "Ipswich": "Ipswich Town FC",
+    "Leicester": "Leicester City FC",
+    "Southampton": "Southampton FC",
+    "West Ham": "West Ham United FC",
+    "Wolves": "Wolverhampton Wanderers FC"
   },
   "football_data_code": "PL",
   "momentum_weight": 0.1,

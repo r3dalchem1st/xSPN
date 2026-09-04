@@ -32,7 +32,12 @@
     "Real Madrid": "Real Madrid CF",
     "Sociedad": "Real Sociedad de Fútbol",
     "Valencia": "Valencia CF",
-    "Vallecano": "Rayo Vallecano de Madrid"
+    "Vallecano": "Rayo Vallecano de Madrid",
+    "Girona": "Girona FC",
+    "Las Palmas": "UD Las Palmas",
+    "Leganes": "CD Leganés",
+    "Mallorca": "RCD Mallorca",
+    "Valladolid": "Real Valladolid CF"
   },
   "football_data_code": "PD",
   "odds_history_code": "SP1"
