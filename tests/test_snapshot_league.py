@@ -132,3 +132,73 @@ def test_snapshot_and_save_uses_momentum_when_configured(tmp_path):
         snap_on = json.load(f)["Weak FC|Strong FC"]
 
     assert snap_on["ph"] > snap_off["ph"]  # Weak FC's home win chance rises with momentum on
+
+
+def test_snapshot_and_save_uses_odds_when_available():
+    # Per backtest_odds.py's finding, a fixture WITH live odds uses them
+    # directly in place of the model's own H/D/A -- full replacement, not a
+    # blend, since weight_on_odds=1.0 won every grid point in all 3 leagues.
+    schedule = {"Weak FC|Strong FC": {
+        "date": "2026-08-16", "status": "SCHEDULED",
+        "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 1",
+    }}
+    config = CompetitionConfig(MOMENTUM_CONFIG_DATA)
+    out_dir = "test_snapshot_odds_tmp"
+    import shutil
+    shutil.rmtree(out_dir, ignore_errors=True)
+    try:
+        _write_league_files(out_dir, "test_league", schedule, [])
+        odds_lookup = {("Weak FC", "Strong FC"): (0.9, 0.07, 0.03)}
+        snapshot_and_save(config, out_dir, [DC_SAMPLE], today="2026-08-14", odds_lookup=odds_lookup)
+        with open(os.path.join(out_dir, "competitions", "test_league",
+                                "predictions_snapshot.json")) as f:
+            snap = json.load(f)["Weak FC|Strong FC"]
+        assert (snap["ph"], snap["pd"], snap["pa"]) == (0.9, 0.07, 0.03)
+        assert snap["predicted_winner"] == "H"
+        assert snap["source"] == "odds"
+    finally:
+        shutil.rmtree(out_dir, ignore_errors=True)
+
+
+def test_snapshot_and_save_falls_back_to_model_when_no_odds_for_fixture():
+    schedule = {"Weak FC|Strong FC": {
+        "date": "2026-08-16", "status": "SCHEDULED",
+        "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 1",
+    }}
+    config = CompetitionConfig(MOMENTUM_CONFIG_DATA)
+    out_dir = "test_snapshot_no_odds_tmp"
+    import shutil
+    shutil.rmtree(out_dir, ignore_errors=True)
+    try:
+        _write_league_files(out_dir, "test_league", schedule, [])
+        snapshot_and_save(config, out_dir, [DC_SAMPLE], today="2026-08-14", odds_lookup={})
+        with open(os.path.join(out_dir, "competitions", "test_league",
+                                "predictions_snapshot.json")) as f:
+            snap = json.load(f)["Weak FC|Strong FC"]
+        assert snap["source"] == "model"
+    finally:
+        shutil.rmtree(out_dir, ignore_errors=True)
+
+
+def test_snapshot_and_save_defaults_to_no_live_odds_without_sport_key(monkeypatch):
+    # No odds_api_sport_key configured -> odds_lookup must never even be
+    # fetched (no live HTTP call), same no-op discipline as
+    # football_data_code/momentum_weight before their real values existed.
+    import snapshot_league
+    def boom(*a, **k):
+        raise AssertionError("fetch_upcoming_odds should not be called without odds_api_sport_key")
+    monkeypatch.setattr(snapshot_league, "fetch_upcoming_odds", boom)
+
+    schedule = {"Weak FC|Strong FC": {
+        "date": "2026-08-16", "status": "SCHEDULED",
+        "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 1",
+    }}
+    config = CompetitionConfig(MOMENTUM_CONFIG_DATA)
+    out_dir = "test_snapshot_no_sportkey_tmp"
+    import shutil
+    shutil.rmtree(out_dir, ignore_errors=True)
+    try:
+        _write_league_files(out_dir, "test_league", schedule, [])
+        snapshot_and_save(config, out_dir, [DC_SAMPLE], today="2026-08-14")
+    finally:
+        shutil.rmtree(out_dir, ignore_errors=True)
