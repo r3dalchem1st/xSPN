@@ -199,3 +199,66 @@ def test_fit_and_save_raises_on_empty_training_data(tmp_path):
     _write_fetched_matches(str(tmp_path), config.slug, [])
     with pytest.raises(ValueError, match="no training matches"):
         fit_and_save(config, str(tmp_path), bootstrap_size=3)
+
+
+def test_fit_dc_with_odds_weight_zero_matches_plain_fit_exactly():
+    # odds_weight=0.0 (the default) must be a true no-op, even when
+    # mkt_probs_by_match is supplied -- byte-identical to fit_dc's
+    # pre-existing behavior until a real weight is set from a real backtest.
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    plain = fit_dc(SYNTHETIC_MATCHES, elo)
+    mkt_probs = [(0.9, 0.05, 0.05)] * len(SYNTHETIC_MATCHES)
+    with_zero_weight = fit_dc(SYNTHETIC_MATCHES, elo, mkt_probs_by_match=mkt_probs, odds_weight=0.0)
+    assert plain["attack"] == with_zero_weight["attack"]
+    assert plain["defense"] == with_zero_weight["defense"]
+    assert plain["home_adv"] == with_zero_weight["home_adv"]
+
+
+def test_fit_dc_with_no_mkt_probs_matches_plain_fit_exactly():
+    # Symmetric no-op check: a nonzero odds_weight with no mkt_probs at all
+    # must also change nothing (has_odds never gets built).
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    plain = fit_dc(SYNTHETIC_MATCHES, elo)
+    with_weight_no_odds = fit_dc(SYNTHETIC_MATCHES, elo, odds_weight=5.0)
+    assert plain["attack"] == with_weight_no_odds["attack"]
+
+
+def test_fit_dc_odds_term_pulls_fit_toward_a_contradicting_market_signal():
+    # Sanity check the mechanism actually does something: tell the fit that
+    # the market saw Newcomer FC (the model's clear underdog on goals alone)
+    # as a heavy favorite in every match, with a large odds_weight. The
+    # resulting attack rating for Newcomer FC should rise relative to the
+    # unweighted fit -- proof the odds term is really pulling params, not a
+    # no-op silently doing nothing.
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    plain = fit_dc(SYNTHETIC_MATCHES, elo)
+    mkt_probs = []
+    for _date, home, away, *_ in SYNTHETIC_MATCHES:
+        if home == "Newcomer FC":
+            mkt_probs.append((0.9, 0.05, 0.05))
+        elif away == "Newcomer FC":
+            mkt_probs.append((0.05, 0.05, 0.9))
+        else:
+            mkt_probs.append(None)
+    pulled = fit_dc(SYNTHETIC_MATCHES, elo, mkt_probs_by_match=mkt_probs, odds_weight=10.0)
+    assert pulled["attack"]["Newcomer FC"] > plain["attack"]["Newcomer FC"]
+
+
+def test_build_rows_co_filters_mkt_probs_with_matches():
+    idx = {"Strong FC": 0, "Mid FC": 1}
+    matches = [
+        ["2025-08-05", "Strong FC", "Mid FC", 1, 0, "Test League", False],
+        ["2025-08-05", "Strong FC", "Unknown FC", 2, 0, "Test League", False],  # filtered out
+        ["2025-08-12", "Mid FC", "Strong FC", 0, 1, "Test League", False],
+    ]
+    mkt_probs_by_match = [(0.5, 0.3, 0.2), (0.9, 0.05, 0.05), None]
+    rows, mkt_probs = fit_league._build_rows(matches, idx, mkt_probs_by_match=mkt_probs_by_match)
+    assert len(rows) == 2  # the "Unknown FC" row is dropped
+    assert mkt_probs == [(0.5, 0.3, 0.2), None]  # co-filtered in lockstep, not just truncated
+
+
+def test_build_rows_returns_none_mkt_probs_when_not_requested():
+    idx = {"Strong FC": 0, "Mid FC": 1}
+    matches = [["2025-08-05", "Strong FC", "Mid FC", 1, 0, "Test League", False]]
+    rows, mkt_probs = fit_league._build_rows(matches, idx)
+    assert mkt_probs is None

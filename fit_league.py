@@ -21,6 +21,8 @@ import numpy as np
 from scipy.optimize import minimize
 from scipy.special import gammaln
 
+from league_calibration import hda_probs_vectorized
+
 INIT_ELO = 1500
 HOME_ADV_SEED = 100     # Elo home-advantage bonus (K-factor update only; the
                          # DC fit below learns its own home_adv independently)
@@ -63,19 +65,30 @@ def compute_elos(matches, init_elo=INIT_ELO, home_adv=HOME_ADV_SEED,
     return r
 
 
-def _build_rows(matches, idx, half_life_days=HALF_LIFE_DAYS):
+def _build_rows(matches, idx, half_life_days=HALF_LIFE_DAYS, mkt_probs_by_match=None):
+    """`mkt_probs_by_match`, when given, is a list parallel to `matches`
+    itself (same length/order; each entry a (ph,pd,pa) market-implied
+    triple or None for a match with no known odds) -- co-filtered here in
+    lockstep with the same home/away-in-idx check that filters `matches`
+    into `rows`, so the two stay aligned automatically rather than relying
+    on a caller to re-derive the filtering. Returns (rows, mkt_probs);
+    mkt_probs is None when mkt_probs_by_match wasn't given."""
     rows = []
-    for row in matches:
+    mkt_probs = [] if mkt_probs_by_match is not None else None
+    for i, row in enumerate(matches):
         date_str, home, away, hg, ag, _label, neutral = row
         if home not in idx or away not in idx:
             continue
         d = days_ago(date_str)
         w = 0.5 ** (d / half_life_days)
         rows.append((idx[home], idx[away], hg, ag, w, bool(neutral)))
-    return rows
+        if mkt_probs_by_match is not None:
+            mkt_probs.append(mkt_probs_by_match[i])
+    return rows, mkt_probs
 
 
-def _fit_rows(rows, teams, x0, l2_reg=L2_REG, maxiter=2000, w_scale=None):
+def _fit_rows(rows, teams, x0, l2_reg=L2_REG, maxiter=2000, w_scale=None,
+              mkt_probs=None, odds_weight=0.0):
     n = len(teams)
     hi = np.array([r[0] for r in rows], dtype=np.int32)
     ai = np.array([r[1] for r in rows], dtype=np.int32)
@@ -93,6 +106,23 @@ def _fit_rows(rows, teams, x0, l2_reg=L2_REG, maxiter=2000, w_scale=None):
     m01 = (hg == 0) & (ag == 1)
     m10 = (hg == 1) & (ag == 0)
     m11 = (hg == 1) & (ag == 1)
+
+    # Odds-consistency term (see backtest_fit_odds.py): penalizes the
+    # model's OWN implied H/D/A (computed from lam/mu at the CURRENT
+    # candidate params, every optimizer iteration) diverging from a
+    # historical match's real, de-vigged bookmaker odds -- a cross-entropy
+    # pulling attack/defense/home_adv toward values more consistent with
+    # what markets saw in past matches. mkt_probs=None or odds_weight=0.0
+    # (either alone) is an EXACT no-op: has_odds stays None, odds_term
+    # stays 0.0 unconditionally below, so this can never change fit_dc's
+    # existing behavior until a real weight is set from a real backtest.
+    has_odds = mkt_ph = mkt_pd = mkt_pa = None
+    if mkt_probs is not None and odds_weight:
+        mkt_arr = np.array(
+            [p if p is not None else (np.nan, np.nan, np.nan) for p in mkt_probs],
+            dtype=np.float64)
+        has_odds = ~np.isnan(mkt_arr[:, 0])
+        mkt_ph, mkt_pd, mkt_pa = mkt_arr[:, 0], mkt_arr[:, 1], mkt_arr[:, 2]
 
     def neg_ll(params):
         atk = params[:n]; dfn = params[n:2 * n]
@@ -115,7 +145,16 @@ def _fit_rows(rows, teams, x0, l2_reg=L2_REG, maxiter=2000, w_scale=None):
         ll = np.sum(w * (np.log(tau) + ll_h + ll_a))
 
         reg = l2_reg * (np.dot(atk, atk) + np.dot(dfn, dfn))
-        return -ll + reg
+
+        odds_term = 0.0
+        if has_odds is not None and has_odds.any():
+            m_ph, m_pd, m_pa = hda_probs_vectorized(lam[has_odds], mu[has_odds], rho)
+            ce = -(mkt_ph[has_odds] * np.log(np.maximum(m_ph, 1e-12))
+                   + mkt_pd[has_odds] * np.log(np.maximum(m_pd, 1e-12))
+                   + mkt_pa[has_odds] * np.log(np.maximum(m_pa, 1e-12)))
+            odds_term = odds_weight * np.sum(w[has_odds] * ce)
+
+        return -ll + reg + odds_term
 
     return minimize(neg_ll, x0, method='Powell',
                      options={'maxiter': maxiter, 'ftol': 1e-6, 'xtol': 1e-5})
@@ -138,13 +177,21 @@ def _unpack(p, teams):
     }
 
 
-def fit_dc(matches, elo_ratings):
+def fit_dc(matches, elo_ratings, mkt_probs_by_match=None, odds_weight=0.0):
     """Point-estimate Dixon-Coles fit. Returns dict with attack/defense/
-    home_adv/rho/teams/converged/fun."""
+    home_adv/rho/teams/converged/fun.
+
+    `mkt_probs_by_match`/`odds_weight` (both default to a true no-op) fold
+    a historical odds-consistency term into the fit itself -- see
+    _fit_rows's own docstring/comment and backtest_fit_odds.py, which
+    grid-searches real odds_weight values against real backtested
+    accuracy/Brier/log-loss before any competition config sets one for
+    real; unset, this is byte-identical to fit_dc before this existed."""
     teams = sorted({m[1] for m in matches} | {m[2] for m in matches})
     idx = {t: i for i, t in enumerate(teams)}
-    rows = _build_rows(matches, idx)
-    res = _fit_rows(rows, teams, _x0_from_elo(teams, elo_ratings))
+    rows, mkt_probs = _build_rows(matches, idx, mkt_probs_by_match=mkt_probs_by_match)
+    res = _fit_rows(rows, teams, _x0_from_elo(teams, elo_ratings),
+                     mkt_probs=mkt_probs, odds_weight=odds_weight)
     out = _unpack(res.x, teams)
     out.update(teams=teams, converged=bool(res.success), fun=float(res.fun))
     return out
@@ -162,7 +209,7 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
     later session)."""
     teams = point_dc["teams"]
     idx = {t: i for i, t in enumerate(teams)}
-    rows = _build_rows(matches, idx)
+    rows, _ = _build_rows(matches, idx)
     x0 = np.concatenate([
         [point_dc["attack"][t] for t in teams],
         [point_dc["defense"][t] for t in teams],
