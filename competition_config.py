@@ -51,6 +51,15 @@ class CompetitionConfig:
         self.strength_shrink = data.get("strength_shrink", 1.0)
         self.draw_inflate = data.get("draw_inflate", 0.0)
         self.use_rho = data.get("use_rho", False)
+        # Optional recent-form signal (league_calibration.compute_momentum),
+        # applied only to match-level H/D/A prediction (snapshot_league.py
+        # and friends), not sim_league.py's season simulation -- see that
+        # module's own docstring for why. momentum_weight=0.0 (default) is
+        # a no-op; real values come from backtest_league.py's
+        # --momentum-grid, selected to not regress raw winner accuracy even
+        # when a larger weight would score better on Brier alone.
+        self.momentum_weight = data.get("momentum_weight", 0.0)
+        self.momentum_n = data.get("momentum_n", 5)
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

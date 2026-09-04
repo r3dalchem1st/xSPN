@@ -14,5 +14,7 @@
     "Bayer Leverkusen": "Bayer 04 Leverkusen",
     "Borussia M'gladbach": "Borussia Mönchengladbach"
   },
-  "football_data_code": "BL1"
+  "football_data_code": "BL1",
+  "momentum_weight": 0.02,
+  "momentum_n": 5
 }

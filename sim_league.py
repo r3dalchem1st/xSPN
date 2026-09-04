@@ -37,7 +37,7 @@ import sys
 
 import numpy as np
 
-from league_calibration import clamp_lambda, shrink_lambda
+from league_calibration import clamp_lambda, compute_momentum, shrink_lambda
 
 
 def _poisson(lam, rng):
@@ -86,6 +86,60 @@ def build_lambda_table(teams, dc, strength_shrink=1.0):
 def build_lambda_tables(teams, dc_ensemble, strength_shrink=1.0):
     """One lambda table per bootstrap-ensemble member."""
     return [build_lambda_table(teams, dc, strength_shrink) for dc in dc_ensemble]
+
+
+def build_lambda_table_with_momentum(teams, dc, matches, as_of_date, momentum_weight,
+                                      momentum_n=5, strength_shrink=1.0):
+    """Same as build_lambda_table(), but each team's attack/defense is
+    nudged by its recent-form momentum (league_calibration.compute_momentum,
+    over its last `momentum_n` matches in `matches` strictly before
+    as_of_date) before shrink/clamp -- boosts attack and reduces expected
+    goals conceded symmetrically for a team in good recent form, same
+    "adjust both sides of the ledger together" pattern as model_common.py's
+    squad-value adjustment for the WC.
+
+    Deliberately only used for match-level prediction (snapshot_league.py
+    and friends), NOT simulate_season()'s Monte Carlo -- backtest_league.py
+    validated momentum against match-winner accuracy specifically, the same
+    scope boundary strength_shrink/draw_inflate already draw (see this
+    module's own docstring). momentum_weight=0.0 would be a no-op but
+    callers should use plain build_lambda_table() instead in that case —
+    this function always pays the extra compute_momentum cost per team."""
+    atk, dfn, home_adv = dc["attack"], dc["defense"], dc["home_adv"]
+    momentum = {t: compute_momentum(t, as_of_date, matches, momentum_n) for t in teams}
+    lg = {}
+    for home in teams:
+        for away in teams:
+            if home == away:
+                continue
+            ah = atk.get(home, 0.0) + momentum_weight * momentum[home]
+            dh = dfn.get(home, 0.0) - momentum_weight * momentum[home]
+            aa = atk.get(away, 0.0) + momentum_weight * momentum[away]
+            da = dfn.get(away, 0.0) - momentum_weight * momentum[away]
+            lam = clamp_lambda(shrink_lambda(math.exp(ah + da + home_adv), strength_shrink))
+            mu = clamp_lambda(shrink_lambda(math.exp(aa + dh), strength_shrink))
+            lg[(home, away)] = (lam, mu)
+    return lg
+
+
+def build_lambda_tables_with_momentum(teams, dc_ensemble, matches, as_of_date, momentum_weight,
+                                       momentum_n=5, strength_shrink=1.0):
+    """One momentum-adjusted lambda table per bootstrap-ensemble member."""
+    return [build_lambda_table_with_momentum(teams, dc, matches, as_of_date, momentum_weight,
+                                              momentum_n, strength_shrink)
+            for dc in dc_ensemble]
+
+
+def build_match_lambda_tables(config, teams, dc_ensemble, matches, as_of_date):
+    """The single place snapshot_league.py/snapshot_cup.py/snapshot_copa.py/
+    build_league_html.py should build lambda tables from for match-level
+    prediction -- picks the momentum-aware builder when config.momentum_weight
+    is set, else the plain one, so this branch isn't duplicated 4 times."""
+    if config.momentum_weight:
+        return build_lambda_tables_with_momentum(
+            teams, dc_ensemble, matches, as_of_date,
+            config.momentum_weight, config.momentum_n, config.strength_shrink)
+    return build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
 
 
 def simulate_season(teams, standings, remaining_fixtures, dc_ensemble, n_sims=10000, seed=42,

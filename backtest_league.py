@@ -28,7 +28,7 @@ did end up wired into update.yml as a regression gate; deliberately NOT
 doing that here yet — this script finds calibration values, it doesn't
 enforce them).
 
-Usage: python backtest_league.py competitions/<slug>.json [--grid]
+Usage: python backtest_league.py competitions/<slug>.json [--grid|--momentum-grid]
 """
 import itertools
 import math
@@ -37,7 +37,8 @@ import sys
 
 import fit_league as fl
 from fetch_league import build_training_rows, fetch_openfootball_file
-from league_calibration import clamp_lambda, hda_probs_from_lambda, inflate_hda, shrink_lambda
+from league_calibration import (clamp_lambda, compute_momentum, hda_probs_from_lambda,
+                                 inflate_hda, shrink_lambda)
 from openfootball_txt import parse_openfootball_txt
 
 EPS = 1e-12
@@ -70,18 +71,40 @@ def fit_point_estimate(train_matches, as_of_date):
         fl.days_ago = orig_days_ago
 
 
-def score_holdout(test_matches, dc, strength_shrink=1.0, delta=0.0, use_rho=False):
+def score_holdout(test_matches, dc, strength_shrink=1.0, delta=0.0, use_rho=False,
+                   momentum_weight=0.0, momentum_n=5, momentum_history=None):
     """Score `test_matches` (real, already-known results — [date, home,
     away, hg, ag, label, neutral] rows) against one calibration setting,
     reusing the SAME fit `dc` for every grid point (only post-fit
-    calibration varies — no refitting per point, matching backtest.py)."""
+    calibration varies — no refitting per point, matching backtest.py).
+
+    `momentum_weight` (default 0.0 = no-op, identical to omitting it)
+    blends each team's recent-form signal (league_calibration.compute_momentum)
+    symmetrically into its effective attack/defense for that one match —
+    same "boost attack, reduce goals-conceded expectation" pattern as
+    model_common.py's squad-value adjustment for the WC. Matches are
+    processed in chronological order and each one is REVEALED into the
+    running history right after being scored, so momentum for a later
+    test-season match correctly reflects earlier test-season results, not
+    just the training season — this is what makes it a genuinely different
+    signal from the fit's own slow 18-month recency half-life.
+    `momentum_history` (typically the TRAIN matches) seeds the window so
+    the very first test matches aren't scored with a bogus 0.0 momentum for
+    every team; pass None for a cold start instead."""
     atk, dfn, home_adv, rho = dc["attack"], dc["defense"], dc["home_adv"], dc["rho"]
     n = correct = 0
     brier_sum = logloss_sum = 0.0
     pred_draw_sum = act_draw_sum = 0
-    for date_, home, away, hg, ag, _label, neutral in test_matches:
+    revealed = list(momentum_history) if momentum_history else []
+    for m in sorted(test_matches, key=lambda row: row[0]):
+        date_, home, away, hg, ag, _label, neutral = m
         ah, dh = atk.get(home, 0.0), dfn.get(home, 0.0)
         aa, da = atk.get(away, 0.0), dfn.get(away, 0.0)
+        if momentum_weight:
+            mom_h = compute_momentum(home, date_, revealed, momentum_n)
+            mom_a = compute_momentum(away, date_, revealed, momentum_n)
+            ah, dh = ah + momentum_weight * mom_h, dh - momentum_weight * mom_h
+            aa, da = aa + momentum_weight * mom_a, da - momentum_weight * mom_a
         bonus = 0.0 if neutral else home_adv
         lam = clamp_lambda(shrink_lambda(math.exp(ah + da + bonus), strength_shrink))
         mu = clamp_lambda(shrink_lambda(math.exp(aa + dh), strength_shrink))
@@ -100,8 +123,10 @@ def score_holdout(test_matches, dc, strength_shrink=1.0, delta=0.0, use_rho=Fals
         pred_draw_sum += pred[1]
         act_draw_sum += 1 if hg == ag else 0
         n += 1
+        revealed.append(m)
     return {
         "strength_shrink": strength_shrink, "draw_inflate": delta, "use_rho": use_rho,
+        "momentum_weight": momentum_weight, "momentum_n": momentum_n,
         "n": n,
         "accuracy": correct / n if n else None,
         "brier": brier_sum / n if n else None,
@@ -115,6 +140,19 @@ def run_grid(test_matches, dc, shrinks, deltas, use_rho_options):
     return [
         score_holdout(test_matches, dc, sh, dl, ur)
         for sh, dl, ur in itertools.product(shrinks, deltas, use_rho_options)
+    ]
+
+
+def run_momentum_grid(test_matches, dc, momentum_weights, momentum_ns, momentum_history=None,
+                       strength_shrink=1.0, delta=0.0, use_rho=False):
+    """Grid-search momentum_weight/momentum_n only, holding the calibration
+    params fixed (default to the already-confirmed no-calibration-helps
+    values — see model_changelog-style notes in CONTEXT.md — but overridable
+    for a competition whose own backtest found otherwise)."""
+    return [
+        score_holdout(test_matches, dc, strength_shrink, delta, use_rho,
+                       mw, mn, momentum_history)
+        for mw, mn in itertools.product(momentum_weights, momentum_ns)
     ]
 
 
@@ -167,12 +205,36 @@ def main():
               f"accuracy={best['accuracy']:.3f}")
         raise SystemExit(0)
 
-    # Single-run mode: score this config's OWN configured calibration values
-    # (1.0/0.0/False if it has none set yet) against the same holdout.
+    if "--momentum-grid" in sys.argv:
+        weights = [0.0, 0.02, 0.05, 0.10, 0.15, 0.20]
+        ns = [3, 5, 8]
+        # Calibration held at the no-op default -- already confirmed via
+        # --grid that shrink/draw-inflate/rho don't help this competition;
+        # rerun --grid first for a competition that hasn't been checked.
+        results = run_momentum_grid(test_matches, dc, weights, ns, momentum_history=train_matches,
+                                     strength_shrink=config.strength_shrink,
+                                     delta=config.draw_inflate, use_rho=config.use_rho)
+        print(f"{'weight':>7} {'n':>3} {'logloss':>8} {'brier':>7} {'acc':>6}")
+        for r in results:
+            print(f"{r['momentum_weight']:7.2f} {r['momentum_n']:3d} "
+                  f"{r['logloss']:8.4f} {r['brier']:7.4f} {r['accuracy']:6.3f}")
+        best = min(results, key=lambda r: r["brier"])
+        baseline = next(r for r in results if r["momentum_weight"] == 0.0 and r["momentum_n"] == ns[0])
+        print(f"\nBest by Brier: momentum_weight={best['momentum_weight']} "
+              f"momentum_n={best['momentum_n']}  brier={best['brier']:.4f} "
+              f"(vs {baseline['brier']:.4f} with no momentum)  "
+              f"logloss={best['logloss']:.4f}  accuracy={best['accuracy']:.3f}")
+        raise SystemExit(0)
+
+    # Single-run mode: score this config's OWN configured calibration AND
+    # momentum values (each field's no-op default if unset) against the
+    # same holdout -- an honest end-to-end check of what's actually live.
     r = score_holdout(test_matches, dc, config.strength_shrink, config.draw_inflate,
-                       config.use_rho)
-    print(f"Configured calibration: strength_shrink={r['strength_shrink']} "
-          f"draw_inflate={r['draw_inflate']} use_rho={r['use_rho']}")
+                       config.use_rho, config.momentum_weight, config.momentum_n,
+                       momentum_history=train_matches)
+    print(f"Configured: strength_shrink={r['strength_shrink']} draw_inflate={r['draw_inflate']} "
+          f"use_rho={r['use_rho']} momentum_weight={r['momentum_weight']} "
+          f"momentum_n={r['momentum_n']}")
     print(f"  accuracy={r['accuracy']:.1%}  brier={r['brier']:.4f}  "
           f"logloss={r['logloss']:.4f}  predicted draw rate={r['pred_draw_rate']:.1%} "
           f"vs actual {r['actual_draw_rate']:.1%}")

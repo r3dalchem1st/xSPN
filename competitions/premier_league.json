@@ -26,5 +26,7 @@
     "Sunderland": "Sunderland AFC",
     "Tottenham Hotspur": "Tottenham Hotspur FC"
   },
-  "football_data_code": "PL"
+  "football_data_code": "PL",
+  "momentum_weight": 0.1,
+  "momentum_n": 8
 }

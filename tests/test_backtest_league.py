@@ -1,5 +1,6 @@
 import fit_league
-from backtest_league import fit_point_estimate, load_season_matches, run_grid, score_holdout
+from backtest_league import (fit_point_estimate, load_season_matches, run_grid,
+                              run_momentum_grid, score_holdout)
 from competition_config import CompetitionConfig
 
 DC_SAMPLE = {
@@ -44,6 +45,59 @@ def test_score_holdout_use_rho_changes_scoring():
     without = score_holdout([HOME_WIN, DRAW, AWAY_WIN], DC_SAMPLE, use_rho=False)
     with_rho = score_holdout([HOME_WIN, DRAW, AWAY_WIN], DC_SAMPLE, use_rho=True)
     assert without["brier"] != with_rho["brier"]
+
+
+def test_score_holdout_momentum_weight_zero_matches_default_exactly():
+    # momentum_weight=0.0 must be a true no-op, byte-identical to every
+    # pre-momentum caller's behavior.
+    default = score_holdout([HOME_WIN, DRAW, AWAY_WIN], DC_SAMPLE)
+    explicit_zero = score_holdout([HOME_WIN, DRAW, AWAY_WIN], DC_SAMPLE, momentum_weight=0.0)
+    assert default == explicit_zero
+
+
+def test_score_holdout_momentum_reveals_matches_chronologically():
+    # A team on a hot streak (revealed via earlier test-season matches, not
+    # just training history) should score differently than with momentum
+    # off -- proving the running "revealed" history is actually being used,
+    # not just the pre-test momentum_history seed.
+    hot_streak = [
+        ["2026-01-01", "Weak FC", "Strong FC", 0, 0, "Test League", False],
+        ["2026-01-08", "Weak FC", "Strong FC", 5, 0, "Test League", False],
+        ["2026-01-15", "Weak FC", "Strong FC", 4, 0, "Test League", False],
+        ["2026-01-22", "Weak FC", "Strong FC", 3, 0, "Test League", False],
+    ]
+    without_momentum = score_holdout(hot_streak, DC_SAMPLE, momentum_weight=0.0)
+    with_momentum = score_holdout(hot_streak, DC_SAMPLE, momentum_weight=0.1, momentum_n=3)
+    assert without_momentum["brier"] != with_momentum["brier"]
+
+
+def test_score_holdout_momentum_history_seeds_the_window_for_early_matches():
+    # Without a seed, the very first test match sees a cold-start (0.0)
+    # momentum for both teams. With training history showing Strong FC on
+    # a hot streak, the very first test match should already reflect it.
+    seed_history = [
+        ["2025-12-01", "Strong FC", "Weak FC", 4, 0, "Test League", False],
+        ["2025-12-08", "Strong FC", "Weak FC", 3, 0, "Test League", False],
+    ]
+    cold_start = score_holdout([HOME_WIN], DC_SAMPLE, momentum_weight=0.1)
+    warm_start = score_holdout([HOME_WIN], DC_SAMPLE, momentum_weight=0.1,
+                                momentum_history=seed_history)
+    assert cold_start["brier"] != warm_start["brier"]
+
+
+def test_run_momentum_grid_covers_every_combination():
+    results = run_momentum_grid([HOME_WIN, DRAW], DC_SAMPLE, [0.0, 0.1], [3, 5])
+    assert len(results) == 4
+    combos = {(r["momentum_weight"], r["momentum_n"]) for r in results}
+    assert combos == {(0.0, 3), (0.0, 5), (0.1, 3), (0.1, 5)}
+
+
+def test_run_momentum_grid_holds_calibration_params_fixed():
+    results = run_momentum_grid([HOME_WIN], DC_SAMPLE, [0.0], [5],
+                                 strength_shrink=0.7, delta=0.2, use_rho=True)
+    assert results[0]["strength_shrink"] == 0.7
+    assert results[0]["draw_inflate"] == 0.2
+    assert results[0]["use_rho"] is True
 
 
 def test_score_holdout_returns_none_metrics_for_empty_holdout():
