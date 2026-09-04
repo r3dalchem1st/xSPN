@@ -33,6 +33,37 @@ def test_build_lambda_tables_returns_one_per_ensemble_member():
     assert len(tables) == 2
 
 
+def test_build_lambda_table_default_strength_shrink_is_unchanged_from_no_shrink():
+    # strength_shrink=1.0 is shrink_lambda's identity -- omitting the param
+    # must produce byte-identical lambda values to explicitly passing 1.0,
+    # preserving every pre-calibration caller's behavior exactly.
+    lg_default = build_lambda_table(["Strong FC", "Weak FC"], DC_SAMPLE)
+    lg_explicit = build_lambda_table(["Strong FC", "Weak FC"], DC_SAMPLE, strength_shrink=1.0)
+    assert lg_default == lg_explicit
+
+
+def test_build_lambda_table_shrink_below_1_compresses_toward_anchor():
+    from league_calibration import GOAL_ANCHOR
+    lg_unshrunk = build_lambda_table(["Strong FC", "Weak FC"], DC_SAMPLE, strength_shrink=1.0)
+    lg_shrunk = build_lambda_table(["Strong FC", "Weak FC"], DC_SAMPLE, strength_shrink=0.5)
+    lam_un, mu_un = lg_unshrunk[("Strong FC", "Weak FC")]
+    lam_sh, mu_sh = lg_shrunk[("Strong FC", "Weak FC")]
+    # The strong home team's high lambda should move toward the anchor (down).
+    assert GOAL_ANCHOR < lam_sh < lam_un
+
+
+def test_build_lambda_table_clamps_an_extreme_mismatch():
+    extreme_dc = {
+        "attack": {"Giant FC": 5.0, "Minnow FC": -5.0},
+        "defense": {"Giant FC": -3.0, "Minnow FC": 3.0},
+        "home_adv": 0.2, "rho": 0.0, "teams": ["Giant FC", "Minnow FC"],
+    }
+    lg = build_lambda_table(["Giant FC", "Minnow FC"], extreme_dc)
+    lam, mu = lg[("Giant FC", "Minnow FC")]
+    assert lam <= 5.0
+    assert mu >= 0.20
+
+
 SAMPLE_SCHEDULE = {
     "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
                            "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"},

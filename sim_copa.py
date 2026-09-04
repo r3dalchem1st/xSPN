@@ -190,14 +190,14 @@ def simulate_two_legged_tie(team_a, team_b, lg, rng):
     return home2 if rng.random() < 0.5 else away2
 
 
-def league_average_lambda_table(teams, dc):
+def league_average_lambda_table(teams, dc, strength_shrink=1.0):
     """Thin wrapper over sim_league.build_lambda_table, exported so
     snapshot_copa.py can build lambda tables identically to this module
     without re-importing sim_league directly -- documents, at the point it
     actually matters most (Copa's ~100 unrated minnows), that any team
     missing from `dc` already defaults to a neutral league-average rating
     via that function's own existing behavior."""
-    return build_lambda_table(teams, dc)
+    return build_lambda_table(teams, dc, strength_shrink)
 
 
 def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42):

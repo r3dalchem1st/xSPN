@@ -12,11 +12,14 @@ day one), so this is deliberately simpler than snapshot_predictions.py's
 round-based knockout gate — a single per-match date check is sufficient and
 correct here.
 
-Self-contained (own hda_probs/likely_score, reusing only sim_league.py's
-build_lambda_tables) rather than importing model_common.py — importing
-anything from model_common.py transitively imports fit_improved.py
-(executing its entire WC-specific module body) just to reach two pure
-helper functions; not worth that coupling for a round-robin-only module.
+Self-contained (own hda_probs/likely_score, reusing sim_league.py's
+build_lambda_tables and league_calibration.py's pure math) rather than
+importing model_common.py — importing anything from model_common.py
+transitively imports fit_improved.py (executing its entire WC-specific
+module body) just to reach a couple of pure helper functions; not worth
+that coupling for a round-robin-only module. league_calibration.py IS
+shared (with sim_league.py and backtest_league.py) since it's round-robin's
+own equivalent, not model_common.py's — see its docstring.
 """
 import json
 import math
@@ -24,6 +27,7 @@ import os
 import sys
 from datetime import date
 
+from league_calibration import hda_probs_from_lambda, inflate_hda
 from sim_league import build_lambda_tables
 
 LOCK_WINDOW_DAYS = 5  # WIDER than the WC's LOCK_WINDOW_DAYS=2 on purpose: this
@@ -38,29 +42,24 @@ LOCK_WINDOW_DAYS = 5  # WIDER than the WC's LOCK_WINDOW_DAYS=2 on purpose: this
 # against a few consecutive missed runs.
 
 
-def hda_probs(home, away, lg_ens, max_g=10):
-    """Mean P(home win), P(draw), P(away win) over the bootstrap ensemble.
-    No draw-inflation (a World-Cup-specific calibration against
-    international-match draw rates, unvalidated for round-robin — see
-    sim_league.py's Global Constraints for the same reasoning)."""
+def hda_probs(home, away, lg_ens, rhos=None, delta=0.0, max_g=10):
+    """Mean P(home win), P(draw), P(away win) over the bootstrap ensemble —
+    each member's triple gets the Dixon-Coles low-score correlation (rho)
+    and Karlis diagonal draw-inflation (delta) applied BEFORE averaging,
+    same order as model_common.py's hda_probs_ensemble for the WC.
+
+    `rhos` (optional, parallel list to lg_ens, one rho per ensemble member)
+    and `delta` both default to a no-op (rho=0.0 per member, delta=0.0) —
+    see backtest_league.py for how a competition's real values are
+    grid-searched against its own historical seasons; NOT calibrated here
+    by guessing."""
     tph = tpd = tpa = 0.0
     n = 0
-    for lg in lg_ens:
+    for i, lg in enumerate(lg_ens):
         lam, mu = lg[(home, away)]
-        elam, emu = math.exp(-lam), math.exp(-mu)
-        ph_l = [elam * lam**h / math.factorial(h) for h in range(max_g + 1)]
-        pa_l = [emu * mu**a / math.factorial(a) for a in range(max_g + 1)]
-        ph = pd = pa = 0.0
-        for h in range(max_g + 1):
-            for a in range(max_g + 1):
-                p = ph_l[h] * pa_l[a]
-                if h > a: ph += p
-                elif h < a: pa += p
-                else: pd += p
-        s = ph + pd + pa
-        if not s:
-            continue
-        tph += ph / s; tpd += pd / s; tpa += pa / s; n += 1
+        rho = rhos[i] if rhos is not None else 0.0
+        ph, pd, pa = inflate_hda(*hda_probs_from_lambda(lam, mu, rho, max_g), delta)
+        tph += ph; tpd += pd; tpa += pa; n += 1
     return (tph / n, tpd / n, tpa / n) if n else (0.0, 0.0, 0.0)
 
 
@@ -118,7 +117,8 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
         snapshot = {}
 
     teams = sorted({t for key in schedule for t in key.split("|")})
-    lg_ens = build_lambda_tables(teams, dc_ensemble)
+    lg_ens = build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
+    rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     added = 0
     for key, entry in schedule.items():
@@ -129,7 +129,7 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
         if not fixture_due(entry["date"], today):
             continue
         home, away = key.split("|")
-        ph, pd, pa = hda_probs(home, away, lg_ens)
+        ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=config.draw_inflate)
         outcome = max([("H", ph), ("D", pd), ("A", pa)], key=lambda x: x[1])[0]
         lam, mu = lg_ens[0][(home, away)]
         hg, ag = likely_score(lam, mu, allowed={outcome})

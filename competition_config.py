@@ -42,6 +42,15 @@ class CompetitionConfig:
         # openfootball's fixtures/training data, which volunteers can take
         # days to update with a played match's score. None -> no live overlay.
         self.football_data_code = data.get("football_data_code")
+        # Optional H/D/A calibration for the round-robin/cup prediction path
+        # (league_calibration.py + sim_league.py/snapshot_league.py). Defaults
+        # are each function's own no-op value, so an unset competition behaves
+        # exactly as before these existed. Real values come from grid-searching
+        # backtest_league.py against a competition's own historical seasons —
+        # never guessed or copied from the WC's own (differently-tuned) values.
+        self.strength_shrink = data.get("strength_shrink", 1.0)
+        self.draw_inflate = data.get("draw_inflate", 0.0)
+        self.use_rho = data.get("use_rho", False)
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

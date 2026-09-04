@@ -63,7 +63,8 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
         snapshot = {}
 
     teams = sorted({t for key in league_schedule for t in key.split("|")})
-    lg_ens = build_lambda_tables(teams, dc_ensemble)
+    lg_ens = build_lambda_tables(teams, dc_ensemble, config.strength_shrink)
+    rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
     added = 0
     for key, home, away, fdate, status in iter_fixtures(league_schedule, knockout_fixtures):
@@ -73,7 +74,7 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None):
             continue
         if not fixture_due(fdate, today):
             continue
-        ph, pd, pa = hda_probs(home, away, lg_ens)
+        ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=config.draw_inflate)
         outcome = max([("H", ph), ("D", pd), ("A", pa)], key=lambda x: x[1])[0]
         lam, mu = lg_ens[0][(home, away)]
         hg, ag = likely_score(lam, mu, allowed={outcome})
