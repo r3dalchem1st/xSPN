@@ -271,10 +271,10 @@
   },
   "Real Sociedad de F\u00fatbol|RC Celta de Vigo": {
     "date": "2026-09-03",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": 0,
-      "RC Celta de Vigo": 0
+      "Real Sociedad de F\u00fatbol": null,
+      "RC Celta de Vigo": null
     },
     "round": "Matchday 6"
   },
