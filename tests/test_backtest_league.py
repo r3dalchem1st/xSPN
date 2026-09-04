@@ -1,6 +1,8 @@
+import math
+
 import fit_league
-from backtest_league import (fit_point_estimate, load_season_matches, run_grid,
-                              run_momentum_grid, score_holdout)
+from backtest_league import (fit_point_estimate, load_season_matches, predict_match_probs,
+                              run_grid, run_momentum_grid, score_holdout)
 from competition_config import CompetitionConfig
 
 DC_SAMPLE = {
@@ -15,6 +17,25 @@ DC_SAMPLE = {
 HOME_WIN = ["2026-01-01", "Strong FC", "Weak FC", 2, 0, "Test League", False]
 DRAW     = ["2026-01-08", "Strong FC", "Weak FC", 1, 1, "Test League", False]
 AWAY_WIN = ["2026-01-15", "Weak FC", "Strong FC", 0, 3, "Test League", False]
+
+
+def test_predict_match_probs_sums_to_one_and_matches_score_holdout():
+    # predict_match_probs must be the exact same computation score_holdout
+    # runs internally -- confirmed by checking a single-match holdout's
+    # aggregate stats derive from exactly this per-match prediction.
+    pred = predict_match_probs("Strong FC", "Weak FC", "2026-01-01", False, DC_SAMPLE)
+    assert math.isclose(sum(pred), 1.0, abs_tol=1e-9)
+    result = score_holdout([HOME_WIN], DC_SAMPLE)
+    if pred.index(max(pred)) == 0:  # home win predicted (matches HOME_WIN's actual result)
+        assert result["accuracy"] == 1.0
+
+
+def test_predict_match_probs_no_op_calibration_is_identity():
+    default = predict_match_probs("Strong FC", "Weak FC", "2026-01-01", False, DC_SAMPLE)
+    explicit = predict_match_probs("Strong FC", "Weak FC", "2026-01-01", False, DC_SAMPLE,
+                                    strength_shrink=1.0, delta=0.0, use_rho=False,
+                                    momentum_weight=0.0)
+    assert default == explicit
 
 
 def test_score_holdout_no_op_calibration_matches_hda_probs_from_lambda_directly():

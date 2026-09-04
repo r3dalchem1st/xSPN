@@ -24,9 +24,17 @@
     "Newcastle United": "Newcastle United FC",
     "Nottingham Forest": "Nottingham Forest FC",
     "Sunderland": "Sunderland AFC",
-    "Tottenham Hotspur": "Tottenham Hotspur FC"
+    "Tottenham Hotspur": "Tottenham Hotspur FC",
+    "Brighton": "Brighton & Hove Albion FC",
+    "Leeds": "Leeds United FC",
+    "Man City": "Manchester City FC",
+    "Man United": "Manchester United FC",
+    "Newcastle": "Newcastle United FC",
+    "Nott'm Forest": "Nottingham Forest FC",
+    "Tottenham": "Tottenham Hotspur FC"
   },
   "football_data_code": "PL",
   "momentum_weight": 0.1,
-  "momentum_n": 8
+  "momentum_n": 8,
+  "odds_history_code": "E0"
 }
