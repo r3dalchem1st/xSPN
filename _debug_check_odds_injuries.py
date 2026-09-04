@@ -78,13 +78,28 @@ else:
     # league key, and report exactly what each returns rather than assuming
     # which one is real.
     for params in [
-        {"sport": "football"},
-        {"sport": "football", "league": "la_liga"},
         {"sport": "football", "league": "laliga"},
         {"sport": "football", "league": "bundesliga"},
-        {"sport": "football", "league": "epl"},
     ]:
         resp = requests.get(f"{base}/injuries", params=params, headers=headers, timeout=15)
         print(params, "-> status", resp.status_code)
-        print(resp.text[:1200])
+        print(resp.text[:2500])
         print("---")
+
+    print()
+    print("=== Big Balls Sports Data: /v1/teams?sport=football&league=laliga (id->name mapping?) ===")
+    resp = requests.get(f"{base}/teams", params={"sport": "football", "league": "laliga"}, headers=headers, timeout=15)
+    print("status", resp.status_code)
+    print(resp.text[:2500])
+
+    print()
+    print("=== Big Balls Sports Data: single-player injury detail (first la_liga injured player) ===")
+    resp = requests.get(f"{base}/injuries", params={"sport": "football", "league": "laliga"}, headers=headers, timeout=15)
+    if resp.status_code == 200:
+        try:
+            first_id = resp.json()["data"]["injuries"]["value"][0]["id"]
+            detail = requests.get(f"{base}/players/{first_id}/injury", params={"sport": "football"}, headers=headers, timeout=15)
+            print("player_id:", first_id, "-> status", detail.status_code)
+            print(detail.text[:1500])
+        except (KeyError, IndexError) as e:
+            print("could not extract a player id to test:", e)
