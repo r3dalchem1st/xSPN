@@ -72,10 +72,6 @@ jobs:
 
       - name: Snapshot pre-match predictions
         run: python snapshot_league.py "competitions/$COMPETITION.json"
-        env:
-          # Only competitions with odds_api_sport_key configured make use of
-          # this (see fetch_live_odds.py) -- no-op for the rest.
-          ODDS_API_KEY: ${{ secrets.THE_ODDS_KEY }}
 
       - name: Score predictions against actual results
         run: python score_league.py "competitions/$COMPETITION.json"

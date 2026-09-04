@@ -24,16 +24,10 @@
     "Leverkusen": "Bayer 04 Leverkusen",
     "M'gladbach": "Borussia Mönchengladbach",
     "Mainz": "1. FSV Mainz 05",
-    "Stuttgart": "VfB Stuttgart",
-    "Borussia Monchengladbach": "Borussia Mönchengladbach",
-    "Elversberg": "SV 07 Elversberg",
-    "FSV Mainz 05": "1. FSV Mainz 05",
-    "SC Paderborn": "SC Paderborn 07",
-    "TSG Hoffenheim": "TSG 1899 Hoffenheim"
+    "Stuttgart": "VfB Stuttgart"
   },
   "football_data_code": "BL1",
   "momentum_weight": 0.02,
   "momentum_n": 5,
-  "odds_history_code": "D1",
-  "odds_api_sport_key": "soccer_germany_bundesliga"
+  "odds_history_code": "D1"
 }
