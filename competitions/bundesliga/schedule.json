@@ -82,10 +82,10 @@
   },
   "VfB Stuttgart|1. FC K\u00f6ln": {
     "date": "2026-09-04",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "VfB Stuttgart": null,
-      "1. FC K\u00f6ln": null
+      "VfB Stuttgart": 4,
+      "1. FC K\u00f6ln": 1
     },
     "round": "Matchday 2"
   },
