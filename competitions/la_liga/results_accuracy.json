@@ -269,13 +269,31 @@
       "brier": 0.08507465856440223,
       "log_loss": 0.26919040112655174,
       "total_goal_error": 3
+    },
+    {
+      "home": "Real Sociedad de F\u00fatbol",
+      "away": "RC Celta de Vigo",
+      "date": "2026-09-03",
+      "correct_winner": false,
+      "brier": 0.7869629395481491,
+      "log_loss": 1.2823050019018647,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Real Betis Balompi\u00e9",
+      "away": "Real Madrid CF",
+      "date": "2026-09-04",
+      "correct_winner": false,
+      "brier": 0.8227531737586835,
+      "log_loss": 1.288711597667753,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 30,
-    "accuracy": 0.6333333333333333,
-    "avg_brier": 0.584802771161182,
-    "avg_log_loss": 0.9931659697926247,
-    "avg_goal_error": 1.7666666666666666
+    "n_scored": 32,
+    "accuracy": 0.59375,
+    "avg_brier": 0.5985562265044466,
+    "avg_log_loss": 1.0114373654171362,
+    "avg_goal_error": 1.75
   }
 }

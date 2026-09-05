@@ -271,19 +271,19 @@
   },
   "Real Sociedad de F\u00fatbol|RC Celta de Vigo": {
     "date": "2026-09-03",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": null,
-      "RC Celta de Vigo": null
+      "Real Sociedad de F\u00fatbol": 0,
+      "RC Celta de Vigo": 0
     },
     "round": "Matchday 6"
   },
   "Real Betis Balompi\u00e9|Real Madrid CF": {
     "date": "2026-09-04",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Betis Balompi\u00e9": null,
-      "Real Madrid CF": null
+      "Real Betis Balompi\u00e9": 1,
+      "Real Madrid CF": 0
     },
     "round": "Matchday 4"
   },
