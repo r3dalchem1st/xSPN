@@ -2,15 +2,17 @@ name: Update Cup Competition Predictions
 
 on:
   schedule:
-    # Twice daily, ~9am/9pm Barcelona time (UTC+2 CEST currently -- GitHub
-    # cron does NOT follow DST). 07:15/19:15 UTC is offset from every other
-    # update-*.yml slot (update.yml's 07:05/19:05, update-leagues.yml's
-    # 07:10/19:10) -- all these workflows rebuild the shared index.html hub
-    # page, and a same-minute cron hits that race every day (see CONTEXT.md's
-    # 23 Jul incident, since fixed with a rebuild-and-retry loop, but avoiding
-    # the race in the first place is still free and worth doing).
+    # Twice daily: ~9am Barcelona, and ~11:30pm Barcelona (after games are
+    # typically finished -- see update.yml for the reasoning). Times are UTC
+    # (Barcelona is CEST/UTC+2 currently -- GitHub cron does NOT follow DST).
+    # 07:15/21:40 UTC is offset from every other update-*.yml slot (update.yml's
+    # 07:05/21:30, update-leagues.yml's 07:10/21:35) -- all these workflows
+    # rebuild the shared index.html hub page, and a same-minute cron hits that
+    # race every day (see CONTEXT.md's 23 Jul incident, since fixed with a
+    # rebuild-and-retry loop, but avoiding the race in the first place is
+    # still free and worth doing).
     - cron: '15 7 * * *'
-    - cron: '15 19 * * *'
+    - cron: '40 21 * * *'
   workflow_dispatch:
 
 concurrency:
