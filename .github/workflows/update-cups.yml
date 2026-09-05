@@ -2,15 +2,15 @@ name: Update Cup Competition Predictions
 
 on:
   schedule:
-    # Once daily -- same cadence reasoning as update-leagues.yml (no live,
-    # same-day knockout-round cadence need the way the World Cup had).
-    # 16:15 UTC is offset from every existing cron slot (update.yml's
-    # 21:40/00:20/04:40/18:40 UTC, update-leagues.yml's 10:40 UTC) -- all
-    # three workflows rebuild the shared index.html hub page, and a
-    # same-minute cron hits that race every day (see CONTEXT.md's 23 Jul
-    # incident, since fixed with a rebuild-and-retry loop, but avoiding the
-    # race in the first place is still free and worth doing).
-    - cron: '15 16 * * *'
+    # Twice daily, ~9am/9pm Barcelona time (UTC+2 CEST currently -- GitHub
+    # cron does NOT follow DST). 07:15/19:15 UTC is offset from every other
+    # update-*.yml slot (update.yml's 07:05/19:05, update-leagues.yml's
+    # 07:10/19:10) -- all these workflows rebuild the shared index.html hub
+    # page, and a same-minute cron hits that race every day (see CONTEXT.md's
+    # 23 Jul incident, since fixed with a rebuild-and-retry loop, but avoiding
+    # the race in the first place is still free and worth doing).
+    - cron: '15 7 * * *'
+    - cron: '15 19 * * *'
   workflow_dispatch:
 
 concurrency:

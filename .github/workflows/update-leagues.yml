@@ -2,13 +2,12 @@ name: Update Round-Robin League Predictions
 
 on:
   schedule:
-    # Once daily — round-robin league fixtures are known far in advance and
-    # don't need the World Cup workflow's 4x/day cadence (that existed for
-    # same-day knockout-round snapshot/score updates during live matches).
-    # 10:40 UTC is deliberately offset from all 4 of update.yml's slots
-    # (21:40/00:20/04:40/18:40 UTC) -- both workflows rebuild the shared
+    # Twice daily, ~9am/9pm Barcelona time (UTC+2 CEST currently -- GitHub
+    # cron does NOT follow DST). 07:10/19:10 UTC is deliberately offset from
+    # update.yml's 07:05/19:05 UTC slots -- both workflows rebuild the shared
     # index.html hub page, and same-minute crons hit that race every day.
-    - cron: '40 10 * * *'
+    - cron: '10 7 * * *'
+    - cron: '10 19 * * *'
   workflow_dispatch:
 
 concurrency:
