@@ -1285,7 +1285,7 @@
       "pa": 0.622,
       "reg_winner": "France",
       "lam": 0.78,
-      "mu": 1.86
+      "mu": 1.87
     },
     {
       "home": "Mexico",
@@ -1414,7 +1414,7 @@
     "away": "Argentina",
     "score": "1\u20130",
     "winner": "Spain",
-    "win_pct": 60.1,
+    "win_pct": 60.0,
     "ph": 0.498,
     "pd": 0.288,
     "pa": 0.214,
@@ -1438,10 +1438,10 @@
   "champion": "Spain",
   "champion_pct": 92.6,
   "reach_final": {
-    "Spain": 97.6,
-    "Argentina": 84.1,
+    "Spain": 97.5,
+    "Argentina": 83.8,
     "England": 9.2,
-    "Colombia": 5.9,
+    "Colombia": 6.3,
     "France": 2.0,
     "Senegal": 0.8,
     "USA": 0.3,
