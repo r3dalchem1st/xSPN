@@ -287,13 +287,40 @@
       "brier": 0.8227531737586835,
       "log_loss": 1.288711597667753,
       "total_goal_error": 2
+    },
+    {
+      "home": "Athletic Club",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "date": "2026-09-05",
+      "correct_winner": false,
+      "brier": 0.6874906433476449,
+      "log_loss": 1.1265359438337532,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Real Racing Club de Santander",
+      "date": "2026-09-05",
+      "correct_winner": true,
+      "brier": 0.42407631919662897,
+      "log_loss": 0.7577954980940854,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Villarreal CF",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "date": "2026-09-05",
+      "correct_winner": false,
+      "brier": 1.434069100829772,
+      "log_loss": 2.3808953977642027,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 32,
-    "accuracy": 0.59375,
-    "avg_brier": 0.5985562265044466,
-    "avg_log_loss": 1.0114373654171362,
-    "avg_goal_error": 1.75
+    "n_scored": 35,
+    "accuracy": 0.5714285714285714,
+    "avg_brier": 0.6199838660433239,
+    "avg_log_loss": 1.0466063580868685,
+    "avg_goal_error": 1.9142857142857144
   }
 }
