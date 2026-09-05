@@ -80,13 +80,22 @@
       "brier": 0.7654894519611457,
       "log_loss": 1.2443742659520824,
       "total_goal_error": 4
+    },
+    {
+      "home": "VfB Stuttgart",
+      "away": "1. FC K\u00f6ln",
+      "date": "2026-09-04",
+      "correct_winner": true,
+      "brier": 0.42895580384281223,
+      "log_loss": 0.764171061253276,
+      "total_goal_error": 4
     }
   ],
   "summary": {
-    "n_scored": 9,
-    "accuracy": 0.4444444444444444,
-    "avg_brier": 0.5848811729473282,
-    "avg_log_loss": 0.97877711655726,
-    "avg_goal_error": 2.888888888888889
+    "n_scored": 10,
+    "accuracy": 0.5,
+    "avg_brier": 0.5692886360368765,
+    "avg_log_loss": 0.9573165110268615,
+    "avg_goal_error": 3.0
   }
 }
