@@ -289,28 +289,28 @@
   },
   "Athletic Club|Club Atl\u00e9tico de Madrid": {
     "date": "2026-09-05",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Athletic Club": null,
-      "Club Atl\u00e9tico de Madrid": null
+      "Athletic Club": 3,
+      "Club Atl\u00e9tico de Madrid": 0
     },
     "round": "Matchday 4"
   },
   "Rayo Vallecano de Madrid|Real Racing Club de Santander": {
     "date": "2026-09-05",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Rayo Vallecano de Madrid": null,
-      "Real Racing Club de Santander": null
+      "Rayo Vallecano de Madrid": 3,
+      "Real Racing Club de Santander": 2
     },
     "round": "Matchday 4"
   },
   "Villarreal CF|RC Deportivo La Coru\u00f1a": {
     "date": "2026-09-05",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Villarreal CF": null,
-      "RC Deportivo La Coru\u00f1a": null
+      "Villarreal CF": 2,
+      "RC Deportivo La Coru\u00f1a": 3
     },
     "round": "Matchday 4"
   },
