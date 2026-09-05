@@ -2,17 +2,20 @@ name: Update WC 2026 Predictions
 
 on:
   schedule:
-    # Twice daily, ~9am/9pm Barcelona time. Times are UTC; Barcelona is
+    # Twice daily: ~9am Barcelona, and ~11:30pm Barcelona (after games across
+    # La Liga/Premier League/Bundesliga/Copa del Rey/Champions/Europa League
+    # are typically finished -- latest kickoffs are ~21:00 local, so this
+    # gives a ~30min buffer past full time). Times are UTC; Barcelona is
     # currently CEST (UTC+2) -- GitHub cron does NOT follow DST, so this
     # drifts an hour once Barcelona switches to CET in late Oct.
-    # Minute offset (:05) keeps this off the top-of-hour load spike and
+    # Minute offset (:05/:30) keeps this off the top-of-hour load spike and
     # staggered from the other 3 update-*.yml workflows below, since all
     # four rebuild the shared index.html hub and a same-minute cron hits
     # that race every day.
     #   07:05 UTC = 09:05 Barcelona
-    #   19:05 UTC = 21:05 Barcelona
+    #   21:30 UTC = 23:30 Barcelona
     - cron: '5 7 * * *'
-    - cron: '5 19 * * *'
+    - cron: '30 21 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
