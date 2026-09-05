@@ -2,13 +2,14 @@ name: Update Copa del Rey Predictions
 
 on:
   schedule:
-    # Once daily -- same cadence reasoning as update-leagues.yml/update-cups.yml
-    # (no live, same-day cadence need the way the World Cup had). 13:25 UTC is
-    # offset from every existing cron slot (update.yml's 21:40/00:20/04:40/18:40,
-    # update-leagues.yml's 10:40, update-cups.yml's 16:15) -- all four workflows
-    # rebuild the shared index.html hub page, and a same-minute cron hits that
-    # race every day (see CONTEXT.md's 23 Jul incident).
-    - cron: '25 13 * * *'
+    # Twice daily, ~9am/9pm Barcelona time (UTC+2 CEST currently -- GitHub
+    # cron does NOT follow DST). 07:20/19:20 UTC is offset from every other
+    # update-*.yml slot (update.yml's 07:05/19:05, update-leagues.yml's
+    # 07:10/19:10, update-cups.yml's 07:15/19:15) -- all four workflows
+    # rebuild the shared index.html hub page, and a same-minute cron hits
+    # that race every day (see CONTEXT.md's 23 Jul incident).
+    - cron: '20 7 * * *'
+    - cron: '20 19 * * *'
   workflow_dispatch:
 
 concurrency:

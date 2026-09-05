@@ -2,19 +2,17 @@ name: Update WC 2026 Predictions
 
 on:
   schedule:
-    # GitHub scheduled runs are best-effort: often delayed by hours and
-    # sometimes dropped entirely under load. Mitigations: (1) schedule a few
-    # minutes off the top of the hour (load spikes at :00), and (2) use redundant
-    # slots so a dropped run is backed up by a later one. Times are UTC; during
-    # the WC Barcelona is CEST (UTC+2). GitHub cron does NOT follow DST.
-    #   21:40 UTC = 23:40 Barcelona
-    #   00:20 UTC = 02:20 Barcelona
-    #   04:40 UTC = 06:40 Barcelona
-    #   18:40 UTC = 20:40 Barcelona
-    - cron: '40 21 * * *'
-    - cron: '20 0 * * *'
-    - cron: '40 4 * * *'
-    - cron: '40 18 * * *'
+    # Twice daily, ~9am/9pm Barcelona time. Times are UTC; Barcelona is
+    # currently CEST (UTC+2) -- GitHub cron does NOT follow DST, so this
+    # drifts an hour once Barcelona switches to CET in late Oct.
+    # Minute offset (:05) keeps this off the top-of-hour load spike and
+    # staggered from the other 3 update-*.yml workflows below, since all
+    # four rebuild the shared index.html hub and a same-minute cron hits
+    # that race every day.
+    #   07:05 UTC = 09:05 Barcelona
+    #   19:05 UTC = 21:05 Barcelona
+    - cron: '5 7 * * *'
+    - cron: '5 19 * * *'
   workflow_dispatch:
     # Allows you to trigger it manually from the GitHub website
 
