@@ -181,10 +181,10 @@
   },
   "Ipswich Town FC|Liverpool FC": {
     "date": "2026-09-04",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Ipswich Town FC": null,
-      "Liverpool FC": null
+      "Ipswich Town FC": 0,
+      "Liverpool FC": 2
     },
     "round": "Matchday 3"
   },
