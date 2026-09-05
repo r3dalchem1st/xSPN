@@ -179,13 +179,22 @@
       "brier": 0.3322830411194889,
       "log_loss": 0.6357681584047336,
       "total_goal_error": 0
+    },
+    {
+      "home": "Ipswich Town FC",
+      "away": "Liverpool FC",
+      "date": "2026-09-04",
+      "correct_winner": true,
+      "brier": 0.05278321479872692,
+      "log_loss": 0.20537120025927597,
+      "total_goal_error": 0
     }
   ],
   "summary": {
-    "n_scored": 20,
-    "accuracy": 0.65,
-    "avg_brier": 0.5582995443055594,
-    "avg_log_loss": 0.9472709588444286,
-    "avg_goal_error": 2.0
+    "n_scored": 21,
+    "accuracy": 0.6666666666666666,
+    "avg_brier": 0.5342273381385673,
+    "avg_log_loss": 0.9119423989118022,
+    "avg_goal_error": 1.9047619047619047
   }
 }
