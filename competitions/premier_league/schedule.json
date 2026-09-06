@@ -253,19 +253,19 @@
   },
   "Everton FC|Manchester United FC": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Everton FC": null,
-      "Manchester United FC": null
+      "Everton FC": 2,
+      "Manchester United FC": 2
     },
     "round": "Matchday 3"
   },
   "Arsenal FC|Chelsea FC": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Arsenal FC": null,
-      "Chelsea FC": null
+      "Arsenal FC": 2,
+      "Chelsea FC": 1
     },
     "round": "Matchday 3"
   },
