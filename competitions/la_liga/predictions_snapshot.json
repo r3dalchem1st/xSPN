@@ -449,5 +449,16 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-09-02"
+  },
+  "Sevilla FC|Valencia CF": {
+    "home": "Sevilla FC",
+    "away": "Valencia CF",
+    "date": "2026-09-11",
+    "ph": 0.45007259663608346,
+    "pd": 0.2572960971753028,
+    "pa": 0.2926313061886139,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-06"
   }
 }

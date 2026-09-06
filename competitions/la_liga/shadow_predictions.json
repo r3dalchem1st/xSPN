@@ -198,5 +198,25 @@
       "predicted_winner": "A",
       "predicted_score": "0-1"
     }
+  },
+  "Sevilla FC|Valencia CF": {
+    "home": "Sevilla FC",
+    "away": "Valencia CF",
+    "date": "2026-09-11",
+    "snapped_at": "2026-09-06",
+    "baseline": {
+      "ph": 0.45128549046650945,
+      "pd": 0.2586533331246091,
+      "pa": 0.2900611764088815,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.45128549046650945,
+      "pd": 0.2586533331246091,
+      "pa": 0.2900611764088815,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
   }
 }
