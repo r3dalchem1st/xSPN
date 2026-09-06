@@ -316,37 +316,37 @@
   },
   "Valencia CF|FC Barcelona": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Valencia CF": null,
-      "FC Barcelona": null
+      "Valencia CF": 0,
+      "FC Barcelona": 5
     },
     "round": "Matchday 4"
   },
   "Deportivo Alav\u00e9s|CA Osasuna": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Deportivo Alav\u00e9s": null,
-      "CA Osasuna": null
+      "Deportivo Alav\u00e9s": 5,
+      "CA Osasuna": 2
     },
     "round": "Matchday 4"
   },
   "M\u00e1laga CF|Levante UD": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "M\u00e1laga CF": null,
-      "Levante UD": null
+      "M\u00e1laga CF": 0,
+      "Levante UD": 0
     },
     "round": "Matchday 4"
   },
   "RCD Espanyol de Barcelona|Sevilla FC": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RCD Espanyol de Barcelona": null,
-      "Sevilla FC": null
+      "RCD Espanyol de Barcelona": 1,
+      "Sevilla FC": 1
     },
     "round": "Matchday 4"
   },

@@ -314,13 +314,49 @@
       "brier": 1.434069100829772,
       "log_loss": 2.3808953977642027,
       "total_goal_error": 3
+    },
+    {
+      "home": "Valencia CF",
+      "away": "FC Barcelona",
+      "date": "2026-09-06",
+      "correct_winner": true,
+      "brier": 0.12192277283301424,
+      "log_loss": 0.33433540341405305,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Deportivo Alav\u00e9s",
+      "away": "CA Osasuna",
+      "date": "2026-09-06",
+      "correct_winner": true,
+      "brier": 0.5407905020446577,
+      "log_loss": 0.9173868101801315,
+      "total_goal_error": 6
+    },
+    {
+      "home": "M\u00e1laga CF",
+      "away": "Levante UD",
+      "date": "2026-09-06",
+      "correct_winner": false,
+      "brier": 1.0260066896140683,
+      "log_loss": 1.5279160624265953,
+      "total_goal_error": 2
+    },
+    {
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Sevilla FC",
+      "date": "2026-09-06",
+      "correct_winner": false,
+      "brier": 0.8187556590354541,
+      "log_loss": 1.3288071492602307,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 35,
-    "accuracy": 0.5714285714285714,
-    "avg_brier": 0.6199838660433239,
-    "avg_log_loss": 1.0466063580868685,
-    "avg_goal_error": 1.9142857142857144
+    "n_scored": 39,
+    "accuracy": 0.5641025641025641,
+    "avg_brier": 0.620690023975475,
+    "avg_log_loss": 1.04460687072619,
+    "avg_goal_error": 2.051282051282051
   }
 }
