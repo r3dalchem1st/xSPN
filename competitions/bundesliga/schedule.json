@@ -145,19 +145,19 @@
   },
   "Hamburger SV|1. FSV Mainz 05": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hamburger SV": null,
-      "1. FSV Mainz 05": null
+      "Hamburger SV": 0,
+      "1. FSV Mainz 05": 5
     },
     "round": "Matchday 2"
   },
   "Eintracht Frankfurt|FC Augsburg": {
     "date": "2026-09-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "FC Augsburg": null
+      "Eintracht Frankfurt": 1,
+      "FC Augsburg": 4
     },
     "round": "Matchday 2"
   },
