@@ -196,5 +196,16 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-09-01"
+  },
+  "1. FC Union Berlin|FC Schalke 04": {
+    "home": "1. FC Union Berlin",
+    "away": "FC Schalke 04",
+    "date": "2026-09-11",
+    "ph": 0.781873607040858,
+    "pd": 0.13688528287368149,
+    "pa": 0.08124111008546066,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-06"
   }
 }
