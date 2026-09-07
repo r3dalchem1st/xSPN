@@ -141,7 +141,26 @@ def season_span(schedule):
     return _fmt_date(dates[0]), _fmt_date(dates[-1])
 
 
-def build_accuracy_html(accuracy):
+def build_accuracy_trend_html(matches, today=None):
+    """Day-over-day change in cumulative accuracy, as an arrow + percentage-
+    point delta: cumulative accuracy including today's newly-scored matches
+    vs. cumulative accuracy as of yesterday (matches dated before today).
+    Empty when there's no earlier day to compare against (first match of the
+    season) or nothing new was scored today -- no signal to show either way."""
+    today_iso = (today or date.today()).isoformat()
+    prior = [m for m in matches if m["date"] < today_iso]
+    if not prior or len(prior) == len(matches):
+        return ''
+    prior_acc = sum(1 for m in prior if m["correct_winner"]) / len(prior)
+    current_acc = sum(1 for m in matches if m["correct_winner"]) / len(matches)
+    delta_pp = (current_acc - prior_acc) * 100
+    if abs(delta_pp) < 0.05:
+        return ' <span class="acc-trend acc-trend-flat" title="No change today">&#8212;</span>'
+    arrow, cls = ('&#9650;', 'acc-trend-up') if delta_pp > 0 else ('&#9660;', 'acc-trend-down')
+    return f' <span class="acc-trend {cls}" title="Change since yesterday">{arrow} {abs(delta_pp):.1f}pp</span>'
+
+
+def build_accuracy_html(accuracy, today=None):
     """Results-tab summary cards from results_accuracy.json's "summary", or
     an empty-state note if nothing has been scored yet (correct for a
     season that hasn't started, not a bug). "Correct Winners" is counted
@@ -153,11 +172,12 @@ def build_accuracy_html(accuracy):
     if not n:
         return '<div class="empty-note">No matches scored yet this season.</div>'
     correct = sum(1 for m in matches if m["correct_winner"])
+    trend = build_accuracy_trend_html(matches, today)
     return (
         '<div class="acc-cards">'
         '<div class="acc-card"><div class="acc-lbl">Correct Winners</div>'
         f'<div class="acc-val">{correct}/{n}</div>'
-        f'<div class="acc-sub">{summary["accuracy"]:.1%} accuracy</div></div>'
+        f'<div class="acc-sub">{summary["accuracy"]:.1%} accuracy{trend}</div></div>'
         '<div class="acc-card"><div class="acc-lbl">Avg Goal Error</div>'
         f'<div class="acc-val" style="color:var(--muted)">{summary["avg_goal_error"]:.2f}</div>'
         '<div class="acc-sub">exact-score distance &middot; not a quality score</div></div>'
