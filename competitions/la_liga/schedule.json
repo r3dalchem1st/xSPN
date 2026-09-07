@@ -352,19 +352,19 @@
   },
   "Getafe CF|RC Celta de Vigo": {
     "date": "2026-09-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Getafe CF": null,
-      "RC Celta de Vigo": null
+      "Getafe CF": 1,
+      "RC Celta de Vigo": 1
     },
     "round": "Matchday 4"
   },
   "Elche CF|Real Sociedad de F\u00fatbol": {
     "date": "2026-09-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Elche CF": null,
-      "Real Sociedad de F\u00fatbol": null
+      "Elche CF": 2,
+      "Real Sociedad de F\u00fatbol": 3
     },
     "round": "Matchday 4"
   },
