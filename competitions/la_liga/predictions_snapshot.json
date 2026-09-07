@@ -460,5 +460,49 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-09-06"
+  },
+  "Real Racing Club de Santander|Deportivo Alav\u00e9s": {
+    "home": "Real Racing Club de Santander",
+    "away": "Deportivo Alav\u00e9s",
+    "date": "2026-09-12",
+    "ph": 0.46614964831759675,
+    "pd": 0.2388803703111423,
+    "pa": 0.294969981371261,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-07"
+  },
+  "CA Osasuna|RCD Espanyol de Barcelona": {
+    "home": "CA Osasuna",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-09-12",
+    "ph": 0.48652563313423425,
+    "pd": 0.2709418264321901,
+    "pa": 0.2425325404335757,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-07"
+  },
+  "Athletic Club|Elche CF": {
+    "home": "Athletic Club",
+    "away": "Elche CF",
+    "date": "2026-09-12",
+    "ph": 0.5298978266788291,
+    "pd": 0.24003651727738617,
+    "pa": 0.23006565604378465,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-07"
+  },
+  "Real Madrid CF|Rayo Vallecano de Madrid": {
+    "home": "Real Madrid CF",
+    "away": "Rayo Vallecano de Madrid",
+    "date": "2026-09-12",
+    "ph": 0.7127724914320284,
+    "pd": 0.18170607653393828,
+    "pa": 0.10552143203403341,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-09-07"
   }
 }
