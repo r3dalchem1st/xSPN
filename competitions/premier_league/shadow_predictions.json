@@ -198,5 +198,145 @@
       "predicted_winner": "H",
       "predicted_score": "1-0"
     }
+  },
+  "Crystal Palace FC|Ipswich Town FC": {
+    "home": "Crystal Palace FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.6227916973866938,
+      "pd": 0.2070570069085054,
+      "pa": 0.17015129570480073,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    },
+    "odds_fit": {
+      "ph": 0.6227916973866938,
+      "pd": 0.2070570069085054,
+      "pa": 0.17015129570480073,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    }
+  },
+  "Liverpool FC|Fulham FC": {
+    "home": "Liverpool FC",
+    "away": "Fulham FC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.5815140214040909,
+      "pd": 0.21381965659205862,
+      "pa": 0.20466632200385046,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.5815140214040909,
+      "pd": 0.21381965659205862,
+      "pa": 0.20466632200385046,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Aston Villa FC|Nottingham Forest FC": {
+    "home": "Aston Villa FC",
+    "away": "Nottingham Forest FC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.4229073015140723,
+      "pd": 0.26124771288975035,
+      "pa": 0.31584498559617746,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.4229073015140723,
+      "pd": 0.26124771288975035,
+      "pa": 0.31584498559617746,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "AFC Bournemouth|Brentford FC": {
+    "home": "AFC Bournemouth",
+    "away": "Brentford FC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.43281911983742577,
+      "pd": 0.24275494873580136,
+      "pa": 0.3244259314267728,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.43281911983742577,
+      "pd": 0.24275494873580136,
+      "pa": 0.3244259314267728,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Chelsea FC|Hull City AFC": {
+    "home": "Chelsea FC",
+    "away": "Hull City AFC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.1741678618974929,
+      "pd": 0.3135139597374894,
+      "pa": 0.5123181783650177,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.1741678618974929,
+      "pd": 0.3135139597374894,
+      "pa": 0.5123181783650177,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
+  },
+  "Tottenham Hotspur FC|Everton FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Everton FC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.3589433256492195,
+      "pd": 0.2693300659188642,
+      "pa": 0.37172660843191635,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.3589433256492195,
+      "pd": 0.2693300659188642,
+      "pa": 0.37172660843191635,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
+  },
+  "Sunderland AFC|Arsenal FC": {
+    "home": "Sunderland AFC",
+    "away": "Arsenal FC",
+    "date": "2026-09-12",
+    "snapped_at": "2026-09-07",
+    "baseline": {
+      "ph": 0.16728722874877816,
+      "pd": 0.26635701450609195,
+      "pa": 0.56635575674513,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.16728722874877816,
+      "pd": 0.26635701450609195,
+      "pa": 0.56635575674513,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
   }
 }
