@@ -51,5 +51,9 @@ table{width:100%;border-collapse:collapse}
 .acc-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
 .acc-val{font-size:1.35rem;font-weight:700;color:var(--red);margin:3px 0}
 .acc-sub{font-size:.74rem;color:var(--hint)}
+.acc-trend{font-weight:700}
+.acc-trend-up{color:var(--win)}
+.acc-trend-down{color:var(--lose)}
+.acc-trend-flat{color:var(--hint)}
 .res-ok{color:var(--win);font-weight:700}
 .res-err{color:var(--lose);font-weight:700}
