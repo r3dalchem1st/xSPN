@@ -207,5 +207,71 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-09-06"
+  },
+  "TSG 1899 Hoffenheim|VfB Stuttgart": {
+    "home": "TSG 1899 Hoffenheim",
+    "away": "VfB Stuttgart",
+    "date": "2026-09-12",
+    "ph": 0.34350881216509277,
+    "pd": 0.21185457287811477,
+    "pa": 0.44463661495679246,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-09-07"
+  },
+  "Borussia Dortmund|SC Paderborn 07": {
+    "home": "Borussia Dortmund",
+    "away": "SC Paderborn 07",
+    "date": "2026-09-12",
+    "ph": 0.5000294120986963,
+    "pd": 0.34416873830874467,
+    "pa": 0.15580184959255874,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-07"
+  },
+  "FC Augsburg|Bayer 04 Leverkusen": {
+    "home": "FC Augsburg",
+    "away": "Bayer 04 Leverkusen",
+    "date": "2026-09-12",
+    "ph": 0.23117727589327358,
+    "pd": 0.2252964137821247,
+    "pa": 0.5435263103246016,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-07"
+  },
+  "1. FSV Mainz 05|Eintracht Frankfurt": {
+    "home": "1. FSV Mainz 05",
+    "away": "Eintracht Frankfurt",
+    "date": "2026-09-12",
+    "ph": 0.4132428264484426,
+    "pd": 0.2325044481793424,
+    "pa": 0.3542527253722147,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-07"
+  },
+  "SC Freiburg|Borussia M\u00f6nchengladbach": {
+    "home": "SC Freiburg",
+    "away": "Borussia M\u00f6nchengladbach",
+    "date": "2026-09-12",
+    "ph": 0.47028491830091973,
+    "pd": 0.23926260006158176,
+    "pa": 0.29045248163749865,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-07"
+  },
+  "1. FC K\u00f6ln|SV Werder Bremen": {
+    "home": "1. FC K\u00f6ln",
+    "away": "SV Werder Bremen",
+    "date": "2026-09-12",
+    "ph": 0.48568554226184946,
+    "pd": 0.22797495127161874,
+    "pa": 0.2863395064665321,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-07"
   }
 }
