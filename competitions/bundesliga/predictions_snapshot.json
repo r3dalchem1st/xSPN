@@ -273,5 +273,27 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-09-07"
+  },
+  "RB Leipzig|Hamburger SV": {
+    "home": "RB Leipzig",
+    "away": "Hamburger SV",
+    "date": "2026-09-13",
+    "ph": 0.6251758635533093,
+    "pd": 0.20635236129428766,
+    "pa": 0.16847177515240322,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-08"
+  },
+  "SV 07 Elversberg|FC Bayern M\u00fcnchen": {
+    "home": "SV 07 Elversberg",
+    "away": "FC Bayern M\u00fcnchen",
+    "date": "2026-09-13",
+    "ph": 0.1889486378051511,
+    "pd": 0.12654452760319204,
+    "pa": 0.6845068345916567,
+    "predicted_winner": "A",
+    "predicted_score": "1-4",
+    "snapped_at": "2026-09-08"
   }
 }

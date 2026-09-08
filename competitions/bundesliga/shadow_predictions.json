@@ -318,5 +318,45 @@
       "predicted_winner": "H",
       "predicted_score": "2-1"
     }
+  },
+  "RB Leipzig|Hamburger SV": {
+    "home": "RB Leipzig",
+    "away": "Hamburger SV",
+    "date": "2026-09-13",
+    "snapped_at": "2026-09-08",
+    "baseline": {
+      "ph": 0.6307245413212325,
+      "pd": 0.20599768887100806,
+      "pa": 0.1632777698077594,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    },
+    "odds_fit": {
+      "ph": 0.6307245413212325,
+      "pd": 0.20599768887100806,
+      "pa": 0.1632777698077594,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    }
+  },
+  "SV 07 Elversberg|FC Bayern M\u00fcnchen": {
+    "home": "SV 07 Elversberg",
+    "away": "FC Bayern M\u00fcnchen",
+    "date": "2026-09-13",
+    "snapped_at": "2026-09-08",
+    "baseline": {
+      "ph": 0.210814783915867,
+      "pd": 0.13336429409758993,
+      "pa": 0.6558209219865431,
+      "predicted_winner": "A",
+      "predicted_score": "2-4"
+    },
+    "odds_fit": {
+      "ph": 0.210814783915867,
+      "pd": 0.13336429409758993,
+      "pa": 0.6558209219865431,
+      "predicted_winner": "A",
+      "predicted_score": "2-4"
+    }
   }
 }
