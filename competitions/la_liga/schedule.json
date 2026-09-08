@@ -539,6 +539,15 @@
     },
     "round": "Matchday 6"
   },
+  "RCD Espanyol de Barcelona|Elche CF": {
+    "date": "2026-09-18",
+    "status": "SCHEDULED",
+    "goals": {
+      "RCD Espanyol de Barcelona": null,
+      "Elche CF": null
+    },
+    "round": "Matchday 7"
+  },
   "CA Osasuna|Rayo Vallecano de Madrid": {
     "date": "2026-09-19",
     "status": "SCHEDULED",
@@ -575,24 +584,6 @@
     },
     "round": "Matchday 7"
   },
-  "Valencia CF|Real Sociedad de F\u00fatbol": {
-    "date": "2026-09-20",
-    "status": "SCHEDULED",
-    "goals": {
-      "Valencia CF": null,
-      "Real Sociedad de F\u00fatbol": null
-    },
-    "round": "Matchday 7"
-  },
-  "RCD Espanyol de Barcelona|Elche CF": {
-    "date": "2026-09-18",
-    "status": "SCHEDULED",
-    "goals": {
-      "RCD Espanyol de Barcelona": null,
-      "Elche CF": null
-    },
-    "round": "Matchday 7"
-  },
   "Getafe CF|M\u00e1laga CF": {
     "date": "2026-09-20",
     "status": "SCHEDULED",
@@ -626,6 +617,15 @@
     "goals": {
       "Villarreal CF": null,
       "Levante UD": null
+    },
+    "round": "Matchday 7"
+  },
+  "Valencia CF|Real Sociedad de F\u00fatbol": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Valencia CF": null,
+      "Real Sociedad de F\u00fatbol": null
     },
     "round": "Matchday 7"
   },
