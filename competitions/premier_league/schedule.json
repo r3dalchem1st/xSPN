@@ -386,15 +386,6 @@
     },
     "round": "Matchday 5"
   },
-  "Leeds United FC|Crystal Palace FC": {
-    "date": "2026-09-20",
-    "status": "SCHEDULED",
-    "goals": {
-      "Leeds United FC": null,
-      "Crystal Palace FC": null
-    },
-    "round": "Matchday 5"
-  },
   "Brighton & Hove Albion FC|Arsenal FC": {
     "date": "2026-09-19",
     "status": "SCHEDULED",
@@ -428,6 +419,15 @@
     "goals": {
       "AFC Bournemouth": null,
       "Liverpool FC": null
+    },
+    "round": "Matchday 5"
+  },
+  "Leeds United FC|Crystal Palace FC": {
+    "date": "2026-09-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "Leeds United FC": null,
+      "Crystal Palace FC": null
     },
     "round": "Matchday 5"
   },
@@ -647,15 +647,6 @@
     },
     "round": "Matchday 8"
   },
-  "Liverpool FC|Brighton & Hove Albion FC": {
-    "date": "2026-10-25",
-    "status": "SCHEDULED",
-    "goals": {
-      "Liverpool FC": null,
-      "Brighton & Hove Albion FC": null
-    },
-    "round": "Matchday 8"
-  },
   "Arsenal FC|Everton FC": {
     "date": "2026-10-24",
     "status": "SCHEDULED",
@@ -680,6 +671,15 @@
     "goals": {
       "Chelsea FC": null,
       "Tottenham Hotspur FC": null
+    },
+    "round": "Matchday 8"
+  },
+  "Liverpool FC|Brighton & Hove Albion FC": {
+    "date": "2026-10-25",
+    "status": "SCHEDULED",
+    "goals": {
+      "Liverpool FC": null,
+      "Brighton & Hove Albion FC": null
     },
     "round": "Matchday 8"
   },

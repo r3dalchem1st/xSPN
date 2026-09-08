@@ -338,5 +338,45 @@
       "predicted_winner": "A",
       "predicted_score": "0-1"
     }
+  },
+  "Coventry City FC|Brighton & Hove Albion FC": {
+    "home": "Coventry City FC",
+    "away": "Brighton & Hove Albion FC",
+    "date": "2026-09-13",
+    "snapped_at": "2026-09-08",
+    "baseline": {
+      "ph": 0.10994191082293643,
+      "pd": 0.2667032334471233,
+      "pa": 0.6233548557299403,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.10994191082293643,
+      "pd": 0.2667032334471233,
+      "pa": 0.6233548557299403,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
+  },
+  "Manchester United FC|Manchester City FC": {
+    "home": "Manchester United FC",
+    "away": "Manchester City FC",
+    "date": "2026-09-13",
+    "snapped_at": "2026-09-08",
+    "baseline": {
+      "ph": 0.2678648809078135,
+      "pd": 0.23124557133439635,
+      "pa": 0.50088954775779,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.2678648809078135,
+      "pd": 0.23124557133439635,
+      "pa": 0.50088954775779,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
   }
 }
