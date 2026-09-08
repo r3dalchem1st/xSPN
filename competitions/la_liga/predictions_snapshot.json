@@ -504,5 +504,49 @@
     "predicted_winner": "H",
     "predicted_score": "2-0",
     "snapped_at": "2026-09-07"
+  },
+  "RC Celta de Vigo|M\u00e1laga CF": {
+    "home": "RC Celta de Vigo",
+    "away": "M\u00e1laga CF",
+    "date": "2026-09-13",
+    "ph": 0.653714644155601,
+    "pd": 0.25334206931924963,
+    "pa": 0.09294328652514967,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-09-08"
+  },
+  "Levante UD|FC Barcelona": {
+    "home": "Levante UD",
+    "away": "FC Barcelona",
+    "date": "2026-09-13",
+    "ph": 0.14163208595156637,
+    "pd": 0.1639220503078697,
+    "pa": 0.6944458637405639,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-09-08"
+  },
+  "Getafe CF|RC Deportivo La Coru\u00f1a": {
+    "home": "Getafe CF",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "date": "2026-09-13",
+    "ph": 0.3167113103907357,
+    "pd": 0.2808950207632782,
+    "pa": 0.40239366884598604,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-08"
+  },
+  "Real Sociedad de F\u00fatbol|Club Atl\u00e9tico de Madrid": {
+    "home": "Real Sociedad de F\u00fatbol",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-09-13",
+    "ph": 0.30245460485962133,
+    "pd": 0.2463599186202399,
+    "pa": 0.4511854765201385,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-08"
   }
 }
