@@ -548,5 +548,16 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-09-08"
+  },
+  "Villarreal CF|Real Betis Balompi\u00e9": {
+    "home": "Villarreal CF",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-09-14",
+    "ph": 0.5476116001657396,
+    "pd": 0.21409210771961318,
+    "pa": 0.2382962921146472,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-09"
   }
 }
