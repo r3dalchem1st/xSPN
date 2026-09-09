@@ -378,5 +378,25 @@
       "predicted_winner": "A",
       "predicted_score": "1-2"
     }
+  },
+  "Leeds United FC|Newcastle United FC": {
+    "home": "Leeds United FC",
+    "away": "Newcastle United FC",
+    "date": "2026-09-14",
+    "snapped_at": "2026-09-09",
+    "baseline": {
+      "ph": 0.3690942029100987,
+      "pd": 0.25467826617142225,
+      "pa": 0.37622753091847905,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.3690942029100987,
+      "pd": 0.25467826617142225,
+      "pa": 0.37622753091847905,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
   }
 }
