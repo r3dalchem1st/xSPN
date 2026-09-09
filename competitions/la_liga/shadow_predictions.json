@@ -378,5 +378,25 @@
       "predicted_winner": "A",
       "predicted_score": "0-1"
     }
+  },
+  "Villarreal CF|Real Betis Balompi\u00e9": {
+    "home": "Villarreal CF",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-09-14",
+    "snapped_at": "2026-09-09",
+    "baseline": {
+      "ph": 0.5524320660148705,
+      "pd": 0.2129655975920879,
+      "pa": 0.23460233639304154,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.5524320660148705,
+      "pd": 0.2129655975920879,
+      "pa": 0.23460233639304154,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
   }
 }
