@@ -427,5 +427,16 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-09-08"
+  },
+  "Leeds United FC|Newcastle United FC": {
+    "home": "Leeds United FC",
+    "away": "Newcastle United FC",
+    "date": "2026-09-14",
+    "ph": 0.3515515859377551,
+    "pd": 0.2513521415716531,
+    "pa": 0.3970962724905917,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-09"
   }
 }
