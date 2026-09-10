@@ -1,5 +1,3 @@
-from datetime import date
-
 from build_league_html import (compute_full_standings, build_standings_rows,
                                  render_rows_html, top_zone_for, season_span,
                                  build_accuracy_html, build_accuracy_trend_html,
@@ -99,7 +97,7 @@ def test_build_accuracy_html_renders_cards_from_summary():
         "summary": {"n_scored": 3, "accuracy": 2 / 3, "avg_brier": 0.55, "avg_log_loss": 0.9,
                     "avg_goal_error": 1.667},
     }
-    out = build_accuracy_html(accuracy, today=date(2026, 8, 21))
+    out = build_accuracy_html(accuracy)
     assert "2/3" in out
     assert "66.7%" in out
     assert "0.550" in out
@@ -107,52 +105,64 @@ def test_build_accuracy_html_renders_cards_from_summary():
     assert "not a quality score" in out
 
 
-def test_build_accuracy_html_includes_trend_arrow_when_todays_result_moves_accuracy():
+def test_build_accuracy_html_includes_trend_arrow_when_latest_matchday_moves_accuracy():
     accuracy = {
         "matches": [{"correct_winner": False, "date": "2026-08-21"},
                     {"correct_winner": True, "date": "2026-08-22"}],
         "summary": {"n_scored": 2, "accuracy": 0.5, "avg_brier": 0.5, "avg_log_loss": 0.9,
                     "avg_goal_error": 1.0},
     }
-    out = build_accuracy_html(accuracy, today=date(2026, 8, 22))
+    out = build_accuracy_html(accuracy)
     assert "acc-trend-up" in out
 
 
-def test_build_accuracy_trend_html_hidden_when_no_prior_matches():
-    # every match is dated today -- there's no earlier day to compare against
-    matches = [{"correct_winner": True, "date": "2026-08-21"}]
-    assert build_accuracy_trend_html(matches, today=date(2026, 8, 21)) == ''
-
-
-def test_build_accuracy_trend_html_hidden_when_no_matches_scored_today():
-    # nothing new since yesterday -- nothing to signal
-    matches = [{"correct_winner": True, "date": "2026-08-21"}]
-    assert build_accuracy_trend_html(matches, today=date(2026, 8, 25)) == ''
-
-
-def test_build_accuracy_trend_html_shows_up_arrow_when_todays_result_improved_accuracy():
-    matches = [{"correct_winner": False, "date": "2026-08-21"},   # prior: 0/1 = 0%
-               {"correct_winner": True, "date": "2026-08-22"}]    # current: 1/2 = 50%
-    out = build_accuracy_trend_html(matches, today=date(2026, 8, 22))
+def test_build_accuracy_trend_html_reflects_latest_matchday_even_when_real_today_has_moved_on():
+    # Regression test for a real production bug: the pipeline rebuilds daily
+    # regardless of whether a match was actually played that day (international
+    # breaks, mid-week gaps are normal), so anchoring the comparison to real
+    # wall-clock "today" left the arrow hidden on every single build after the
+    # day a match was scored -- confirmed live: Premier League/Bundesliga's
+    # last match was 6 Sep, and the arrow stayed hidden through the daily
+    # rebuilds on the 7th/8th/9th/10th despite the real swing sitting right
+    # there in the data. The trend must be anchored to the data's own latest
+    # match date, not to `date.today()`.
+    matches = [{"correct_winner": False, "date": "2020-01-01"},   # prior: 0/1 = 0%
+               {"correct_winner": True, "date": "2020-01-02"}]    # current: 1/2 = 50%
+    out = build_accuracy_trend_html(matches)
     assert "acc-trend-up" in out
     assert "50.0pp" in out
 
 
-def test_build_accuracy_trend_html_shows_down_arrow_when_todays_result_lowered_accuracy():
+def test_build_accuracy_trend_html_hidden_when_only_one_match_date_exists():
+    # every match shares one date -- there's no earlier matchday to compare against
+    matches = [{"correct_winner": True, "date": "2026-08-21"},
+               {"correct_winner": False, "date": "2026-08-21"}]
+    assert build_accuracy_trend_html(matches) == ''
+
+
+def test_build_accuracy_trend_html_shows_up_arrow_when_latest_matchday_improved_accuracy():
+    matches = [{"correct_winner": False, "date": "2026-08-21"},   # prior: 0/1 = 0%
+               {"correct_winner": True, "date": "2026-08-22"}]    # current: 1/2 = 50%
+    out = build_accuracy_trend_html(matches)
+    assert "acc-trend-up" in out
+    assert "50.0pp" in out
+
+
+def test_build_accuracy_trend_html_shows_down_arrow_when_latest_matchday_lowered_accuracy():
     matches = [{"correct_winner": True, "date": "2026-08-21"},    # prior: 2/2 = 100%
                {"correct_winner": True, "date": "2026-08-21"},
                {"correct_winner": False, "date": "2026-08-22"}]   # current: 2/3 = 66.7%
-    out = build_accuracy_trend_html(matches, today=date(2026, 8, 22))
+    out = build_accuracy_trend_html(matches)
     assert "acc-trend-down" in out
     assert "33.3pp" in out
 
 
-def test_build_accuracy_trend_html_shows_flat_when_todays_results_dont_move_accuracy():
+def test_build_accuracy_trend_html_shows_flat_when_latest_matchday_doesnt_move_accuracy():
     matches = [{"correct_winner": True, "date": "2026-08-21"},    # prior: 1/2 = 50%
                {"correct_winner": False, "date": "2026-08-21"},
                {"correct_winner": True, "date": "2026-08-22"},    # current: 2/4 = 50%
                {"correct_winner": False, "date": "2026-08-22"}]
-    out = build_accuracy_trend_html(matches, today=date(2026, 8, 22))
+    out = build_accuracy_trend_html(matches)
     assert "acc-trend-flat" in out
 
 
