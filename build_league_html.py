@@ -141,26 +141,32 @@ def season_span(schedule):
     return _fmt_date(dates[0]), _fmt_date(dates[-1])
 
 
-def build_accuracy_trend_html(matches, today=None):
-    """Day-over-day change in cumulative accuracy, as an arrow + percentage-
-    point delta: cumulative accuracy including today's newly-scored matches
-    vs. cumulative accuracy as of yesterday (matches dated before today).
-    Empty when there's no earlier day to compare against (first match of the
-    season) or nothing new was scored today -- no signal to show either way."""
-    today_iso = (today or date.today()).isoformat()
-    prior = [m for m in matches if m["date"] < today_iso]
-    if not prior or len(prior) == len(matches):
+def build_accuracy_trend_html(matches):
+    """Change in cumulative accuracy from the most recently played matchday,
+    as an arrow + percentage-point delta: cumulative accuracy including the
+    latest match date's results vs. cumulative accuracy without them.
+    Anchored to the data's own latest match date rather than real wall-clock
+    "today" -- the pipeline rebuilds daily regardless of whether a match was
+    actually played that day (international breaks, mid-week gaps), so a
+    "today" anchor left this hidden on nearly every real build (confirmed
+    live: hidden for 4 straight days across an international break). Empty
+    when every match shares one date (nothing earlier to compare against)."""
+    if not matches:
+        return ''
+    latest = max(m["date"] for m in matches)
+    prior = [m for m in matches if m["date"] < latest]
+    if not prior:
         return ''
     prior_acc = sum(1 for m in prior if m["correct_winner"]) / len(prior)
     current_acc = sum(1 for m in matches if m["correct_winner"]) / len(matches)
     delta_pp = (current_acc - prior_acc) * 100
     if abs(delta_pp) < 0.05:
-        return ' <span class="acc-trend acc-trend-flat" title="No change today">&#8212;</span>'
+        return ' <span class="acc-trend acc-trend-flat" title="No change from the last matchday">&#8212;</span>'
     arrow, cls = ('&#9650;', 'acc-trend-up') if delta_pp > 0 else ('&#9660;', 'acc-trend-down')
-    return f' <span class="acc-trend {cls}" title="Change since yesterday">{arrow} {abs(delta_pp):.1f}pp</span>'
+    return f' <span class="acc-trend {cls}" title="Change from the last matchday">{arrow} {abs(delta_pp):.1f}pp</span>'
 
 
-def build_accuracy_html(accuracy, today=None):
+def build_accuracy_html(accuracy):
     """Results-tab summary cards from results_accuracy.json's "summary", or
     an empty-state note if nothing has been scored yet (correct for a
     season that hasn't started, not a bug). "Correct Winners" is counted
@@ -172,7 +178,7 @@ def build_accuracy_html(accuracy, today=None):
     if not n:
         return '<div class="empty-note">No matches scored yet this season.</div>'
     correct = sum(1 for m in matches if m["correct_winner"])
-    trend = build_accuracy_trend_html(matches, today)
+    trend = build_accuracy_trend_html(matches)
     return (
         '<div class="acc-cards">'
         '<div class="acc-card"><div class="acc-lbl">Correct Winners</div>'
