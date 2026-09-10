@@ -559,5 +559,38 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-09-09"
+  },
+  "Rayo Vallecano de Madrid|RCD Espanyol de Barcelona": {
+    "home": "Rayo Vallecano de Madrid",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-09-15",
+    "ph": 0.46389663802968806,
+    "pd": 0.2822608935880211,
+    "pa": 0.253842468382291,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-10"
+  },
+  "Deportivo Alav\u00e9s|Valencia CF": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "Valencia CF",
+    "date": "2026-09-15",
+    "ph": 0.48805137489651984,
+    "pd": 0.26373797569864044,
+    "pa": 0.24821064940483983,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-10"
+  },
+  "Elche CF|Real Madrid CF": {
+    "home": "Elche CF",
+    "away": "Real Madrid CF",
+    "date": "2026-09-15",
+    "ph": 0.20632000194258807,
+    "pd": 0.2110682100505751,
+    "pa": 0.5826117880068369,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-09-10"
   }
 }
