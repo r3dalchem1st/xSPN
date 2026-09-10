@@ -266,7 +266,7 @@
         "lam": 1.08,
         "mu": 0.95,
         "score": "1\u20131",
-        "ph": 0.331,
+        "ph": 0.332,
         "pd": 0.393,
         "pa": 0.276,
         "likely_winner": "Draw"
@@ -1241,7 +1241,7 @@
       "score": "1\u20132",
       "winner": "Norway",
       "win_pct": 51.1,
-      "ph": 0.401,
+      "ph": 0.402,
       "pd": 0.241,
       "pa": 0.358,
       "reg_winner": "Brazil",
@@ -1439,12 +1439,12 @@
   "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 84.1,
-    "England": 9.0,
-    "Colombia": 6.1,
-    "France": 2.0,
-    "Senegal": 0.8,
+    "Argentina": 83.7,
+    "England": 9.2,
+    "Colombia": 6.4,
+    "France": 1.9,
+    "Senegal": 0.7,
     "USA": 0.3,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
