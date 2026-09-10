@@ -398,5 +398,65 @@
       "predicted_winner": "H",
       "predicted_score": "2-1"
     }
+  },
+  "Rayo Vallecano de Madrid|RCD Espanyol de Barcelona": {
+    "home": "Rayo Vallecano de Madrid",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-09-15",
+    "snapped_at": "2026-09-10",
+    "baseline": {
+      "ph": 0.47049719376955634,
+      "pd": 0.28101970132913634,
+      "pa": 0.2484831049013073,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.4806785434286958,
+      "pd": 0.26520184866837776,
+      "pa": 0.2541196079029264,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Deportivo Alav\u00e9s|Valencia CF": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "Valencia CF",
+    "date": "2026-09-15",
+    "snapped_at": "2026-09-10",
+    "baseline": {
+      "ph": 0.4944747914690928,
+      "pd": 0.25907375328259363,
+      "pa": 0.24645145524831358,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.4179592740644456,
+      "pd": 0.28252086185951025,
+      "pa": 0.2995198640760443,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Elche CF|Real Madrid CF": {
+    "home": "Elche CF",
+    "away": "Real Madrid CF",
+    "date": "2026-09-15",
+    "snapped_at": "2026-09-10",
+    "baseline": {
+      "ph": 0.1930173074156831,
+      "pd": 0.20794307987979793,
+      "pa": 0.599039612704519,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.1608884796223598,
+      "pd": 0.19246314242871387,
+      "pa": 0.6466483779489263,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
   }
 }
