@@ -61,11 +61,12 @@ tbody tr:hover td{background:#fafafa}
 </div>
 <div id="tab-results" class="pane active" role="tabpanel" aria-labelledby="tabbtn-results" tabindex="0">
   <div class="season-note">Season runs 28 Aug 2026 &ndash; 22 May 2027 &middot; 10000 simulated seasons &middot; generated 2026-09-11</div>
-  <div class="acc-cards"><div class="acc-card"><div class="acc-lbl">Correct Winners</div><div class="acc-val">8/18</div><div class="acc-sub">44.4% accuracy <span class="acc-trend acc-trend-up" title="Change from the last matchday">&#9650; 0.7pp</span></div></div><div class="acc-card"><div class="acc-lbl">Avg Goal Error</div><div class="acc-val" style="color:var(--muted)">3.06</div><div class="acc-sub">exact-score distance &middot; not a quality score</div></div><div class="acc-card"><div class="acc-lbl">Avg Brier Score</div><div class="acc-val">0.586</div><div class="acc-sub">vs baseline 0.67</div></div><div class="acc-card"><div class="acc-lbl">Avg Log-Loss</div><div class="acc-val">0.978</div><div class="acc-sub">lower is better</div></div></div>
+  <div class="acc-cards"><div class="acc-card"><div class="acc-lbl">Correct Winners</div><div class="acc-val">8/19</div><div class="acc-sub">42.1% accuracy <span class="acc-trend acc-trend-down" title="Change from the last matchday">&#9660; 2.3pp</span></div></div><div class="acc-card"><div class="acc-lbl">Avg Goal Error</div><div class="acc-val" style="color:var(--muted)">3.05</div><div class="acc-sub">exact-score distance &middot; not a quality score</div></div><div class="acc-card"><div class="acc-lbl">Avg Brier Score</div><div class="acc-val">0.633</div><div class="acc-sub">vs baseline 0.67</div></div><div class="acc-card"><div class="acc-lbl">Avg Log-Loss</div><div class="acc-val">1.059</div><div class="acc-sub">lower is better</div></div></div>
   <div class="results-card">
   <table>
     <thead><tr><th>Date</th><th>Match</th><th>Predicted</th><th>Actual</th><th>Winner</th><th>Goal&nbsp;Err</th><th>Brier</th></tr></thead>
     <tbody>
+<tr><td class="hint">2026-09-11</td><td>1. FC Union Berlin <span class="hint">vs</span> FC Schalke 04</td><td class="center hint">1-0</td><td class="center strong">1-3</td><td class="center"><span class="res-err">&#10007;</span></td><td class="center hint" title="Exact-score distance |predicted − actual| — not a quality score; see Correct Winner / Brier for call quality">3</td><td class="center hint">1.474</td></tr>
 <tr><td class="hint">2026-09-06</td><td>Hamburger SV <span class="hint">vs</span> 1. FSV Mainz 05</td><td class="center hint">0-1</td><td class="center strong">0-5</td><td class="center"><span class="res-ok">&#10003;</span></td><td class="center hint" title="Exact-score distance |predicted − actual| — not a quality score; see Correct Winner / Brier for call quality">4</td><td class="center hint">0.322</td></tr>
 <tr><td class="hint">2026-09-06</td><td>Eintracht Frankfurt <span class="hint">vs</span> FC Augsburg</td><td class="center hint">1-0</td><td class="center strong">1-4</td><td class="center"><span class="res-err">&#10007;</span></td><td class="center hint" title="Exact-score distance |predicted − actual| — not a quality score; see Correct Winner / Brier for call quality">4</td><td class="center hint">1.058</td></tr>
 <tr><td class="hint">2026-09-05</td><td>SV Werder Bremen <span class="hint">vs</span> RB Leipzig</td><td class="center hint">1-2</td><td class="center strong">3-1</td><td class="center"><span class="res-err">&#10007;</span></td><td class="center hint" title="Exact-score distance |predicted − actual| — not a quality score; see Correct Winner / Brier for call quality">3</td><td class="center hint">0.594</td></tr>
@@ -113,7 +114,7 @@ tbody tr:hover td{background:#fafafa}
 <div class="bm"><div class="bm-date">2026-09-06</div><div class="bm-t lose">Eintracht Frankfurt<span class="bm-sc">1</span></div><div class="bm-t win">FC Augsburg<span class="bm-sc">4</span></div></div>
 </div></div>
 <div class="br-col"><div class="br-title">Matchday 3</div><div class="br-matches">
-<div class="bm"><div class="bm-date">2026-09-11</div><div class="bm-t">1. FC Union Berlin</div><div class="bm-t">FC Schalke 04</div><div class="bm-pct">1-0 &middot; H</div></div>
+<div class="bm"><div class="bm-date">2026-09-11</div><div class="bm-t lose">1. FC Union Berlin<span class="bm-sc">1</span></div><div class="bm-t win">FC Schalke 04<span class="bm-sc">3</span></div></div>
 <div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">TSG 1899 Hoffenheim</div><div class="bm-t">VfB Stuttgart</div><div class="bm-pct">1-2 &middot; A</div></div>
 <div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">Borussia Dortmund</div><div class="bm-t">SC Paderborn 07</div><div class="bm-pct">1-0 &middot; H</div></div>
 <div class="bm"><div class="bm-date">2026-09-12</div><div class="bm-t">FC Augsburg</div><div class="bm-t">Bayer 04 Leverkusen</div><div class="bm-pct">0-1 &middot; A</div></div>
@@ -474,24 +475,24 @@ tbody tr:hover td{background:#fafafa}
       <tr><th>Pos</th><th>Team</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Title %</th><th>Relegation %</th></tr>
     </thead>
     <tbody>
-    <tr><td>1</td><td>FC Augsburg</td><td>2</td><td>2</td><td>0</td><td>0</td><td>7</td><td>1</td><td>6</td><td>6</td><td class="odds">0.0%</td><td class="odds">9.5%</td></tr>
-    <tr><td>2</td><td>SC Freiburg</td><td>2</td><td>2</td><td>0</td><td>0</td><td>5</td><td>1</td><td>4</td><td>6</td><td class="odds">0.1%</td><td class="odds">2.5%</td></tr>
-    <tr><td>3</td><td>Borussia Dortmund</td><td>2</td><td>2</td><td>0</td><td>0</td><td>5</td><td>2</td><td>3</td><td>6</td><td class="odds">3.8%</td><td class="odds">0.0%</td></tr>
-    <tr><td>4</td><td>SV 07 Elversberg</td><td>2</td><td>2</td><td>0</td><td>0</td><td>7</td><td>5</td><td>2</td><td>6</td><td class="odds">6.5%</td><td class="odds">0.0%</td></tr>
-    <tr><td>5</td><td>1. FSV Mainz 05</td><td>2</td><td>1</td><td>1</td><td>0</td><td>5</td><td>0</td><td>5</td><td>4</td><td class="odds">0.0%</td><td class="odds">2.9%</td></tr>
+    <tr><td>1</td><td>FC Augsburg</td><td>2</td><td>2</td><td>0</td><td>0</td><td>7</td><td>1</td><td>6</td><td>6</td><td class="odds">0.0%</td><td class="odds">9.9%</td></tr>
+    <tr><td>2</td><td>SC Freiburg</td><td>2</td><td>2</td><td>0</td><td>0</td><td>5</td><td>1</td><td>4</td><td>6</td><td class="odds">0.0%</td><td class="odds">1.9%</td></tr>
+    <tr><td>3</td><td>Borussia Dortmund</td><td>2</td><td>2</td><td>0</td><td>0</td><td>5</td><td>2</td><td>3</td><td>6</td><td class="odds">3.6%</td><td class="odds">0.0%</td></tr>
+    <tr><td>4</td><td>SV 07 Elversberg</td><td>2</td><td>2</td><td>0</td><td>0</td><td>7</td><td>5</td><td>2</td><td>6</td><td class="odds">6.6%</td><td class="odds">0.0%</td></tr>
+    <tr><td>5</td><td>1. FSV Mainz 05</td><td>2</td><td>1</td><td>1</td><td>0</td><td>5</td><td>0</td><td>5</td><td>4</td><td class="odds">0.0%</td><td class="odds">2.6%</td></tr>
     <tr><td>6</td><td>FC Bayern München</td><td>2</td><td>1</td><td>1</td><td>0</td><td>5</td><td>1</td><td>4</td><td>4</td><td class="odds">88.0%</td><td class="odds">0.0%</td></tr>
-    <tr><td>7</td><td>Bayer 04 Leverkusen</td><td>2</td><td>1</td><td>0</td><td>1</td><td>6</td><td>3</td><td>3</td><td>3</td><td class="odds">1.3%</td><td class="odds">0.1%</td></tr>
-    <tr><td>8</td><td>RB Leipzig</td><td>2</td><td>1</td><td>0</td><td>1</td><td>4</td><td>3</td><td>1</td><td>3</td><td class="odds">0.1%</td><td class="odds">0.9%</td></tr>
-    <tr><td>9</td><td>VfB Stuttgart</td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>6</td><td>-1</td><td>3</td><td class="odds">0.3%</td><td class="odds">0.3%</td></tr>
-    <tr><td>10</td><td>SV Werder Bremen</td><td>2</td><td>1</td><td>0</td><td>1</td><td>4</td><td>5</td><td>-1</td><td>3</td><td class="odds">0.0%</td><td class="odds">23.4%</td></tr>
-    <tr><td>11</td><td>1. FC Köln</td><td>2</td><td>1</td><td>0</td><td>1</td><td>4</td><td>6</td><td>-2</td><td>3</td><td class="odds">0.0%</td><td class="odds">23.1%</td></tr>
-    <tr><td>12</td><td>SC Paderborn 07</td><td>2</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>1</td><td class="odds">0.0%</td><td class="odds">50.3%</td></tr>
-    <tr><td>13</td><td>Eintracht Frankfurt</td><td>2</td><td>0</td><td>1</td><td>1</td><td>4</td><td>7</td><td>-3</td><td>1</td><td class="odds">0.0%</td><td class="odds">6.2%</td></tr>
-    <tr><td>14</td><td>FC Schalke 04</td><td>2</td><td>0</td><td>1</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>1</td><td class="odds">0.0%</td><td class="odds">65.0%</td></tr>
-    <tr><td>15</td><td>1. FC Union Berlin</td><td>2</td><td>0</td><td>1</td><td>1</td><td>3</td><td>7</td><td>-4</td><td>1</td><td class="odds">0.0%</td><td class="odds">34.2%</td></tr>
-    <tr><td>16</td><td>TSG 1899 Hoffenheim</td><td>2</td><td>0</td><td>0</td><td>2</td><td>4</td><td>6</td><td>-2</td><td>0</td><td class="odds">0.0%</td><td class="odds">9.3%</td></tr>
-    <tr><td>17</td><td>Borussia Mönchengladbach</td><td>2</td><td>0</td><td>0</td><td>2</td><td>3</td><td>7</td><td>-4</td><td>0</td><td class="odds">0.0%</td><td class="odds">21.5%</td></tr>
-    <tr><td>18</td><td>Hamburger SV</td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>7</td><td>-7</td><td>0</td><td class="odds">0.0%</td><td class="odds">50.9%</td></tr>
+    <tr><td>7</td><td>FC Schalke 04</td><td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td>4</td><td>-1</td><td>4</td><td class="odds">0.0%</td><td class="odds">62.1%</td></tr>
+    <tr><td>8</td><td>Bayer 04 Leverkusen</td><td>2</td><td>1</td><td>0</td><td>1</td><td>6</td><td>3</td><td>3</td><td>3</td><td class="odds">1.3%</td><td class="odds">0.0%</td></tr>
+    <tr><td>9</td><td>RB Leipzig</td><td>2</td><td>1</td><td>0</td><td>1</td><td>4</td><td>3</td><td>1</td><td>3</td><td class="odds">0.1%</td><td class="odds">0.8%</td></tr>
+    <tr><td>10</td><td>VfB Stuttgart</td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>6</td><td>-1</td><td>3</td><td class="odds">0.4%</td><td class="odds">0.2%</td></tr>
+    <tr><td>11</td><td>SV Werder Bremen</td><td>2</td><td>1</td><td>0</td><td>1</td><td>4</td><td>5</td><td>-1</td><td>3</td><td class="odds">0.0%</td><td class="odds">23.2%</td></tr>
+    <tr><td>12</td><td>1. FC Köln</td><td>2</td><td>1</td><td>0</td><td>1</td><td>4</td><td>6</td><td>-2</td><td>3</td><td class="odds">0.0%</td><td class="odds">21.9%</td></tr>
+    <tr><td>13</td><td>SC Paderborn 07</td><td>2</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>1</td><td class="odds">0.0%</td><td class="odds">49.5%</td></tr>
+    <tr><td>14</td><td>Eintracht Frankfurt</td><td>2</td><td>0</td><td>1</td><td>1</td><td>4</td><td>7</td><td>-3</td><td>1</td><td class="odds">0.0%</td><td class="odds">5.6%</td></tr>
+    <tr><td>15</td><td>1. FC Union Berlin</td><td>3</td><td>0</td><td>1</td><td>2</td><td>4</td><td>10</td><td>-6</td><td>1</td><td class="odds">0.0%</td><td class="odds">42.2%</td></tr>
+    <tr><td>16</td><td>TSG 1899 Hoffenheim</td><td>2</td><td>0</td><td>0</td><td>2</td><td>4</td><td>6</td><td>-2</td><td>0</td><td class="odds">0.0%</td><td class="odds">9.0%</td></tr>
+    <tr><td>17</td><td>Borussia Mönchengladbach</td><td>2</td><td>0</td><td>0</td><td>2</td><td>3</td><td>7</td><td>-4</td><td>0</td><td class="odds">0.0%</td><td class="odds">20.7%</td></tr>
+    <tr><td>18</td><td>Hamburger SV</td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>7</td><td>-7</td><td>0</td><td class="odds">0.0%</td><td class="odds">50.1%</td></tr>
     </tbody>
   </table>
   </div>
