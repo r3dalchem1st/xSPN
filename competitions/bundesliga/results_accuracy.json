@@ -161,13 +161,22 @@
       "brier": 1.0578140566505199,
       "log_loss": 1.6783936211835206,
       "total_goal_error": 4
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "FC Schalke 04",
+      "date": "2026-09-11",
+      "correct_winner": false,
+      "brier": 1.4741818158514866,
+      "log_loss": 2.510333878091267,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 18,
-    "accuracy": 0.4444444444444444,
-    "avg_brier": 0.5862040880805375,
-    "avg_log_loss": 0.9781286130749485,
-    "avg_goal_error": 3.0555555555555554
+    "n_scored": 19,
+    "accuracy": 0.42105263157894735,
+    "avg_brier": 0.632939757963219,
+    "avg_log_loss": 1.0587709954442284,
+    "avg_goal_error": 3.0526315789473686
   }
 }

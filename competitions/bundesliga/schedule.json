@@ -163,10 +163,10 @@
   },
   "1. FC Union Berlin|FC Schalke 04": {
     "date": "2026-09-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC Union Berlin": null,
-      "FC Schalke 04": null
+      "1. FC Union Berlin": 1,
+      "FC Schalke 04": 3
     },
     "round": "Matchday 3"
   },
