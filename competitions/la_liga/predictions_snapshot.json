@@ -592,5 +592,49 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-09-10"
+  },
+  "RC Deportivo La Coru\u00f1a|Sevilla FC": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "Sevilla FC",
+    "date": "2026-09-16",
+    "ph": 0.6523275625703612,
+    "pd": 0.1786695299473064,
+    "pa": 0.16900290748233238,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-11"
+  },
+  "Club Atl\u00e9tico de Madrid|CA Osasuna": {
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "CA Osasuna",
+    "date": "2026-09-16",
+    "ph": 0.6277210401913764,
+    "pd": 0.2138722296258604,
+    "pa": 0.15840673018276338,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-11"
+  },
+  "Levante UD|Athletic Club": {
+    "home": "Levante UD",
+    "away": "Athletic Club",
+    "date": "2026-09-16",
+    "ph": 0.38854428491898924,
+    "pd": 0.2639325710561783,
+    "pa": 0.3475231440248327,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-11"
+  },
+  "FC Barcelona|Real Racing Club de Santander": {
+    "home": "FC Barcelona",
+    "away": "Real Racing Club de Santander",
+    "date": "2026-09-16",
+    "ph": 0.9003236987426612,
+    "pd": 0.06144099512518798,
+    "pa": 0.03823530613215096,
+    "predicted_winner": "H",
+    "predicted_score": "4-0",
+    "snapped_at": "2026-09-11"
   }
 }
