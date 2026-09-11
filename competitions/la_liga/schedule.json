@@ -370,10 +370,10 @@
   },
   "Sevilla FC|Valencia CF": {
     "date": "2026-09-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "Valencia CF": null
+      "Sevilla FC": 1,
+      "Valencia CF": 0
     },
     "round": "Matchday 5"
   },
