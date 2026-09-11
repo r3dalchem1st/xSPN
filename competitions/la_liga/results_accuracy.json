@@ -368,13 +368,22 @@
       "brier": 0.4247596244235947,
       "log_loss": 0.7590316112385777,
       "total_goal_error": 4
+    },
+    {
+      "home": "Sevilla FC",
+      "away": "Valencia CF",
+      "date": "2026-09-11",
+      "correct_winner": true,
+      "brier": 0.4542545119538769,
+      "log_loss": 0.7983463833714252,
+      "total_goal_error": 0
     }
   ],
   "summary": {
-    "n_scored": 41,
-    "accuracy": 0.5609756097560976,
-    "avg_brier": 0.6183407529378915,
-    "avg_log_loss": 1.0409617644630167,
-    "avg_goal_error": 2.073170731707317
+    "n_scored": 42,
+    "accuracy": 0.5714285714285714,
+    "avg_brier": 0.6144339376763673,
+    "avg_log_loss": 1.0351852077703598,
+    "avg_goal_error": 2.0238095238095237
   }
 }
