@@ -379,37 +379,37 @@
   },
   "Real Racing Club de Santander|Deportivo Alav\u00e9s": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "Deportivo Alav\u00e9s": null
+      "Real Racing Club de Santander": 2,
+      "Deportivo Alav\u00e9s": 1
     },
     "round": "Matchday 5"
   },
   "CA Osasuna|RCD Espanyol de Barcelona": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "CA Osasuna": null,
-      "RCD Espanyol de Barcelona": null
+      "CA Osasuna": 0,
+      "RCD Espanyol de Barcelona": 2
     },
     "round": "Matchday 5"
   },
   "Athletic Club|Elche CF": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Athletic Club": null,
-      "Elche CF": null
+      "Athletic Club": 1,
+      "Elche CF": 1
     },
     "round": "Matchday 5"
   },
   "Real Madrid CF|Rayo Vallecano de Madrid": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Madrid CF": null,
-      "Rayo Vallecano de Madrid": null
+      "Real Madrid CF": 4,
+      "Rayo Vallecano de Madrid": 1
     },
     "round": "Matchday 5"
   },
