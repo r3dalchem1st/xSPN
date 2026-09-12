@@ -271,64 +271,64 @@
   },
   "Crystal Palace FC|Ipswich Town FC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Crystal Palace FC": null,
-      "Ipswich Town FC": null
+      "Crystal Palace FC": 2,
+      "Ipswich Town FC": 3
     },
     "round": "Matchday 4"
   },
   "Liverpool FC|Fulham FC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Liverpool FC": null,
-      "Fulham FC": null
+      "Liverpool FC": 0,
+      "Fulham FC": 0
     },
     "round": "Matchday 4"
   },
   "Aston Villa FC|Nottingham Forest FC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Aston Villa FC": null,
-      "Nottingham Forest FC": null
+      "Aston Villa FC": 1,
+      "Nottingham Forest FC": 2
     },
     "round": "Matchday 4"
   },
   "AFC Bournemouth|Brentford FC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "AFC Bournemouth": null,
-      "Brentford FC": null
+      "AFC Bournemouth": 2,
+      "Brentford FC": 2
     },
     "round": "Matchday 4"
   },
   "Chelsea FC|Hull City AFC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Chelsea FC": null,
-      "Hull City AFC": null
+      "Chelsea FC": 2,
+      "Hull City AFC": 2
     },
     "round": "Matchday 4"
   },
   "Tottenham Hotspur FC|Everton FC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Tottenham Hotspur FC": null,
-      "Everton FC": null
+      "Tottenham Hotspur FC": 0,
+      "Everton FC": 0
     },
     "round": "Matchday 4"
   },
   "Sunderland AFC|Arsenal FC": {
     "date": "2026-09-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sunderland AFC": null,
-      "Arsenal FC": null
+      "Sunderland AFC": 0,
+      "Arsenal FC": 2
     },
     "round": "Matchday 4"
   },
