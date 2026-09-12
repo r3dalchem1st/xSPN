@@ -636,5 +636,27 @@
     "predicted_winner": "H",
     "predicted_score": "4-0",
     "snapped_at": "2026-09-11"
+  },
+  "Real Betis Balompi\u00e9|Getafe CF": {
+    "home": "Real Betis Balompi\u00e9",
+    "away": "Getafe CF",
+    "date": "2026-09-17",
+    "ph": 0.5254672773181281,
+    "pd": 0.2834246055898781,
+    "pa": 0.19110811709199335,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-12"
+  },
+  "M\u00e1laga CF|Villarreal CF": {
+    "home": "M\u00e1laga CF",
+    "away": "Villarreal CF",
+    "date": "2026-09-17",
+    "ph": 0.12091503484523577,
+    "pd": 0.2550150824974075,
+    "pa": 0.624069882657357,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-12"
   }
 }
