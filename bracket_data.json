@@ -1147,7 +1147,7 @@
       "away": "Ecuador",
       "score": "2\u20130",
       "winner": "Mexico",
-      "win_pct": 62.4,
+      "win_pct": 62.5,
       "ph": 0.526,
       "pd": 0.276,
       "pa": 0.198,
@@ -1439,12 +1439,12 @@
   "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 83.9,
+    "Argentina": 84.0,
     "England": 9.3,
     "Colombia": 6.0,
     "France": 1.9,
-    "Senegal": 0.8,
+    "Senegal": 0.7,
     "USA": 0.3,
-    "Algeria": 0.1
+    "Algeria": 0.2
   }
 }
