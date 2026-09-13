@@ -224,13 +224,31 @@
       "brier": 0.9139034347897435,
       "log_loss": 1.478519518906838,
       "total_goal_error": 1
+    },
+    {
+      "home": "RB Leipzig",
+      "away": "Hamburger SV",
+      "date": "2026-09-13",
+      "correct_winner": true,
+      "brier": 0.2114571692977375,
+      "log_loss": 0.4697222871408424,
+      "total_goal_error": 4
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "FC Bayern M\u00fcnchen",
+      "date": "2026-09-13",
+      "correct_winner": true,
+      "brier": 0.15125104261411346,
+      "log_loss": 0.379056649509242,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 25,
-    "accuracy": 0.4,
-    "avg_brier": 0.6407629899408471,
-    "avg_log_loss": 1.0655719567646138,
-    "avg_goal_error": 2.92
+    "n_scored": 27,
+    "accuracy": 0.4444444444444444,
+    "avg_brier": 0.6067327022382604,
+    "avg_log_loss": 1.0180769576209419,
+    "avg_goal_error": 2.925925925925926
   }
 }

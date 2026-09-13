@@ -226,19 +226,19 @@
   },
   "RB Leipzig|Hamburger SV": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RB Leipzig": null,
-      "Hamburger SV": null
+      "RB Leipzig": 5,
+      "Hamburger SV": 0
     },
     "round": "Matchday 3"
   },
   "SV 07 Elversberg|FC Bayern M\u00fcnchen": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV 07 Elversberg": null,
-      "FC Bayern M\u00fcnchen": null
+      "SV 07 Elversberg": 1,
+      "FC Bayern M\u00fcnchen": 2
     },
     "round": "Matchday 3"
   },
