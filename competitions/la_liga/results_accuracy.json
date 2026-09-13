@@ -413,13 +413,49 @@
       "brier": 0.1266515125460348,
       "log_loss": 0.338592995837314,
       "total_goal_error": 3
+    },
+    {
+      "home": "RC Celta de Vigo",
+      "away": "M\u00e1laga CF",
+      "date": "2026-09-13",
+      "correct_winner": false,
+      "brier": 0.9934793559420404,
+      "log_loss": 1.373014650809502,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Levante UD",
+      "away": "FC Barcelona",
+      "date": "2026-09-13",
+      "correct_winner": true,
+      "brier": 0.14029341653337768,
+      "log_loss": 0.3646410698035857,
+      "total_goal_error": 3
+    },
+    {
+      "home": "Getafe CF",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "date": "2026-09-13",
+      "correct_winner": false,
+      "brier": 0.779338690019796,
+      "log_loss": 1.2697742710408721,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Real Sociedad de F\u00fatbol",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "date": "2026-09-13",
+      "correct_winner": true,
+      "brier": 0.45336937868578836,
+      "log_loss": 0.7958767678798736,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 46,
-    "accuracy": 0.5652173913043478,
-    "avg_brier": 0.6121105269427352,
-    "avg_log_loss": 1.0309392149351453,
+    "n_scored": 50,
+    "accuracy": 0.56,
+    "avg_brier": 0.6104713016109363,
+    "avg_log_loss": 1.0245302129310103,
     "avg_goal_error": 2.0
   }
 }
