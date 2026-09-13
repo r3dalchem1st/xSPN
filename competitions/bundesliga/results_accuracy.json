@@ -170,13 +170,67 @@
       "brier": 1.4741818158514866,
       "log_loss": 2.510333878091267,
       "total_goal_error": 3
+    },
+    {
+      "home": "TSG 1899 Hoffenheim",
+      "away": "VfB Stuttgart",
+      "date": "2026-09-12",
+      "correct_winner": false,
+      "brier": 0.6735647591144909,
+      "log_loss": 1.068542513601943,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "SC Paderborn 07",
+      "date": "2026-09-12",
+      "correct_winner": true,
+      "brier": 0.3926969255318707,
+      "log_loss": 0.6930883580926279,
+      "total_goal_error": 2
+    },
+    {
+      "home": "FC Augsburg",
+      "away": "Bayer 04 Leverkusen",
+      "date": "2026-09-12",
+      "correct_winner": false,
+      "brier": 0.9490294294033468,
+      "log_loss": 1.4903383491933722,
+      "total_goal_error": 3
+    },
+    {
+      "home": "1. FSV Mainz 05",
+      "away": "Eintracht Frankfurt",
+      "date": "2026-09-12",
+      "correct_winner": false,
+      "brier": 0.6418174947234905,
+      "log_loss": 1.0377447070825367,
+      "total_goal_error": 3
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "Borussia M\u00f6nchengladbach",
+      "date": "2026-09-12",
+      "correct_winner": true,
+      "brier": 0.42220730365707326,
+      "log_loss": 0.7544165587976823,
+      "total_goal_error": 4
+    },
+    {
+      "home": "1. FC K\u00f6ln",
+      "away": "SV Werder Bremen",
+      "date": "2026-09-12",
+      "correct_winner": false,
+      "brier": 0.9139034347897435,
+      "log_loss": 1.478519518906838,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 19,
-    "accuracy": 0.42105263157894735,
-    "avg_brier": 0.632939757963219,
-    "avg_log_loss": 1.0587709954442284,
-    "avg_goal_error": 3.0526315789473686
+    "n_scored": 25,
+    "accuracy": 0.4,
+    "avg_brier": 0.6407629899408471,
+    "avg_log_loss": 1.0655719567646138,
+    "avg_goal_error": 2.92
   }
 }

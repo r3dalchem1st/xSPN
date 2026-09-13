@@ -295,5 +295,16 @@
     "predicted_winner": "A",
     "predicted_score": "1-4",
     "snapped_at": "2026-09-08"
+  },
+  "FC Bayern M\u00fcnchen|1. FC Union Berlin": {
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "1. FC Union Berlin",
+    "date": "2026-09-18",
+    "ph": 0.8903119857841818,
+    "pd": 0.07303618551403575,
+    "pa": 0.03665182870178268,
+    "predicted_winner": "H",
+    "predicted_score": "4-0",
+    "snapped_at": "2026-09-13"
   }
 }
