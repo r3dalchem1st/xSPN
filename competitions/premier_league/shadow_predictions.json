@@ -398,5 +398,25 @@
       "predicted_winner": "A",
       "predicted_score": "0-1"
     }
+  },
+  "Brentford FC|Chelsea FC": {
+    "home": "Brentford FC",
+    "away": "Chelsea FC",
+    "date": "2026-09-18",
+    "snapped_at": "2026-09-13",
+    "baseline": {
+      "ph": 0.411392305976201,
+      "pd": 0.23827314093039179,
+      "pa": 0.35033455309340716,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.32504541909293605,
+      "pd": 0.23729461587778547,
+      "pa": 0.4376599650292785,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
   }
 }
