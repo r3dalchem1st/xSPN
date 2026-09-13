@@ -358,5 +358,25 @@
       "predicted_winner": "A",
       "predicted_score": "2-4"
     }
+  },
+  "FC Bayern M\u00fcnchen|1. FC Union Berlin": {
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "1. FC Union Berlin",
+    "date": "2026-09-18",
+    "snapped_at": "2026-09-13",
+    "baseline": {
+      "ph": 0.8807138695300571,
+      "pd": 0.07878985362623182,
+      "pa": 0.04049627684371109,
+      "predicted_winner": "H",
+      "predicted_score": "3-0"
+    },
+    "odds_fit": {
+      "ph": 0.8261629872361403,
+      "pd": 0.11062751025385847,
+      "pa": 0.06320950251000124,
+      "predicted_winner": "H",
+      "predicted_score": "3-0"
+    }
   }
 }
