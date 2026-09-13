@@ -334,19 +334,19 @@
   },
   "Coventry City FC|Brighton & Hove Albion FC": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Coventry City FC": null,
-      "Brighton & Hove Albion FC": null
+      "Coventry City FC": 0,
+      "Brighton & Hove Albion FC": 5
     },
     "round": "Matchday 4"
   },
   "Manchester United FC|Manchester City FC": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester United FC": null,
-      "Manchester City FC": null
+      "Manchester United FC": 0,
+      "Manchester City FC": 1
     },
     "round": "Matchday 4"
   },
