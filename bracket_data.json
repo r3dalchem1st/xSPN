@@ -7,7 +7,7 @@
         "lam": 1.68,
         "mu": 0.76,
         "score": "1\u20130",
-        "ph": 0.528,
+        "ph": 0.529,
         "pd": 0.321,
         "pa": 0.15,
         "likely_winner": "Mexico"
@@ -595,7 +595,7 @@
         "lam": 3.2,
         "mu": 0.82,
         "score": "3\u20130",
-        "ph": 0.783,
+        "ph": 0.784,
         "pd": 0.155,
         "pa": 0.062,
         "likely_winner": "Senegal"
@@ -638,7 +638,7 @@
       {
         "home": "Argentina",
         "away": "Jordan",
-        "lam": 4.44,
+        "lam": 4.45,
         "mu": 0.74,
         "score": "4\u20130",
         "ph": 0.909,
@@ -755,7 +755,7 @@
         "lam": 3.21,
         "mu": 1.31,
         "score": "3\u20131",
-        "ph": 0.697,
+        "ph": 0.696,
         "pd": 0.19,
         "pa": 0.114,
         "likely_winner": "England"
@@ -1070,7 +1070,7 @@
       "score": "3\u20130",
       "winner": "Spain",
       "win_pct": 90.8,
-      "ph": 0.859,
+      "ph": 0.858,
       "pd": 0.095,
       "pa": 0.047,
       "reg_winner": "Spain",
@@ -1439,9 +1439,9 @@
   "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 84.0,
-    "England": 9.3,
-    "Colombia": 6.0,
+    "Argentina": 83.9,
+    "England": 9.2,
+    "Colombia": 6.2,
     "France": 1.9,
     "Senegal": 0.7,
     "USA": 0.3,
