@@ -332,13 +332,31 @@
       "brier": 0.1985583326780395,
       "log_loss": 0.44226664609399396,
       "total_goal_error": 1
+    },
+    {
+      "home": "Coventry City FC",
+      "away": "Brighton & Hove Albion FC",
+      "date": "2026-09-13",
+      "correct_winner": true,
+      "brier": 0.13667368128339147,
+      "log_loss": 0.34324824460973835,
+      "total_goal_error": 3
+    },
+    {
+      "home": "Manchester United FC",
+      "away": "Manchester City FC",
+      "date": "2026-09-13",
+      "correct_winner": true,
+      "brier": 0.32846682054590415,
+      "log_loss": 0.630699866299029,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 37,
-    "accuracy": 0.4864864864864865,
-    "avg_brier": 0.6333321873603811,
-    "avg_log_loss": 1.0452429408012658,
-    "avg_goal_error": 1.945945945945946
+    "n_scored": 39,
+    "accuracy": 0.5128205128205128,
+    "avg_brier": 0.6127802931836768,
+    "avg_log_loss": 1.0166137671937336,
+    "avg_goal_error": 1.9743589743589745
   }
 }
