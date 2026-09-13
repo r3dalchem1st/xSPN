@@ -578,5 +578,25 @@
       "predicted_winner": "A",
       "predicted_score": "0-1"
     }
+  },
+  "RCD Espanyol de Barcelona|Elche CF": {
+    "home": "RCD Espanyol de Barcelona",
+    "away": "Elche CF",
+    "date": "2026-09-18",
+    "snapped_at": "2026-09-13",
+    "baseline": {
+      "ph": 0.4675777826118399,
+      "pd": 0.2528644372358732,
+      "pa": 0.27955778015228683,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.451878308595923,
+      "pd": 0.2627621759544726,
+      "pa": 0.2853595154496044,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
   }
 }
