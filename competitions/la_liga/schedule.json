@@ -415,37 +415,37 @@
   },
   "RC Celta de Vigo|M\u00e1laga CF": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Celta de Vigo": null,
-      "M\u00e1laga CF": null
+      "RC Celta de Vigo": 1,
+      "M\u00e1laga CF": 1
     },
     "round": "Matchday 5"
   },
   "Levante UD|FC Barcelona": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Levante UD": null,
-      "FC Barcelona": null
+      "Levante UD": 2,
+      "FC Barcelona": 4
     },
     "round": "Matchday 5"
   },
   "Getafe CF|RC Deportivo La Coru\u00f1a": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Getafe CF": null,
-      "RC Deportivo La Coru\u00f1a": null
+      "Getafe CF": 1,
+      "RC Deportivo La Coru\u00f1a": 1
     },
     "round": "Matchday 5"
   },
   "Real Sociedad de F\u00fatbol|Club Atl\u00e9tico de Madrid": {
     "date": "2026-09-13",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": null,
-      "Club Atl\u00e9tico de Madrid": null
+      "Real Sociedad de F\u00fatbol": 0,
+      "Club Atl\u00e9tico de Madrid": 3
     },
     "round": "Matchday 5"
   },
