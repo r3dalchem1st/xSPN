@@ -306,5 +306,60 @@
     "predicted_winner": "H",
     "predicted_score": "4-0",
     "snapped_at": "2026-09-13"
+  },
+  "Hamburger SV|1. FC K\u00f6ln": {
+    "home": "Hamburger SV",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-09-19",
+    "ph": 0.3934463801885882,
+    "pd": 0.2509416799166267,
+    "pa": 0.3556119398947849,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-14"
+  },
+  "Borussia M\u00f6nchengladbach|1. FSV Mainz 05": {
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "1. FSV Mainz 05",
+    "date": "2026-09-19",
+    "ph": 0.3362631876832068,
+    "pd": 0.2569870124344619,
+    "pa": 0.40674979988233145,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-14"
+  },
+  "SV Werder Bremen|FC Augsburg": {
+    "home": "SV Werder Bremen",
+    "away": "FC Augsburg",
+    "date": "2026-09-19",
+    "ph": 0.37309842759614603,
+    "pd": 0.2548273963399826,
+    "pa": 0.37207417606387144,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-14"
+  },
+  "Eintracht Frankfurt|SC Freiburg": {
+    "home": "Eintracht Frankfurt",
+    "away": "SC Freiburg",
+    "date": "2026-09-19",
+    "ph": 0.42852979911635464,
+    "pd": 0.21735807086969314,
+    "pa": 0.3541121300139521,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-14"
+  },
+  "VfB Stuttgart|Borussia Dortmund": {
+    "home": "VfB Stuttgart",
+    "away": "Borussia Dortmund",
+    "date": "2026-09-19",
+    "ph": 0.3383733039872398,
+    "pd": 0.22210523781191943,
+    "pa": 0.43952145820084065,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-09-14"
   }
 }
