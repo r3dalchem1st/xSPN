@@ -378,5 +378,105 @@
       "predicted_winner": "H",
       "predicted_score": "3-0"
     }
+  },
+  "Hamburger SV|1. FC K\u00f6ln": {
+    "home": "Hamburger SV",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.3849368763941745,
+      "pd": 0.2490048978643945,
+      "pa": 0.3660582257414309,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.4195945803540265,
+      "pd": 0.24556296844024306,
+      "pa": 0.33484245120573036,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Borussia M\u00f6nchengladbach|1. FSV Mainz 05": {
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "1. FSV Mainz 05",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.357688467448523,
+      "pd": 0.2589607067303798,
+      "pa": 0.3833508258210971,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.42393223644851696,
+      "pd": 0.24861233948130015,
+      "pa": 0.32745542407018285,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "SV Werder Bremen|FC Augsburg": {
+    "home": "SV Werder Bremen",
+    "away": "FC Augsburg",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.40113782543626464,
+      "pd": 0.25680943874850903,
+      "pa": 0.34205273581522627,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.4684236464039737,
+      "pd": 0.24183219160961986,
+      "pa": 0.28974416198640635,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Eintracht Frankfurt|SC Freiburg": {
+    "home": "Eintracht Frankfurt",
+    "away": "SC Freiburg",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.4837765254573349,
+      "pd": 0.21439750316543935,
+      "pa": 0.3018259713772258,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.4842427152907562,
+      "pd": 0.23156416988623202,
+      "pa": 0.28419311482301174,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "VfB Stuttgart|Borussia Dortmund": {
+    "home": "VfB Stuttgart",
+    "away": "Borussia Dortmund",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.3596514865807041,
+      "pd": 0.2238746163412862,
+      "pa": 0.4164738970780097,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.40478726821261096,
+      "pd": 0.22348978943140285,
+      "pa": 0.37172294235598613,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
   }
 }
