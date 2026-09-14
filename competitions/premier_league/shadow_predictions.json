@@ -418,5 +418,105 @@
       "predicted_winner": "A",
       "predicted_score": "1-2"
     }
+  },
+  "Tottenham Hotspur FC|Aston Villa FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Aston Villa FC",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.33677446733394945,
+      "pd": 0.2505083073869288,
+      "pa": 0.4127172252791218,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.3851996521175608,
+      "pd": 0.2489470128158812,
+      "pa": 0.3658533350665579,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Everton FC|Ipswich Town FC": {
+    "home": "Everton FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.6661769755880874,
+      "pd": 0.19907495467372732,
+      "pa": 0.13474806973818518,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    },
+    "odds_fit": {
+      "ph": 0.5842051166874414,
+      "pd": 0.22707303722265362,
+      "pa": 0.18872184608990497,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Brighton & Hove Albion FC|Arsenal FC": {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Arsenal FC",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.217809967177271,
+      "pd": 0.24887648499702203,
+      "pa": 0.533313547825707,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.23074765142106118,
+      "pd": 0.248811035318829,
+      "pa": 0.5204413132601098,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
+  },
+  "Newcastle United FC|Hull City AFC": {
+    "home": "Newcastle United FC",
+    "away": "Hull City AFC",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.1656827946471574,
+      "pd": 0.37082982252744456,
+      "pa": 0.463487382825398,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.1799911867874026,
+      "pd": 0.3798213396078598,
+      "pa": 0.4401874736047376,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    }
+  },
+  "Nottingham Forest FC|Coventry City FC": {
+    "home": "Nottingham Forest FC",
+    "away": "Coventry City FC",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.6477114188935811,
+      "pd": 0.2659580005270663,
+      "pa": 0.08633058057935267,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.616893162980516,
+      "pd": 0.2834186925456748,
+      "pa": 0.09968814447380919,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
   }
 }
