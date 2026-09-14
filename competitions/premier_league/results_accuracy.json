@@ -350,13 +350,22 @@
       "brier": 0.32846682054590415,
       "log_loss": 0.630699866299029,
       "total_goal_error": 2
+    },
+    {
+      "home": "Leeds United FC",
+      "away": "Newcastle United FC",
+      "date": "2026-09-14",
+      "correct_winner": false,
+      "brier": 0.6413486943984191,
+      "log_loss": 1.045398819074905,
+      "total_goal_error": 4
     }
   ],
   "summary": {
-    "n_scored": 39,
-    "accuracy": 0.5128205128205128,
-    "avg_brier": 0.6127802931836768,
-    "avg_log_loss": 1.0166137671937336,
-    "avg_goal_error": 1.9743589743589745
+    "n_scored": 40,
+    "accuracy": 0.5,
+    "avg_brier": 0.6134945032140454,
+    "avg_log_loss": 1.017333393490763,
+    "avg_goal_error": 2.025
   }
 }

@@ -352,10 +352,10 @@
   },
   "Leeds United FC|Newcastle United FC": {
     "date": "2026-09-14",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Leeds United FC": null,
-      "Newcastle United FC": null
+      "Leeds United FC": 4,
+      "Newcastle United FC": 1
     },
     "round": "Matchday 4"
   },
