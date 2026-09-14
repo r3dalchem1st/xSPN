@@ -598,5 +598,85 @@
       "predicted_winner": "H",
       "predicted_score": "1-0"
     }
+  },
+  "CA Osasuna|Rayo Vallecano de Madrid": {
+    "home": "CA Osasuna",
+    "away": "Rayo Vallecano de Madrid",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.43696151183296505,
+      "pd": 0.2820939501150647,
+      "pa": 0.2809445380519701,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.4342877199899995,
+      "pd": 0.2732573534514539,
+      "pa": 0.29245492655854655,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Athletic Club|Deportivo Alav\u00e9s": {
+    "home": "Athletic Club",
+    "away": "Deportivo Alav\u00e9s",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.49587385023057406,
+      "pd": 0.264210364468411,
+      "pa": 0.23991578530101493,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.5600128936544424,
+      "pd": 0.25091100644419867,
+      "pa": 0.1890760999013589,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "RC Celta de Vigo|Real Racing Club de Santander": {
+    "home": "RC Celta de Vigo",
+    "away": "Real Racing Club de Santander",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.5981843340168208,
+      "pd": 0.18616128906596596,
+      "pa": 0.2156543769172133,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.5959649974805274,
+      "pd": 0.1903413324351275,
+      "pa": 0.21369367008434514,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Sevilla FC|FC Barcelona": {
+    "home": "Sevilla FC",
+    "away": "FC Barcelona",
+    "date": "2026-09-19",
+    "snapped_at": "2026-09-14",
+    "baseline": {
+      "ph": 0.13386353994561917,
+      "pd": 0.16676788191234454,
+      "pa": 0.6993685781420363,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.18490096523600358,
+      "pd": 0.200073060533451,
+      "pa": 0.6150259742305454,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
   }
 }
