@@ -451,10 +451,10 @@
   },
   "Villarreal CF|Real Betis Balompi\u00e9": {
     "date": "2026-09-14",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Villarreal CF": null,
-      "Real Betis Balompi\u00e9": null
+      "Villarreal CF": 1,
+      "Real Betis Balompi\u00e9": 2
     },
     "round": "Matchday 5"
   },
