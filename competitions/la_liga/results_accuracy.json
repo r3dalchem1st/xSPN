@@ -449,13 +449,22 @@
       "brier": 0.45336937868578836,
       "log_loss": 0.7958767678798736,
       "total_goal_error": 2
+    },
+    {
+      "home": "Villarreal CF",
+      "away": "Real Betis Balompi\u00e9",
+      "date": "2026-09-14",
+      "correct_winner": false,
+      "brier": 0.9259064338302032,
+      "log_loss": 1.4342404547356025,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 50,
-    "accuracy": 0.56,
-    "avg_brier": 0.6104713016109363,
-    "avg_log_loss": 1.0245302129310103,
+    "n_scored": 51,
+    "accuracy": 0.5490196078431373,
+    "avg_brier": 0.616656304203471,
+    "avg_log_loss": 1.0325637470840414,
     "avg_goal_error": 2.0
   }
 }
