@@ -536,7 +536,7 @@
         "home": "Saudi Arabia",
         "away": "Uruguay",
         "lam": 0.82,
-        "mu": 1.28,
+        "mu": 1.29,
         "score": "0\u20131",
         "ph": 0.209,
         "pd": 0.38,
@@ -638,7 +638,7 @@
       {
         "home": "Argentina",
         "away": "Jordan",
-        "lam": 4.45,
+        "lam": 4.44,
         "mu": 0.74,
         "score": "4\u20130",
         "ph": 0.909,
@@ -1390,7 +1390,7 @@
       "win_pct": 66.2,
       "ph": 0.192,
       "pd": 0.268,
-      "pa": 0.54,
+      "pa": 0.539,
       "reg_winner": "Spain",
       "lam": 0.74,
       "mu": 1.46
@@ -1432,18 +1432,18 @@
     "pd": 0.222,
     "pa": 0.389,
     "reg_winner": "France",
-    "lam": 1.78,
+    "lam": 1.77,
     "mu": 1.79
   },
   "champion": "Spain",
   "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 83.9,
-    "England": 9.2,
-    "Colombia": 6.2,
-    "France": 1.9,
-    "Senegal": 0.7,
+    "Argentina": 84.1,
+    "England": 9.0,
+    "Colombia": 6.1,
+    "France": 2.0,
+    "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.2
   }
