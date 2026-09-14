@@ -449,5 +449,60 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-09-13"
+  },
+  "Tottenham Hotspur FC|Aston Villa FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Aston Villa FC",
+    "date": "2026-09-19",
+    "ph": 0.34390860451035316,
+    "pd": 0.24714706071840425,
+    "pa": 0.40894433477124265,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-09-14"
+  },
+  "Everton FC|Ipswich Town FC": {
+    "home": "Everton FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-09-19",
+    "ph": 0.7253330309062296,
+    "pd": 0.17198266023885864,
+    "pa": 0.10268430885491164,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-14"
+  },
+  "Brighton & Hove Albion FC|Arsenal FC": {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Arsenal FC",
+    "date": "2026-09-19",
+    "ph": 0.1680471137693293,
+    "pd": 0.23047926417943138,
+    "pa": 0.6014736220512394,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-14"
+  },
+  "Newcastle United FC|Hull City AFC": {
+    "home": "Newcastle United FC",
+    "away": "Hull City AFC",
+    "date": "2026-09-19",
+    "ph": 0.177748519111041,
+    "pd": 0.3475162041380876,
+    "pa": 0.47473527675087135,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-09-14"
+  },
+  "Nottingham Forest FC|Coventry City FC": {
+    "home": "Nottingham Forest FC",
+    "away": "Coventry City FC",
+    "date": "2026-09-19",
+    "ph": 0.7313823670257736,
+    "pd": 0.21060858470284724,
+    "pa": 0.0580090482713791,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-09-14"
   }
 }
