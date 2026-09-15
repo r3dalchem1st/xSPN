@@ -458,13 +458,22 @@
       "brier": 0.9259064338302032,
       "log_loss": 1.4342404547356025,
       "total_goal_error": 2
+    },
+    {
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RCD Espanyol de Barcelona",
+      "date": "2026-09-15",
+      "correct_winner": true,
+      "brier": 0.4315140255193939,
+      "log_loss": 0.7680935144382662,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 51,
-    "accuracy": 0.5490196078431373,
-    "avg_brier": 0.616656304203471,
-    "avg_log_loss": 1.0325637470840414,
+    "n_scored": 52,
+    "accuracy": 0.5576923076923077,
+    "avg_brier": 0.6130958757672388,
+    "avg_log_loss": 1.0274777810716227,
     "avg_goal_error": 2.0
   }
 }
