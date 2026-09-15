@@ -97,6 +97,18 @@ def test_build_bracket_html_shows_prediction_for_an_unplayed_leg():
     assert 'class="br-col done collapsed"' not in out  # not yet played -> stage stays open
 
 
+def test_build_bracket_html_shows_confidence_for_a_played_leg_with_a_locked_prediction():
+    fixtures = [
+        {"round": "Finals, Final", "date": "2027-05-30", "home": "A", "away": "B",
+         "score": [2, 1], "pen_score": None},
+    ]
+    snapshot = {"Finals, Final|A|B": {"predicted_score": "2-0", "predicted_winner": "H",
+                                       "ph": 0.7, "pd": 0.2, "pa": 0.1}}
+    out = build_bracket_html(fixtures, snapshot)
+    assert '<span class="bm-sc">2</span>' in out  # real score
+    assert 'Predicted 2-0 <span class="conf conf-hi">70%</span>' in out
+
+
 def test_build_odds_rows_html_empty_state():
     out = build_odds_rows_html({})
     assert "No simulation yet" in out

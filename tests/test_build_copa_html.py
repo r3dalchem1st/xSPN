@@ -56,6 +56,18 @@ def test_build_bracket_html_shows_confidence_badge_for_a_locked_prediction():
     assert 'class="br-col done collapsed"' not in html  # not yet played -> stage stays open
 
 
+def test_build_bracket_html_shows_confidence_for_a_played_tie_with_a_locked_prediction():
+    fixtures = [
+        {"round": "Round 3", "date": "2025-10-29", "home": "A", "away": "B",
+         "score": [2, 1], "pen_score": None},
+    ]
+    snapshot = {"Round 3|A|B": {"predicted_score": "2-0", "predicted_winner": "H",
+                                 "ph": 0.7, "pd": 0.2, "pa": 0.1}}
+    html = build_bracket_html(fixtures, snapshot)
+    assert '<span class="bm-sc">2</span>' in html  # real score
+    assert 'Predicted 2-0 <span class="conf conf-hi">70%</span>' in html
+
+
 def test_build_odds_rows_html_hides_eliminated_teams_with_a_count():
     stage_odds = {
         "Real Madrid": {"quarterfinal": 0.9, "semifinal": 0.7, "final": 0.5, "champion": 0.3},

@@ -274,6 +274,17 @@ def _prediction_line_html(score, outcome, prob, preview=False):
     return f'<div class="bm-pct">{prefix}{score} {confidence_badge_html(prob)}{tag}</div>'
 
 
+def _historical_prediction_line_html(score, outcome, prob):
+    """Sub-line on an already-FINISHED match card showing what the model
+    predicted before kickoff and how confident it was -- only rendered when
+    that locked prediction is still on record (older matches, or ones from
+    before a competition's snapshotting started, simply have none). Lets a
+    visitor see how a confident (or not) call actually turned out, not just
+    today's still-open picks."""
+    suffix = " (draw)" if outcome == "D" else ""
+    return f'<div class="bm-pct hint">Predicted {score}{suffix} {confidence_badge_html(prob)}</div>'
+
+
 def br_col_open_html(title_html, done):
     """Opening markup for one bracket column. A `done` column (every match
     already decided) starts pre-collapsed into a slim clickable strip --
@@ -330,10 +341,15 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
                 hg, ag = entry["goals"][home], entry["goals"][away]
                 home_cls = "win" if hg > ag else ("lose" if hg < ag else "")
                 away_cls = "win" if ag > hg else ("lose" if ag < hg else "")
+                pred_line = ""
+                if key in snapshot:
+                    s = snapshot[key]
+                    prob = max(s["ph"], s["pd"], s["pa"])
+                    pred_line = _historical_prediction_line_html(s["predicted_score"], s["predicted_winner"], prob)
                 lines.append(
                     f'<div class="bm">{date_line}'
                     f'<div class="bm-t {home_cls}">{h}<span class="bm-sc">{hg}</span></div>'
-                    f'<div class="bm-t {away_cls}">{a}<span class="bm-sc">{ag}</span></div></div>'
+                    f'<div class="bm-t {away_cls}">{a}<span class="bm-sc">{ag}</span></div>{pred_line}</div>'
                 )
             elif key in snapshot:
                 s = snapshot[key]
