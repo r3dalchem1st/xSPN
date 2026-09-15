@@ -469,19 +469,19 @@
   },
   "Deportivo Alav\u00e9s|Valencia CF": {
     "date": "2026-09-15",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Deportivo Alav\u00e9s": null,
-      "Valencia CF": null
+      "Deportivo Alav\u00e9s": 0,
+      "Valencia CF": 1
     },
     "round": "Matchday 6"
   },
   "Elche CF|Real Madrid CF": {
     "date": "2026-09-15",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Elche CF": null,
-      "Real Madrid CF": null
+      "Elche CF": 2,
+      "Real Madrid CF": 3
     },
     "round": "Matchday 6"
   },

@@ -467,13 +467,31 @@
       "brier": 0.4315140255193939,
       "log_loss": 0.7680935144382662,
       "total_goal_error": 2
+    },
+    {
+      "home": "Deportivo Alav\u00e9s",
+      "away": "Valencia CF",
+      "date": "2026-09-15",
+      "correct_winner": false,
+      "brier": 0.8729390920322927,
+      "log_loss": 1.3934775005855957,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Elche CF",
+      "away": "Real Madrid CF",
+      "date": "2026-09-15",
+      "correct_winner": true,
+      "brier": 0.2613306520063929,
+      "log_loss": 0.5402342012134412,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 52,
-    "accuracy": 0.5576923076923077,
-    "avg_brier": 0.6130958757672388,
-    "avg_log_loss": 1.0274777810716227,
+    "n_scored": 54,
+    "accuracy": 0.5555555555555556,
+    "avg_brier": 0.6113936163691684,
+    "avg_log_loss": 1.0252325243985818,
     "avg_goal_error": 2.0
   }
 }
