@@ -460,10 +460,10 @@
   },
   "Rayo Vallecano de Madrid|RCD Espanyol de Barcelona": {
     "date": "2026-09-15",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Rayo Vallecano de Madrid": null,
-      "RCD Espanyol de Barcelona": null
+      "Rayo Vallecano de Madrid": 2,
+      "RCD Espanyol de Barcelona": 1
     },
     "round": "Matchday 6"
   },
