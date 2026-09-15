@@ -258,7 +258,7 @@
     "qf": 1.0,
     "win_lo": 0.9092,
     "win_hi": 0.9415,
-    "win_delta": -0.0003
+    "win_delta": 0.0
   },
   "Cape Verde": {
     "win": 0.0,
@@ -294,7 +294,7 @@
     "qf": 1.0,
     "win_lo": 0.0032,
     "win_hi": 0.0116,
-    "win_delta": -0.0001
+    "win_delta": 0.0
   },
   "Senegal": {
     "win": 0.0013,
@@ -330,7 +330,7 @@
     "qf": 1.0,
     "win_lo": 0.0049,
     "win_hi": 0.0197,
-    "win_delta": 0.0002
+    "win_delta": -0.0
   },
   "Algeria": {
     "win": 0.0002,
@@ -402,7 +402,7 @@
     "qf": 1.0,
     "win_lo": 0.0191,
     "win_hi": 0.0341,
-    "win_delta": 0.0001
+    "win_delta": 0.0
   },
   "Croatia": {
     "win": 0.0,
