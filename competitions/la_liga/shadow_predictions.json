@@ -678,5 +678,105 @@
       "predicted_winner": "A",
       "predicted_score": "1-2"
     }
+  },
+  "Getafe CF|M\u00e1laga CF": {
+    "home": "Getafe CF",
+    "away": "M\u00e1laga CF",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.5239955508718239,
+      "pd": 0.3736399384403009,
+      "pa": 0.10236451068787518,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.5444991597679476,
+      "pd": 0.34348636632825064,
+      "pa": 0.11201447390380177,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Club Atl\u00e9tico de Madrid|Real Madrid CF": {
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "Real Madrid CF",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.3718682172021332,
+      "pd": 0.25140936251317825,
+      "pa": 0.37672242028468855,
+      "predicted_winner": "A",
+      "predicted_score": "0-1"
+    },
+    "odds_fit": {
+      "ph": 0.3761375439850742,
+      "pd": 0.23984877433566873,
+      "pa": 0.38401368167925704,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
+  },
+  "RC Deportivo La Coru\u00f1a|Real Betis Balompi\u00e9": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.5199815351181314,
+      "pd": 0.2170595806313431,
+      "pa": 0.26295888425052544,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.5316867564359807,
+      "pd": 0.2119097575919458,
+      "pa": 0.2564034859720736,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "Villarreal CF|Levante UD": {
+    "home": "Villarreal CF",
+    "away": "Levante UD",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.6792099475678784,
+      "pd": 0.17431374883820053,
+      "pa": 0.14647630359392108,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.6574640925057164,
+      "pd": 0.19297451589048545,
+      "pa": 0.14956139160379817,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    }
+  },
+  "Valencia CF|Real Sociedad de F\u00fatbol": {
+    "home": "Valencia CF",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.4225214981258958,
+      "pd": 0.25870070679868856,
+      "pa": 0.31877779507541565,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.3820590294950566,
+      "pd": 0.272762878958687,
+      "pa": 0.3451780915462564,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
   }
 }
