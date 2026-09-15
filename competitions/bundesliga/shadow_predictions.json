@@ -478,5 +478,65 @@
       "predicted_winner": "H",
       "predicted_score": "2-1"
     }
+  },
+  "Bayer 04 Leverkusen|RB Leipzig": {
+    "home": "Bayer 04 Leverkusen",
+    "away": "RB Leipzig",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.5215638493992478,
+      "pd": 0.2179422113345955,
+      "pa": 0.26049393926615677,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    },
+    "odds_fit": {
+      "ph": 0.5207953797763093,
+      "pd": 0.21023045471289195,
+      "pa": 0.2689741655107988,
+      "predicted_winner": "H",
+      "predicted_score": "2-1"
+    }
+  },
+  "FC Schalke 04|SV 07 Elversberg": {
+    "home": "FC Schalke 04",
+    "away": "SV 07 Elversberg",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.08744720208897637,
+      "pd": 0.16483116977178444,
+      "pa": 0.7477216281392391,
+      "predicted_winner": "A",
+      "predicted_score": "0-2"
+    },
+    "odds_fit": {
+      "ph": 0.08475219131283879,
+      "pd": 0.16095441080444312,
+      "pa": 0.754293397882718,
+      "predicted_winner": "A",
+      "predicted_score": "0-2"
+    }
+  },
+  "SC Paderborn 07|TSG 1899 Hoffenheim": {
+    "home": "SC Paderborn 07",
+    "away": "TSG 1899 Hoffenheim",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.20452068534345372,
+      "pd": 0.41622331808743857,
+      "pa": 0.37925599656910775,
+      "predicted_winner": "D",
+      "predicted_score": "0-0"
+    },
+    "odds_fit": {
+      "ph": 0.19728521007726202,
+      "pd": 0.4221191904354438,
+      "pa": 0.3805955994872942,
+      "predicted_winner": "D",
+      "predicted_score": "0-0"
+    }
   }
 }
