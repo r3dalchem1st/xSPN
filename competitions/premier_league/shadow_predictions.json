@@ -518,5 +518,85 @@
       "predicted_winner": "H",
       "predicted_score": "1-0"
     }
+  },
+  "AFC Bournemouth|Liverpool FC": {
+    "home": "AFC Bournemouth",
+    "away": "Liverpool FC",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.3587077212102686,
+      "pd": 0.23536889724868806,
+      "pa": 0.4059233815410434,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.2848753932370122,
+      "pd": 0.2288275562770693,
+      "pa": 0.4862970504859185,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
+  },
+  "Leeds United FC|Crystal Palace FC": {
+    "home": "Leeds United FC",
+    "away": "Crystal Palace FC",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.4526072479437257,
+      "pd": 0.26399696119841054,
+      "pa": 0.28339579085786387,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.4205618967555677,
+      "pd": 0.26721578998260637,
+      "pa": 0.312222313261826,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    }
+  },
+  "Manchester City FC|Sunderland AFC": {
+    "home": "Manchester City FC",
+    "away": "Sunderland AFC",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.6402933798057819,
+      "pd": 0.2176159595893539,
+      "pa": 0.1420906606048642,
+      "predicted_winner": "H",
+      "predicted_score": "1-0"
+    },
+    "odds_fit": {
+      "ph": 0.7286810192581705,
+      "pd": 0.17516353163109205,
+      "pa": 0.09615544911073748,
+      "predicted_winner": "H",
+      "predicted_score": "2-0"
+    }
+  },
+  "Fulham FC|Manchester United FC": {
+    "home": "Fulham FC",
+    "away": "Manchester United FC",
+    "date": "2026-09-20",
+    "snapped_at": "2026-09-15",
+    "baseline": {
+      "ph": 0.3511675861650899,
+      "pd": 0.2480286516710507,
+      "pa": 0.40080376216385927,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    },
+    "odds_fit": {
+      "ph": 0.35713039582183276,
+      "pd": 0.24821961483831215,
+      "pa": 0.39464998933985507,
+      "predicted_winner": "A",
+      "predicted_score": "1-2"
+    }
   }
 }
