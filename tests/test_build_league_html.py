@@ -305,6 +305,34 @@ def test_br_col_open_html_marks_done_columns_collapsed_and_toggleable():
     assert open_live == '<div class="br-col"><div class="br-title">Matchday 2</div><div class="br-matches">'
 
 
+def test_build_bracket_html_shows_confidence_for_a_finished_match_with_a_locked_prediction():
+    # If the pre-match locked prediction for an already-played match is
+    # still on record, show it (and its confidence) alongside the real
+    # score -- not just for still-open matches.
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
+                               "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"},
+    }
+    snapshot = {"Strong FC|Weak FC": {"predicted_score": "2-0", "predicted_winner": "H",
+                                       "ph": 0.7, "pd": 0.2, "pa": 0.1}}
+    out = build_bracket_html(schedule, snapshot)
+    assert '<span class="bm-sc">3</span>' in out  # the real score still shows
+    assert 'Predicted 2-0 <span class="conf conf-hi">70%</span>' in out
+
+
+def test_build_bracket_html_finished_match_without_a_locked_prediction_shows_no_confidence_line():
+    # Older matches (or a competition from before snapshotting started)
+    # simply have no locked prediction on record -- degrade gracefully.
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
+                               "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"},
+    }
+    out = build_bracket_html(schedule, {})
+    assert '<span class="bm-sc">3</span>' in out
+    assert "Predicted" not in out
+    assert '<div class="bm-pct' not in out  # no prediction sub-line on the match card at all
+
+
 def test_build_bracket_html_collapses_a_fully_finished_matchday_but_not_a_live_one():
     schedule = {
         "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",

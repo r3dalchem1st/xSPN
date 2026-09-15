@@ -30,8 +30,8 @@ from datetime import date
 DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DIR)
 from build_league_html import (
-    compute_full_standings, _outcome_classes, _prediction_line_html, br_col_open_html,
-    BRACKET_LEGEND_HTML,
+    compute_full_standings, _outcome_classes, _prediction_line_html,
+    _historical_prediction_line_html, br_col_open_html, BRACKET_LEGEND_HTML,
 )
 from render_nav import nav_entries, render_nav_html
 from sim_cup import PLAYOFF_SIZE, TOP_SEEDS, _bracket_round, build_played_ties
@@ -101,14 +101,19 @@ def _group_ties(knockout_fixtures):
 def _leg_row_html(fx, snapshot):
     home, away = html_lib.escape(fx["home"]), html_lib.escape(fx["away"])
     date_line = f'<div class="bm-date">{fx["date"]}</div>'
+    key = f"{fx['round']}|{fx['home']}|{fx['away']}"
     if fx["score"] is not None:
         hg, ag = fx["score"]
         home_cls = "win" if hg > ag else ("lose" if hg < ag else "")
         away_cls = "win" if ag > hg else ("lose" if ag < hg else "")
         pen = f' <span class="hint">(pens {fx["pen_score"][0]}-{fx["pen_score"][1]})</span>' if fx["pen_score"] else ""
+        pred_line = ""
+        if key in snapshot:
+            s = snapshot[key]
+            prob = max(s["ph"], s["pd"], s["pa"])
+            pred_line = _historical_prediction_line_html(s["predicted_score"], s["predicted_winner"], prob)
         return (f'{date_line}<div class="bm-t {home_cls}">{home}<span class="bm-sc">{hg}</span></div>'
-                f'<div class="bm-t {away_cls}">{away}<span class="bm-sc">{ag}{pen}</span></div>')
-    key = f"{fx['round']}|{fx['home']}|{fx['away']}"
+                f'<div class="bm-t {away_cls}">{away}<span class="bm-sc">{ag}{pen}</span></div>{pred_line}')
     if key in snapshot:
         s = snapshot[key]
         outcome = s["predicted_winner"]
