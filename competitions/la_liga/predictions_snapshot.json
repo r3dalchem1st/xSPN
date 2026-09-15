@@ -713,5 +713,60 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-09-14"
+  },
+  "Getafe CF|M\u00e1laga CF": {
+    "home": "Getafe CF",
+    "away": "M\u00e1laga CF",
+    "date": "2026-09-20",
+    "ph": 0.5007317972697567,
+    "pd": 0.3821066901788743,
+    "pa": 0.11716151255136929,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-15"
+  },
+  "Club Atl\u00e9tico de Madrid|Real Madrid CF": {
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "Real Madrid CF",
+    "date": "2026-09-20",
+    "ph": 0.384991953938464,
+    "pd": 0.24939169717170212,
+    "pa": 0.36561634888983374,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-15"
+  },
+  "RC Deportivo La Coru\u00f1a|Real Betis Balompi\u00e9": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-09-20",
+    "ph": 0.5125399013884934,
+    "pd": 0.2119677850689817,
+    "pa": 0.2754923135425248,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-15"
+  },
+  "Villarreal CF|Levante UD": {
+    "home": "Villarreal CF",
+    "away": "Levante UD",
+    "date": "2026-09-20",
+    "ph": 0.6694614178001128,
+    "pd": 0.17656743952949777,
+    "pa": 0.1539711426703893,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-09-15"
+  },
+  "Valencia CF|Real Sociedad de F\u00fatbol": {
+    "home": "Valencia CF",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-09-20",
+    "ph": 0.4249598637846706,
+    "pd": 0.2587821780207439,
+    "pa": 0.31625795819458563,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-09-15"
   }
 }
