@@ -2,7 +2,8 @@ from build_league_html import (compute_full_standings, build_standings_rows,
                                  render_rows_html, top_zone_for, season_span,
                                  build_accuracy_html, build_accuracy_trend_html,
                                  build_results_rows_html,
-                                 build_bracket_html, build_champion_html)
+                                 build_bracket_html, build_champion_html,
+                                 confidence_class, confidence_badge_html, br_col_open_html)
 
 SCHEDULE_SAMPLE = {
     "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
@@ -212,11 +213,13 @@ def test_build_bracket_html_shows_score_for_finished_and_prediction_for_locked()
         "Weak FC|Strong FC": {"date": "2026-12-01", "status": "SCHEDULED",
                                "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 20"},
     }
-    snapshot = {"Weak FC|Strong FC": {"predicted_score": "1-2", "predicted_winner": "A"}}
+    snapshot = {"Weak FC|Strong FC": {"predicted_score": "1-2", "predicted_winner": "A",
+                                       "ph": 0.2, "pd": 0.25, "pa": 0.55}}
     out = build_bracket_html(schedule, snapshot)
     assert "2026-08-01" in out and "2026-12-01" in out
     assert '<span class="bm-sc">3</span>' in out  # finished match shows the actual score
     assert "1-2" in out  # locked prediction for the unplayed match
+    assert '<span class="conf conf-mid">55%</span>' in out  # confidence badge for the predicted outcome
 
 
 def test_build_bracket_html_unpredicted_match_shows_placeholder():
@@ -263,7 +266,8 @@ def test_build_bracket_html_locked_prediction_takes_priority_over_live_preview()
         "Strong FC|Weak FC": {"date": "2026-08-01", "status": "SCHEDULED",
                                "goals": {"Strong FC": None, "Weak FC": None}, "round": "Matchday 1"},
     }
-    snapshot = {"Strong FC|Weak FC": {"predicted_score": "3-0", "predicted_winner": "H"}}
+    snapshot = {"Strong FC|Weak FC": {"predicted_score": "3-0", "predicted_winner": "H",
+                                       "ph": 0.7, "pd": 0.2, "pa": 0.1}}
     lg_ens = build_lambda_tables(["Strong FC", "Weak FC"], [DC_SAMPLE_FOR_BRACKET])
     out = build_bracket_html(schedule, snapshot, lg_ens)
     assert "3-0" in out
@@ -277,6 +281,40 @@ def test_build_bracket_html_falls_back_to_placeholder_without_an_ensemble():
     out = build_bracket_html(schedule, {}, lg_ens=None)
     assert "not yet predicted" in out
     assert "preview" not in out
+
+
+def test_confidence_class_boundaries():
+    # Bin edges match score_predictions.py's own reliability table (45%/65%)
+    # so "confident" means the same thing here as on the Results tab.
+    assert confidence_class(0.44) == "conf-lo"
+    assert confidence_class(0.45) == "conf-mid"
+    assert confidence_class(0.649) == "conf-mid"
+    assert confidence_class(0.65) == "conf-hi"
+
+
+def test_confidence_badge_html_rounds_to_whole_percent():
+    assert confidence_badge_html(0.652) == '<span class="conf conf-hi">65%</span>'
+
+
+def test_br_col_open_html_marks_done_columns_collapsed_and_toggleable():
+    open_done = br_col_open_html("Matchday 1", done=True)
+    assert 'class="br-col done collapsed"' in open_done
+    assert 'role="button"' in open_done and 'tabindex="0"' in open_done
+
+    open_live = br_col_open_html("Matchday 2", done=False)
+    assert open_live == '<div class="br-col"><div class="br-title">Matchday 2</div><div class="br-matches">'
+
+
+def test_build_bracket_html_collapses_a_fully_finished_matchday_but_not_a_live_one():
+    schedule = {
+        "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
+                               "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"},
+        "Weak FC|Strong FC": {"date": "2026-12-01", "status": "SCHEDULED",
+                               "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 20"},
+    }
+    out = build_bracket_html(schedule, {})
+    assert br_col_open_html("Matchday 1", done=True) in out
+    assert br_col_open_html("Matchday 20", done=False) in out
 
 
 def test_build_champion_html_picks_highest_title_pct_not_first_row():

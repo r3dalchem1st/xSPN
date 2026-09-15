@@ -14,6 +14,9 @@ from datetime import date
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DIR)
+from build_league_html import (
+    _outcome_classes, _prediction_line_html, br_col_open_html, BRACKET_LEGEND_HTML,
+)
 from render_nav import nav_entries, render_nav_html
 from sim_copa import ROUND_ORDER, _stage, build_played_ties
 
@@ -53,8 +56,11 @@ def _leg_row_html(fx, snapshot):
     key = f"{fx['round']}|{fx['home']}|{fx['away']}"
     if key in snapshot:
         s = snapshot[key]
-        return (f'{date_line}<div class="bm-t">{home}</div><div class="bm-t">{away}</div>'
-                f'<div class="bm-pct">{s["predicted_score"]} &middot; {s["predicted_winner"]}</div>')
+        outcome = s["predicted_winner"]
+        home_cls, away_cls = _outcome_classes(outcome)
+        prob = max(s["ph"], s["pd"], s["pa"])
+        return (f'{date_line}<div class="bm-t {home_cls}">{home}</div><div class="bm-t {away_cls}">{away}</div>'
+                f'{_prediction_line_html(s["predicted_score"], outcome, prob)}')
     return f'{date_line}<div class="bm-t">{home}</div><div class="bm-t">{away}</div><div class="bm-pct hint">not yet predicted</div>'
 
 
@@ -78,11 +84,12 @@ def build_bracket_html(knockout_fixtures, snapshot):
     for stage in ROUND_ORDER:
         if stage not in ties:
             continue
-        lines.append(f'<div class="br-col"><div class="br-title">{STAGE_TITLES[stage]}</div><div class="br-matches">')
+        done = all((stage, pair) in decided for pair in ties[stage])
+        lines.append(br_col_open_html(STAGE_TITLES[stage], done))
         for pair, legs in ties[stage].items():
             lines.append(_tie_card_html(stage, pair, legs, decided, snapshot))
         lines.append('</div></div>')
-    lines.append('</div></div>')
+    lines.append('</div></div>' + BRACKET_LEGEND_HTML)
     return "\n".join(lines)
 
 

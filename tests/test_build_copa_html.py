@@ -34,6 +34,28 @@ def test_build_bracket_html_empty_state_when_no_fixtures():
     assert "Draw not released" in build_bracket_html([], {})
 
 
+def test_build_bracket_html_collapses_a_fully_decided_stage():
+    fixtures = [
+        {"round": "Round 3", "date": "2024-10-29", "home": "A", "away": "B",
+         "score": [2, 0], "pen_score": None},
+    ]
+    html = build_bracket_html(fixtures, {})
+    assert "Advances: A" in html
+    assert 'class="br-col done collapsed"' in html
+
+
+def test_build_bracket_html_shows_confidence_badge_for_a_locked_prediction():
+    fixtures = [
+        {"round": "Round 3", "date": "2025-10-29", "home": "A", "away": "B",
+         "score": None, "pen_score": None},
+    ]
+    snapshot = {"Round 3|A|B": {"predicted_score": "2-1", "predicted_winner": "H",
+                                 "ph": 0.6, "pd": 0.25, "pa": 0.15}}
+    html = build_bracket_html(fixtures, snapshot)
+    assert '<span class="conf conf-mid">60%</span>' in html
+    assert 'class="br-col done collapsed"' not in html  # not yet played -> stage stays open
+
+
 def test_build_odds_rows_html_hides_eliminated_teams_with_a_count():
     stage_odds = {
         "Real Madrid": {"quarterfinal": 0.9, "semifinal": 0.7, "final": 0.5, "champion": 0.3},
