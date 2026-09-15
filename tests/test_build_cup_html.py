@@ -81,6 +81,7 @@ def test_build_bracket_html_shows_aggregate_winner_for_a_decided_tie():
     out = build_bracket_html(fixtures, {})
     assert "Advances: A" in out
     assert '<span class="bm-sc">2</span>' in out
+    assert 'class="br-col done collapsed"' in out  # both legs played -> stage folds up
 
 
 def test_build_bracket_html_shows_prediction_for_an_unplayed_leg():
@@ -88,9 +89,12 @@ def test_build_bracket_html_shows_prediction_for_an_unplayed_leg():
         {"round": "Finals, Final", "date": "2027-05-30", "home": "A", "away": "B",
          "score": None, "pen_score": None},
     ]
-    snapshot = {"Finals, Final|A|B": {"predicted_score": "2-1", "predicted_winner": "H"}}
+    snapshot = {"Finals, Final|A|B": {"predicted_score": "2-1", "predicted_winner": "H",
+                                       "ph": 0.6, "pd": 0.25, "pa": 0.15}}
     out = build_bracket_html(fixtures, snapshot)
     assert "2-1" in out
+    assert '<span class="conf conf-mid">60%</span>' in out
+    assert 'class="br-col done collapsed"' not in out  # not yet played -> stage stays open
 
 
 def test_build_odds_rows_html_empty_state():

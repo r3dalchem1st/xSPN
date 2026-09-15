@@ -233,6 +233,69 @@ def _round_sort_key(round_label):
     return int(m.group(1)) if m else 0
 
 
+def confidence_class(prob):
+    """Traffic-light tier for a model probability, reusing the exact bin
+    edges score_predictions.py's own reliability table already uses to mean
+    "moderate" vs "high" confidence (45%/65%) -- so a color here means the
+    same thing it means on the Results tab's calibration table, not a new
+    invented scale."""
+    if prob >= 0.65:
+        return "conf-hi"
+    if prob < 0.45:
+        return "conf-lo"
+    return "conf-mid"
+
+
+def confidence_badge_html(prob):
+    """Small colored '62%' badge for the model's confidence in one outcome."""
+    return f'<span class="conf {confidence_class(prob)}">{prob * 100:.0f}%</span>'
+
+
+def _outcome_classes(outcome):
+    """bm-t win/lose classes for a predicted H/D/A outcome -- the same
+    bold-winner/grey-loser visual language a FINISHED match already uses,
+    so a prediction reads the same way a result does. A draw call bolds
+    neither side."""
+    if outcome == "H":
+        return "win", "lose"
+    if outcome == "A":
+        return "lose", "win"
+    return "", ""
+
+
+def _prediction_line_html(score, outcome, prob, preview=False):
+    """The bm-pct line for a predicted (not yet FINISHED) match: the score,
+    a colored confidence badge for the model's probability in `outcome`,
+    and -- for a live, not-yet-locked preview -- a compact tag instead of
+    the old full-sentence '(preview, not yet locked)' repeated on every
+    single card."""
+    prefix = "Draw " if outcome == "D" else ""
+    tag = ' <span class="hint">preview, not yet locked</span>' if preview else ""
+    return f'<div class="bm-pct">{prefix}{score} {confidence_badge_html(prob)}{tag}</div>'
+
+
+def br_col_open_html(title_html, done):
+    """Opening markup for one bracket column. A `done` column (every match
+    already decided) starts pre-collapsed into a slim clickable strip --
+    assets/bracket.js toggles `.collapsed` on click/Enter/Space -- so a
+    fixture list running to dozens of matchdays/rounds doesn't force a wall
+    of horizontal scrolling through matches nobody needs to check anymore.
+    A still-open column has no toggle affordance at all."""
+    if done:
+        return (f'<div class="br-col done collapsed"><div class="br-title" role="button" '
+                f'tabindex="0" aria-expanded="false">{title_html}</div><div class="br-matches">')
+    return f'<div class="br-col"><div class="br-title">{title_html}</div><div class="br-matches">'
+
+
+BRACKET_LEGEND_HTML = (
+    '<div class="legend">'
+    '<span class="conf conf-hi">62%</span> confident pick &middot; '
+    '<span class="conf conf-mid">50%</span> close call &middot; '
+    '<span class="conf conf-lo">38%</span> near coin-flip'
+    ' &middot; click a finished round\'s header to expand it again</div>'
+)
+
+
 def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
     """Every fixture grouped into a bracket-styled column per round/
     matchday (sorted numerically), each match card showing its date and
@@ -256,11 +319,10 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
 
     lines = ['<div class="bracket-wrap"><div class="bracket">']
     for round_label in sorted(by_round, key=_round_sort_key):
-        lines.append(
-            f'<div class="br-col"><div class="br-title">{html_lib.escape(round_label)}</div>'
-            '<div class="br-matches">'
-        )
-        for key, entry in sorted(by_round[round_label], key=lambda kv: kv[1]["date"]):
+        entries = sorted(by_round[round_label], key=lambda kv: kv[1]["date"])
+        done = all(entry["status"] == "FINISHED" for _, entry in entries)
+        lines.append(br_col_open_html(html_lib.escape(round_label), done))
+        for key, entry in entries:
             home, away = key.split("|")
             h, a = html_lib.escape(home), html_lib.escape(away)
             date_line = f'<div class="bm-date">{entry["date"]}</div>'
@@ -275,19 +337,25 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
                 )
             elif key in snapshot:
                 s = snapshot[key]
+                outcome = s["predicted_winner"]
+                home_cls, away_cls = _outcome_classes(outcome)
+                prob = max(s["ph"], s["pd"], s["pa"])
                 lines.append(
                     f'<div class="bm">{date_line}'
-                    f'<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
-                    f'<div class="bm-pct">{s["predicted_score"]} &middot; {s["predicted_winner"]}</div></div>'
+                    f'<div class="bm-t {home_cls}">{h}</div><div class="bm-t {away_cls}">{a}</div>'
+                    f'{_prediction_line_html(s["predicted_score"], outcome, prob)}</div>'
                 )
             elif lg_ens:
                 ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=delta)
                 outcome = max([("H", ph), ("D", pd), ("A", pa)], key=lambda x: x[1])[0]
                 lam, mu = lg_ens[0][(home, away)]
                 hg, ag = likely_score(lam, mu, allowed={outcome})
+                home_cls, away_cls = _outcome_classes(outcome)
+                prob = max(ph, pd, pa)
                 lines.append(
-                    f'<div class="bm">{date_line}<div class="bm-t">{h}</div><div class="bm-t">{a}</div>'
-                    f'<div class="bm-pct hint">{hg}-{ag} &middot; {outcome} (preview, not yet locked)</div></div>'
+                    f'<div class="bm">{date_line}<div class="bm-t {home_cls}">{h}</div>'
+                    f'<div class="bm-t {away_cls}">{a}</div>'
+                    f'{_prediction_line_html(f"{hg}-{ag}", outcome, prob, preview=True)}</div>'
                 )
             else:
                 lines.append(
@@ -295,7 +363,7 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
                     '<div class="bm-pct hint">not yet predicted</div></div>'
                 )
         lines.append('</div></div>')
-    lines.append('</div></div>')
+    lines.append('</div></div>' + BRACKET_LEGEND_HTML)
     return "\n".join(lines)
 
 

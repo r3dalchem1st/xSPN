@@ -57,3 +57,24 @@ table{width:100%;border-collapse:collapse}
 .acc-trend-flat{color:var(--hint)}
 .res-ok{color:var(--win);font-weight:700}
 .res-err{color:var(--lose);font-weight:700}
+
+/* Confidence badge -- the model's probability in whichever outcome a
+   bracket/prediction card is showing. Same three-tier meaning wherever it
+   appears (WC, league, cup, copa brackets): >=65% high confidence, <45%
+   a near coin-flip, otherwise moderate. */
+.conf{display:inline-block;font-weight:700;font-size:.68rem;padding:1px 6px;border-radius:8px;white-space:nowrap}
+.conf-hi{background:#e8f5e9;color:var(--win)}
+.conf-mid{background:#eee;color:var(--muted)}
+.conf-lo{background:#fdecea;color:var(--lose)}
+
+/* Collapsible bracket columns (assets/bracket.js) -- a column whose matches
+   are all already decided starts folded into a slim clickable strip so a
+   long-running competition's Bracket tab doesn't force scrolling through
+   rounds/matchdays nobody needs to check anymore. */
+.br-col.done>.br-title{cursor:pointer}
+.br-col.done>.br-title:hover{filter:brightness(1.15)}
+.br-col.done>.br-title:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.br-col.collapsed{flex:0 0 32px;min-width:32px;padding:0}
+.br-col.collapsed>.br-title{flex:1;display:flex;align-items:center;justify-content:center;
+  writing-mode:vertical-rl;white-space:nowrap;margin-bottom:0;padding:8px 4px;border-radius:3px}
+.br-col.collapsed>.br-matches{display:none}

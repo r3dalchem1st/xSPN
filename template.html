@@ -61,6 +61,7 @@ __NAV__
 <div id="tab-bracket" class="pane" role="tabpanel" aria-labelledby="tabbtn-bracket" tabindex="0"></div>
 <div id="tab-podium" class="pane" role="tabpanel" aria-labelledby="tabbtn-podium" tabindex="0"></div>
 <script src="/xSPN/assets/tabs.js"></script>
+<script src="/xSPN/assets/bracket.js"></script>
 <script>
 const R=__RESULTS__;
 const B=__BRACKET__;
@@ -71,25 +72,37 @@ function ft(t){const c=FL[t];return c?`<img src="${fi(c)}" style="vertical-align
 const NODATA='<div style="padding:40px;text-align:center;color:var(--hint);font-size:.9rem">Data unavailable.</div>';
 (function(){
   if(!B.final||!B.group_predictions){document.getElementById('tab-bracket').innerHTML=NODATA;return;}
+  function confClass(pct){return pct>=65?'conf-hi':pct<45?'conf-lo':'conf-mid'}
   function bm(m){
     if(!m)return'<div class="bm"><em style="color:var(--hint);font-size:.72rem">TBD</em></div>';
     const isH=m.winner===m.home;const sc=(m.score.match(/\d+/g)||[0,0]);  // digits only ("1–1 (p)"->[1,1])
     return`<div class="bm"><div class="bm-t ${isH?'win':'lose'}">${ft(m.home)}<span class="bm-sc">${sc[0]||0}</span></div>
       <div class="bm-t ${!isH?'win':'lose'}">${ft(m.away)}<span class="bm-sc">${sc[1]||0}</span></div>
-      <div class="bm-pct">${m.win_pct}% ${m.winner}</div></div>`;
+      <div class="bm-pct"><span class="conf ${confClass(m.win_pct)}">${m.win_pct}%</span> ${m.winner}</div></div>`;
   }
+  // A round is "done" once every match in it has a real (non-TBD) winner --
+  // that column starts collapsed into a slim strip (assets/bracket.js
+  // toggles it) instead of taking up bracket-wide horizontal space for a
+  // round nobody needs to re-check.
+  function colOpen(title,done){
+    return done
+      ? `<div class="br-col done collapsed"><div class="br-title" role="button" tabindex="0" aria-expanded="false">${title}</div><div class="br-matches">`
+      : `<div class="br-col"><div class="br-title">${title}</div><div class="br-matches">`;
+  }
+  function roundDone(ms){return ms.every(m=>m&&m.winner!=='TBD')}
   let h='<div class="bracket-wrap"><div class="bracket">';
   [['Round of 32',B.r32],['Round of 16',B.r16],['Quarter-Finals',B.qf],['Semi-Finals',B.sf]].forEach(([title,ms])=>{
-    h+=`<div class="br-col"><div class="br-title">${title}</div><div class="br-matches">`;
+    h+=colOpen(title,roundDone(ms));
     ms.forEach(m=>h+=bm(m));h+='</div></div>';
   });
-  h+=`<div class="br-col"><div class="br-title">Final + 3rd</div><div class="br-matches">
+  const finalDone=(!B.final||B.final.winner!=='TBD')&&(!B.third_place||B.third_place.winner!=='TBD');
+  h+=`${colOpen('Final + 3rd',finalDone)}
     ${bm(B.final)}<div style="font-size:.7rem;color:var(--hint);text-align:center;padding:6px 0">3rd Place</div>
     ${bm(B.third_place)}</div></div>`;
   const rf=B.reach_final||{};
   const top=Object.entries(rf).slice(0,6).map(([t,p])=>`${ft(t)} <strong>${p}%</strong>`).join(' &middot; ');
   const legend=`<div style="max-width:780px;margin:16px auto 0;font-size:.76rem;color:var(--muted);line-height:1.55">
-    <strong>How to read this:</strong> the bracket shows the single <em>most-likely path</em> — at each match the favourite advances. Because co-favourites drawn into the same half meet before the final, a strong team can exit early even with high title odds, so the shown final isn't always the two best teams overall.
+    <strong>How to read this:</strong> the bracket shows the single <em>most-likely path</em> — at each match the favourite advances. Because co-favourites drawn into the same half meet before the final, a strong team can exit early even with high title odds, so the shown final isn't always the two best teams overall. Each match's <span class="conf conf-hi">colored %</span> is the model's confidence in that pick (green = confident, red = near a coin-flip) — click a completed round's header to collapse or re-expand it.
     ${top?'<div style="margin-top:6px"><strong>Most likely finalists</strong> (chance of reaching the final): '+top+'</div>':''}</div>`;
   document.getElementById('tab-bracket').innerHTML=h+'</div></div>'+legend;
 })();
