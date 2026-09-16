@@ -487,19 +487,19 @@
   },
   "RC Deportivo La Coru\u00f1a|Sevilla FC": {
     "date": "2026-09-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Deportivo La Coru\u00f1a": null,
-      "Sevilla FC": null
+      "RC Deportivo La Coru\u00f1a": 0,
+      "Sevilla FC": 1
     },
     "round": "Matchday 6"
   },
   "Club Atl\u00e9tico de Madrid|CA Osasuna": {
     "date": "2026-09-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Club Atl\u00e9tico de Madrid": null,
-      "CA Osasuna": null
+      "Club Atl\u00e9tico de Madrid": 4,
+      "CA Osasuna": 0
     },
     "round": "Matchday 6"
   },
@@ -514,10 +514,10 @@
   },
   "FC Barcelona|Real Racing Club de Santander": {
     "date": "2026-09-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Barcelona": null,
-      "Real Racing Club de Santander": null
+      "FC Barcelona": 7,
+      "Real Racing Club de Santander": 2
     },
     "round": "Matchday 6"
   },
@@ -720,7 +720,7 @@
     "round": "Matchday 8"
   },
   "Villarreal CF|Elche CF": {
-    "date": "2026-10-18",
+    "date": "2026-10-17",
     "status": "SCHEDULED",
     "goals": {
       "Villarreal CF": null,
@@ -738,7 +738,7 @@
     "round": "Matchday 9"
   },
   "RCD Espanyol de Barcelona|Club Atl\u00e9tico de Madrid": {
-    "date": "2026-10-18",
+    "date": "2026-10-17",
     "status": "SCHEDULED",
     "goals": {
       "RCD Espanyol de Barcelona": null,
@@ -747,7 +747,7 @@
     "round": "Matchday 9"
   },
   "Valencia CF|Athletic Club": {
-    "date": "2026-10-18",
+    "date": "2026-10-17",
     "status": "SCHEDULED",
     "goals": {
       "Valencia CF": null,
@@ -765,7 +765,7 @@
     "round": "Matchday 9"
   },
   "Real Betis Balompi\u00e9|FC Barcelona": {
-    "date": "2026-10-18",
+    "date": "2026-10-17",
     "status": "SCHEDULED",
     "goals": {
       "Real Betis Balompi\u00e9": null,
@@ -792,7 +792,7 @@
     "round": "Matchday 9"
   },
   "RC Deportivo La Coru\u00f1a|Levante UD": {
-    "date": "2026-10-18",
+    "date": "2026-10-16",
     "status": "SCHEDULED",
     "goals": {
       "RC Deportivo La Coru\u00f1a": null,
@@ -801,7 +801,7 @@
     "round": "Matchday 9"
   },
   "Getafe CF|Rayo Vallecano de Madrid": {
-    "date": "2026-10-18",
+    "date": "2026-10-19",
     "status": "SCHEDULED",
     "goals": {
       "Getafe CF": null,
