@@ -485,13 +485,40 @@
       "brier": 0.2613306520063929,
       "log_loss": 0.5402342012134412,
       "total_goal_error": 2
+    },
+    {
+      "home": "RC Deportivo La Coru\u00f1a",
+      "away": "Sevilla FC",
+      "date": "2026-09-16",
+      "correct_winner": false,
+      "brier": 1.1480102175933968,
+      "log_loss": 1.7778393601695817,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Club Atl\u00e9tico de Madrid",
+      "away": "CA Osasuna",
+      "date": "2026-09-16",
+      "correct_winner": true,
+      "brier": 0.20942564668852232,
+      "log_loss": 0.4656594147184631,
+      "total_goal_error": 3
+    },
+    {
+      "home": "FC Barcelona",
+      "away": "Real Racing Club de Santander",
+      "date": "2026-09-16",
+      "correct_winner": true,
+      "brier": 0.015172299549336441,
+      "log_loss": 0.1050009150522514,
+      "total_goal_error": 5
     }
   ],
   "summary": {
-    "n_scored": 54,
-    "accuracy": 0.5555555555555556,
-    "avg_brier": 0.6113936163691684,
-    "avg_log_loss": 1.0252325243985818,
-    "avg_goal_error": 2.0
+    "n_scored": 57,
+    "accuracy": 0.5614035087719298,
+    "avg_brier": 0.6032958499608132,
+    "avg_log_loss": 1.012474666797609,
+    "avg_goal_error": 2.0701754385964914
   }
 }
