@@ -512,13 +512,31 @@
       "brier": 0.015172299549336441,
       "log_loss": 0.1050009150522514,
       "total_goal_error": 5
+    },
+    {
+      "home": "Real Betis Balompi\u00e9",
+      "away": "Getafe CF",
+      "date": "2026-09-17",
+      "correct_winner": true,
+      "brier": 0.3420331243680953,
+      "log_loss": 0.6434673602174215,
+      "total_goal_error": 0
+    },
+    {
+      "home": "M\u00e1laga CF",
+      "away": "Villarreal CF",
+      "date": "2026-09-17",
+      "correct_winner": true,
+      "brier": 0.2209765910780375,
+      "log_loss": 0.47149292544521026,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 57,
-    "accuracy": 0.5614035087719298,
-    "avg_brier": 0.6032958499608132,
-    "avg_log_loss": 1.012474666797609,
-    "avg_goal_error": 2.0701754385964914
+    "n_scored": 59,
+    "accuracy": 0.576271186440678,
+    "avg_brier": 0.5923876807324149,
+    "avg_log_loss": 0.9970511236123111,
+    "avg_goal_error": 2.0508474576271185
   }
 }

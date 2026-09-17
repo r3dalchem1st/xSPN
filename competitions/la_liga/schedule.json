@@ -523,19 +523,19 @@
   },
   "Real Betis Balompi\u00e9|Getafe CF": {
     "date": "2026-09-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Betis Balompi\u00e9": null,
-      "Getafe CF": null
+      "Real Betis Balompi\u00e9": 1,
+      "Getafe CF": 0
     },
     "round": "Matchday 6"
   },
   "M\u00e1laga CF|Villarreal CF": {
     "date": "2026-09-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "M\u00e1laga CF": null,
-      "Villarreal CF": null
+      "M\u00e1laga CF": 1,
+      "Villarreal CF": 3
     },
     "round": "Matchday 6"
   },
