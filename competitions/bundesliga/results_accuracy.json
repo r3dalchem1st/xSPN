@@ -242,13 +242,22 @@
       "brier": 0.15125104261411346,
       "log_loss": 0.379056649509242,
       "total_goal_error": 2
+    },
+    {
+      "home": "FC Bayern M\u00fcnchen",
+      "away": "1. FC Union Berlin",
+      "date": "2026-09-18",
+      "correct_winner": true,
+      "brier": 0.018709101404235,
+      "log_loss": 0.11618333185786098,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 27,
-    "accuracy": 0.4444444444444444,
-    "avg_brier": 0.6067327022382604,
-    "avg_log_loss": 1.0180769576209419,
-    "avg_goal_error": 2.925925925925926
+    "n_scored": 28,
+    "accuracy": 0.4642857142857143,
+    "avg_brier": 0.5857318593513308,
+    "avg_log_loss": 0.9858664709865461,
+    "avg_goal_error": 2.9285714285714284
   }
 }
