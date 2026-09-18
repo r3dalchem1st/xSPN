@@ -359,13 +359,22 @@
       "brier": 0.6413486943984191,
       "log_loss": 1.045398819074905,
       "total_goal_error": 4
+    },
+    {
+      "home": "Brentford FC",
+      "away": "Chelsea FC",
+      "date": "2026-09-18",
+      "correct_winner": true,
+      "brier": 0.44997423705115636,
+      "log_loss": 0.7899382497231308,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 40,
-    "accuracy": 0.5,
-    "avg_brier": 0.6134945032140454,
-    "avg_log_loss": 1.017333393490763,
-    "avg_goal_error": 2.025
+    "n_scored": 41,
+    "accuracy": 0.5121951219512195,
+    "avg_brier": 0.6095062040393407,
+    "avg_log_loss": 1.01178717047204,
+    "avg_goal_error": 2.024390243902439
   }
 }
