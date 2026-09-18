@@ -530,13 +530,22 @@
       "brier": 0.2209765910780375,
       "log_loss": 0.47149292544521026,
       "total_goal_error": 3
+    },
+    {
+      "home": "RCD Espanyol de Barcelona",
+      "away": "Elche CF",
+      "date": "2026-09-18",
+      "correct_winner": false,
+      "brier": 0.7917119898869591,
+      "log_loss": 1.2605315368308354,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 59,
-    "accuracy": 0.576271186440678,
-    "avg_brier": 0.5923876807324149,
-    "avg_log_loss": 0.9970511236123111,
-    "avg_goal_error": 2.0508474576271185
+    "n_scored": 60,
+    "accuracy": 0.5666666666666667,
+    "avg_brier": 0.5957097525516573,
+    "avg_log_loss": 1.0014424638326198,
+    "avg_goal_error": 2.066666666666667
   }
 }
