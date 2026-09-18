@@ -323,6 +323,15 @@
     },
     "round": "Matchday 4"
   },
+  "Borussia Dortmund|SV Werder Bremen": {
+    "date": "2026-10-09",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "SV Werder Bremen": null
+    },
+    "round": "Matchday 5"
+  },
   "1. FSV Mainz 05|Bayer 04 Leverkusen": {
     "date": "2026-10-10",
     "status": "SCHEDULED",
@@ -338,33 +347,6 @@
     "goals": {
       "SC Paderborn 07": null,
       "VfB Stuttgart": null
-    },
-    "round": "Matchday 5"
-  },
-  "1. FC K\u00f6ln|Borussia M\u00f6nchengladbach": {
-    "date": "2026-10-11",
-    "status": "SCHEDULED",
-    "goals": {
-      "1. FC K\u00f6ln": null,
-      "Borussia M\u00f6nchengladbach": null
-    },
-    "round": "Matchday 5"
-  },
-  "RB Leipzig|Eintracht Frankfurt": {
-    "date": "2026-10-10",
-    "status": "SCHEDULED",
-    "goals": {
-      "RB Leipzig": null,
-      "Eintracht Frankfurt": null
-    },
-    "round": "Matchday 5"
-  },
-  "SC Freiburg|FC Schalke 04": {
-    "date": "2026-10-11",
-    "status": "SCHEDULED",
-    "goals": {
-      "SC Freiburg": null,
-      "FC Schalke 04": null
     },
     "round": "Matchday 5"
   },
@@ -395,14 +377,41 @@
     },
     "round": "Matchday 5"
   },
-  "Borussia Dortmund|SV Werder Bremen": {
-    "date": "2026-10-09",
+  "RB Leipzig|Eintracht Frankfurt": {
+    "date": "2026-10-10",
     "status": "SCHEDULED",
     "goals": {
-      "Borussia Dortmund": null,
-      "SV Werder Bremen": null
+      "RB Leipzig": null,
+      "Eintracht Frankfurt": null
     },
     "round": "Matchday 5"
+  },
+  "1. FC K\u00f6ln|Borussia M\u00f6nchengladbach": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "1. FC K\u00f6ln": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 5"
+  },
+  "SC Freiburg|FC Schalke 04": {
+    "date": "2026-10-11",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "FC Schalke 04": null
+    },
+    "round": "Matchday 5"
+  },
+  "Eintracht Frankfurt|1. FC K\u00f6ln": {
+    "date": "2026-10-16",
+    "status": "SCHEDULED",
+    "goals": {
+      "Eintracht Frankfurt": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 6"
   },
   "1. FC Union Berlin|Borussia Dortmund": {
     "date": "2026-10-17",
@@ -440,21 +449,21 @@
     },
     "round": "Matchday 6"
   },
+  "FC Schalke 04|1. FSV Mainz 05": {
+    "date": "2026-10-17",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "1. FSV Mainz 05": null
+    },
+    "round": "Matchday 6"
+  },
   "FC Bayern M\u00fcnchen|RB Leipzig": {
     "date": "2026-10-17",
     "status": "SCHEDULED",
     "goals": {
       "FC Bayern M\u00fcnchen": null,
       "RB Leipzig": null
-    },
-    "round": "Matchday 6"
-  },
-  "Borussia M\u00f6nchengladbach|TSG 1899 Hoffenheim": {
-    "date": "2026-10-18",
-    "status": "SCHEDULED",
-    "goals": {
-      "Borussia M\u00f6nchengladbach": null,
-      "TSG 1899 Hoffenheim": null
     },
     "round": "Matchday 6"
   },
@@ -467,23 +476,23 @@
     },
     "round": "Matchday 6"
   },
-  "Eintracht Frankfurt|1. FC K\u00f6ln": {
-    "date": "2026-10-16",
+  "Borussia M\u00f6nchengladbach|TSG 1899 Hoffenheim": {
+    "date": "2026-10-18",
     "status": "SCHEDULED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "1. FC K\u00f6ln": null
+      "Borussia M\u00f6nchengladbach": null,
+      "TSG 1899 Hoffenheim": null
     },
     "round": "Matchday 6"
   },
-  "FC Schalke 04|1. FSV Mainz 05": {
-    "date": "2026-10-17",
+  "VfB Stuttgart|Borussia M\u00f6nchengladbach": {
+    "date": "2026-10-23",
     "status": "SCHEDULED",
     "goals": {
-      "FC Schalke 04": null,
-      "1. FSV Mainz 05": null
+      "VfB Stuttgart": null,
+      "Borussia M\u00f6nchengladbach": null
     },
-    "round": "Matchday 6"
+    "round": "Matchday 7"
   },
   "1. FSV Mainz 05|SV Werder Bremen": {
     "date": "2026-10-24",
@@ -512,21 +521,30 @@
     },
     "round": "Matchday 7"
   },
-  "VfB Stuttgart|Borussia M\u00f6nchengladbach": {
-    "date": "2026-10-23",
-    "status": "SCHEDULED",
-    "goals": {
-      "VfB Stuttgart": null,
-      "Borussia M\u00f6nchengladbach": null
-    },
-    "round": "Matchday 7"
-  },
   "SC Paderborn 07|Hamburger SV": {
     "date": "2026-10-24",
     "status": "SCHEDULED",
     "goals": {
       "SC Paderborn 07": null,
       "Hamburger SV": null
+    },
+    "round": "Matchday 7"
+  },
+  "FC Augsburg|1. FC Union Berlin": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Augsburg": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 7"
+  },
+  "Borussia Dortmund|Eintracht Frankfurt": {
+    "date": "2026-10-24",
+    "status": "SCHEDULED",
+    "goals": {
+      "Borussia Dortmund": null,
+      "Eintracht Frankfurt": null
     },
     "round": "Matchday 7"
   },
@@ -548,23 +566,14 @@
     },
     "round": "Matchday 7"
   },
-  "Borussia Dortmund|Eintracht Frankfurt": {
-    "date": "2026-10-24",
+  "SV 07 Elversberg|1. FSV Mainz 05": {
+    "date": "2026-10-30",
     "status": "SCHEDULED",
     "goals": {
-      "Borussia Dortmund": null,
-      "Eintracht Frankfurt": null
+      "SV 07 Elversberg": null,
+      "1. FSV Mainz 05": null
     },
-    "round": "Matchday 7"
-  },
-  "FC Augsburg|1. FC Union Berlin": {
-    "date": "2026-10-24",
-    "status": "SCHEDULED",
-    "goals": {
-      "FC Augsburg": null,
-      "1. FC Union Berlin": null
-    },
-    "round": "Matchday 7"
+    "round": "Matchday 8"
   },
   "Borussia M\u00f6nchengladbach|SC Paderborn 07": {
     "date": "2026-10-31",
@@ -581,15 +590,6 @@
     "goals": {
       "FC Schalke 04": null,
       "RB Leipzig": null
-    },
-    "round": "Matchday 8"
-  },
-  "1. FC Union Berlin|1. FC K\u00f6ln": {
-    "date": "2026-11-01",
-    "status": "SCHEDULED",
-    "goals": {
-      "1. FC Union Berlin": null,
-      "1. FC K\u00f6ln": null
     },
     "round": "Matchday 8"
   },
@@ -611,12 +611,12 @@
     },
     "round": "Matchday 8"
   },
-  "Eintracht Frankfurt|Hamburger SV": {
-    "date": "2026-11-01",
+  "Bayer 04 Leverkusen|VfB Stuttgart": {
+    "date": "2026-10-31",
     "status": "SCHEDULED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "Hamburger SV": null
+      "Bayer 04 Leverkusen": null,
+      "VfB Stuttgart": null
     },
     "round": "Matchday 8"
   },
@@ -629,23 +629,32 @@
     },
     "round": "Matchday 8"
   },
-  "SV 07 Elversberg|1. FSV Mainz 05": {
-    "date": "2026-10-30",
+  "1. FC Union Berlin|1. FC K\u00f6ln": {
+    "date": "2026-11-01",
     "status": "SCHEDULED",
     "goals": {
-      "SV 07 Elversberg": null,
-      "1. FSV Mainz 05": null
+      "1. FC Union Berlin": null,
+      "1. FC K\u00f6ln": null
     },
     "round": "Matchday 8"
   },
-  "Bayer 04 Leverkusen|VfB Stuttgart": {
-    "date": "2026-10-31",
+  "Eintracht Frankfurt|Hamburger SV": {
+    "date": "2026-11-01",
     "status": "SCHEDULED",
     "goals": {
-      "Bayer 04 Leverkusen": null,
-      "VfB Stuttgart": null
+      "Eintracht Frankfurt": null,
+      "Hamburger SV": null
     },
     "round": "Matchday 8"
+  },
+  "Hamburger SV|Borussia M\u00f6nchengladbach": {
+    "date": "2026-11-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Hamburger SV": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 9"
   },
   "RB Leipzig|FC Augsburg": {
     "date": "2026-11-07",
@@ -653,15 +662,6 @@
     "goals": {
       "RB Leipzig": null,
       "FC Augsburg": null
-    },
-    "round": "Matchday 9"
-  },
-  "VfB Stuttgart|SV Werder Bremen": {
-    "date": "2026-11-07",
-    "status": "SCHEDULED",
-    "goals": {
-      "VfB Stuttgart": null,
-      "SV Werder Bremen": null
     },
     "round": "Matchday 9"
   },
@@ -683,15 +683,6 @@
     },
     "round": "Matchday 9"
   },
-  "Hamburger SV|Borussia M\u00f6nchengladbach": {
-    "date": "2026-11-06",
-    "status": "SCHEDULED",
-    "goals": {
-      "Hamburger SV": null,
-      "Borussia M\u00f6nchengladbach": null
-    },
-    "round": "Matchday 9"
-  },
   "SC Paderborn 07|Eintracht Frankfurt": {
     "date": "2026-11-07",
     "status": "SCHEDULED",
@@ -701,12 +692,12 @@
     },
     "round": "Matchday 9"
   },
-  "SC Freiburg|1. FC Union Berlin": {
-    "date": "2026-11-08",
+  "VfB Stuttgart|SV Werder Bremen": {
+    "date": "2026-11-07",
     "status": "SCHEDULED",
     "goals": {
-      "SC Freiburg": null,
-      "1. FC Union Berlin": null
+      "VfB Stuttgart": null,
+      "SV Werder Bremen": null
     },
     "round": "Matchday 9"
   },
@@ -719,6 +710,15 @@
     },
     "round": "Matchday 9"
   },
+  "SC Freiburg|1. FC Union Berlin": {
+    "date": "2026-11-08",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "1. FC Union Berlin": null
+    },
+    "round": "Matchday 9"
+  },
   "TSG 1899 Hoffenheim|FC Schalke 04": {
     "date": "2026-11-08",
     "status": "SCHEDULED",
@@ -727,6 +727,15 @@
       "FC Schalke 04": null
     },
     "round": "Matchday 9"
+  },
+  "FC Bayern M\u00fcnchen|1. FC K\u00f6ln": {
+    "date": "2026-11-20",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Bayern M\u00fcnchen": null,
+      "1. FC K\u00f6ln": null
+    },
+    "round": "Matchday 10"
   },
   "Bayer 04 Leverkusen|SC Paderborn 07": {
     "date": "2026-11-21",
@@ -746,30 +755,12 @@
     },
     "round": "Matchday 10"
   },
-  "FC Bayern M\u00fcnchen|1. FC K\u00f6ln": {
-    "date": "2026-11-20",
-    "status": "SCHEDULED",
-    "goals": {
-      "FC Bayern M\u00fcnchen": null,
-      "1. FC K\u00f6ln": null
-    },
-    "round": "Matchday 10"
-  },
   "SV 07 Elversberg|SC Freiburg": {
     "date": "2026-11-21",
     "status": "SCHEDULED",
     "goals": {
       "SV 07 Elversberg": null,
       "SC Freiburg": null
-    },
-    "round": "Matchday 10"
-  },
-  "FC Schalke 04|VfB Stuttgart": {
-    "date": "2026-11-21",
-    "status": "SCHEDULED",
-    "goals": {
-      "FC Schalke 04": null,
-      "VfB Stuttgart": null
     },
     "round": "Matchday 10"
   },
@@ -782,12 +773,21 @@
     },
     "round": "Matchday 10"
   },
-  "SV Werder Bremen|Hamburger SV": {
-    "date": "2026-11-22",
+  "Eintracht Frankfurt|TSG 1899 Hoffenheim": {
+    "date": "2026-11-21",
     "status": "SCHEDULED",
     "goals": {
-      "SV Werder Bremen": null,
-      "Hamburger SV": null
+      "Eintracht Frankfurt": null,
+      "TSG 1899 Hoffenheim": null
+    },
+    "round": "Matchday 10"
+  },
+  "FC Schalke 04|VfB Stuttgart": {
+    "date": "2026-11-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "FC Schalke 04": null,
+      "VfB Stuttgart": null
     },
     "round": "Matchday 10"
   },
@@ -800,14 +800,23 @@
     },
     "round": "Matchday 10"
   },
-  "Eintracht Frankfurt|TSG 1899 Hoffenheim": {
-    "date": "2026-11-21",
+  "SV Werder Bremen|Hamburger SV": {
+    "date": "2026-11-22",
     "status": "SCHEDULED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "TSG 1899 Hoffenheim": null
+      "SV Werder Bremen": null,
+      "Hamburger SV": null
     },
     "round": "Matchday 10"
+  },
+  "SV Werder Bremen|Borussia M\u00f6nchengladbach": {
+    "date": "2026-11-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "SV Werder Bremen": null,
+      "Borussia M\u00f6nchengladbach": null
+    },
+    "round": "Matchday 11"
   },
   "1. FC K\u00f6ln|SV 07 Elversberg": {
     "date": "2026-11-28",
@@ -836,12 +845,12 @@
     },
     "round": "Matchday 11"
   },
-  "SV Werder Bremen|Borussia M\u00f6nchengladbach": {
-    "date": "2026-11-27",
+  "Hamburger SV|FC Bayern M\u00fcnchen": {
+    "date": "2026-11-28",
     "status": "SCHEDULED",
     "goals": {
-      "SV Werder Bremen": null,
-      "Borussia M\u00f6nchengladbach": null
+      "Hamburger SV": null,
+      "FC Bayern M\u00fcnchen": null
     },
     "round": "Matchday 11"
   },
@@ -851,6 +860,15 @@
     "goals": {
       "VfB Stuttgart": null,
       "Eintracht Frankfurt": null
+    },
+    "round": "Matchday 11"
+  },
+  "SC Freiburg|RB Leipzig": {
+    "date": "2026-11-29",
+    "status": "SCHEDULED",
+    "goals": {
+      "SC Freiburg": null,
+      "RB Leipzig": null
     },
     "round": "Matchday 11"
   },
@@ -869,24 +887,6 @@
     "goals": {
       "Borussia Dortmund": null,
       "Bayer 04 Leverkusen": null
-    },
-    "round": "Matchday 11"
-  },
-  "SC Freiburg|RB Leipzig": {
-    "date": "2026-11-29",
-    "status": "SCHEDULED",
-    "goals": {
-      "SC Freiburg": null,
-      "RB Leipzig": null
-    },
-    "round": "Matchday 11"
-  },
-  "Hamburger SV|FC Bayern M\u00fcnchen": {
-    "date": "2026-11-28",
-    "status": "SCHEDULED",
-    "goals": {
-      "Hamburger SV": null,
-      "FC Bayern M\u00fcnchen": null
     },
     "round": "Matchday 11"
   },
