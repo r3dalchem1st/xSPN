@@ -244,10 +244,10 @@
   },
   "FC Bayern M\u00fcnchen|1. FC Union Berlin": {
     "date": "2026-09-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Bayern M\u00fcnchen": null,
-      "1. FC Union Berlin": null
+      "FC Bayern M\u00fcnchen": 7,
+      "1. FC Union Berlin": 0
     },
     "round": "Matchday 4"
   },
