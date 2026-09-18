@@ -361,10 +361,10 @@
   },
   "Brentford FC|Chelsea FC": {
     "date": "2026-09-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brentford FC": null,
-      "Chelsea FC": null
+      "Brentford FC": 3,
+      "Chelsea FC": 0
     },
     "round": "Matchday 5"
   },
