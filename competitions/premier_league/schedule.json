@@ -1448,48 +1448,12 @@
     },
     "round": "Matchday 17"
   },
-  "Manchester United FC|Nottingham Forest FC": {
-    "date": "2026-12-27",
-    "status": "SCHEDULED",
-    "goals": {
-      "Manchester United FC": null,
-      "Nottingham Forest FC": null
-    },
-    "round": "Matchday 17"
-  },
-  "Crystal Palace FC|Arsenal FC": {
-    "date": "2026-12-27",
-    "status": "SCHEDULED",
-    "goals": {
-      "Crystal Palace FC": null,
-      "Arsenal FC": null
-    },
-    "round": "Matchday 17"
-  },
   "Everton FC|Sunderland AFC": {
     "date": "2026-12-26",
     "status": "SCHEDULED",
     "goals": {
       "Everton FC": null,
       "Sunderland AFC": null
-    },
-    "round": "Matchday 17"
-  },
-  "Coventry City FC|Chelsea FC": {
-    "date": "2026-12-27",
-    "status": "SCHEDULED",
-    "goals": {
-      "Coventry City FC": null,
-      "Chelsea FC": null
-    },
-    "round": "Matchday 17"
-  },
-  "Newcastle United FC|Manchester City FC": {
-    "date": "2026-12-26",
-    "status": "SCHEDULED",
-    "goals": {
-      "Newcastle United FC": null,
-      "Manchester City FC": null
     },
     "round": "Matchday 17"
   },
@@ -1511,15 +1475,6 @@
     },
     "round": "Matchday 17"
   },
-  "Hull City AFC|Liverpool FC": {
-    "date": "2026-12-26",
-    "status": "SCHEDULED",
-    "goals": {
-      "Hull City AFC": null,
-      "Liverpool FC": null
-    },
-    "round": "Matchday 17"
-  },
   "Ipswich Town FC|Brentford FC": {
     "date": "2026-12-26",
     "status": "SCHEDULED",
@@ -1529,41 +1484,50 @@
     },
     "round": "Matchday 17"
   },
-  "Fulham FC|Arsenal FC": {
-    "date": "2026-12-30",
+  "Hull City AFC|Liverpool FC": {
+    "date": "2026-12-26",
     "status": "SCHEDULED",
     "goals": {
-      "Fulham FC": null,
-      "Arsenal FC": null
-    },
-    "round": "Matchday 18"
-  },
-  "Coventry City FC|Brentford FC": {
-    "date": "2026-12-30",
-    "status": "SCHEDULED",
-    "goals": {
-      "Coventry City FC": null,
-      "Brentford FC": null
-    },
-    "round": "Matchday 18"
-  },
-  "Aston Villa FC|Liverpool FC": {
-    "date": "2026-12-30",
-    "status": "SCHEDULED",
-    "goals": {
-      "Aston Villa FC": null,
+      "Hull City AFC": null,
       "Liverpool FC": null
     },
-    "round": "Matchday 18"
+    "round": "Matchday 17"
   },
-  "Newcastle United FC|Nottingham Forest FC": {
-    "date": "2026-12-30",
+  "Newcastle United FC|Manchester City FC": {
+    "date": "2026-12-26",
     "status": "SCHEDULED",
     "goals": {
       "Newcastle United FC": null,
+      "Manchester City FC": null
+    },
+    "round": "Matchday 17"
+  },
+  "Coventry City FC|Chelsea FC": {
+    "date": "2026-12-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "Coventry City FC": null,
+      "Chelsea FC": null
+    },
+    "round": "Matchday 17"
+  },
+  "Manchester United FC|Nottingham Forest FC": {
+    "date": "2026-12-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "Manchester United FC": null,
       "Nottingham Forest FC": null
     },
-    "round": "Matchday 18"
+    "round": "Matchday 17"
+  },
+  "Crystal Palace FC|Arsenal FC": {
+    "date": "2026-12-27",
+    "status": "SCHEDULED",
+    "goals": {
+      "Crystal Palace FC": null,
+      "Arsenal FC": null
+    },
+    "round": "Matchday 17"
   },
   "Hull City AFC|Leeds United FC": {
     "date": "2026-12-29",
@@ -1571,24 +1535,6 @@
     "goals": {
       "Hull City AFC": null,
       "Leeds United FC": null
-    },
-    "round": "Matchday 18"
-  },
-  "Manchester United FC|Sunderland AFC": {
-    "date": "2026-12-30",
-    "status": "SCHEDULED",
-    "goals": {
-      "Manchester United FC": null,
-      "Sunderland AFC": null
-    },
-    "round": "Matchday 18"
-  },
-  "Ipswich Town FC|Chelsea FC": {
-    "date": "2026-12-30",
-    "status": "SCHEDULED",
-    "goals": {
-      "Ipswich Town FC": null,
-      "Chelsea FC": null
     },
     "round": "Matchday 18"
   },
@@ -1610,6 +1556,42 @@
     },
     "round": "Matchday 18"
   },
+  "Fulham FC|Arsenal FC": {
+    "date": "2026-12-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Fulham FC": null,
+      "Arsenal FC": null
+    },
+    "round": "Matchday 18"
+  },
+  "Coventry City FC|Brentford FC": {
+    "date": "2026-12-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Coventry City FC": null,
+      "Brentford FC": null
+    },
+    "round": "Matchday 18"
+  },
+  "Newcastle United FC|Nottingham Forest FC": {
+    "date": "2026-12-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Newcastle United FC": null,
+      "Nottingham Forest FC": null
+    },
+    "round": "Matchday 18"
+  },
+  "Manchester United FC|Sunderland AFC": {
+    "date": "2026-12-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Manchester United FC": null,
+      "Sunderland AFC": null
+    },
+    "round": "Matchday 18"
+  },
   "Crystal Palace FC|AFC Bournemouth": {
     "date": "2026-12-30",
     "status": "SCHEDULED",
@@ -1619,12 +1601,39 @@
     },
     "round": "Matchday 18"
   },
-  "AFC Bournemouth|Aston Villa FC": {
+  "Aston Villa FC|Liverpool FC": {
+    "date": "2026-12-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Aston Villa FC": null,
+      "Liverpool FC": null
+    },
+    "round": "Matchday 18"
+  },
+  "Ipswich Town FC|Chelsea FC": {
+    "date": "2026-12-30",
+    "status": "SCHEDULED",
+    "goals": {
+      "Ipswich Town FC": null,
+      "Chelsea FC": null
+    },
+    "round": "Matchday 18"
+  },
+  "Leeds United FC|Everton FC": {
+    "date": "2027-01-01",
+    "status": "SCHEDULED",
+    "goals": {
+      "Leeds United FC": null,
+      "Everton FC": null
+    },
+    "round": "Matchday 19"
+  },
+  "Brighton & Hove Albion FC|Manchester United FC": {
     "date": "2027-01-02",
     "status": "SCHEDULED",
     "goals": {
-      "AFC Bournemouth": null,
-      "Aston Villa FC": null
+      "Brighton & Hove Albion FC": null,
+      "Manchester United FC": null
     },
     "round": "Matchday 19"
   },
@@ -1634,15 +1643,6 @@
     "goals": {
       "Brentford FC": null,
       "Crystal Palace FC": null
-    },
-    "round": "Matchday 19"
-  },
-  "Leeds United FC|Everton FC": {
-    "date": "2027-01-01",
-    "status": "SCHEDULED",
-    "goals": {
-      "Leeds United FC": null,
-      "Everton FC": null
     },
     "round": "Matchday 19"
   },
@@ -1673,15 +1673,6 @@
     },
     "round": "Matchday 19"
   },
-  "Chelsea FC|Newcastle United FC": {
-    "date": "2027-01-03",
-    "status": "SCHEDULED",
-    "goals": {
-      "Chelsea FC": null,
-      "Newcastle United FC": null
-    },
-    "round": "Matchday 19"
-  },
   "Nottingham Forest FC|Fulham FC": {
     "date": "2027-01-02",
     "status": "SCHEDULED",
@@ -1691,12 +1682,21 @@
     },
     "round": "Matchday 19"
   },
-  "Brighton & Hove Albion FC|Manchester United FC": {
+  "AFC Bournemouth|Aston Villa FC": {
     "date": "2027-01-02",
     "status": "SCHEDULED",
     "goals": {
-      "Brighton & Hove Albion FC": null,
-      "Manchester United FC": null
+      "AFC Bournemouth": null,
+      "Aston Villa FC": null
+    },
+    "round": "Matchday 19"
+  },
+  "Chelsea FC|Newcastle United FC": {
+    "date": "2027-01-03",
+    "status": "SCHEDULED",
+    "goals": {
+      "Chelsea FC": null,
+      "Newcastle United FC": null
     },
     "round": "Matchday 19"
   },
@@ -1718,24 +1718,6 @@
     },
     "round": "Matchday 20"
   },
-  "Leeds United FC|Manchester City FC": {
-    "date": "2027-01-06",
-    "status": "SCHEDULED",
-    "goals": {
-      "Leeds United FC": null,
-      "Manchester City FC": null
-    },
-    "round": "Matchday 20"
-  },
-  "Manchester United FC|Newcastle United FC": {
-    "date": "2027-01-07",
-    "status": "SCHEDULED",
-    "goals": {
-      "Manchester United FC": null,
-      "Newcastle United FC": null
-    },
-    "round": "Matchday 20"
-  },
   "Brighton & Hove Albion FC|AFC Bournemouth": {
     "date": "2027-01-05",
     "status": "SCHEDULED",
@@ -1751,15 +1733,6 @@
     "goals": {
       "Nottingham Forest FC": null,
       "Hull City AFC": null
-    },
-    "round": "Matchday 20"
-  },
-  "Fulham FC|Tottenham Hotspur FC": {
-    "date": "2027-01-06",
-    "status": "SCHEDULED",
-    "goals": {
-      "Fulham FC": null,
-      "Tottenham Hotspur FC": null
     },
     "round": "Matchday 20"
   },
@@ -1781,6 +1754,15 @@
     },
     "round": "Matchday 20"
   },
+  "Fulham FC|Tottenham Hotspur FC": {
+    "date": "2027-01-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Fulham FC": null,
+      "Tottenham Hotspur FC": null
+    },
+    "round": "Matchday 20"
+  },
   "Crystal Palace FC|Chelsea FC": {
     "date": "2027-01-06",
     "status": "SCHEDULED",
@@ -1796,6 +1778,24 @@
     "goals": {
       "Ipswich Town FC": null,
       "Coventry City FC": null
+    },
+    "round": "Matchday 20"
+  },
+  "Leeds United FC|Manchester City FC": {
+    "date": "2027-01-06",
+    "status": "SCHEDULED",
+    "goals": {
+      "Leeds United FC": null,
+      "Manchester City FC": null
+    },
+    "round": "Matchday 20"
+  },
+  "Manchester United FC|Newcastle United FC": {
+    "date": "2027-01-07",
+    "status": "SCHEDULED",
+    "goals": {
+      "Manchester United FC": null,
+      "Newcastle United FC": null
     },
     "round": "Matchday 20"
   },
