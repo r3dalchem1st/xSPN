@@ -370,46 +370,46 @@
   },
   "Tottenham Hotspur FC|Aston Villa FC": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Tottenham Hotspur FC": null,
-      "Aston Villa FC": null
+      "Tottenham Hotspur FC": 2,
+      "Aston Villa FC": 3
     },
     "round": "Matchday 5"
   },
   "Everton FC|Ipswich Town FC": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Everton FC": null,
-      "Ipswich Town FC": null
+      "Everton FC": 1,
+      "Ipswich Town FC": 0
     },
     "round": "Matchday 5"
   },
   "Brighton & Hove Albion FC|Arsenal FC": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brighton & Hove Albion FC": null,
-      "Arsenal FC": null
+      "Brighton & Hove Albion FC": 3,
+      "Arsenal FC": 0
     },
     "round": "Matchday 5"
   },
   "Newcastle United FC|Hull City AFC": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Newcastle United FC": null,
-      "Hull City AFC": null
+      "Newcastle United FC": 2,
+      "Hull City AFC": 1
     },
     "round": "Matchday 5"
   },
   "Nottingham Forest FC|Coventry City FC": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Nottingham Forest FC": null,
-      "Coventry City FC": null
+      "Nottingham Forest FC": 0,
+      "Coventry City FC": 1
     },
     "round": "Matchday 5"
   },
