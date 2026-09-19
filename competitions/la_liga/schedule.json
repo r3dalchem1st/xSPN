@@ -550,37 +550,37 @@
   },
   "CA Osasuna|Rayo Vallecano de Madrid": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "CA Osasuna": null,
-      "Rayo Vallecano de Madrid": null
+      "CA Osasuna": 1,
+      "Rayo Vallecano de Madrid": 1
     },
     "round": "Matchday 7"
   },
   "Athletic Club|Deportivo Alav\u00e9s": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Athletic Club": null,
-      "Deportivo Alav\u00e9s": null
+      "Athletic Club": 0,
+      "Deportivo Alav\u00e9s": 0
     },
     "round": "Matchday 7"
   },
   "RC Celta de Vigo|Real Racing Club de Santander": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Celta de Vigo": null,
-      "Real Racing Club de Santander": null
+      "RC Celta de Vigo": 5,
+      "Real Racing Club de Santander": 0
     },
     "round": "Matchday 7"
   },
   "Sevilla FC|FC Barcelona": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "FC Barcelona": null
+      "Sevilla FC": 1,
+      "FC Barcelona": 3
     },
     "round": "Matchday 7"
   },
