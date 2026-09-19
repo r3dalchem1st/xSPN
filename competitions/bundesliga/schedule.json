@@ -253,46 +253,46 @@
   },
   "Hamburger SV|1. FC K\u00f6ln": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hamburger SV": null,
-      "1. FC K\u00f6ln": null
+      "Hamburger SV": 2,
+      "1. FC K\u00f6ln": 1
     },
     "round": "Matchday 4"
   },
   "Borussia M\u00f6nchengladbach|1. FSV Mainz 05": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Borussia M\u00f6nchengladbach": null,
-      "1. FSV Mainz 05": null
+      "Borussia M\u00f6nchengladbach": 3,
+      "1. FSV Mainz 05": 4
     },
     "round": "Matchday 4"
   },
   "SV Werder Bremen|FC Augsburg": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV Werder Bremen": null,
-      "FC Augsburg": null
+      "SV Werder Bremen": 3,
+      "FC Augsburg": 2
     },
     "round": "Matchday 4"
   },
   "Eintracht Frankfurt|SC Freiburg": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "SC Freiburg": null
+      "Eintracht Frankfurt": 2,
+      "SC Freiburg": 2
     },
     "round": "Matchday 4"
   },
   "VfB Stuttgart|Borussia Dortmund": {
     "date": "2026-09-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "VfB Stuttgart": null,
-      "Borussia Dortmund": null
+      "VfB Stuttgart": 0,
+      "Borussia Dortmund": 1
     },
     "round": "Matchday 4"
   },
