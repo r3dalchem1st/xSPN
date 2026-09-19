@@ -368,13 +368,58 @@
       "brier": 0.44997423705115636,
       "log_loss": 0.7899382497231308,
       "total_goal_error": 2
+    },
+    {
+      "home": "Tottenham Hotspur FC",
+      "away": "Aston Villa FC",
+      "date": "2026-09-19",
+      "correct_winner": true,
+      "brier": 0.5287015972770139,
+      "log_loss": 0.8941762330056978,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Everton FC",
+      "away": "Ipswich Town FC",
+      "date": "2026-09-19",
+      "correct_winner": true,
+      "brier": 0.1155640466190038,
+      "log_loss": 0.3211243766236324,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Brighton & Hove Albion FC",
+      "away": "Arsenal FC",
+      "date": "2026-09-19",
+      "correct_winner": false,
+      "brier": 1.1070368141476725,
+      "log_loss": 1.7835108997914226,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Newcastle United FC",
+      "away": "Hull City AFC",
+      "date": "2026-09-19",
+      "correct_winner": false,
+      "brier": 1.0222385929543574,
+      "log_loss": 1.7273855416356525,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Nottingham Forest FC",
+      "away": "Coventry City FC",
+      "date": "2026-09-19",
+      "correct_winner": false,
+      "brier": 1.4666230958853528,
+      "log_loss": 2.8471562759242324,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 41,
-    "accuracy": 0.5121951219512195,
-    "avg_brier": 0.6095062040393407,
-    "avg_log_loss": 1.01178717047204,
-    "avg_goal_error": 2.024390243902439
+    "n_scored": 46,
+    "accuracy": 0.5,
+    "avg_brier": 0.6354330111412254,
+    "avg_log_loss": 1.0664484199203104,
+    "avg_goal_error": 2.0869565217391304
   }
 }
