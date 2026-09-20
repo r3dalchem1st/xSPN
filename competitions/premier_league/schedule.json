@@ -415,37 +415,37 @@
   },
   "AFC Bournemouth|Liverpool FC": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "AFC Bournemouth": null,
-      "Liverpool FC": null
+      "AFC Bournemouth": 0,
+      "Liverpool FC": 1
     },
     "round": "Matchday 5"
   },
   "Leeds United FC|Crystal Palace FC": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Leeds United FC": null,
-      "Crystal Palace FC": null
+      "Leeds United FC": 0,
+      "Crystal Palace FC": 0
     },
     "round": "Matchday 5"
   },
   "Manchester City FC|Sunderland AFC": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester City FC": null,
-      "Sunderland AFC": null
+      "Manchester City FC": 5,
+      "Sunderland AFC": 3
     },
     "round": "Matchday 5"
   },
   "Fulham FC|Manchester United FC": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Fulham FC": null,
-      "Manchester United FC": null
+      "Fulham FC": 1,
+      "Manchester United FC": 1
     },
     "round": "Matchday 5"
   },
