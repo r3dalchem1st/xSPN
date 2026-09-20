@@ -586,46 +586,46 @@
   },
   "Getafe CF|M\u00e1laga CF": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Getafe CF": null,
-      "M\u00e1laga CF": null
+      "Getafe CF": 1,
+      "M\u00e1laga CF": 0
     },
     "round": "Matchday 7"
   },
   "Club Atl\u00e9tico de Madrid|Real Madrid CF": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Club Atl\u00e9tico de Madrid": null,
-      "Real Madrid CF": null
+      "Club Atl\u00e9tico de Madrid": 2,
+      "Real Madrid CF": 1
     },
     "round": "Matchday 7"
   },
   "RC Deportivo La Coru\u00f1a|Real Betis Balompi\u00e9": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Deportivo La Coru\u00f1a": null,
-      "Real Betis Balompi\u00e9": null
+      "RC Deportivo La Coru\u00f1a": 1,
+      "Real Betis Balompi\u00e9": 1
     },
     "round": "Matchday 7"
   },
   "Villarreal CF|Levante UD": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Villarreal CF": null,
-      "Levante UD": null
+      "Villarreal CF": 3,
+      "Levante UD": 1
     },
     "round": "Matchday 7"
   },
   "Valencia CF|Real Sociedad de F\u00fatbol": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Valencia CF": null,
-      "Real Sociedad de F\u00fatbol": null
+      "Valencia CF": 2,
+      "Real Sociedad de F\u00fatbol": 3
     },
     "round": "Matchday 7"
   },
