@@ -413,13 +413,49 @@
       "brier": 1.4666230958853528,
       "log_loss": 2.8471562759242324,
       "total_goal_error": 3
+    },
+    {
+      "home": "AFC Bournemouth",
+      "away": "Liverpool FC",
+      "date": "2026-09-20",
+      "correct_winner": true,
+      "brier": 0.5555200783526524,
+      "log_loss": 0.925380508595741,
+      "total_goal_error": 2
+    },
+    {
+      "home": "Leeds United FC",
+      "away": "Crystal Palace FC",
+      "date": "2026-09-20",
+      "correct_winner": false,
+      "brier": 0.9147674204215577,
+      "log_loss": 1.4177487719125916,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Manchester City FC",
+      "away": "Sunderland AFC",
+      "date": "2026-09-20",
+      "correct_winner": true,
+      "brier": 0.11522643869417605,
+      "log_loss": 0.319057052653298,
+      "total_goal_error": 6
+    },
+    {
+      "home": "Fulham FC",
+      "away": "Manchester United FC",
+      "date": "2026-09-20",
+      "correct_winner": false,
+      "brier": 0.8971067474320412,
+      "log_loss": 1.4454806091799905,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 46,
+    "n_scored": 50,
     "accuracy": 0.5,
-    "avg_brier": 0.6354330111412254,
-    "avg_log_loss": 1.0664484199203104,
-    "avg_goal_error": 2.0869565217391304
+    "avg_brier": 0.634250783947936,
+    "avg_log_loss": 1.063285885173518,
+    "avg_goal_error": 2.12
   }
 }
