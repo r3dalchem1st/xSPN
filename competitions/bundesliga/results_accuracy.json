@@ -296,13 +296,40 @@
       "brier": 0.4779634253320423,
       "log_loss": 0.8220687389285349,
       "total_goal_error": 2
+    },
+    {
+      "home": "Bayer 04 Leverkusen",
+      "away": "RB Leipzig",
+      "date": "2026-09-20",
+      "correct_winner": true,
+      "brier": 0.3052209291887242,
+      "log_loss": 0.599246537213353,
+      "total_goal_error": 1
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "SV 07 Elversberg",
+      "date": "2026-09-20",
+      "correct_winner": false,
+      "brier": 1.2124449734152425,
+      "log_loss": 1.7791952187350866,
+      "total_goal_error": 3
+    },
+    {
+      "home": "SC Paderborn 07",
+      "away": "TSG 1899 Hoffenheim",
+      "date": "2026-09-20",
+      "correct_winner": false,
+      "brier": 0.8827000686014255,
+      "log_loss": 1.4568410284465179,
+      "total_goal_error": 4
     }
   ],
   "summary": {
-    "n_scored": 33,
-    "accuracy": 0.5151515151515151,
-    "avg_brier": 0.5904484475687647,
-    "avg_log_loss": 0.9930551405462593,
-    "avg_goal_error": 2.9393939393939394
+    "n_scored": 36,
+    "accuracy": 0.5,
+    "avg_brier": 0.6079212428048507,
+    "avg_log_loss": 1.0168361784005977,
+    "avg_goal_error": 2.9166666666666665
   }
 }

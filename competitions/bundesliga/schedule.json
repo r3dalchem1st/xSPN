@@ -298,28 +298,28 @@
   },
   "Bayer 04 Leverkusen|RB Leipzig": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Bayer 04 Leverkusen": null,
-      "RB Leipzig": null
+      "Bayer 04 Leverkusen": 2,
+      "RB Leipzig": 0
     },
     "round": "Matchday 4"
   },
   "FC Schalke 04|SV 07 Elversberg": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Schalke 04": null,
-      "SV 07 Elversberg": null
+      "FC Schalke 04": 0,
+      "SV 07 Elversberg": 0
     },
     "round": "Matchday 4"
   },
   "SC Paderborn 07|TSG 1899 Hoffenheim": {
     "date": "2026-09-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SC Paderborn 07": null,
-      "TSG 1899 Hoffenheim": null
+      "SC Paderborn 07": 3,
+      "TSG 1899 Hoffenheim": 1
     },
     "round": "Matchday 4"
   },
