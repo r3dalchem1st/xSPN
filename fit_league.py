@@ -197,9 +197,17 @@ def fit_dc(matches, elo_ratings, mkt_probs_by_match=None, odds_weight=0.0):
     return out
 
 
-def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
+def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42,
+                      mkt_probs_by_match=None, odds_weight=0.0):
     """Bayesian-bootstrap ensemble, same method as fit_improved.py: every
     match kept every time, weight perturbed by a Dirichlet(1) draw (mean 1).
+
+    `mkt_probs_by_match`/`odds_weight` (both default to a true no-op, same
+    as fit_dc's) apply the SAME odds-consistency term to every bootstrap
+    refit -- needed because snapshot_league.py's live predictions average
+    over this ensemble (dc_ensemble.json), not the point estimate, so the
+    odds term has no live effect at all unless it's threaded through here
+    too, not just fit_dc.
 
     A non-converged refit is dropped, not kept -- it's an arbitrary,
     non-fitted parameter vector that would silently skew the ensemble's
@@ -209,7 +217,7 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
     later session)."""
     teams = point_dc["teams"]
     idx = {t: i for i, t in enumerate(teams)}
-    rows, _ = _build_rows(matches, idx)
+    rows, mkt_probs = _build_rows(matches, idx, mkt_probs_by_match=mkt_probs_by_match)
     x0 = np.concatenate([
         [point_dc["attack"][t] for t in teams],
         [point_dc["defense"][t] for t in teams],
@@ -222,7 +230,8 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42):
     for _ in range(B):
         e = rng.exponential(1.0, size=M)
         w_scale = e / e.mean()
-        res = _fit_rows(rows, teams, x0, maxiter=1500, w_scale=w_scale)
+        res = _fit_rows(rows, teams, x0, maxiter=1500, w_scale=w_scale,
+                         mkt_probs=mkt_probs, odds_weight=odds_weight)
         if not res.success:
             n_failed += 1
             continue
@@ -242,7 +251,18 @@ def fit_and_save(config, base_dir, bootstrap_size=60, seed=42):
     <slug>/model_params.json (elo + point dc, committed) and
     <slug>/dc_ensemble.json (bootstrap ensemble, NOT committed — mirrors
     fit_improved.py's dc_ensemble.json / .gitignore pattern).
-    Returns the point-estimate dc dict."""
+    Returns the point-estimate dc dict.
+
+    If <slug>/mkt_probs_by_match.json exists (written by fetch_league.py's
+    fetch_and_save() for a competition with odds_history_code configured --
+    a list parallel to fetched_matches.json, one (ph,pd,pa) triple or None
+    per match), it's loaded and passed through to fit_dc/fit_dc_bootstrap
+    along with config.odds_fit_weight. Missing file or odds_fit_weight=0.0
+    (its default) is a true no-op -- see backtest_fit_odds.py/CONTEXT.md
+    for how a competition's real weight is chosen: sandboxed against real
+    upcoming fixtures for real forward-looking evidence before being set
+    here, never guessed or copied from the WC's own (differently-tuned)
+    values."""
     from competition_config import artifact_dir
     out_dir = artifact_dir(config, base_dir)
     matches_path = os.path.join(out_dir, "fetched_matches.json")
@@ -252,9 +272,16 @@ def fit_and_save(config, base_dir, bootstrap_size=60, seed=42):
         raise ValueError(f"{config.slug}: no training matches in {matches_path} — "
                           f"run fetch_league.py first")
 
+    mkt_probs_path = os.path.join(out_dir, "mkt_probs_by_match.json")
+    mkt_probs_by_match = None
+    if os.path.exists(mkt_probs_path):
+        with open(mkt_probs_path) as f:
+            mkt_probs_by_match = json.load(f)
+
     elo = compute_elos(matches)
-    dc = fit_dc(matches, elo)
-    ensemble = fit_dc_bootstrap(matches, elo, dc, B=bootstrap_size, seed=seed)
+    dc = fit_dc(matches, elo, mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
+    ensemble = fit_dc_bootstrap(matches, elo, dc, B=bootstrap_size, seed=seed,
+                                 mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
 
     with open(os.path.join(out_dir, "model_params.json"), "w") as f:
         json.dump({"elo": {t: round(v, 2) for t, v in elo.items()}, "dc": dc}, f, indent=2)

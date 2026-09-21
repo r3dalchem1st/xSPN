@@ -134,7 +134,8 @@ def test_fit_dc_bootstrap_drops_non_converged_refits(monkeypatch):
     x_dim = 2 * n_teams + 2
     calls = {"n": 0}
 
-    def fake_fit_rows(rows, teams, x0, l2_reg=fit_league.L2_REG, maxiter=2000, w_scale=None):
+    def fake_fit_rows(rows, teams, x0, l2_reg=fit_league.L2_REG, maxiter=2000, w_scale=None,
+                       mkt_probs=None, odds_weight=0.0):
         calls["n"] += 1
         # Every other refit "fails" to converge.
         success = calls["n"] % 2 == 0
@@ -146,13 +147,37 @@ def test_fit_dc_bootstrap_drops_non_converged_refits(monkeypatch):
     assert calls["n"] == 6
 
 
+def test_fit_dc_bootstrap_applies_odds_term_to_every_refit():
+    # snapshot_league.py's live predictions average over dc_ensemble.json
+    # (the bootstrap), not the point estimate -- the odds term has zero
+    # live effect unless fit_dc_bootstrap applies it too, not just fit_dc.
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    dc = fit_dc(SYNTHETIC_MATCHES, elo)
+    mkt_probs = []
+    for _date, home, away, *_ in SYNTHETIC_MATCHES:
+        if home == "Newcomer FC":
+            mkt_probs.append((0.9, 0.05, 0.05))
+        elif away == "Newcomer FC":
+            mkt_probs.append((0.05, 0.05, 0.9))
+        else:
+            mkt_probs.append(None)
+
+    plain_ensemble = fit_dc_bootstrap(SYNTHETIC_MATCHES, elo, dc, B=3, seed=1)
+    odds_ensemble = fit_dc_bootstrap(SYNTHETIC_MATCHES, elo, dc, B=3, seed=1,
+                                      mkt_probs_by_match=mkt_probs, odds_weight=10.0)
+    plain_avg = sum(m["attack"]["Newcomer FC"] for m in plain_ensemble) / len(plain_ensemble)
+    odds_avg = sum(m["attack"]["Newcomer FC"] for m in odds_ensemble) / len(odds_ensemble)
+    assert odds_avg > plain_avg
+
+
 def test_fit_dc_bootstrap_raises_when_every_refit_fails(monkeypatch):
     elo = compute_elos(SYNTHETIC_MATCHES)
     dc = fit_dc(SYNTHETIC_MATCHES, elo)
     n_teams = len(dc["teams"])
     x_dim = 2 * n_teams + 2
 
-    def always_fails(rows, teams, x0, l2_reg=fit_league.L2_REG, maxiter=2000, w_scale=None):
+    def always_fails(rows, teams, x0, l2_reg=fit_league.L2_REG, maxiter=2000, w_scale=None,
+                      mkt_probs=None, odds_weight=0.0):
         return _FakeResult(False, np.zeros(x_dim))
 
     monkeypatch.setattr(fit_league, "_fit_rows", always_fails)
@@ -199,6 +224,48 @@ def test_fit_and_save_raises_on_empty_training_data(tmp_path):
     _write_fetched_matches(str(tmp_path), config.slug, [])
     with pytest.raises(ValueError, match="no training matches"):
         fit_and_save(config, str(tmp_path), bootstrap_size=3)
+
+
+def test_fit_and_save_is_unaffected_by_odds_when_mkt_probs_file_absent(tmp_path):
+    # No mkt_probs_by_match.json on disk -> fit_and_save must behave exactly
+    # as before this feature existed, even for a competition with a real
+    # odds_fit_weight configured (e.g. a fresh clone that hasn't re-run
+    # fetch_league.py yet).
+    config = CompetitionConfig(dict(IO_CONFIG_DATA, odds_fit_weight=100.0))
+    _write_fetched_matches(str(tmp_path), config.slug, SYNTHETIC_MATCHES)
+    dc = fit_and_save(config, str(tmp_path), bootstrap_size=3, seed=1)
+    assert dc["converged"] is True
+
+
+def test_fit_and_save_applies_real_odds_when_mkt_probs_file_present(tmp_path):
+    # A heavy, contradicting market signal for Newcomer FC (the model's
+    # clear underdog on goals alone -- see the fit_dc-level sanity test
+    # above) with a real odds_fit_weight configured should measurably raise
+    # its fitted attack rating end-to-end through fit_and_save, proving the
+    # mkt_probs_by_match.json file is actually being read and applied, not
+    # silently ignored.
+    config_plain = CompetitionConfig(IO_CONFIG_DATA)
+    _write_fetched_matches(str(tmp_path / "plain"), config_plain.slug, SYNTHETIC_MATCHES)
+    dc_plain = fit_and_save(config_plain, str(tmp_path / "plain"), bootstrap_size=2, seed=1)
+
+    config_odds = CompetitionConfig(dict(IO_CONFIG_DATA, odds_fit_weight=10.0))
+    out_dir = os.path.join(str(tmp_path / "odds"), "competitions", config_odds.slug)
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "fetched_matches.json"), "w") as f:
+        json.dump(SYNTHETIC_MATCHES, f)
+    mkt_probs = []
+    for _date, home, away, *_ in SYNTHETIC_MATCHES:
+        if home == "Newcomer FC":
+            mkt_probs.append((0.9, 0.05, 0.05))
+        elif away == "Newcomer FC":
+            mkt_probs.append((0.05, 0.05, 0.9))
+        else:
+            mkt_probs.append(None)
+    with open(os.path.join(out_dir, "mkt_probs_by_match.json"), "w") as f:
+        json.dump(mkt_probs, f)
+    dc_odds = fit_and_save(config_odds, str(tmp_path / "odds"), bootstrap_size=2, seed=1)
+
+    assert dc_odds["attack"]["Newcomer FC"] > dc_plain["attack"]["Newcomer FC"]
 
 
 def test_fit_dc_with_odds_weight_zero_matches_plain_fit_exactly():

@@ -14,6 +14,8 @@ import requests
 from competition_config import artifact_dir, load_competition
 from fetch_live_scores import fetch_matches as fetch_live_matches
 from fetch_live_scores import overlay_live_results
+from fetch_odds_history import build_mkt_probs_by_match, fetch_season_csv, parse_odds_rows
+from fetch_odds_history import season_to_fd_code as _season_to_fd_code
 from openfootball_txt import parse_openfootball_txt
 
 
@@ -70,25 +72,52 @@ def build_schedule(config, parsed_matches):
     return sched, n_skipped
 
 
+def fetch_season_mkt_probs(config, entry, rows):
+    """Real historical odds for ONE season, joined against that season's OWN
+    training `rows` (already fetched/parsed by the caller, so this doesn't
+    re-fetch openfootball) -- returns a list parallel to `rows` (one
+    (ph,pd,pa) triple or None per match). [None]*len(rows) if
+    config.odds_history_code isn't set, or if that season's odds file isn't
+    available yet (most likely the current in-progress season --
+    football-data.co.uk only has a season once it's over or partway
+    through it): graceful, not an error, same discipline as every other
+    optional external source here."""
+    if not config.odds_history_code:
+        return [None] * len(rows)
+    try:
+        odds_csv = fetch_season_csv(config.odds_history_code, _season_to_fd_code(entry["season"]))
+        odds_rows, _ = parse_odds_rows(odds_csv, config)
+        return build_mkt_probs_by_match(rows, odds_rows)
+    except requests.RequestException:
+        return [None] * len(rows)
+
+
 def fetch_and_save(config, base_dir):
     """Fetch every season configured for `config` (newest first), parse each,
     and write:
-      competitions/<slug>/fetched_matches.json  -- training rows from EVERY
+      competitions/<slug>/fetched_matches.json    -- training rows from EVERY
         configured season combined (played matches only)
-      competitions/<slug>/schedule.json         -- ALL fixtures from the
+      competitions/<slug>/mkt_probs_by_match.json -- real historical odds
+        joined per season (see fetch_season_mkt_probs), one entry PARALLEL
+        to fetched_matches.json (same length/order) -- (ph,pd,pa) or None.
+        Always written (even all-None) so fit_league.py's fit_and_save() and
+        every competition's CI commit step can rely on it always existing,
+        same invariant every other artifact file already has.
+      competitions/<slug>/schedule.json           -- ALL fixtures from the
         newest (current) season only, played + unplayed
 
     schedule.json is left UNTOUCHED if the current season's fetch fails: a
     transient failure must never wipe a good schedule to empty (an empty
     file still counts as "changed", so CI would happily commit and push the
-    wipe over a previously-good live schedule). fetched_matches.json is
-    unaffected by this guard — losing one OLDER season's training rows just
-    means slightly less training data, not a corrupted live artifact.
+    wipe over a previously-good live schedule). fetched_matches.json/
+    mkt_probs_by_match.json are unaffected by this guard — losing one OLDER
+    season's training rows just means slightly less training data, not a
+    corrupted live artifact.
 
     Returns a summary dict: {"matches": int, "scheduled": int, "skipped": int,
     "failed_seasons": [path, ...], "current_season_failed": bool}."""
     out_dir = artifact_dir(config, base_dir)
-    all_rows, current_schedule = [], {}
+    all_rows, all_mkt_probs, current_schedule = [], [], {}
     total_skipped, failed = 0, []
     current_season_failed = False
 
@@ -103,7 +132,9 @@ def fetch_and_save(config, base_dir):
             continue
         parsed = parse_openfootball_txt(text)
         rows, n_skipped = build_training_rows(config, parsed)
+        mkt_probs = fetch_season_mkt_probs(config, entry, rows)
         all_rows.extend(rows)
+        all_mkt_probs.extend(mkt_probs)
         total_skipped += n_skipped
         if i == 0:
             current_schedule, sched_skipped = build_schedule(config, parsed)
@@ -111,6 +142,8 @@ def fetch_and_save(config, base_dir):
 
     with open(os.path.join(out_dir, "fetched_matches.json"), "w") as f:
         json.dump(all_rows, f, indent=2)
+    with open(os.path.join(out_dir, "mkt_probs_by_match.json"), "w") as f:
+        json.dump(all_mkt_probs, f)
 
     if current_season_failed:
         print("  ! current-season fetch failed — leaving existing schedule.json untouched")

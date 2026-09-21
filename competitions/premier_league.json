@@ -43,5 +43,5 @@
   "momentum_weight": 0.1,
   "momentum_n": 8,
   "odds_history_code": "E0",
-  "odds_fit_weight": 5.0
+  "odds_fit_weight": 0.0
 }

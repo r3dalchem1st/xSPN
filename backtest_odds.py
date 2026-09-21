@@ -29,15 +29,10 @@ import sys
 
 from backtest_league import fit_point_estimate, load_season_matches, predict_match_probs
 from fetch_odds_history import fetch_season_csv, parse_odds_rows
+from fetch_odds_history import season_to_fd_code as _season_to_fd_code
 from odds_utils import implied_probs_from_odds
 
 EPS = 1e-12
-
-
-def _season_to_fd_code(season_label):
-    """"2025-26" -> "2526" (football-data.co.uk's URL season format)."""
-    a, b = season_label.split("-")
-    return a[-2:] + b[-2:]
 
 
 def join_matches_with_odds(test_matches, odds_rows):

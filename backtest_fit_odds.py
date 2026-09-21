@@ -27,28 +27,9 @@ import sys
 import fit_league as fl
 from backtest_league import load_season_matches, score_holdout
 from backtest_odds import _season_to_fd_code
-from fetch_odds_history import fetch_season_csv, parse_odds_rows
-from odds_utils import implied_probs_from_odds
+from fetch_odds_history import build_mkt_probs_by_match, fetch_season_csv, parse_odds_rows
 
 WEIGHTS = [0.0, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0, 100.0]
-
-
-def build_mkt_probs_by_match(matches, odds_rows):
-    """Aligns real historical odds onto `matches` (one TRAINING season's
-    rows, [date,home,away,hg,ag,label,neutral]) by directed (home,away) key
-    -- returns a list PARALLEL to `matches` (same length/order), each entry
-    the joined de-vigged (ph,pd,pa) triple or None for a match with no
-    matching odds row. Mirrors backtest_odds.py's join_matches_with_odds,
-    but preserves alignment/order instead of filtering to only the joined
-    subset, since fit_dc's mkt_probs_by_match needs a slot per match, not a
-    shortened list."""
-    by_pair = {(o["home"], o["away"]): o for o in odds_rows}
-    result = []
-    for m in matches:
-        _date, home, away, *_ = m
-        odds_row = by_pair.get((home, away))
-        result.append(implied_probs_from_odds(*odds_row["odds"]) if odds_row else None)
-    return result
 
 
 def fit_point_estimate_with_odds(train_matches, as_of_date, mkt_probs_by_match, odds_weight):
