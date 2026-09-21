@@ -28,7 +28,15 @@ import sys
 
 import requests
 
+from odds_utils import implied_probs_from_odds
+
 BASE = "https://www.football-data.co.uk/mmz4281"
+
+
+def season_to_fd_code(season_label):
+    """"2025-26" -> "2526" (football-data.co.uk's URL season format)."""
+    a, b = season_label.split("-")
+    return a[-2:] + b[-2:]
 
 
 def fetch_season_csv(code, season):
@@ -76,6 +84,23 @@ def parse_odds_rows(text, config):
             "hg": hg, "ag": ag, "odds": (ph, pd_, pa),
         })
     return rows, n_skipped
+
+
+def build_mkt_probs_by_match(matches, odds_rows):
+    """Aligns real historical odds onto `matches` (one TRAINING season's
+    rows, [date,home,away,hg,ag,label,neutral]) by directed (home,away) key
+    -- returns a list PARALLEL to `matches` (same length/order), each entry
+    the joined de-vigged (ph,pd,pa) triple or None for a match with no
+    matching odds row. Preserves alignment/order (rather than filtering to
+    only the joined subset) since fit_league.fit_dc needs a slot per match,
+    not a shortened list."""
+    by_pair = {(o["home"], o["away"]): o for o in odds_rows}
+    result = []
+    for m in matches:
+        _date, home, away, *_ = m
+        odds_row = by_pair.get((home, away))
+        result.append(implied_probs_from_odds(*odds_row["odds"]) if odds_row else None)
+    return result
 
 
 def main():

@@ -6,7 +6,7 @@ import requests
 
 import fetch_league
 from competition_config import CompetitionConfig
-from fetch_league import build_schedule, build_training_rows, fetch_and_save
+from fetch_league import build_schedule, build_training_rows, fetch_and_save, fetch_season_mkt_probs
 
 CONFIG_DATA = {
     "slug": "test_league",
@@ -115,6 +115,72 @@ def test_fetch_and_save_writes_artifacts(tmp_path, monkeypatch):
         sched = json.load(f)
     scheduled_key = "Manchester United FC|Brentford FC"
     assert sched[scheduled_key]["status"] == "SCHEDULED"
+
+
+def test_fetch_season_mkt_probs_noop_without_odds_history_code():
+    config = CompetitionConfig(CONFIG_DATA)  # no odds_history_code
+    rows = [["2025-08-14", "Manchester United FC", "Fulham FC", 1, 0, "Test League", False]]
+    result = fetch_season_mkt_probs(config, config.openfootball_files[0], rows)
+    assert result == [None]
+
+
+def test_fetch_season_mkt_probs_joins_real_odds(monkeypatch):
+    config = CompetitionConfig(dict(CONFIG_DATA, odds_history_code="E0"))
+    rows = [["2025-08-14", "Manchester United FC", "Fulham FC", 1, 0, "Test League", False]]
+
+    monkeypatch.setattr(fetch_league, "fetch_season_csv", lambda code, season: "fake csv")
+    monkeypatch.setattr(fetch_league, "parse_odds_rows", lambda text, cfg: (
+        [{"home": "Manchester United FC", "away": "Fulham FC", "hg": 1, "ag": 0,
+          "odds": (1.5, 4.0, 6.0)}], 0))
+
+    result = fetch_season_mkt_probs(config, config.openfootball_files[0], rows)
+    assert result[0] is not None
+
+
+def test_fetch_season_mkt_probs_falls_back_gracefully_on_fetch_failure(monkeypatch):
+    # e.g. the current in-progress season's odds CSV doesn't exist yet on
+    # football-data.co.uk -- must not crash the whole fetch, just contribute
+    # no odds signal for that season's matches.
+    config = CompetitionConfig(dict(CONFIG_DATA, odds_history_code="E0"))
+    rows = [["2025-08-14", "Manchester United FC", "Fulham FC", 1, 0, "Test League", False]]
+
+    def raise_404(code, season):
+        raise requests.RequestException("404")
+    monkeypatch.setattr(fetch_league, "fetch_season_csv", raise_404)
+
+    result = fetch_season_mkt_probs(config, config.openfootball_files[0], rows)
+    assert result == [None]
+
+
+def test_fetch_and_save_writes_mkt_probs_by_match_parallel_to_fetched_matches(tmp_path, monkeypatch):
+    config = CompetitionConfig(dict(CONFIG_DATA, odds_history_code="E0"))
+    text_by_path = {
+        "2026-27/1-test.txt": "current-season",
+        "2025-26/1-test.txt": "prior-season",
+    }
+
+    def fake_fetch(repo, path, timeout=10):
+        return text_by_path[path]
+
+    def fake_parse(text):
+        return [UNPLAYED_MATCH] if text == "current-season" else [ALIASED_MATCH]
+
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", fake_fetch)
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt", fake_parse)
+    monkeypatch.setattr(fetch_league, "fetch_season_csv", lambda code, season: "fake csv")
+    monkeypatch.setattr(fetch_league, "parse_odds_rows", lambda text, cfg: (
+        [{"home": "Manchester United FC", "away": "Fulham FC", "hg": 1, "ag": 0,
+          "odds": (1.5, 4.0, 6.0)}], 0))
+
+    fetch_and_save(config, str(tmp_path))
+
+    out_dir = tmp_path / "competitions" / "test_league"
+    with open(out_dir / "fetched_matches.json") as f:
+        matches = json.load(f)
+    with open(out_dir / "mkt_probs_by_match.json") as f:
+        mkt_probs = json.load(f)
+    assert len(mkt_probs) == len(matches)  # parallel, same length
+    assert mkt_probs[0] is not None
 
 
 def test_fetch_and_save_records_failed_season(tmp_path, monkeypatch):
