@@ -485,15 +485,6 @@
     },
     "round": "Matchday 6"
   },
-  "Levante UD|Athletic Club            [postponed]": {
-    "date": "2026-09-16",
-    "status": "SCHEDULED",
-    "goals": {
-      "Levante UD": null,
-      "Athletic Club            [postponed]": null
-    },
-    "round": "Matchday 6"
-  },
   "RC Deportivo La Coru\u00f1a|Sevilla FC": {
     "date": "2026-09-16",
     "status": "FINISHED",
@@ -808,6 +799,15 @@
       "Rayo Vallecano de Madrid": null
     },
     "round": "Matchday 9"
+  },
+  "Levante UD|Athletic Club": {
+    "date": "2026-10-21",
+    "status": "SCHEDULED",
+    "goals": {
+      "Levante UD": null,
+      "Athletic Club": null
+    },
+    "round": "Matchday 6"
   },
   "Rayo Vallecano de Madrid|Elche CF": {
     "date": "2026-10-25",
