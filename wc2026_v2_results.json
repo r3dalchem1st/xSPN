@@ -303,7 +303,7 @@
     "qf": 0.1724,
     "win_lo": 0.0,
     "win_hi": 0.0032,
-    "win_delta": -0.0001
+    "win_delta": 0.0
   },
   "Norway": {
     "win": 0.0,
