@@ -119,7 +119,7 @@
         "lam": 2.15,
         "mu": 0.84,
         "score": "2\u20130",
-        "ph": 0.608,
+        "ph": 0.609,
         "pd": 0.265,
         "pa": 0.126,
         "likely_winner": "Switzerland"
@@ -449,7 +449,7 @@
         "mu": 1.08,
         "score": "1\u20131",
         "ph": 0.362,
-        "pd": 0.366,
+        "pd": 0.365,
         "pa": 0.273,
         "likely_winner": "Draw"
       },
@@ -551,7 +551,7 @@
         "lam": 2.58,
         "mu": 1.2,
         "score": "2\u20131",
-        "ph": 0.618,
+        "ph": 0.617,
         "pd": 0.237,
         "pa": 0.146,
         "likely_winner": "France"
@@ -1388,7 +1388,7 @@
       "score": "0\u20132",
       "winner": "Spain",
       "win_pct": 66.2,
-      "ph": 0.192,
+      "ph": 0.193,
       "pd": 0.268,
       "pa": 0.539,
       "reg_winner": "Spain",
@@ -1439,12 +1439,12 @@
   "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.5,
-    "Argentina": 84.2,
-    "England": 9.0,
-    "Colombia": 6.0,
+    "Argentina": 84.1,
+    "England": 9.3,
+    "Colombia": 5.9,
     "France": 2.0,
     "Senegal": 0.8,
     "USA": 0.3,
-    "Algeria": 0.1
+    "Algeria": 0.2
   }
 }
