@@ -664,7 +664,7 @@
         "mu": 1.05,
         "score": "1\u20130",
         "ph": 0.489,
-        "pd": 0.311,
+        "pd": 0.312,
         "pa": 0.199,
         "likely_winner": "Algeria"
       },
@@ -774,7 +774,7 @@
       {
         "home": "England",
         "away": "Panama",
-        "lam": 3.75,
+        "lam": 3.76,
         "mu": 0.68,
         "score": "3\u20130",
         "ph": 0.856,
@@ -1428,7 +1428,7 @@
     "score": "4\u20136",
     "winner": "England",
     "win_pct": 50.9,
-    "ph": 0.39,
+    "ph": 0.389,
     "pd": 0.222,
     "pa": 0.389,
     "reg_winner": "France",
@@ -1439,11 +1439,11 @@
   "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.5,
-    "Argentina": 84.1,
-    "England": 9.3,
+    "Argentina": 83.9,
+    "England": 9.5,
     "Colombia": 5.9,
-    "France": 2.0,
-    "Senegal": 0.8,
+    "France": 2.1,
+    "Senegal": 0.7,
     "USA": 0.3,
     "Algeria": 0.2
   }
