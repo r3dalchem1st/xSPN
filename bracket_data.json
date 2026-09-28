@@ -359,7 +359,7 @@
         "mu": 1.31,
         "score": "2\u20131",
         "ph": 0.584,
-        "pd": 0.245,
+        "pd": 0.244,
         "pa": 0.171,
         "likely_winner": "Netherlands"
       },
@@ -1436,15 +1436,15 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.6,
+  "champion_pct": 92.5,
   "reach_final": {
-    "Spain": 97.5,
+    "Spain": 97.6,
     "Argentina": 83.9,
-    "England": 9.5,
-    "Colombia": 5.9,
-    "France": 2.1,
-    "Senegal": 0.7,
+    "England": 9.2,
+    "Colombia": 6.2,
+    "France": 2.0,
+    "Senegal": 0.8,
     "USA": 0.3,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
