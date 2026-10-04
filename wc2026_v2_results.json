@@ -258,7 +258,7 @@
     "qf": 1.0,
     "win_lo": 0.9087,
     "win_hi": 0.9414,
-    "win_delta": 0.0002
+    "win_delta": -0.0
   },
   "Cape Verde": {
     "win": 0.0,
@@ -393,7 +393,7 @@
     "qf": 0.3033,
     "win_lo": 0.0113,
     "win_hi": 0.0372,
-    "win_delta": -0.0001
+    "win_delta": 0.0
   },
   "England": {
     "win": 0.0269,
