@@ -394,5 +394,16 @@
     "predicted_winner": "D",
     "predicted_score": "0-0",
     "snapped_at": "2026-09-15"
+  },
+  "Borussia Dortmund|SV Werder Bremen": {
+    "home": "Borussia Dortmund",
+    "away": "SV Werder Bremen",
+    "date": "2026-10-09",
+    "ph": 0.7408100033083679,
+    "pd": 0.15769217988279272,
+    "pa": 0.10149781680883958,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-04"
   }
 }
