@@ -768,5 +768,16 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-09-15"
+  },
+  "M\u00e1laga CF|RCD Espanyol de Barcelona": {
+    "home": "M\u00e1laga CF",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-10-09",
+    "ph": 0.21617940433778668,
+    "pd": 0.33025398567555364,
+    "pa": 0.4535666099866596,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-04"
   }
 }
