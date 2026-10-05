@@ -155,7 +155,7 @@
         "mu": 0.69,
         "score": "4\u20130",
         "ph": 0.894,
-        "pd": 0.082,
+        "pd": 0.081,
         "pa": 0.024,
         "likely_winner": "Brazil"
       },
@@ -280,7 +280,7 @@
         "mu": 0.77,
         "score": "4\u20130",
         "ph": 0.889,
-        "pd": 0.083,
+        "pd": 0.084,
         "pa": 0.028,
         "likely_winner": "Germany"
       },
@@ -391,7 +391,7 @@
         "lam": 3.25,
         "mu": 0.78,
         "score": "3\u20130",
-        "ph": 0.8,
+        "ph": 0.799,
         "pd": 0.146,
         "pa": 0.054,
         "likely_winner": "Japan"
@@ -480,7 +480,7 @@
       {
         "home": "Spain",
         "away": "Cape Verde",
-        "lam": 2.36,
+        "lam": 2.35,
         "mu": 0.66,
         "score": "2\u20130",
         "ph": 0.669,
@@ -507,7 +507,7 @@
         "score": "1\u20130",
         "ph": 0.619,
         "pd": 0.275,
-        "pa": 0.105,
+        "pa": 0.106,
         "likely_winner": "Spain"
       },
       {
@@ -1436,13 +1436,13 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.6,
+  "champion_pct": 92.7,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 84.0,
-    "England": 9.3,
-    "Colombia": 5.9,
-    "France": 1.9,
+    "Argentina": 84.2,
+    "England": 9.0,
+    "Colombia": 6.0,
+    "France": 2.0,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
