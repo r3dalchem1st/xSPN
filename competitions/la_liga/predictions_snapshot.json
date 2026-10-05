@@ -779,5 +779,49 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-10-04"
+  },
+  "Rayo Vallecano de Madrid|Athletic Club": {
+    "home": "Rayo Vallecano de Madrid",
+    "away": "Athletic Club",
+    "date": "2026-10-10",
+    "ph": 0.3318664673750611,
+    "pd": 0.27752115686547607,
+    "pa": 0.3906123757594626,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "Deportivo Alav\u00e9s|Club Atl\u00e9tico de Madrid": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-10-10",
+    "ph": 0.24828261228748363,
+    "pd": 0.2592526687988148,
+    "pa": 0.49246471891370164,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "FC Barcelona|Getafe CF": {
+    "home": "FC Barcelona",
+    "away": "Getafe CF",
+    "date": "2026-10-10",
+    "ph": 0.7711959826066035,
+    "pd": 0.14895212065904168,
+    "pa": 0.0798518967343549,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-05"
+  },
+  "Real Madrid CF|Villarreal CF": {
+    "home": "Real Madrid CF",
+    "away": "Villarreal CF",
+    "date": "2026-10-10",
+    "ph": 0.6751496159504534,
+    "pd": 0.1768385087068553,
+    "pa": 0.14801187534269128,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-05"
   }
 }
