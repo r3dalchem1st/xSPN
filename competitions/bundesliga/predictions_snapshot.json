@@ -405,5 +405,71 @@
     "predicted_winner": "H",
     "predicted_score": "2-0",
     "snapped_at": "2026-10-04"
+  },
+  "1. FSV Mainz 05|Bayer 04 Leverkusen": {
+    "home": "1. FSV Mainz 05",
+    "away": "Bayer 04 Leverkusen",
+    "date": "2026-10-10",
+    "ph": 0.32046686277550357,
+    "pd": 0.2353994889595108,
+    "pa": 0.4441336482649855,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "SC Paderborn 07|VfB Stuttgart": {
+    "home": "SC Paderborn 07",
+    "away": "VfB Stuttgart",
+    "date": "2026-10-10",
+    "ph": 0.2538890459508839,
+    "pd": 0.27434098585656663,
+    "pa": 0.47176996819254957,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "1. FC Union Berlin|SV 07 Elversberg": {
+    "home": "1. FC Union Berlin",
+    "away": "SV 07 Elversberg",
+    "date": "2026-10-10",
+    "ph": 0.17973780958428656,
+    "pd": 0.18556064749849802,
+    "pa": 0.6347015429172156,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "TSG 1899 Hoffenheim|Hamburger SV": {
+    "home": "TSG 1899 Hoffenheim",
+    "away": "Hamburger SV",
+    "date": "2026-10-10",
+    "ph": 0.5907205166000623,
+    "pd": 0.20816629580259205,
+    "pa": 0.20111318759734584,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-05"
+  },
+  "FC Augsburg|FC Bayern M\u00fcnchen": {
+    "home": "FC Augsburg",
+    "away": "FC Bayern M\u00fcnchen",
+    "date": "2026-10-10",
+    "ph": 0.07344716573044799,
+    "pd": 0.112419650384797,
+    "pa": 0.8141331838847545,
+    "predicted_winner": "A",
+    "predicted_score": "0-3",
+    "snapped_at": "2026-10-05"
+  },
+  "RB Leipzig|Eintracht Frankfurt": {
+    "home": "RB Leipzig",
+    "away": "Eintracht Frankfurt",
+    "date": "2026-10-10",
+    "ph": 0.5455659914856833,
+    "pd": 0.19848485919803954,
+    "pa": 0.2559491493162771,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-05"
   }
 }
