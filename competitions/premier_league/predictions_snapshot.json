@@ -548,5 +548,71 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-09-15"
+  },
+  "Arsenal FC|Leeds United FC": {
+    "home": "Arsenal FC",
+    "away": "Leeds United FC",
+    "date": "2026-10-10",
+    "ph": 0.6518817744402937,
+    "pd": 0.21885031262725366,
+    "pa": 0.12926791293245266,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-05"
+  },
+  "Sunderland AFC|Brighton & Hove Albion FC": {
+    "home": "Sunderland AFC",
+    "away": "Brighton & Hove Albion FC",
+    "date": "2026-10-10",
+    "ph": 0.21863931404896078,
+    "pd": 0.23478097593718047,
+    "pa": 0.5465797100138587,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "Chelsea FC|AFC Bournemouth": {
+    "home": "Chelsea FC",
+    "away": "AFC Bournemouth",
+    "date": "2026-10-10",
+    "ph": 0.4235688162473476,
+    "pd": 0.24102149898374942,
+    "pa": 0.33540968476890287,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-05"
+  },
+  "Ipswich Town FC|Fulham FC": {
+    "home": "Ipswich Town FC",
+    "away": "Fulham FC",
+    "date": "2026-10-10",
+    "ph": 0.18838629926981165,
+    "pd": 0.2154386976197066,
+    "pa": 0.5961750031104815,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-05"
+  },
+  "Aston Villa FC|Brentford FC": {
+    "home": "Aston Villa FC",
+    "away": "Brentford FC",
+    "date": "2026-10-10",
+    "ph": 0.3555013657944971,
+    "pd": 0.24471199588476727,
+    "pa": 0.3997866383207356,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-05"
+  },
+  "Manchester United FC|Tottenham Hotspur FC": {
+    "home": "Manchester United FC",
+    "away": "Tottenham Hotspur FC",
+    "date": "2026-10-10",
+    "ph": 0.6374016358123253,
+    "pd": 0.19578111914412116,
+    "pa": 0.1668172450435537,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-05"
   }
 }
