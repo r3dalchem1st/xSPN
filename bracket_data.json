@@ -155,7 +155,7 @@
         "mu": 0.69,
         "score": "4\u20130",
         "ph": 0.894,
-        "pd": 0.081,
+        "pd": 0.082,
         "pa": 0.024,
         "likely_winner": "Brazil"
       },
@@ -592,7 +592,7 @@
       {
         "home": "Senegal",
         "away": "Iraq",
-        "lam": 3.2,
+        "lam": 3.21,
         "mu": 0.82,
         "score": "3\u20130",
         "ph": 0.784,
@@ -1439,10 +1439,10 @@
   "champion_pct": 92.7,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 84.2,
-    "England": 9.0,
+    "Argentina": 84.0,
+    "England": 9.3,
     "Colombia": 6.0,
-    "France": 2.0,
+    "France": 1.9,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
