@@ -471,5 +471,27 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-10-05"
+  },
+  "1. FC K\u00f6ln|Borussia M\u00f6nchengladbach": {
+    "home": "1. FC K\u00f6ln",
+    "away": "Borussia M\u00f6nchengladbach",
+    "date": "2026-10-11",
+    "ph": 0.4322473584103287,
+    "pd": 0.23270871085877412,
+    "pa": 0.33504393073089733,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-06"
+  },
+  "SC Freiburg|FC Schalke 04": {
+    "home": "SC Freiburg",
+    "away": "FC Schalke 04",
+    "date": "2026-10-11",
+    "ph": 0.39920752826641503,
+    "pd": 0.3267396533791821,
+    "pa": 0.27405281835440287,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-06"
   }
 }
