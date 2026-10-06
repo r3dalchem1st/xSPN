@@ -614,5 +614,38 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-10-05"
+  },
+  "Hull City AFC|Everton FC": {
+    "home": "Hull City AFC",
+    "away": "Everton FC",
+    "date": "2026-10-11",
+    "ph": 0.45652071530137045,
+    "pd": 0.32387383455838337,
+    "pa": 0.21960545014024635,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-06"
+  },
+  "Crystal Palace FC|Nottingham Forest FC": {
+    "home": "Crystal Palace FC",
+    "away": "Nottingham Forest FC",
+    "date": "2026-10-11",
+    "ph": 0.2964625758923393,
+    "pd": 0.2715639839406542,
+    "pa": 0.4319734401670065,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-06"
+  },
+  "Liverpool FC|Manchester City FC": {
+    "home": "Liverpool FC",
+    "away": "Manchester City FC",
+    "date": "2026-10-11",
+    "ph": 0.26397523454421573,
+    "pd": 0.22523603538826975,
+    "pa": 0.5107887300675149,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-06"
   }
 }
