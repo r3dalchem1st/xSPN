@@ -823,5 +823,49 @@
     "predicted_winner": "H",
     "predicted_score": "2-1",
     "snapped_at": "2026-10-05"
+  },
+  "Elche CF|RC Celta de Vigo": {
+    "home": "Elche CF",
+    "away": "RC Celta de Vigo",
+    "date": "2026-10-11",
+    "ph": 0.3504019054620124,
+    "pd": 0.26243196900299925,
+    "pa": 0.3871661255349884,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-06"
+  },
+  "Real Sociedad de F\u00fatbol|RC Deportivo La Coru\u00f1a": {
+    "home": "Real Sociedad de F\u00fatbol",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "date": "2026-10-11",
+    "ph": 0.48980043371416543,
+    "pd": 0.25064036265433765,
+    "pa": 0.259559203631497,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-06"
+  },
+  "Real Betis Balompi\u00e9|CA Osasuna": {
+    "home": "Real Betis Balompi\u00e9",
+    "away": "CA Osasuna",
+    "date": "2026-10-11",
+    "ph": 0.5244520598195456,
+    "pd": 0.24755332690439666,
+    "pa": 0.2279946132760577,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-06"
+  },
+  "Real Racing Club de Santander|Valencia CF": {
+    "home": "Real Racing Club de Santander",
+    "away": "Valencia CF",
+    "date": "2026-10-11",
+    "ph": 0.3623708758549659,
+    "pd": 0.20282433492666047,
+    "pa": 0.43480478921837373,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-06"
   }
 }
