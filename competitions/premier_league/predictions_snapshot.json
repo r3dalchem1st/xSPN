@@ -647,5 +647,16 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-10-06"
+  },
+  "Coventry City FC|Newcastle United FC": {
+    "home": "Coventry City FC",
+    "away": "Newcastle United FC",
+    "date": "2026-10-12",
+    "ph": 0.07811390746166698,
+    "pd": 0.17896766950017132,
+    "pa": 0.7429184230381611,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-07"
   }
 }
