@@ -867,5 +867,16 @@
     "predicted_winner": "A",
     "predicted_score": "1-2",
     "snapped_at": "2026-10-06"
+  },
+  "Levante UD|Sevilla FC": {
+    "home": "Levante UD",
+    "away": "Sevilla FC",
+    "date": "2026-10-12",
+    "ph": 0.37445492371669314,
+    "pd": 0.2676470344094833,
+    "pa": 0.35789804187382385,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-07"
   }
 }
