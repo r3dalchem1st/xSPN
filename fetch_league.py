@@ -8,6 +8,7 @@ Usage: python fetch_league.py competitions/<slug>.json
 import json
 import os
 import sys
+from collections import Counter
 
 import requests
 
@@ -92,11 +93,62 @@ def fetch_season_mkt_probs(config, entry, rows):
         return [None] * len(rows)
 
 
+JOIN_RATE_FLOOR = 0.95
+
+
+def warn_if_odds_join_gap(config, entry, rows, mkt_probs):
+    """GitHub Actions warning annotation when a CLOSED season's real-odds
+    join rate falls below JOIN_RATE_FLOOR -- almost always a team_aliases
+    gap (a club's name differs between openfootball and football-data.co.uk).
+    Found by hand three separate times before this existed: matches that
+    fail to join just silently stop contributing to the odds term, with
+    nothing in any log. A warning rather than a hard failure: odds are an
+    optional enhancement, and aborting the whole daily pipeline over a
+    partial gap would cost more than it saves. Names the most-affected
+    teams so the fix has ground truth to start from. Not called for the
+    in-progress season, whose odds file is expected to lag."""
+    if not rows or not config.odds_history_code:
+        return
+    unjoined = [r for r, p in zip(rows, mkt_probs) if p is None]
+    if 1 - len(unjoined) / len(rows) >= JOIN_RATE_FLOOR:
+        return
+    worst = Counter(t for r in unjoined for t in (r[1], r[2])).most_common(3)
+    print(f"::warning::{config.name} {entry['season']}: only {len(rows) - len(unjoined)}/{len(rows)} "
+          f"matches joined with historical odds -- likely a team_aliases gap; most affected: {worst}")
+
+
+def overlay_training_rows(config, schedule, openfootball_rows):
+    """Training rows [date, home, away, hg, ag, label, neutral] for every
+    match the live overlay (fetch_live_scores.py) marked FINISHED in
+    `schedule` that openfootball hasn't scored yet (no row for that directed
+    pair in `openfootball_rows`). Without these the fit -- and the momentum
+    signal built on the last 5-8 results -- ran on data days older than the
+    Results tab itself, because the overlay only ever patched schedule.json:
+    confirmed live, 26 of 34 La Liga fits had finished matches the training
+    data didn't (mean 7, max 18). A directed pair is unique within one
+    season, so it's a safe de-dup key."""
+    have = {(r[1], r[2]) for r in openfootball_rows}
+    rows = []
+    for key, e in schedule.items():
+        if e["status"] != "FINISHED":
+            continue
+        home, away = key.split("|")
+        if (home, away) in have:
+            continue
+        hg, ag = e["goals"][home], e["goals"][away]
+        if hg is None or ag is None:
+            continue
+        rows.append([e["date"], home, away, hg, ag, config.name, False])
+    return rows
+
+
 def fetch_and_save(config, base_dir):
     """Fetch every season configured for `config` (newest first), parse each,
     and write:
       competitions/<slug>/fetched_matches.json    -- training rows from EVERY
-        configured season combined (played matches only)
+        configured season combined (played matches only, current season
+        first), including any result the live overlay has that openfootball
+        hasn't scored yet
       competitions/<slug>/mkt_probs_by_match.json -- real historical odds
         joined per season (see fetch_season_mkt_probs), one entry PARALLEL
         to fetched_matches.json (same length/order) -- (ph,pd,pa) or None.
@@ -117,7 +169,8 @@ def fetch_and_save(config, base_dir):
     Returns a summary dict: {"matches": int, "scheduled": int, "skipped": int,
     "failed_seasons": [path, ...], "current_season_failed": bool}."""
     out_dir = artifact_dir(config, base_dir)
-    all_rows, all_mkt_probs, current_schedule = [], [], {}
+    current_rows, current_entry, current_schedule = [], None, {}
+    older_rows, older_mkt_probs = [], []
     total_skipped, failed = 0, []
     current_season_failed = False
 
@@ -132,29 +185,42 @@ def fetch_and_save(config, base_dir):
             continue
         parsed = parse_openfootball_txt(text)
         rows, n_skipped = build_training_rows(config, parsed)
-        mkt_probs = fetch_season_mkt_probs(config, entry, rows)
-        all_rows.extend(rows)
-        all_mkt_probs.extend(mkt_probs)
         total_skipped += n_skipped
         if i == 0:
+            # Held aside until the live overlay below has had its say: it can
+            # add results openfootball hasn't scored yet (see overlay_training_rows).
+            current_rows, current_entry = rows, entry
             current_schedule, sched_skipped = build_schedule(config, parsed)
             total_skipped += sched_skipped
-
-    with open(os.path.join(out_dir, "fetched_matches.json"), "w") as f:
-        json.dump(all_rows, f, indent=2)
-    with open(os.path.join(out_dir, "mkt_probs_by_match.json"), "w") as f:
-        json.dump(all_mkt_probs, f)
+            continue
+        mkt_probs = fetch_season_mkt_probs(config, entry, rows)
+        warn_if_odds_join_gap(config, entry, rows, mkt_probs)
+        older_rows.extend(rows)
+        older_mkt_probs.extend(mkt_probs)
 
     if current_season_failed:
         print("  ! current-season fetch failed — leaving existing schedule.json untouched")
-    else:
-        if config.football_data_code:
-            raw = fetch_live_matches(config.football_data_code)
-            if raw:
-                _, n_overlaid, n_date_corrected, _ = overlay_live_results(config, current_schedule, raw)
-                if n_overlaid or n_date_corrected:
-                    print(f"  live-score overlay: {n_overlaid} result(s), "
-                          f"{n_date_corrected} date correction(s) from football-data.org")
+    elif config.football_data_code:
+        raw = fetch_live_matches(config.football_data_code)
+        if raw:
+            _, n_overlaid, n_date_corrected, _ = overlay_live_results(config, current_schedule, raw)
+            if n_overlaid or n_date_corrected:
+                print(f"  live-score overlay: {n_overlaid} result(s), "
+                      f"{n_date_corrected} date correction(s) from football-data.org")
+        live_rows = overlay_training_rows(config, current_schedule, current_rows)
+        if live_rows:
+            print(f"  {len(live_rows)} live result(s) added to training data "
+                  f"(openfootball hasn't scored them yet)")
+        current_rows = current_rows + live_rows
+
+    current_mkt_probs = (fetch_season_mkt_probs(config, current_entry, current_rows)
+                         if current_entry else [])
+    all_rows = current_rows + older_rows
+    with open(os.path.join(out_dir, "fetched_matches.json"), "w") as f:
+        json.dump(all_rows, f, indent=2)
+    with open(os.path.join(out_dir, "mkt_probs_by_match.json"), "w") as f:
+        json.dump(current_mkt_probs + older_mkt_probs, f)
+    if not current_season_failed:
         with open(os.path.join(out_dir, "schedule.json"), "w") as f:
             json.dump(current_schedule, f, indent=2)
 
