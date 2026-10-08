@@ -28,7 +28,8 @@
     "Bochum": "VfL Bochum 1848",
     "Heidenheim": "1. FC Heidenheim 1846",
     "St Pauli": "FC St. Pauli 1910",
-    "Wolfsburg": "VfL Wolfsburg"
+    "Wolfsburg": "VfL Wolfsburg",
+    "St. Pauli": "FC St. Pauli 1910"
   },
   "football_data_code": "BL1",
   "momentum_weight": 0.02,
