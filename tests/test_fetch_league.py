@@ -6,7 +6,8 @@ import requests
 
 import fetch_league
 from competition_config import CompetitionConfig
-from fetch_league import build_schedule, build_training_rows, fetch_and_save, fetch_season_mkt_probs
+from fetch_league import (build_schedule, build_training_rows, fetch_and_save,
+                          fetch_season_mkt_probs, overlay_training_rows, warn_if_odds_join_gap)
 
 CONFIG_DATA = {
     "slug": "test_league",
@@ -181,6 +182,116 @@ def test_fetch_and_save_writes_mkt_probs_by_match_parallel_to_fetched_matches(tm
         mkt_probs = json.load(f)
     assert len(mkt_probs) == len(matches)  # parallel, same length
     assert mkt_probs[0] is not None
+
+
+def _sched_entry(status, home_goals=None, away_goals=None, home="Manchester United FC", away="Brentford FC"):
+    return {"date": "2026-08-20", "status": status, "round": "Matchday 2",
+            "goals": {home: home_goals, away: away_goals}}
+
+
+def test_overlay_training_rows_adds_a_live_finished_match_openfootball_has_not_scored():
+    config = CompetitionConfig(CONFIG_DATA)
+    schedule = {"Manchester United FC|Brentford FC": _sched_entry("FINISHED", 2, 0)}
+    rows = overlay_training_rows(config, schedule, [])
+    assert rows == [["2026-08-20", "Manchester United FC", "Brentford FC", 2, 0, "Test League", False]]
+
+
+def test_overlay_training_rows_skips_a_match_openfootball_already_scored():
+    config = CompetitionConfig(CONFIG_DATA)
+    schedule = {"Manchester United FC|Brentford FC": _sched_entry("FINISHED", 2, 0)}
+    existing = [["2026-08-20", "Manchester United FC", "Brentford FC", 2, 0, "Test League", False]]
+    assert overlay_training_rows(config, schedule, existing) == []
+
+
+def test_overlay_training_rows_skips_unplayed_and_scoreless_entries():
+    config = CompetitionConfig(CONFIG_DATA)
+    schedule = {
+        "Manchester United FC|Brentford FC": _sched_entry("SCHEDULED"),
+        "Fulham FC|Brentford FC": _sched_entry("FINISHED", None, None, home="Fulham FC"),
+    }
+    assert overlay_training_rows(config, schedule, []) == []
+
+
+def test_fetch_and_save_trains_on_live_overlaid_results(tmp_path, monkeypatch):
+    # Regression test for a real shortcoming: the live overlay patched only
+    # schedule.json, so the fit (and momentum) ran on results days older
+    # than the ones already on the Results tab -- confirmed live, 26 of 34
+    # La Liga fits had finished matches the training data didn't.
+    config = CompetitionConfig(dict(CONFIG_DATA, football_data_code="PD"))
+    text_by_path = {"2026-27/1-test.txt": "current-season", "2025-26/1-test.txt": "prior-season"}
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", lambda repo, path, timeout=10: text_by_path[path])
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt",
+                        lambda text: [UNPLAYED_MATCH] if text == "current-season" else [ALIASED_MATCH])
+    monkeypatch.setattr(fetch_league, "fetch_live_matches",
+                        lambda code: [{"homeTeam": {"name": "Man Utd"}, "awayTeam": {"name": "Brentford FC"},
+                                       "status": "FINISHED", "utcDate": "2026-08-16T15:00:00Z",
+                                       "score": {"fullTime": {"home": 2, "away": 0}}}])
+
+    summary = fetch_and_save(config, str(tmp_path))
+
+    out_dir = tmp_path / "competitions" / "test_league"
+    with open(out_dir / "fetched_matches.json") as f:
+        matches = json.load(f)
+    with open(out_dir / "mkt_probs_by_match.json") as f:
+        mkt_probs = json.load(f)
+    assert ["2026-08-16", "Manchester United FC", "Brentford FC", 2, 0, "Test League", False] in matches
+    assert len(matches) == len(mkt_probs) == 2  # the prior-season row + the live one, still parallel
+    assert summary["matches"] == 2
+
+
+def test_fetch_and_save_does_not_duplicate_a_result_openfootball_already_has(tmp_path, monkeypatch):
+    config = CompetitionConfig(dict(CONFIG_DATA, football_data_code="PD"))
+    played = dict(UNPLAYED_MATCH, score=(1, 1))
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", lambda repo, path, timeout=10: "x")
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt", lambda text: [played])
+    monkeypatch.setattr(fetch_league, "fetch_live_matches",
+                        lambda code: [{"homeTeam": {"name": "Man Utd"}, "awayTeam": {"name": "Brentford FC"},
+                                       "status": "FINISHED", "score": {"fullTime": {"home": 3, "away": 0}}}])
+
+    fetch_and_save(config, str(tmp_path))
+
+    with open(tmp_path / "competitions" / "test_league" / "fetched_matches.json") as f:
+        matches = json.load(f)
+    current = [m for m in matches if m[1] == "Manchester United FC" and m[2] == "Brentford FC"]
+    assert len(current) == 2  # one per season block (both fake seasons parse to the same match), never 3
+    assert all(m[3:5] == [1, 1] for m in current)  # openfootball's score kept, overlay's 3-0 never applied
+
+
+def test_warn_if_odds_join_gap_flags_a_low_join_rate_and_names_the_teams(capsys):
+    config = CompetitionConfig(dict(CONFIG_DATA, odds_history_code="E0"))
+    rows = [["2025-08-14", "Chelsea FC", "Fulham FC", 1, 0, "Test League", False]] * 5
+    warn_if_odds_join_gap(config, {"season": "2025-26"}, rows, [None] * 5)
+    out = capsys.readouterr().out
+    assert "::warning::" in out and "2025-26" in out and "0/5" in out and "Chelsea FC" in out
+
+
+def test_warn_if_odds_join_gap_is_quiet_at_a_healthy_join_rate(capsys):
+    config = CompetitionConfig(dict(CONFIG_DATA, odds_history_code="E0"))
+    rows = [["2025-08-14", "Chelsea FC", "Fulham FC", 1, 0, "Test League", False]] * 20
+    warn_if_odds_join_gap(config, {"season": "2025-26"}, rows, [(0.5, 0.3, 0.2)] * 20)
+    assert capsys.readouterr().out == ""
+
+
+def test_warn_if_odds_join_gap_is_quiet_without_odds_history_code(capsys):
+    config = CompetitionConfig(CONFIG_DATA)
+    rows = [["2025-08-14", "Chelsea FC", "Fulham FC", 1, 0, "Test League", False]]
+    warn_if_odds_join_gap(config, {"season": "2025-26"}, rows, [None])
+    assert capsys.readouterr().out == ""
+
+
+def test_fetch_and_save_warns_only_for_a_closed_season_with_a_join_gap(tmp_path, monkeypatch, capsys):
+    config = CompetitionConfig(dict(CONFIG_DATA, odds_history_code="E0"))
+    text_by_path = {"2026-27/1-test.txt": "current-season", "2025-26/1-test.txt": "prior-season"}
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", lambda repo, path, timeout=10: text_by_path[path])
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt",
+                        lambda text: [PLAIN_MATCH] if text == "current-season" else [ALIASED_MATCH])
+    monkeypatch.setattr(fetch_league, "fetch_season_csv", lambda code, season: "csv")
+    monkeypatch.setattr(fetch_league, "parse_odds_rows", lambda text, cfg: ([], 0))  # nothing joins anywhere
+
+    fetch_and_save(config, str(tmp_path))
+
+    warnings = [l for l in capsys.readouterr().out.splitlines() if l.startswith("::warning::")]
+    assert len(warnings) == 1 and "2025-26" in warnings[0]  # the in-progress 2026-27 is expected to be partial
 
 
 def test_fetch_and_save_records_failed_season(tmp_path, monkeypatch):
