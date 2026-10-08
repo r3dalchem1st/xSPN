@@ -31,8 +31,43 @@ def score_match(entry, actual_hg, actual_ag):
     log_loss = -math.log(max(p_actual, 1e-10))
     pred_hg, pred_ag = (int(x) for x in entry["predicted_score"].split("-"))
     total_goal_error = abs(pred_hg - actual_hg) + abs(pred_ag - actual_ag)
-    return {"correct_winner": correct, "brier": brier, "log_loss": log_loss,
-            "total_goal_error": total_goal_error}
+    result = {"correct_winner": correct, "brier": brier, "log_loss": log_loss,
+              "total_goal_error": total_goal_error}
+    market = entry.get("market")
+    if market:
+        # The bookmaker's odds as recorded when this prediction locked (see
+        # snapshot_league.py) scored on the same result -- display/analysis
+        # only; the model's own numbers above never see it.
+        mp = (market["ph"], market["pd"], market["pa"])
+        market_winner = "HDA"[mp.index(max(mp))]
+        result["market_winner"] = market_winner
+        result["market_correct_winner"] = market_winner == actual
+        result["market_brier"] = (mp[0] - oh) ** 2 + (mp[1] - od) ** 2 + (mp[2] - oa) ** 2
+        result["disagree"] = market_winner != entry["predicted_winner"]
+    return result
+
+
+def summarise_vs_market(matches):
+    """Our record against the bookmaker over the scored matches that have a
+    recorded market: accuracy/Brier for both, plus -- the number that
+    answers "who's right when we disagree" -- on the matches where we picked
+    DIFFERENT winners, how often each side was right (never both; the rest
+    were wrong on both sides). None if no scored match has a market."""
+    mm = [m for m in matches if "market_brier" in m]
+    if not mm:
+        return None
+    n = len(mm)
+    diff = [m for m in mm if m["disagree"]]
+    return {
+        "n": n,
+        "accuracy": sum(m["correct_winner"] for m in mm) / n,
+        "market_accuracy": sum(m["market_correct_winner"] for m in mm) / n,
+        "avg_brier": sum(m["brier"] for m in mm) / n,
+        "market_avg_brier": sum(m["market_brier"] for m in mm) / n,
+        "disagree_n": len(diff),
+        "we_right": sum(m["correct_winner"] for m in diff),
+        "market_right": sum(m["market_correct_winner"] for m in diff),
+    }
 
 
 def score_and_save(config, base_dir):
@@ -74,6 +109,9 @@ def score_and_save(config, base_dir):
         "avg_log_loss": sum(m["log_loss"] for m in matches) / n if n else None,
         "avg_goal_error": sum(m["total_goal_error"] for m in matches) / n if n else None,
     }
+    vs_market = summarise_vs_market(matches)
+    if vs_market:
+        summary["vs_market"] = vs_market
 
     out = {"matches": matches, "summary": summary}
     with open(os.path.join(out_dir, "results_accuracy.json"), "w") as f:

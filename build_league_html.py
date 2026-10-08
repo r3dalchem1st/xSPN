@@ -179,6 +179,18 @@ def build_accuracy_html(accuracy):
         return '<div class="empty-note">No matches scored yet this season.</div>'
     correct = sum(1 for m in matches if m["correct_winner"])
     trend = build_accuracy_trend_html(matches)
+    vs = summary.get("vs_market")
+    market_card = ""
+    if vs:
+        tally = f'{vs["we_right"]}&#8211;{vs["market_right"]}' if vs["disagree_n"] else "&#8212;"
+        picks = (f'right on {vs["disagree_n"]} different-winner picks (us &#8211; market)'
+                 if vs["disagree_n"] else "no different-winner picks yet")
+        market_card = (
+            '<div class="acc-card"><div class="acc-lbl">Vs Betting Market</div>'
+            f'<div class="acc-val">{tally}</div>'
+            f'<div class="acc-sub">{picks} &middot; accuracy {vs["accuracy"]:.0%} vs '
+            f'{vs["market_accuracy"]:.0%}, n={vs["n"]}</div></div>'
+        )
     return (
         '<div class="acc-cards">'
         '<div class="acc-card"><div class="acc-lbl">Correct Winners</div>'
@@ -193,6 +205,7 @@ def build_accuracy_html(accuracy):
         '<div class="acc-card"><div class="acc-lbl">Avg Log-Loss</div>'
         f'<div class="acc-val">{summary["avg_log_loss"]:.3f}</div>'
         '<div class="acc-sub">lower is better</div></div>'
+        f'{market_card}'
         '</div>'
     )
 
@@ -263,7 +276,28 @@ def _outcome_classes(outcome):
     return "", ""
 
 
-def _prediction_line_html(score, outcome, prob, preview=False):
+def market_note_html(snapshot_entry):
+    """Where the bookmaker stood when this prediction locked (recorded by
+    snapshot_league.py as entry["market"]): its probability for OUR pick when
+    it agrees, or a bolded "mkt picks home/draw/away" when it would have
+    picked a different winner -- the cases worth a second look, since over
+    920 replayed 2025-26 matches the market was right about twice as often
+    as the model when they disagreed. Empty when no market was recorded."""
+    m = snapshot_entry.get("market")
+    if not m:
+        return ""
+    probs = {"H": m["ph"], "D": m["pd"], "A": m["pa"]}
+    top = max(probs, key=probs.get)
+    ours = snapshot_entry["predicted_winner"]
+    if top == ours:
+        return (f' <span class="hint" title="The bookmaker\'s probability for the same outcome, '
+                f'when this prediction locked">mkt {probs[ours] * 100:.0f}%</span>')
+    word = {"H": "home", "D": "draw", "A": "away"}[top]
+    return (f' <span class="hint" title="The bookmaker favoured a different outcome when this '
+            f'prediction locked ({probs[top] * 100:.0f}%)"><strong>mkt picks {word}</strong></span>')
+
+
+def _prediction_line_html(score, outcome, prob, preview=False, market_html=""):
     """The bm-pct line for a predicted (not yet FINISHED) match: the score,
     a colored confidence badge for the model's probability in `outcome`,
     and -- for a live, not-yet-locked preview -- a compact tag instead of
@@ -271,10 +305,10 @@ def _prediction_line_html(score, outcome, prob, preview=False):
     single card."""
     prefix = "Draw " if outcome == "D" else ""
     tag = ' <span class="hint">preview, not yet locked</span>' if preview else ""
-    return f'<div class="bm-pct">{prefix}{score} {confidence_badge_html(prob)}{tag}</div>'
+    return f'<div class="bm-pct">{prefix}{score} {confidence_badge_html(prob)}{market_html}{tag}</div>'
 
 
-def _historical_prediction_line_html(score, outcome, prob):
+def _historical_prediction_line_html(score, outcome, prob, market_html=""):
     """Sub-line on an already-FINISHED match card showing what the model
     predicted before kickoff and how confident it was -- only rendered when
     that locked prediction is still on record (older matches, or ones from
@@ -282,7 +316,8 @@ def _historical_prediction_line_html(score, outcome, prob):
     visitor see how a confident (or not) call actually turned out, not just
     today's still-open picks."""
     suffix = " (draw)" if outcome == "D" else ""
-    return f'<div class="bm-pct hint">Predicted {score}{suffix} {confidence_badge_html(prob)}</div>'
+    return (f'<div class="bm-pct hint">Predicted {score}{suffix} '
+            f'{confidence_badge_html(prob)}{market_html}</div>')
 
 
 def br_col_open_html(title_html, done):
@@ -345,7 +380,8 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
                 if key in snapshot:
                     s = snapshot[key]
                     prob = max(s["ph"], s["pd"], s["pa"])
-                    pred_line = _historical_prediction_line_html(s["predicted_score"], s["predicted_winner"], prob)
+                    pred_line = _historical_prediction_line_html(
+                        s["predicted_score"], s["predicted_winner"], prob, market_note_html(s))
                 lines.append(
                     f'<div class="bm">{date_line}'
                     f'<div class="bm-t {home_cls}">{h}<span class="bm-sc">{hg}</span></div>'
@@ -359,7 +395,7 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
                 lines.append(
                     f'<div class="bm">{date_line}'
                     f'<div class="bm-t {home_cls}">{h}</div><div class="bm-t {away_cls}">{a}</div>'
-                    f'{_prediction_line_html(s["predicted_score"], outcome, prob)}</div>'
+                    f'{_prediction_line_html(s["predicted_score"], outcome, prob, market_html=market_note_html(s))}</div>'
                 )
             elif lg_ens:
                 ph, pd, pa = hda_probs(home, away, lg_ens, rhos=rhos, delta=delta)

@@ -76,6 +76,15 @@ class CompetitionConfig:
         # real upcoming fixtures before it's wired into fit_and_save for
         # real. See CONTEXT.md for the per-league backtest results.
         self.odds_fit_weight = data.get("odds_fit_weight", 0.0)
+        # Optional The Odds API sport_key (e.g. "soccer_epl") -- lets
+        # snapshot_league.py record the bookmaker's live odds next to each
+        # locked prediction (fetch_live_odds.py) so the site can show where
+        # we agree with the market and track who was right when we didn't.
+        # DISPLAY ONLY: never feeds a prediction. Real values come from a
+        # live GET /v4/sports/ call (their naming isn't a fixed pattern, e.g.
+        # "soccer_spain_la_liga" not "soccer_la_liga"), never guessed.
+        # None -> nothing recorded for this competition.
+        self.odds_api_sport_key = data.get("odds_api_sport_key")
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

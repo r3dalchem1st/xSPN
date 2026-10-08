@@ -29,11 +29,17 @@
     "Heidenheim": "1. FC Heidenheim 1846",
     "St Pauli": "FC St. Pauli 1910",
     "Wolfsburg": "VfL Wolfsburg",
-    "St. Pauli": "FC St. Pauli 1910"
+    "St. Pauli": "FC St. Pauli 1910",
+    "Borussia Monchengladbach": "Borussia Mönchengladbach",
+    "Elversberg": "SV 07 Elversberg",
+    "FSV Mainz 05": "1. FSV Mainz 05",
+    "SC Paderborn": "SC Paderborn 07",
+    "TSG Hoffenheim": "TSG 1899 Hoffenheim"
   },
   "football_data_code": "BL1",
   "momentum_weight": 0.02,
   "momentum_n": 5,
   "odds_history_code": "D1",
-  "odds_fit_weight": 0.0
+  "odds_fit_weight": 0.0,
+  "odds_api_sport_key": "soccer_germany_bundesliga"
 }

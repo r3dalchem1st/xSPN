@@ -3,7 +3,8 @@ from build_league_html import (compute_full_standings, build_standings_rows,
                                  build_accuracy_html, build_accuracy_trend_html,
                                  build_results_rows_html,
                                  build_bracket_html, build_champion_html,
-                                 confidence_class, confidence_badge_html, br_col_open_html)
+                                 confidence_class, confidence_badge_html, br_col_open_html,
+                                 market_note_html)
 
 SCHEDULE_SAMPLE = {
     "Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
@@ -498,3 +499,74 @@ def test_build_league_html_raises_without_league_sim(tmp_path):
 
     with pytest.raises(FileNotFoundError, match="league_sim.json"):
         build_league_html(config, str(tmp_path), str(template_path))
+
+
+# --- market comparison display (data recorded by snapshot_league.py) ---
+
+LOCKED_WITH_MARKET = {"predicted_score": "1-2", "predicted_winner": "A", "ph": 0.2, "pd": 0.25, "pa": 0.55}
+
+
+def test_market_note_html_empty_without_a_recorded_market():
+    assert market_note_html(LOCKED_WITH_MARKET) == ""
+
+
+def test_market_note_html_shows_the_markets_number_for_our_pick_when_it_agrees():
+    s = dict(LOCKED_WITH_MARKET, market={"ph": 0.15, "pd": 0.27, "pa": 0.58})
+    out = market_note_html(s)
+    assert "mkt 58%" in out and "picks" not in out
+
+
+def test_market_note_html_flags_when_the_market_picks_a_different_winner():
+    s = dict(LOCKED_WITH_MARKET, market={"ph": 0.52, "pd": 0.27, "pa": 0.21})
+    out = market_note_html(s)
+    assert "mkt picks home" in out
+
+
+def test_build_bracket_html_shows_market_next_to_a_locked_prediction():
+    schedule = {"Weak FC|Strong FC": {"date": "2026-12-01", "status": "SCHEDULED",
+                                      "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 20"}}
+    snapshot = {"Weak FC|Strong FC": dict(LOCKED_WITH_MARKET, market={"ph": 0.15, "pd": 0.27, "pa": 0.58})}
+    assert "mkt 58%" in build_bracket_html(schedule, snapshot)
+
+
+def test_build_bracket_html_shows_market_on_a_finished_matchs_historical_prediction():
+    schedule = {"Strong FC|Weak FC": {"date": "2026-08-01", "status": "FINISHED",
+                                      "goals": {"Strong FC": 3, "Weak FC": 1}, "round": "Matchday 1"}}
+    snapshot = {"Strong FC|Weak FC": {"predicted_score": "2-0", "predicted_winner": "H",
+                                      "ph": 0.6, "pd": 0.2, "pa": 0.2, "market": {"ph": 0.7, "pd": 0.2, "pa": 0.1}}}
+    assert "mkt 70%" in build_bracket_html(schedule, snapshot)
+
+
+def test_build_bracket_html_has_no_market_text_without_a_recorded_market():
+    schedule = {"Weak FC|Strong FC": {"date": "2026-12-01", "status": "SCHEDULED",
+                                      "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 20"}}
+    assert "mkt" not in build_bracket_html(schedule, {"Weak FC|Strong FC": LOCKED_WITH_MARKET})
+
+
+VS_MARKET_ACCURACY = {
+    "matches": [{"correct_winner": True, "date": "2026-08-21"}],
+    "summary": {"n_scored": 1, "accuracy": 1.0, "avg_brier": 0.5, "avg_log_loss": 0.9, "avg_goal_error": 1.0,
+                "vs_market": {"n": 31, "accuracy": 0.48, "market_accuracy": 0.52, "avg_brier": 0.6,
+                              "market_avg_brier": 0.58, "disagree_n": 7, "we_right": 2, "market_right": 4}},
+}
+
+
+def test_build_accuracy_html_adds_a_vs_market_card_with_the_disagreement_record():
+    out = build_accuracy_html(VS_MARKET_ACCURACY)
+    assert "Vs Betting Market" in out
+    assert "2&#8211;4" in out  # us - market, on the matches where we picked different winners
+    assert "7 different-winner picks" in out and "48% vs 52%" in out and "n=31" in out
+
+
+def test_build_accuracy_html_vs_market_card_handles_no_disagreements_yet():
+    acc = {**VS_MARKET_ACCURACY, "summary": {**VS_MARKET_ACCURACY["summary"],
+           "vs_market": {"n": 5, "accuracy": 0.6, "market_accuracy": 0.6, "avg_brier": 0.5,
+                         "market_avg_brier": 0.5, "disagree_n": 0, "we_right": 0, "market_right": 0}}}
+    out = build_accuracy_html(acc)
+    assert "Vs Betting Market" in out and "no different-winner picks yet" in out
+
+
+def test_build_accuracy_html_has_no_vs_market_card_without_recorded_markets():
+    assert "Betting Market" not in build_accuracy_html({
+        "matches": [{"correct_winner": True, "date": "2026-08-21"}],
+        "summary": {"n_scored": 1, "accuracy": 1.0, "avg_brier": 0.5, "avg_log_loss": 0.9, "avg_goal_error": 1.0}})

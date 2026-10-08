@@ -38,9 +38,17 @@
     "Leganes": "CD Leganés",
     "Mallorca": "RCD Mallorca",
     "Valladolid": "Real Valladolid CF",
-    "Oviedo": "Real Oviedo"
+    "Oviedo": "Real Oviedo",
+    "Alavés": "Deportivo Alavés",
+    "Athletic Bilbao": "Athletic Club",
+    "Atlético Madrid": "Club Atlético de Madrid",
+    "Celta Vigo": "RC Celta de Vigo",
+    "Deportivo La Coruña": "RC Deportivo La Coruña",
+    "Espanyol": "RCD Espanyol de Barcelona",
+    "Málaga": "Málaga CF"
   },
   "football_data_code": "PD",
   "odds_history_code": "SP1",
-  "odds_fit_weight": 100.0
+  "odds_fit_weight": 100.0,
+  "odds_api_sport_key": "soccer_spain_la_liga"
 }
