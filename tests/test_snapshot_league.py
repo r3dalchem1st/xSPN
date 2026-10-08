@@ -132,3 +132,71 @@ def test_snapshot_and_save_uses_momentum_when_configured(tmp_path):
         snap_on = json.load(f)["Weak FC|Strong FC"]
 
     assert snap_on["ph"] > snap_off["ph"]  # Weak FC's home win chance rises with momentum on
+
+
+MARKET_CONFIG_DATA = dict(MOMENTUM_CONFIG_DATA, odds_api_sport_key="soccer_test")
+DUE_SCHEDULE = {"Weak FC|Strong FC": {
+    "date": "2026-08-16", "status": "SCHEDULED",
+    "goals": {"Weak FC": None, "Strong FC": None}, "round": "Matchday 1",
+}}
+
+
+def _run_snapshot(tmp_path, name, config_data, schedule, **kwargs):
+    base = str(tmp_path / name)
+    _write_league_files(base, "test_league", schedule, [])
+    snapshot_and_save(CompetitionConfig(config_data), base, [DC_SAMPLE], today="2026-08-14", **kwargs)
+    with open(os.path.join(base, "competitions", "test_league", "predictions_snapshot.json")) as f:
+        return json.load(f)
+
+
+def test_snapshot_records_the_market_without_changing_the_prediction(tmp_path):
+    # The market is recorded NEXT TO the model's number, never into it --
+    # replacing the model's prediction with the bookmaker's was tried and
+    # deliberately reverted (CONTEXT.md, 4 Sep).
+    plain = _run_snapshot(tmp_path, "plain", MARKET_CONFIG_DATA, DUE_SCHEDULE, odds_lookup={})
+    with_market = _run_snapshot(tmp_path, "market", MARKET_CONFIG_DATA, DUE_SCHEDULE,
+                                odds_lookup={("Weak FC", "Strong FC"): (0.2, 0.3, 0.5)})
+    a, b = plain["Weak FC|Strong FC"], with_market["Weak FC|Strong FC"]
+    assert {k: b[k] for k in a} == a  # every pre-existing field identical
+    assert b["market"] == {"ph": 0.2, "pd": 0.3, "pa": 0.5}
+
+
+def test_snapshot_has_no_market_field_for_a_fixture_the_market_didnt_cover(tmp_path):
+    snap = _run_snapshot(tmp_path, "gap", MARKET_CONFIG_DATA, DUE_SCHEDULE,
+                         odds_lookup={("Other FC", "Another FC"): (0.4, 0.3, 0.3)})
+    assert "market" not in snap["Weak FC|Strong FC"]
+
+
+def _raw_odds_fixture(home, away):
+    return {"home_team": home, "away_team": away, "bookmakers": [
+        {"key": "b", "markets": [{"key": "h2h", "outcomes": [
+            {"name": home, "price": 2.0}, {"name": away, "price": 4.0}, {"name": "Draw", "price": 3.5}]}]}]}
+
+
+def test_snapshot_fetches_odds_once_when_a_fixture_is_due(tmp_path, monkeypatch):
+    import snapshot_league
+    calls = []
+    monkeypatch.setattr(snapshot_league, "fetch_upcoming_odds",
+                        lambda key: calls.append(key) or [_raw_odds_fixture("Weak FC", "Strong FC")])
+    snap = _run_snapshot(tmp_path, "due", MARKET_CONFIG_DATA, DUE_SCHEDULE)
+    assert calls == ["soccer_test"]
+    m = snap["Weak FC|Strong FC"]["market"]
+    assert abs(m["ph"] + m["pd"] + m["pa"] - 1.0) < 1e-9 and m["ph"] > m["pa"]
+
+
+def test_snapshot_does_not_spend_an_odds_call_when_nothing_is_due(tmp_path, monkeypatch):
+    # Free tier is 500 requests/month and the daily pipeline runs twice a day
+    # per league -- odds are only needed at lock time, so don't fetch otherwise.
+    import snapshot_league
+    monkeypatch.setattr(snapshot_league, "fetch_upcoming_odds",
+                        lambda key: (_ for _ in ()).throw(AssertionError("odds fetched with nothing due")))
+    far = {"Weak FC|Strong FC": dict(DUE_SCHEDULE["Weak FC|Strong FC"], date="2026-12-01")}
+    assert _run_snapshot(tmp_path, "far", MARKET_CONFIG_DATA, far) == {}
+
+
+def test_snapshot_never_fetches_odds_without_a_sport_key(tmp_path, monkeypatch):
+    import snapshot_league
+    monkeypatch.setattr(snapshot_league, "fetch_upcoming_odds",
+                        lambda key: (_ for _ in ()).throw(AssertionError("odds fetched without a sport key")))
+    snap = _run_snapshot(tmp_path, "nokey", MOMENTUM_CONFIG_DATA, DUE_SCHEDULE)
+    assert "market" not in snap["Weak FC|Strong FC"]
