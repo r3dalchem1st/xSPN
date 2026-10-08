@@ -37,7 +37,9 @@
     "Leicester": "Leicester City FC",
     "Southampton": "Southampton FC",
     "West Ham": "West Ham United FC",
-    "Wolves": "Wolverhampton Wanderers FC"
+    "Wolves": "Wolverhampton Wanderers FC",
+    "West Ham United": "West Ham United FC",
+    "Wolverhampton Wanderers": "Wolverhampton Wanderers FC"
   },
   "football_data_code": "PL",
   "momentum_weight": 0.1,
