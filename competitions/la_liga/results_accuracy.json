@@ -620,13 +620,22 @@
       "brier": 0.7150622812212827,
       "log_loss": 1.1511970750053673,
       "total_goal_error": 4
+    },
+    {
+      "home": "M\u00e1laga CF",
+      "away": "RCD Espanyol de Barcelona",
+      "date": "2026-10-09",
+      "correct_winner": false,
+      "brier": 0.7010159282581123,
+      "log_loss": 1.1078932669907458,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 69,
-    "accuracy": 0.5652173913043478,
-    "avg_brier": 0.5877077132479492,
-    "avg_log_loss": 0.9894939332680361,
-    "avg_goal_error": 2.0144927536231885
+    "n_scored": 70,
+    "accuracy": 0.5571428571428572,
+    "avg_brier": 0.5893264020338087,
+    "avg_log_loss": 0.9911853523212177,
+    "avg_goal_error": 2.0
   }
 }
