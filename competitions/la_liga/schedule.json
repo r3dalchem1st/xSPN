@@ -622,10 +622,10 @@
   },
   "M\u00e1laga CF|RCD Espanyol de Barcelona": {
     "date": "2026-10-09",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "M\u00e1laga CF": null,
-      "RCD Espanyol de Barcelona": null
+      "M\u00e1laga CF": 1,
+      "RCD Espanyol de Barcelona": 1
     },
     "round": "Matchday 8"
   },
