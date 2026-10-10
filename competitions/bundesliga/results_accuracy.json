@@ -323,13 +323,22 @@
       "brier": 0.8827000686014255,
       "log_loss": 1.4568410284465179,
       "total_goal_error": 4
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "SV Werder Bremen",
+      "date": "2026-10-09",
+      "correct_winner": false,
+      "brier": 1.2685837316493063,
+      "log_loss": 1.8471103748109117,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 36,
-    "accuracy": 0.5,
-    "avg_brier": 0.6079212428048507,
-    "avg_log_loss": 1.0168361784005977,
-    "avg_goal_error": 2.9166666666666665
+    "n_scored": 37,
+    "accuracy": 0.4864864864864865,
+    "avg_brier": 0.6257769857465928,
+    "avg_log_loss": 1.0392760215468222,
+    "avg_goal_error": 2.891891891891892
   }
 }

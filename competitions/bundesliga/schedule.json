@@ -325,10 +325,10 @@
   },
   "Borussia Dortmund|SV Werder Bremen": {
     "date": "2026-10-09",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Borussia Dortmund": null,
-      "SV Werder Bremen": null
+      "Borussia Dortmund": 2,
+      "SV Werder Bremen": 2
     },
     "round": "Matchday 5"
   },
