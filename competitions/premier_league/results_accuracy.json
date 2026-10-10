@@ -449,13 +449,22 @@
       "brier": 0.8971067474320412,
       "log_loss": 1.4454806091799905,
       "total_goal_error": 1
+    },
+    {
+      "home": "Arsenal FC",
+      "away": "Leeds United FC",
+      "date": "2026-10-10",
+      "correct_winner": true,
+      "brier": 0.18579195161779735,
+      "log_loss": 0.42789206104287286,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 50,
-    "accuracy": 0.5,
-    "avg_brier": 0.634250783947936,
-    "avg_log_loss": 1.063285885173518,
-    "avg_goal_error": 2.12
+    "n_scored": 51,
+    "accuracy": 0.5098039215686274,
+    "avg_brier": 0.6254574735100901,
+    "avg_log_loss": 1.0508271827395839,
+    "avg_goal_error": 2.1176470588235294
   }
 }

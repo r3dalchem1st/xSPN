@@ -451,10 +451,10 @@
   },
   "Arsenal FC|Leeds United FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Arsenal FC": null,
-      "Leeds United FC": null
+      "Arsenal FC": 2,
+      "Leeds United FC": 1
     },
     "round": "Matchday 6"
   },
