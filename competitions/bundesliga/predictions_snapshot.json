@@ -493,5 +493,21 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-10-06"
+  },
+  "Eintracht Frankfurt|1. FC K\u00f6ln": {
+    "home": "Eintracht Frankfurt",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-10-16",
+    "ph": 0.5840941263618556,
+    "pd": 0.19028813167969355,
+    "pa": 0.2256177419584509,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-11",
+    "market": {
+      "ph": 0.49484509915589386,
+      "pd": 0.2306705099060712,
+      "pa": 0.27448439093803484
+    }
   }
 }
