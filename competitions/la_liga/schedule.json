@@ -667,10 +667,10 @@
   },
   "Elche CF|RC Celta de Vigo": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Elche CF": null,
-      "RC Celta de Vigo": null
+      "Elche CF": 0,
+      "RC Celta de Vigo": 0
     },
     "round": "Matchday 8"
   },
