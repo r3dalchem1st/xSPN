@@ -656,13 +656,22 @@
       "brier": 0.15870714542126282,
       "log_loss": 0.3928209594111307,
       "total_goal_error": 2
+    },
+    {
+      "home": "Elche CF",
+      "away": "RC Celta de Vigo",
+      "date": "2026-10-11",
+      "correct_winner": false,
+      "brier": 0.8166857044619761,
+      "log_loss": 1.337763396242553,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 73,
-    "accuracy": 0.5753424657534246,
-    "avg_brier": 0.5736838067015765,
-    "avg_log_loss": 0.9690950797880943,
-    "avg_goal_error": 1.9863013698630136
+    "n_scored": 74,
+    "accuracy": 0.5675675675675675,
+    "avg_brier": 0.5769676161307711,
+    "avg_log_loss": 0.9740770840645059,
+    "avg_goal_error": 1.972972972972973
   }
 }
