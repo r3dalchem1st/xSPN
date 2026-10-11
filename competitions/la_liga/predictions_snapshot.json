@@ -878,5 +878,21 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-10-07"
+  },
+  "RC Deportivo La Coru\u00f1a|Levante UD": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "Levante UD",
+    "date": "2026-10-16",
+    "ph": 0.5313749092682081,
+    "pd": 0.24208971069613697,
+    "pa": 0.22653538003565507,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-11",
+    "market": {
+      "ph": 0.4507285093196435,
+      "pd": 0.27252542300948335,
+      "pa": 0.27674606767087306
+    }
   }
 }

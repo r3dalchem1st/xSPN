@@ -629,13 +629,40 @@
       "brier": 0.7010159282581123,
       "log_loss": 1.1078932669907458,
       "total_goal_error": 1
+    },
+    {
+      "home": "Deportivo Alav\u00e9s",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "date": "2026-10-10",
+      "correct_winner": true,
+      "brier": 0.38644826339095273,
+      "log_loss": 0.7083324576594745,
+      "total_goal_error": 2
+    },
+    {
+      "home": "FC Barcelona",
+      "away": "Getafe CF",
+      "date": "2026-10-10",
+      "correct_winner": true,
+      "brier": 0.08091433803625749,
+      "log_loss": 0.25981274497503926,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Real Madrid CF",
+      "away": "Villarreal CF",
+      "date": "2026-10-10",
+      "correct_winner": true,
+      "brier": 0.15870714542126282,
+      "log_loss": 0.3928209594111307,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 70,
-    "accuracy": 0.5571428571428572,
-    "avg_brier": 0.5893264020338087,
-    "avg_log_loss": 0.9911853523212177,
-    "avg_goal_error": 2.0
+    "n_scored": 73,
+    "accuracy": 0.5753424657534246,
+    "avg_brier": 0.5736838067015765,
+    "avg_log_loss": 0.9690950797880943,
+    "avg_goal_error": 1.9863013698630136
   }
 }
