@@ -460,46 +460,46 @@
   },
   "Sunderland AFC|Brighton & Hove Albion FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sunderland AFC": null,
-      "Brighton & Hove Albion FC": null
+      "Sunderland AFC": 0,
+      "Brighton & Hove Albion FC": 2
     },
     "round": "Matchday 6"
   },
   "Chelsea FC|AFC Bournemouth": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Chelsea FC": null,
-      "AFC Bournemouth": null
+      "Chelsea FC": 5,
+      "AFC Bournemouth": 1
     },
     "round": "Matchday 6"
   },
   "Ipswich Town FC|Fulham FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Ipswich Town FC": null,
-      "Fulham FC": null
+      "Ipswich Town FC": 2,
+      "Fulham FC": 1
     },
     "round": "Matchday 6"
   },
   "Aston Villa FC|Brentford FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Aston Villa FC": null,
-      "Brentford FC": null
+      "Aston Villa FC": 2,
+      "Brentford FC": 2
     },
     "round": "Matchday 6"
   },
   "Manchester United FC|Tottenham Hotspur FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester United FC": null,
-      "Tottenham Hotspur FC": null
+      "Manchester United FC": 1,
+      "Tottenham Hotspur FC": 1
     },
     "round": "Matchday 6"
   },
