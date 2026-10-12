@@ -665,13 +665,40 @@
       "brier": 0.8166857044619761,
       "log_loss": 1.337763396242553,
       "total_goal_error": 1
+    },
+    {
+      "home": "Real Sociedad de F\u00fatbol",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "date": "2026-10-11",
+      "correct_winner": true,
+      "brier": 0.3904951690195685,
+      "log_loss": 0.7137572489720864,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Real Betis Balompi\u00e9",
+      "away": "CA Osasuna",
+      "date": "2026-10-11",
+      "correct_winner": true,
+      "brier": 0.3394100367542072,
+      "log_loss": 0.6454012570018279,
+      "total_goal_error": 6
+    },
+    {
+      "home": "Real Racing Club de Santander",
+      "away": "Valencia CF",
+      "date": "2026-10-11",
+      "correct_winner": false,
+      "brier": 0.9558568973802508,
+      "log_loss": 1.5954150197564991,
+      "total_goal_error": 1
     }
   ],
   "summary": {
-    "n_scored": 74,
-    "accuracy": 0.5675675675675675,
-    "avg_brier": 0.5769676161307711,
-    "avg_log_loss": 0.9740770840645059,
-    "avg_goal_error": 1.972972972972973
+    "n_scored": 77,
+    "accuracy": 0.5714285714285714,
+    "avg_brier": 0.576381372686118,
+    "avg_log_loss": 0.974497113590959,
+    "avg_goal_error": 2.038961038961039
   }
 }
