@@ -658,5 +658,85 @@
     "predicted_winner": "A",
     "predicted_score": "0-1",
     "snapped_at": "2026-10-07"
+  },
+  "Everton FC|Chelsea FC": {
+    "home": "Everton FC",
+    "away": "Chelsea FC",
+    "date": "2026-10-17",
+    "ph": 0.35707472088684755,
+    "pd": 0.26796397826033386,
+    "pa": 0.37496130085281865,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.30427686889795086,
+      "pd": 0.2558645031626641,
+      "pa": 0.439858627939385
+    }
+  },
+  "Fulham FC|Hull City AFC": {
+    "home": "Fulham FC",
+    "away": "Hull City AFC",
+    "date": "2026-10-17",
+    "ph": 0.27806390088807437,
+    "pd": 0.27498708735521327,
+    "pa": 0.4469490117567124,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.5640518355440773,
+      "pd": 0.2384980880643499,
+      "pa": 0.1974500763915727
+    }
+  },
+  "Manchester City FC|Ipswich Town FC": {
+    "home": "Manchester City FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-10-17",
+    "ph": 0.9243680548500276,
+    "pd": 0.05360380584389122,
+    "pa": 0.02202813930608105,
+    "predicted_winner": "H",
+    "predicted_score": "3-0",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.7678269001946645,
+      "pd": 0.1428346547104333,
+      "pa": 0.0893384450949023
+    }
+  },
+  "Brentford FC|Liverpool FC": {
+    "home": "Brentford FC",
+    "away": "Liverpool FC",
+    "date": "2026-10-17",
+    "ph": 0.43630398515632646,
+    "pd": 0.23219623073259482,
+    "pa": 0.3314997841110788,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.387202894629478,
+      "pd": 0.25770934577694776,
+      "pa": 0.35508775959357425
+    }
+  },
+  "Newcastle United FC|Aston Villa FC": {
+    "home": "Newcastle United FC",
+    "away": "Aston Villa FC",
+    "date": "2026-10-17",
+    "ph": 0.46228267569006426,
+    "pd": 0.23711348506943158,
+    "pa": 0.30060383924050427,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.4501067794149413,
+      "pd": 0.2530077215599979,
+      "pa": 0.2968854990250606
+    }
   }
 }
