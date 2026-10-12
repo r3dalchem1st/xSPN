@@ -894,5 +894,69 @@
       "pd": 0.27252542300948335,
       "pa": 0.27674606767087306
     }
+  },
+  "RCD Espanyol de Barcelona|Club Atl\u00e9tico de Madrid": {
+    "home": "RCD Espanyol de Barcelona",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-10-17",
+    "ph": 0.2334244164449233,
+    "pd": 0.2455848709902745,
+    "pa": 0.5209907125648022,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.22023784230528803,
+      "pd": 0.2543533485891082,
+      "pa": 0.5254088091056037
+    }
+  },
+  "Villarreal CF|Elche CF": {
+    "home": "Villarreal CF",
+    "away": "Elche CF",
+    "date": "2026-10-17",
+    "ph": 0.6388476669755295,
+    "pd": 0.19956756727693373,
+    "pa": 0.16158476574753675,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.6464881707668036,
+      "pd": 0.1985897364344435,
+      "pa": 0.15492209279875285
+    }
+  },
+  "Real Betis Balompi\u00e9|FC Barcelona": {
+    "home": "Real Betis Balompi\u00e9",
+    "away": "FC Barcelona",
+    "date": "2026-10-17",
+    "ph": 0.23445150682603205,
+    "pd": 0.20867285479296324,
+    "pa": 0.5568756383810046,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.1627554020635609,
+      "pd": 0.17058231097325036,
+      "pa": 0.6666622869631886
+    }
+  },
+  "Valencia CF|Athletic Club": {
+    "home": "Valencia CF",
+    "away": "Athletic Club",
+    "date": "2026-10-17",
+    "ph": 0.32779776786747067,
+    "pd": 0.2785320080395733,
+    "pa": 0.3936702240929561,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-12",
+    "market": {
+      "ph": 0.26624295237216866,
+      "pd": 0.2812464789856676,
+      "pa": 0.45251056864216366
+    }
   }
 }

@@ -676,28 +676,28 @@
   },
   "Real Sociedad de F\u00fatbol|RC Deportivo La Coru\u00f1a": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": null,
-      "RC Deportivo La Coru\u00f1a": null
+      "Real Sociedad de F\u00fatbol": 3,
+      "RC Deportivo La Coru\u00f1a": 2
     },
     "round": "Matchday 8"
   },
   "Real Betis Balompi\u00e9|CA Osasuna": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Betis Balompi\u00e9": null,
-      "CA Osasuna": null
+      "Real Betis Balompi\u00e9": 5,
+      "CA Osasuna": 2
     },
     "round": "Matchday 8"
   },
   "Real Racing Club de Santander|Valencia CF": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "Valencia CF": null
+      "Real Racing Club de Santander": 2,
+      "Valencia CF": 2
     },
     "round": "Matchday 8"
   },
