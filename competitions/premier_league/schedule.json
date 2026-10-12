@@ -505,28 +505,28 @@
   },
   "Hull City AFC|Everton FC": {
     "date": "2026-10-11",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "Hull City AFC": 2,
-      "Everton FC": 2
+      "Hull City AFC": null,
+      "Everton FC": null
     },
     "round": "Matchday 6"
   },
   "Crystal Palace FC|Nottingham Forest FC": {
     "date": "2026-10-11",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "Crystal Palace FC": 3,
-      "Nottingham Forest FC": 1
+      "Crystal Palace FC": null,
+      "Nottingham Forest FC": null
     },
     "round": "Matchday 6"
   },
   "Liverpool FC|Manchester City FC": {
     "date": "2026-10-11",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "Liverpool FC": 0,
-      "Manchester City FC": 3
+      "Liverpool FC": null,
+      "Manchester City FC": null
     },
     "round": "Matchday 6"
   },
