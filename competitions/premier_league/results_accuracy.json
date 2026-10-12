@@ -503,13 +503,40 @@
       "brier": 1.0808768469052314,
       "log_loss": 1.6307579828299108,
       "total_goal_error": 1
+    },
+    {
+      "home": "Hull City AFC",
+      "away": "Everton FC",
+      "date": "2026-10-11",
+      "correct_winner": false,
+      "brier": 0.7137843088253595,
+      "log_loss": 1.1274012385366474,
+      "total_goal_error": 3
+    },
+    {
+      "home": "Crystal Palace FC",
+      "away": "Nottingham Forest FC",
+      "date": "2026-10-11",
+      "correct_winner": false,
+      "brier": 0.7553129575034805,
+      "log_loss": 1.215834288098108,
+      "total_goal_error": 3
+    },
+    {
+      "home": "Liverpool FC",
+      "away": "Manchester City FC",
+      "date": "2026-10-11",
+      "correct_winner": true,
+      "brier": 0.3597418627190544,
+      "log_loss": 0.67179921836489,
+      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 56,
-    "accuracy": 0.5,
-    "avg_brier": 0.637639517021663,
-    "avg_log_loss": 1.0671962971602755,
-    "avg_goal_error": 2.107142857142857
+    "n_scored": 59,
+    "accuracy": 0.4915254237288136,
+    "avg_brier": 0.6362144420722207,
+    "avg_log_loss": 1.064034362474154,
+    "avg_goal_error": 2.135593220338983
   }
 }
