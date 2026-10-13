@@ -692,13 +692,22 @@
       "brier": 0.9558568973802508,
       "log_loss": 1.5954150197564991,
       "total_goal_error": 1
+    },
+    {
+      "home": "Levante UD",
+      "away": "Sevilla FC",
+      "date": "2026-10-12",
+      "correct_winner": false,
+      "brier": 0.8046483644820165,
+      "log_loss": 1.3180862023106763,
+      "total_goal_error": 5
     }
   ],
   "summary": {
-    "n_scored": 77,
-    "accuracy": 0.5714285714285714,
-    "avg_brier": 0.576381372686118,
-    "avg_log_loss": 0.974497113590959,
-    "avg_goal_error": 2.038961038961039
+    "n_scored": 78,
+    "accuracy": 0.5641025641025641,
+    "avg_brier": 0.5793078725809372,
+    "avg_log_loss": 0.9789021019078785,
+    "avg_goal_error": 2.076923076923077
   }
 }

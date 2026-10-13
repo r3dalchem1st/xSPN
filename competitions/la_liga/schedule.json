@@ -703,10 +703,10 @@
   },
   "Levante UD|Sevilla FC": {
     "date": "2026-10-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Levante UD": null,
-      "Sevilla FC": null
+      "Levante UD": 3,
+      "Sevilla FC": 3
     },
     "round": "Matchday 8"
   },

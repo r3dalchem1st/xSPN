@@ -958,5 +958,69 @@
       "pd": 0.2812464789856676,
       "pa": 0.45251056864216366
     }
+  },
+  "CA Osasuna|Real Racing Club de Santander": {
+    "home": "CA Osasuna",
+    "away": "Real Racing Club de Santander",
+    "date": "2026-10-18",
+    "ph": 0.6351452364774575,
+    "pd": 0.17227933370506265,
+    "pa": 0.19257542981748002,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-13",
+    "market": {
+      "ph": 0.48225729496106695,
+      "pd": 0.2631306002392704,
+      "pa": 0.2546121047996625
+    }
+  },
+  "RC Celta de Vigo|Deportivo Alav\u00e9s": {
+    "home": "RC Celta de Vigo",
+    "away": "Deportivo Alav\u00e9s",
+    "date": "2026-10-18",
+    "ph": 0.5018639088533413,
+    "pd": 0.26433495569717474,
+    "pa": 0.23380113544948403,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-13",
+    "market": {
+      "ph": 0.47219552099100576,
+      "pd": 0.2786575754656764,
+      "pa": 0.24914690354331798
+    }
+  },
+  "M\u00e1laga CF|Real Sociedad de F\u00fatbol": {
+    "home": "M\u00e1laga CF",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-10-18",
+    "ph": 0.17269918386570918,
+    "pd": 0.295178826694649,
+    "pa": 0.5321219894396416,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-13",
+    "market": {
+      "ph": 0.29570869347478485,
+      "pd": 0.27074024697895993,
+      "pa": 0.4335510595462551
+    }
+  },
+  "Real Madrid CF|Sevilla FC": {
+    "home": "Real Madrid CF",
+    "away": "Sevilla FC",
+    "date": "2026-10-18",
+    "ph": 0.7599862828282249,
+    "pd": 0.1491178591048829,
+    "pa": 0.09089585806689224,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-13",
+    "market": {
+      "ph": 0.7629702755967543,
+      "pd": 0.14722602834846835,
+      "pa": 0.08980369605477731
+    }
   }
 }
