@@ -605,5 +605,37 @@
       "pd": 0.12909122822638353,
       "pa": 0.09788120638658572
     }
+  },
+  "Bayer 04 Leverkusen|SC Freiburg": {
+    "home": "Bayer 04 Leverkusen",
+    "away": "SC Freiburg",
+    "date": "2026-10-18",
+    "ph": 0.5846159294665026,
+    "pd": 0.19951759971060806,
+    "pa": 0.21586647082288918,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-13",
+    "market": {
+      "ph": 0.5550220016401936,
+      "pd": 0.224859783597394,
+      "pa": 0.22011821476241253
+    }
+  },
+  "Borussia M\u00f6nchengladbach|TSG 1899 Hoffenheim": {
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "TSG 1899 Hoffenheim",
+    "date": "2026-10-18",
+    "ph": 0.3658593835010859,
+    "pd": 0.2233993240061188,
+    "pa": 0.4107412924927954,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-13",
+    "market": {
+      "ph": 0.29567720979871254,
+      "pd": 0.23494403291622956,
+      "pa": 0.46937875728505785
+    }
   }
 }
