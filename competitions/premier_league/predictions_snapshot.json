@@ -802,5 +802,21 @@
       "pd": 0.23923512639862882,
       "pa": 0.6035609124317213
     }
+  },
+  "Tottenham Hotspur FC|Coventry City FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Coventry City FC",
+    "date": "2026-10-19",
+    "ph": 0.45413112412177986,
+    "pd": 0.24683912029599533,
+    "pa": 0.29902975558222483,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-14",
+    "market": {
+      "ph": 0.6406114886428198,
+      "pd": 0.20630945310284637,
+      "pa": 0.15307905825433393
+    }
   }
 }
