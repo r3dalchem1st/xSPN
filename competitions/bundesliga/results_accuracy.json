@@ -386,31 +386,13 @@
       "brier": 0.3114164744609816,
       "log_loss": 0.6059315067165862,
       "total_goal_error": 5
-    },
-    {
-      "home": "1. FC K\u00f6ln",
-      "away": "Borussia M\u00f6nchengladbach",
-      "date": "2026-10-11",
-      "correct_winner": true,
-      "brier": 0.48875084166121263,
-      "log_loss": 0.8387572656917113,
-      "total_goal_error": 0
-    },
-    {
-      "home": "SC Freiburg",
-      "away": "FC Schalke 04",
-      "date": "2026-10-11",
-      "correct_winner": true,
-      "brier": 0.5428153424300899,
-      "log_loss": 0.918273876339842,
-      "total_goal_error": 2
     }
   ],
   "summary": {
-    "n_scored": 45,
-    "accuracy": 0.5111111111111111,
-    "avg_brier": 0.6439822043253896,
-    "avg_log_loss": 1.0641050890599693,
-    "avg_goal_error": 2.8444444444444446
+    "n_scored": 43,
+    "accuracy": 0.4883720930232558,
+    "avg_brier": 0.6499449537337495,
+    "avg_log_loss": 1.072737159666676,
+    "avg_goal_error": 2.9302325581395348
   }
 }
