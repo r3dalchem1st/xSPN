@@ -388,19 +388,19 @@
   },
   "1. FC K\u00f6ln|Borussia M\u00f6nchengladbach": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC K\u00f6ln": null,
-      "Borussia M\u00f6nchengladbach": null
+      "1. FC K\u00f6ln": 2,
+      "Borussia M\u00f6nchengladbach": 1
     },
     "round": "Matchday 5"
   },
   "SC Freiburg|FC Schalke 04": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SC Freiburg": null,
-      "FC Schalke 04": null
+      "SC Freiburg": 2,
+      "FC Schalke 04": 1
     },
     "round": "Matchday 5"
   },
