@@ -712,10 +712,10 @@
   },
   "RC Deportivo La Coru\u00f1a|Levante UD": {
     "date": "2026-10-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Deportivo La Coru\u00f1a": null,
-      "Levante UD": null
+      "RC Deportivo La Coru\u00f1a": 1,
+      "Levante UD": 1
     },
     "round": "Matchday 9"
   },

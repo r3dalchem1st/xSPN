@@ -701,13 +701,36 @@
       "brier": 0.8046483644820165,
       "log_loss": 1.3180862023106763,
       "total_goal_error": 5
+    },
+    {
+      "home": "RC Deportivo La Coru\u00f1a",
+      "away": "Levante UD",
+      "date": "2026-10-16",
+      "correct_winner": false,
+      "brier": 0.9081055792403605,
+      "log_loss": 1.418446916163767,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.8089638352523306,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 78,
-    "accuracy": 0.5641025641025641,
-    "avg_brier": 0.5793078725809372,
-    "avg_log_loss": 0.9789021019078785,
-    "avg_goal_error": 2.076923076923077
+    "n_scored": 79,
+    "accuracy": 0.5569620253164557,
+    "avg_brier": 0.5834698688677654,
+    "avg_log_loss": 0.9844659603161809,
+    "avg_goal_error": 2.0632911392405062,
+    "vs_market": {
+      "n": 1,
+      "accuracy": 0.0,
+      "market_accuracy": 0.0,
+      "avg_brier": 0.9081055792403605,
+      "market_avg_brier": 0.8089638352523306,
+      "disagree_n": 0,
+      "we_right": 0,
+      "market_right": 0
+    }
   }
 }
