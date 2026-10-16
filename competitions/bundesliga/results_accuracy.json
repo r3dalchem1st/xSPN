@@ -404,13 +404,36 @@
       "brier": 0.5428153424300899,
       "log_loss": 0.918273876339842,
       "total_goal_error": 2
+    },
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "1. FC K\u00f6ln",
+      "date": "2026-10-16",
+      "correct_winner": true,
+      "brier": 0.26009063427128665,
+      "log_loss": 0.5376931338640994,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.38373203885576945,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 45,
-    "accuracy": 0.5111111111111111,
-    "avg_brier": 0.6439822043253896,
-    "avg_log_loss": 1.0641050890599693,
-    "avg_goal_error": 2.8444444444444446
+    "n_scored": 46,
+    "accuracy": 0.5217391304347826,
+    "avg_brier": 0.6356367354111699,
+    "avg_log_loss": 1.0526613509035374,
+    "avg_goal_error": 2.8260869565217392,
+    "vs_market": {
+      "n": 1,
+      "accuracy": 1.0,
+      "market_accuracy": 1.0,
+      "avg_brier": 0.26009063427128665,
+      "market_avg_brier": 0.38373203885576945,
+      "disagree_n": 0,
+      "we_right": 0,
+      "market_right": 0
+    }
   }
 }
