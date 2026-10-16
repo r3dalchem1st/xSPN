@@ -406,10 +406,10 @@
   },
   "Eintracht Frankfurt|1. FC K\u00f6ln": {
     "date": "2026-10-16",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "1. FC K\u00f6ln": null
+      "Eintracht Frankfurt": 1,
+      "1. FC K\u00f6ln": 0
     },
     "round": "Matchday 6"
   },
