@@ -415,55 +415,55 @@
   },
   "1. FC Union Berlin|Borussia Dortmund": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC Union Berlin": null,
-      "Borussia Dortmund": null
+      "1. FC Union Berlin": 0,
+      "Borussia Dortmund": 0
     },
     "round": "Matchday 6"
   },
   "Hamburger SV|VfB Stuttgart": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hamburger SV": null,
-      "VfB Stuttgart": null
+      "Hamburger SV": 1,
+      "VfB Stuttgart": 0
     },
     "round": "Matchday 6"
   },
   "SV Werder Bremen|SC Paderborn 07": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV Werder Bremen": null,
-      "SC Paderborn 07": null
+      "SV Werder Bremen": 2,
+      "SC Paderborn 07": 2
     },
     "round": "Matchday 6"
   },
   "SV 07 Elversberg|FC Augsburg": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV 07 Elversberg": null,
-      "FC Augsburg": null
+      "SV 07 Elversberg": 4,
+      "FC Augsburg": 3
     },
     "round": "Matchday 6"
   },
   "FC Schalke 04|1. FSV Mainz 05": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Schalke 04": null,
-      "1. FSV Mainz 05": null
+      "FC Schalke 04": 0,
+      "1. FSV Mainz 05": 1
     },
     "round": "Matchday 6"
   },
   "FC Bayern M\u00fcnchen|RB Leipzig": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Bayern M\u00fcnchen": null,
-      "RB Leipzig": null
+      "FC Bayern M\u00fcnchen": 6,
+      "RB Leipzig": 1
     },
     "round": "Matchday 6"
   },
