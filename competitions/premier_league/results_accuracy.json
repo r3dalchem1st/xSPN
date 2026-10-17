@@ -539,13 +539,88 @@
       "brier": 1.4338311776314265,
       "log_loss": 2.549587165496986,
       "total_goal_error": 4
+    },
+    {
+      "home": "Everton FC",
+      "away": "Chelsea FC",
+      "date": "2026-10-17",
+      "correct_winner": true,
+      "brier": 0.5899804253731254,
+      "log_loss": 0.9809324560627949,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.47180941361896606,
+      "disagree": false
+    },
+    {
+      "home": "Fulham FC",
+      "away": "Hull City AFC",
+      "date": "2026-10-17",
+      "correct_winner": false,
+      "brier": 0.7965730485233498,
+      "log_loss": 1.2799043323954835,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.2859186727698765,
+      "disagree": true
+    },
+    {
+      "home": "Manchester City FC",
+      "away": "Ipswich Town FC",
+      "date": "2026-10-17",
+      "correct_winner": true,
+      "brier": 0.009078798049406133,
+      "log_loss": 0.07864495889212426,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.08228744463144186,
+      "disagree": false
+    },
+    {
+      "home": "Brentford FC",
+      "away": "Liverpool FC",
+      "date": "2026-10-17",
+      "correct_winner": false,
+      "brier": 0.6911687956732506,
+      "log_loss": 1.104128120605063,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.6322519863362646,
+      "disagree": false
+    },
+    {
+      "home": "Newcastle United FC",
+      "away": "Aston Villa FC",
+      "date": "2026-10-17",
+      "correct_winner": false,
+      "brier": 0.7590830667300591,
+      "log_loss": 1.2019620298203246,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.76097902152551,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 60,
-    "accuracy": 0.48333333333333334,
-    "avg_brier": 0.6495080543315408,
-    "avg_log_loss": 1.0887935758578677,
-    "avg_goal_error": 2.1666666666666665
+    "n_scored": 65,
+    "accuracy": 0.47692307692307695,
+    "avg_brier": 0.6433287291421791,
+    "avg_log_loss": 1.0765105607576595,
+    "avg_goal_error": 2.1384615384615384,
+    "vs_market": {
+      "n": 5,
+      "accuracy": 0.4,
+      "market_accuracy": 0.6,
+      "avg_brier": 0.5691768268698383,
+      "market_avg_brier": 0.44664930777641176,
+      "disagree_n": 1,
+      "we_right": 0,
+      "market_right": 1
+    }
   }
 }
