@@ -658,6 +658,64 @@
       "total_goal_error": 2
     },
     {
+      "home": "Elche CF",
+      "away": "RC Celta de Vigo",
+      "date": "2026-10-11",
+      "correct_winner": false,
+      "brier": 0.8166857044619761,
+      "log_loss": 1.337763396242553,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Real Sociedad de F\u00fatbol",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "date": "2026-10-11",
+      "correct_winner": true,
+      "brier": 0.3904951690195685,
+      "log_loss": 0.7137572489720864,
+      "total_goal_error": 4
+    },
+    {
+      "home": "Real Betis Balompi\u00e9",
+      "away": "CA Osasuna",
+      "date": "2026-10-11",
+      "correct_winner": true,
+      "brier": 0.3394100367542072,
+      "log_loss": 0.6454012570018279,
+      "total_goal_error": 6
+    },
+    {
+      "home": "Real Racing Club de Santander",
+      "away": "Valencia CF",
+      "date": "2026-10-11",
+      "correct_winner": false,
+      "brier": 0.9558568973802508,
+      "log_loss": 1.5954150197564991,
+      "total_goal_error": 1
+    },
+    {
+      "home": "Levante UD",
+      "away": "Sevilla FC",
+      "date": "2026-10-12",
+      "correct_winner": false,
+      "brier": 0.8046483644820165,
+      "log_loss": 1.3180862023106763,
+      "total_goal_error": 5
+    },
+    {
+      "home": "RC Deportivo La Coru\u00f1a",
+      "away": "Levante UD",
+      "date": "2026-10-16",
+      "correct_winner": false,
+      "brier": 0.9081055792403605,
+      "log_loss": 1.418446916163767,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.8089638352523306,
+      "disagree": false
+    },
+    {
       "home": "RCD Espanyol de Barcelona",
       "away": "Club Atl\u00e9tico de Madrid",
       "date": "2026-10-17",
@@ -711,17 +769,17 @@
     }
   ],
   "summary": {
-    "n_scored": 77,
-    "accuracy": 0.5714285714285714,
-    "avg_brier": 0.5763105128027707,
-    "avg_log_loss": 0.972353271889336,
-    "avg_goal_error": 1.974025974025974,
+    "n_scored": 83,
+    "accuracy": 0.5542168674698795,
+    "avg_brier": 0.5854350751464064,
+    "avg_log_loss": 0.9867478551316421,
+    "avg_goal_error": 2.0481927710843375,
     "vs_market": {
-      "n": 4,
-      "accuracy": 0.5,
-      "market_accuracy": 0.5,
-      "avg_brier": 0.6242478991495644,
-      "market_avg_brier": 0.5954006942411929,
+      "n": 5,
+      "accuracy": 0.4,
+      "market_accuracy": 0.4,
+      "avg_brier": 0.6810194351677236,
+      "market_avg_brier": 0.6381133224434203,
       "disagree_n": 0,
       "we_right": 0,
       "market_right": 0
