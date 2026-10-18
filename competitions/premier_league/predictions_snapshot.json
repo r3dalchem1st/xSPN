@@ -818,5 +818,21 @@
       "pd": 0.20630945310284637,
       "pa": 0.15307905825433393
     }
+  },
+  "Ipswich Town FC|Nottingham Forest FC": {
+    "home": "Ipswich Town FC",
+    "away": "Nottingham Forest FC",
+    "date": "2026-10-23",
+    "ph": 0.21015875501838407,
+    "pd": 0.22126564269523083,
+    "pa": 0.5685756022863852,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-18",
+    "market": {
+      "ph": 0.30627362301095556,
+      "pd": 0.2709851402551538,
+      "pa": 0.4227412367338907
+    }
   }
 }
