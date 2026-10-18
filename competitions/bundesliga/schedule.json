@@ -469,19 +469,19 @@
   },
   "Bayer 04 Leverkusen|SC Freiburg": {
     "date": "2026-10-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Bayer 04 Leverkusen": null,
-      "SC Freiburg": null
+      "Bayer 04 Leverkusen": 2,
+      "SC Freiburg": 1
     },
     "round": "Matchday 6"
   },
   "Borussia M\u00f6nchengladbach|TSG 1899 Hoffenheim": {
     "date": "2026-10-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Borussia M\u00f6nchengladbach": null,
-      "TSG 1899 Hoffenheim": null
+      "Borussia M\u00f6nchengladbach": 1,
+      "TSG 1899 Hoffenheim": 2
     },
     "round": "Matchday 6"
   },
