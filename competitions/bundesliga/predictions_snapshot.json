@@ -637,5 +637,21 @@
       "pd": 0.23494403291622956,
       "pa": 0.46937875728505785
     }
+  },
+  "VfB Stuttgart|Borussia M\u00f6nchengladbach": {
+    "home": "VfB Stuttgart",
+    "away": "Borussia M\u00f6nchengladbach",
+    "date": "2026-10-23",
+    "ph": 0.6635532122207801,
+    "pd": 0.1773531610047652,
+    "pa": 0.15909362677445452,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-18",
+    "market": {
+      "ph": 0.6802533334856155,
+      "pd": 0.17197064415199875,
+      "pa": 0.1477760223623858
+    }
   }
 }
