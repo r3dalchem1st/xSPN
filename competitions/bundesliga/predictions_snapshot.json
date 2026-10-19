@@ -653,5 +653,101 @@
       "pd": 0.17197064415199875,
       "pa": 0.1477760223623858
     }
+  },
+  "1. FSV Mainz 05|SV Werder Bremen": {
+    "home": "1. FSV Mainz 05",
+    "away": "SV Werder Bremen",
+    "date": "2026-10-24",
+    "ph": 0.5299468956341217,
+    "pd": 0.22790302567269116,
+    "pa": 0.24215007869318714,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.5518263347742974,
+      "pd": 0.2287482638150803,
+      "pa": 0.21942540141062233
+    }
+  },
+  "1. FC K\u00f6ln|FC Schalke 04": {
+    "home": "1. FC K\u00f6ln",
+    "away": "FC Schalke 04",
+    "date": "2026-10-24",
+    "ph": 0.3949854240530451,
+    "pd": 0.31533333039014827,
+    "pa": 0.28968124555680647,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.4680797498366773,
+      "pd": 0.24871287018720784,
+      "pa": 0.28320737997611495
+    }
+  },
+  "RB Leipzig|SV 07 Elversberg": {
+    "home": "RB Leipzig",
+    "away": "SV 07 Elversberg",
+    "date": "2026-10-24",
+    "ph": 0.5402840650917268,
+    "pd": 0.2009163357978773,
+    "pa": 0.2587995991103961,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.6841292517300851,
+      "pd": 0.1738816582881991,
+      "pa": 0.14198908998171575
+    }
+  },
+  "SC Paderborn 07|Hamburger SV": {
+    "home": "SC Paderborn 07",
+    "away": "Hamburger SV",
+    "date": "2026-10-24",
+    "ph": 0.35466189110614177,
+    "pd": 0.30495248742676295,
+    "pa": 0.3403856214670953,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.4256467563152668,
+      "pd": 0.2547427402082444,
+      "pa": 0.31961050347648884
+    }
+  },
+  "FC Augsburg|1. FC Union Berlin": {
+    "home": "FC Augsburg",
+    "away": "1. FC Union Berlin",
+    "date": "2026-10-24",
+    "ph": 0.5328183315118414,
+    "pd": 0.23740360443079353,
+    "pa": 0.2297780640573649,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.5157316301365286,
+      "pd": 0.23701658905806933,
+      "pa": 0.24725178080540217
+    }
+  },
+  "Borussia Dortmund|Eintracht Frankfurt": {
+    "home": "Borussia Dortmund",
+    "away": "Eintracht Frankfurt",
+    "date": "2026-10-24",
+    "ph": 0.6946012516991106,
+    "pd": 0.16335924105170027,
+    "pa": 0.14203950724918923,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.649895935266076,
+      "pd": 0.1868013271743246,
+      "pa": 0.16330273755959943
+    }
   }
 }
