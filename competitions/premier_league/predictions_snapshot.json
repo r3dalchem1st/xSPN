@@ -834,5 +834,69 @@
       "pd": 0.2709851402551538,
       "pa": 0.4227412367338907
     }
+  },
+  "Aston Villa FC|Manchester City FC": {
+    "home": "Aston Villa FC",
+    "away": "Manchester City FC",
+    "date": "2026-10-24",
+    "ph": 0.16183080513859938,
+    "pd": 0.2006929248005737,
+    "pa": 0.6374762700608272,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.21605831613103785,
+      "pd": 0.22781306400335355,
+      "pa": 0.5561286198656086
+    }
+  },
+  "Arsenal FC|Everton FC": {
+    "home": "Arsenal FC",
+    "away": "Everton FC",
+    "date": "2026-10-24",
+    "ph": 0.6724292592217088,
+    "pd": 0.2167312721247893,
+    "pa": 0.11083946865350199,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.6839898921035757,
+      "pd": 0.2027989251191595,
+      "pa": 0.11321118277726464
+    }
+  },
+  "Coventry City FC|Fulham FC": {
+    "home": "Coventry City FC",
+    "away": "Fulham FC",
+    "date": "2026-10-24",
+    "ph": 0.2416690657038993,
+    "pd": 0.24961838986133028,
+    "pa": 0.5087125444347703,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.3231483216244421,
+      "pd": 0.2692304035665663,
+      "pa": 0.4076212748089915
+    }
+  },
+  "Chelsea FC|Tottenham Hotspur FC": {
+    "home": "Chelsea FC",
+    "away": "Tottenham Hotspur FC",
+    "date": "2026-10-24",
+    "ph": 0.6535130210626167,
+    "pd": 0.1874352629811369,
+    "pa": 0.1590517159562464,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.5447395970263444,
+      "pd": 0.2295938645414274,
+      "pa": 0.22566653843222817
+    }
   }
 }
