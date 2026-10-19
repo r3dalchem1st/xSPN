@@ -1054,5 +1054,69 @@
       "pd": 0.27094654748116986,
       "pa": 0.21530851042361077
     }
+  },
+  "Rayo Vallecano de Madrid|Elche CF": {
+    "home": "Rayo Vallecano de Madrid",
+    "away": "Elche CF",
+    "date": "2026-10-24",
+    "ph": 0.5026918152757557,
+    "pd": 0.2532242967946623,
+    "pa": 0.2440838879295821,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.5376561456321429,
+      "pd": 0.25046467702460407,
+      "pa": 0.21187917734325304
+    }
+  },
+  "Valencia CF|Villarreal CF": {
+    "home": "Valencia CF",
+    "away": "Villarreal CF",
+    "date": "2026-10-24",
+    "ph": 0.33779137431841605,
+    "pd": 0.25864999110204007,
+    "pa": 0.403558634579544,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.2967731034590721,
+      "pd": 0.26212711496385016,
+      "pa": 0.4410997815770778
+    }
+  },
+  "Club Atl\u00e9tico de Madrid|RC Deportivo La Coru\u00f1a": {
+    "home": "Club Atl\u00e9tico de Madrid",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "date": "2026-10-24",
+    "ph": 0.670830729783319,
+    "pd": 0.18407169307217677,
+    "pa": 0.14509757714450433,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.7537930145003863,
+      "pd": 0.1567518390184921,
+      "pa": 0.08945514648112164
+    }
+  },
+  "Real Racing Club de Santander|RCD Espanyol de Barcelona": {
+    "home": "Real Racing Club de Santander",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-10-24",
+    "ph": 0.3483098095932372,
+    "pd": 0.21445737006501733,
+    "pa": 0.4372328203417455,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-19",
+    "market": {
+      "ph": 0.3878964061384691,
+      "pd": 0.26355667881999506,
+      "pa": 0.34854691504153573
+    }
   }
 }
