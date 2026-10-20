@@ -818,21 +818,34 @@
       "market_correct_winner": true,
       "market_brier": 0.08592329749904143,
       "disagree": false
+    },
+    {
+      "home": "Getafe CF",
+      "away": "Rayo Vallecano de Madrid",
+      "date": "2026-10-19",
+      "correct_winner": false,
+      "brier": 0.7273961315606586,
+      "log_loss": 1.1859901877055803,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.6991084722082561,
+      "disagree": true
     }
   ],
   "summary": {
-    "n_scored": 87,
-    "accuracy": 0.5747126436781609,
-    "avg_brier": 0.569972889236814,
-    "avg_log_loss": 0.9649280145344252,
-    "avg_goal_error": 2.0919540229885056,
+    "n_scored": 88,
+    "accuracy": 0.5681818181818182,
+    "avg_brier": 0.5717617897177668,
+    "avg_log_loss": 0.9674400846840975,
+    "avg_goal_error": 2.0795454545454546,
     "vs_market": {
-      "n": 9,
-      "accuracy": 0.6666666666666666,
-      "market_accuracy": 0.6666666666666666,
-      "avg_brier": 0.48906970025441193,
-      "market_avg_brier": 0.5087247290970577,
-      "disagree_n": 0,
+      "n": 10,
+      "accuracy": 0.6,
+      "market_accuracy": 0.6,
+      "avg_brier": 0.5129023433850366,
+      "market_avg_brier": 0.5277631034081776,
+      "disagree_n": 1,
       "we_right": 0,
       "market_right": 0
     }

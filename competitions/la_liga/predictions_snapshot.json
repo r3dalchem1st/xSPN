@@ -1118,5 +1118,69 @@
       "pd": 0.26355667881999506,
       "pa": 0.34854691504153573
     }
+  },
+  "Athletic Club|Getafe CF": {
+    "home": "Athletic Club",
+    "away": "Getafe CF",
+    "date": "2026-10-25",
+    "ph": 0.5440188492828917,
+    "pd": 0.2723880251879454,
+    "pa": 0.18359312552916293,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-20",
+    "market": {
+      "ph": 0.5784140099089214,
+      "pd": 0.24863624129852582,
+      "pa": 0.17294974879255282
+    }
+  },
+  "FC Barcelona|Real Madrid CF": {
+    "home": "FC Barcelona",
+    "away": "Real Madrid CF",
+    "date": "2026-10-25",
+    "ph": 0.5081430113709866,
+    "pd": 0.20681463998424982,
+    "pa": 0.2850423486447636,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-20",
+    "market": {
+      "ph": 0.6077150535503357,
+      "pd": 0.178503761603894,
+      "pa": 0.21378118484577027
+    }
+  },
+  "RC Celta de Vigo|Real Betis Balompi\u00e9": {
+    "home": "RC Celta de Vigo",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-10-25",
+    "ph": 0.4303459304267818,
+    "pd": 0.2597744298629719,
+    "pa": 0.3098796397102462,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-20",
+    "market": {
+      "ph": 0.34506195827497643,
+      "pd": 0.2752967812754574,
+      "pa": 0.37964126044956614
+    }
+  },
+  "Real Sociedad de F\u00fatbol|Levante UD": {
+    "home": "Real Sociedad de F\u00fatbol",
+    "away": "Levante UD",
+    "date": "2026-10-25",
+    "ph": 0.5904854442541948,
+    "pd": 0.22491098259661155,
+    "pa": 0.1846035731491936,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-20",
+    "market": {
+      "ph": 0.5519831178800352,
+      "pd": 0.233661565237561,
+      "pa": 0.21435531688240375
+    }
   }
 }
