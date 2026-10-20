@@ -622,10 +622,10 @@
   },
   "Tottenham Hotspur FC|Coventry City FC": {
     "date": "2026-10-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Tottenham Hotspur FC": null,
-      "Coventry City FC": null
+      "Tottenham Hotspur FC": 3,
+      "Coventry City FC": 1
     },
     "round": "Matchday 7"
   },
