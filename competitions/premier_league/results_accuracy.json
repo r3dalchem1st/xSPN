@@ -505,146 +505,6 @@
       "total_goal_error": 1
     },
     {
-      "home": "Hull City AFC",
-      "away": "Everton FC",
-      "date": "2026-10-11",
-      "correct_winner": false,
-      "brier": 0.7137843088253595,
-      "log_loss": 1.1274012385366474,
-      "total_goal_error": 3
-    },
-    {
-      "home": "Crystal Palace FC",
-      "away": "Nottingham Forest FC",
-      "date": "2026-10-11",
-      "correct_winner": false,
-      "brier": 0.7553129575034805,
-      "log_loss": 1.215834288098108,
-      "total_goal_error": 3
-    },
-    {
-      "home": "Liverpool FC",
-      "away": "Manchester City FC",
-      "date": "2026-10-11",
-      "correct_winner": true,
-      "brier": 0.3597418627190544,
-      "log_loss": 0.67179921836489,
-      "total_goal_error": 2
-    },
-    {
-      "home": "Coventry City FC",
-      "away": "Newcastle United FC",
-      "date": "2026-10-12",
-      "correct_winner": false,
-      "brier": 1.4338311776314265,
-      "log_loss": 2.549587165496986,
-      "total_goal_error": 4
-    },
-    {
-      "home": "Everton FC",
-      "away": "Chelsea FC",
-      "date": "2026-10-17",
-      "correct_winner": true,
-      "brier": 0.5899804253731254,
-      "log_loss": 0.9809324560627949,
-      "total_goal_error": 1,
-      "market_winner": "A",
-      "market_correct_winner": true,
-      "market_brier": 0.47180941361896606,
-      "disagree": false
-    },
-    {
-      "home": "Fulham FC",
-      "away": "Hull City AFC",
-      "date": "2026-10-17",
-      "correct_winner": false,
-      "brier": 0.7965730485233498,
-      "log_loss": 1.2799043323954835,
-      "total_goal_error": 2,
-      "market_winner": "H",
-      "market_correct_winner": true,
-      "market_brier": 0.2859186727698765,
-      "disagree": true
-    },
-    {
-      "home": "Manchester City FC",
-      "away": "Ipswich Town FC",
-      "date": "2026-10-17",
-      "correct_winner": true,
-      "brier": 0.009078798049406133,
-      "log_loss": 0.07864495889212426,
-      "total_goal_error": 2,
-      "market_winner": "H",
-      "market_correct_winner": true,
-      "market_brier": 0.08228744463144186,
-      "disagree": false
-    },
-    {
-      "home": "Brentford FC",
-      "away": "Liverpool FC",
-      "date": "2026-10-17",
-      "correct_winner": false,
-      "brier": 0.6911687956732506,
-      "log_loss": 1.104128120605063,
-      "total_goal_error": 2,
-      "market_winner": "H",
-      "market_correct_winner": false,
-      "market_brier": 0.6322519863362646,
-      "disagree": false
-    },
-    {
-      "home": "Newcastle United FC",
-      "away": "Aston Villa FC",
-      "date": "2026-10-17",
-      "correct_winner": false,
-      "brier": 0.7590830667300591,
-      "log_loss": 1.2019620298203246,
-      "total_goal_error": 2,
-      "market_winner": "H",
-      "market_correct_winner": false,
-      "market_brier": 0.76097902152551,
-      "disagree": false
-    },
-    {
-      "home": "AFC Bournemouth",
-      "away": "Sunderland AFC",
-      "date": "2026-10-18",
-      "correct_winner": true,
-      "brier": 0.4401097068568335,
-      "log_loss": 0.7796920330133988,
-      "total_goal_error": 1,
-      "market_winner": "H",
-      "market_correct_winner": true,
-      "market_brier": 0.4211698723049395,
-      "disagree": false
-    },
-    {
-      "home": "Leeds United FC",
-      "away": "Manchester United FC",
-      "date": "2026-10-18",
-      "correct_winner": false,
-      "brier": 0.8270475586385282,
-      "log_loss": 1.3568207923963966,
-      "total_goal_error": 1,
-      "market_winner": "H",
-      "market_correct_winner": false,
-      "market_brier": 0.8143473204393434,
-      "disagree": true
-    },
-    {
-      "home": "Brighton & Hove Albion FC",
-      "away": "Crystal Palace FC",
-      "date": "2026-10-18",
-      "correct_winner": true,
-      "brier": 0.14777583824723148,
-      "log_loss": 0.3744974708782932,
-      "total_goal_error": 3,
-      "market_winner": "H",
-      "market_correct_winner": true,
-      "market_brier": 0.23270009059738594,
-      "disagree": false
-    },
-    {
       "home": "Nottingham Forest FC",
       "away": "Arsenal FC",
       "date": "2026-10-18",
@@ -672,20 +532,20 @@
     }
   ],
   "summary": {
-    "n_scored": 70,
-    "accuracy": 0.5,
-    "avg_brier": 0.6277356318653582,
-    "avg_log_loss": 1.0544337708355396,
-    "avg_goal_error": 2.1,
+    "n_scored": 58,
+    "accuracy": 0.5172413793103449,
+    "avg_brier": 0.6278966669966203,
+    "avg_log_loss": 1.053261376791849,
+    "avg_goal_error": 2.086206896551724,
     "vs_market": {
-      "n": 10,
-      "accuracy": 0.6,
-      "market_accuracy": 0.7,
-      "avg_brier": 0.4971010970682629,
-      "market_avg_brier": 0.4135731194097253,
-      "disagree_n": 2,
+      "n": 2,
+      "accuracy": 1.0,
+      "market_accuracy": 1.0,
+      "avg_brier": 0.35509686629542186,
+      "market_avg_brier": 0.2171336859367627,
+      "disagree_n": 0,
       "we_right": 0,
-      "market_right": 1
+      "market_right": 0
     }
   }
 }
