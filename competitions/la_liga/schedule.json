@@ -793,10 +793,10 @@
   },
   "Getafe CF|Rayo Vallecano de Madrid": {
     "date": "2026-10-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Getafe CF": null,
-      "Rayo Vallecano de Madrid": null
+      "Getafe CF": 1,
+      "Rayo Vallecano de Madrid": 1
     },
     "round": "Matchday 9"
   },
