@@ -802,10 +802,10 @@
   },
   "Levante UD|Athletic Club": {
     "date": "2026-10-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Levante UD": null,
-      "Athletic Club": null
+      "Levante UD": 3,
+      "Athletic Club": 1
     },
     "round": "Matchday 6"
   },
