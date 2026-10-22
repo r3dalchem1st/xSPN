@@ -831,14 +831,23 @@
       "market_correct_winner": false,
       "market_brier": 0.6991084722082561,
       "disagree": true
+    },
+    {
+      "home": "Levante UD",
+      "away": "Athletic Club",
+      "date": "2026-10-21",
+      "correct_winner": true,
+      "brier": 0.5643108292024593,
+      "log_loss": 0.945348126175276,
+      "total_goal_error": 3
     }
   ],
   "summary": {
-    "n_scored": 88,
-    "accuracy": 0.5681818181818182,
-    "avg_brier": 0.5717617897177668,
-    "avg_log_loss": 0.9674400846840975,
-    "avg_goal_error": 2.0795454545454546,
+    "n_scored": 89,
+    "accuracy": 0.5730337078651685,
+    "avg_brier": 0.5716780710602914,
+    "avg_log_loss": 0.9671918604311894,
+    "avg_goal_error": 2.0898876404494384,
     "vs_market": {
       "n": 10,
       "accuracy": 0.6,
