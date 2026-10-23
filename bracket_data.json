@@ -369,7 +369,7 @@
         "lam": 4.1,
         "mu": 0.82,
         "score": "4\u20130",
-        "ph": 0.87,
+        "ph": 0.871,
         "pd": 0.095,
         "pa": 0.034,
         "likely_winner": "Netherlands"
@@ -426,7 +426,7 @@
         "lam": 1.69,
         "mu": 0.9,
         "score": "1\u20130",
-        "ph": 0.492,
+        "ph": 0.493,
         "pd": 0.326,
         "pa": 0.182,
         "likely_winner": "Belgium"
@@ -573,7 +573,7 @@
         "lam": 4.27,
         "mu": 0.7,
         "score": "4\u20130",
-        "ph": 0.902,
+        "ph": 0.903,
         "pd": 0.075,
         "pa": 0.022,
         "likely_winner": "France"
@@ -1163,7 +1163,7 @@
       "win_pct": 78.7,
       "ph": 0.704,
       "pd": 0.171,
-      "pa": 0.126,
+      "pa": 0.125,
       "reg_winner": "England",
       "lam": 2.43,
       "mu": 0.92
@@ -1254,7 +1254,7 @@
       "score": "1\u20130",
       "winner": "Spain",
       "win_pct": 64.4,
-      "ph": 0.543,
+      "ph": 0.542,
       "pd": 0.274,
       "pa": 0.183,
       "reg_winner": "Spain",
@@ -1436,13 +1436,13 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.6,
+  "champion_pct": 92.7,
   "reach_final": {
-    "Spain": 97.7,
-    "Argentina": 84.0,
-    "England": 9.2,
-    "Colombia": 6.0,
-    "France": 1.8,
+    "Spain": 97.6,
+    "Argentina": 83.9,
+    "England": 9.1,
+    "Colombia": 6.2,
+    "France": 1.9,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
