@@ -451,181 +451,181 @@
   },
   "Arsenal FC|Leeds United FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Arsenal FC": null,
-      "Leeds United FC": null
+      "Arsenal FC": 2,
+      "Leeds United FC": 1
     },
     "round": "Matchday 6"
   },
   "Sunderland AFC|Brighton & Hove Albion FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sunderland AFC": null,
-      "Brighton & Hove Albion FC": null
+      "Sunderland AFC": 0,
+      "Brighton & Hove Albion FC": 2
     },
     "round": "Matchday 6"
   },
   "Chelsea FC|AFC Bournemouth": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Chelsea FC": null,
-      "AFC Bournemouth": null
+      "Chelsea FC": 5,
+      "AFC Bournemouth": 1
     },
     "round": "Matchday 6"
   },
   "Ipswich Town FC|Fulham FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Ipswich Town FC": null,
-      "Fulham FC": null
+      "Ipswich Town FC": 2,
+      "Fulham FC": 1
     },
     "round": "Matchday 6"
   },
   "Aston Villa FC|Brentford FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Aston Villa FC": null,
-      "Brentford FC": null
+      "Aston Villa FC": 2,
+      "Brentford FC": 2
     },
     "round": "Matchday 6"
   },
   "Manchester United FC|Tottenham Hotspur FC": {
     "date": "2026-10-10",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester United FC": null,
-      "Tottenham Hotspur FC": null
+      "Manchester United FC": 1,
+      "Tottenham Hotspur FC": 1
     },
     "round": "Matchday 6"
   },
   "Hull City AFC|Everton FC": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hull City AFC": null,
-      "Everton FC": null
+      "Hull City AFC": 2,
+      "Everton FC": 2
     },
     "round": "Matchday 6"
   },
   "Crystal Palace FC|Nottingham Forest FC": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Crystal Palace FC": null,
-      "Nottingham Forest FC": null
+      "Crystal Palace FC": 3,
+      "Nottingham Forest FC": 1
     },
     "round": "Matchday 6"
   },
   "Liverpool FC|Manchester City FC": {
     "date": "2026-10-11",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Liverpool FC": null,
-      "Manchester City FC": null
+      "Liverpool FC": 0,
+      "Manchester City FC": 3
     },
     "round": "Matchday 6"
   },
   "Coventry City FC|Newcastle United FC": {
     "date": "2026-10-12",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Coventry City FC": null,
-      "Newcastle United FC": null
+      "Coventry City FC": 4,
+      "Newcastle United FC": 1
     },
     "round": "Matchday 6"
   },
   "Everton FC|Chelsea FC": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Everton FC": null,
-      "Chelsea FC": null
+      "Everton FC": 0,
+      "Chelsea FC": 2
     },
     "round": "Matchday 7"
   },
   "Fulham FC|Hull City AFC": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Fulham FC": null,
-      "Hull City AFC": null
+      "Fulham FC": 1,
+      "Hull City AFC": 0
     },
     "round": "Matchday 7"
   },
   "Manchester City FC|Ipswich Town FC": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester City FC": null,
-      "Ipswich Town FC": null
+      "Manchester City FC": 3,
+      "Ipswich Town FC": 2
     },
     "round": "Matchday 7"
   },
   "Brentford FC|Liverpool FC": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brentford FC": null,
-      "Liverpool FC": null
+      "Brentford FC": 1,
+      "Liverpool FC": 2
     },
     "round": "Matchday 7"
   },
   "Newcastle United FC|Aston Villa FC": {
     "date": "2026-10-17",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Newcastle United FC": null,
-      "Aston Villa FC": null
+      "Newcastle United FC": 0,
+      "Aston Villa FC": 1
     },
     "round": "Matchday 7"
   },
   "AFC Bournemouth|Sunderland AFC": {
     "date": "2026-10-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "AFC Bournemouth": null,
-      "Sunderland AFC": null
+      "AFC Bournemouth": 2,
+      "Sunderland AFC": 0
     },
     "round": "Matchday 7"
   },
   "Leeds United FC|Manchester United FC": {
     "date": "2026-10-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Leeds United FC": null,
-      "Manchester United FC": null
+      "Leeds United FC": 1,
+      "Manchester United FC": 1
     },
     "round": "Matchday 7"
   },
   "Brighton & Hove Albion FC|Crystal Palace FC": {
     "date": "2026-10-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brighton & Hove Albion FC": null,
-      "Crystal Palace FC": null
+      "Brighton & Hove Albion FC": 5,
+      "Crystal Palace FC": 0
     },
     "round": "Matchday 7"
   },
   "Nottingham Forest FC|Arsenal FC": {
     "date": "2026-10-18",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Nottingham Forest FC": null,
-      "Arsenal FC": null
+      "Nottingham Forest FC": 0,
+      "Arsenal FC": 1
     },
     "round": "Matchday 7"
   },
   "Tottenham Hotspur FC|Coventry City FC": {
     "date": "2026-10-19",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Tottenham Hotspur FC": null,
-      "Coventry City FC": null
+      "Tottenham Hotspur FC": 3,
+      "Coventry City FC": 1
     },
     "round": "Matchday 7"
   },
@@ -846,7 +846,7 @@
     "round": "Matchday 10"
   },
   "Everton FC|Coventry City FC": {
-    "date": "2026-11-07",
+    "date": "2026-11-06",
     "status": "SCHEDULED",
     "goals": {
       "Everton FC": null,
@@ -855,7 +855,7 @@
     "round": "Matchday 10"
   },
   "Crystal Palace FC|Liverpool FC": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "status": "SCHEDULED",
     "goals": {
       "Crystal Palace FC": null,
@@ -864,7 +864,7 @@
     "round": "Matchday 10"
   },
   "Sunderland AFC|Chelsea FC": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "status": "SCHEDULED",
     "goals": {
       "Sunderland AFC": null,
@@ -873,7 +873,7 @@
     "round": "Matchday 10"
   },
   "Ipswich Town FC|AFC Bournemouth": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "status": "SCHEDULED",
     "goals": {
       "Ipswich Town FC": null,
@@ -882,7 +882,7 @@
     "round": "Matchday 10"
   },
   "Brighton & Hove Albion FC|Brentford FC": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "status": "SCHEDULED",
     "goals": {
       "Brighton & Hove Albion FC": null,
@@ -891,7 +891,7 @@
     "round": "Matchday 10"
   },
   "Manchester United FC|Aston Villa FC": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "status": "SCHEDULED",
     "goals": {
       "Manchester United FC": null,
@@ -927,7 +927,7 @@
     "round": "Matchday 11"
   },
   "Liverpool FC|Manchester United FC": {
-    "date": "2026-11-21",
+    "date": "2026-11-22",
     "status": "SCHEDULED",
     "goals": {
       "Liverpool FC": null,
@@ -936,7 +936,7 @@
     "round": "Matchday 11"
   },
   "Hull City AFC|Brighton & Hove Albion FC": {
-    "date": "2026-11-21",
+    "date": "2026-11-22",
     "status": "SCHEDULED",
     "goals": {
       "Hull City AFC": null,
@@ -963,7 +963,7 @@
     "round": "Matchday 11"
   },
   "Brentford FC|Everton FC": {
-    "date": "2026-11-21",
+    "date": "2026-11-23",
     "status": "SCHEDULED",
     "goals": {
       "Brentford FC": null,
@@ -1008,7 +1008,7 @@
     "round": "Matchday 12"
   },
   "Arsenal FC|Manchester City FC": {
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "status": "SCHEDULED",
     "goals": {
       "Arsenal FC": null,
@@ -1026,7 +1026,7 @@
     "round": "Matchday 12"
   },
   "Everton FC|Liverpool FC": {
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "status": "SCHEDULED",
     "goals": {
       "Everton FC": null,
@@ -1035,7 +1035,7 @@
     "round": "Matchday 12"
   },
   "Fulham FC|AFC Bournemouth": {
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "status": "SCHEDULED",
     "goals": {
       "Fulham FC": null,
@@ -1044,7 +1044,7 @@
     "round": "Matchday 12"
   },
   "Nottingham Forest FC|Chelsea FC": {
-    "date": "2026-11-28",
+    "date": "2026-11-27",
     "status": "SCHEDULED",
     "goals": {
       "Nottingham Forest FC": null,
@@ -1053,7 +1053,7 @@
     "round": "Matchday 12"
   },
   "Brighton & Hove Albion FC|Newcastle United FC": {
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "status": "SCHEDULED",
     "goals": {
       "Brighton & Hove Albion FC": null,
@@ -1062,7 +1062,7 @@
     "round": "Matchday 12"
   },
   "Sunderland AFC|Tottenham Hotspur FC": {
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "status": "SCHEDULED",
     "goals": {
       "Sunderland AFC": null,
@@ -1071,7 +1071,7 @@
     "round": "Matchday 12"
   },
   "Crystal Palace FC|Hull City AFC": {
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "status": "SCHEDULED",
     "goals": {
       "Crystal Palace FC": null,
@@ -1080,7 +1080,7 @@
     "round": "Matchday 12"
   },
   "Tottenham Hotspur FC|Fulham FC": {
-    "date": "2026-12-02",
+    "date": "2026-12-03",
     "status": "SCHEDULED",
     "goals": {
       "Tottenham Hotspur FC": null,
@@ -1134,7 +1134,7 @@
     "round": "Matchday 13"
   },
   "Coventry City FC|Ipswich Town FC": {
-    "date": "2026-12-02",
+    "date": "2026-12-01",
     "status": "SCHEDULED",
     "goals": {
       "Coventry City FC": null,
@@ -1170,7 +1170,7 @@
     "round": "Matchday 13"
   },
   "Tottenham Hotspur FC|Arsenal FC": {
-    "date": "2026-12-05",
+    "date": "2026-12-06",
     "status": "SCHEDULED",
     "goals": {
       "Tottenham Hotspur FC": null,
@@ -1197,7 +1197,7 @@
     "round": "Matchday 14"
   },
   "Newcastle United FC|Sunderland AFC": {
-    "date": "2026-12-05",
+    "date": "2026-12-06",
     "status": "SCHEDULED",
     "goals": {
       "Newcastle United FC": null,
@@ -1251,7 +1251,7 @@
     "round": "Matchday 14"
   },
   "Everton FC|Fulham FC": {
-    "date": "2026-12-05",
+    "date": "2026-12-06",
     "status": "SCHEDULED",
     "goals": {
       "Everton FC": null,
@@ -1260,7 +1260,7 @@
     "round": "Matchday 14"
   },
   "Sunderland AFC|Nottingham Forest FC": {
-    "date": "2026-12-12",
+    "date": "2026-12-13",
     "status": "SCHEDULED",
     "goals": {
       "Sunderland AFC": null,
@@ -1269,7 +1269,7 @@
     "round": "Matchday 15"
   },
   "Crystal Palace FC|Manchester United FC": {
-    "date": "2026-12-12",
+    "date": "2026-12-13",
     "status": "SCHEDULED",
     "goals": {
       "Crystal Palace FC": null,
@@ -1278,7 +1278,7 @@
     "round": "Matchday 15"
   },
   "Hull City AFC|Tottenham Hotspur FC": {
-    "date": "2026-12-12",
+    "date": "2026-12-14",
     "status": "SCHEDULED",
     "goals": {
       "Hull City AFC": null,
@@ -1287,7 +1287,7 @@
     "round": "Matchday 15"
   },
   "Brighton & Hove Albion FC|Everton FC": {
-    "date": "2026-12-12",
+    "date": "2026-12-13",
     "status": "SCHEDULED",
     "goals": {
       "Brighton & Hove Albion FC": null,
@@ -1305,7 +1305,7 @@
     "round": "Matchday 15"
   },
   "Coventry City FC|Aston Villa FC": {
-    "date": "2026-12-12",
+    "date": "2026-12-13",
     "status": "SCHEDULED",
     "goals": {
       "Coventry City FC": null,
@@ -1314,7 +1314,7 @@
     "round": "Matchday 15"
   },
   "Arsenal FC|AFC Bournemouth": {
-    "date": "2026-12-12",
+    "date": "2026-12-13",
     "status": "SCHEDULED",
     "goals": {
       "Arsenal FC": null,
@@ -1359,7 +1359,7 @@
     "round": "Matchday 16"
   },
   "Brighton & Hove Albion FC|Ipswich Town FC": {
-    "date": "2026-12-19",
+    "date": "2026-12-20",
     "status": "SCHEDULED",
     "goals": {
       "Brighton & Hove Albion FC": null,
@@ -1395,7 +1395,7 @@
     "round": "Matchday 16"
   },
   "Sunderland AFC|Crystal Palace FC": {
-    "date": "2026-12-19",
+    "date": "2026-12-20",
     "status": "SCHEDULED",
     "goals": {
       "Sunderland AFC": null,
@@ -1413,7 +1413,7 @@
     "round": "Matchday 16"
   },
   "Arsenal FC|Manchester United FC": {
-    "date": "2026-12-19",
+    "date": "2026-12-20",
     "status": "SCHEDULED",
     "goals": {
       "Arsenal FC": null,
@@ -1431,7 +1431,7 @@
     "round": "Matchday 16"
   },
   "Chelsea FC|Aston Villa FC": {
-    "date": "2026-12-19",
+    "date": "2026-12-21",
     "status": "SCHEDULED",
     "goals": {
       "Chelsea FC": null,
