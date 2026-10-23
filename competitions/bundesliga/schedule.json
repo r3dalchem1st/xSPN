@@ -487,10 +487,10 @@
   },
   "VfB Stuttgart|Borussia M\u00f6nchengladbach": {
     "date": "2026-10-23",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "VfB Stuttgart": null,
-      "Borussia M\u00f6nchengladbach": null
+      "VfB Stuttgart": 2,
+      "Borussia M\u00f6nchengladbach": 3
     },
     "round": "Matchday 7"
   },
