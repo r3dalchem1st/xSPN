@@ -853,23 +853,36 @@
       "market_correct_winner": false,
       "market_brier": 0.8418105568188806,
       "disagree": false
+    },
+    {
+      "home": "Real Racing Club de Santander",
+      "away": "RCD Espanyol de Barcelona",
+      "date": "2026-10-24",
+      "correct_winner": false,
+      "brier": 0.6618646070316037,
+      "log_loss": 1.0546629377999601,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.5656178845537996,
+      "disagree": true
     }
   ],
   "summary": {
-    "n_scored": 90,
-    "accuracy": 0.5666666666666667,
-    "avg_brier": 0.575403071084391,
-    "avg_log_loss": 0.970932194628771,
-    "avg_goal_error": 2.077777777777778,
+    "n_scored": 91,
+    "accuracy": 0.5604395604395604,
+    "avg_brier": 0.5763531978530417,
+    "avg_log_loss": 0.9718523126855972,
+    "avg_goal_error": 2.076923076923077,
     "vs_market": {
-      "n": 11,
-      "accuracy": 0.5454545454545454,
-      "market_accuracy": 0.5454545454545454,
-      "avg_brier": 0.5487228642799654,
-      "market_avg_brier": 0.5563128719000596,
-      "disagree_n": 1,
+      "n": 12,
+      "accuracy": 0.5,
+      "market_accuracy": 0.5833333333333334,
+      "avg_brier": 0.5581513428426019,
+      "market_avg_brier": 0.5570882896212046,
+      "disagree_n": 2,
       "we_right": 0,
-      "market_right": 0
+      "market_right": 1
     }
   }
 }

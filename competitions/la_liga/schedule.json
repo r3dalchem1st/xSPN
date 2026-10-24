@@ -892,10 +892,10 @@
   },
   "Real Racing Club de Santander|RCD Espanyol de Barcelona": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "RCD Espanyol de Barcelona": null
+      "Real Racing Club de Santander": 2,
+      "RCD Espanyol de Barcelona": 1
     },
     "round": "Matchday 10"
   },
