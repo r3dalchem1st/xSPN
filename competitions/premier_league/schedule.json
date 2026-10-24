@@ -640,10 +640,10 @@
   },
   "Aston Villa FC|Manchester City FC": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Aston Villa FC": null,
-      "Manchester City FC": null
+      "Aston Villa FC": 2,
+      "Manchester City FC": 1
     },
     "round": "Matchday 8"
   },
@@ -667,10 +667,10 @@
   },
   "Chelsea FC|Tottenham Hotspur FC": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Chelsea FC": null,
-      "Tottenham Hotspur FC": null
+      "Chelsea FC": 0,
+      "Tottenham Hotspur FC": 2
     },
     "round": "Matchday 8"
   },
