@@ -820,10 +820,10 @@
   },
   "Deportivo Alav\u00e9s|M\u00e1laga CF": {
     "date": "2026-10-23",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Deportivo Alav\u00e9s": null,
-      "M\u00e1laga CF": null
+      "Deportivo Alav\u00e9s": 1,
+      "M\u00e1laga CF": 1
     },
     "round": "Matchday 10"
   },
