@@ -631,10 +631,10 @@
   },
   "Ipswich Town FC|Nottingham Forest FC": {
     "date": "2026-10-23",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Ipswich Town FC": null,
-      "Nottingham Forest FC": null
+      "Ipswich Town FC": 1,
+      "Nottingham Forest FC": 1
     },
     "round": "Matchday 8"
   },

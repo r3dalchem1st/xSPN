@@ -669,20 +669,33 @@
       "market_correct_winner": true,
       "market_brier": 0.19515689061115934,
       "disagree": false
+    },
+    {
+      "home": "Ipswich Town FC",
+      "away": "Nottingham Forest FC",
+      "date": "2026-10-23",
+      "correct_winner": false,
+      "brier": 0.9738721170730746,
+      "log_loss": 1.5083912961459567,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.8039763511163541,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 70,
-    "accuracy": 0.5,
-    "avg_brier": 0.6277356318653582,
-    "avg_log_loss": 1.0544337708355396,
-    "avg_goal_error": 2.1,
+    "n_scored": 71,
+    "accuracy": 0.49295774647887325,
+    "avg_brier": 0.6326107936288471,
+    "avg_log_loss": 1.0608275387976582,
+    "avg_goal_error": 2.084507042253521,
     "vs_market": {
-      "n": 10,
-      "accuracy": 0.6,
-      "market_accuracy": 0.7,
-      "avg_brier": 0.4971010970682629,
-      "market_avg_brier": 0.4135731194097253,
+      "n": 11,
+      "accuracy": 0.5454545454545454,
+      "market_accuracy": 0.6363636363636364,
+      "avg_brier": 0.5404439170687003,
+      "market_avg_brier": 0.4490643222921461,
       "disagree_n": 2,
       "we_right": 0,
       "market_right": 1
