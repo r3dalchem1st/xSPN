@@ -842,6 +842,19 @@
       "total_goal_error": 3
     },
     {
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Elche CF",
+      "date": "2026-10-24",
+      "correct_winner": false,
+      "brier": 0.8882307741200423,
+      "log_loss": 1.4102433097855502,
+      "total_goal_error": 4,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.9729411164781989,
+      "disagree": false
+    },
+    {
       "home": "Deportivo Alav\u00e9s",
       "away": "M\u00e1laga CF",
       "date": "2026-10-23",
@@ -852,6 +865,32 @@
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8418105568188806,
+      "disagree": false
+    },
+    {
+      "home": "Valencia CF",
+      "away": "Villarreal CF",
+      "date": "2026-10-24",
+      "correct_winner": true,
+      "brier": 0.5367451328456276,
+      "log_loss": 0.9074334868862194,
+      "total_goal_error": 2,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.46915435348919066,
+      "disagree": false
+    },
+    {
+      "home": "Club Atl\u00e9tico de Madrid",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "date": "2026-10-24",
+      "correct_winner": true,
+      "brier": 0.16328810353864537,
+      "log_loss": 0.399238439433404,
+      "total_goal_error": 0,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.0931912419764452,
       "disagree": false
     },
     {
@@ -869,17 +908,17 @@
     }
   ],
   "summary": {
-    "n_scored": 91,
-    "accuracy": 0.5604395604395604,
-    "avg_brier": 0.5763531978530417,
-    "avg_log_loss": 0.9718523126855972,
-    "avg_goal_error": 2.076923076923077,
+    "n_scored": 94,
+    "accuracy": 0.5638297872340425,
+    "avg_brier": 0.5748553725013947,
+    "avg_log_loss": 0.9697391030903673,
+    "avg_goal_error": 2.074468085106383,
     "vs_market": {
-      "n": 12,
-      "accuracy": 0.5,
-      "market_accuracy": 0.5833333333333334,
-      "avg_brier": 0.5581513428426019,
-      "market_avg_brier": 0.5570882896212046,
+      "n": 15,
+      "accuracy": 0.5333333333333333,
+      "market_accuracy": 0.6,
+      "avg_brier": 0.5524053416410359,
+      "market_avg_brier": 0.548023079159886,
       "disagree_n": 2,
       "we_right": 0,
       "market_right": 1

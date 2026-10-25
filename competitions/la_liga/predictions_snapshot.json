@@ -1198,5 +1198,21 @@
       "pd": 0.2798683154099326,
       "pa": 0.2295768064961761
     }
+  },
+  "Villarreal CF|RCD Espanyol de Barcelona": {
+    "home": "Villarreal CF",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-10-30",
+    "ph": 0.6106889378384501,
+    "pd": 0.21487437351691235,
+    "pa": 0.17443668864463763,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-25",
+    "market": {
+      "ph": 0.6246491106754753,
+      "pd": 0.20853603248230793,
+      "pa": 0.16681485684221686
+    }
   }
 }
