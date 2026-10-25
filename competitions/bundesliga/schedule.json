@@ -496,55 +496,55 @@
   },
   "1. FSV Mainz 05|SV Werder Bremen": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FSV Mainz 05": null,
-      "SV Werder Bremen": null
+      "1. FSV Mainz 05": 2,
+      "SV Werder Bremen": 3
     },
     "round": "Matchday 7"
   },
   "1. FC K\u00f6ln|FC Schalke 04": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC K\u00f6ln": null,
-      "FC Schalke 04": null
+      "1. FC K\u00f6ln": 0,
+      "FC Schalke 04": 0
     },
     "round": "Matchday 7"
   },
   "RB Leipzig|SV 07 Elversberg": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RB Leipzig": null,
-      "SV 07 Elversberg": null
+      "RB Leipzig": 4,
+      "SV 07 Elversberg": 0
     },
     "round": "Matchday 7"
   },
   "SC Paderborn 07|Hamburger SV": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SC Paderborn 07": null,
-      "Hamburger SV": null
+      "SC Paderborn 07": 1,
+      "Hamburger SV": 0
     },
     "round": "Matchday 7"
   },
   "FC Augsburg|1. FC Union Berlin": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Augsburg": null,
-      "1. FC Union Berlin": null
+      "FC Augsburg": 1,
+      "1. FC Union Berlin": 1
     },
     "round": "Matchday 7"
   },
   "Borussia Dortmund|Eintracht Frankfurt": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Borussia Dortmund": null,
-      "Eintracht Frankfurt": null
+      "Borussia Dortmund": 1,
+      "Eintracht Frankfurt": 0
     },
     "round": "Matchday 7"
   },
