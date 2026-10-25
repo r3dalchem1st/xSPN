@@ -649,19 +649,19 @@
   },
   "Arsenal FC|Everton FC": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Arsenal FC": null,
-      "Everton FC": null
+      "Arsenal FC": 2,
+      "Everton FC": 0
     },
     "round": "Matchday 8"
   },
   "Coventry City FC|Fulham FC": {
     "date": "2026-10-24",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Coventry City FC": null,
-      "Fulham FC": null
+      "Coventry City FC": 0,
+      "Fulham FC": 1
     },
     "round": "Matchday 8"
   },
