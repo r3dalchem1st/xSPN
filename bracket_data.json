@@ -88,7 +88,7 @@
         "score": "2\u20130",
         "ph": 0.694,
         "pd": 0.198,
-        "pa": 0.109,
+        "pa": 0.108,
         "likely_winner": "Canada"
       },
       {
@@ -595,7 +595,7 @@
         "lam": 3.21,
         "mu": 0.82,
         "score": "3\u20130",
-        "ph": 0.784,
+        "ph": 0.785,
         "pd": 0.154,
         "pa": 0.061,
         "likely_winner": "Senegal"
@@ -1056,7 +1056,7 @@
       "away": "Norway",
       "score": "1\u20132",
       "winner": "Norway",
-      "win_pct": 65.5,
+      "win_pct": 65.6,
       "ph": 0.241,
       "pd": 0.237,
       "pa": 0.522,
@@ -1294,7 +1294,7 @@
       "winner": "England",
       "win_pct": 61.4,
       "ph": 0.3,
-      "pd": 0.229,
+      "pd": 0.23,
       "pa": 0.471,
       "reg_winner": "England",
       "lam": 1.38,
@@ -1438,12 +1438,12 @@
   "champion": "Spain",
   "champion_pct": 92.5,
   "reach_final": {
-    "Spain": 97.6,
+    "Spain": 97.5,
     "Argentina": 83.8,
-    "England": 9.2,
+    "England": 9.3,
     "Colombia": 6.2,
     "France": 2.0,
-    "Senegal": 0.8,
+    "Senegal": 0.7,
     "USA": 0.3,
     "Algeria": 0.1
   }
