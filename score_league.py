@@ -10,6 +10,12 @@ import math
 import os
 import sys
 
+import numpy as np
+
+from eval_stats import improvement, skill_vs_baseline
+
+MIN_CLOSED_SEASON_MATCHES = 100  # fewer than this and a base-rate forecast isn't meaningful
+
 
 def score_match(entry, actual_hg, actual_ag):
     """Score one locked prediction against its actual result. Returns
@@ -58,16 +64,43 @@ def summarise_vs_market(matches):
         return None
     n = len(mm)
     diff = [m for m in mm if m["disagree"]]
+    # market Brier minus ours, per match: positive = we're ahead. The interval is
+    # the point -- a raw tally on a few dozen matches can't distinguish "behind"
+    # from "level" (about 280 matches are needed to resolve a 0.01 gap).
+    gap = improvement(np.array([m["brier"] for m in mm]), np.array([m["market_brier"] for m in mm]),
+                      n_boot=2000, seed=0)
     return {
         "n": n,
         "accuracy": sum(m["correct_winner"] for m in mm) / n,
         "market_accuracy": sum(m["market_correct_winner"] for m in mm) / n,
         "avg_brier": sum(m["brier"] for m in mm) / n,
         "market_avg_brier": sum(m["market_brier"] for m in mm) / n,
+        "brier_gap": {"mean": gap["mean"], "lo": gap["lo"], "hi": gap["hi"]},
         "disagree_n": len(diff),
         "we_right": sum(m["correct_winner"] for m in diff),
         "market_right": sum(m["market_correct_winner"] for m in diff),
     }
+
+
+def closed_season_base_rate(out_dir, schedule):
+    """[P(H), P(D), P(A)] from every completed season in fetched_matches.json
+    (rows dated before this season's first fixture), or None if there isn't
+    enough history. The honest naive baseline: "always forecast the league's
+    historical result frequencies". The site used to compare against the
+    uniform 1/3-1/3-1/3 forecast (Brier 0.667), which flatters a model in
+    leagues where home wins are ~45% of results -- live, Premier League's
+    model beat the real naive baseline by 3%, Bundesliga's by nothing."""
+    path = os.path.join(out_dir, "fetched_matches.json")
+    if not os.path.exists(path) or not schedule:
+        return None
+    season_start = min(e["date"] for e in schedule.values())
+    with open(path) as f:
+        closed = [r for r in json.load(f) if r[0] < season_start]
+    if len(closed) < MIN_CLOSED_SEASON_MATCHES:
+        return None
+    n = len(closed)
+    return [sum(r[3] > r[4] for r in closed) / n, sum(r[3] == r[4] for r in closed) / n,
+            sum(r[3] < r[4] for r in closed) / n]
 
 
 def score_and_save(config, base_dir):
@@ -88,7 +121,7 @@ def score_and_save(config, base_dir):
         with open(snapshot_path) as f:
             snapshot = json.load(f)
 
-    matches = []
+    matches, outcomes = [], []
     for key, entry in schedule.items():
         if entry["status"] != "FINISHED":
             continue
@@ -100,6 +133,7 @@ def score_and_save(config, base_dir):
             continue
         result = score_match(snapshot[key], hg, ag)
         matches.append({"home": home, "away": away, "date": entry["date"], **result})
+        outcomes.append(0 if hg > ag else (2 if hg < ag else 1))
 
     n = len(matches)
     summary = {
@@ -109,6 +143,12 @@ def score_and_save(config, base_dir):
         "avg_log_loss": sum(m["log_loss"] for m in matches) / n if n else None,
         "avg_goal_error": sum(m["total_goal_error"] for m in matches) / n if n else None,
     }
+    base_rate = closed_season_base_rate(out_dir, schedule) if n else None
+    if base_rate:
+        base_losses = np.array([sum((base_rate[k] - (k == o)) ** 2 for k in range(3)) for o in outcomes])
+        sk = skill_vs_baseline(np.array([m["brier"] for m in matches]), base_losses, n_boot=2000, seed=0)
+        summary["baseline"] = {"base_rate": base_rate, "avg_brier": float(base_losses.mean()),
+                               "skill": sk["skill"], "skill_lo": sk["lo"], "skill_hi": sk["hi"]}
     vs_market = summarise_vs_market(matches)
     if vs_market:
         summary["vs_market"] = vs_market
