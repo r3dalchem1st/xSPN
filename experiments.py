@@ -57,6 +57,20 @@ FAMILIES = {
     # predicted second-half goal difference better than first-half goals (r .784 vs .733, CI on the
     # gain [+.029,+.076]). Pooled across leagues; w=0 is the baseline, w=1 is pure xG.
     "xg": [(f"xg_weight={v}", {"xg_weight": v}) for v in (0.25, 0.5, 0.75, 1.0)],
+    # Added 26 Oct, all three grids fixed BEFORE any run (one family = one confirmation look each).
+    # fatigue: a team's strength drops with short rest since its previous LEAGUE match (rest_weight per
+    # 3 days under 7) and with matches beyond 2 in the last 14 days (congestion_weight). Cup and European
+    # games are not in this data, so this sees only part of real congestion.
+    "fatigue": [(f"rest_weight={v}", {"rest_weight": v}) for v in (0.01, 0.02, 0.04)]
+               + [(f"congestion_weight={v}", {"congestion_weight": v}) for v in (0.01, 0.02, 0.04)],
+    # promoted_t2: a promoted club's prior is gamma x its rating from a fit to the second division's previous
+    # season, shifted down by c (the earlier constant-offset family never helped; this uses the club's own record).
+    "promoted_t2": [(f"tier2 gamma={g} c={c}", {"tier2_prior": {"gamma": g, "c": c}})
+                    for g in (0.25, 0.5, 0.75) for c in (0.0, 0.1, 0.2)],
+    # dynamic: ratings = (1-k) x a slow-memory fit + k x a fast-memory fit -- a two-speed approximation of
+    # time-varying team strength (half_life_days is the slow one; the production half-life is 547.5).
+    "dynamic": [(f"blend slow={s}d fast={f}d k={k}", {"half_life_days": s, "blend_half_life": f, "blend_weight": k})
+                for s in (730, 1095) for f in (180, 365) for k in (0.25, 0.5)],
 }
 PER_LEAGUE = {"momentum", "odds_fit"}      # settings chosen and judged one league at a time
 POOLED_FOR_COMBINATION = ["half_life", "l2", "elo_prior", "promoted_prior", "train_window", "shrink", "draw_inflate"]
@@ -89,7 +103,7 @@ def _best(entries):
 
 
 def dev_stage():
-    data = load_all(xg=True)
+    data = load_all(xg=True, tier2=True)
     saved = _load(DEV_PATH, {})
     with ProcessPoolExecutor(max_workers=worker_count()) as ex:
         run = lambda cfg: run_config(cfg, data, test_seasons=TEST_SEASONS, executor=ex)
@@ -132,7 +146,7 @@ def dev_stage():
 
 def combo_stage():
     """Dev-screen the combination of pooled-family winners (still development seasons only)."""
-    data = load_all(xg=True)
+    data = load_all(xg=True, tier2=True)
     combo = _load(os.path.join(DEFAULT_CACHE, "dev_winners.json"), {}).get("combination|ALL")
     if not combo:
         return print("no combination to test")
@@ -168,7 +182,7 @@ def _judge_and_log(key, cfg, scope, run, base, log):
 
 def confirm_stage(families, production=False):
     log = _load(LOG_PATH, {})
-    data = load_all(xg=True)
+    data = load_all(xg=True, tier2=True)
     with ProcessPoolExecutor(max_workers=worker_count()) as ex:
         # a league-scoped setting is judged on that league alone, so only compute that league
         run = lambda cfg, scope="ALL": run_config(cfg, data if scope == "ALL" else {scope: data[scope]},

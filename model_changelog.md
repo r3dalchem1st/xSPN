@@ -111,4 +111,14 @@ Model was the broken June 1 pipeline; all 72 group snapshots locked with stale p
 
 ---
 
+## 2026-10-26 (later still) — three more families judged: fatigue, promoted clubs from the 2nd division, two-speed ratings. None adopted.
+
+**Files:** `rolling_backtest.py` (`rest_weight`, `congestion_weight`, `tier2_prior`, `blend_half_life`/`blend_weight`), `backtest_league.py` (`predict_match_probs(shifts=)`), `multiseason_data.py` (`TIER2_CODES`), `experiments.py` — harness only; grids were fixed before any run.
+- **Fatigue (rest days / fixture congestion), 6 candidates:** nothing advanced; every effect within +-0.0003 Brier, intervals spanning zero (best: congestion_weight=0.04, +0.00013 [-0.00012,+0.00037]). Not a design failure: on the development seasons 20% of team-matches have <=4 days' rest and 12.5% sit in a 3+-games-in-14-days spell, yet the residual (actual - expected score) on rest difference is +0.002/day, CI [-0.003,+0.008]; on congestion -0.010/match, CI [-0.028,+0.008]. League fixtures only — cup and European games are NOT in this data, so real congestion is only partly seen.
+- **Promoted clubs rated from the second division (E1/SP2/D2, previous season), 9 candidates (gamma x tier-2 rating - c):** nothing advanced (range -0.0005..+0.00002). All 81 promoted clubs across the 10 test seasons map to a club in the division's previous season, so this is a fair test; with the earlier constant-offset family it says the L2 shrinkage already handles promoted clubs about as well as any prior we can build from results.
+- **Two-speed ratings ((1-k) slow fit + k fast fit), 8 candidates:** one advanced on development (slow 1095 d / fast 180 d / k=0.5, +0.00067 [+0.00007,+0.00127], Bundesliga flat) and FAILED its one confirmation look: +0.00077 [-0.00010,+0.00164], log-loss +0.0011 — the lower bound just missed zero. Baseline stays.
+**Running tally of confirmation looks:** 8 (L2, train window, L2+window, La Liga odds-fit, PL momentum, BL momentum, xG, two-speed); 1 PASS (xG). With that many looks, a single marginal pass would deserve suspicion; xG's was not marginal (consistent dose-response, same sign in every league, independent split-half support).
+
+---
+
 *To review accuracy before/after any change: check `accuracy_history.json` for entries around the change date.*

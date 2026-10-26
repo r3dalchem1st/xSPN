@@ -29,6 +29,7 @@ from odds_utils import implied_probs_from_odds
 
 SEASONS = ["1314", "1415", "1516", "1617", "1718", "1819", "1920", "2021", "2122", "2223", "2324", "2425", "2526"]
 LEAGUE_CODES = {"premier_league": "E0", "la_liga": "SP1", "bundesliga": "D1"}
+TIER2_CODES = {"premier_league": "E1", "la_liga": "SP2", "bundesliga": "D2"}   # the division below each
 MARKET_COLUMNS = [("AvgH", "AvgD", "AvgA"), ("BbAvH", "BbAvD", "BbAvA"), ("B365H", "B365D", "B365A")]
 DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "backtest_cache")
 
