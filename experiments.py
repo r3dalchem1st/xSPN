@@ -2,7 +2,9 @@
 Model experiments under rolling_backtest.py's pre-registered rule.
 
     python experiments.py dev                 # screen every candidate on the DEVELOPMENT seasons only
+    python experiments.py combo               # dev-screen the combination of pooled-family winners
     python experiments.py confirm [family..]  # judge each family's dev winner on the CONFIRMATION seasons
+    python experiments.py confirm-production  # judge the momentum settings live in production (one look each)
 
 The confirmation seasons are touched once per family: `confirm` records each
 verdict in backtest_cache/confirmation_log.json and refuses to run a family
@@ -37,7 +39,10 @@ DEV_PATH = os.path.join(DEFAULT_CACHE, "dev_results.json")
 
 FAMILIES = {
     "half_life": [(f"half_life={v}", {"half_life_days": v}) for v in (120, 240, 365, 730, 1095, 1825)],
-    "l2": [(f"l2={v}", {"l2_reg": v}) for v in (0.03, 0.1, 0.2, 0.5, 0.8, 1.5)],
+    # 3.0/6.0/12.0 added AFTER the first sweep showed the improvement still rising at the
+    # original grid's edge (1.5). Extending a grid on DEVELOPMENT data is fine; the
+    # confirmation seasons were not touched.
+    "l2": [(f"l2={v}", {"l2_reg": v}) for v in (0.03, 0.1, 0.2, 0.5, 0.8, 1.5, 3.0, 6.0, 12.0)],
     "elo_prior": [(f"elo_beta={v}", {"elo_prior_beta": v}) for v in (0.1, 0.25, 0.5, 1.0)],
     "promoted_prior": [(f"promoted=({-v},{v})", {"promoted_prior": (-v, v)}) for v in (0.1, 0.2, 0.3, 0.4)],
     "train_window": [(f"train_seasons={v}", {"train_seasons": v}) for v in (1, 2, 5, 8)],
@@ -132,35 +137,56 @@ def combo_stage():
     print(f"COMBINATION {combo}\n  {_fmt(r)}")
 
 
-def confirm_stage(families):
-    winners = _load(os.path.join(DEFAULT_CACHE, "dev_winners.json"), {})
+# Settings live in production today (chosen on the single 2025-26 season, which is INSIDE the
+# confirmation set -- so this look is optimistic for them; if they fail anyway the verdict is firm).
+PRODUCTION_SETTINGS = {
+    "production_momentum|premier_league": ({"momentum_weight": 0.1, "momentum_n": 8}, "premier_league"),
+    "production_momentum|bundesliga": ({"momentum_weight": 0.02, "momentum_n": 5}, "bundesliga"),
+}
+
+
+def _judge_and_log(key, cfg, scope, run, base, log):
+    if key in log:
+        print(f"{key}: ALREADY CONFIRMED once ({'PASS' if log[key]['pass'] else 'FAIL'}); "
+              f"refusing a second look at the confirmation seasons")
+        return
+    base_scoped = base if scope == "ALL" else [r for r in base if r["league"] == scope]
+    r = judge(run(cfg, scope), base_scoped, leagues=None if scope == "ALL" else [scope])
+    log[key] = {"config": cfg, "pass": r["pass"], "dBrier": r["brier"], "dLogloss": r["logloss"],
+                "per_league": r["per_league"], "per_season": r["per_season"], "reasons": r["reasons"]}
+    _save(LOG_PATH, log)
+    b = r["brier"]
+    print(f"{key:34s} {'PASS' if r['pass'] else 'FAIL'}  dBrier {b['mean']:+.5f} [{b['lo']:+.5f},{b['hi']:+.5f}]  "
+          f"dLogloss {r['logloss']:+.5f}  {cfg}")
+    print(f"    {'; '.join(r['reasons']) or 'all conditions met'}", flush=True)
+
+
+def confirm_stage(families, production=False):
     log = _load(LOG_PATH, {})
     data = load_all()
     with ProcessPoolExecutor(max_workers=worker_count()) as ex:
-        run = lambda cfg: run_config(cfg, data, test_seasons=TEST_SEASONS, executor=ex)
+        # a league-scoped setting is judged on that league alone, so only compute that league
+        run = lambda cfg, scope="ALL": run_config(cfg, data if scope == "ALL" else {scope: data[scope]},
+                                                  test_seasons=TEST_SEASONS, executor=ex)
         base = run({})
-        for key, cfg in winners.items():
+        if production:
+            for key, (cfg, scope) in PRODUCTION_SETTINGS.items():
+                _judge_and_log(key, cfg, scope, run, base, log)
+            return
+        for key, cfg in _load(os.path.join(DEFAULT_CACHE, "dev_winners.json"), {}).items():
             fam, scope = key.split("|")
             if families and fam not in families:
                 continue
             if cfg is None:
                 print(f"{key}: no development winner -> nothing to confirm; baseline stays")
                 continue
-            if key in log:
-                print(f"{key}: ALREADY CONFIRMED once ({'PASS' if log[key]['pass'] else 'FAIL'}); "
-                      f"refusing a second look at the confirmation seasons")
-                continue
-            r = judge(run(cfg), base, leagues=None if scope == "ALL" else [scope])
-            log[key] = {"config": cfg, "pass": r["pass"], "dBrier": r["brier"], "dLogloss": r["logloss"],
-                        "per_league": r["per_league"], "per_season": r["per_season"], "reasons": r["reasons"]}
-            _save(LOG_PATH, log)
-            b = r["brier"]
-            print(f"{key:28s} {'PASS' if r['pass'] else 'FAIL'}  dBrier {b['mean']:+.5f} [{b['lo']:+.5f},{b['hi']:+.5f}]  "
-                  f"dLogloss {r['logloss']:+.5f}  {cfg}\n    {'; '.join(r['reasons']) or 'all conditions met'}", flush=True)
+            _judge_and_log(key, cfg, scope, run, base, log)
 
 
 if __name__ == "__main__":
-    stages = {"dev": lambda: dev_stage(), "combo": lambda: combo_stage(), "confirm": lambda: confirm_stage(sys.argv[2:])}
+    stages = {"dev": lambda: dev_stage(), "combo": lambda: combo_stage(),
+              "confirm": lambda: confirm_stage(sys.argv[2:]),
+              "confirm-production": lambda: confirm_stage([], production=True)}
     if len(sys.argv) < 2 or sys.argv[1] not in stages:
         raise SystemExit(__doc__)
     stages[sys.argv[1]]()
