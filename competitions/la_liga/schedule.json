@@ -829,10 +829,10 @@
   },
   "Athletic Club|Getafe CF": {
     "date": "2026-10-25",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "Athletic Club": 4,
-      "Getafe CF": 0
+      "Athletic Club": null,
+      "Getafe CF": null
     },
     "round": "Matchday 10"
   },
@@ -856,10 +856,10 @@
   },
   "FC Barcelona|Real Madrid CF": {
     "date": "2026-10-25",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "FC Barcelona": 1,
-      "Real Madrid CF": 2
+      "FC Barcelona": null,
+      "Real Madrid CF": null
     },
     "round": "Matchday 10"
   },
@@ -874,19 +874,19 @@
   },
   "RC Celta de Vigo|Real Betis Balompi\u00e9": {
     "date": "2026-10-25",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "RC Celta de Vigo": 0,
-      "Real Betis Balompi\u00e9": 0
+      "RC Celta de Vigo": null,
+      "Real Betis Balompi\u00e9": null
     },
     "round": "Matchday 10"
   },
   "Real Sociedad de F\u00fatbol|Levante UD": {
     "date": "2026-10-25",
-    "status": "FINISHED",
+    "status": "SCHEDULED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": 2,
-      "Levante UD": 1
+      "Real Sociedad de F\u00fatbol": null,
+      "Levante UD": null
     },
     "round": "Matchday 10"
   },
