@@ -329,3 +329,38 @@ def test_build_rows_returns_none_mkt_probs_when_not_requested():
     matches = [["2025-08-05", "Strong FC", "Mid FC", 1, 0, "Test League", False]]
     rows, mkt_probs = fit_league._build_rows(matches, idx)
     assert mkt_probs is None
+
+
+# --- tunable fit hyperparameters (half-life, L2, prior): used by rolling_backtest.py ---
+
+def test_fit_dc_with_explicit_default_hyperparameters_is_identical_to_omitting_them():
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    plain = fit_dc(SYNTHETIC_MATCHES, elo)
+    explicit = fit_dc(SYNTHETIC_MATCHES, elo, half_life_days=fit_league.HALF_LIFE_DAYS,
+                      l2_reg=fit_league.L2_REG, prior=None)
+    assert plain["attack"] == explicit["attack"] and plain["defense"] == explicit["defense"]
+
+
+def test_stronger_l2_shrinks_the_spread_of_attack_ratings():
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    spread = lambda dc: max(dc["attack"].values()) - min(dc["attack"].values())
+    assert spread(fit_dc(SYNTHETIC_MATCHES, elo, l2_reg=3.0)) < spread(fit_dc(SYNTHETIC_MATCHES, elo, l2_reg=0.05))
+
+
+def test_shorter_half_life_makes_recent_results_matter_more():
+    # Weak FC thrashed everyone long ago, then lost everything recently.
+    old = [["2024-01-%02d" % (i + 1), "Weak FC", opp, 4, 0, "T", False] for i, opp in enumerate(["A FC", "B FC", "C FC"] * 3)]
+    new = [["2026-09-%02d" % (i + 1), "Weak FC", opp, 0, 3, "T", False] for i, opp in enumerate(["A FC", "B FC", "C FC"] * 3)]
+    rev = [[d, a, h, ag, hg, l, n] for d, h, a, hg, ag, l, n in old + new]  # also as the away side, for identifiability
+    matches = old + new + rev
+    elo = compute_elos(matches)
+    long_memory = fit_dc(matches, elo, half_life_days=5000.0)["attack"]["Weak FC"]
+    short_memory = fit_dc(matches, elo, half_life_days=30.0)["attack"]["Weak FC"]
+    assert short_memory < long_memory
+
+
+def test_a_prior_pulls_a_thin_data_team_toward_it():
+    elo = compute_elos(SYNTHETIC_MATCHES)
+    base = fit_dc(SYNTHETIC_MATCHES, elo)["attack"]["Newcomer FC"]
+    pulled = fit_dc(SYNTHETIC_MATCHES, elo, prior={"attack": {"Newcomer FC": 1.0}, "defense": {}})["attack"]["Newcomer FC"]
+    assert pulled > base

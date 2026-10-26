@@ -88,7 +88,7 @@ def _build_rows(matches, idx, half_life_days=HALF_LIFE_DAYS, mkt_probs_by_match=
 
 
 def _fit_rows(rows, teams, x0, l2_reg=L2_REG, maxiter=2000, w_scale=None,
-              mkt_probs=None, odds_weight=0.0):
+              mkt_probs=None, odds_weight=0.0, prior_atk=None, prior_def=None):
     n = len(teams)
     hi = np.array([r[0] for r in rows], dtype=np.int32)
     ai = np.array([r[1] for r in rows], dtype=np.int32)
@@ -144,7 +144,10 @@ def _fit_rows(rows, teams, x0, l2_reg=L2_REG, maxiter=2000, w_scale=None,
         ll_a = ag * np.log(mu) - mu - gla
         ll = np.sum(w * (np.log(tau) + ll_h + ll_a))
 
-        reg = l2_reg * (np.dot(atk, atk) + np.dot(dfn, dfn))
+        if prior_atk is None:
+            reg = l2_reg * (np.dot(atk, atk) + np.dot(dfn, dfn))
+        else:  # same penalty, centred on a prior instead of on 0 (league average)
+            reg = l2_reg * (np.sum((atk - prior_atk) ** 2) + np.sum((dfn - prior_def) ** 2))
 
         odds_term = 0.0
         if has_odds is not None and has_odds.any():
@@ -177,7 +180,8 @@ def _unpack(p, teams):
     }
 
 
-def fit_dc(matches, elo_ratings, mkt_probs_by_match=None, odds_weight=0.0):
+def fit_dc(matches, elo_ratings, mkt_probs_by_match=None, odds_weight=0.0,
+           half_life_days=HALF_LIFE_DAYS, l2_reg=L2_REG, prior=None):
     """Point-estimate Dixon-Coles fit. Returns dict with attack/defense/
     home_adv/rho/teams/converged/fun.
 
@@ -186,12 +190,25 @@ def fit_dc(matches, elo_ratings, mkt_probs_by_match=None, odds_weight=0.0):
     _fit_rows's own docstring/comment and backtest_fit_odds.py, which
     grid-searches real odds_weight values against real backtested
     accuracy/Brier/log-loss before any competition config sets one for
-    real; unset, this is byte-identical to fit_dc before this existed."""
+    real; unset, this is byte-identical to fit_dc before this existed.
+
+    `half_life_days`, `l2_reg` and `prior` ({"attack": {team: v}, "defense":
+    {team: v}}, centring the L2 penalty on a per-team prior instead of on 0)
+    make the fit's hyperparameters tunable by rolling_backtest.py. Their
+    defaults are the constants this module has always used (copied from the
+    WC fit and never tuned for leagues until that harness existed), so
+    omitting them changes nothing."""
     teams = sorted({m[1] for m in matches} | {m[2] for m in matches})
     idx = {t: i for i, t in enumerate(teams)}
-    rows, mkt_probs = _build_rows(matches, idx, mkt_probs_by_match=mkt_probs_by_match)
-    res = _fit_rows(rows, teams, _x0_from_elo(teams, elo_ratings),
-                     mkt_probs=mkt_probs, odds_weight=odds_weight)
+    rows, mkt_probs = _build_rows(matches, idx, half_life_days=half_life_days,
+                                  mkt_probs_by_match=mkt_probs_by_match)
+    prior_atk = prior_def = None
+    if prior:
+        prior_atk = np.array([prior.get("attack", {}).get(t, 0.0) for t in teams])
+        prior_def = np.array([prior.get("defense", {}).get(t, 0.0) for t in teams])
+    res = _fit_rows(rows, teams, _x0_from_elo(teams, elo_ratings), l2_reg=l2_reg,
+                    mkt_probs=mkt_probs, odds_weight=odds_weight,
+                    prior_atk=prior_atk, prior_def=prior_def)
     out = _unpack(res.x, teams)
     out.update(teams=teams, converged=bool(res.success), fun=float(res.fun))
     return out
