@@ -6,3 +6,6 @@ dc_ensemble.json
 .claude/launch.json
 __pycache__/
 *.pyc
+
+# Raw football-data.co.uk CSVs cached by multiseason_data.py (re-downloadable)
+backtest_cache/
