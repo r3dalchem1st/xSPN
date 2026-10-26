@@ -55,9 +55,9 @@ class CompetitionConfig:
         # applied only to match-level H/D/A prediction (snapshot_league.py
         # and friends), not sim_league.py's season simulation -- see that
         # module's own docstring for why. momentum_weight=0.0 (default) is
-        # a no-op; real values come from backtest_league.py's
-        # --momentum-grid, selected to not regress raw winner accuracy even
-        # when a larger weight would score better on Brier alone.
+        # a no-op, and is what every league runs: the settings once live
+        # (PL 0.1/8, BL 0.02/5) were chosen on one season and failed the
+        # pre-registered multi-season confirmation (rolling_backtest.py).
         self.momentum_weight = data.get("momentum_weight", 0.0)
         self.momentum_n = data.get("momentum_n", 5)
         # Optional football-data.co.uk league code (e.g. "E0" for the
@@ -66,15 +66,12 @@ class CompetitionConfig:
         # API key, confirmed live: plain CSV over HTTP). None -> no odds
         # feed configured for this competition.
         self.odds_history_code = data.get("odds_history_code")
-        # Optional weight for fit_league.py's odds-consistency fit term
-        # (backtest_fit_odds.py grid-searches this against real historical
-        # odds, joined per training season -- never guessed). 0.0 (default)
-        # is a true no-op: fit_and_save() doesn't read this field yet, so
-        # setting it real here documents the backtested choice WITHOUT
-        # changing the live production fit -- shadow_fit_odds.py is the only
-        # current consumer, sandboxing the real value for ~2 weeks against
-        # real upcoming fixtures before it's wired into fit_and_save for
-        # real. See CONTEXT.md for the per-league backtest results.
+        # Optional weight for fit_league.py's odds-consistency fit term,
+        # read by fit_and_save() and joined to each training season's real
+        # historical odds. 0.0 (default) is a true no-op. A non-zero value
+        # must pass the pre-registered rule in rolling_backtest.py: La Liga's
+        # 100 failed its confirmation seasons (21 Sep promotion was never
+        # statistically supported), so all three leagues run 0.0.
         self.odds_fit_weight = data.get("odds_fit_weight", 0.0)
         # Optional The Odds API sport_key (e.g. "soccer_epl") -- lets
         # snapshot_league.py record the bookmaker's live odds next to each

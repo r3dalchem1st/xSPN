@@ -46,8 +46,7 @@
     "Ipswich Town": "Ipswich Town FC"
   },
   "football_data_code": "PL",
-  "momentum_weight": 0.1,
-  "momentum_n": 8,
+  "momentum_weight": 0.0,
   "odds_history_code": "E0",
   "odds_fit_weight": 0.0,
   "odds_api_sport_key": "soccer_epl"
