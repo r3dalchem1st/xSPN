@@ -146,16 +146,27 @@ def _task(args):
     return [{**rec, "league": league} for rec in run_season(rows_by_season, season_keys, idx, config)]
 
 
-def run_config(config, data, test_seasons=None, season_keys=None, workers=1):
+def worker_count():
+    """Parallel workers: XSPN_WORKERS (default 6), capped by cores. Each worker is a
+    full Python process importing numpy+scipy (~hundreds of MB of commit on Windows);
+    an 18-worker run exhausted the pagefile on a 16 GB machine and crashed the session."""
+    return max(1, min(int(os.environ.get("XSPN_WORKERS", "6")), os.cpu_count() or 1))
+
+
+def run_config(config, data, test_seasons=None, season_keys=None, workers=1, executor=None):
     """Run one model configuration over every league in `data`
     ({league: {season: rows}}) for `test_seasons` (default: every season with
     enough history). Records come back in a stable (league, season, date) order
-    so two configs' records line up match-for-match for paired comparison."""
+    so two configs' records line up match-for-match for paired comparison.
+    Pass an existing `executor` to reuse one worker pool across many configs
+    (respawning a pool per config is slow and multiplies peak memory)."""
     cfg = {**DEFAULT_CONFIG, **config}
     keys = season_keys or SEASONS
     wanted = test_seasons or keys[cfg["train_seasons"]:]
     tasks = [(lg, by, keys, keys.index(s), config) for lg, by in data.items() for s in wanted]
-    if workers > 1:
+    if executor is not None:
+        chunks = list(executor.map(_task, tasks))
+    elif workers > 1:
         with ProcessPoolExecutor(max_workers=workers) as ex:
             chunks = list(ex.map(_task, tasks))
     else:
@@ -246,8 +257,7 @@ def main():
     import time
     t = time.time()
     data = load_all()
-    workers = min(18, os.cpu_count() or 1)
-    recs = run_config({}, data, workers=workers)
+    recs = run_config({}, data, workers=worker_count())
     print(f"baseline (production defaults, plain model) over {len(recs)} out-of-sample matches in {time.time()-t:.0f}s, "
           f"{sum(1 for r in recs if not r['conv'])} non-converged fits\n")
     print(f"{'':16s} {'n':>5} {'model Brier':>12} {'market Brier':>13} {'model acc':>10} {'market acc':>11}")
