@@ -100,4 +100,15 @@ Model was the broken June 1 pipeline; all 72 group snapshots locked with stale p
 
 ---
 
+## 2026-10-26 (later) — xG-blended training targets PASS the pre-registered rule (NOT yet in production)
+
+**Files:** `xg_data.py`, `multiseason_data.py` (`to_fit_rows(xg_weight)`), `rolling_backtest.py`, `experiments.py` — harness only; the live pipeline is unchanged.
+**Change tested:** the Poisson fit's training targets become `(1-w)*goals + w*xG` (Understat per-match xG, 2014-15 onward; 2013-14 rows keep their goals). Elo, momentum and the scored outcomes still use real goals. Grid {0.25, 0.5, 0.75, 1.0} was fixed before any run, pooled across the three leagues.
+**Development (2016-17..2022-23):** every weight advanced, positive in all 3 leagues: dBrier +0.0019 / +0.0030 / +0.0032 / +0.0025; winner w=0.75, CI [+0.0015, +0.0049].
+**Confirmation (2023-24..2025-26, one look):** w=0.75 **PASS** — dBrier +0.0032 [+0.0008, +0.0056], log-loss +0.0042, improving in the required share of seasons and leagues. Accuracy 52.4% -> 53.2% (confirmation), 52.5% -> 53.1% (development); the Brier gap to the market closes from +0.0143 to +0.0111 (about a quarter). Zero non-converged refits in 10,660.
+**Why believed:** a monotone dose-response, the same sign in every league and season block, and an independent dev-era split-half check (first-half xG predicted second-half goal difference better than first-half goals, r .784 vs .733, gain CI [+.029, +.076]).
+**Not shipped because** production would need Understat fetched in CI twice daily (an unofficial endpoint) and joined to openfootball club names — a standing unattended dependency that needs a go-ahead.
+
+---
+
 *To review accuracy before/after any change: check `accuracy_history.json` for entries around the change date.*

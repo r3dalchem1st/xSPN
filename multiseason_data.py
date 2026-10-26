@@ -94,6 +94,13 @@ def team_name_splits(rows_by_season):
             for a, b in zip(seasons, seasons[1:])}
 
 
-def to_fit_rows(rows, label):
-    """Rows in fit_league.py's training format: [date, home, away, hg, ag, label, neutral]."""
-    return [[r["date"], r["home"], r["away"], r["hg"], r["ag"], label, False] for r in rows]
+def to_fit_rows(rows, label, xg_weight=0.0):
+    """Rows in fit_league.py's training format: [date, home, away, hg, ag, label, neutral].
+
+    `xg_weight` blends each side's goals toward its xG, (1-w)*goals + w*xG, for rows that
+    carry xG (xg_data.attach_all); rows without it keep their real goals. 0 -> plain goals."""
+    def target(r, goals, xg):
+        x = r.get(xg)
+        return r[goals] if not xg_weight or x is None else (1 - xg_weight) * r[goals] + xg_weight * x
+    return [[r["date"], r["home"], r["away"], target(r, "hg", "hxg"), target(r, "ag", "axg"), label, False]
+            for r in rows]
