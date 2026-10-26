@@ -34,6 +34,7 @@ after seeing results -- add a new rule version instead):
     on that league's matches alone; R3 then counts seasons only.
 Accuracy is reported but is not part of the rule (it is too noisy to decide on).
 """
+import bisect
 import contextlib
 import datetime as dt
 import math
@@ -45,14 +46,18 @@ import numpy as np
 import fit_league as fl
 from backtest_league import predict_match_probs
 from eval_stats import brier_losses, correct_flags, improvement, logloss_losses
-from multiseason_data import LEAGUE_CODES, SEASONS, load_league, to_fit_rows
+from multiseason_data import LEAGUE_CODES, SEASONS, TIER2_CODES, load_league, to_fit_rows
 
 DEFAULT_CONFIG = {
     "half_life_days": fl.HALF_LIFE_DAYS, "l2_reg": fl.L2_REG, "odds_weight": 0.0,
     "train_seasons": 3, "refit_days": 30,
     "momentum_weight": 0.0, "momentum_n": 5, "strength_shrink": 1.0, "draw_inflate": 0.0, "use_rho": False,
     "elo_prior_beta": 0.0, "promoted_prior": None, "xg_weight": 0.0,
+    "rest_weight": 0.0, "congestion_weight": 0.0,   # schedule fatigue (league fixtures only)
+    "tier2_prior": None,                            # {"gamma","c"}: rate promoted clubs from their second-tier season
+    "blend_half_life": None, "blend_weight": 0.0,   # fast/slow rating blend (cfg half_life_days is the slow one)
 }
+REST_CAP, CONGESTION_DAYS, CONGESTION_NORMAL = 7, 14, 2
 DEV_SEASONS = ["1617", "1718", "1819", "1920", "2021", "2122", "2223"]
 CONFIRM_SEASONS = ["2324", "2425", "2526"]
 
@@ -77,9 +82,24 @@ def _blocks(rows, refit_days):
     return [grouped[k] for k in sorted(grouped)]
 
 
-def _build_prior(cfg, elo, promoted):
-    beta, pp = cfg["elo_prior_beta"], cfg["promoted_prior"]
-    if not beta and not pp:
+def _promoted_priors(cfg, promoted, rows_by_season, season_keys, test_idx):
+    """{club: (attack, defense) prior} for the clubs that came up this season: a constant
+    offset (`promoted_prior`), or `tier2_prior`: gamma x the club's rating from a fit to the
+    second division's PREVIOUS season, shifted down by c (promoted clubs rate below the
+    league's average even when they won their division)."""
+    t2, pp = cfg["tier2_prior"], cfg["promoted_prior"]
+    if t2:
+        prev = to_fit_rows(rows_by_season["tier2"][season_keys[test_idx - 1]], "t2")
+        with _as_of(rows_by_season[season_keys[test_idx]][0]["date"]):
+            dc2 = fl.fit_dc(prev, fl.compute_elos(prev))
+        g, c = t2["gamma"], t2["c"]
+        return {t: (g * dc2["attack"].get(t, 0.0) - c, g * dc2["defense"].get(t, 0.0) + c) for t in promoted}
+    return {t: tuple(pp) for t in promoted} if pp else {}
+
+
+def _build_prior(cfg, elo, promoted_priors):
+    beta = cfg["elo_prior_beta"]
+    if not beta and not promoted_priors:
         return None
     atk, dfn = {}, {}
     if beta:
@@ -87,23 +107,56 @@ def _build_prior(cfg, elo, promoted):
         for t, e in elo.items():
             z = (e - mean) / 400.0
             atk[t], dfn[t] = beta * z, -beta * z
-    if pp:
-        for t in promoted:
-            atk[t], dfn[t] = atk.get(t, 0.0) + pp[0], dfn.get(t, 0.0) + pp[1]
+    for t, (a, d) in promoted_priors.items():
+        atk[t], dfn[t] = atk.get(t, 0.0) + a, dfn.get(t, 0.0) + d
     return {"attack": atk, "defense": dfn}
 
 
-def _with_promoted_defaults(dc, cfg, promoted):
+def _with_promoted_defaults(dc, promoted_priors):
     """A promoted club that hasn't played yet is absent from the fit and would
     default to a league-average rating; give it the prior instead."""
-    pp = cfg["promoted_prior"]
-    if not pp:
+    if not promoted_priors:
         return dc
     dc = {**dc, "attack": dict(dc["attack"]), "defense": dict(dc["defense"])}
-    for t in promoted:
-        dc["attack"].setdefault(t, pp[0])
-        dc["defense"].setdefault(t, pp[1])
+    for t, (a, d) in promoted_priors.items():
+        dc["attack"].setdefault(t, a)
+        dc["defense"].setdefault(t, d)
     return dc
+
+
+def _blend_fits(slow, fast, k):
+    """Ratings (1-k)*slow + k*fast: a long-memory fit that a short-memory fit pulls toward recent form."""
+    mix = lambda a, b: (1 - k) * a + k * b
+    return {**slow, "attack": {t: mix(v, fast["attack"][t]) for t, v in slow["attack"].items()},
+            "defense": {t: mix(v, fast["defense"][t]) for t, v in slow["defense"].items()},
+            "home_adv": mix(slow["home_adv"], fast["home_adv"]), "rho": mix(slow["rho"], fast["rho"]),
+            "converged": bool(slow["converged"] and fast["converged"])}
+
+
+def _team_dates(rows_by_season, season_keys, test_idx):
+    """{team: sorted day-ordinals of every fixture up to the test season} -- dates and teams only, never results."""
+    out = {}
+    for k in season_keys[:test_idx + 1]:
+        for r in rows_by_season[k]:
+            d = dt.date.fromisoformat(r["date"]).toordinal()
+            out.setdefault(r["home"], []).append(d)
+            out.setdefault(r["away"], []).append(d)
+    return {t: sorted(v) for t, v in out.items()}
+
+
+def _fatigue(team, date, team_dates, cfg):
+    """Strength shift (<= 0) for a team about to play on `date`: short rest since its previous
+    league match (`rest_weight` per 3 days under REST_CAP) and a crowded recent list
+    (`congestion_weight` per league match beyond CONGESTION_NORMAL in the last
+    CONGESTION_DAYS). League fixtures only -- cup and European games are not in this data."""
+    ds, d = team_dates.get(team, []), dt.date.fromisoformat(date).toordinal()
+    i = bisect.bisect_left(ds, d)
+    shift = 0.0
+    if cfg["rest_weight"] and i:
+        shift += cfg["rest_weight"] * (min(d - ds[i - 1], REST_CAP) - REST_CAP) / 3
+    if cfg["congestion_weight"]:
+        shift -= cfg["congestion_weight"] * max(0, i - bisect.bisect_left(ds, d - CONGESTION_DAYS) - CONGESTION_NORMAL)
+    return shift
 
 
 def run_season(rows_by_season, season_keys, test_idx, config):
@@ -117,6 +170,9 @@ def run_season(rows_by_season, season_keys, test_idx, config):
     test_rows = rows_by_season[test_key]
     prev_teams = {t for r in rows_by_season[season_keys[test_idx - 1]] for t in (r["home"], r["away"])}
     promoted = {t for r in test_rows for t in (r["home"], r["away"])} - prev_teams
+    priors = _promoted_priors(cfg, promoted, rows_by_season, season_keys, test_idx)
+    fatigue = cfg["rest_weight"] or cfg["congestion_weight"]
+    team_dates = _team_dates(rows_by_season, season_keys, test_idx) if fatigue else None
 
     out = []
     for block in _blocks(test_rows, cfg["refit_days"]):
@@ -126,16 +182,21 @@ def run_season(rows_by_season, season_keys, test_idx, config):
         fit_rows = to_fit_rows(train, "bt", cfg["xg_weight"]) if cfg["xg_weight"] else plain
         with _as_of(as_of):
             elo = fl.compute_elos(plain, half_life_days=cfg["half_life_days"])
-            dc = fl.fit_dc(fit_rows, elo,
-                           mkt_probs_by_match=[r["market"] for r in train] if cfg["odds_weight"] else None,
-                           odds_weight=cfg["odds_weight"], half_life_days=cfg["half_life_days"],
-                           l2_reg=cfg["l2_reg"], prior=_build_prior(cfg, elo, promoted))
-        dc = _with_promoted_defaults(dc, cfg, promoted)
+            fit = lambda half_life: fl.fit_dc(
+                fit_rows, elo, mkt_probs_by_match=[r["market"] for r in train] if cfg["odds_weight"] else None,
+                odds_weight=cfg["odds_weight"], half_life_days=half_life, l2_reg=cfg["l2_reg"],
+                prior=_build_prior(cfg, elo, priors))
+            dc = fit(cfg["half_life_days"])
+            if cfg["blend_weight"]:
+                dc = _blend_fits(dc, fit(cfg["blend_half_life"]), cfg["blend_weight"])
+        dc = _with_promoted_defaults(dc, priors)
         revealed = plain + to_fit_rows(block, "bt")  # compute_momentum filters to strictly-before each match
         for r in block:
             p = predict_match_probs(r["home"], r["away"], r["date"], False, dc, cfg["strength_shrink"],
                                     cfg["draw_inflate"], cfg["use_rho"], cfg["momentum_weight"],
-                                    cfg["momentum_n"], revealed)
+                                    cfg["momentum_n"], revealed,
+                                    (_fatigue(r["home"], r["date"], team_dates, cfg),
+                                     _fatigue(r["away"], r["date"], team_dates, cfg)) if fatigue else None)
             out.append({"season": test_key, "date": r["date"], "home": r["home"], "away": r["away"],
                         "o": 0 if r["hg"] > r["ag"] else (2 if r["hg"] < r["ag"] else 1),
                         "p": tuple(p), "q": r["market"], "conv": dc["converged"]})
@@ -175,13 +236,18 @@ def run_config(config, data, test_seasons=None, season_keys=None, workers=1, exe
     return [rec for chunk in chunks for rec in chunk]
 
 
-def load_all(leagues=None, seasons=SEASONS, xg=False):
+def load_all(leagues=None, seasons=SEASONS, xg=False, tier2=False):
     """{league: {season: rows}} for the three leagues (cached CSVs after first run).
-    xg=True also attaches Understat's per-match xG (xg_data.py; cached after first run)."""
+    xg=True also attaches Understat's per-match xG (xg_data.py; cached after first run).
+    tier2=True adds each league's second division under the extra key "tier2"
+    ({season: rows}); run_season only reads it for `tier2_prior`."""
     data = {lg: load_league(LEAGUE_CODES[lg], seasons) for lg in (leagues or LEAGUE_CODES)}
     if xg:
         from xg_data import attach_all
         attach_all(data)
+    if tier2:
+        for lg in data:
+            data[lg]["tier2"] = load_league(TIER2_CODES[lg], seasons)
     return data
 
 

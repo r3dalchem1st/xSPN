@@ -72,14 +72,16 @@ def fit_point_estimate(train_matches, as_of_date):
 
 
 def predict_match_probs(home, away, date_, neutral, dc, strength_shrink=1.0, delta=0.0,
-                         use_rho=False, momentum_weight=0.0, momentum_n=5, revealed=None):
+                         use_rho=False, momentum_weight=0.0, momentum_n=5, revealed=None, shifts=None):
     """The model's own (ph, pd, pa) for ONE match, given a point-estimate
     fit `dc` and calibration settings -- the same per-match computation
     score_holdout() runs in its loop, factored out so a caller (e.g.
     backtest_odds.py, blending this against a bookmaker's odds) can get a
     single match's prediction without re-deriving this logic. `revealed`
     is the running match history for momentum (see score_holdout's own
-    docstring); omit it if momentum_weight is 0.0."""
+    docstring); omit it if momentum_weight is 0.0. `shifts` is an optional
+    (home, away) pair of strength shifts for this one match (e.g. fatigue),
+    applied to attack and defense together exactly as momentum is."""
     atk, dfn, home_adv, rho = dc["attack"], dc["defense"], dc["home_adv"], dc["rho"]
     ah, dh = atk.get(home, 0.0), dfn.get(home, 0.0)
     aa, da = atk.get(away, 0.0), dfn.get(away, 0.0)
@@ -88,6 +90,9 @@ def predict_match_probs(home, away, date_, neutral, dc, strength_shrink=1.0, del
         mom_a = compute_momentum(away, date_, revealed or [], momentum_n)
         ah, dh = ah + momentum_weight * mom_h, dh - momentum_weight * mom_h
         aa, da = aa + momentum_weight * mom_a, da - momentum_weight * mom_a
+    if shifts:
+        ah, dh = ah + shifts[0], dh - shifts[0]
+        aa, da = aa + shifts[1], da - shifts[1]
     bonus = 0.0 if neutral else home_adv
     lam = clamp_lambda(shrink_lambda(math.exp(ah + da + bonus), strength_shrink))
     mu = clamp_lambda(shrink_lambda(math.exp(aa + dh), strength_shrink))
