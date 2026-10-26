@@ -87,4 +87,17 @@ Model was the broken June 1 pipeline; all 72 group snapshots locked with stale p
 
 ---
 
+## 2026-10-26 — league model re-judged on 10 seasons under a pre-registered rule: three live settings removed
+
+**Files:** `competitions/premier_league.json`, `bundesliga.json`, `la_liga.json`
+**Method:** `rolling_backtest.py` / `experiments.py` — rolling-origin refit every 30 days, 10 test seasons x 3 leagues (10,660 matches). Seasons 2016-17..2022-23 chose candidates; 2023-24..2025-26 were looked at ONCE per family (`backtest_cache/confirmation_log.json`). A change must clear a paired-bootstrap Brier CI > 0, log-loss no worse, and gains in >= 2/3 of seasons and leagues; otherwise the baseline stays.
+**Changes (all toward the baseline, because nothing cleared the rule):**
+- Premier League `momentum_weight` 0.1 (n=8) -> 0.0: confirmation dBrier -0.0050 [-0.0111, +0.0011], log-loss -0.0073, worse in all 3 seasons.
+- Bundesliga `momentum_weight` 0.02 (n=5) -> 0.0: dBrier +0.0019 [-0.0001, +0.0038] — a near-miss that did not clear the CI bar (and was selected on 2025-26, inside the confirmation set, so even this look is optimistic).
+- La Liga `odds_fit_weight` 100 -> 0.0: dev +0.0047 but confirmation dBrier -0.0007 [-0.0056, +0.0042], log-loss -0.0018, better in 1 of 3 seasons. Inconclusive rather than harmful; La Liga's CI run also drops from ~4 min to ~40 s.
+**Judged and left unchanged:** half-life (547.5 d already ~optimal), Elo as a prior, promoted-club prior, strength shrink, draw inflation, rho — none advanced on dev. L2 0.30 -> 3.0 (dev +0.0012) and a longer training window (8 seasons, dev +0.0014) advanced on dev but FAILED confirmation (+0.0002 and -0.00005); their combination also failed (-0.0004).
+**Reading:** every lever is worth ~0.001-0.002 Brier, below single-season noise. Future changes go through `experiments.py`, not a one-season grid.
+
+---
+
 *To review accuracy before/after any change: check `accuracy_history.json` for entries around the change date.*
