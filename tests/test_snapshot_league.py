@@ -200,3 +200,27 @@ def test_snapshot_never_fetches_odds_without_a_sport_key(tmp_path, monkeypatch):
                         lambda key: (_ for _ in ()).throw(AssertionError("odds fetched without a sport key")))
     snap = _run_snapshot(tmp_path, "nokey", MOMENTUM_CONFIG_DATA, DUE_SCHEDULE)
     assert "market" not in snap["Weak FC|Strong FC"]
+
+
+# --- model version stamp on every locked prediction ---
+
+def test_snapshot_stamps_each_lock_with_the_model_settings_that_produced_it(tmp_path, monkeypatch):
+    monkeypatch.setenv("GITHUB_SHA", "abcdef1234567890")
+    cfg = dict(MARKET_CONFIG_DATA, odds_fit_weight=100.0, momentum_weight=0.1, momentum_n=8)
+    snap = _run_snapshot(tmp_path, "stamp", cfg, DUE_SCHEDULE, odds_lookup={})
+    m = snap["Weak FC|Strong FC"]["model"]
+    assert m["sha"] == "abcdef1"
+    assert (m["odds_fit_weight"], m["momentum_weight"], m["momentum_n"]) == (100.0, 0.1, 8)
+    assert m["ensemble"] == 1  # the test passes a one-member ensemble
+
+
+def test_snapshot_stamp_has_no_sha_outside_ci(tmp_path, monkeypatch):
+    monkeypatch.delenv("GITHUB_SHA", raising=False)
+    snap = _run_snapshot(tmp_path, "nosha", MOMENTUM_CONFIG_DATA, DUE_SCHEDULE, odds_lookup={})
+    assert snap["Weak FC|Strong FC"]["model"]["sha"] is None
+
+
+def test_the_stamp_does_not_change_the_prediction_itself(tmp_path):
+    snap = _run_snapshot(tmp_path, "pred", MOMENTUM_CONFIG_DATA, DUE_SCHEDULE, odds_lookup={})
+    e = snap["Weak FC|Strong FC"]
+    assert abs(e["ph"] + e["pd"] + e["pa"] - 1.0) < 1e-9 and e["predicted_winner"] in "HDA"

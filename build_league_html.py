@@ -43,6 +43,9 @@ TOP_ZONE_OVERRIDES = {"Championship": 2}
 
 _ROUND_NUM_RE = re.compile(r"(\d+)")
 
+MARKET_MIN_N = 30  # below this the "Vs Betting Market" tally is flagged "too early to read":
+                   # resolving even a 0.01 Brier gap takes ~280 matches (eval_stats.required_n)
+
 
 def top_zone_for(competition_name):
     """Size of the promotion/qualification highlight zone (the green-
@@ -179,17 +182,26 @@ def build_accuracy_html(accuracy):
         return '<div class="empty-note">No matches scored yet this season.</div>'
     correct = sum(1 for m in matches if m["correct_winner"])
     trend = build_accuracy_trend_html(matches)
+    base = summary.get("baseline")
+    brier_sub = (
+        f'vs {base["avg_brier"]:.3f} for always forecasting the league base rates &middot; '
+        f'skill {base["skill"]:+.0%} ({base["skill_lo"]:+.0%} to {base["skill_hi"]:+.0%})'
+        if base else "vs baseline 0.67")
     vs = summary.get("vs_market")
     market_card = ""
     if vs:
         tally = f'{vs["we_right"]}&#8211;{vs["market_right"]}' if vs["disagree_n"] else "&#8212;"
         picks = (f'right on {vs["disagree_n"]} different-winner picks (us &#8211; market)'
                  if vs["disagree_n"] else "no different-winner picks yet")
+        early = ' &middot; <strong>too early to read</strong>' if vs["n"] < MARKET_MIN_N else ""
+        gap = vs.get("brier_gap")
+        gap_txt = (f' &middot; Brier gap {gap["mean"]:+.3f} (95% CI {gap["lo"]:+.3f} to {gap["hi"]:+.3f}; + = us ahead)'
+                   if gap else "")
         market_card = (
             '<div class="acc-card"><div class="acc-lbl">Vs Betting Market</div>'
             f'<div class="acc-val">{tally}</div>'
             f'<div class="acc-sub">{picks} &middot; accuracy {vs["accuracy"]:.0%} vs '
-            f'{vs["market_accuracy"]:.0%}, n={vs["n"]}</div></div>'
+            f'{vs["market_accuracy"]:.0%}, n={vs["n"]}{gap_txt}{early}</div></div>'
         )
     return (
         '<div class="acc-cards">'
@@ -201,7 +213,7 @@ def build_accuracy_html(accuracy):
         '<div class="acc-sub">exact-score distance &middot; not a quality score</div></div>'
         '<div class="acc-card"><div class="acc-lbl">Avg Brier Score</div>'
         f'<div class="acc-val">{summary["avg_brier"]:.3f}</div>'
-        '<div class="acc-sub">vs baseline 0.67</div></div>'
+        f'<div class="acc-sub">{brier_sub}</div></div>'
         '<div class="acc-card"><div class="acc-lbl">Avg Log-Loss</div>'
         f'<div class="acc-val">{summary["avg_log_loss"]:.3f}</div>'
         '<div class="acc-sub">lower is better</div></div>'

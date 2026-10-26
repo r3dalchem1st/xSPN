@@ -110,3 +110,48 @@ def test_score_and_save_summarises_the_record_against_the_market(tmp_path):
 def test_score_and_save_omits_vs_market_when_nothing_was_recorded(tmp_path):
     out = _score(tmp_path, {"A|B": _finished("A", "B", 1, 0)}, {"A|B": _snap("A", "B", "H")})
     assert "vs_market" not in out["summary"]
+
+
+# --- skill against the naive base-rate forecast, and an interval on the market gap ---
+
+def _score_with_history(tmp_path, schedule, snapshot, history):
+    out_dir = tmp_path / "competitions" / "test_league"
+    os.makedirs(out_dir, exist_ok=True)
+    (out_dir / "fetched_matches.json").write_text(json.dumps(history))
+    return _score(tmp_path, schedule, snapshot)
+
+
+def _history(n_closed=200):
+    # closed seasons: 50% home wins, 25% draws, 25% away wins, all dated before the 2026-27 season starts
+    pat = [(1, 0), (2, 1), (1, 1), (0, 1)]
+    return [[f"2025-01-{i % 28 + 1:02d}", "X", "Y", *pat[i % 4], "Test League", False] for i in range(n_closed)]
+
+
+def test_score_and_save_reports_skill_against_the_closed_season_base_rates(tmp_path):
+    schedule = {f"A{i}|B{i}": _finished(f"A{i}", f"B{i}", 1, 0) for i in range(12)}      # all home wins
+    snapshot = {f"A{i}|B{i}": _snap(f"A{i}", f"B{i}", "H") for i in range(12)}
+    out = _score_with_history(tmp_path, schedule, snapshot, _history())["summary"]["baseline"]
+    assert out["base_rate"] == [0.5, 0.25, 0.25]
+    assert out["skill"] > 0 and out["skill_lo"] <= out["skill"] <= out["skill_hi"]
+    assert abs(out["avg_brier"] - ((0.5 - 1) ** 2 + 0.25 ** 2 + 0.25 ** 2)) < 1e-9
+
+
+def test_score_and_save_skill_is_negative_when_the_model_is_worse_than_base_rates(tmp_path):
+    schedule = {f"A{i}|B{i}": _finished(f"A{i}", f"B{i}", 0, 2) for i in range(12)}      # all away wins, we say home
+    snapshot = {f"A{i}|B{i}": _snap(f"A{i}", f"B{i}", "H") for i in range(12)}
+    assert _score_with_history(tmp_path, schedule, snapshot, _history())["summary"]["baseline"]["skill"] < 0
+
+
+def test_score_and_save_omits_the_baseline_without_enough_closed_season_history(tmp_path):
+    out = _score_with_history(tmp_path, {"A|B": _finished("A", "B", 1, 0)}, {"A|B": _snap("A", "B", "H")}, _history(20))
+    assert "baseline" not in out["summary"]
+
+
+def test_vs_market_carries_an_interval_on_the_brier_gap_and_positive_means_we_are_ahead():
+    from score_league import summarise_vs_market
+    good_us = {"market_brier": 0.9, "brier": 0.3, "disagree": False, "correct_winner": True, "market_correct_winner": True}
+    matches = [dict(good_us) for _ in range(20)]
+    gap = summarise_vs_market(matches)["brier_gap"]
+    assert abs(gap["mean"] - 0.6) < 1e-9 and gap["lo"] <= gap["mean"] <= gap["hi"]
+    worse = [dict(good_us, brier=0.9, market_brier=0.3) for _ in range(20)]
+    assert summarise_vs_market(worse)["brier_gap"]["mean"] < 0

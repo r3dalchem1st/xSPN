@@ -43,6 +43,21 @@ LOCK_WINDOW_DAYS = 5  # WIDER than the WC's LOCK_WINDOW_DAYS=2 on purpose: this
 # against a few consecutive missed runs.
 
 
+MODEL_FIELDS = ("odds_fit_weight", "momentum_weight", "momentum_n", "strength_shrink", "draw_inflate", "use_rho")
+
+
+def model_stamp(config, dc_ensemble):
+    """Which model produced a locked prediction: the git sha CI ran (None
+    locally) plus every config setting that changes the numbers. Stored on each
+    entry so the live record can be sliced by model version. Before this, a
+    before/after comparison (e.g. the La Liga odds-fit promotion) had to infer
+    the version from the lock date -- and a day with two pipeline runs, one on
+    each side of a change, was unresolvable."""
+    sha = os.environ.get("GITHUB_SHA")
+    return {"sha": sha[:7] if sha else None, **{f: getattr(config, f) for f in MODEL_FIELDS},
+            "ensemble": len(dc_ensemble)}
+
+
 def hda_probs(home, away, lg_ens, rhos=None, delta=0.0, max_g=10):
     """Mean P(home win), P(draw), P(away win) over the bootstrap ensemble —
     each member's triple gets the Dixon-Coles low-score correlation (rho)
@@ -145,6 +160,7 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None, odds_lookup=Non
     lg_ens = build_match_lambda_tables(config, teams, dc_ensemble, matches, today)
     rhos = [dc.get("rho", 0.0) for dc in dc_ensemble] if config.use_rho else None
 
+    stamp = model_stamp(config, dc_ensemble)
     added = 0
     for key, entry in due:
         home, away = key.split("|")
@@ -156,7 +172,7 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None, odds_lookup=Non
             "home": home, "away": away, "date": entry["date"],
             "ph": ph, "pd": pd, "pa": pa,
             "predicted_winner": outcome, "predicted_score": f"{hg}-{ag}",
-            "snapped_at": today,
+            "snapped_at": today, "model": stamp,
         }
         market = odds_lookup.get((home, away))
         if market:

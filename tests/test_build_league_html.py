@@ -570,3 +570,40 @@ def test_build_accuracy_html_has_no_vs_market_card_without_recorded_markets():
     assert "Betting Market" not in build_accuracy_html({
         "matches": [{"correct_winner": True, "date": "2026-08-21"}],
         "summary": {"n_scored": 1, "accuracy": 1.0, "avg_brier": 0.5, "avg_log_loss": 0.9, "avg_goal_error": 1.0}})
+
+
+# --- honest skill baseline and market-gap interval ---
+
+SKILL_ACCURACY = {
+    "matches": [{"correct_winner": True, "date": "2026-08-21"}],
+    "summary": {"n_scored": 1, "accuracy": 1.0, "avg_brier": 0.640, "avg_log_loss": 0.9, "avg_goal_error": 1.0,
+                "baseline": {"base_rate": [0.42, 0.26, 0.32], "avg_brier": 0.663, "skill": 0.033,
+                             "skill_lo": -0.02, "skill_hi": 0.08}},
+}
+
+
+def test_brier_card_compares_against_the_base_rate_forecast_with_a_skill_interval():
+    out = build_accuracy_html(SKILL_ACCURACY)
+    assert "0.663" in out and "base rates" in out
+    assert "skill +3%" in out and "-2%" in out and "+8%" in out
+    assert "vs baseline 0.67" not in out   # the uniform-forecast baseline flattered the model
+
+
+def test_brier_card_falls_back_to_the_old_wording_when_no_baseline_was_computed():
+    acc = {**SKILL_ACCURACY, "summary": {k: v for k, v in SKILL_ACCURACY["summary"].items() if k != "baseline"}}
+    assert "vs baseline 0.67" in build_accuracy_html(acc)
+
+
+def _vs(n, gap=None):
+    return {**VS_MARKET_ACCURACY, "summary": {**VS_MARKET_ACCURACY["summary"], "vs_market": {
+        **VS_MARKET_ACCURACY["summary"]["vs_market"], "n": n, **({"brier_gap": gap} if gap else {})}}}
+
+
+def test_market_card_flags_a_small_sample_as_too_early_to_read():
+    assert "too early to read" in build_accuracy_html(_vs(19))
+    assert "too early to read" not in build_accuracy_html(_vs(120))
+
+
+def test_market_card_shows_the_brier_gap_interval_when_available():
+    out = build_accuracy_html(_vs(120, {"mean": -0.012, "lo": -0.03, "hi": 0.006}))
+    assert "-0.012" in out and "-0.030" in out and "+0.006" in out
