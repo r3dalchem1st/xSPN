@@ -52,6 +52,11 @@ FAMILIES = {
     "momentum": [(f"momentum w={w} n={n}", {"momentum_weight": w, "momentum_n": n})
                  for w in (0.02, 0.05, 0.1) for n in (5, 8)],
     "odds_fit": [(f"odds_weight={v}", {"odds_weight": v}) for v in (5.0, 25.0, 100.0)],
+    # Added 26 Oct, grid fixed BEFORE any run. Training targets become (1-w)*goals + w*xG (Understat;
+    # xg_data.py). Motivated by a dev-era-only split-half check (2014-15..2022-23): first-half xG
+    # predicted second-half goal difference better than first-half goals (r .784 vs .733, CI on the
+    # gain [+.029,+.076]). Pooled across leagues; w=0 is the baseline, w=1 is pure xG.
+    "xg": [(f"xg_weight={v}", {"xg_weight": v}) for v in (0.25, 0.5, 0.75, 1.0)],
 }
 PER_LEAGUE = {"momentum", "odds_fit"}      # settings chosen and judged one league at a time
 POOLED_FOR_COMBINATION = ["half_life", "l2", "elo_prior", "promoted_prior", "train_window", "shrink", "draw_inflate"]
@@ -84,7 +89,7 @@ def _best(entries):
 
 
 def dev_stage():
-    data = load_all()
+    data = load_all(xg=True)
     saved = _load(DEV_PATH, {})
     with ProcessPoolExecutor(max_workers=worker_count()) as ex:
         run = lambda cfg: run_config(cfg, data, test_seasons=TEST_SEASONS, executor=ex)
@@ -127,7 +132,7 @@ def dev_stage():
 
 def combo_stage():
     """Dev-screen the combination of pooled-family winners (still development seasons only)."""
-    data = load_all()
+    data = load_all(xg=True)
     combo = _load(os.path.join(DEFAULT_CACHE, "dev_winners.json"), {}).get("combination|ALL")
     if not combo:
         return print("no combination to test")
@@ -163,7 +168,7 @@ def _judge_and_log(key, cfg, scope, run, base, log):
 
 def confirm_stage(families, production=False):
     log = _load(LOG_PATH, {})
-    data = load_all()
+    data = load_all(xg=True)
     with ProcessPoolExecutor(max_workers=worker_count()) as ex:
         # a league-scoped setting is judged on that league alone, so only compute that league
         run = lambda cfg, scope="ALL": run_config(cfg, data if scope == "ALL" else {scope: data[scope]},

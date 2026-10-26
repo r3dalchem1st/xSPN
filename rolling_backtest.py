@@ -51,7 +51,7 @@ DEFAULT_CONFIG = {
     "half_life_days": fl.HALF_LIFE_DAYS, "l2_reg": fl.L2_REG, "odds_weight": 0.0,
     "train_seasons": 3, "refit_days": 30,
     "momentum_weight": 0.0, "momentum_n": 5, "strength_shrink": 1.0, "draw_inflate": 0.0, "use_rho": False,
-    "elo_prior_beta": 0.0, "promoted_prior": None,
+    "elo_prior_beta": 0.0, "promoted_prior": None, "xg_weight": 0.0,
 }
 DEV_SEASONS = ["1617", "1718", "1819", "1920", "2021", "2122", "2223"]
 CONFIRM_SEASONS = ["2324", "2425", "2526"]
@@ -122,15 +122,16 @@ def run_season(rows_by_season, season_keys, test_idx, config):
     for block in _blocks(test_rows, cfg["refit_days"]):
         as_of = block[0]["date"]
         train = pool + [r for r in test_rows if r["date"] < as_of]
-        fit_rows = to_fit_rows(train, "bt")
+        plain = to_fit_rows(train, "bt")       # real goals: Elo, momentum and scoring never see xG
+        fit_rows = to_fit_rows(train, "bt", cfg["xg_weight"]) if cfg["xg_weight"] else plain
         with _as_of(as_of):
-            elo = fl.compute_elos(fit_rows, half_life_days=cfg["half_life_days"])
+            elo = fl.compute_elos(plain, half_life_days=cfg["half_life_days"])
             dc = fl.fit_dc(fit_rows, elo,
                            mkt_probs_by_match=[r["market"] for r in train] if cfg["odds_weight"] else None,
                            odds_weight=cfg["odds_weight"], half_life_days=cfg["half_life_days"],
                            l2_reg=cfg["l2_reg"], prior=_build_prior(cfg, elo, promoted))
         dc = _with_promoted_defaults(dc, cfg, promoted)
-        revealed = fit_rows + to_fit_rows(block, "bt")  # compute_momentum filters to strictly-before each match
+        revealed = plain + to_fit_rows(block, "bt")  # compute_momentum filters to strictly-before each match
         for r in block:
             p = predict_match_probs(r["home"], r["away"], r["date"], False, dc, cfg["strength_shrink"],
                                     cfg["draw_inflate"], cfg["use_rho"], cfg["momentum_weight"],
@@ -174,9 +175,14 @@ def run_config(config, data, test_seasons=None, season_keys=None, workers=1, exe
     return [rec for chunk in chunks for rec in chunk]
 
 
-def load_all(leagues=None, seasons=SEASONS):
-    """{league: {season: rows}} for the three leagues (cached CSVs after first run)."""
-    return {lg: load_league(LEAGUE_CODES[lg], seasons) for lg in (leagues or LEAGUE_CODES)}
+def load_all(leagues=None, seasons=SEASONS, xg=False):
+    """{league: {season: rows}} for the three leagues (cached CSVs after first run).
+    xg=True also attaches Understat's per-match xG (xg_data.py; cached after first run)."""
+    data = {lg: load_league(LEAGUE_CODES[lg], seasons) for lg in (leagues or LEAGUE_CODES)}
+    if xg:
+        from xg_data import attach_all
+        attach_all(data)
+    return data
 
 
 def _arrays(records):
