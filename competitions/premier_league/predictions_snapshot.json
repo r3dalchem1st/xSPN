@@ -978,5 +978,133 @@
       "pd": 0.2913086819215741,
       "pa": 0.3800968063062836
     }
+  },
+  "Chelsea FC|Manchester United FC": {
+    "home": "Chelsea FC",
+    "away": "Manchester United FC",
+    "date": "2026-10-31",
+    "ph": 0.5213493210056959,
+    "pd": 0.22262950536779763,
+    "pa": 0.2560211736265068,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.5216839334548988,
+      "pd": 0.2424654542134288,
+      "pa": 0.23585061233167237
+    }
+  },
+  "Manchester City FC|Brighton & Hove Albion FC": {
+    "home": "Manchester City FC",
+    "away": "Brighton & Hove Albion FC",
+    "date": "2026-10-31",
+    "ph": 0.527619394148548,
+    "pd": 0.22063693821546293,
+    "pa": 0.25174366763598915,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.5726148224513389,
+      "pd": 0.21806521792781672,
+      "pa": 0.20931995962084435
+    }
+  },
+  "AFC Bournemouth|Leeds United FC": {
+    "home": "AFC Bournemouth",
+    "away": "Leeds United FC",
+    "date": "2026-10-31",
+    "ph": 0.42420035962063757,
+    "pd": 0.2614716151990144,
+    "pa": 0.31432802518034786,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.4460460607010906,
+      "pd": 0.2760079642852464,
+      "pa": 0.277945975013663
+    }
+  },
+  "Coventry City FC|Sunderland AFC": {
+    "home": "Coventry City FC",
+    "away": "Sunderland AFC",
+    "date": "2026-10-31",
+    "ph": 0.25930152778734233,
+    "pd": 0.2925137577401246,
+    "pa": 0.4481847144725332,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.3143582584992141,
+      "pd": 0.28215709526781313,
+      "pa": 0.4034846462329727
+    }
+  },
+  "Hull City AFC|Ipswich Town FC": {
+    "home": "Hull City AFC",
+    "away": "Ipswich Town FC",
+    "date": "2026-10-31",
+    "ph": 0.6643030449885982,
+    "pd": 0.20275602714040733,
+    "pa": 0.1329409278709945,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.36434190402405475,
+      "pd": 0.2793834638960018,
+      "pa": 0.35627463207994337
+    }
+  },
+  "Brentford FC|Nottingham Forest FC": {
+    "home": "Brentford FC",
+    "away": "Nottingham Forest FC",
+    "date": "2026-10-31",
+    "ph": 0.5519958455917757,
+    "pd": 0.22953765327660516,
+    "pa": 0.21846650113161925,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.47646272090309283,
+      "pd": 0.25594456278159083,
+      "pa": 0.26759271631531634
+    }
+  },
+  "Tottenham Hotspur FC|Crystal Palace FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Crystal Palace FC",
+    "date": "2026-10-31",
+    "ph": 0.5140373077334256,
+    "pd": 0.2400955941384116,
+    "pa": 0.24586709812816288,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.617060790918579,
+      "pd": 0.2122824247964101,
+      "pa": 0.17065678428501094
+    }
+  },
+  "Aston Villa FC|Fulham FC": {
+    "home": "Aston Villa FC",
+    "away": "Fulham FC",
+    "date": "2026-10-31",
+    "ph": 0.47844086119653223,
+    "pd": 0.2561797744912908,
+    "pa": 0.26537936431217685,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-26",
+    "market": {
+      "ph": 0.4805782671000724,
+      "pd": 0.2542649907032683,
+      "pa": 0.2651567421966594
+    }
   }
 }
