@@ -838,10 +838,10 @@
   },
   "Sevilla FC|CA Osasuna": {
     "date": "2026-10-26",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "CA Osasuna": null
+      "Sevilla FC": 2,
+      "CA Osasuna": 0
     },
     "round": "Matchday 10"
   },
