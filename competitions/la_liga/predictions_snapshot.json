@@ -1278,5 +1278,109 @@
       "pd": 0.285252224246346,
       "pa": 0.3060034718299562
     }
+  },
+  "Elche CF|Valencia CF": {
+    "home": "Elche CF",
+    "away": "Valencia CF",
+    "date": "2026-11-01",
+    "ph": 0.5141741948728041,
+    "pd": 0.24203039113201055,
+    "pa": 0.24379541399518506,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.38862880715242465,
+      "pd": 0.28239081411000916,
+      "pa": 0.3289803787375663
+    }
+  },
+  "Athletic Club|Real Sociedad de F\u00fatbol": {
+    "home": "Athletic Club",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-11-01",
+    "ph": 0.49290784862215004,
+    "pd": 0.2498719242593942,
+    "pa": 0.2572202271184561,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4605676071708834,
+      "pd": 0.26016650989906104,
+      "pa": 0.27926588293005555
+    }
+  },
+  "Getafe CF|Sevilla FC": {
+    "home": "Getafe CF",
+    "away": "Sevilla FC",
+    "date": "2026-11-01",
+    "ph": 0.3870120923082164,
+    "pd": 0.3224221282310241,
+    "pa": 0.29056577946075957,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.309774372465933,
+      "pd": 0.3180691055784428,
+      "pa": 0.3721565219556242
+    }
+  },
+  "Real Racing Club de Santander|Real Madrid CF": {
+    "home": "Real Racing Club de Santander",
+    "away": "Real Madrid CF",
+    "date": "2026-11-01",
+    "ph": 0.11719672635600942,
+    "pd": 0.12968361426403172,
+    "pa": 0.7531196593799591,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.10035606906138106,
+      "pd": 0.13386493494168925,
+      "pa": 0.7657789959969297
+    }
   }
 }

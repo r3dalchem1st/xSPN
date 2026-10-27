@@ -868,6 +868,19 @@
       "disagree": false
     },
     {
+      "home": "Sevilla FC",
+      "away": "CA Osasuna",
+      "date": "2026-10-26",
+      "correct_winner": true,
+      "brier": 0.45798373137274145,
+      "log_loss": 0.8040785789377409,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.3905661162853062,
+      "disagree": false
+    },
+    {
       "home": "Valencia CF",
       "away": "Villarreal CF",
       "date": "2026-10-24",
@@ -908,32 +921,32 @@
     }
   ],
   "summary": {
-    "n_scored": 94,
-    "accuracy": 0.5638297872340425,
-    "avg_brier": 0.5748553725013947,
-    "avg_log_loss": 0.9697391030903673,
-    "avg_goal_error": 2.074468085106383,
+    "n_scored": 95,
+    "accuracy": 0.5684210526315789,
+    "avg_brier": 0.5736251447000407,
+    "avg_log_loss": 0.9679953080992869,
+    "avg_goal_error": 2.0631578947368423,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6524300848706313,
-      "skill": 0.11890118829302398,
-      "skill_lo": 0.03442601549740026,
-      "skill_hi": 0.20642718571105328
+      "avg_brier": 0.6500519390581718,
+      "skill": 0.11757028902776934,
+      "skill_lo": 0.03066045947010381,
+      "skill_hi": 0.20300941094273497
     },
     "vs_market": {
-      "n": 15,
-      "accuracy": 0.5333333333333333,
-      "market_accuracy": 0.6,
-      "avg_brier": 0.5524053416410359,
-      "market_avg_brier": 0.548023079159886,
+      "n": 16,
+      "accuracy": 0.5625,
+      "market_accuracy": 0.625,
+      "avg_brier": 0.5465039909992675,
+      "market_avg_brier": 0.5381820189802249,
       "brier_gap": {
-        "mean": -0.004382262481149843,
-        "lo": -0.048869852488643624,
-        "hi": 0.04279756739313149
+        "mean": -0.008321972019042681,
+        "lo": -0.04833826754417516,
+        "hi": 0.03840360530983733
       },
       "disagree_n": 2,
       "we_right": 0,
