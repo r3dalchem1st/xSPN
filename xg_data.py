@@ -1,14 +1,14 @@
 """
-Per-match xG from Understat, for the xG family in experiments.py.
+Per-match xG from Understat: the xG family in experiments.py (which passed the
+pre-registered rule) and, through live_xg(), the production fit.
 
 Understat serves each league-season as one JSON document (the endpoint its own
 league page calls) holding every match's goals and xG, back to 2014-15. It is
-unofficial and undocumented, so this is research tooling: it feeds the
-experiment harness through a local cache (backtest_cache/, gitignored) and is
-NOT wired into the live pipeline. If the xG family passes the pre-registered
-rule, fetching it in CI is a separate decision (rate limits, endpoint stability).
-2013-14 has no Understat data, so those rows keep xG=None and the fit falls
-back to their real goals.
+unofficial and undocumented, so the harness reads it through a local cache
+(backtest_cache/, gitignored) and the live pipeline treats it as optional:
+live_xg() never raises, and anything it cannot supply leaves those matches on
+their real goals. 2013-14 has no Understat data, so those rows keep xG=None and
+the fit falls back to their real goals.
 
 Joining to the football-data.co.uk rows: the sources write clubs differently
 ("Manchester United" / "Man United"). Rather than a hand-kept alias table, the
@@ -30,6 +30,7 @@ UNDERSTAT_LEAGUES = {"premier_league": "EPL", "la_liga": "La_liga", "bundesliga"
 FIRST_SEASON = "1415"        # Understat's first season
 MAX_SCORE_MISMATCH = 0.02    # share of a season's matches whose score may differ between sources
 NAME_VOTE_SHARE = 0.9        # a club's mapping must win this share of its votes
+JOIN_FLOOR = 0.9             # live: warn when fewer of a season's training rows than this get an xG
 
 
 def season_year(season):
@@ -120,6 +121,51 @@ def attach_xg(rows_by_season, us_by_season):
             raise ValueError(f"{season}: {len(rows)} football-data rows vs {len(by_pair)} Understat matches, "
                              f"{mismatched} with a different score")
     return rows_by_season
+
+
+def season_of(date):
+    """'2026-10-03' -> '2627': the season a match date falls in (seasons run Aug-May)."""
+    y = int(date[:4]) - (int(date[5:7]) < 8)
+    return f"{y % 100:02d}{(y + 1) % 100:02d}"
+
+
+def live_xg(code, rows, fetch=fetch_understat_season):
+    """[(hxg, axg) or None] parallel to the live training `rows` ([date, home, away, hg, ag, ...]).
+
+    The production counterpart of attach_all, but it never raises: Understat is unofficial and
+    CI may be blocked, so a season it cannot serve, a name map that will not resolve, or a
+    season whose scores disagree with ours (> MAX_SCORE_MISMATCH) leaves those rows None -- the
+    fit then trains them on real goals -- and prints a GitHub warning. A match the training
+    data has but Understat does not (results land in different places at different times) is
+    also None; it only draws a warning when a season is short by more than JOIN_FLOOR."""
+    out, by_season = [None] * len(rows), defaultdict(list)
+    for i, r in enumerate(rows):
+        by_season[season_of(r[0])].append(i)
+    warn = lambda msg: print(f"::warning::xG ({code}): {msg} -- those matches train on real goals")
+    us = {}
+    for season in by_season:
+        try:
+            us[season] = parse_understat(fetch(code, season_year(season)))
+        except (OSError, ValueError, KeyError, TypeError) as e:     # network, HTTP, JSON or schema
+            warn(f"Understat {season} unavailable ({type(e).__name__}: {e})")
+    ours = {s: [dict(zip(("date", "home", "away", "hg", "ag"), rows[i][:5])) for i in by_season[s]] for s in us}
+    try:
+        mapping = learn_name_map(ours, us)
+    except ValueError as e:
+        warn(str(e))
+        return out
+    for season, us_rows in us.items():
+        by_pair = {(mapping.get(u["home"]), mapping.get(u["away"])): u for u in us_rows}
+        joined = {i: by_pair[(rows[i][1], rows[i][2])] for i in by_season[season] if (rows[i][1], rows[i][2]) in by_pair}
+        bad = sum((u["hg"], u["ag"]) != tuple(rows[i][3:5]) for i, u in joined.items())
+        if bad > MAX_SCORE_MISMATCH * len(joined):
+            warn(f"{season}: {bad} of {len(joined)} joined matches have a different score in Understat")
+            continue
+        for i, u in joined.items():
+            out[i] = (round(u["hxg"], 4), round(u["axg"], 4))
+        if len(joined) < JOIN_FLOOR * len(by_season[season]):
+            warn(f"{season}: only {len(joined)}/{len(by_season[season])} matches joined")
+    return out
 
 
 def attach_all(data, cache_dir=DEFAULT_CACHE, fetch=fetch_understat_season):

@@ -263,6 +263,18 @@ def fit_dc_bootstrap(matches, elo_ratings, point_dc, B=60, seed=42,
     return ensemble
 
 
+def blend_xg(matches, xg, w):
+    """`matches` with each side's goals replaced by (1-w)*goals + w*xG where `xg`
+    (parallel list of (hxg, axg) or None) has the match; a match without xG keeps
+    its real goals. The same formula as multiseason_data.to_fit_rows, which
+    rolling_backtest.py validated at w=0.75."""
+    out = []
+    for m, p in zip(matches, xg):
+        hg, ag = m[3:5] if p is None else ((1 - w) * g + w * x for g, x in zip(m[3:5], p))
+        out.append([*m[:3], hg, ag, *m[5:]])
+    return out
+
+
 def fit_and_save(config, base_dir, bootstrap_size=60, seed=42):
     """Load <slug>/fetched_matches.json, fit Elo + Dixon-Coles, write
     <slug>/model_params.json (elo + point dc, committed) and
@@ -279,7 +291,11 @@ def fit_and_save(config, base_dir, bootstrap_size=60, seed=42):
     for how a competition's real weight is chosen: sandboxed against real
     upcoming fixtures for real forward-looking evidence before being set
     here, never guessed or copied from the WC's own (differently-tuned)
-    values."""
+    values.
+
+    With config.xg_weight set, the Dixon-Coles point fit and every bootstrap
+    refit train on goals blended toward Understat's xG (see blend_xg);
+    only the Elo seed keeps real goals, as in the validated backtest."""
     from competition_config import artifact_dir
     out_dir = artifact_dir(config, base_dir)
     matches_path = os.path.join(out_dir, "fetched_matches.json")
@@ -295,9 +311,23 @@ def fit_and_save(config, base_dir, bootstrap_size=60, seed=42):
         with open(mkt_probs_path) as f:
             mkt_probs_by_match = json.load(f)
 
-    elo = compute_elos(matches)
-    dc = fit_dc(matches, elo, mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
-    ensemble = fit_dc_bootstrap(matches, elo, dc, B=bootstrap_size, seed=seed,
+    # xg_by_match.json (fetch_league.py) is parallel to fetched_matches.json; a length
+    # mismatch means it is stale, and blending it would pair the wrong matches.
+    fit_matches = matches
+    xg_path = os.path.join(out_dir, "xg_by_match.json")
+    if config.xg_weight and os.path.exists(xg_path):
+        with open(xg_path) as f:
+            xg = json.load(f)
+        if len(xg) == len(matches):
+            fit_matches = blend_xg(matches, xg, config.xg_weight)
+            print(f"  xG blend w={config.xg_weight}: {sum(p is not None for p in xg)}/{len(xg)} matches")
+        else:
+            print(f"::warning::{config.name}: xg_by_match.json has {len(xg)} entries for "
+                  f"{len(matches)} matches -- ignored, fitting on real goals")
+
+    elo = compute_elos(matches)                      # Elo keeps real goals
+    dc = fit_dc(fit_matches, elo, mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
+    ensemble = fit_dc_bootstrap(fit_matches, elo, dc, B=bootstrap_size, seed=seed,
                                  mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
 
     with open(os.path.join(out_dir, "model_params.json"), "w") as f:

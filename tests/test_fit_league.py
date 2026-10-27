@@ -364,3 +364,74 @@ def test_a_prior_pulls_a_thin_data_team_toward_it():
     base = fit_dc(SYNTHETIC_MATCHES, elo)["attack"]["Newcomer FC"]
     pulled = fit_dc(SYNTHETIC_MATCHES, elo, prior={"attack": {"Newcomer FC": 1.0}, "defense": {}})["attack"]["Newcomer FC"]
     assert pulled > base
+
+
+# --- xG-blended training targets ---
+
+def test_blend_xg_pulls_goals_toward_xg_and_leaves_a_match_without_it_alone():
+    matches = [["2025-08-05", "A", "B", 2, 0, "L", False], ["2025-08-06", "B", "A", 1, 1, "L", True]]
+    out = fit_league.blend_xg(matches, [[1.0, 0.5], None], 0.5)
+    assert out == [["2025-08-05", "A", "B", 1.5, 0.25, "L", False], matches[1]]
+    assert matches[0][3] == 2                                  # the input rows are not touched
+
+
+def _write_xg(base_dir, slug, xg):
+    with open(os.path.join(base_dir, "competitions", slug, "xg_by_match.json"), "w") as f:
+        json.dump(xg, f)
+
+
+def _newcomer_deserved_more():
+    """xG for SYNTHETIC_MATCHES in which Newcomer FC created far more than it scored."""
+    return [[2.5, 0.0] if m[1] == "Newcomer FC" else [0.0, 2.5] if m[2] == "Newcomer FC" else None
+            for m in SYNTHETIC_MATCHES]
+
+
+def _fit_with(tmp_path, name, xg=None, **cfg):
+    config = CompetitionConfig(dict(IO_CONFIG_DATA, **cfg))
+    base = str(tmp_path / name)
+    _write_fetched_matches(base, config.slug, SYNTHETIC_MATCHES)
+    if xg is not None:
+        _write_xg(base, config.slug, xg)
+    dc = fit_and_save(config, base, bootstrap_size=2, seed=1)
+    out_dir = os.path.join(base, "competitions", config.slug)
+    with open(os.path.join(out_dir, "model_params.json")) as f:
+        elo = json.load(f)["elo"]
+    with open(os.path.join(out_dir, "dc_ensemble.json")) as f:
+        return dc, elo, json.load(f)
+
+
+XG_CFG = {"understat_code": "EPL", "xg_weight": 0.75}
+
+
+def test_fit_and_save_trains_the_point_fit_and_the_ensemble_on_blended_goals_but_not_the_elo(tmp_path):
+    plain_dc, plain_elo, plain_ens = _fit_with(tmp_path, "plain")
+    dc, elo, ens = _fit_with(tmp_path, "xg", xg=_newcomer_deserved_more(), **XG_CFG)
+    assert dc["attack"]["Newcomer FC"] > plain_dc["attack"]["Newcomer FC"]
+    assert np.mean([m["attack"]["Newcomer FC"] for m in ens]) > np.mean([m["attack"]["Newcomer FC"] for m in plain_ens])
+    assert elo == plain_elo                                    # Elo keeps real goals
+
+
+def test_fit_and_save_without_the_xg_file_fits_on_real_goals(tmp_path):
+    plain_dc, _, _ = _fit_with(tmp_path, "plain")
+    dc, _, _ = _fit_with(tmp_path, "nofile", **XG_CFG)
+    assert dc["attack"] == plain_dc["attack"]
+
+
+def test_fit_and_save_ignores_the_xg_file_when_no_weight_is_configured(tmp_path):
+    plain_dc, _, _ = _fit_with(tmp_path, "plain")
+    dc, _, _ = _fit_with(tmp_path, "weightless", xg=_newcomer_deserved_more())
+    assert dc["attack"] == plain_dc["attack"]
+
+
+def test_fit_and_save_ignores_a_stale_xg_file_of_the_wrong_length(tmp_path, capsys):
+    plain_dc, _, _ = _fit_with(tmp_path, "plain")
+    capsys.readouterr()
+    dc, _, _ = _fit_with(tmp_path, "stale", xg=_newcomer_deserved_more()[:-1], **XG_CFG)
+    assert dc["attack"] == plain_dc["attack"]
+    assert "::warning::" in capsys.readouterr().out
+
+
+def test_fit_and_save_with_an_all_none_xg_file_is_a_plain_goals_fit(tmp_path):
+    plain_dc, _, _ = _fit_with(tmp_path, "plain")
+    dc, _, _ = _fit_with(tmp_path, "allnone", xg=[None] * len(SYNTHETIC_MATCHES), **XG_CFG)
+    assert dc["attack"] == plain_dc["attack"]

@@ -26,6 +26,7 @@ zones are the site's (top 4, bottom 3 -- Bundesliga really has 2 direct drops
 plus a playoff).
 """
 import os
+import sys
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ.setdefault(_v, "1")
@@ -77,8 +78,9 @@ def null_ensemble(teams, home_adv):
              "home_adv": home_adv, "rho": 0.0, "teams": list(teams)}]
 
 
-def run_checkpoint(rows_by_season, season_keys, idx, frac, B=20, n_sims=3000, seed=0, train_seasons=3):
-    """Records {event, team, p, p_null, y} for one (season, checkpoint)."""
+def run_checkpoint(rows_by_season, season_keys, idx, frac, B=20, n_sims=3000, seed=0, train_seasons=3, xg_weight=0.0):
+    """Records {event, team, p, p_null, y} for one (season, checkpoint). `xg_weight` blends the
+    fit's training goals toward xG (rows need hxg/axg, see xg_data.attach_all); Elo keeps real goals."""
     rows = rows_by_season[season_keys[idx]]
     k = int(round(frac * len(rows)))
     played, rest = rows[:k], rows[k:]
@@ -86,9 +88,9 @@ def run_checkpoint(rows_by_season, season_keys, idx, frac, B=20, n_sims=3000, se
     as_of = rest[0]["date"]
     pool = [r for key in season_keys[max(0, idx - train_seasons):idx] for r in rows_by_season[key]]
     train = pool + [r for r in played if r["date"] < as_of]
-    fit_rows = to_fit_rows(train, "vs")
+    fit_rows = to_fit_rows(train, "vs", xg_weight)
     with _as_of(as_of):
-        elo = fl.compute_elos(fit_rows)
+        elo = fl.compute_elos(to_fit_rows(train, "vs"))
         dc = fl.fit_dc(fit_rows, elo)
         ens = fl.fit_dc_bootstrap(fit_rows, elo, dc, B=B, seed=seed)
     standings = table_from(played)
@@ -103,13 +105,13 @@ def run_checkpoint(rows_by_season, season_keys, idx, frac, B=20, n_sims=3000, se
 
 
 def _task(args):
-    league, by, keys, idx, frac, B, n_sims = args
+    league, by, keys, idx, frac, B, n_sims, xg_weight = args
     return [{**r, "league": league, "season": keys[idx], "frac": frac}
-            for r in run_checkpoint(by, keys, idx, frac, B=B, n_sims=n_sims, seed=idx)]
+            for r in run_checkpoint(by, keys, idx, frac, B=B, n_sims=n_sims, seed=idx, xg_weight=xg_weight)]
 
 
-def run_all(data, test_seasons, fracs=FRACS, B=20, n_sims=3000, workers=1):
-    tasks = [(lg, by, SEASONS, SEASONS.index(s), f, B, n_sims) for lg, by in data.items()
+def run_all(data, test_seasons, fracs=FRACS, B=20, n_sims=3000, workers=1, xg_weight=0.0):
+    tasks = [(lg, by, SEASONS, SEASONS.index(s), f, B, n_sims, xg_weight) for lg, by in data.items()
              for s in test_seasons for f in fracs]
     if workers > 1:
         with ProcessPoolExecutor(max_workers=workers) as ex:
@@ -156,9 +158,10 @@ def reliability(records, event, edges=(0, 0.02, 0.05, 0.1, 0.2, 0.4, 0.7, 1.0001
 
 def main():
     t0 = time.time()
-    data = load_all()
+    xg_weight = float(sys.argv[1]) if len(sys.argv) > 1 else 0.0      # e.g. 0.75 = the production blend
+    data = load_all(xg=bool(xg_weight))
     test_seasons = SEASONS[3:]
-    recs = run_all(data, test_seasons, workers=worker_count())
+    recs = run_all(data, test_seasons, workers=worker_count(), xg_weight=xg_weight)
     print(f"simulated {len({(r['league'], r['season'], r['frac']) for r in recs})} league-season-checkpoints "
           f"in {time.time() - t0:.0f}s\n")
     for label, sel in [("ALL checkpoints", None)] + [(f"checkpoint {int(f*100)}% played", (lambda r, f=f: r["frac"] == f)) for f in FRACS]:

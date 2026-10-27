@@ -152,3 +152,75 @@ def test_elo_and_the_evaluation_outcome_keep_using_real_goals_not_xg():
         r["hxg"], r["axg"] = 0.0, 0.0           # absurd xG: outcomes are still scored on the real score
     recs = run_season(skewed, keys, 3, {"train_seasons": 3, "refit_days": 30, "xg_weight": 0.5})
     assert [r["o"] for r in recs] == [0 if r["hg"] > r["ag"] else (2 if r["hg"] < r["ag"] else 1) for r in skewed["s3"]]
+
+
+# --- live: xG for the production training rows ---
+
+LIVE = [["2024-08-16", "Manchester United FC", "Fulham FC", 1, 0, "L", False],
+        ["2024-08-17", "Fulham FC", "Manchester United FC", 2, 2, "L", False]]
+RAW = [_us("2024-08-16", "Manchester United", "Fulham", 1, 0, 2.0, 0.4),
+       _us("2024-08-17", "Fulham", "Manchester United", 2, 2, 1.1, 1.9)]
+
+
+def _blocked(code, year):
+    raise OSError("blocked")
+
+
+def test_season_of_follows_the_august_to_july_calendar():
+    dates = ("2024-08-01", "2025-05-25", "2025-07-31", "2025-08-01", "2026-10-03")
+    assert [xg_data.season_of(d) for d in dates] == ["2425", "2425", "2425", "2526", "2627"]
+
+
+def test_live_xg_is_parallel_to_the_rows_and_joined_through_the_learned_name_map(capsys):
+    assert xg_data.live_xg("EPL", LIVE, lambda code, year: RAW) == [(2.0, 0.4), (1.1, 1.9)]
+    assert "::warning::" not in capsys.readouterr().out
+
+
+def test_live_xg_asks_understat_for_each_season_the_rows_fall_in():
+    asked = []
+    rows = LIVE + [["2025-09-13", "Fulham FC", "Arsenal FC", 0, 0, "L", False]]
+    xg_data.live_xg("EPL", rows, lambda code, year: asked.append((code, year)) or RAW)
+    assert sorted(asked) == [("EPL", 2024), ("EPL", 2025)]
+
+
+def test_live_xg_leaves_a_match_understat_has_not_published_as_none_and_says_so(capsys):
+    rows = LIVE + [["2024-08-24", "Manchester United FC", "Arsenal FC", 3, 1, "L", False]]
+    assert xg_data.live_xg("EPL", rows, lambda code, year: RAW) == [(2.0, 0.4), (1.1, 1.9), None]
+    assert "only 2/3 matches joined" in capsys.readouterr().out
+
+
+def test_live_xg_keeps_the_seasons_it_has_when_another_is_unreachable(capsys):
+    rows = LIVE + [["2023-08-12", "Manchester United FC", "Fulham FC", 0, 0, "L", False]]
+    fetch = lambda code, year: RAW if year == 2024 else _blocked(code, year)
+    assert xg_data.live_xg("EPL", rows, fetch) == [(2.0, 0.4), (1.1, 1.9), None]
+    out = capsys.readouterr().out
+    assert "2324 unavailable (OSError: blocked)" in out and out.count("::warning::") == 1
+
+
+def test_live_xg_never_raises_when_understat_is_unreachable(capsys):
+    assert xg_data.live_xg("EPL", LIVE, _blocked) == [None, None]
+    assert "::warning::" in capsys.readouterr().out
+
+
+def test_live_xg_treats_a_response_in_the_wrong_shape_as_unreachable(capsys):
+    assert xg_data.live_xg("EPL", LIVE, lambda code, year: [{"isResult": True}]) == [None, None]
+    assert "unavailable (KeyError" in capsys.readouterr().out
+
+
+def test_live_xg_gives_up_on_an_ambiguous_name_map_instead_of_raising(capsys):
+    rows = [["2024-08-10", "Foo FC", "Y FC", 1, 0, "L", False], ["2024-08-11", "Bar FC", "Y FC", 1, 0, "L", False]]
+    raw = [_us("2024-08-10", "X", "Y", 1, 0, 1.0, 1.0), _us("2024-08-11", "X", "Y", 1, 0, 1.0, 1.0)]
+    assert xg_data.live_xg("EPL", rows, lambda code, year: raw) == [None, None]
+    assert "ambiguously" in capsys.readouterr().out
+
+
+def test_live_xg_drops_a_season_whose_scores_disagree_with_understat(capsys):
+    rows = [["2024-08-16", "Manchester United FC", "Fulham FC", 0, 3, "L", False], LIVE[1]]
+    assert xg_data.live_xg("EPL", rows, lambda code, year: RAW) == [None, None]
+    assert "different score" in capsys.readouterr().out
+
+
+def test_blend_xg_is_the_same_formula_the_backtest_validated():
+    from fit_league import blend_xg
+    xg = [(r["hxg"], r["axg"]) if "hxg" in r else None for r in ROWS]
+    assert blend_xg(to_fit_rows(ROWS, "x"), xg, 0.75) == to_fit_rows(ROWS, "x", xg_weight=0.75)

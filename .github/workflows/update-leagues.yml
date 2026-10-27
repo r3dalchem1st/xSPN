@@ -103,6 +103,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add "competitions/$COMPETITION/fetched_matches.json" \
                   "competitions/$COMPETITION/mkt_probs_by_match.json" \
+                  "competitions/$COMPETITION/xg_by_match.json" \
                   "competitions/$COMPETITION/schedule.json" \
                   "competitions/$COMPETITION/model_params.json" \
                   "competitions/$COMPETITION/league_sim.json" \

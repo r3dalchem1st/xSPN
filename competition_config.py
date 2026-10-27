@@ -82,6 +82,19 @@ class CompetitionConfig:
         # "soccer_spain_la_liga" not "soccer_la_liga"), never guessed.
         # None -> nothing recorded for this competition.
         self.odds_api_sport_key = data.get("odds_api_sport_key")
+        # Optional Understat league code ("EPL", "La_liga", "Bundesliga") and
+        # xg_weight: the share of each training match's goals replaced by its
+        # xG, (1-w)*goals + w*xG, in the Dixon-Coles fit (Elo and every scored
+        # outcome keep real goals). The one setting that passed the
+        # pre-registered rule in rolling_backtest.py (w=0.75; model_changelog.md).
+        # fetch_league.py writes xg_by_match.json; matches Understat can't supply
+        # train on their real goals. 0.0 (default) is a true no-op.
+        self.understat_code = data.get("understat_code")
+        self.xg_weight = data.get("xg_weight", 0.0)
+        if not 0.0 <= self.xg_weight <= 1.0:
+            raise ValueError(f"xg_weight must be between 0 and 1, got {self.xg_weight}")
+        if self.xg_weight and not self.understat_code:
+            raise ValueError("xg_weight needs an understat_code")
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies
