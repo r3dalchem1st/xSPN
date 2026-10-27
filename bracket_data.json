@@ -16,7 +16,7 @@
         "home": "Mexico",
         "away": "South Korea",
         "lam": 1.9,
-        "mu": 0.8,
+        "mu": 0.81,
         "score": "1\u20130",
         "ph": 0.565,
         "pd": 0.295,
@@ -1338,7 +1338,7 @@
       "pd": 0.254,
       "pa": 0.493,
       "reg_winner": "France",
-      "lam": 1.02,
+      "lam": 1.03,
       "mu": 1.55
     },
     {
@@ -1427,7 +1427,7 @@
     "away": "England",
     "score": "4\u20136",
     "winner": "England",
-    "win_pct": 50.9,
+    "win_pct": 50.8,
     "ph": 0.389,
     "pd": 0.222,
     "pa": 0.389,
@@ -1436,14 +1436,14 @@
     "mu": 1.79
   },
   "champion": "Spain",
-  "champion_pct": 92.7,
+  "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.6,
-    "Argentina": 83.9,
-    "England": 9.2,
-    "Colombia": 6.1,
+    "Argentina": 84.0,
+    "England": 9.1,
+    "Colombia": 6.2,
     "France": 1.9,
-    "Senegal": 0.8,
+    "Senegal": 0.7,
     "USA": 0.3,
     "Algeria": 0.1
   }
