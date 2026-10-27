@@ -893,5 +893,57 @@
       "pd": 0.16420162426166363,
       "pa": 0.1320771289026353
     }
+  },
+  "1. FC Union Berlin|1. FC K\u00f6ln": {
+    "home": "1. FC Union Berlin",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-11-01",
+    "ph": 0.4279139416366889,
+    "pd": 0.25132817898704624,
+    "pa": 0.3207578793762649,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.3817734957502259,
+      "pd": 0.2623266268128296,
+      "pa": 0.3558998774369445
+    }
+  },
+  "Eintracht Frankfurt|Hamburger SV": {
+    "home": "Eintracht Frankfurt",
+    "away": "Hamburger SV",
+    "date": "2026-11-01",
+    "ph": 0.5922889400390312,
+    "pd": 0.20360960909544387,
+    "pa": 0.2041014508655251,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5736357866420935,
+      "pd": 0.21521481868036338,
+      "pa": 0.21114939467754326
+    }
   }
 }
