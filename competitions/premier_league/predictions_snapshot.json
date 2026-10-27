@@ -1106,5 +1106,31 @@
       "pd": 0.2542649907032683,
       "pa": 0.2651567421966594
     }
+  },
+  "Liverpool FC|Arsenal FC": {
+    "home": "Liverpool FC",
+    "away": "Arsenal FC",
+    "date": "2026-11-01",
+    "ph": 0.290250106331478,
+    "pd": 0.26872964454914494,
+    "pa": 0.44102024911937693,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-10-27",
+    "model": {
+      "sha": "c8e409a",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.31510139477866134,
+      "pd": 0.27030664952735495,
+      "pa": 0.4145919556939836
+    }
   }
 }
