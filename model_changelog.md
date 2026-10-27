@@ -121,4 +121,16 @@ Model was the broken June 1 pipeline; all 72 group snapshots locked with stale p
 
 ---
 
+## 2026-10-27 — xG-blended training targets (w=0.75) in production for Premier League, La Liga, Bundesliga
+
+**Files:** `xg_data.py` (`live_xg`, `season_of`), `fetch_league.py` (writes `xg_by_match.json`), `fit_league.py` (`blend_xg`; `fit_and_save` blends the targets for the point fit AND every bootstrap refit — Elo keeps real goals), `competition_config.py` (`understat_code`, `xg_weight`), `snapshot_league.py` (model stamp gains `xg_weight` and `xg_coverage`), the three `competitions/*.json` (`understat_code`, `xg_weight: 0.75`), `update-leagues.yml` (commits `xg_by_match.json`), `validate_sim.py` (optional xG weight).
+- **Why:** the only family to pass the pre-registered rule (26 Oct): +0.0032 Brier [+0.0008,+0.0056], log-loss +0.0042 on the confirmation seasons. w=0.75 was the best of the four weights on development seasons.
+- **How it runs:** every fetch pulls Understat's per-match xG for each season in the competition config, learns the Understat -> openfootball club map from matches unique on (date, score), joins on (home, away) per season, and writes `xg_by_match.json` parallel to `fetched_matches.json` (rounded to 4 dp). First run against the live data: 840/840 PL, 855/855 La Liga, 674/674 Bundesliga training matches joined, no warnings.
+- **Fallback (Understat is unofficial and may block CI):** `live_xg` never raises. A season it cannot fetch (network, HTTP, bad JSON/schema), a club map that will not resolve, or a season whose joined scores disagree with ours by more than 2% leaves those matches `None` and prints a `::warning::`; the fit then trains them on real goals, exactly as before this change. A match Understat has not published yet is also `None` (warns only below 90% of a season joined). `fit_and_save` ignores an `xg_by_match.json` whose length does not match `fetched_matches.json`. Each lock's stamp records `xg_weight` (asked for) and `xg_coverage` (share of training matches that actually had xG; 0.0 = a plain-goals fit), so a run during an outage is identifiable. Locks made before today carry neither key (read as no xG).
+- **Live matches the validated path:** the blend moves match probabilities by a mean 3.2 / 1.3 / 2.7 pp (H/D/A) in the backtest (2024-25, 2025-26; favourite flips 6%) and 3-4 / 1.4-2.3 / 2.7-3.7 pp on the live fixtures (flips 6-10%); the blend formula is pinned equal to `to_fit_rows` by a test.
+- **Season simulation re-validated** (`validate_sim.py 0.75`, 90 checkpoints, B=20, same seeds; goals-only in brackets): Brier title 0.0181 (0.0194), top-4 0.0540 (0.0560), relegation 0.0845 (0.0838). Skill vs the standings-only null: title +47.7% (+44.2%), top-4 +47.0% (+45.1%), relegation +10.1% (+10.8%). No paired interval between the two runs was computed, so title/top-4 are "better in point estimate", relegation "flat". The relegation under-forecast is not fixed (5-10% bin: forecast 0.072, happened 0.132; the 2-5% bin did improve, 0.033 vs 0.028).
+- **Consequence:** predictions change today — a few points per match, with 6-10% of upcoming favourites flipping. Locked predictions are untouched.
+
+---
+
 *To review accuracy before/after any change: check `accuracy_history.json` for entries around the change date.*

@@ -417,3 +417,30 @@ def test_main_exits_nonzero_when_current_season_fetch_fails(tmp_path, monkeypatc
     with pytest.raises(SystemExit) as exc_info:
         fetch_league.main()
     assert exc_info.value.code == 1
+
+
+def _fake_one_played_match(monkeypatch):
+    monkeypatch.setattr(fetch_league, "fetch_openfootball_file", lambda repo, path, timeout=10: path)
+    monkeypatch.setattr(fetch_league, "parse_openfootball_txt",
+                        lambda text: [UNPLAYED_MATCH] if text.startswith("2026") else [ALIASED_MATCH])
+
+
+def test_fetch_and_save_writes_an_all_none_xg_file_and_never_calls_understat_without_a_weight(tmp_path, monkeypatch):
+    _fake_one_played_match(monkeypatch)
+    monkeypatch.setattr(fetch_league, "live_xg", lambda *a: (_ for _ in ()).throw(AssertionError("Understat called")))
+    fetch_and_save(CompetitionConfig(CONFIG_DATA), str(tmp_path))
+    with open(tmp_path / "competitions" / "test_league" / "xg_by_match.json") as f:
+        assert json.load(f) == [None]
+
+
+def test_fetch_and_save_writes_xg_parallel_to_fetched_matches_when_a_weight_is_set(tmp_path, monkeypatch):
+    _fake_one_played_match(monkeypatch)
+    seen = []
+    monkeypatch.setattr(fetch_league, "live_xg", lambda code, rows: seen.append((code, rows)) or [(1.2, 0.4)])
+    fetch_and_save(CompetitionConfig(dict(CONFIG_DATA, understat_code="EPL", xg_weight=0.75)), str(tmp_path))
+    out_dir = tmp_path / "competitions" / "test_league"
+    with open(out_dir / "fetched_matches.json") as f:
+        matches = json.load(f)
+    with open(out_dir / "xg_by_match.json") as f:
+        assert json.load(f) == [[1.2, 0.4]]
+    assert seen == [("EPL", matches)]

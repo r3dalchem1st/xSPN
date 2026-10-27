@@ -18,6 +18,7 @@ from fetch_live_scores import overlay_live_results
 from fetch_odds_history import build_mkt_probs_by_match, fetch_season_csv, parse_odds_rows
 from fetch_odds_history import season_to_fd_code as _season_to_fd_code
 from openfootball_txt import parse_openfootball_txt
+from xg_data import live_xg
 
 
 def fetch_openfootball_file(repo, path, timeout=10):
@@ -155,6 +156,9 @@ def fetch_and_save(config, base_dir):
         Always written (even all-None) so fit_league.py's fit_and_save() and
         every competition's CI commit step can rely on it always existing,
         same invariant every other artifact file already has.
+      competitions/<slug>/xg_by_match.json        -- Understat (hxg, axg) or None
+        per training match, parallel to fetched_matches.json (all-None unless
+        config.xg_weight is set; written for every competition, same invariant)
       competitions/<slug>/schedule.json           -- ALL fixtures from the
         newest (current) season only, played + unplayed
 
@@ -220,6 +224,13 @@ def fetch_and_save(config, base_dir):
         json.dump(all_rows, f, indent=2)
     with open(os.path.join(out_dir, "mkt_probs_by_match.json"), "w") as f:
         json.dump(current_mkt_probs + older_mkt_probs, f)
+    # Understat xG per training match, parallel to fetched_matches.json (None = train on real
+    # goals). Always written, like mkt_probs_by_match.json; live_xg never raises (see xg_data.py).
+    xg = live_xg(config.understat_code, all_rows) if config.xg_weight else [None] * len(all_rows)
+    if config.xg_weight:
+        print(f"  xG: {sum(p is not None for p in xg)}/{len(xg)} training matches")
+    with open(os.path.join(out_dir, "xg_by_match.json"), "w") as f:
+        json.dump(xg, f)
     if not current_season_failed:
         with open(os.path.join(out_dir, "schedule.json"), "w") as f:
             json.dump(current_schedule, f, indent=2)

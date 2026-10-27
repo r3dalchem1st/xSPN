@@ -160,3 +160,24 @@ def test_odds_api_sport_key_read_when_present():
     data = dict(VALID_DATA, odds_api_sport_key="soccer_epl")
     config = CompetitionConfig(data)
     assert config.odds_api_sport_key == "soccer_epl"
+
+
+def test_xg_settings_default_to_off():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.xg_weight == 0.0 and config.understat_code is None
+
+
+def test_xg_settings_read_when_present():
+    config = CompetitionConfig(dict(VALID_DATA, understat_code="EPL", xg_weight=0.75))
+    assert (config.understat_code, config.xg_weight) == ("EPL", 0.75)
+
+
+def test_xg_weight_without_an_understat_code_is_rejected():
+    with pytest.raises(ValueError, match="understat_code"):
+        CompetitionConfig(dict(VALID_DATA, xg_weight=0.75))
+
+
+@pytest.mark.parametrize("bad", [-0.1, 1.5, 75])
+def test_xg_weight_outside_zero_to_one_is_rejected(bad):
+    with pytest.raises(ValueError, match="between 0 and 1"):
+        CompetitionConfig(dict(VALID_DATA, understat_code="EPL", xg_weight=bad))

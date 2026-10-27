@@ -50,5 +50,7 @@
   "football_data_code": "PD",
   "odds_history_code": "SP1",
   "odds_fit_weight": 0.0,
-  "odds_api_sport_key": "soccer_spain_la_liga"
+  "odds_api_sport_key": "soccer_spain_la_liga",
+  "understat_code": "La_liga",
+  "xg_weight": 0.75
 }

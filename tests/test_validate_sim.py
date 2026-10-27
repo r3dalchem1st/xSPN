@@ -76,3 +76,14 @@ def test_summarize_reports_skill_against_both_baselines_for_each_event():
         s = out[ev]
         assert {"brier", "uniform_brier", "null_brier", "skill_vs_uniform", "skill_vs_null", "n"} <= set(s)
         assert s["n"] == len(TEAMS)
+
+
+def test_xg_weight_reaches_the_simulations_fit_and_zero_leaves_it_untouched():
+    by, keys = _data()
+    rng = np.random.default_rng(5)
+    for rows in by.values():
+        for r in rows:
+            r["hxg"], r["axg"] = r["hg"] + float(rng.normal(0, 0.8)), r["ag"] + float(rng.normal(0, 0.8))
+    run = lambda **kw: [r["p"] for r in run_checkpoint(by, keys, 3, 0.0, B=2, n_sims=200, seed=3, **kw)]
+    assert run() == run(xg_weight=0.0)
+    assert run() != run(xg_weight=0.75)
