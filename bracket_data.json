@@ -377,7 +377,7 @@
       {
         "home": "Japan",
         "away": "Sweden",
-        "lam": 2.05,
+        "lam": 2.04,
         "mu": 1.2,
         "score": "2\u20131",
         "ph": 0.512,
@@ -495,7 +495,7 @@
         "mu": 0.63,
         "score": "2\u20130",
         "ph": 0.71,
-        "pd": 0.213,
+        "pd": 0.214,
         "pa": 0.077,
         "likely_winner": "Spain"
       },
@@ -1359,7 +1359,7 @@
       "away": "England",
       "score": "1\u20132",
       "winner": "England",
-      "win_pct": 62.6,
+      "win_pct": 62.7,
       "ph": 0.266,
       "pd": 0.194,
       "pa": 0.54,
@@ -1372,7 +1372,7 @@
       "away": "Switzerland",
       "score": "3\u20131",
       "winner": "Argentina",
-      "win_pct": 74.6,
+      "win_pct": 74.7,
       "ph": 0.598,
       "pd": 0.214,
       "pa": 0.188,
@@ -1431,7 +1431,7 @@
     "ph": 0.389,
     "pd": 0.222,
     "pa": 0.389,
-    "reg_winner": "France",
+    "reg_winner": "England",
     "lam": 1.77,
     "mu": 1.79
   },
@@ -1440,11 +1440,11 @@
   "reach_final": {
     "Spain": 97.6,
     "Argentina": 84.0,
-    "England": 9.1,
+    "England": 9.0,
     "Colombia": 6.2,
     "France": 1.9,
-    "Senegal": 0.7,
-    "USA": 0.3,
+    "Senegal": 0.8,
+    "USA": 0.4,
     "Algeria": 0.1
   }
 }
