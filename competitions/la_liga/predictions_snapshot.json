@@ -1382,5 +1382,33 @@
       "pd": 0.13386493494168925,
       "pa": 0.7657789959969297
     }
+  },
+  "RC Deportivo La Coru\u00f1a|CA Osasuna": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "CA Osasuna",
+    "date": "2026-11-02",
+    "ph": 0.46066449850127333,
+    "pd": 0.254481532067466,
+    "pa": 0.28485396943126057,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-10-28",
+    "model": {
+      "sha": "f6b71e3",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 1.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4382273837577192,
+      "pd": 0.2928019711601741,
+      "pa": 0.2689706450821067
+    }
   }
 }
