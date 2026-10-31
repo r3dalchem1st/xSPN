@@ -970,35 +970,48 @@
       "market_correct_winner": true,
       "market_brier": 0.5656178845537996,
       "disagree": true
+    },
+    {
+      "home": "Villarreal CF",
+      "away": "RCD Espanyol de Barcelona",
+      "date": "2026-10-30",
+      "correct_winner": false,
+      "brier": 1.100666756248571,
+      "log_loss": 1.7461934189632704,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 1.12787127108998,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 99,
-    "accuracy": 0.5656565656565656,
-    "avg_brier": 0.5727664423553044,
-    "avg_log_loss": 0.966648435012647,
-    "avg_goal_error": 2.0606060606060606,
+    "n_scored": 100,
+    "accuracy": 0.56,
+    "avg_brier": 0.578045445494237,
+    "avg_log_loss": 0.9744438848521533,
+    "avg_goal_error": 2.06,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6491271789921376,
-      "skill": 0.11763601819198832,
-      "skill_lo": 0.03651956176538541,
-      "skill_hi": 0.1998554278922425
+      "avg_brier": 0.6505851800554018,
+      "skill": 0.11149921145604247,
+      "skill_lo": 0.03219437921975392,
+      "skill_hi": 0.19423253117886358
     },
     "vs_market": {
-      "n": 20,
-      "accuracy": 0.55,
-      "market_accuracy": 0.6,
-      "avg_brier": 0.547677645132978,
-      "market_avg_brier": 0.5494677451931806,
+      "n": 21,
+      "accuracy": 0.5238095238095238,
+      "market_accuracy": 0.5714285714285714,
+      "avg_brier": 0.5740104599480063,
+      "market_avg_brier": 0.5770107702358854,
       "brier_gap": {
-        "mean": 0.0017901000602026456,
-        "lo": -0.03714921895784432,
-        "hi": 0.04380911064502305
+        "mean": 0.003000310287879142,
+        "lo": -0.03531922853289982,
+        "hi": 0.04362087133308349
       },
       "disagree_n": 3,
       "we_right": 0,
