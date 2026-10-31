@@ -638,35 +638,48 @@
       "market_correct_winner": true,
       "market_brier": 0.1461585747107988,
       "disagree": false
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "1. FSV Mainz 05",
+      "date": "2026-10-30",
+      "correct_winner": false,
+      "brier": 0.5746307315687255,
+      "log_loss": 0.9388342918955334,
+      "total_goal_error": 4,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.7655777881425871,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 63,
-    "accuracy": 0.5079365079365079,
-    "avg_brier": 0.6319105212832055,
-    "avg_log_loss": 1.0443903446895089,
-    "avg_goal_error": 2.6666666666666665,
+    "n_scored": 64,
+    "accuracy": 0.5,
+    "avg_brier": 0.6310155245689167,
+    "avg_log_loss": 1.042741031364603,
+    "avg_goal_error": 2.6875,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.6315243492525242,
-      "skill": -0.000611491910230022,
-      "skill_lo": -0.11778425621856532,
-      "skill_hi": 0.11920847957464682
+      "avg_brier": 0.6298113754650825,
+      "skill": -0.0019119202204709307,
+      "skill_lo": -0.11729553467445145,
+      "skill_hi": 0.11761869104807689
     },
     "vs_market": {
-      "n": 18,
-      "accuracy": 0.5,
-      "market_accuracy": 0.5555555555555556,
-      "avg_brier": 0.6017313136777455,
-      "market_avg_brier": 0.5915644057312038,
+      "n": 19,
+      "accuracy": 0.47368421052631576,
+      "market_accuracy": 0.5263157894736842,
+      "avg_brier": 0.6003049672509548,
+      "market_avg_brier": 0.6007230048054871,
       "brier_gap": {
-        "mean": -0.010166907946541617,
-        "lo": -0.06503265725143512,
-        "hi": 0.0458300358481893
+        "mean": 0.00041803755453224153,
+        "lo": -0.05836422319588046,
+        "hi": 0.056220220106256207
       },
       "disagree_n": 1,
       "we_right": 0,
