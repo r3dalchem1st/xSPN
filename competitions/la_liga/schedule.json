@@ -630,7 +630,7 @@
     "round": "Matchday 8"
   },
   "Rayo Vallecano de Madrid|Athletic Club": {
-    "date": "2026-10-10",
+    "date": "2026-12-09",
     "status": "SCHEDULED",
     "goals": {
       "Rayo Vallecano de Madrid": null,
@@ -910,10 +910,10 @@
   },
   "Villarreal CF|RCD Espanyol de Barcelona": {
     "date": "2026-10-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Villarreal CF": null,
-      "RCD Espanyol de Barcelona": null
+      "Villarreal CF": 0,
+      "RCD Espanyol de Barcelona": 1
     },
     "round": "Matchday 11"
   },
