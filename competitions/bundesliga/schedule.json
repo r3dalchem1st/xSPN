@@ -568,10 +568,10 @@
   },
   "SV 07 Elversberg|1. FSV Mainz 05": {
     "date": "2026-10-30",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV 07 Elversberg": null,
-      "1. FSV Mainz 05": null
+      "SV 07 Elversberg": 4,
+      "1. FSV Mainz 05": 1
     },
     "round": "Matchday 8"
   },
