@@ -1410,5 +1410,33 @@
       "pd": 0.2928019711601741,
       "pa": 0.2689706450821067
     }
+  },
+  "Sevilla FC|Deportivo Alav\u00e9s": {
+    "home": "Sevilla FC",
+    "away": "Deportivo Alav\u00e9s",
+    "date": "2026-11-06",
+    "ph": 0.39438026038743285,
+    "pd": 0.27580004397981095,
+    "pa": 0.3298196956327564,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-01",
+    "model": {
+      "sha": "804a241",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 1.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.46624413471288334,
+      "pd": 0.2856632845677412,
+      "pa": 0.24809258071937543
+    }
   }
 }
