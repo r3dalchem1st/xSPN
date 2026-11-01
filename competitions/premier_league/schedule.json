@@ -721,73 +721,73 @@
   },
   "Chelsea FC|Manchester United FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Chelsea FC": null,
-      "Manchester United FC": null
+      "Chelsea FC": 2,
+      "Manchester United FC": 0
     },
     "round": "Matchday 9"
   },
   "Manchester City FC|Brighton & Hove Albion FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester City FC": null,
-      "Brighton & Hove Albion FC": null
+      "Manchester City FC": 0,
+      "Brighton & Hove Albion FC": 1
     },
     "round": "Matchday 9"
   },
   "AFC Bournemouth|Leeds United FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "AFC Bournemouth": null,
-      "Leeds United FC": null
+      "AFC Bournemouth": 2,
+      "Leeds United FC": 0
     },
     "round": "Matchday 9"
   },
   "Coventry City FC|Sunderland AFC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Coventry City FC": null,
-      "Sunderland AFC": null
+      "Coventry City FC": 3,
+      "Sunderland AFC": 1
     },
     "round": "Matchday 9"
   },
   "Hull City AFC|Ipswich Town FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hull City AFC": null,
-      "Ipswich Town FC": null
+      "Hull City AFC": 2,
+      "Ipswich Town FC": 2
     },
     "round": "Matchday 9"
   },
   "Brentford FC|Nottingham Forest FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brentford FC": null,
-      "Nottingham Forest FC": null
+      "Brentford FC": 2,
+      "Nottingham Forest FC": 0
     },
     "round": "Matchday 9"
   },
   "Tottenham Hotspur FC|Crystal Palace FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Tottenham Hotspur FC": null,
-      "Crystal Palace FC": null
+      "Tottenham Hotspur FC": 2,
+      "Crystal Palace FC": 0
     },
     "round": "Matchday 9"
   },
   "Aston Villa FC|Fulham FC": {
     "date": "2026-10-31",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Aston Villa FC": null,
-      "Fulham FC": null
+      "Aston Villa FC": 1,
+      "Fulham FC": 1
     },
     "round": "Matchday 9"
   },
