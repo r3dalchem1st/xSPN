@@ -230,7 +230,7 @@
       {
         "home": "USA",
         "away": "Turkey",
-        "lam": 2.05,
+        "lam": 2.06,
         "mu": 1.65,
         "score": "2\u20131",
         "ph": 0.431,
@@ -674,7 +674,7 @@
         "lam": 2.78,
         "mu": 1.12,
         "score": "2\u20131",
-        "ph": 0.669,
+        "ph": 0.668,
         "pd": 0.213,
         "pa": 0.118,
         "likely_winner": "Austria"
@@ -1377,7 +1377,7 @@
       "pd": 0.214,
       "pa": 0.188,
       "reg_winner": "Argentina",
-      "lam": 1.98,
+      "lam": 1.99,
       "mu": 1.0
     }
   ],
@@ -1436,15 +1436,15 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.7,
+  "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.5,
-    "Argentina": 84.3,
+    "Argentina": 84.0,
     "England": 9.2,
-    "Colombia": 5.8,
+    "Colombia": 6.1,
     "France": 2.0,
-    "Senegal": 0.8,
-    "USA": 0.4,
-    "Algeria": 0.1
+    "Senegal": 0.7,
+    "USA": 0.3,
+    "Algeria": 0.2
   }
 }
