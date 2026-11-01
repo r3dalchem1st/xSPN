@@ -972,6 +972,19 @@
       "disagree": true
     },
     {
+      "home": "Real Betis Balompi\u00e9",
+      "away": "M\u00e1laga CF",
+      "date": "2026-10-31",
+      "correct_winner": true,
+      "brier": 0.11098253486668568,
+      "log_loss": 0.3119879454452307,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.15234444395973326,
+      "disagree": false
+    },
+    {
       "home": "Villarreal CF",
       "away": "RCD Espanyol de Barcelona",
       "date": "2026-10-30",
@@ -983,35 +996,74 @@
       "market_correct_winner": false,
       "market_brier": 1.12787127108998,
       "disagree": false
+    },
+    {
+      "home": "Levante UD",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "date": "2026-10-31",
+      "correct_winner": true,
+      "brier": 0.27802326579365955,
+      "log_loss": 0.5626822984752285,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.25542786814517354,
+      "disagree": false
+    },
+    {
+      "home": "FC Barcelona",
+      "away": "Deportivo Alav\u00e9s",
+      "date": "2026-10-31",
+      "correct_winner": true,
+      "brier": 0.0653317767568922,
+      "log_loss": 0.23120202115336544,
+      "total_goal_error": 5,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.03575139007061893,
+      "disagree": false
+    },
+    {
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RC Celta de Vigo",
+      "date": "2026-10-31",
+      "correct_winner": true,
+      "brier": 0.5494780251606739,
+      "log_loss": 0.9273037389883716,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.5245902543521469,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 100,
-    "accuracy": 0.56,
-    "avg_brier": 0.578045445494237,
-    "avg_log_loss": 0.9744438848521533,
-    "avg_goal_error": 2.06,
+    "n_scored": 104,
+    "accuracy": 0.5769230769230769,
+    "avg_brier": 0.565465001461554,
+    "avg_log_loss": 0.9565150431661299,
+    "avg_goal_error": 2.076923076923077,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6505851800554018,
-      "skill": 0.11149921145604247,
-      "skill_lo": 0.03219437921975392,
-      "skill_hi": 0.19423253117886358
+      "avg_brier": 0.6455092691242276,
+      "skill": 0.1240017324170587,
+      "skill_lo": 0.04542475535841797,
+      "skill_hi": 0.20473026965120503
     },
     "vs_market": {
-      "n": 21,
-      "accuracy": 0.5238095238095238,
-      "market_accuracy": 0.5714285714285714,
-      "avg_brier": 0.5740104599480063,
-      "market_avg_brier": 0.5770107702358854,
+      "n": 25,
+      "accuracy": 0.6,
+      "market_accuracy": 0.64,
+      "avg_brier": 0.5223214104594418,
+      "market_avg_brier": 0.5234136052592506,
       "brier_gap": {
-        "mean": 0.003000310287879142,
-        "lo": -0.03531922853289982,
-        "hi": 0.04362087133308349
+        "mean": 0.001092194799808932,
+        "lo": -0.03045966620137389,
+        "hi": 0.034729845124584095
       },
       "disagree_n": 3,
       "we_right": 0,
