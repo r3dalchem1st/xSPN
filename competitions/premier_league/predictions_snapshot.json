@@ -1160,5 +1160,33 @@
       "pd": 0.2635885272204633,
       "pa": 0.3193705236694891
     }
+  },
+  "Everton FC|Coventry City FC": {
+    "home": "Everton FC",
+    "away": "Coventry City FC",
+    "date": "2026-11-06",
+    "ph": 0.4917455999226115,
+    "pd": 0.2728707783864857,
+    "pa": 0.23538362169090293,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-01",
+    "model": {
+      "sha": "804a241",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 1.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5531466647289334,
+      "pd": 0.2417139916479467,
+      "pa": 0.2051393436231199
+    }
   }
 }
