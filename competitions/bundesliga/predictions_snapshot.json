@@ -945,5 +945,33 @@
       "pd": 0.21521481868036338,
       "pa": 0.21114939467754326
     }
+  },
+  "Hamburger SV|Borussia M\u00f6nchengladbach": {
+    "home": "Hamburger SV",
+    "away": "Borussia M\u00f6nchengladbach",
+    "date": "2026-11-06",
+    "ph": 0.3956398512369429,
+    "pd": 0.24222261198388378,
+    "pa": 0.3621375367791735,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-01",
+    "model": {
+      "sha": "804a241",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 1.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4024117937216454,
+      "pd": 0.25345725202283637,
+      "pa": 0.3441309542555183
+    }
   }
 }
