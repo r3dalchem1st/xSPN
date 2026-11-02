@@ -1188,5 +1188,117 @@
       "pd": 0.2417139916479467,
       "pa": 0.2051393436231199
     }
+  },
+  "Arsenal FC|Hull City AFC": {
+    "home": "Arsenal FC",
+    "away": "Hull City AFC",
+    "date": "2026-11-07",
+    "ph": 0.6160804519428843,
+    "pd": 0.25133317837012675,
+    "pa": 0.13258636968698903,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-02",
+    "model": {
+      "sha": "678604c",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.8245313755052334,
+      "pd": 0.12115994972933966,
+      "pa": 0.05430867476542703
+    }
+  },
+  "Nottingham Forest FC|Manchester City FC": {
+    "home": "Nottingham Forest FC",
+    "away": "Manchester City FC",
+    "date": "2026-11-07",
+    "ph": 0.24324393345723933,
+    "pd": 0.247192606911907,
+    "pa": 0.5095634596308535,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-02",
+    "model": {
+      "sha": "678604c",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.2071294611449151,
+      "pd": 0.23327201449330243,
+      "pa": 0.5595985243617826
+    }
+  },
+  "Leeds United FC|Tottenham Hotspur FC": {
+    "home": "Leeds United FC",
+    "away": "Tottenham Hotspur FC",
+    "date": "2026-11-07",
+    "ph": 0.4576378033853604,
+    "pd": 0.2533213399497552,
+    "pa": 0.2890408566648844,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-02",
+    "model": {
+      "sha": "678604c",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.3779439385387764,
+      "pd": 0.28053425436710705,
+      "pa": 0.34152180709411667
+    }
+  },
+  "Fulham FC|Newcastle United FC": {
+    "home": "Fulham FC",
+    "away": "Newcastle United FC",
+    "date": "2026-11-07",
+    "ph": 0.3813235286855206,
+    "pd": 0.25628575651374974,
+    "pa": 0.36239071480072954,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-02",
+    "model": {
+      "sha": "678604c",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.440545941756331,
+      "pd": 0.2634839226618318,
+      "pa": 0.2959701355818373
+    }
   }
 }
