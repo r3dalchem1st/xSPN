@@ -162,7 +162,7 @@
       {
         "home": "Brazil",
         "away": "Scotland",
-        "lam": 2.09,
+        "lam": 2.08,
         "mu": 0.76,
         "score": "2\u20130",
         "ph": 0.611,
@@ -224,7 +224,7 @@
         "score": "1\u20131",
         "ph": 0.338,
         "pd": 0.344,
-        "pa": 0.319,
+        "pa": 0.318,
         "likely_winner": "Draw"
       },
       {
@@ -502,7 +502,7 @@
       {
         "home": "Spain",
         "away": "Uruguay",
-        "lam": 1.98,
+        "lam": 1.97,
         "mu": 0.66,
         "score": "1\u20130",
         "ph": 0.618,
@@ -1232,7 +1232,7 @@
       "pd": 0.247,
       "pa": 0.515,
       "reg_winner": "Morocco",
-      "lam": 0.99,
+      "lam": 0.98,
       "mu": 1.61
     },
     {
@@ -1436,15 +1436,15 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.6,
+  "champion_pct": 92.7,
   "reach_final": {
-    "Spain": 97.5,
+    "Spain": 97.7,
     "Argentina": 84.0,
     "England": 9.2,
-    "Colombia": 6.1,
-    "France": 2.0,
+    "Colombia": 6.0,
+    "France": 1.8,
     "Senegal": 0.7,
     "USA": 0.3,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
