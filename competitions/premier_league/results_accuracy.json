@@ -903,35 +903,48 @@
       "market_correct_winner": false,
       "market_brier": 0.8573842728320507,
       "disagree": false
+    },
+    {
+      "home": "Liverpool FC",
+      "away": "Arsenal FC",
+      "date": "2026-11-01",
+      "correct_winner": true,
+      "brier": 0.4689191079795076,
+      "log_loss": 0.8186644882189461,
+      "total_goal_error": 0,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.5150571521083569,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 88,
-    "accuracy": 0.4772727272727273,
-    "avg_brier": 0.6420633990257532,
-    "avg_log_loss": 1.0716092261874604,
-    "avg_goal_error": 1.9886363636363635,
+    "n_scored": 89,
+    "accuracy": 0.48314606741573035,
+    "avg_brier": 0.6401179575533235,
+    "avg_log_loss": 1.068767150479949,
+    "avg_goal_error": 1.9662921348314606,
     "baseline": {
       "base_rate": [
         0.41710526315789476,
         0.25921052631578945,
         0.3236842105263158
       ],
-      "avg_brier": 0.6587673130193906,
-      "skill": 0.025356318784361953,
-      "skill_lo": -0.08227059305644702,
-      "skill_hi": 0.12206303055920001
+      "avg_brier": 0.6592145335989293,
+      "skill": 0.02896868177549028,
+      "skill_lo": -0.07096811429495305,
+      "skill_hi": 0.12545927061576695
     },
     "vs_market": {
-      "n": 28,
-      "accuracy": 0.4642857142857143,
-      "market_accuracy": 0.5357142857142857,
-      "avg_brier": 0.6261105662276378,
-      "market_avg_brier": 0.5671883434869323,
+      "n": 29,
+      "accuracy": 0.4827586206896552,
+      "market_accuracy": 0.5517241379310345,
+      "avg_brier": 0.6206901711156333,
+      "market_avg_brier": 0.5653907161980158,
       "brier_gap": {
-        "mean": -0.0589222227407055,
-        "lo": -0.11636721634962913,
-        "hi": -0.005086606338524483
+        "mean": -0.055299454917617404,
+        "lo": -0.11112983158654158,
+        "hi": -0.0023702317112434573
       },
       "disagree_n": 4,
       "we_right": 0,
