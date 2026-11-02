@@ -919,19 +919,19 @@
   },
   "Elche CF|Valencia CF": {
     "date": "2026-11-01",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Elche CF": null,
-      "Valencia CF": null
+      "Elche CF": 0,
+      "Valencia CF": 1
     },
     "round": "Matchday 11"
   },
   "Athletic Club|Real Sociedad de F\u00fatbol": {
     "date": "2026-11-01",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Athletic Club": null,
-      "Real Sociedad de F\u00fatbol": null
+      "Athletic Club": 2,
+      "Real Sociedad de F\u00fatbol": 1
     },
     "round": "Matchday 11"
   },
@@ -964,19 +964,19 @@
   },
   "Getafe CF|Sevilla FC": {
     "date": "2026-11-01",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Getafe CF": null,
-      "Sevilla FC": null
+      "Getafe CF": 3,
+      "Sevilla FC": 1
     },
     "round": "Matchday 11"
   },
   "Real Racing Club de Santander|Real Madrid CF": {
     "date": "2026-11-01",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "Real Madrid CF": null
+      "Real Racing Club de Santander": 0,
+      "Real Madrid CF": 3
     },
     "round": "Matchday 11"
   },

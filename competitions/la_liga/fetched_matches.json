@@ -909,6 +909,24 @@
     false
   ],
   [
+    "2026-11-01",
+    "Elche CF",
+    "Valencia CF",
+    0,
+    1,
+    "La Liga",
+    false
+  ],
+  [
+    "2026-11-01",
+    "Athletic Club",
+    "Real Sociedad de F\u00fatbol",
+    2,
+    1,
+    "La Liga",
+    false
+  ],
+  [
     "2026-10-31",
     "Levante UD",
     "Club Atl\u00e9tico de Madrid",
@@ -923,6 +941,24 @@
     "Deportivo Alav\u00e9s",
     6,
     1,
+    "La Liga",
+    false
+  ],
+  [
+    "2026-11-01",
+    "Getafe CF",
+    "Sevilla FC",
+    3,
+    1,
+    "La Liga",
+    false
+  ],
+  [
+    "2026-11-01",
+    "Real Racing Club de Santander",
+    "Real Madrid CF",
+    0,
+    3,
     "La Liga",
     false
   ],
