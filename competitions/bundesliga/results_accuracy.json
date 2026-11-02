@@ -729,35 +729,61 @@
       "market_correct_winner": false,
       "market_brier": 1.2112268861139985,
       "disagree": false
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "1. FC K\u00f6ln",
+      "date": "2026-11-01",
+      "correct_winner": false,
+      "brier": 0.8465054542078583,
+      "log_loss": 1.3809957078616826,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.8165777303263183,
+      "disagree": false
+    },
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "Hamburger SV",
+      "date": "2026-11-01",
+      "correct_winner": true,
+      "brier": 0.2493425835759085,
+      "log_loss": 0.5237606887774395,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.27268792748462106,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 70,
+    "n_scored": 72,
     "accuracy": 0.5,
-    "avg_brier": 0.6409074815950001,
-    "avg_log_loss": 1.055194666474047,
-    "avg_goal_error": 2.585714285714286,
+    "avg_brier": 0.6383246076310247,
+    "avg_log_loss": 1.0523386534697559,
+    "avg_goal_error": 2.5555555555555554,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.636226502890848,
-      "skill": -0.007357409166205642,
-      "skill_lo": -0.11048601751900444,
-      "skill_hi": 0.10167382372253451
+      "avg_brier": 0.6375968819208017,
+      "skill": -0.0011413570719336352,
+      "skill_lo": -0.1044289508816722,
+      "skill_hi": 0.10207287316312282
     },
     "vs_market": {
-      "n": 25,
-      "accuracy": 0.48,
-      "market_accuracy": 0.48,
-      "avg_brier": 0.6353729806802992,
-      "market_avg_brier": 0.6386800494406709,
+      "n": 27,
+      "accuracy": 0.48148148148148145,
+      "market_accuracy": 0.48148148148148145,
+      "avg_brier": 0.6288952798070833,
+      "market_avg_brier": 0.6317135886602856,
       "brier_gap": {
-        "mean": 0.003307068760371561,
-        "lo": -0.04106185623023939,
-        "hi": 0.049001175749702294
+        "mean": 0.002818308853202282,
+        "lo": -0.03982320733447691,
+        "hi": 0.047710027769266646
       },
       "disagree_n": 2,
       "we_right": 1,

@@ -631,19 +631,19 @@
   },
   "1. FC Union Berlin|1. FC K\u00f6ln": {
     "date": "2026-11-01",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC Union Berlin": null,
-      "1. FC K\u00f6ln": null
+      "1. FC Union Berlin": 1,
+      "1. FC K\u00f6ln": 1
     },
     "round": "Matchday 8"
   },
   "Eintracht Frankfurt|Hamburger SV": {
     "date": "2026-11-01",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "Hamburger SV": null
+      "Eintracht Frankfurt": 3,
+      "Hamburger SV": 1
     },
     "round": "Matchday 8"
   },
