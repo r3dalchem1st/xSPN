@@ -946,10 +946,10 @@
   },
   "RC Deportivo La Coru\u00f1a|CA Osasuna": {
     "date": "2026-11-02",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Deportivo La Coru\u00f1a": null,
-      "CA Osasuna": null
+      "RC Deportivo La Coru\u00f1a": 2,
+      "CA Osasuna": 1
     },
     "round": "Matchday 11"
   },
