@@ -916,35 +916,48 @@
       "market_correct_winner": true,
       "market_brier": 0.5150571521083569,
       "disagree": false
+    },
+    {
+      "home": "Newcastle United FC",
+      "away": "Everton FC",
+      "date": "2026-11-02",
+      "correct_winner": false,
+      "brier": 0.8231136260623564,
+      "log_loss": 1.3004752160406015,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.7066585489668078,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 89,
-    "accuracy": 0.48314606741573035,
-    "avg_brier": 0.6401179575533235,
-    "avg_log_loss": 1.068767150479949,
-    "avg_goal_error": 1.9662921348314606,
+    "n_scored": 90,
+    "accuracy": 0.4777777777777778,
+    "avg_brier": 0.6421512427589794,
+    "avg_log_loss": 1.0713416845417338,
+    "avg_goal_error": 1.9666666666666666,
     "baseline": {
       "base_rate": [
         0.41710526315789476,
         0.25921052631578945,
         0.3236842105263158
       ],
-      "avg_brier": 0.6592145335989293,
-      "skill": 0.02896868177549028,
-      "skill_lo": -0.07096811429495305,
-      "skill_hi": 0.12545927061576695
+      "avg_brier": 0.6596518159433673,
+      "skill": 0.026530015928721618,
+      "skill_lo": -0.0719913470260214,
+      "skill_hi": 0.1260078123587357
     },
     "vs_market": {
-      "n": 29,
-      "accuracy": 0.4827586206896552,
-      "market_accuracy": 0.5517241379310345,
-      "avg_brier": 0.6206901711156333,
-      "market_avg_brier": 0.5653907161980158,
+      "n": 30,
+      "accuracy": 0.4666666666666667,
+      "market_accuracy": 0.5333333333333333,
+      "avg_brier": 0.6274376196138574,
+      "market_avg_brier": 0.5700996439569755,
       "brier_gap": {
-        "mean": -0.055299454917617404,
-        "lo": -0.11112983158654158,
-        "hi": -0.0023702317112434573
+        "mean": -0.05733797565688178,
+        "lo": -0.11298716843928577,
+        "hi": -0.006259679330200303
       },
       "disagree_n": 4,
       "we_right": 0,
