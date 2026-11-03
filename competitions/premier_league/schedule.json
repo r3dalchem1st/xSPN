@@ -802,10 +802,10 @@
   },
   "Newcastle United FC|Everton FC": {
     "date": "2026-11-02",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Newcastle United FC": null,
-      "Everton FC": null
+      "Newcastle United FC": 0,
+      "Everton FC": 1
     },
     "round": "Matchday 9"
   },

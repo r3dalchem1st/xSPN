@@ -1300,5 +1300,145 @@
       "pd": 0.2634839226618318,
       "pa": 0.2959701355818373
     }
+  },
+  "Crystal Palace FC|Liverpool FC": {
+    "home": "Crystal Palace FC",
+    "away": "Liverpool FC",
+    "date": "2026-11-08",
+    "ph": 0.2437971250949254,
+    "pd": 0.23580877559181226,
+    "pa": 0.5203940993132623,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.1922115627063321,
+      "pd": 0.2244337562368665,
+      "pa": 0.5833546810568014
+    }
+  },
+  "Sunderland AFC|Chelsea FC": {
+    "home": "Sunderland AFC",
+    "away": "Chelsea FC",
+    "date": "2026-11-08",
+    "ph": 0.288162790576999,
+    "pd": 0.2598178659414686,
+    "pa": 0.45201934348153255,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.2661489178114094,
+      "pd": 0.26146028402613075,
+      "pa": 0.4723907981624599
+    }
+  },
+  "Ipswich Town FC|AFC Bournemouth": {
+    "home": "Ipswich Town FC",
+    "away": "AFC Bournemouth",
+    "date": "2026-11-08",
+    "ph": 0.2106106634142342,
+    "pd": 0.20656295606466088,
+    "pa": 0.5828263805211049,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.25677636518822494,
+      "pd": 0.25559119903121524,
+      "pa": 0.4876324357805597
+    }
+  },
+  "Brighton & Hove Albion FC|Brentford FC": {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Brentford FC",
+    "date": "2026-11-08",
+    "ph": 0.49317148878404843,
+    "pd": 0.22898037986405909,
+    "pa": 0.2778481313518924,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4960048391407601,
+      "pd": 0.24630690655541165,
+      "pa": 0.2576882543038282
+    }
+  },
+  "Manchester United FC|Aston Villa FC": {
+    "home": "Manchester United FC",
+    "away": "Aston Villa FC",
+    "date": "2026-11-08",
+    "ph": 0.40312763760732095,
+    "pd": 0.24824624059746186,
+    "pa": 0.34862612179521707,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.42052608830630955,
+      "pd": 0.2572557258660325,
+      "pa": 0.32221818582765804
+    }
   }
 }
