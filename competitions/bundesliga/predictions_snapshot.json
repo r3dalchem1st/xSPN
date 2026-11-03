@@ -1113,5 +1113,89 @@
       "pd": 0.19116893060629125,
       "pa": 0.18213050318772955
     }
+  },
+  "1. FC K\u00f6ln|Bayer 04 Leverkusen": {
+    "home": "1. FC K\u00f6ln",
+    "away": "Bayer 04 Leverkusen",
+    "date": "2026-11-08",
+    "ph": 0.2383861490574862,
+    "pd": 0.20638190680728247,
+    "pa": 0.5552319441352312,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.23103824723388014,
+      "pd": 0.22347508939984112,
+      "pa": 0.5454866633662787
+    }
+  },
+  "SC Freiburg|1. FC Union Berlin": {
+    "home": "SC Freiburg",
+    "away": "1. FC Union Berlin",
+    "date": "2026-11-08",
+    "ph": 0.5679036263888201,
+    "pd": 0.22473335132279718,
+    "pa": 0.2073630222883827,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6259462219804629,
+      "pd": 0.2113510035669297,
+      "pa": 0.16270277445260736
+    }
+  },
+  "TSG 1899 Hoffenheim|FC Schalke 04": {
+    "home": "TSG 1899 Hoffenheim",
+    "away": "FC Schalke 04",
+    "date": "2026-11-08",
+    "ph": 0.5281738334316499,
+    "pd": 0.3050183587460024,
+    "pa": 0.16680780782234775,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-03",
+    "model": {
+      "sha": "163c011",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5853955193341106,
+      "pd": 0.21549571817751362,
+      "pa": 0.19910876248837558
+    }
   }
 }
