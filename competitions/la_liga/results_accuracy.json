@@ -1037,6 +1037,19 @@
       "disagree": false
     },
     {
+      "home": "RC Deportivo La Coru\u00f1a",
+      "away": "CA Osasuna",
+      "date": "2026-11-02",
+      "correct_winner": true,
+      "brier": 0.43678541724103326,
+      "log_loss": 0.7750852699156033,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.4736666745908649,
+      "disagree": false
+    },
+    {
       "home": "FC Barcelona",
       "away": "Deportivo Alav\u00e9s",
       "date": "2026-10-31",
@@ -1090,32 +1103,32 @@
     }
   ],
   "summary": {
-    "n_scored": 108,
-    "accuracy": 0.5833333333333334,
-    "avg_brier": 0.5624494583848773,
-    "avg_log_loss": 0.9521227212752336,
-    "avg_goal_error": 2.0833333333333335,
+    "n_scored": 109,
+    "accuracy": 0.5871559633027523,
+    "avg_brier": 0.5612965772734658,
+    "avg_log_loss": 0.950498524473769,
+    "avg_goal_error": 2.0825688073394497,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6442206576382477,
-      "skill": 0.12693042094171347,
-      "skill_lo": 0.047828931617693166,
-      "skill_hi": 0.20650347614913261
+      "avg_brier": 0.6422232775928232,
+      "skill": 0.12601022594927747,
+      "skill_lo": 0.050254860619201105,
+      "skill_hi": 0.20370737936203148
     },
     "vs_market": {
-      "n": 29,
-      "accuracy": 0.6206896551724138,
-      "market_accuracy": 0.6206896551724138,
-      "avg_brier": 0.517041952243144,
-      "market_avg_brier": 0.5173095940586538,
+      "n": 30,
+      "accuracy": 0.6333333333333333,
+      "market_accuracy": 0.6333333333333333,
+      "avg_brier": 0.5143667344097402,
+      "market_avg_brier": 0.5158548300763942,
       "brier_gap": {
-        "mean": 0.0002676418155099091,
-        "lo": -0.032059100861394484,
-        "hi": 0.035292283164957944
+        "mean": 0.0014880956666539675,
+        "lo": -0.030385500056565068,
+        "hi": 0.033961809229328115
       },
       "disagree_n": 4,
       "we_right": 1,
