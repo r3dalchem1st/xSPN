@@ -799,7 +799,7 @@
         "lam": 2.04,
         "mu": 0.74,
         "score": "2\u20130",
-        "ph": 0.612,
+        "ph": 0.613,
         "pd": 0.273,
         "pa": 0.114,
         "likely_winner": "Croatia"
@@ -1062,7 +1062,7 @@
       "pa": 0.522,
       "reg_winner": "Norway",
       "lam": 1.1,
-      "mu": 1.73
+      "mu": 1.74
     },
     {
       "home": "Spain",
@@ -1136,7 +1136,7 @@
       "winner": "France",
       "win_pct": 84.8,
       "ph": 0.795,
-      "pd": 0.118,
+      "pd": 0.119,
       "pa": 0.087,
       "reg_winner": "France",
       "lam": 3.3,
@@ -1436,11 +1436,11 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.7,
+  "champion_pct": 92.6,
   "reach_final": {
     "Spain": 97.7,
-    "Argentina": 84.0,
-    "England": 9.1,
+    "Argentina": 84.2,
+    "England": 9.0,
     "Colombia": 6.1,
     "France": 1.9,
     "Senegal": 0.7,
