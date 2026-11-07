@@ -1009,10 +1009,10 @@
   },
   "Sevilla FC|Deportivo Alav\u00e9s": {
     "date": "2026-11-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "Deportivo Alav\u00e9s": null
+      "Sevilla FC": 0,
+      "Deportivo Alav\u00e9s": 0
     },
     "round": "Matchday 12"
   },
@@ -1179,7 +1179,7 @@
     "round": "Matchday 14"
   },
   "Elche CF|Club Atl\u00e9tico de Madrid": {
-    "date": "2026-11-29",
+    "date": "2026-11-28",
     "status": "SCHEDULED",
     "goals": {
       "Elche CF": null,
@@ -1188,7 +1188,7 @@
     "round": "Matchday 14"
   },
   "Real Betis Balompi\u00e9|Rayo Vallecano de Madrid": {
-    "date": "2026-11-29",
+    "date": "2026-11-28",
     "status": "SCHEDULED",
     "goals": {
       "Real Betis Balompi\u00e9": null,
@@ -1206,7 +1206,7 @@
     "round": "Matchday 14"
   },
   "Real Madrid CF|Deportivo Alav\u00e9s": {
-    "date": "2026-11-29",
+    "date": "2026-11-28",
     "status": "SCHEDULED",
     "goals": {
       "Real Madrid CF": null,
@@ -1215,7 +1215,7 @@
     "round": "Matchday 14"
   },
   "RCD Espanyol de Barcelona|Getafe CF": {
-    "date": "2026-11-29",
+    "date": "2026-11-30",
     "status": "SCHEDULED",
     "goals": {
       "RCD Espanyol de Barcelona": null,
@@ -1233,7 +1233,7 @@
     "round": "Matchday 14"
   },
   "Levante UD|Real Racing Club de Santander": {
-    "date": "2026-11-29",
+    "date": "2026-11-27",
     "status": "SCHEDULED",
     "goals": {
       "Levante UD": null,
@@ -1251,7 +1251,7 @@
     "round": "Matchday 14"
   },
   "M\u00e1laga CF|Athletic Club": {
-    "date": "2026-11-29",
+    "date": "2026-11-28",
     "status": "SCHEDULED",
     "goals": {
       "M\u00e1laga CF": null,
