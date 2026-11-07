@@ -1100,35 +1100,48 @@
       "market_correct_winner": true,
       "market_brier": 0.5245902543521469,
       "disagree": false
+    },
+    {
+      "home": "Sevilla FC",
+      "away": "Deportivo Alav\u00e9s",
+      "date": "2026-11-06",
+      "correct_winner": false,
+      "brier": 0.7887823977101871,
+      "log_loss": 1.2880791541602545,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.7892104647767131,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 109,
-    "accuracy": 0.5871559633027523,
-    "avg_brier": 0.5612965772734658,
-    "avg_log_loss": 0.950498524473769,
-    "avg_goal_error": 2.0825688073394497,
+    "n_scored": 110,
+    "accuracy": 0.5818181818181818,
+    "avg_brier": 0.5633646301865269,
+    "avg_log_loss": 0.9535674392891008,
+    "avg_goal_error": 2.0727272727272728,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6422232775928232,
-      "skill": 0.12601022594927747,
-      "skill_lo": 0.050254860619201105,
-      "skill_hi": 0.20370737936203148
+      "avg_brier": 0.6442095819692772,
+      "skill": 0.1254947986579401,
+      "skill_lo": 0.04738594845753836,
+      "skill_hi": 0.20125229437334635
     },
     "vs_market": {
-      "n": 30,
-      "accuracy": 0.6333333333333333,
-      "market_accuracy": 0.6333333333333333,
-      "avg_brier": 0.5143667344097402,
-      "market_avg_brier": 0.5158548300763942,
+      "n": 31,
+      "accuracy": 0.6129032258064516,
+      "market_accuracy": 0.6129032258064516,
+      "avg_brier": 0.5232188525807224,
+      "market_avg_brier": 0.5246727537764044,
       "brier_gap": {
-        "mean": 0.0014880956666539675,
-        "lo": -0.030385500056565068,
-        "hi": 0.033961809229328115
+        "mean": 0.0014539011956820971,
+        "lo": -0.03024594567018293,
+        "hi": 0.03314600440205576
       },
       "disagree_n": 4,
       "we_right": 1,
