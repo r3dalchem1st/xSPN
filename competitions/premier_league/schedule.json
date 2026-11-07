@@ -847,10 +847,10 @@
   },
   "Everton FC|Coventry City FC": {
     "date": "2026-11-06",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Everton FC": null,
-      "Coventry City FC": null
+      "Everton FC": 3,
+      "Coventry City FC": 1
     },
     "round": "Matchday 10"
   },
