@@ -755,35 +755,48 @@
       "market_correct_winner": true,
       "market_brier": 0.27268792748462106,
       "disagree": false
+    },
+    {
+      "home": "Hamburger SV",
+      "away": "Borussia M\u00f6nchengladbach",
+      "date": "2026-11-06",
+      "correct_winner": true,
+      "brier": 0.5550665787136868,
+      "log_loss": 0.9272509481166771,
+      "total_goal_error": 3,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.5397783565627625,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 72,
-    "accuracy": 0.5,
-    "avg_brier": 0.6383246076310247,
-    "avg_log_loss": 1.0523386534697559,
-    "avg_goal_error": 2.5555555555555554,
+    "n_scored": 73,
+    "accuracy": 0.5068493150684932,
+    "avg_brier": 0.6371840866869516,
+    "avg_log_loss": 1.0506251232594397,
+    "avg_goal_error": 2.5616438356164384,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.6375968819208017,
-      "skill": -0.0011413570719336352,
-      "skill_lo": -0.1044289508816722,
-      "skill_hi": 0.10207287316312282
+      "avg_brier": 0.636011911303479,
+      "skill": -0.0018430085390546136,
+      "skill_lo": -0.10624495421439528,
+      "skill_hi": 0.10009357081144643
     },
     "vs_market": {
-      "n": 27,
-      "accuracy": 0.48148148148148145,
-      "market_accuracy": 0.48148148148148145,
-      "avg_brier": 0.6288952798070833,
-      "market_avg_brier": 0.6317135886602856,
+      "n": 28,
+      "accuracy": 0.5,
+      "market_accuracy": 0.5,
+      "avg_brier": 0.6262585404823192,
+      "market_avg_brier": 0.6284301875139455,
       "brier_gap": {
-        "mean": 0.002818308853202282,
-        "lo": -0.03982320733447691,
-        "hi": 0.047710027769266646
+        "mean": 0.002171647031626333,
+        "lo": -0.03882303705242584,
+        "hi": 0.04426419481185025
       },
       "disagree_n": 2,
       "we_right": 1,
