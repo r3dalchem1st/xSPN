@@ -768,35 +768,100 @@
       "market_correct_winner": true,
       "market_brier": 0.5397783565627625,
       "disagree": false
+    },
+    {
+      "home": "RB Leipzig",
+      "away": "FC Augsburg",
+      "date": "2026-11-07",
+      "correct_winner": true,
+      "brier": 0.21657299969686877,
+      "log_loss": 0.4778248030441545,
+      "total_goal_error": 5,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.1859714366464289,
+      "disagree": false
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "SV 07 Elversberg",
+      "date": "2026-11-07",
+      "correct_winner": true,
+      "brier": 0.18886817540292117,
+      "log_loss": 0.4382015371166786,
+      "total_goal_error": 0,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.10359455784616817,
+      "disagree": false
+    },
+    {
+      "home": "1. FSV Mainz 05",
+      "away": "FC Bayern M\u00fcnchen",
+      "date": "2026-11-07",
+      "correct_winner": true,
+      "brier": 0.10915603552436207,
+      "log_loss": 0.31394632038665315,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.18046974545277944,
+      "disagree": false
+    },
+    {
+      "home": "SC Paderborn 07",
+      "away": "Eintracht Frankfurt",
+      "date": "2026-11-07",
+      "correct_winner": false,
+      "brier": 0.7662015147664258,
+      "log_loss": 1.243218928404513,
+      "total_goal_error": 3,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.8609953949568407,
+      "disagree": false
+    },
+    {
+      "home": "VfB Stuttgart",
+      "away": "SV Werder Bremen",
+      "date": "2026-11-07",
+      "correct_winner": true,
+      "brier": 0.22567122544205656,
+      "log_loss": 0.4908172082665603,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.20906954749150503,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 73,
-    "accuracy": 0.5068493150684932,
-    "avg_brier": 0.6371840866869516,
-    "avg_log_loss": 1.0506251232594397,
-    "avg_goal_error": 2.5616438356164384,
+    "n_scored": 78,
+    "accuracy": 0.5256410256410257,
+    "avg_brier": 0.6156526702433347,
+    "avg_log_loss": 1.0212774717327906,
+    "avg_goal_error": 2.5384615384615383,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.636011911303479,
-      "skill": -0.0018430085390546136,
-      "skill_lo": -0.10624495421439528,
-      "skill_hi": 0.10009357081144643
+      "avg_brier": 0.6347816847520856,
+      "skill": 0.030134792745669214,
+      "skill_lo": -0.06442117517647065,
+      "skill_hi": 0.13224730292559544
     },
     "vs_market": {
-      "n": 28,
-      "accuracy": 0.5,
-      "market_accuracy": 0.5,
-      "avg_brier": 0.6262585404823192,
-      "market_avg_brier": 0.6284301875139455,
+      "n": 33,
+      "accuracy": 0.5454545454545454,
+      "market_accuracy": 0.5454545454545454,
+      "avg_brier": 0.5770214874041688,
+      "market_avg_brier": 0.5798832100843697,
       "brier_gap": {
-        "mean": 0.002171647031626333,
-        "lo": -0.03882303705242584,
-        "hi": 0.04426419481185025
+        "mean": 0.0028617226802007626,
+        "lo": -0.03550167597710819,
+        "hi": 0.03897142436625535
       },
       "disagree_n": 2,
       "we_right": 1,
