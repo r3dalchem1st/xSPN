@@ -1000,10 +1000,10 @@
   },
   "CA Osasuna|Athletic Club": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "CA Osasuna": null,
-      "Athletic Club": null
+      "CA Osasuna": 1,
+      "Athletic Club": 1
     },
     "round": "Matchday 12"
   },
@@ -1018,10 +1018,10 @@
   },
   "Valencia CF|Real Madrid CF": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Valencia CF": null,
-      "Real Madrid CF": null
+      "Valencia CF": 0,
+      "Real Madrid CF": 3
     },
     "round": "Matchday 12"
   },
@@ -1045,19 +1045,19 @@
   },
   "M\u00e1laga CF|Real Racing Club de Santander": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "M\u00e1laga CF": null,
-      "Real Racing Club de Santander": null
+      "M\u00e1laga CF": 1,
+      "Real Racing Club de Santander": 2
     },
     "round": "Matchday 12"
   },
   "RCD Espanyol de Barcelona|RC Deportivo La Coru\u00f1a": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RCD Espanyol de Barcelona": null,
-      "RC Deportivo La Coru\u00f1a": null
+      "RCD Espanyol de Barcelona": 0,
+      "RC Deportivo La Coru\u00f1a": 0
     },
     "round": "Matchday 12"
   },
@@ -2043,7 +2043,7 @@
     "round": "Matchday 23"
   },
   "Real Sociedad de F\u00fatbol|Real Madrid CF": {
-    "date": "2027-02-07",
+    "date": "2026-12-02",
     "status": "SCHEDULED",
     "goals": {
       "Real Sociedad de F\u00fatbol": null,
@@ -2061,7 +2061,7 @@
     "round": "Matchday 23"
   },
   "FC Barcelona|Club Atl\u00e9tico de Madrid": {
-    "date": "2027-02-07",
+    "date": "2026-12-02",
     "status": "SCHEDULED",
     "goals": {
       "FC Barcelona": null,
