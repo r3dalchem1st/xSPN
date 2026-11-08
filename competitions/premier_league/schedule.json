@@ -811,37 +811,37 @@
   },
   "Arsenal FC|Hull City AFC": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Arsenal FC": null,
-      "Hull City AFC": null
+      "Arsenal FC": 1,
+      "Hull City AFC": 0
     },
     "round": "Matchday 10"
   },
   "Nottingham Forest FC|Manchester City FC": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Nottingham Forest FC": null,
-      "Manchester City FC": null
+      "Nottingham Forest FC": 3,
+      "Manchester City FC": 1
     },
     "round": "Matchday 10"
   },
   "Leeds United FC|Tottenham Hotspur FC": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Leeds United FC": null,
-      "Tottenham Hotspur FC": null
+      "Leeds United FC": 1,
+      "Tottenham Hotspur FC": 0
     },
     "round": "Matchday 10"
   },
   "Fulham FC|Newcastle United FC": {
     "date": "2026-11-07",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Fulham FC": null,
-      "Newcastle United FC": null
+      "Fulham FC": 1,
+      "Newcastle United FC": 1
     },
     "round": "Matchday 10"
   },
