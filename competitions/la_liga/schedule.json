@@ -991,10 +991,10 @@
   },
   "Elche CF|Real Betis Balompi\u00e9": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Elche CF": null,
-      "Real Betis Balompi\u00e9": null
+      "Elche CF": 0,
+      "Real Betis Balompi\u00e9": 2
     },
     "round": "Matchday 12"
   },
@@ -1027,19 +1027,19 @@
   },
   "RC Celta de Vigo|Levante UD": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "RC Celta de Vigo": null,
-      "Levante UD": null
+      "RC Celta de Vigo": 0,
+      "Levante UD": 0
     },
     "round": "Matchday 12"
   },
   "Real Sociedad de F\u00fatbol|Rayo Vallecano de Madrid": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Sociedad de F\u00fatbol": null,
-      "Rayo Vallecano de Madrid": null
+      "Real Sociedad de F\u00fatbol": 1,
+      "Rayo Vallecano de Madrid": 0
     },
     "round": "Matchday 12"
   },
@@ -1063,19 +1063,19 @@
   },
   "Club Atl\u00e9tico de Madrid|FC Barcelona": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Club Atl\u00e9tico de Madrid": null,
-      "FC Barcelona": null
+      "Club Atl\u00e9tico de Madrid": 1,
+      "FC Barcelona": 2
     },
     "round": "Matchday 12"
   },
   "Villarreal CF|Getafe CF": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Villarreal CF": null,
-      "Getafe CF": null
+      "Villarreal CF": 2,
+      "Getafe CF": 0
     },
     "round": "Matchday 12"
   },

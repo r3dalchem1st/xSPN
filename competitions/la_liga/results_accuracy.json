@@ -1102,6 +1102,19 @@
       "disagree": false
     },
     {
+      "home": "Elche CF",
+      "away": "Real Betis Balompi\u00e9",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.5619396684861132,
+      "log_loss": 0.9382638917898076,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.4529763523451589,
+      "disagree": false
+    },
+    {
       "home": "CA Osasuna",
       "away": "Athletic Club",
       "date": "2026-11-07",
@@ -1141,6 +1154,32 @@
       "disagree": false
     },
     {
+      "home": "RC Celta de Vigo",
+      "away": "Levante UD",
+      "date": "2026-11-08",
+      "correct_winner": false,
+      "brier": 0.9424565949125847,
+      "log_loss": 1.4725995982806062,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.8932492076078831,
+      "disagree": false
+    },
+    {
+      "home": "Real Sociedad de F\u00fatbol",
+      "away": "Rayo Vallecano de Madrid",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.4094293011238537,
+      "log_loss": 0.7387923324544827,
+      "total_goal_error": 0,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.2928193343712191,
+      "disagree": false
+    },
+    {
       "home": "M\u00e1laga CF",
       "away": "Real Racing Club de Santander",
       "date": "2026-11-07",
@@ -1165,35 +1204,61 @@
       "market_correct_winner": false,
       "market_brier": 0.7961156350542437,
       "disagree": false
+    },
+    {
+      "home": "Club Atl\u00e9tico de Madrid",
+      "away": "FC Barcelona",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.4884976098761982,
+      "log_loss": 0.8364609362114119,
+      "total_goal_error": 0,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.36058136174361555,
+      "disagree": false
+    },
+    {
+      "home": "Villarreal CF",
+      "away": "Getafe CF",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.24537141849738264,
+      "log_loss": 0.5122876088200078,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.18120841810626054,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 114,
-    "accuracy": 0.5701754385964912,
-    "avg_brier": 0.5650432279607706,
-    "avg_log_loss": 0.9560611726647072,
-    "avg_goal_error": 2.0526315789473686,
+    "n_scored": 119,
+    "accuracy": 0.5798319327731093,
+    "avg_brier": 0.5635514502556637,
+    "avg_log_loss": 0.9536922525322096,
+    "avg_goal_error": 1.9915966386554622,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6506521237303786,
-      "skill": 0.13157398961335476,
-      "skill_lo": 0.05671363440864699,
-      "skill_hi": 0.20762933881345927
+      "avg_brier": 0.6510750075653531,
+      "skill": 0.13442929968541917,
+      "skill_lo": 0.06526715361369703,
+      "skill_hi": 0.2095790589210627
     },
     "vs_market": {
-      "n": 35,
-      "accuracy": 0.5714285714285714,
-      "market_accuracy": 0.5714285714285714,
-      "avg_brier": 0.5332743742003505,
-      "market_avg_brier": 0.5320507334545865,
+      "n": 40,
+      "accuracy": 0.6,
+      "market_accuracy": 0.6,
+      "avg_brier": 0.53280744224771,
+      "market_avg_brier": 0.5200652586271166,
       "brier_gap": {
-        "mean": -0.001223640745763921,
-        "lo": -0.030481617511127636,
-        "hi": 0.027064111402818235
+        "mean": -0.012742183620593317,
+        "lo": -0.03951696610970575,
+        "hi": 0.01606424725904698
       },
       "disagree_n": 5,
       "we_right": 1,
