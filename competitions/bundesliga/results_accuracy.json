@@ -833,35 +833,74 @@
       "market_correct_winner": true,
       "market_brier": 0.20906954749150503,
       "disagree": false
+    },
+    {
+      "home": "1. FC K\u00f6ln",
+      "away": "Bayer 04 Leverkusen",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.2972400710375939,
+      "log_loss": 0.5883693351780629,
+      "total_goal_error": 0,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.30990216044508895,
+      "disagree": false
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.2802117782972805,
+      "log_loss": 0.5658035465075514,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.2110576683740135,
+      "disagree": false
+    },
+    {
+      "home": "TSG 1899 Hoffenheim",
+      "away": "FC Schalke 04",
+      "date": "2026-11-08",
+      "correct_winner": true,
+      "brier": 0.34348097538118677,
+      "log_loss": 0.638329819475989,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.2579795792407266,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 78,
-    "accuracy": 0.5256410256410257,
-    "avg_brier": 0.6156526702433347,
-    "avg_log_loss": 1.0212774717327906,
-    "avg_goal_error": 2.5384615384615383,
+    "n_scored": 81,
+    "accuracy": 0.5432098765432098,
+    "avg_brier": 0.6042202605394588,
+    "avg_log_loss": 1.0055820431644353,
+    "avg_goal_error": 2.4814814814814814,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.6347816847520856,
-      "skill": 0.030134792745669214,
-      "skill_lo": -0.06442117517647065,
-      "skill_hi": 0.13224730292559544
+      "avg_brier": 0.6324191728423834,
+      "skill": 0.04458895857977496,
+      "skill_lo": -0.05311026358601345,
+      "skill_hi": 0.14074336497493417
     },
     "vs_market": {
-      "n": 33,
-      "accuracy": 0.5454545454545454,
-      "market_accuracy": 0.5454545454545454,
-      "avg_brier": 0.5770214874041688,
-      "market_avg_brier": 0.5798832100843697,
+      "n": 36,
+      "accuracy": 0.5833333333333334,
+      "market_accuracy": 0.5833333333333334,
+      "avg_brier": 0.5545178308070453,
+      "market_avg_brier": 0.5531968150234452,
       "brier_gap": {
-        "mean": 0.0028617226802007626,
-        "lo": -0.03550167597710819,
-        "hi": 0.03897142436625535
+        "mean": -0.0013210157836001934,
+        "lo": -0.03499460861451476,
+        "hi": 0.03381833548242679
       },
       "disagree_n": 2,
       "we_right": 1,
