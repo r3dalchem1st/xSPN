@@ -856,46 +856,46 @@
   },
   "Crystal Palace FC|Liverpool FC": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Crystal Palace FC": null,
-      "Liverpool FC": null
+      "Crystal Palace FC": 1,
+      "Liverpool FC": 3
     },
     "round": "Matchday 10"
   },
   "Sunderland AFC|Chelsea FC": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sunderland AFC": null,
-      "Chelsea FC": null
+      "Sunderland AFC": 1,
+      "Chelsea FC": 0
     },
     "round": "Matchday 10"
   },
   "Ipswich Town FC|AFC Bournemouth": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Ipswich Town FC": null,
-      "AFC Bournemouth": null
+      "Ipswich Town FC": 1,
+      "AFC Bournemouth": 2
     },
     "round": "Matchday 10"
   },
   "Brighton & Hove Albion FC|Brentford FC": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brighton & Hove Albion FC": null,
-      "Brentford FC": null
+      "Brighton & Hove Albion FC": 2,
+      "Brentford FC": 0
     },
     "round": "Matchday 10"
   },
   "Manchester United FC|Aston Villa FC": {
     "date": "2026-11-08",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester United FC": null,
-      "Aston Villa FC": null
+      "Manchester United FC": 4,
+      "Aston Villa FC": 4
     },
     "round": "Matchday 10"
   },
