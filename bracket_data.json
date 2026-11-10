@@ -1044,7 +1044,7 @@
       "score": "1\u20131 (p)",
       "winner": "Morocco",
       "win_pct": 51.0,
-      "ph": 0.371,
+      "ph": 0.372,
       "pd": 0.268,
       "pa": 0.361,
       "reg_winner": "Netherlands",
@@ -1436,15 +1436,15 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.5,
+  "champion_pct": 92.7,
   "reach_final": {
-    "Spain": 97.6,
+    "Spain": 97.8,
     "Argentina": 83.7,
-    "England": 9.3,
-    "Colombia": 6.2,
-    "France": 1.9,
+    "England": 9.4,
+    "Colombia": 6.1,
+    "France": 1.8,
     "Senegal": 0.8,
     "USA": 0.3,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
