@@ -72,7 +72,7 @@
       {
         "home": "Canada",
         "away": "Switzerland",
-        "lam": 1.13,
+        "lam": 1.14,
         "mu": 1.75,
         "score": "0\u20131",
         "ph": 0.224,
@@ -292,7 +292,7 @@
         "score": "2\u20131",
         "ph": 0.417,
         "pd": 0.314,
-        "pa": 0.27,
+        "pa": 0.269,
         "likely_winner": "Germany"
       },
       {
@@ -403,7 +403,7 @@
         "mu": 1.03,
         "score": "3\u20131",
         "ph": 0.749,
-        "pd": 0.169,
+        "pd": 0.17,
         "pa": 0.082,
         "likely_winner": "Sweden"
       }
@@ -1436,13 +1436,13 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.7,
+  "champion_pct": 92.8,
   "reach_final": {
-    "Spain": 97.8,
-    "Argentina": 83.7,
-    "England": 9.4,
-    "Colombia": 6.1,
-    "France": 1.8,
+    "Spain": 97.6,
+    "Argentina": 84.3,
+    "England": 9.2,
+    "Colombia": 5.8,
+    "France": 2.0,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
