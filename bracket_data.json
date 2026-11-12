@@ -1414,7 +1414,7 @@
     "away": "Argentina",
     "score": "1\u20130",
     "winner": "Spain",
-    "win_pct": 60.0,
+    "win_pct": 59.9,
     "ph": 0.497,
     "pd": 0.288,
     "pa": 0.215,
@@ -1436,15 +1436,15 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.8,
+  "champion_pct": 92.5,
   "reach_final": {
-    "Spain": 97.6,
-    "Argentina": 84.3,
-    "England": 9.2,
-    "Colombia": 5.8,
+    "Spain": 97.5,
+    "Argentina": 84.0,
+    "England": 9.3,
+    "Colombia": 6.0,
     "France": 2.0,
-    "Senegal": 0.8,
+    "Senegal": 0.7,
     "USA": 0.3,
-    "Algeria": 0.1
+    "Algeria": 0.2
   }
 }
