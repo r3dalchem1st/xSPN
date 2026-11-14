@@ -518,7 +518,7 @@
         "score": "1\u20130",
         "ph": 0.409,
         "pd": 0.377,
-        "pa": 0.214,
+        "pa": 0.215,
         "likely_winner": "Cape Verde"
       },
       {
@@ -698,7 +698,7 @@
         "lam": 4.13,
         "mu": 0.86,
         "score": "4\u20130",
-        "ph": 0.868,
+        "ph": 0.869,
         "pd": 0.096,
         "pa": 0.036,
         "likely_winner": "Portugal"
@@ -1279,7 +1279,7 @@
       "away": "France",
       "score": "0\u20131",
       "winner": "France",
-      "win_pct": 72.7,
+      "win_pct": 72.8,
       "ph": 0.156,
       "pd": 0.222,
       "pa": 0.622,
@@ -1436,13 +1436,13 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 92.5,
+  "champion_pct": 92.7,
   "reach_final": {
-    "Spain": 97.5,
-    "Argentina": 84.0,
+    "Spain": 97.7,
+    "Argentina": 83.9,
     "England": 9.1,
-    "Colombia": 6.1,
-    "France": 2.0,
+    "Colombia": 6.2,
+    "France": 1.8,
     "Senegal": 0.8,
     "USA": 0.3,
     "Algeria": 0.1
