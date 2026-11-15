@@ -1690,5 +1690,33 @@
       "pd": 0.21001578287763276,
       "pa": 0.13483421758262207
     }
+  },
+  "Athletic Club|RCD Espanyol de Barcelona": {
+    "home": "Athletic Club",
+    "away": "RCD Espanyol de Barcelona",
+    "date": "2026-11-20",
+    "ph": 0.5148980013057949,
+    "pd": 0.2697287226990281,
+    "pa": 0.21537327599517683,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-15",
+    "model": {
+      "sha": "683aad8",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6392814476997846,
+      "pd": 0.21666378581798174,
+      "pa": 0.14405476648223373
+    }
   }
 }
