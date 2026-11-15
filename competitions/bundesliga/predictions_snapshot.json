@@ -1197,5 +1197,33 @@
       "pd": 0.21549571817751362,
       "pa": 0.19910876248837558
     }
+  },
+  "FC Bayern M\u00fcnchen|1. FC K\u00f6ln": {
+    "home": "FC Bayern M\u00fcnchen",
+    "away": "1. FC K\u00f6ln",
+    "date": "2026-11-20",
+    "ph": 0.8964662709871434,
+    "pd": 0.06723829070754456,
+    "pa": 0.036295438305312386,
+    "predicted_winner": "H",
+    "predicted_score": "4-0",
+    "snapped_at": "2026-11-15",
+    "model": {
+      "sha": "683aad8",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.8754386145625562,
+      "pd": 0.07921957919282571,
+      "pa": 0.045341806244618234
+    }
   }
 }
