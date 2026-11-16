@@ -1225,5 +1225,173 @@
       "pd": 0.07921957919282571,
       "pa": 0.045341806244618234
     }
+  },
+  "Bayer 04 Leverkusen|SC Paderborn 07": {
+    "home": "Bayer 04 Leverkusen",
+    "away": "SC Paderborn 07",
+    "date": "2026-11-21",
+    "ph": 0.6123108203462878,
+    "pd": 0.23911443508732946,
+    "pa": 0.148574744566383,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.7509505108081679,
+      "pd": 0.14639413332396664,
+      "pa": 0.10265535586786559
+    }
+  },
+  "1. FC Union Berlin|RB Leipzig": {
+    "home": "1. FC Union Berlin",
+    "away": "RB Leipzig",
+    "date": "2026-11-21",
+    "ph": 0.22518036097589353,
+    "pd": 0.22490462016446275,
+    "pa": 0.5499150188596437,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.18482678494518454,
+      "pd": 0.21172254380561342,
+      "pa": 0.603450671249202
+    }
+  },
+  "SV 07 Elversberg|SC Freiburg": {
+    "home": "SV 07 Elversberg",
+    "away": "SC Freiburg",
+    "date": "2026-11-21",
+    "ph": 0.49416462547485623,
+    "pd": 0.19617536641413477,
+    "pa": 0.309660008111009,
+    "predicted_winner": "H",
+    "predicted_score": "3-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.2766278487878835,
+      "pd": 0.2510969279535723,
+      "pa": 0.47227522325854426
+    }
+  },
+  "Borussia M\u00f6nchengladbach|Borussia Dortmund": {
+    "home": "Borussia M\u00f6nchengladbach",
+    "away": "Borussia Dortmund",
+    "date": "2026-11-21",
+    "ph": 0.20421374752114044,
+    "pd": 0.21743132590253766,
+    "pa": 0.578354926576322,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.1982416919417712,
+      "pd": 0.2176983029807963,
+      "pa": 0.5840600050774325
+    }
+  },
+  "Eintracht Frankfurt|TSG 1899 Hoffenheim": {
+    "home": "Eintracht Frankfurt",
+    "away": "TSG 1899 Hoffenheim",
+    "date": "2026-11-21",
+    "ph": 0.49739072828326714,
+    "pd": 0.20077257930428666,
+    "pa": 0.3018366924124463,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.41022079998978805,
+      "pd": 0.2420537500108075,
+      "pa": 0.34772544999940436
+    }
+  },
+  "FC Schalke 04|VfB Stuttgart": {
+    "home": "FC Schalke 04",
+    "away": "VfB Stuttgart",
+    "date": "2026-11-21",
+    "ph": 0.2047855513140281,
+    "pd": 0.30179175661208774,
+    "pa": 0.4934226920738843,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.24332798776635947,
+      "pd": 0.232835189673804,
+      "pa": 0.5238368225598365
+    }
   }
 }
