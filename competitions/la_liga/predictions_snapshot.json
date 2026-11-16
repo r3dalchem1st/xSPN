@@ -1718,5 +1718,117 @@
       "pd": 0.21666378581798174,
       "pa": 0.14405476648223373
     }
+  },
+  "Rayo Vallecano de Madrid|Valencia CF": {
+    "home": "Rayo Vallecano de Madrid",
+    "away": "Valencia CF",
+    "date": "2026-11-21",
+    "ph": 0.48387879526774585,
+    "pd": 0.27141477687984883,
+    "pa": 0.24470642785240496,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.48430032265364686,
+      "pd": 0.2730816231405007,
+      "pa": 0.2426180542058525
+    }
+  },
+  "Real Madrid CF|RC Celta de Vigo": {
+    "home": "Real Madrid CF",
+    "away": "RC Celta de Vigo",
+    "date": "2026-11-21",
+    "ph": 0.7232204084893843,
+    "pd": 0.17019549511768747,
+    "pa": 0.10658409639292823,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.795439555186173,
+      "pd": 0.13227982568906846,
+      "pa": 0.07228061912475847
+    }
+  },
+  "Deportivo Alav\u00e9s|RC Deportivo La Coru\u00f1a": {
+    "home": "Deportivo Alav\u00e9s",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "date": "2026-11-21",
+    "ph": 0.3901312635184973,
+    "pd": 0.2897627295388918,
+    "pa": 0.3201060069426106,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4482241912996675,
+      "pd": 0.2846728570177837,
+      "pa": 0.26710295168254883
+    }
+  },
+  "Sevilla FC|Real Betis Balompi\u00e9": {
+    "home": "Sevilla FC",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-11-21",
+    "ph": 0.332699375227899,
+    "pd": 0.2455478064876891,
+    "pa": 0.4217528182844118,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.3145256748290738,
+      "pd": 0.2680586024589373,
+      "pa": 0.4174157227119889
+    }
   }
 }
