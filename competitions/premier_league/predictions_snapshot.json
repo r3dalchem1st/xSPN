@@ -1440,5 +1440,201 @@
       "pd": 0.2572557258660325,
       "pa": 0.32221818582765804
     }
+  },
+  "Chelsea FC|Leeds United FC": {
+    "home": "Chelsea FC",
+    "away": "Leeds United FC",
+    "date": "2026-11-21",
+    "ph": 0.47726881885439226,
+    "pd": 0.24848917756326241,
+    "pa": 0.2742420035823453,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5126705228549442,
+      "pd": 0.25166426333034936,
+      "pa": 0.2356652138147065
+    }
+  },
+  "Manchester City FC|Fulham FC": {
+    "home": "Manchester City FC",
+    "away": "Fulham FC",
+    "date": "2026-11-21",
+    "ph": 0.6416037455260236,
+    "pd": 0.2072171023053436,
+    "pa": 0.1511791521686328,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6815964824992933,
+      "pd": 0.18466160208681295,
+      "pa": 0.13374191541389382
+    }
+  },
+  "Aston Villa FC|Sunderland AFC": {
+    "home": "Aston Villa FC",
+    "away": "Sunderland AFC",
+    "date": "2026-11-21",
+    "ph": 0.5089228451971054,
+    "pd": 0.2533594981669248,
+    "pa": 0.23771765663596983,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5369993232605771,
+      "pd": 0.24897295062383887,
+      "pa": 0.2140277261155842
+    }
+  },
+  "AFC Bournemouth|Nottingham Forest FC": {
+    "home": "AFC Bournemouth",
+    "away": "Nottingham Forest FC",
+    "date": "2026-11-21",
+    "ph": 0.4556018083829386,
+    "pd": 0.25622964724190717,
+    "pa": 0.28816854437515416,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.47517879670608404,
+      "pd": 0.2654051500177191,
+      "pa": 0.25941605327619677
+    }
+  },
+  "Tottenham Hotspur FC|Ipswich Town FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-11-21",
+    "ph": 0.6070509076639607,
+    "pd": 0.1985782842467862,
+    "pa": 0.1943708080892533,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6144921859126857,
+      "pd": 0.21636717197462,
+      "pa": 0.16914064211269433
+    }
+  },
+  "Coventry City FC|Crystal Palace FC": {
+    "home": "Coventry City FC",
+    "away": "Crystal Palace FC",
+    "date": "2026-11-21",
+    "ph": 0.351900298300952,
+    "pd": 0.25471993832476036,
+    "pa": 0.39337976337428754,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.39785063348365146,
+      "pd": 0.26654586610777503,
+      "pa": 0.33560350040857334
+    }
+  },
+  "Newcastle United FC|Arsenal FC": {
+    "home": "Newcastle United FC",
+    "away": "Arsenal FC",
+    "date": "2026-11-21",
+    "ph": 0.1934013911486562,
+    "pd": 0.24808558145764895,
+    "pa": 0.5585130273936948,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-16",
+    "model": {
+      "sha": "df4d4e6",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.1725741402451361,
+      "pd": 0.22678355745755038,
+      "pa": 0.6006423022973134
+    }
   }
 }
