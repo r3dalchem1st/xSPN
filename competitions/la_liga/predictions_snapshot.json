@@ -1830,5 +1830,117 @@
       "pd": 0.2680586024589373,
       "pa": 0.4174157227119889
     }
+  },
+  "FC Barcelona|Villarreal CF": {
+    "home": "FC Barcelona",
+    "away": "Villarreal CF",
+    "date": "2026-11-22",
+    "ph": 0.7466502836463118,
+    "pd": 0.13723523142975402,
+    "pa": 0.11611448492393421,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.7902567843835048,
+      "pd": 0.12817579551586109,
+      "pa": 0.0815674201006342
+    }
+  },
+  "Real Racing Club de Santander|Real Sociedad de F\u00fatbol": {
+    "home": "Real Racing Club de Santander",
+    "away": "Real Sociedad de F\u00fatbol",
+    "date": "2026-11-22",
+    "ph": 0.32716402304729714,
+    "pd": 0.19937548490794788,
+    "pa": 0.4734604920447548,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.30081713496662227,
+      "pd": 0.24159569181482576,
+      "pa": 0.4575871732185519
+    }
+  },
+  "CA Osasuna|M\u00e1laga CF": {
+    "home": "CA Osasuna",
+    "away": "M\u00e1laga CF",
+    "date": "2026-11-22",
+    "ph": 0.6271461040101962,
+    "pd": 0.23093811956906868,
+    "pa": 0.141915776420735,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5344387340803448,
+      "pd": 0.259449863602736,
+      "pa": 0.2061114023169191
+    }
+  },
+  "Getafe CF|Club Atl\u00e9tico de Madrid": {
+    "home": "Getafe CF",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-11-22",
+    "ph": 0.2164477158818086,
+    "pd": 0.3051167745237781,
+    "pa": 0.4784355095944132,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.16792766434482026,
+      "pd": 0.24695108956510073,
+      "pa": 0.5851212460900791
+    }
   }
 }
