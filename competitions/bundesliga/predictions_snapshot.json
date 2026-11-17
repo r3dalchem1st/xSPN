@@ -1393,5 +1393,61 @@
       "pd": 0.232835189673804,
       "pa": 0.5238368225598365
     }
+  },
+  "FC Augsburg|1. FSV Mainz 05": {
+    "home": "FC Augsburg",
+    "away": "1. FSV Mainz 05",
+    "date": "2026-11-22",
+    "ph": 0.38885221206303977,
+    "pd": 0.24292701489631424,
+    "pa": 0.3682207730406462,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.3520672506104745,
+      "pd": 0.2458417907314175,
+      "pa": 0.402090958658108
+    }
+  },
+  "SV Werder Bremen|Hamburger SV": {
+    "home": "SV Werder Bremen",
+    "away": "Hamburger SV",
+    "date": "2026-11-22",
+    "ph": 0.5012012502974094,
+    "pd": 0.24288696080156422,
+    "pa": 0.25591178890102617,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5617569811949414,
+      "pd": 0.2261978288696731,
+      "pa": 0.21204518993538551
+    }
   }
 }
