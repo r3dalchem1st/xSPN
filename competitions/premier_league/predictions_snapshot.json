@@ -1636,5 +1636,61 @@
       "pd": 0.22678355745755038,
       "pa": 0.6006423022973134
     }
+  },
+  "Liverpool FC|Manchester United FC": {
+    "home": "Liverpool FC",
+    "away": "Manchester United FC",
+    "date": "2026-11-22",
+    "ph": 0.5522031338218143,
+    "pd": 0.2135771196855937,
+    "pa": 0.23421974649259203,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5420668434024704,
+      "pd": 0.2289897600926596,
+      "pa": 0.22894339650487006
+    }
+  },
+  "Hull City AFC|Brighton & Hove Albion FC": {
+    "home": "Hull City AFC",
+    "away": "Brighton & Hove Albion FC",
+    "date": "2026-11-22",
+    "ph": 0.31172866007186023,
+    "pd": 0.2803930707998459,
+    "pa": 0.40787826912829384,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-17",
+    "model": {
+      "sha": "50d393f",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.15591995318453214,
+      "pd": 0.21433957388674704,
+      "pa": 0.6297404729287208
+    }
   }
 }
