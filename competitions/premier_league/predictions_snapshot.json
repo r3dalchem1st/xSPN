@@ -1692,5 +1692,33 @@
       "pd": 0.21433957388674704,
       "pa": 0.6297404729287208
     }
+  },
+  "Brentford FC|Everton FC": {
+    "home": "Brentford FC",
+    "away": "Everton FC",
+    "date": "2026-11-23",
+    "ph": 0.45523738581253326,
+    "pd": 0.26481364594058354,
+    "pa": 0.2799489682468831,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-18",
+    "model": {
+      "sha": "7bfa0f9",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4569251778234749,
+      "pd": 0.2631444932917851,
+      "pa": 0.2799303288847399
+    }
   }
 }
