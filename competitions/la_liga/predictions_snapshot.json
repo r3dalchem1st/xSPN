@@ -1942,5 +1942,33 @@
       "pd": 0.24695108956510073,
       "pa": 0.5851212460900791
     }
+  },
+  "Levante UD|Elche CF": {
+    "home": "Levante UD",
+    "away": "Elche CF",
+    "date": "2026-11-23",
+    "ph": 0.46768425756688525,
+    "pd": 0.23679206503644268,
+    "pa": 0.2955236773966721,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-18",
+    "model": {
+      "sha": "7bfa0f9",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.43987787325446,
+      "pd": 0.2635698001047639,
+      "pa": 0.29655232664077624
+    }
   }
 }
