@@ -366,7 +366,7 @@
       {
         "home": "Netherlands",
         "away": "Tunisia",
-        "lam": 4.1,
+        "lam": 4.11,
         "mu": 0.82,
         "score": "4\u20130",
         "ph": 0.871,
@@ -1043,7 +1043,7 @@
       "away": "Morocco",
       "score": "1\u20131 (p)",
       "winner": "Morocco",
-      "win_pct": 51.0,
+      "win_pct": 50.9,
       "ph": 0.372,
       "pd": 0.268,
       "pa": 0.361,
@@ -1255,7 +1255,7 @@
       "winner": "Spain",
       "win_pct": 64.4,
       "ph": 0.542,
-      "pd": 0.274,
+      "pd": 0.275,
       "pa": 0.183,
       "reg_winner": "Spain",
       "lam": 1.41,
@@ -1282,7 +1282,7 @@
       "win_pct": 72.8,
       "ph": 0.156,
       "pd": 0.222,
-      "pa": 0.622,
+      "pa": 0.623,
       "reg_winner": "France",
       "lam": 0.78,
       "mu": 1.87
@@ -1347,7 +1347,7 @@
       "score": "2\u20131",
       "winner": "Spain",
       "win_pct": 68.7,
-      "ph": 0.576,
+      "ph": 0.575,
       "pd": 0.255,
       "pa": 0.17,
       "reg_winner": "Spain",
@@ -1439,12 +1439,12 @@
   "champion_pct": 92.7,
   "reach_final": {
     "Spain": 97.7,
-    "Argentina": 84.2,
-    "England": 9.1,
-    "Colombia": 6.0,
-    "France": 1.8,
-    "Senegal": 0.7,
-    "USA": 0.4,
+    "Argentina": 83.5,
+    "England": 9.6,
+    "Colombia": 6.1,
+    "France": 1.9,
+    "Senegal": 0.8,
+    "USA": 0.3,
     "Algeria": 0.1
   }
 }
