@@ -1081,10 +1081,10 @@
   },
   "Athletic Club|RCD Espanyol de Barcelona": {
     "date": "2026-11-20",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Athletic Club": null,
-      "RCD Espanyol de Barcelona": null
+      "Athletic Club": 0,
+      "RCD Espanyol de Barcelona": 1
     },
     "round": "Matchday 13"
   },

@@ -1230,35 +1230,48 @@
       "market_correct_winner": true,
       "market_brier": 0.18120841810626054,
       "disagree": false
+    },
+    {
+      "home": "Athletic Club",
+      "away": "RCD Espanyol de Barcelona",
+      "date": "2026-11-20",
+      "correct_winner": false,
+      "brier": 0.9535126316200924,
+      "log_loss": 1.5353825888315396,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 1.188266208239896,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 119,
-    "accuracy": 0.5798319327731093,
-    "avg_brier": 0.5635514502556637,
-    "avg_log_loss": 0.9536922525322096,
-    "avg_goal_error": 1.9915966386554622,
+    "n_scored": 120,
+    "accuracy": 0.575,
+    "avg_brier": 0.5668011267670339,
+    "avg_log_loss": 0.9585396720013706,
+    "avg_goal_error": 1.9916666666666667,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6510750075653531,
-      "skill": 0.13442929968541917,
-      "skill_lo": 0.06526715361369703,
-      "skill_hi": 0.2095790589210627
+      "avg_brier": 0.6522737765466299,
+      "skill": 0.13103799792798443,
+      "skill_lo": 0.05569191004461243,
+      "skill_hi": 0.20560957589308723
     },
     "vs_market": {
-      "n": 40,
-      "accuracy": 0.6,
-      "market_accuracy": 0.6,
-      "avg_brier": 0.53280744224771,
-      "market_avg_brier": 0.5200652586271166,
+      "n": 41,
+      "accuracy": 0.5853658536585366,
+      "market_accuracy": 0.5853658536585366,
+      "avg_brier": 0.5430685444275243,
+      "market_avg_brier": 0.5363628427640137,
       "brier_gap": {
-        "mean": -0.012742183620593317,
-        "lo": -0.03951696610970575,
-        "hi": 0.01606424725904698
+        "mean": -0.006705701663510463,
+        "lo": -0.035786349883686897,
+        "hi": 0.022452169541200197
       },
       "disagree_n": 5,
       "we_right": 1,
