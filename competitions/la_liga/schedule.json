@@ -1144,10 +1144,10 @@
   },
   "Deportivo Alav\u00e9s|RC Deportivo La Coru\u00f1a": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Deportivo Alav\u00e9s": null,
-      "RC Deportivo La Coru\u00f1a": null
+      "Deportivo Alav\u00e9s": 3,
+      "RC Deportivo La Coru\u00f1a": 1
     },
     "round": "Matchday 13"
   },
