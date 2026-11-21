@@ -910,10 +910,10 @@
   },
   "Manchester City FC|Fulham FC": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Manchester City FC": null,
-      "Fulham FC": null
+      "Manchester City FC": 1,
+      "Fulham FC": 1
     },
     "round": "Matchday 11"
   },

@@ -1059,35 +1059,48 @@
       "market_correct_winner": false,
       "market_brier": 0.8323358069830676,
       "disagree": false
+    },
+    {
+      "home": "Manchester City FC",
+      "away": "Fulham FC",
+      "date": "2026-11-21",
+      "correct_winner": false,
+      "brier": 1.0630152252005851,
+      "log_loss": 1.5739882319193497,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 1.1472373680056291,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 100,
-    "accuracy": 0.49,
-    "avg_brier": 0.6319545259760686,
-    "avg_log_loss": 1.057092500098935,
-    "avg_goal_error": 1.97,
+    "n_scored": 101,
+    "accuracy": 0.48514851485148514,
+    "avg_brier": 0.6362224536911628,
+    "avg_log_loss": 1.0622102796219095,
+    "avg_goal_error": 1.9603960396039604,
     "baseline": {
       "base_rate": [
         0.41710526315789476,
         0.25921052631578945,
         0.3236842105263158
       ],
-      "avg_brier": 0.6549120498614956,
-      "skill": 0.035054361712052784,
-      "skill_lo": -0.05225677979828476,
-      "skill_hi": 0.129580286364805
+      "avg_brier": 0.656621012863059,
+      "skill": 0.03106595550902702,
+      "skill_lo": -0.05651788872948056,
+      "skill_hi": 0.11881960246571775
     },
     "vs_market": {
-      "n": 40,
-      "accuracy": 0.5,
-      "market_accuracy": 0.55,
-      "avg_brier": 0.605624233442861,
-      "market_avg_brier": 0.563809715369719,
+      "n": 41,
+      "accuracy": 0.4878048780487805,
+      "market_accuracy": 0.5365853658536586,
+      "avg_brier": 0.6167801112906104,
+      "market_avg_brier": 0.5780396581169364,
       "brier_gap": {
-        "mean": -0.041814518073141835,
-        "lo": -0.08903144391655482,
-        "hi": 0.00011275163427294293
+        "mean": -0.03874045317367389,
+        "lo": -0.08340814241432672,
+        "hi": 0.0002824838193280844
       },
       "disagree_n": 4,
       "we_right": 0,
