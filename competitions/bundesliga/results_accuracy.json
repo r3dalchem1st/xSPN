@@ -872,35 +872,48 @@
       "market_correct_winner": true,
       "market_brier": 0.2579795792407266,
       "disagree": false
+    },
+    {
+      "home": "FC Bayern M\u00fcnchen",
+      "away": "1. FC K\u00f6ln",
+      "date": "2026-11-20",
+      "correct_winner": false,
+      "brier": 1.6750135401815522,
+      "log_loss": 2.69951239153306,
+      "total_goal_error": 4,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 1.6162852306025695,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 81,
-    "accuracy": 0.5432098765432098,
-    "avg_brier": 0.6042202605394588,
-    "avg_log_loss": 1.0055820431644353,
-    "avg_goal_error": 2.4814814814814814,
+    "n_scored": 82,
+    "accuracy": 0.5365853658536586,
+    "avg_brier": 0.6172787151692405,
+    "avg_log_loss": 1.0262397303396624,
+    "avg_goal_error": 2.5,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.6324191728423834,
-      "skill": 0.04458895857977496,
-      "skill_lo": -0.05311026358601345,
-      "skill_hi": 0.14074336497493417
+      "avg_brier": 0.6350631618209165,
+      "skill": 0.028004217093434702,
+      "skill_lo": -0.08161036542476047,
+      "skill_hi": 0.12840707331540813
     },
     "vs_market": {
-      "n": 36,
-      "accuracy": 0.5833333333333334,
-      "market_accuracy": 0.5833333333333334,
-      "avg_brier": 0.5545178308070453,
-      "market_avg_brier": 0.5531968150234452,
+      "n": 37,
+      "accuracy": 0.5675675675675675,
+      "market_accuracy": 0.5675675675675675,
+      "avg_brier": 0.5848014986279779,
+      "market_avg_brier": 0.5819289343634214,
       "brier_gap": {
-        "mean": -0.0013210157836001934,
-        "lo": -0.03499460861451476,
-        "hi": 0.03381833548242679
+        "mean": -0.0028725642645564798,
+        "lo": -0.036484729689372906,
+        "hi": 0.030996419001229097
       },
       "disagree_n": 2,
       "we_right": 1,
