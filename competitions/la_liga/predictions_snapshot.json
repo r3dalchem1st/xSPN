@@ -1970,5 +1970,33 @@
       "pd": 0.2635698001047639,
       "pa": 0.29655232664077624
     }
+  },
+  "Levante UD|Real Racing Club de Santander": {
+    "home": "Levante UD",
+    "away": "Real Racing Club de Santander",
+    "date": "2026-11-27",
+    "ph": 0.6303992774693477,
+    "pd": 0.17197040920466067,
+    "pa": 0.1976303133259919,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-22",
+    "model": {
+      "sha": "c9da8af",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.454055266146117,
+      "pd": 0.24728548340880835,
+      "pa": 0.29865925044507463
+    }
   }
 }

@@ -1108,10 +1108,10 @@
   },
   "Rayo Vallecano de Madrid|Valencia CF": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Rayo Vallecano de Madrid": null,
-      "Valencia CF": null
+      "Rayo Vallecano de Madrid": 0,
+      "Valencia CF": 1
     },
     "round": "Matchday 13"
   },
@@ -1135,10 +1135,10 @@
   },
   "Real Madrid CF|RC Celta de Vigo": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Madrid CF": null,
-      "RC Celta de Vigo": null
+      "Real Madrid CF": 2,
+      "RC Celta de Vigo": 1
     },
     "round": "Matchday 13"
   },
@@ -1153,10 +1153,10 @@
   },
   "Sevilla FC|Real Betis Balompi\u00e9": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Sevilla FC": null,
-      "Real Betis Balompi\u00e9": null
+      "Sevilla FC": 1,
+      "Real Betis Balompi\u00e9": 1
     },
     "round": "Matchday 13"
   },

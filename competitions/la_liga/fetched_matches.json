@@ -1081,9 +1081,36 @@
   ],
   [
     "2026-11-21",
+    "Rayo Vallecano de Madrid",
+    "Valencia CF",
+    0,
+    1,
+    "La Liga",
+    false
+  ],
+  [
+    "2026-11-21",
+    "Real Madrid CF",
+    "RC Celta de Vigo",
+    2,
+    1,
+    "La Liga",
+    false
+  ],
+  [
+    "2026-11-21",
     "Deportivo Alav\u00e9s",
     "RC Deportivo La Coru\u00f1a",
     3,
+    1,
+    "La Liga",
+    false
+  ],
+  [
+    "2026-11-21",
+    "Sevilla FC",
+    "Real Betis Balompi\u00e9",
+    1,
     1,
     "La Liga",
     false
