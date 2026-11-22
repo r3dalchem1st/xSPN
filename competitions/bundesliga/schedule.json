@@ -739,55 +739,55 @@
   },
   "Bayer 04 Leverkusen|SC Paderborn 07": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Bayer 04 Leverkusen": null,
-      "SC Paderborn 07": null
+      "Bayer 04 Leverkusen": 4,
+      "SC Paderborn 07": 0
     },
     "round": "Matchday 10"
   },
   "1. FC Union Berlin|RB Leipzig": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "1. FC Union Berlin": null,
-      "RB Leipzig": null
+      "1. FC Union Berlin": 1,
+      "RB Leipzig": 5
     },
     "round": "Matchday 10"
   },
   "SV 07 Elversberg|SC Freiburg": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV 07 Elversberg": null,
-      "SC Freiburg": null
+      "SV 07 Elversberg": 0,
+      "SC Freiburg": 1
     },
     "round": "Matchday 10"
   },
   "Borussia M\u00f6nchengladbach|Borussia Dortmund": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Borussia M\u00f6nchengladbach": null,
-      "Borussia Dortmund": null
+      "Borussia M\u00f6nchengladbach": 0,
+      "Borussia Dortmund": 1
     },
     "round": "Matchday 10"
   },
   "Eintracht Frankfurt|TSG 1899 Hoffenheim": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Eintracht Frankfurt": null,
-      "TSG 1899 Hoffenheim": null
+      "Eintracht Frankfurt": 1,
+      "TSG 1899 Hoffenheim": 0
     },
     "round": "Matchday 10"
   },
   "FC Schalke 04|VfB Stuttgart": {
     "date": "2026-11-21",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Schalke 04": null,
-      "VfB Stuttgart": null
+      "FC Schalke 04": 0,
+      "VfB Stuttgart": 0
     },
     "round": "Matchday 10"
   },

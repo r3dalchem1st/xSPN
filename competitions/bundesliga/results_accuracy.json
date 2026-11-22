@@ -885,39 +885,117 @@
       "market_correct_winner": false,
       "market_brier": 1.6162852306025695,
       "disagree": false
+    },
+    {
+      "home": "Bayer 04 Leverkusen",
+      "away": "SC Paderborn 07",
+      "date": "2026-11-21",
+      "correct_winner": true,
+      "brier": 0.22955306781066698,
+      "log_loss": 0.49051524901254756,
+      "total_goal_error": 3,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.09399501242674595,
+      "disagree": false
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "RB Leipzig",
+      "date": "2026-11-21",
+      "correct_winner": true,
+      "brier": 0.3038647733886699,
+      "log_loss": 0.5979915238579844,
+      "total_goal_error": 4,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.2362387461214018,
+      "disagree": false
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "SC Freiburg",
+      "date": "2026-11-21",
+      "correct_winner": false,
+      "brier": 0.7592527558597171,
+      "log_loss": 1.1722803314001733,
+      "total_goal_error": 3,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.41806607393955286,
+      "disagree": true
+    },
+    {
+      "home": "Borussia M\u00f6nchengladbach",
+      "away": "Borussia Dortmund",
+      "date": "2026-11-21",
+      "correct_winner": true,
+      "brier": 0.2667642041028224,
+      "log_loss": 0.5475675389467193,
+      "total_goal_error": 0,
+      "market_winner": "A",
+      "market_correct_winner": true,
+      "market_brier": 0.2596983989208402,
+      "disagree": false
+    },
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "TSG 1899 Hoffenheim",
+      "date": "2026-11-21",
+      "correct_winner": true,
+      "brier": 0.38403109750260644,
+      "log_loss": 0.6983793881499216,
+      "total_goal_error": 2,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.5273425112362684,
+      "disagree": false
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "VfB Stuttgart",
+      "date": "2026-11-21",
+      "correct_winner": false,
+      "brier": 0.7728978262152637,
+      "log_loss": 1.1980180470966806,
+      "total_goal_error": 1,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.9221553725028395,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 82,
-    "accuracy": 0.5365853658536586,
-    "avg_brier": 0.6172787151692405,
-    "avg_log_loss": 1.0262397303396624,
-    "avg_goal_error": 2.5,
+    "n_scored": 88,
+    "accuracy": 0.5454545454545454,
+    "avg_brier": 0.6060592996449712,
+    "avg_log_loss": 1.009731931435413,
+    "avg_goal_error": 2.477272727272727,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.6350631618209165,
-      "skill": 0.028004217093434702,
-      "skill_lo": -0.08161036542476047,
-      "skill_hi": 0.12840707331540813
+      "avg_brier": 0.6360883431782204,
+      "skill": 0.04720891972836505,
+      "skill_lo": -0.052109616758134435,
+      "skill_hi": 0.1467421117676747
     },
     "vs_market": {
-      "n": 37,
-      "accuracy": 0.5675675675675675,
-      "market_accuracy": 0.5675675675675675,
-      "avg_brier": 0.5848014986279779,
-      "market_avg_brier": 0.5819289343634214,
+      "n": 43,
+      "accuracy": 0.5813953488372093,
+      "market_accuracy": 0.6046511627906976,
+      "avg_brier": 0.5663725389329054,
+      "market_avg_brier": 0.5578806206184707,
       "brier_gap": {
-        "mean": -0.0028725642645564798,
-        "lo": -0.036484729689372906,
-        "hi": 0.030996419001229097
+        "mean": -0.008491918314434594,
+        "lo": -0.04382254709512464,
+        "hi": 0.025468643967501054
       },
-      "disagree_n": 2,
+      "disagree_n": 3,
       "we_right": 1,
-      "market_right": 1
+      "market_right": 2
     }
   }
 }

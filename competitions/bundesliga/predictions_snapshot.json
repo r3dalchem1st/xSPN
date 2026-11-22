@@ -1449,5 +1449,33 @@
       "pd": 0.2261978288696731,
       "pa": 0.21204518993538551
     }
+  },
+  "SV Werder Bremen|Borussia M\u00f6nchengladbach": {
+    "home": "SV Werder Bremen",
+    "away": "Borussia M\u00f6nchengladbach",
+    "date": "2026-11-27",
+    "ph": 0.4631692208173073,
+    "pd": 0.238101881034385,
+    "pa": 0.29872889814830755,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-22",
+    "model": {
+      "sha": "c9da8af",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5385315502977654,
+      "pd": 0.22861012577650547,
+      "pa": 0.2328583239257291
+    }
   }
 }
