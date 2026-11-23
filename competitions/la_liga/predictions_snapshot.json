@@ -1998,5 +1998,117 @@
       "pd": 0.24728548340880835,
       "pa": 0.29865925044507463
     }
+  },
+  "Elche CF|Club Atl\u00e9tico de Madrid": {
+    "home": "Elche CF",
+    "away": "Club Atl\u00e9tico de Madrid",
+    "date": "2026-11-28",
+    "ph": 0.24217563395761896,
+    "pd": 0.24436622078043485,
+    "pa": 0.5134581452619462,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.17819348393185516,
+      "pd": 0.21881463588555156,
+      "pa": 0.6029918801825932
+    }
+  },
+  "Real Betis Balompi\u00e9|Rayo Vallecano de Madrid": {
+    "home": "Real Betis Balompi\u00e9",
+    "away": "Rayo Vallecano de Madrid",
+    "date": "2026-11-28",
+    "ph": 0.5601675700749679,
+    "pd": 0.23866495561168014,
+    "pa": 0.20116747431335189,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6105241652110384,
+      "pd": 0.21414581811297095,
+      "pa": 0.1753300166759905
+    }
+  },
+  "Real Madrid CF|Deportivo Alav\u00e9s": {
+    "home": "Real Madrid CF",
+    "away": "Deportivo Alav\u00e9s",
+    "date": "2026-11-28",
+    "ph": 0.7536737539609236,
+    "pd": 0.15961686205394574,
+    "pa": 0.08670938398513059,
+    "predicted_winner": "H",
+    "predicted_score": "2-0",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.8242719004933633,
+      "pd": 0.11353375362413845,
+      "pa": 0.06219434588249828
+    }
+  },
+  "M\u00e1laga CF|Athletic Club": {
+    "home": "M\u00e1laga CF",
+    "away": "Athletic Club",
+    "date": "2026-11-28",
+    "ph": 0.19338012319514905,
+    "pd": 0.27859413457344845,
+    "pa": 0.5280257422314025,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.21049849930733652,
+      "pd": 0.2579913029502619,
+      "pa": 0.5315101977424016
+    }
   }
 }

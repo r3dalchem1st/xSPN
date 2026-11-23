@@ -1090,19 +1090,19 @@
   },
   "FC Barcelona|Villarreal CF": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Barcelona": null,
-      "Villarreal CF": null
+      "FC Barcelona": 3,
+      "Villarreal CF": 2
     },
     "round": "Matchday 13"
   },
   "Real Racing Club de Santander|Real Sociedad de F\u00fatbol": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Racing Club de Santander": null,
-      "Real Sociedad de F\u00fatbol": null
+      "Real Racing Club de Santander": 3,
+      "Real Sociedad de F\u00fatbol": 2
     },
     "round": "Matchday 13"
   },
@@ -1117,19 +1117,19 @@
   },
   "CA Osasuna|M\u00e1laga CF": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "CA Osasuna": null,
-      "M\u00e1laga CF": null
+      "CA Osasuna": 1,
+      "M\u00e1laga CF": 0
     },
     "round": "Matchday 13"
   },
   "Getafe CF|Club Atl\u00e9tico de Madrid": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Getafe CF": null,
-      "Club Atl\u00e9tico de Madrid": null
+      "Getafe CF": 0,
+      "Club Atl\u00e9tico de Madrid": 3
     },
     "round": "Matchday 13"
   },
