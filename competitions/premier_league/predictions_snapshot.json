@@ -1748,5 +1748,89 @@
       "pd": 0.270311013789016,
       "pa": 0.3879919205239601
     }
+  },
+  "Leeds United FC|Coventry City FC": {
+    "home": "Leeds United FC",
+    "away": "Coventry City FC",
+    "date": "2026-11-28",
+    "ph": 0.6166702677914385,
+    "pd": 0.20708174002296095,
+    "pa": 0.17624799218560053,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6163388902212975,
+      "pd": 0.2205597259555112,
+      "pa": 0.16310138382319123
+    }
+  },
+  "Ipswich Town FC|Aston Villa FC": {
+    "home": "Ipswich Town FC",
+    "away": "Aston Villa FC",
+    "date": "2026-11-28",
+    "ph": 0.21552980040161415,
+    "pd": 0.2087752894219744,
+    "pa": 0.5756949101764115,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.27864434384660086,
+      "pd": 0.24744962070324786,
+      "pa": 0.4739060354501513
+    }
+  },
+  "Manchester United FC|Brentford FC": {
+    "home": "Manchester United FC",
+    "away": "Brentford FC",
+    "date": "2026-11-28",
+    "ph": 0.3977054555974429,
+    "pd": 0.23672013504301181,
+    "pa": 0.3655744093595452,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.47304040378026463,
+      "pd": 0.25065257290489157,
+      "pa": 0.2763070233148437
+    }
   }
 }

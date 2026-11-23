@@ -1100,6 +1100,32 @@
       "disagree": false
     },
     {
+      "home": "Liverpool FC",
+      "away": "Manchester United FC",
+      "date": "2026-11-22",
+      "correct_winner": true,
+      "brier": 0.30099610905925245,
+      "log_loss": 0.5938393043449713,
+      "total_goal_error": 3,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.31455416494185756,
+      "disagree": false
+    },
+    {
+      "home": "Hull City AFC",
+      "away": "Brighton & Hove Albion FC",
+      "date": "2026-11-22",
+      "correct_winner": false,
+      "brier": 0.7187023939461371,
+      "log_loss": 1.1656221488199192,
+      "total_goal_error": 3,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 1.1549856416104436,
+      "disagree": false
+    },
+    {
       "home": "AFC Bournemouth",
       "away": "Nottingham Forest FC",
       "date": "2026-11-21",
@@ -1153,32 +1179,32 @@
     }
   ],
   "summary": {
-    "n_scored": 107,
-    "accuracy": 0.4766355140186916,
-    "avg_brier": 0.6371848116275493,
-    "avg_log_loss": 1.0623700563709875,
-    "avg_goal_error": 1.9906542056074767,
+    "n_scored": 109,
+    "accuracy": 0.47706422018348627,
+    "avg_brier": 0.6348483793316804,
+    "avg_log_loss": 1.059018876007895,
+    "avg_goal_error": 2.0091743119266057,
     "baseline": {
       "base_rate": [
         0.41710526315789476,
         0.25921052631578945,
         0.3236842105263158
       ],
-      "avg_brier": 0.6561449568954358,
-      "skill": 0.028896275234053026,
-      "skill_lo": -0.056428436851911054,
-      "skill_hi": 0.11199528615875831
+      "avg_brier": 0.6534951015273578,
+      "skill": 0.02853383621712824,
+      "skill_lo": -0.05772764983323288,
+      "skill_hi": 0.1089505649253985
     },
     "vs_market": {
-      "n": 47,
-      "accuracy": 0.46808510638297873,
-      "market_accuracy": 0.5319148936170213,
-      "avg_brier": 0.6214530124309653,
-      "market_avg_brier": 0.5889384636316527,
+      "n": 49,
+      "accuracy": 0.46938775510204084,
+      "market_accuracy": 0.5306122448979592,
+      "avg_brier": 0.6168977568828726,
+      "market_avg_brier": 0.5948907672906117,
       "brier_gap": {
-        "mean": -0.032514548799312544,
-        "lo": -0.0711151328308794,
-        "hi": 0.003194055214522945
+        "mean": -0.022006989592260783,
+        "lo": -0.062167842364127285,
+        "hi": 0.017560981792501106
       },
       "disagree_n": 5,
       "we_right": 0,

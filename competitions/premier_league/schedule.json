@@ -928,19 +928,19 @@
   },
   "Liverpool FC|Manchester United FC": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Liverpool FC": null,
-      "Manchester United FC": null
+      "Liverpool FC": 4,
+      "Manchester United FC": 0
     },
     "round": "Matchday 11"
   },
   "Hull City AFC|Brighton & Hove Albion FC": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Hull City AFC": null,
-      "Brighton & Hove Albion FC": null
+      "Hull City AFC": 2,
+      "Brighton & Hove Albion FC": 0
     },
     "round": "Matchday 11"
   },
