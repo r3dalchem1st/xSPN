@@ -582,7 +582,7 @@
         "home": "Senegal",
         "away": "Norway",
         "lam": 1.53,
-        "mu": 2.38,
+        "mu": 2.37,
         "score": "1\u20132",
         "ph": 0.221,
         "pd": 0.264,
@@ -676,7 +676,7 @@
         "score": "2\u20131",
         "ph": 0.668,
         "pd": 0.213,
-        "pa": 0.118,
+        "pa": 0.119,
         "likely_winner": "Austria"
       }
     ],
@@ -1147,7 +1147,7 @@
       "away": "Ecuador",
       "score": "2\u20130",
       "winner": "Mexico",
-      "win_pct": 62.5,
+      "win_pct": 62.6,
       "ph": 0.527,
       "pd": 0.275,
       "pa": 0.197,
@@ -1256,7 +1256,7 @@
       "win_pct": 64.3,
       "ph": 0.542,
       "pd": 0.275,
-      "pa": 0.183,
+      "pa": 0.184,
       "reg_winner": "Spain",
       "lam": 1.41,
       "mu": 0.69
@@ -1436,15 +1436,15 @@
     "mu": 1.8
   },
   "champion": "Spain",
-  "champion_pct": 93.0,
+  "champion_pct": 92.7,
   "reach_final": {
-    "Spain": 97.8,
-    "Argentina": 83.9,
-    "England": 9.5,
-    "Colombia": 5.9,
+    "Spain": 97.7,
+    "Argentina": 83.8,
+    "England": 9.1,
+    "Colombia": 6.2,
     "France": 1.9,
-    "Senegal": 0.8,
-    "USA": 0.2,
-    "Algeria": 0.1
+    "Senegal": 0.9,
+    "USA": 0.3,
+    "Algeria": 0.2
   }
 }
