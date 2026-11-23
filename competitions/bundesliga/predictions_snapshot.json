@@ -1477,5 +1477,145 @@
       "pd": 0.22861012577650547,
       "pa": 0.2328583239257291
     }
+  },
+  "1. FC K\u00f6ln|SV 07 Elversberg": {
+    "home": "1. FC K\u00f6ln",
+    "away": "SV 07 Elversberg",
+    "date": "2026-11-28",
+    "ph": 0.3972621348024698,
+    "pd": 0.2194118530502704,
+    "pa": 0.3833260121472598,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4789929170754978,
+      "pd": 0.24483583655222851,
+      "pa": 0.2761712463722736
+    }
+  },
+  "1. FSV Mainz 05|1. FC Union Berlin": {
+    "home": "1. FSV Mainz 05",
+    "away": "1. FC Union Berlin",
+    "date": "2026-11-28",
+    "ph": 0.5713149418050224,
+    "pd": 0.22645583293289587,
+    "pa": 0.20222922526208184,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6327767036368577,
+      "pd": 0.20578158030141475,
+      "pa": 0.1614417160617274
+    }
+  },
+  "SC Paderborn 07|FC Schalke 04": {
+    "home": "SC Paderborn 07",
+    "away": "FC Schalke 04",
+    "date": "2026-11-28",
+    "ph": 0.3105242049184932,
+    "pd": 0.4587700098199678,
+    "pa": 0.2307057852615391,
+    "predicted_winner": "D",
+    "predicted_score": "0-0",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.39351108747800045,
+      "pd": 0.2709696400189845,
+      "pa": 0.33551927250301505
+    }
+  },
+  "Hamburger SV|FC Bayern M\u00fcnchen": {
+    "home": "Hamburger SV",
+    "away": "FC Bayern M\u00fcnchen",
+    "date": "2026-11-28",
+    "ph": 0.07149642832071801,
+    "pd": 0.11242684902718886,
+    "pa": 0.8160767226520929,
+    "predicted_winner": "A",
+    "predicted_score": "0-2",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.10193283484715993,
+      "pd": 0.13822564018811512,
+      "pa": 0.759841524964725
+    }
+  },
+  "VfB Stuttgart|Eintracht Frankfurt": {
+    "home": "VfB Stuttgart",
+    "away": "Eintracht Frankfurt",
+    "date": "2026-11-28",
+    "ph": 0.5680422542388249,
+    "pd": 0.19192756940308725,
+    "pa": 0.24003017635808796,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-23",
+    "model": {
+      "sha": "386bd80",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5543559997123495,
+      "pd": 0.20862607225248853,
+      "pa": 0.237017928035162
+    }
   }
 }

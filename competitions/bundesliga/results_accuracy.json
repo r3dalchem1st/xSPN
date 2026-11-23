@@ -963,38 +963,64 @@
       "market_correct_winner": false,
       "market_brier": 0.9221553725028395,
       "disagree": false
+    },
+    {
+      "home": "FC Augsburg",
+      "away": "1. FSV Mainz 05",
+      "date": "2026-11-22",
+      "correct_winner": true,
+      "brier": 0.5681016909653249,
+      "log_loss": 0.9445559251263902,
+      "total_goal_error": 3,
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.641932172836096,
+      "disagree": true
+    },
+    {
+      "home": "SV Werder Bremen",
+      "away": "Hamburger SV",
+      "date": "2026-11-22",
+      "correct_winner": true,
+      "brier": 0.3732851121308116,
+      "log_loss": 0.6907475613555752,
+      "total_goal_error": 3,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.28818556389145855,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 88,
-    "accuracy": 0.5454545454545454,
-    "avg_brier": 0.6060592996449712,
-    "avg_log_loss": 1.009731931435413,
-    "avg_goal_error": 2.477272727272727,
+    "n_scored": 90,
+    "accuracy": 0.5555555555555556,
+    "avg_brier": 0.6030511685761512,
+    "avg_log_loss": 1.0054634828088702,
+    "avg_goal_error": 2.488888888888889,
     "baseline": {
       "base_rate": [
         0.41243862520458263,
         0.24877250409165302,
         0.33878887070376434
       ],
-      "avg_brier": 0.6360883431782204,
-      "skill": 0.04720891972836505,
-      "skill_lo": -0.052109616758134435,
-      "skill_hi": 0.1467421117676747
+      "avg_brier": 0.6335506917043987,
+      "skill": 0.04814062004446218,
+      "skill_lo": -0.04902414442509785,
+      "skill_hi": 0.1433739405574888
     },
     "vs_market": {
-      "n": 43,
-      "accuracy": 0.5813953488372093,
-      "market_accuracy": 0.6046511627906976,
-      "avg_brier": 0.5663725389329054,
-      "market_avg_brier": 0.5578806206184707,
+      "n": 45,
+      "accuracy": 0.6,
+      "market_accuracy": 0.6,
+      "avg_brier": 0.5621201328269126,
+      "market_avg_brier": 0.5537552094071511,
       "brier_gap": {
-        "mean": -0.008491918314434594,
-        "lo": -0.04382254709512464,
-        "hi": 0.025468643967501054
+        "mean": -0.008364923419761543,
+        "lo": -0.04333446896120935,
+        "hi": 0.024233666113577267
       },
-      "disagree_n": 3,
-      "we_right": 1,
+      "disagree_n": 4,
+      "we_right": 2,
       "market_right": 2
     }
   }

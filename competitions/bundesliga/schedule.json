@@ -793,19 +793,19 @@
   },
   "FC Augsburg|1. FSV Mainz 05": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "FC Augsburg": null,
-      "1. FSV Mainz 05": null
+      "FC Augsburg": 3,
+      "1. FSV Mainz 05": 1
     },
     "round": "Matchday 10"
   },
   "SV Werder Bremen|Hamburger SV": {
     "date": "2026-11-22",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV Werder Bremen": null,
-      "Hamburger SV": null
+      "SV Werder Bremen": 4,
+      "Hamburger SV": 0
     },
     "round": "Matchday 10"
   },
