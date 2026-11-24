@@ -1347,35 +1347,48 @@
       "market_correct_winner": false,
       "market_brier": 0.8089004951282204,
       "disagree": false
+    },
+    {
+      "home": "Levante UD",
+      "away": "Elche CF",
+      "date": "2026-11-23",
+      "correct_winner": false,
+      "brier": 0.8885491606692786,
+      "log_loss": 1.4405728856703741,
+      "total_goal_error": 1,
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.8237652651326618,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 128,
-    "accuracy": 0.578125,
-    "avg_brier": 0.5614458454670588,
-    "avg_log_loss": 0.9509007435258038,
-    "avg_goal_error": 1.96875,
+    "n_scored": 129,
+    "accuracy": 0.5736434108527132,
+    "avg_brier": 0.5639815300810296,
+    "avg_log_loss": 0.9546966516044438,
+    "avg_goal_error": 1.9612403100775193,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6473121537396123,
-      "skill": 0.13265054236428553,
-      "skill_lo": 0.06397361471432113,
-      "skill_hi": 0.20258136840712915
+      "avg_brier": 0.6489664530052182,
+      "skill": 0.13095426201253157,
+      "skill_lo": 0.06304123572548934,
+      "skill_hi": 0.20070558032776584
     },
     "vs_market": {
-      "n": 49,
-      "accuracy": 0.5918367346938775,
-      "market_accuracy": 0.5918367346938775,
-      "avg_brier": 0.5329539454952645,
-      "market_avg_brier": 0.522764682567754,
+      "n": 50,
+      "accuracy": 0.58,
+      "market_accuracy": 0.58,
+      "avg_brier": 0.5400658497987448,
+      "market_avg_brier": 0.5287846942190522,
       "brier_gap": {
-        "mean": -0.010189262927510313,
-        "lo": -0.03664268613622918,
-        "hi": 0.016793372179376605
+        "mean": -0.011281155579692443,
+        "lo": -0.0364637563375117,
+        "hi": 0.015714089231151508
       },
       "disagree_n": 5,
       "we_right": 1,

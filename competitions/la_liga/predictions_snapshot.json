@@ -2110,5 +2110,117 @@
       "pd": 0.2579913029502619,
       "pa": 0.5315101977424016
     }
+  },
+  "RC Celta de Vigo|Villarreal CF": {
+    "home": "RC Celta de Vigo",
+    "away": "Villarreal CF",
+    "date": "2026-11-29",
+    "ph": 0.3826991688407724,
+    "pd": 0.24838881844439656,
+    "pa": 0.3689120127148308,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.3488445094660199,
+      "pd": 0.27238198658494034,
+      "pa": 0.37877350394903986
+    }
+  },
+  "Valencia CF|CA Osasuna": {
+    "home": "Valencia CF",
+    "away": "CA Osasuna",
+    "date": "2026-11-29",
+    "ph": 0.43861462728739326,
+    "pd": 0.27329244573424444,
+    "pa": 0.2880929269783621,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4462019383007573,
+      "pd": 0.28706270104671505,
+      "pa": 0.2667353606525275
+    }
+  },
+  "Real Sociedad de F\u00fatbol|Sevilla FC": {
+    "home": "Real Sociedad de F\u00fatbol",
+    "away": "Sevilla FC",
+    "date": "2026-11-29",
+    "ph": 0.5080669452637002,
+    "pd": 0.2316149496482348,
+    "pa": 0.26031810508806513,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4459145819770221,
+      "pd": 0.26216369789640565,
+      "pa": 0.2919217201265722
+    }
+  },
+  "RC Deportivo La Coru\u00f1a|FC Barcelona": {
+    "home": "RC Deportivo La Coru\u00f1a",
+    "away": "FC Barcelona",
+    "date": "2026-11-29",
+    "ph": 0.1474117492631394,
+    "pd": 0.17176879931785335,
+    "pa": 0.6808194514190072,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.0977008842080398,
+      "pd": 0.1437608816799429,
+      "pa": 0.7585382341120174
+    }
   }
 }

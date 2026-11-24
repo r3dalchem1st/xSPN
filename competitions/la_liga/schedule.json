@@ -1162,10 +1162,10 @@
   },
   "Levante UD|Elche CF": {
     "date": "2026-11-23",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Levante UD": null,
-      "Elche CF": null
+      "Levante UD": 1,
+      "Elche CF": 1
     },
     "round": "Matchday 13"
   },
