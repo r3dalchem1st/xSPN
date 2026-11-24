@@ -314,7 +314,7 @@
         "score": "0\u20132",
         "ph": 0.095,
         "pd": 0.241,
-        "pa": 0.664,
+        "pa": 0.663,
         "likely_winner": "Ivory Coast"
       },
       {
@@ -592,7 +592,7 @@
       {
         "home": "Senegal",
         "away": "Iraq",
-        "lam": 3.21,
+        "lam": 3.22,
         "mu": 0.82,
         "score": "3\u20130",
         "ph": 0.785,
@@ -720,7 +720,7 @@
         "lam": 2.17,
         "mu": 1.02,
         "score": "2\u20131",
-        "ph": 0.576,
+        "ph": 0.575,
         "pd": 0.269,
         "pa": 0.156,
         "likely_winner": "DR Congo"
@@ -1439,12 +1439,12 @@
   "champion_pct": 92.7,
   "reach_final": {
     "Spain": 97.7,
-    "Argentina": 83.8,
-    "England": 9.1,
-    "Colombia": 6.2,
-    "France": 1.9,
-    "Senegal": 0.9,
+    "Argentina": 84.0,
+    "England": 9.2,
+    "Colombia": 6.0,
+    "France": 1.8,
+    "Senegal": 0.8,
     "USA": 0.3,
-    "Algeria": 0.2
+    "Algeria": 0.1
   }
 }
