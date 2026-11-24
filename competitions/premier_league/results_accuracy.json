@@ -1152,6 +1152,19 @@
       "disagree": false
     },
     {
+      "home": "Brentford FC",
+      "away": "Everton FC",
+      "date": "2026-11-23",
+      "correct_winner": true,
+      "brier": 0.44526399771520186,
+      "log_loss": 0.7869362690229175,
+      "total_goal_error": 3,
+      "market_winner": "H",
+      "market_correct_winner": true,
+      "market_brier": 0.4425362758613734,
+      "disagree": false
+    },
+    {
       "home": "Coventry City FC",
       "away": "Crystal Palace FC",
       "date": "2026-11-21",
@@ -1179,32 +1192,32 @@
     }
   ],
   "summary": {
-    "n_scored": 109,
-    "accuracy": 0.47706422018348627,
-    "avg_brier": 0.6348483793316804,
-    "avg_log_loss": 1.059018876007895,
-    "avg_goal_error": 2.0091743119266057,
+    "n_scored": 110,
+    "accuracy": 0.4818181818181818,
+    "avg_brier": 0.6331248849533487,
+    "avg_log_loss": 1.056545397762577,
+    "avg_goal_error": 2.018181818181818,
     "baseline": {
       "base_rate": [
         0.41710526315789476,
         0.25921052631578945,
         0.3236842105263158
       ],
-      "avg_brier": 0.6534951015273578,
-      "skill": 0.02853383621712824,
-      "skill_lo": -0.05772764983323288,
-      "skill_hi": 0.1089505649253985
+      "avg_brier": 0.6522063082347016,
+      "skill": 0.02925672910616195,
+      "skill_lo": -0.05619848181855295,
+      "skill_hi": 0.10778640170717746
     },
     "vs_market": {
-      "n": 49,
-      "accuracy": 0.46938775510204084,
-      "market_accuracy": 0.5306122448979592,
-      "avg_brier": 0.6168977568828726,
-      "market_avg_brier": 0.5948907672906117,
+      "n": 50,
+      "accuracy": 0.48,
+      "market_accuracy": 0.54,
+      "avg_brier": 0.6134650816995192,
+      "market_avg_brier": 0.591843677462027,
       "brier_gap": {
-        "mean": -0.022006989592260783,
-        "lo": -0.062167842364127285,
-        "hi": 0.017560981792501106
+        "mean": -0.021621404237492134,
+        "lo": -0.06380873956661198,
+        "hi": 0.01884070410327892
       },
       "disagree_n": 5,
       "we_right": 0,

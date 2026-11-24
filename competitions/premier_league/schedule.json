@@ -964,10 +964,10 @@
   },
   "Brentford FC|Everton FC": {
     "date": "2026-11-23",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Brentford FC": null,
-      "Everton FC": null
+      "Brentford FC": 4,
+      "Everton FC": 0
     },
     "round": "Matchday 11"
   },

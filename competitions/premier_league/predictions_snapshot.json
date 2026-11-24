@@ -1832,5 +1832,173 @@
       "pd": 0.25065257290489157,
       "pa": 0.2763070233148437
     }
+  },
+  "Arsenal FC|Manchester City FC": {
+    "home": "Arsenal FC",
+    "away": "Manchester City FC",
+    "date": "2026-11-29",
+    "ph": 0.4962125359894687,
+    "pd": 0.2591165747859103,
+    "pa": 0.2446708892246208,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4823118384547123,
+      "pd": 0.25537538812608596,
+      "pa": 0.26231277341920173
+    }
+  },
+  "Everton FC|Liverpool FC": {
+    "home": "Everton FC",
+    "away": "Liverpool FC",
+    "date": "2026-11-29",
+    "ph": 0.28478465952551313,
+    "pd": 0.2608862594579816,
+    "pa": 0.45432908101650527,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.2420803933789238,
+      "pd": 0.2579184202114955,
+      "pa": 0.5000011864095808
+    }
+  },
+  "Fulham FC|AFC Bournemouth": {
+    "home": "Fulham FC",
+    "away": "AFC Bournemouth",
+    "date": "2026-11-29",
+    "ph": 0.3599878753701481,
+    "pd": 0.2633648126798854,
+    "pa": 0.37664731194996665,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.36210224069110947,
+      "pd": 0.2699187032257903,
+      "pa": 0.36797905608310005
+    }
+  },
+  "Brighton & Hove Albion FC|Newcastle United FC": {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Newcastle United FC",
+    "date": "2026-11-29",
+    "ph": 0.5307761346802191,
+    "pd": 0.22134529698028524,
+    "pa": 0.24787856833949548,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.6134265927033401,
+      "pd": 0.21117152666451786,
+      "pa": 0.17540188063214218
+    }
+  },
+  "Sunderland AFC|Tottenham Hotspur FC": {
+    "home": "Sunderland AFC",
+    "away": "Tottenham Hotspur FC",
+    "date": "2026-11-29",
+    "ph": 0.3829978923955492,
+    "pd": 0.27947058307888106,
+    "pa": 0.33753152452556967,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.2721080186747128,
+      "pd": 0.2780150355973352,
+      "pa": 0.4498769457279521
+    }
+  },
+  "Crystal Palace FC|Hull City AFC": {
+    "home": "Crystal Palace FC",
+    "away": "Hull City AFC",
+    "date": "2026-11-29",
+    "ph": 0.2731042976558608,
+    "pd": 0.2941570262730922,
+    "pa": 0.43273867607104716,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-24",
+    "model": {
+      "sha": "e45c0ed",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5132491370664141,
+      "pd": 0.24964029297321183,
+      "pa": 0.23711056996037408
+    }
   }
 }
