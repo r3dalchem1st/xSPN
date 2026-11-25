@@ -2222,5 +2222,33 @@
       "pd": 0.1437608816799429,
       "pa": 0.7585382341120174
     }
+  },
+  "RCD Espanyol de Barcelona|Getafe CF": {
+    "home": "RCD Espanyol de Barcelona",
+    "away": "Getafe CF",
+    "date": "2026-11-30",
+    "ph": 0.42001169679709466,
+    "pd": 0.33978290673297545,
+    "pa": 0.24020539646992986,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-25",
+    "model": {
+      "sha": "f7ed47e",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4630265247374127,
+      "pd": 0.2977496464470609,
+      "pa": 0.23922382881552645
+    }
   }
 }
