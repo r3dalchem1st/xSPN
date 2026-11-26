@@ -17,6 +17,17 @@ from eval_stats import improvement, skill_vs_baseline
 MIN_CLOSED_SEASON_MATCHES = 100  # fewer than this and a base-rate forecast isn't meaningful
 
 
+def xg_regime(entry):
+    """Which model a lock came from, so the 2026-27 record can be sliced instead of pooled:
+    "xg" (>= 90% of its training matches had Understat xG), "goals" (<= 10%: the xG-off fallback,
+    i.e. an Understat outage), "mixed", or "pre_xg" (locked before the stamp carried xg_coverage,
+    i.e. before 27 Oct -- the older goals-only model, which still had the since-removed tuning)."""
+    cov = (entry.get("model") or {}).get("xg_coverage")
+    if cov is None:
+        return "pre_xg"
+    return "xg" if cov >= 0.9 else "goals" if cov <= 0.1 else "mixed"
+
+
 def score_match(entry, actual_hg, actual_ag):
     """Score one locked prediction against its actual result. Returns
     {"correct_winner": bool, "brier": float in [0,2], "log_loss": float,
@@ -38,7 +49,7 @@ def score_match(entry, actual_hg, actual_ag):
     pred_hg, pred_ag = (int(x) for x in entry["predicted_score"].split("-"))
     total_goal_error = abs(pred_hg - actual_hg) + abs(pred_ag - actual_ag)
     result = {"correct_winner": correct, "brier": brier, "log_loss": log_loss,
-              "total_goal_error": total_goal_error}
+              "total_goal_error": total_goal_error, "xg_regime": xg_regime(entry)}
     market = entry.get("market")
     if market:
         # The bookmaker's odds as recorded when this prediction locked (see
@@ -152,6 +163,9 @@ def score_and_save(config, base_dir):
     vs_market = summarise_vs_market(matches)
     if vs_market:
         summary["vs_market"] = vs_market
+    summary["by_xg_regime"] = {
+        r: {"n": len(ms), "avg_brier": sum(m["brier"] for m in ms) / len(ms), "vs_market": summarise_vs_market(ms)}
+        for r in sorted({m["xg_regime"] for m in matches}) for ms in [[m for m in matches if m["xg_regime"] == r]]}
 
     out = {"matches": matches, "summary": summary}
     with open(os.path.join(out_dir, "results_accuracy.json"), "w") as f:
@@ -172,6 +186,7 @@ def main():
     print(f"{config.name}: {s['n_scored']} matches scored")
     if s["n_scored"]:
         print(f"  accuracy={s['accuracy']:.1%}  avg_brier={s['avg_brier']:.3f}  avg_log_loss={s['avg_log_loss']:.3f}")
+        print("  by xG regime: " + ", ".join(f"{r} n={v['n']} brier={v['avg_brier']:.3f}" for r, v in s["by_xg_regime"].items()))
 
 
 if __name__ == "__main__":

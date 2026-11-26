@@ -143,7 +143,7 @@ def build_match_lambda_tables(config, teams, dc_ensemble, matches, as_of_date):
 
 
 def simulate_season(teams, standings, remaining_fixtures, dc_ensemble, n_sims=10000, seed=42,
-                     strength_shrink=1.0):
+                     strength_shrink=1.0, rating_sd=0.0):
     """Monte Carlo the season's remaining fixtures `n_sims` times. Each
     simulated season draws a random bootstrap-ensemble member (propagating
     parameter uncertainty, same method as sim_improved.py's WC simulator),
@@ -158,7 +158,12 @@ def simulate_season(teams, standings, remaining_fixtures, dc_ensemble, n_sims=10
     so ANY cutoff (top-4, relegation zone, a playoff spot) can be computed
     by the caller by summing the relevant slice; this module doesn't
     hardcode any competition's specific cutoff rules, since those vary by
-    league and by season."""
+    league and by season.
+
+    `rating_sd` (default 0.0 = off, unchanged behaviour) adds a season-long drift to every
+    club's attack and defence in each simulated season, lognormal with this log-sd and mean 1
+    (so average goals are unchanged): the ensemble carries estimation uncertainty but not the
+    way real strength moves within a season (form, injuries, managers). See validate_sim.py."""
     lg_ens = build_lambda_tables(teams, dc_ensemble, strength_shrink)
     rng = np.random.default_rng(seed)
     n_teams = len(teams)
@@ -167,8 +172,12 @@ def simulate_season(teams, standings, remaining_fixtures, dc_ensemble, n_sims=10
     for _ in range(n_sims):
         lg = lg_ens[rng.integers(len(lg_ens))]
         table = {t: dict(standings.get(t, {"pts": 0, "gd": 0, "gf": 0})) for t in teams}
+        if rating_sd:
+            atk, dfn = (dict(zip(teams, np.exp(d))) for d in rng.normal(-rating_sd ** 2 / 2, rating_sd, (2, n_teams)))
         for home, away in remaining_fixtures:
             lam, mu = lg[(home, away)]
+            if rating_sd:
+                lam, mu = clamp_lambda(lam * atk[home] * dfn[away]), clamp_lambda(mu * atk[away] * dfn[home])
             hg = _poisson(lam, rng)
             ag = _poisson(mu, rng)
             table[home]["gf"] += hg; table[home]["gd"] += hg - ag

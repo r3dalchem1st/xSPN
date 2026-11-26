@@ -87,3 +87,25 @@ def test_xg_weight_reaches_the_simulations_fit_and_zero_leaves_it_untouched():
     run = lambda **kw: [r["p"] for r in run_checkpoint(by, keys, 3, 0.0, B=2, n_sims=200, seed=3, **kw)]
     assert run() == run(xg_weight=0.0)
     assert run() != run(xg_weight=0.75)
+
+
+def test_rating_sds_share_one_fit_stay_coherent_and_zero_matches_the_default():
+    by, keys = _data()
+    recs = run_checkpoint(by, keys, 3, 0.5, B=2, n_sims=200, seed=4, rating_sds=(0.0, 0.3))
+    assert {r["sd"] for r in recs} == {0.0, 0.3}
+    for sd in (0.0, 0.3):
+        for ev, count in (("title", 1), ("top4", 4), ("relegation", 3)):
+            assert abs(sum(r["p"] for r in recs if r["event"] == ev and r["sd"] == sd) - count) < 1e-6
+    default = run_checkpoint(by, keys, 3, 0.5, B=2, n_sims=200, seed=4)
+    assert [r["p"] for r in default] == [r["p"] for r in recs if r["sd"] == 0.0]
+    assert [r["p_null"] for r in recs if r["sd"] == 0.0] == [r["p_null"] for r in recs if r["sd"] == 0.3]
+
+
+def test_paired_compares_each_sd_with_sd_zero_on_the_same_team_events():
+    from validate_sim import paired
+    by, keys = _data()
+    recs = [{**r, "league": "toy", "season": "s3", "frac": 0.5}
+            for r in run_checkpoint(by, keys, 3, 0.5, B=2, n_sims=200, seed=4, rating_sds=(0.0, 0.3))]
+    d = paired(recs, 0.3, "relegation")
+    assert d["n"] == len(TEAMS) and np.isfinite(d["mean"])
+    assert paired(recs, 0.0, "relegation")["mean"] == 0.0

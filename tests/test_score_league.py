@@ -155,3 +155,25 @@ def test_vs_market_carries_an_interval_on_the_brier_gap_and_positive_means_we_ar
     assert abs(gap["mean"] - 0.6) < 1e-9 and gap["lo"] <= gap["mean"] <= gap["hi"]
     worse = [dict(good_us, brier=0.9, market_brier=0.3) for _ in range(20)]
     assert summarise_vs_market(worse)["brier_gap"]["mean"] < 0
+
+
+# --- which model produced each lock (xG on / Understat outage / before the stamp) ---
+
+def test_xg_regime_reads_the_locks_model_stamp():
+    from score_league import xg_regime
+    assert xg_regime({"model": {"xg_coverage": 1.0}}) == "xg"
+    assert xg_regime({"model": {"xg_coverage": 0.0}}) == "goals"
+    assert xg_regime({"model": {"xg_coverage": 0.5}}) == "mixed"
+    assert xg_regime({"model": {"sha": "abc"}}) == "pre_xg" and xg_regime(PERFECT_HOME_CALL) == "pre_xg"
+
+
+def test_score_and_save_slices_the_record_by_xg_regime(tmp_path):
+    schedule = {"A|B": _finished("A", "B", 1, 0), "C|D": _finished("C", "D", 0, 1), "E|F": _finished("E", "F", 1, 0)}
+    snap = {"A|B": dict(_snap("A", "B", "H"), model={"xg_coverage": 1.0}),
+            "C|D": dict(_snap("C", "D", "H"), model={"xg_coverage": 0.0}),
+            "E|F": _snap("E", "F", "H")}
+    out = _score(tmp_path, schedule, snap)
+    assert {m["home"]: m["xg_regime"] for m in out["matches"]} == {"A": "xg", "C": "goals", "E": "pre_xg"}
+    by = out["summary"]["by_xg_regime"]
+    assert {r: v["n"] for r, v in by.items()} == {"goals": 1, "pre_xg": 1, "xg": 1}
+    assert by["goals"]["avg_brier"] > by["xg"]["avg_brier"] and by["xg"]["vs_market"] is None

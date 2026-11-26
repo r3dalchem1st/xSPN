@@ -170,6 +170,18 @@ def test_simulate_season_favors_the_stronger_team():
     assert rank_dist["Strong FC"][0] > rank_dist["Weak FC"][0]  # Strong finishes 1st more often
 
 
+def test_rating_sd_zero_is_unchanged_and_drift_pulls_a_clear_favourite_back():
+    from sim_league import simulate_season
+    run = lambda **kw: simulate_season(["Strong FC", "Weak FC"], {}, [("Strong FC", "Weak FC")] * 6,
+                                       [DC_SAMPLE], n_sims=3000, seed=1, **kw)
+    base = run()
+    assert run(rating_sd=0.0) == base
+    drift = run(rating_sd=0.4)
+    for team, dist in drift.items():
+        assert abs(sum(dist) - 1.0) < 1e-9
+    assert drift["Strong FC"][0] < base["Strong FC"][0]    # more uncertainty about who is better
+
+
 import json
 import os
 
