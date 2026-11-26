@@ -382,11 +382,11 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
     for key, entry in schedule.items():
         by_round.setdefault(entry.get("round") or "Unscheduled", []).append((key, entry))
 
-    lines = ['<div class="bracket-wrap"><div class="bracket">']
+    done_cols, open_cols = [], []
     for round_label in sorted(by_round, key=_round_sort_key):
         entries = sorted(by_round[round_label], key=lambda kv: kv[1]["date"])
         finished = [entry["status"] == "FINISHED" for _, entry in entries]
-        lines.append(br_col_open_html(html_lib.escape(round_label), all(finished), any(finished)))
+        lines = [br_col_open_html(html_lib.escape(round_label), all(finished), any(finished))]
         for key, entry in entries:
             home, away = key.split("|")
             h, a = html_lib.escape(home), html_lib.escape(away)
@@ -434,8 +434,15 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
                     '<div class="bm-pct hint">not yet predicted</div></div>'
                 )
         lines.append('</div></div>')
-    lines.append('</div></div>' + BRACKET_LEGEND_HTML)
-    return "\n".join(lines)
+        (done_cols if all(finished) else open_cols).extend(lines)
+    # Every fully played matchday sits behind ONE "Previous matches" strip that
+    # unfolds the (still individually foldable) matchday strips -- a season's
+    # worth of them is otherwise a wall of strips ahead of the live rounds.
+    prev = ['<div class="br-prev collapsed"><div class="br-title" role="button" tabindex="0" '
+            'aria-expanded="false">Previous matches</div><div class="br-prev-cols">',
+            *done_cols, '</div></div>'] if done_cols else []
+    return "\n".join(['<div class="bracket-wrap"><div class="bracket">', *prev, *open_cols,
+                      '</div></div>' + BRACKET_LEGEND_HTML])
 
 
 def build_champion_html(rows):

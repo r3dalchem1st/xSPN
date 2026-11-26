@@ -4,7 +4,9 @@
  * decided is rendered pre-collapsed (class "br-col done collapsed"); one with
  * some results (e.g. a postponed fixture still to play) is rendered open. Either
  * way its title is marked role="button"/tabindex="0" -- this script just toggles
- * "collapsed" on click or Enter/Space on any such title.
+ * "collapsed" on its parent on click or Enter/Space on any such title. A league
+ * page also wraps all its finished columns in one `.br-prev` group whose
+ * "Previous matches" title is a toggle of the same kind.
  *
  * Uses event delegation on `document` rather than querying/attaching a
  * listener per title element, so it works identically whether the bracket
@@ -19,13 +21,13 @@
   }
 
   document.addEventListener('click', function (e) {
-    var title = e.target.closest('.br-col > .br-title[role="button"]');
+    var title = e.target.closest('.br-title[role="button"]');
     if (title) toggle(title);
   });
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Enter' && e.key !== ' ') return;
-    var title = e.target.closest('.br-col > .br-title[role="button"]');
+    var title = e.target.closest('.br-title[role="button"]');
     if (!title) return;
     e.preventDefault();
     toggle(title);

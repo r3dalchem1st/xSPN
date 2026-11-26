@@ -73,10 +73,17 @@ table{width:100%;border-collapse:collapse}
    rounds/matchdays nobody needs to check anymore. Any column whose title is a
    role="button" can be folded (a round with a postponed fixture still pending
    starts open but folds too). */
-.br-col>.br-title[role=button]{cursor:pointer}
-.br-col>.br-title[role=button]:hover{filter:brightness(1.15)}
-.br-col>.br-title[role=button]:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.br-title[role=button]{cursor:pointer}
+.br-title[role=button]:hover{filter:brightness(1.15)}
+.br-title[role=button]:focus-visible{outline:2px solid #fff;outline-offset:-2px}
 .br-col.collapsed{flex:0 0 32px;min-width:32px;padding:0}
 .br-col.collapsed>.br-title{flex:1;display:flex;align-items:center;justify-content:center;
   writing-mode:vertical-rl;white-space:nowrap;margin-bottom:0;padding:8px 4px;border-radius:3px}
 .br-col.collapsed>.br-matches{display:none}
+/* League "Previous matches" group: one dark strip in front of the folded
+   matchday strips, which it shows/hides. The wrappers are display:contents so
+   the strips stay direct flex children of .bracket, laid out exactly as before. */
+.br-prev,.br-prev-cols{display:contents}
+.br-prev.collapsed>.br-prev-cols{display:none}
+.br-prev>.br-title{flex:0 0 32px;display:flex;align-items:center;justify-content:center;
+  writing-mode:vertical-rl;white-space:nowrap;margin:0 4px 0 0;padding:8px 4px;background:var(--dark)}

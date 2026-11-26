@@ -324,6 +324,21 @@ def test_build_bracket_html_lets_a_round_with_a_postponed_fixture_fold_but_keeps
     assert md15 == '"><div class="br-title">'      # nothing played yet: no toggle
 
 
+def test_build_bracket_html_puts_every_finished_matchday_behind_one_previous_matches_strip():
+    def fx(h, a, day, status, rnd):
+        return {"date": f"2026-{day}", "status": status, "goals": {h: 1, a: 0}, "round": rnd}
+    schedule = {"A|B": fx("A", "B", "08-01", "FINISHED", "Matchday 1"),
+                "C|D": fx("C", "D", "10-10", "FINISHED", "Matchday 9"),
+                "E|F": fx("E", "F", "10-11", "SCHEDULED", "Matchday 8"),
+                "G|H": fx("G", "H", "12-01", "SCHEDULED", "Matchday 20")}
+    out = build_bracket_html(schedule, {})
+    assert out.count("Previous matches") == 1 and out.count('class="br-prev collapsed"') == 1
+    group = out.split('<div class="br-prev-cols">')[1].split("Matchday 8</div>")[0]
+    assert "Matchday 1</div>" in group and "Matchday 9</div>" in group   # both finished rounds, in the group
+    assert out.index("Previous matches") < out.index("Matchday 8") < out.index("Matchday 20")
+    assert "Previous matches" not in build_bracket_html({"G|H": schedule["G|H"]}, {})   # nothing played: no group
+
+
 def test_build_bracket_html_shows_confidence_for_a_finished_match_with_a_locked_prediction():
     # If the pre-match locked prediction for an already-played match is
     # still on record, show it (and its confidence) alongside the real
