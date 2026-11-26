@@ -1,5 +1,815 @@
 [
   [
+    "2026-09-08",
+    "Club Brugge KV",
+    "Aston Villa FC",
+    2,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-08",
+    "PAE AEK",
+    "LASK Linz",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-08",
+    "Real Madrid CF",
+    "FC Internazionale Milano",
+    2,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-08",
+    "FC Porto",
+    "Manchester City FC",
+    0,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-08",
+    "Borussia Dortmund",
+    "Villarreal CF",
+    3,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-08",
+    "Lille OSC",
+    "Real Betis Balompi\u00e9",
+    2,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-09",
+    "FC Barcelona",
+    "Feyenoord Rotterdam",
+    5,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-09",
+    "VfB Stuttgart",
+    "Viking FK",
+    3,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-09",
+    "Liverpool FC",
+    "Club Atl\u00e9tico de Madrid",
+    2,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-09",
+    "Paris Saint-Germain FC",
+    "\u0160K Slovan Bratislava",
+    6,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-09",
+    "SSC Napoli",
+    "Arsenal FC",
+    0,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-09",
+    "Sporting Clube de Portugal",
+    "Galatasaray SK",
+    3,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-10",
+    "Fenerbah\u00e7e SK",
+    "AS Roma",
+    1,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-10",
+    "PSV",
+    "FK Shakhtar Donetsk",
+    1,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-10",
+    "FC Bayern M\u00fcnchen",
+    "FK Bod\u00f8/Glimt",
+    5,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-10",
+    "Manchester United FC",
+    "Sabah FK",
+    4,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-10",
+    "Como 1907",
+    "RB Leipzig",
+    4,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-09-10",
+    "SK Slavia Praha",
+    "Racing Club de Lens",
+    2,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Racing Club de Lens",
+    "Sporting Clube de Portugal",
+    0,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Sabah FK",
+    "SK Slavia Praha",
+    2,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "FC Internazionale Milano",
+    "Club Brugge KV",
+    3,
+    4,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Galatasaray SK",
+    "FC Barcelona",
+    1,
+    4,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Club Atl\u00e9tico de Madrid",
+    "Manchester United FC",
+    2,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Arsenal FC",
+    "Lille OSC",
+    3,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Viking FK",
+    "FC Bayern M\u00fcnchen",
+    3,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "RB Leipzig",
+    "PSV",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-13",
+    "Villarreal CF",
+    "SSC Napoli",
+    3,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "LASK Linz",
+    "Liverpool FC",
+    3,
+    6,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "Feyenoord Rotterdam",
+    "Como 1907",
+    3,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "AS Roma",
+    "Real Madrid CF",
+    3,
+    4,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "Manchester City FC",
+    "Paris Saint-Germain FC",
+    2,
+    4,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "FK Bod\u00f8/Glimt",
+    "Borussia Dortmund",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "Aston Villa FC",
+    "Fenerbah\u00e7e SK",
+    6,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "Real Betis Balompi\u00e9",
+    "FC Porto",
+    3,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "FK Shakhtar Donetsk",
+    "PAE AEK",
+    3,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-14",
+    "\u0160K Slovan Bratislava",
+    "VfB Stuttgart",
+    0,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "Sabah FK",
+    "Borussia Dortmund",
+    1,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "Fenerbah\u00e7e SK",
+    "SK Slavia Praha",
+    2,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "Manchester City FC",
+    "PAE AEK",
+    5,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "VfB Stuttgart",
+    "Club Atl\u00e9tico de Madrid",
+    1,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "Liverpool FC",
+    "Villarreal CF",
+    4,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "AS Roma",
+    "\u0160K Slovan Bratislava",
+    4,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "FC Porto",
+    "PSV",
+    0,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "SSC Napoli",
+    "FK Bod\u00f8/Glimt",
+    4,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-20",
+    "Paris Saint-Germain FC",
+    "FC Barcelona",
+    4,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Como 1907",
+    "Manchester United FC",
+    4,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Lille OSC",
+    "Galatasaray SK",
+    2,
+    4,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Real Madrid CF",
+    "RB Leipzig",
+    4,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "FC Internazionale Milano",
+    "FK Shakhtar Donetsk",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "FC Bayern M\u00fcnchen",
+    "Arsenal FC",
+    2,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Club Brugge KV",
+    "Racing Club de Lens",
+    3,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Aston Villa FC",
+    "Viking FK",
+    3,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Sporting Clube de Portugal",
+    "LASK Linz",
+    2,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-10-21",
+    "Real Betis Balompi\u00e9",
+    "Feyenoord Rotterdam",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "FK Shakhtar Donetsk",
+    "Sporting Clube de Portugal",
+    0,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "Galatasaray SK",
+    "VfB Stuttgart",
+    2,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "Feyenoord Rotterdam",
+    "FC Internazionale Milano",
+    0,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "FC Barcelona",
+    "Aston Villa FC",
+    3,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "Club Atl\u00e9tico de Madrid",
+    "FC Bayern M\u00fcnchen",
+    0,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "Villarreal CF",
+    "Paris Saint-Germain FC",
+    0,
+    6,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "Manchester United FC",
+    "AS Roma",
+    3,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "FK Bod\u00f8/Glimt",
+    "Lille OSC",
+    0,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-03",
+    "LASK Linz",
+    "\u0160K Slovan Bratislava",
+    4,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "PAE AEK",
+    "Real Madrid CF",
+    2,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "Fenerbah\u00e7e SK",
+    "Liverpool FC",
+    3,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "RB Leipzig",
+    "Manchester City FC",
+    2,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "SK Slavia Praha",
+    "Arsenal FC",
+    1,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "PSV",
+    "Club Brugge KV",
+    1,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "Borussia Dortmund",
+    "Real Betis Balompi\u00e9",
+    2,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "FC Porto",
+    "SSC Napoli",
+    4,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "Racing Club de Lens",
+    "Como 1907",
+    1,
+    9,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-04",
+    "Viking FK",
+    "Sabah FK",
+    4,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "Galatasaray SK",
+    "Aston Villa FC",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "FK Bod\u00f8/Glimt",
+    "LASK Linz",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "Real Madrid CF",
+    "PSV",
+    5,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "Manchester City FC",
+    "SSC Napoli",
+    2,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "Arsenal FC",
+    "Borussia Dortmund",
+    1,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "Feyenoord Rotterdam",
+    "FC Porto",
+    0,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "\u0160K Slovan Bratislava",
+    "Real Betis Balompi\u00e9",
+    0,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "RB Leipzig",
+    "Racing Club de Lens",
+    3,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-24",
+    "Como 1907",
+    "PAE AEK",
+    1,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "Sabah FK",
+    "FC Barcelona",
+    1,
+    4,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "SK Slavia Praha",
+    "Villarreal CF",
+    0,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "FC Internazionale Milano",
+    "VfB Stuttgart",
+    2,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "Club Atl\u00e9tico de Madrid",
+    "Viking FK",
+    2,
+    0,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "Paris Saint-Germain FC",
+    "AS Roma",
+    2,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "Club Brugge KV",
+    "Liverpool FC",
+    0,
+    3,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "Lille OSC",
+    "FC Bayern M\u00fcnchen",
+    2,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "Sporting Clube de Portugal",
+    "Manchester United FC",
+    2,
+    2,
+    "UEFA Champions League",
+    false
+  ],
+  [
+    "2026-11-25",
+    "FK Shakhtar Donetsk",
+    "Fenerbah\u00e7e SK",
+    0,
+    1,
+    "UEFA Champions League",
+    false
+  ],
+  [
     "2025-09-16",
     "Athletic Club",
     "Arsenal FC",
