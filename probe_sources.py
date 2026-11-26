@@ -94,8 +94,8 @@ def api_football():
         s, hd, b = get(base, f"/leagues?id={lid}", h)
         for lg in b.get("response", []):
             print(f"{label} (id {lid}):", lg["league"]["name"], "| seasons offered:",
-                  [(x["year"], "current" if x.get("current") else "", "fixtures" if x["coverage"]["fixtures"]["fixtures"] else "no-fixtures")
-                   for x in lg["seasons"][-4:]])
+                  [(x.get("year"), "current" if x.get("current") else "") for x in lg["seasons"][-5:]])
+            print("   latest-season coverage:", lg["seasons"][-1].get("coverage"))
         if not b.get("response"):
             print(f"{label} /leagues:", s, b.get("errors"))
         for season in (2026, 2025):
