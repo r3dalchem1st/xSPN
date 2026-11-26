@@ -305,23 +305,37 @@ def test_br_col_open_html_marks_done_columns_collapsed_and_toggleable():
     open_live = br_col_open_html("Matchday 2", done=False)
     assert open_live == '<div class="br-col"><div class="br-title">Matchday 2</div><div class="br-matches">'
 
-    # a round with results but a fixture still to play: folds like any other, just not marked "done"
-    partial = br_col_open_html("Matchday 3", done=False, foldable=True)
-    assert 'class="br-col collapsed"' in partial and "done" not in partial
-    assert 'role="button"' in partial and 'tabindex="0"' in partial and 'aria-expanded="false"' in partial
+
+def test_build_bracket_html_gives_a_late_unplayed_fixture_its_own_column_at_its_date():
+    # Real case (La Liga matchday 8): nine matches played in October, one stopped mid-match and
+    # resumed on 9 Dec -- between matchday 15 (4-7 Dec) and 16 (11-14 Dec). It used to hold the
+    # whole round open for weeks.
+    def row(key, rnd, day, status, goals=None):
+        return key, {"date": f"2026-{day}", "status": status, "goals": goals, "round": rnd}
+    out = build_bracket_html(dict([
+        row("A FC|B FC", "Matchday 8", "10-10", "FINISHED", {"A FC": 1, "B FC": 0}),
+        row("I FC|J FC", "Matchday 8", "10-11", "FINISHED", {"I FC": 0, "J FC": 0}),
+        row("K FC|L FC", "Matchday 8", "10-12", "FINISHED", {"K FC": 2, "L FC": 1}),
+        row("C FC|D FC", "Matchday 8", "12-09", "SCHEDULED"),
+        row("E FC|F FC", "Matchday 15", "12-05", "SCHEDULED"),
+        row("G FC|H FC", "Matchday 16", "12-12", "SCHEDULED")]), {})
+    resched = '<div class="br-col"><div class="br-title">Matchday 8 &middot; rescheduled</div>'
+    assert out.index("Matchday 15") < out.index(resched) < out.index("Matchday 16")   # slotted in by date, open
+    assert out.index(resched) < out.index("C FC") < out.index("Matchday 16")          # and it is the card in there
+    assert "Previous matches" in out and 'class="br-col done collapsed"' in out        # matchday 8 itself is done now
 
 
-def test_build_bracket_html_folds_a_round_with_a_postponed_fixture_and_flags_what_is_left():
-    # Real case (La Liga matchday 8): nine matches played in October, one postponed to December.
-    # It used to render as a plain open column with no toggle, stuck between the folded strips.
-    played = {"date": "2026-10-10", "status": "FINISHED", "goals": {"A FC": 1, "B FC": 0}, "round": "Matchday 8"}
-    postponed = {"date": "2026-12-09", "status": "SCHEDULED", "round": "Matchday 8"}
-    upcoming = {"date": "2026-12-04", "status": "SCHEDULED", "round": "Matchday 15"}
-    out = build_bracket_html({"A FC|B FC": played, "C FC|D FC": postponed, "E FC|F FC": upcoming}, {})
-    md8 = out.split("Matchday 8 &middot; 1 to play</div>")[0].rsplit('<div class="br-col', 1)[1]
-    assert md8.startswith(' collapsed"><div class="br-title" role="button"')   # folded (not "done"), strip says what is left
-    md15 = out.split("Matchday 15</div>")[0].rsplit('<div class="br-col', 1)[1]
-    assert md15 == '"><div class="br-title">'      # nothing played yet: no toggle
+def test_build_bracket_html_keeps_a_part_played_round_whole_while_it_is_still_in_progress():
+    # Saturday's match played, Sunday's still to come: one live round, not a "rescheduled" split.
+    out = build_bracket_html({
+        "A FC|B FC": {"date": "2026-11-28", "status": "FINISHED", "goals": {"A FC": 1, "B FC": 0}, "round": "Matchday 14"},
+        "C FC|D FC": {"date": "2026-11-29", "status": "SCHEDULED", "round": "Matchday 14"}}, {})
+    assert "rescheduled" not in out and "Previous matches" not in out
+    assert out.count('<div class="br-title">Matchday 14</div>') == 1
+    # A few matches moved EARLIER (La Liga matchday 23: two on 2 Dec, eight on 7 Feb) are not "late" ones.
+    early = {f"{h} FC|{a} FC": {"date": d, "status": "SCHEDULED", "round": "Matchday 23"}
+             for h, a, d in [("A", "B", "2026-12-02")] + [(c, c.lower(), "2027-02-07") for c in "CDEFG"]}
+    assert "rescheduled" not in build_bracket_html(early, {})
 
 
 def test_build_bracket_html_puts_every_finished_matchday_behind_one_previous_matches_strip():

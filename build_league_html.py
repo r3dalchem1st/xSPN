@@ -332,21 +332,14 @@ def _historical_prediction_line_html(score, outcome, prob, market_html=""):
             f'{confidence_badge_html(prob)}{market_html}</div>')
 
 
-def br_col_open_html(title_html, done, foldable=False):
+def br_col_open_html(title_html, done):
     """Opening markup for one bracket column. A `done` column (every match
     already decided) starts pre-collapsed into a slim clickable strip --
     assets/bracket.js toggles `.collapsed` on click/Enter/Space -- so a
     fixture list running to dozens of matchdays/rounds doesn't force a wall
-    of horizontal scrolling through matches nobody needs to check anymore.
-    `foldable` (results but a postponed fixture still to play) folds the same
-    way, just without the `done` marker -- the caller flags the pending fixture
-    in the title so the strip doesn't hide it. A column with no results yet is
-    left open with no toggle at all."""
+    of horizontal scrolling through matches nobody needs to check anymore."""
     if done:
         return (f'<div class="br-col done collapsed"><div class="br-title" role="button" '
-                f'tabindex="0" aria-expanded="false">{title_html}</div><div class="br-matches">')
-    if foldable:
-        return (f'<div class="br-col collapsed"><div class="br-title" role="button" '
                 f'tabindex="0" aria-expanded="false">{title_html}</div><div class="br-matches">')
     return f'<div class="br-col"><div class="br-title">{title_html}</div><div class="br-matches">'
 
@@ -381,14 +374,26 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
     for key, entry in schedule.items():
         by_round.setdefault(entry.get("round") or "Unscheduled", []).append((key, entry))
 
-    done_cols, open_cols = [], []
+    # A fixture still unplayed more than a week after the rest of its round (La Liga
+    # matchday 8: stopped mid-match in October, resumes in December) would keep its
+    # whole round open for weeks, so it gets its own "rescheduled" column slotted in by date.
+    columns, late = [], []
     for round_label in sorted(by_round, key=_round_sort_key):
         entries = sorted(by_round[round_label], key=lambda kv: kv[1]["date"])
+        usual = date.fromisoformat(entries[len(entries) // 2][1]["date"])   # median: a few early matches don't count
+        moved = [kv for kv in entries
+                 if kv[1]["status"] != "FINISHED" and (date.fromisoformat(kv[1]["date"]) - usual).days > 7]
+        if moved:
+            late.append((f"{html_lib.escape(round_label)} &middot; rescheduled", moved))
+        columns.append((html_lib.escape(round_label), [kv for kv in entries if kv not in moved]))
+    for title, moved in late:
+        at = next((i for i, (_, es) in enumerate(columns) if es[0][1]["date"] > moved[0][1]["date"]), len(columns))
+        columns.insert(at, (title, moved))
+
+    done_cols, open_cols = [], []
+    for title, entries in columns:
         finished = [entry["status"] == "FINISHED" for _, entry in entries]
-        title = html_lib.escape(round_label)
-        if any(finished) and not all(finished):
-            title += f" &middot; {finished.count(False)} to play"   # a postponed fixture: say so on the folded strip
-        lines = [br_col_open_html(title, all(finished), any(finished))]
+        lines = [br_col_open_html(title, all(finished))]
         for key, entry in entries:
             home, away = key.split("|")
             h, a = html_lib.escape(home), html_lib.escape(away)
