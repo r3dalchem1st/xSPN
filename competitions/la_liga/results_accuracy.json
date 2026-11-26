@@ -7,7 +7,8 @@
       "correct_winner": true,
       "brier": 0.6461116312802978,
       "log_loss": 1.0676814072156178,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sevilla FC",
@@ -16,7 +17,8 @@
       "correct_winner": true,
       "brier": 0.5950672097435801,
       "log_loss": 0.9927210451870608,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Racing Club de Santander",
@@ -25,7 +27,8 @@
       "correct_winner": false,
       "brier": 0.8634938486861671,
       "log_loss": 1.413427822288856,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RCD Espanyol de Barcelona",
@@ -34,7 +37,8 @@
       "correct_winner": true,
       "brier": 0.5862008916627472,
       "log_loss": 0.980175034189345,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Deportivo La Coru\u00f1a",
@@ -43,7 +47,8 @@
       "correct_winner": false,
       "brier": 0.772285941537707,
       "log_loss": 1.252784920019275,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Club Atl\u00e9tico de Madrid",
@@ -52,7 +57,8 @@
       "correct_winner": true,
       "brier": 0.19312150115131924,
       "log_loss": 0.4394830144003952,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Rayo Vallecano de Madrid",
@@ -61,7 +67,8 @@
       "correct_winner": false,
       "brier": 0.725755179899132,
       "log_loss": 1.1706080695530696,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Betis Balompi\u00e9",
@@ -70,7 +77,8 @@
       "correct_winner": true,
       "brier": 0.34559808974747935,
       "log_loss": 0.6530261552027548,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Athletic Club",
@@ -79,7 +87,8 @@
       "correct_winner": false,
       "brier": 1.1988223197430554,
       "log_loss": 2.017212920606618,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Valencia CF",
@@ -88,7 +97,8 @@
       "correct_winner": false,
       "brier": 0.8624085226067091,
       "log_loss": 1.419827718385632,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RCD Espanyol de Barcelona",
@@ -97,7 +107,8 @@
       "correct_winner": true,
       "brier": 0.29229947691336755,
       "log_loss": 0.5818046921731177,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Club Atl\u00e9tico de Madrid",
@@ -106,7 +117,8 @@
       "correct_winner": false,
       "brier": 1.0048170368368683,
       "log_loss": 1.555145916188366,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Getafe CF",
@@ -115,7 +127,8 @@
       "correct_winner": true,
       "brier": 0.5696525931593531,
       "log_loss": 0.9573029696991686,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Elche CF",
@@ -124,7 +137,8 @@
       "correct_winner": true,
       "brier": 0.21756324879928807,
       "log_loss": 0.4792833079117922,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "CA Osasuna",
@@ -133,7 +147,8 @@
       "correct_winner": false,
       "brier": 0.7965401479474077,
       "log_loss": 1.2953193065345274,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "M\u00e1laga CF",
@@ -142,7 +157,8 @@
       "correct_winner": false,
       "brier": 0.7722922721096455,
       "log_loss": 1.2527930547677661,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Valencia CF",
@@ -151,7 +167,8 @@
       "correct_winner": true,
       "brier": 0.5480554184884658,
       "log_loss": 0.9208792301928693,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Madrid CF",
@@ -160,7 +177,8 @@
       "correct_winner": true,
       "brier": 0.15291240418129942,
       "log_loss": 0.37954854445430386,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Celta de Vigo",
@@ -169,7 +187,8 @@
       "correct_winner": false,
       "brier": 0.8022741518523335,
       "log_loss": 1.2589003980717126,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Barcelona",
@@ -178,7 +197,8 @@
       "correct_winner": true,
       "brier": 0.31736159656937524,
       "log_loss": 0.615999872149195,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Racing Club de Santander",
@@ -187,7 +207,8 @@
       "correct_winner": true,
       "brier": 0.5113520928293251,
       "log_loss": 0.8766461052513538,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Deportivo Alav\u00e9s",
@@ -196,7 +217,8 @@
       "correct_winner": false,
       "brier": 0.8182220720227747,
       "log_loss": 1.2961454206252678,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Levante UD",
@@ -205,7 +227,8 @@
       "correct_winner": false,
       "brier": 1.3154951949521818,
       "log_loss": 2.114167368068606,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Sociedad de F\u00fatbol",
@@ -214,7 +237,8 @@
       "correct_winner": true,
       "brier": 0.6523482037326549,
       "log_loss": 1.0771245354527041,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sevilla FC",
@@ -223,7 +247,8 @@
       "correct_winner": true,
       "brier": 0.29420887122015144,
       "log_loss": 0.5839190507244755,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Madrid CF",
@@ -232,7 +257,8 @@
       "correct_winner": true,
       "brier": 0.08609818324871868,
       "log_loss": 0.2673057884084017,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Deportivo La Coru\u00f1a",
@@ -241,7 +267,8 @@
       "correct_winner": true,
       "brier": 0.5229964944530403,
       "log_loss": 0.8927273298585383,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Celta de Vigo",
@@ -250,7 +277,8 @@
       "correct_winner": true,
       "brier": 0.5076687877840391,
       "log_loss": 0.8707008530048511,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "CA Osasuna",
@@ -259,7 +287,8 @@
       "correct_winner": true,
       "brier": 0.487985093112574,
       "log_loss": 0.8431268420665463,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Barcelona",
@@ -268,7 +297,8 @@
       "correct_winner": true,
       "brier": 0.08507465856440223,
       "log_loss": 0.26919040112655174,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Sociedad de F\u00fatbol",
@@ -277,7 +307,8 @@
       "correct_winner": false,
       "brier": 0.7869629395481491,
       "log_loss": 1.2823050019018647,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Betis Balompi\u00e9",
@@ -286,7 +317,8 @@
       "correct_winner": false,
       "brier": 0.8227531737586835,
       "log_loss": 1.288711597667753,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Athletic Club",
@@ -295,7 +327,8 @@
       "correct_winner": false,
       "brier": 0.6874906433476449,
       "log_loss": 1.1265359438337532,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Rayo Vallecano de Madrid",
@@ -304,7 +337,8 @@
       "correct_winner": true,
       "brier": 0.42407631919662897,
       "log_loss": 0.7577954980940854,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Villarreal CF",
@@ -313,7 +347,8 @@
       "correct_winner": false,
       "brier": 1.434069100829772,
       "log_loss": 2.3808953977642027,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Valencia CF",
@@ -322,7 +357,8 @@
       "correct_winner": true,
       "brier": 0.12192277283301424,
       "log_loss": 0.33433540341405305,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Deportivo Alav\u00e9s",
@@ -331,7 +367,8 @@
       "correct_winner": true,
       "brier": 0.5407905020446577,
       "log_loss": 0.9173868101801315,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "M\u00e1laga CF",
@@ -340,7 +377,8 @@
       "correct_winner": false,
       "brier": 1.0260066896140683,
       "log_loss": 1.5279160624265953,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RCD Espanyol de Barcelona",
@@ -349,7 +387,8 @@
       "correct_winner": false,
       "brier": 0.8187556590354541,
       "log_loss": 1.3288071492602307,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Getafe CF",
@@ -358,7 +397,8 @@
       "correct_winner": false,
       "brier": 0.7203003109864281,
       "log_loss": 1.1807327734236979,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Elche CF",
@@ -367,7 +407,8 @@
       "correct_winner": true,
       "brier": 0.4247596244235947,
       "log_loss": 0.7590316112385777,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sevilla FC",
@@ -376,7 +417,8 @@
       "correct_winner": true,
       "brier": 0.4542545119538769,
       "log_loss": 0.7983463833714252,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Racing Club de Santander",
@@ -385,7 +427,8 @@
       "correct_winner": true,
       "brier": 0.42906731922157615,
       "log_loss": 0.7632485626801422,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "CA Osasuna",
@@ -394,7 +437,8 @@
       "correct_winner": false,
       "brier": 0.8838736173090913,
       "log_loss": 1.4166193902519657,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Athletic Club",
@@ -403,7 +447,8 @@
       "correct_winner": false,
       "brier": 0.9112664078816879,
       "log_loss": 1.4269642118921504,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Madrid CF",
@@ -412,7 +457,8 @@
       "correct_winner": true,
       "brier": 0.1266515125460348,
       "log_loss": 0.338592995837314,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Celta de Vigo",
@@ -421,7 +467,8 @@
       "correct_winner": false,
       "brier": 0.9934793559420404,
       "log_loss": 1.373014650809502,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Levante UD",
@@ -430,7 +477,8 @@
       "correct_winner": true,
       "brier": 0.14029341653337768,
       "log_loss": 0.3646410698035857,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Getafe CF",
@@ -439,7 +487,8 @@
       "correct_winner": false,
       "brier": 0.779338690019796,
       "log_loss": 1.2697742710408721,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Sociedad de F\u00fatbol",
@@ -448,7 +497,8 @@
       "correct_winner": true,
       "brier": 0.45336937868578836,
       "log_loss": 0.7958767678798736,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Villarreal CF",
@@ -457,7 +507,8 @@
       "correct_winner": false,
       "brier": 0.9259064338302032,
       "log_loss": 1.4342404547356025,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Rayo Vallecano de Madrid",
@@ -466,7 +517,8 @@
       "correct_winner": true,
       "brier": 0.4315140255193939,
       "log_loss": 0.7680935144382662,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Deportivo Alav\u00e9s",
@@ -475,7 +527,8 @@
       "correct_winner": false,
       "brier": 0.8729390920322927,
       "log_loss": 1.3934775005855957,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Elche CF",
@@ -484,7 +537,8 @@
       "correct_winner": true,
       "brier": 0.2613306520063929,
       "log_loss": 0.5402342012134412,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Deportivo La Coru\u00f1a",
@@ -493,7 +547,8 @@
       "correct_winner": false,
       "brier": 1.1480102175933968,
       "log_loss": 1.7778393601695817,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Club Atl\u00e9tico de Madrid",
@@ -502,7 +557,8 @@
       "correct_winner": true,
       "brier": 0.20942564668852232,
       "log_loss": 0.4656594147184631,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Barcelona",
@@ -511,7 +567,8 @@
       "correct_winner": true,
       "brier": 0.015172299549336441,
       "log_loss": 0.1050009150522514,
-      "total_goal_error": 5
+      "total_goal_error": 5,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Betis Balompi\u00e9",
@@ -520,7 +577,8 @@
       "correct_winner": true,
       "brier": 0.3420331243680953,
       "log_loss": 0.6434673602174215,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "M\u00e1laga CF",
@@ -529,7 +587,8 @@
       "correct_winner": true,
       "brier": 0.2209765910780375,
       "log_loss": 0.47149292544521026,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RCD Espanyol de Barcelona",
@@ -538,7 +597,8 @@
       "correct_winner": false,
       "brier": 0.7917119898869591,
       "log_loss": 1.2605315368308354,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "CA Osasuna",
@@ -547,7 +607,8 @@
       "correct_winner": false,
       "brier": 0.7844977825608149,
       "log_loss": 1.2642906826860378,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Athletic Club",
@@ -556,7 +617,8 @@
       "correct_winner": false,
       "brier": 0.823815280356794,
       "log_loss": 1.3050268660363056,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Celta de Vigo",
@@ -565,7 +627,8 @@
       "correct_winner": true,
       "brier": 0.25467487903227687,
       "log_loss": 0.5305080111341012,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sevilla FC",
@@ -574,7 +637,8 @@
       "correct_winner": true,
       "brier": 0.12436246205811173,
       "log_loss": 0.3386907139013382,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Getafe CF",
@@ -583,7 +647,8 @@
       "correct_winner": true,
       "brier": 0.40900108096026616,
       "log_loss": 0.6916846560310062,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Club Atl\u00e9tico de Madrid",
@@ -592,7 +657,8 @@
       "correct_winner": true,
       "brier": 0.5741064299141428,
       "log_loss": 0.9545328437738695,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Deportivo La Coru\u00f1a",
@@ -601,7 +667,8 @@
       "correct_winner": false,
       "brier": 0.9595879371054259,
       "log_loss": 1.5513209730785773,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Villarreal CF",
@@ -610,7 +677,8 @@
       "correct_winner": true,
       "brier": 0.16413892779993983,
       "log_loss": 0.4012817438907078,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Valencia CF",
@@ -619,7 +687,8 @@
       "correct_winner": false,
       "brier": 0.7150622812212827,
       "log_loss": 1.1511970750053673,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "M\u00e1laga CF",
@@ -628,7 +697,8 @@
       "correct_winner": false,
       "brier": 0.7010159282581123,
       "log_loss": 1.1078932669907458,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Deportivo Alav\u00e9s",
@@ -637,7 +707,8 @@
       "correct_winner": true,
       "brier": 0.38644826339095273,
       "log_loss": 0.7083324576594745,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Barcelona",
@@ -646,7 +717,8 @@
       "correct_winner": true,
       "brier": 0.08091433803625749,
       "log_loss": 0.25981274497503926,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Madrid CF",
@@ -655,7 +727,8 @@
       "correct_winner": true,
       "brier": 0.15870714542126282,
       "log_loss": 0.3928209594111307,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Elche CF",
@@ -664,7 +737,8 @@
       "correct_winner": false,
       "brier": 0.8166857044619761,
       "log_loss": 1.337763396242553,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Sociedad de F\u00fatbol",
@@ -673,7 +747,8 @@
       "correct_winner": true,
       "brier": 0.3904951690195685,
       "log_loss": 0.7137572489720864,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Betis Balompi\u00e9",
@@ -682,7 +757,8 @@
       "correct_winner": true,
       "brier": 0.3394100367542072,
       "log_loss": 0.6454012570018279,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Real Racing Club de Santander",
@@ -691,7 +767,8 @@
       "correct_winner": false,
       "brier": 0.9558568973802508,
       "log_loss": 1.5954150197564991,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Levante UD",
@@ -700,7 +777,8 @@
       "correct_winner": false,
       "brier": 0.8046483644820165,
       "log_loss": 1.3180862023106763,
-      "total_goal_error": 5
+      "total_goal_error": 5,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RC Deportivo La Coru\u00f1a",
@@ -710,6 +788,7 @@
       "brier": 0.9081055792403605,
       "log_loss": 1.418446916163767,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8089638352523306,
@@ -723,6 +802,7 @@
       "brier": 0.3442487845011387,
       "log_loss": 0.6520230635588632,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.3384371315963426,
@@ -736,6 +816,7 @@
       "brier": 1.0749280574767295,
       "log_loss": 1.6116024168999914,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.0842062203267677,
@@ -749,6 +830,7 @@
       "brier": 0.2948710692406843,
       "log_loss": 0.5854133343945246,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.16670167665045765,
@@ -762,6 +844,7 @@
       "brier": 0.7829436853797048,
       "log_loss": 1.278222296094618,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7922577483912034,
@@ -775,6 +858,7 @@
       "brier": 0.19988446345633792,
       "log_loss": 0.453901587379479,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4021225453138247,
@@ -788,6 +872,7 @@
       "brier": 0.37267550504376756,
       "log_loss": 0.6894262939457972,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4183017919715883,
@@ -801,6 +886,7 @@
       "brier": 0.3358653806026305,
       "log_loss": 0.6308825124685393,
       "total_goal_error": 6,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.48160831487196276,
@@ -814,6 +900,7 @@
       "brier": 0.08810477734835317,
       "log_loss": 0.2744548947748742,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.08592329749904143,
@@ -827,6 +914,7 @@
       "brier": 0.7273961315606586,
       "log_loss": 1.1859901877055803,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.6991084722082561,
@@ -839,7 +927,8 @@
       "correct_winner": true,
       "brier": 0.5643108292024593,
       "log_loss": 0.945348126175276,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Rayo Vallecano de Madrid",
@@ -849,6 +938,7 @@
       "brier": 0.8882307741200423,
       "log_loss": 1.4102433097855502,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9729411164781989,
@@ -862,6 +952,7 @@
       "brier": 0.9069280732292534,
       "log_loss": 1.3038219382135379,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8418105568188806,
@@ -875,6 +966,7 @@
       "brier": 0.315820481816654,
       "log_loss": 0.6087713833093913,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.26946634313554085,
@@ -888,6 +980,7 @@
       "brier": 0.45798373137274145,
       "log_loss": 0.8040785789377409,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.3905661162853062,
@@ -901,6 +994,7 @@
       "brier": 0.5367451328456276,
       "log_loss": 0.9074334868862194,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.46915435348919066,
@@ -914,6 +1008,7 @@
       "brier": 0.8121460585483853,
       "log_loss": 1.2551175180161325,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.019321204520948,
@@ -927,6 +1022,7 @@
       "brier": 0.16328810353864537,
       "log_loss": 0.399238439433404,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.0931912419764452,
@@ -940,6 +1036,7 @@
       "brier": 0.829156905626533,
       "log_loss": 1.3479416019798476,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7883899969140091,
@@ -953,6 +1050,7 @@
       "brier": 0.25236560067970715,
       "log_loss": 0.5268102935144182,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.30126505560951716,
@@ -966,6 +1064,7 @@
       "brier": 0.6618646070316037,
       "log_loss": 1.0546629377999601,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.5656178845537996,
@@ -979,6 +1078,7 @@
       "brier": 0.11098253486668568,
       "log_loss": 0.3119879454452307,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.15234444395973326,
@@ -992,6 +1092,7 @@
       "brier": 1.100666756248571,
       "log_loss": 1.7461934189632704,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.12787127108998,
@@ -1005,6 +1106,7 @@
       "brier": 0.8947991887993241,
       "log_loss": 1.4114258726320457,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.6810442537616102,
@@ -1018,6 +1120,7 @@
       "brier": 0.3857406737609788,
       "log_loss": 0.7074330420416256,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4366633526751081,
@@ -1031,6 +1134,7 @@
       "brier": 0.27802326579365955,
       "log_loss": 0.5626822984752285,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.25542786814517354,
@@ -1044,6 +1148,7 @@
       "brier": 0.43678541724103326,
       "log_loss": 0.7750852699156033,
       "total_goal_error": 2,
+      "xg_regime": "xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4736666745908649,
@@ -1057,6 +1162,7 @@
       "brier": 0.0653317767568922,
       "log_loss": 0.23120202115336544,
       "total_goal_error": 5,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.03575139007061893,
@@ -1070,6 +1176,7 @@
       "brier": 0.5641386759430123,
       "log_loss": 0.9492993401660489,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7160798496623743,
@@ -1083,6 +1190,7 @@
       "brier": 0.09150281506181496,
       "log_loss": 0.28353115360798287,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.08285064012060167,
@@ -1096,6 +1204,7 @@
       "brier": 0.5494780251606739,
       "log_loss": 0.9273037389883716,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.5245902543521469,
@@ -1109,6 +1218,7 @@
       "brier": 0.5619396684861132,
       "log_loss": 0.9382638917898076,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.4529763523451589,
@@ -1122,6 +1232,7 @@
       "brier": 0.7812666931656193,
       "log_loss": 1.2789934582128155,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7782479347166809,
@@ -1135,6 +1246,7 @@
       "brier": 0.7887823977101871,
       "log_loss": 1.2880791541602545,
       "total_goal_error": 1,
+      "xg_regime": "xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.7892104647767131,
@@ -1148,6 +1260,7 @@
       "brier": 0.24115131669098047,
       "log_loss": 0.5108510499297851,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.110682516725373,
@@ -1161,6 +1274,7 @@
       "brier": 0.9424565949125847,
       "log_loss": 1.4725995982806062,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8932492076078831,
@@ -1174,6 +1288,7 @@
       "brier": 0.4094293011238537,
       "log_loss": 0.7387923324544827,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.2928193343712191,
@@ -1187,6 +1302,7 @@
       "brier": 0.6380090494544579,
       "log_loss": 1.0332189766014426,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.6718742173456957,
@@ -1200,6 +1316,7 @@
       "brier": 0.7843916076988179,
       "log_loss": 1.275491877231506,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.7961156350542437,
@@ -1213,6 +1330,7 @@
       "brier": 0.4884976098761982,
       "log_loss": 0.8364609362114119,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.36058136174361555,
@@ -1226,6 +1344,7 @@
       "brier": 0.24537141849738264,
       "log_loss": 0.5122876088200078,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.18120841810626054,
@@ -1239,6 +1358,7 @@
       "brier": 0.9535126316200924,
       "log_loss": 1.5353825888315396,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.188266208239896,
@@ -1252,6 +1372,7 @@
       "brier": 0.09650216113122297,
       "log_loss": 0.29215836458699856,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.06707449507514478,
@@ -1265,6 +1386,7 @@
       "brier": 0.7166236733914387,
       "log_loss": 1.1172936343108586,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7566111781539119,
@@ -1278,6 +1400,7 @@
       "brier": 0.8782730497459776,
       "log_loss": 1.4076960405809893,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.882747787234406,
@@ -1291,6 +1414,7 @@
       "brier": 0.21249253042197294,
       "log_loss": 0.46657574474442026,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.32654343421323706,
@@ -1304,6 +1428,7 @@
       "brier": 0.41197537745828555,
       "log_loss": 0.7372338533594788,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.26130892153554575,
@@ -1317,6 +1442,7 @@
       "brier": 0.11693361843903509,
       "log_loss": 0.3240412505990971,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.06456741576781948,
@@ -1330,6 +1456,7 @@
       "brier": 0.5583701708481162,
       "log_loss": 0.9412720233621209,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.45683916538710345,
@@ -1343,6 +1470,7 @@
       "brier": 0.8577624263034159,
       "log_loss": 1.4042636195944536,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.8089004951282204,
@@ -1356,6 +1484,7 @@
       "brier": 0.8885491606692786,
       "log_loss": 1.4405728856703741,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8237652651326618,
@@ -1393,6 +1522,65 @@
       "disagree_n": 5,
       "we_right": 1,
       "market_right": 1
+    },
+    "by_xg_regime": {
+      "goals": {
+        "n": 19,
+        "avg_brier": 0.5675530557860444,
+        "vs_market": {
+          "n": 19,
+          "accuracy": 0.5263157894736842,
+          "market_accuracy": 0.5263157894736842,
+          "avg_brier": 0.5675530557860444,
+          "market_avg_brier": 0.5354936496781093,
+          "brier_gap": {
+            "mean": -0.032059406107935104,
+            "lo": -0.07207126337473012,
+            "hi": 0.010235562510444262
+          },
+          "disagree_n": 1,
+          "we_right": 0,
+          "market_right": 0
+        }
+      },
+      "pre_xg": {
+        "n": 108,
+        "avg_brier": 0.5624494583848773,
+        "vs_market": {
+          "n": 29,
+          "accuracy": 0.6206896551724138,
+          "market_accuracy": 0.6206896551724138,
+          "avg_brier": 0.517041952243144,
+          "market_avg_brier": 0.5173095940586538,
+          "brier_gap": {
+            "mean": 0.0002676418155099091,
+            "lo": -0.032059100861394484,
+            "hi": 0.035292283164957944
+          },
+          "disagree_n": 4,
+          "we_right": 1,
+          "market_right": 1
+        }
+      },
+      "xg": {
+        "n": 2,
+        "avg_brier": 0.6127839074756102,
+        "vs_market": {
+          "n": 2,
+          "accuracy": 0.5,
+          "market_accuracy": 0.5,
+          "avg_brier": 0.6127839074756102,
+          "market_avg_brier": 0.631438569683789,
+          "brier_gap": {
+            "mean": 0.018654662208178824,
+            "lo": 0.00042806706652598336,
+            "hi": 0.036881257349831664
+          },
+          "disagree_n": 0,
+          "we_right": 0,
+          "market_right": 0
+        }
+      }
     }
   }
 }
