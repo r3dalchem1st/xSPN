@@ -338,17 +338,16 @@ def br_col_open_html(title_html, done, foldable=False):
     assets/bracket.js toggles `.collapsed` on click/Enter/Space -- so a
     fixture list running to dozens of matchdays/rounds doesn't force a wall
     of horizontal scrolling through matches nobody needs to check anymore.
-    `foldable` gives a not-done column the same clickable
-    title without pre-collapsing it: a round with results but a postponed
-    fixture still to play stays open, so that fixture isn't hidden, yet its
-    played matches can still be folded away. A column with no results yet has
-    no toggle affordance at all."""
+    `foldable` (results but a postponed fixture still to play) folds the same
+    way, just without the `done` marker -- the caller flags the pending fixture
+    in the title so the strip doesn't hide it. A column with no results yet is
+    left open with no toggle at all."""
     if done:
         return (f'<div class="br-col done collapsed"><div class="br-title" role="button" '
                 f'tabindex="0" aria-expanded="false">{title_html}</div><div class="br-matches">')
     if foldable:
-        return (f'<div class="br-col"><div class="br-title" role="button" '
-                f'tabindex="0" aria-expanded="true">{title_html}</div><div class="br-matches">')
+        return (f'<div class="br-col collapsed"><div class="br-title" role="button" '
+                f'tabindex="0" aria-expanded="false">{title_html}</div><div class="br-matches">')
     return f'<div class="br-col"><div class="br-title">{title_html}</div><div class="br-matches">'
 
 
@@ -386,7 +385,10 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
     for round_label in sorted(by_round, key=_round_sort_key):
         entries = sorted(by_round[round_label], key=lambda kv: kv[1]["date"])
         finished = [entry["status"] == "FINISHED" for _, entry in entries]
-        lines = [br_col_open_html(html_lib.escape(round_label), all(finished), any(finished))]
+        title = html_lib.escape(round_label)
+        if any(finished) and not all(finished):
+            title += f" &middot; {finished.count(False)} to play"   # a postponed fixture: say so on the folded strip
+        lines = [br_col_open_html(title, all(finished), any(finished))]
         for key, entry in entries:
             home, away = key.split("|")
             h, a = html_lib.escape(home), html_lib.escape(away)

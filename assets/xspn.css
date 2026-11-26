@@ -72,7 +72,7 @@ table{width:100%;border-collapse:collapse}
    long-running competition's Bracket tab doesn't force scrolling through
    rounds/matchdays nobody needs to check anymore. Any column whose title is a
    role="button" can be folded (a round with a postponed fixture still pending
-   starts open but folds too). */
+   starts folded too, its title saying how many matches are left). */
 .br-title[role=button]{cursor:pointer}
 .br-title[role=button]:hover{filter:brightness(1.15)}
 .br-title[role=button]:focus-visible{outline:2px solid #fff;outline-offset:-2px}
