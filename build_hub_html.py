@@ -9,7 +9,7 @@ import json
 import os
 import re
 
-from render_nav import nav_entries, render_nav_html
+from render_nav import FOOTER_HTML, nav_entries, render_nav_html
 
 
 def league_snapshot(base_dir, slug):
@@ -124,7 +124,7 @@ def build_hub_html(base_dir, template_path, out_path):
 
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
-    page = page.replace("__NAV__", nav_html)
+    page = page.replace("__NAV__", nav_html).replace("__FOOTER__", FOOTER_HTML)
     page = page.replace("__HUB_CARDS__", render_cards_html(cards))
 
     leftover = re.findall(r"__[A-Z_]+__", page)

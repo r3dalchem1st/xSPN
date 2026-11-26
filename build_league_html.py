@@ -23,7 +23,7 @@ from datetime import date
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DIR)
-from render_nav import nav_entries, render_nav_html
+from render_nav import FOOTER_HTML, nav_entries, render_nav_html
 from sim_league import build_match_lambda_tables
 from snapshot_league import hda_probs, likely_score
 
@@ -523,7 +523,7 @@ def build_league_html(config, base_dir, template_path, relegation_zone=RELEGATIO
 
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
-    page = page.replace("__NAV__", nav_html)
+    page = page.replace("__NAV__", nav_html).replace("__FOOTER__", FOOTER_HTML)
     page = page.replace("__COMPETITION_NAME__", html_lib.escape(config.name))
     page = page.replace("__GENERATED_DATE__", date.today().isoformat())
     page = page.replace("__N_SIMS__", str(n_sims))

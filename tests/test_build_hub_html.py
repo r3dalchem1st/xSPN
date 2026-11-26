@@ -129,7 +129,7 @@ def test_build_hub_cards_puts_world_cup_first_then_leagues(tmp_path):
 def test_build_hub_html_writes_output_and_consumes_all_placeholders(tmp_path):
     (tmp_path / "bracket_data.json").write_text(json.dumps({"champion": "Spain"}))
     template_path = tmp_path / "hub_template.html"
-    template_path.write_text("<html>__NAV__<div>__HUB_CARDS__</div></html>")
+    template_path.write_text("<html>__NAV__<div>__HUB_CARDS__</div>__FOOTER__</html>")
     out_path = tmp_path / "index.html"
 
     build_hub_html(str(tmp_path), str(template_path), str(out_path))
@@ -138,6 +138,7 @@ def test_build_hub_html_writes_output_and_consumes_all_placeholders(tmp_path):
     assert "__" not in content
     assert "World Cup 2026" in content
     assert "Spain" in content
+    assert "Football data provided by the" in content and "Football-Data.org API" in content
 
 
 def test_build_hub_html_raises_on_unconsumed_placeholder(tmp_path):

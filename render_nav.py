@@ -107,3 +107,11 @@ def render_nav_html(entries):
         label = html_lib.escape(e["label"])
         links.append(f'<a href="{href}"{cls}>{label}</a>')
     return '<nav class="xspn-nav">' + "".join(links) + '</nav>'
+
+
+# football-data.org's free tier asks for this credit wherever its data is shown: the live
+# results/fixtures overlay on the league, cup and World Cup pages (the hub links to them).
+# Copa del Rey is openfootball-only, so its page does not carry it.
+FOOTER_HTML = ('<footer class="xspn-foot" style="padding:16px;text-align:center;font-size:.72rem;color:#888">'
+               'Football data provided by the <a href="https://www.football-data.org" rel="noopener" '
+               'style="color:inherit">Football-Data.org API</a></footer>')

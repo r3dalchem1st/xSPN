@@ -15,7 +15,7 @@ from datetime import datetime
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, DIR)
-from render_nav import nav_entries, render_nav_html
+from render_nav import FOOTER_HTML, nav_entries, render_nav_html
 
 with open(os.path.join(DIR, 'wc2026_v2_results.json')) as f:
     results = json.load(f)
@@ -72,6 +72,7 @@ html = (html
     .replace('__ACCURACY__', accuracy_json)
     .replace('__UPDATED__',  UPDATED)
     .replace('__NAV__',      nav_html)
+    .replace('__FOOTER__',   FOOTER_HTML)
 )
 
 leftover = re.findall(r"__[A-Z_]+__", html)

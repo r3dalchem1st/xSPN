@@ -33,7 +33,7 @@ from build_league_html import (
     compute_full_standings, _outcome_classes, _prediction_line_html,
     _historical_prediction_line_html, br_col_open_html, BRACKET_LEGEND_HTML,
 )
-from render_nav import nav_entries, render_nav_html
+from render_nav import FOOTER_HTML, nav_entries, render_nav_html
 from sim_cup import PLAYOFF_SIZE, TOP_SEEDS, _bracket_round, build_played_ties
 
 STAGE_ORDER = ["playoff", "round_of_16", "quarterfinal", "semifinal", "final"]
@@ -228,7 +228,7 @@ def build_cup_html(config, base_dir, template_path, n_sims=10000):
 
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
-    page = page.replace("__NAV__", nav_html)
+    page = page.replace("__NAV__", nav_html).replace("__FOOTER__", FOOTER_HTML)
     page = page.replace("__COMPETITION_NAME__", html_lib.escape(config.name))
     page = page.replace("__GENERATED_DATE__", date.today().isoformat())
     page = page.replace("__N_SIMS__", str(n_sims))

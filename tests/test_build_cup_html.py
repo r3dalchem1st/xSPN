@@ -151,7 +151,7 @@ TEMPLATE_BODY = (
     "<table>__STANDINGS_ROWS__</table>"
     "<div>__BRACKET_HTML__</div>"
     "<div>__CHAMPION_LINE__</div>"
-    "<table>__ODDS_ROWS__</table></html>"
+    "<table>__ODDS_ROWS__</table>__FOOTER__</html>"
 )
 
 
@@ -174,6 +174,7 @@ def test_build_cup_html_writes_index_and_consumes_all_placeholders(tmp_path):
     assert "Test Cup" in content
     assert "__" not in content
     assert "Strong FC" in content
+    assert "Football data provided by the" in content and "Football-Data.org API" in content
 
 
 def test_build_cup_html_tolerates_missing_cup_sim(tmp_path):

@@ -431,7 +431,7 @@ def test_build_league_html_writes_index_and_consumes_all_placeholders(tmp_path):
     template_path.write_text(
         "<html><title>__COMPETITION_NAME__</title>"
         "<p>__GENERATED_DATE__ __N_SIMS__ __RELEGATION_ZONE__</p>"
-        "<table>__STANDINGS_ROWS__</table></html>"
+        "<table>__STANDINGS_ROWS__</table>__FOOTER__</html>"
     )
 
     out_path = build_league_html(config, str(tmp_path), str(template_path))
@@ -439,6 +439,7 @@ def test_build_league_html_writes_index_and_consumes_all_placeholders(tmp_path):
     assert "Test League" in content
     assert "__" not in content  # no leftover placeholder tokens
     assert "Strong FC" in content
+    assert "Football data provided by the" in content and "Football-Data.org API" in content
 
 
 def test_build_league_html_shows_live_preview_when_dc_ensemble_present(tmp_path):

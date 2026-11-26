@@ -161,3 +161,13 @@ def test_render_nav_html_marks_active_entry_and_links_every_entry():
     html = render_nav_html(entries)
     assert '<a href="/xSPN/" class="active">xSPN</a>' in html
     assert '<a href="/xSPN/competitions/world_cup_2026/">World Cup 2026</a>' in html
+
+
+def test_footer_credits_football_data_org_and_sits_in_every_page_that_shows_its_data():
+    from render_nav import FOOTER_HTML
+    assert "Football data provided by the" in FOOTER_HTML and "football-data.org" in FOOTER_HTML
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    read = lambda t: open(os.path.join(root, t), encoding="utf-8").read()
+    for t in ("template.html", "league_template.html", "cup_template.html", "hub_template.html"):
+        assert "__FOOTER__" in read(t), t
+    assert "__FOOTER__" not in read("copa_template.html")     # openfootball only; no football-data.org data
