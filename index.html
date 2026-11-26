@@ -12,6 +12,7 @@
 main{max-width:900px;margin:0 auto;padding:28px 20px}
 .hub-intro{color:var(--muted);font-size:.9rem;margin-bottom:20px;max-width:640px;line-height:1.5}
 .hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.hub-closed{margin-top:14px}
 .hub-card{display:block;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);
   border-radius:5px;padding:16px 18px;text-decoration:none;color:var(--text);
   box-shadow:0 1px 3px rgba(0,0,0,.06);transition:transform .12s,box-shadow .12s}
@@ -32,12 +33,14 @@ main{max-width:900px;margin:0 auto;padding:28px 20px}
 <main>
   <div class="hub-intro">Model-driven predictions across football's biggest competitions — Dixon-Coles Poisson modelling with Elo priors and Monte Carlo simulation, scored against real results as they come in.</div>
   <div class="hub-grid">
-    <a class="hub-card" href="/xSPN/competitions/world_cup_2026/"><div class="hub-card-name">World Cup 2026</div><div class="hub-card-snapshot">Champion: Spain</div></a>
     <a class="hub-card" href="/xSPN/competitions/bundesliga/"><div class="hub-card-name">Bundesliga</div><div class="hub-card-snapshot">FC Bayern München leads at 88% to win the title</div></a>
-    <a class="hub-card" href="/xSPN/competitions/champions_league/"><div class="hub-card-name">UEFA Champions League</div><div class="hub-card-snapshot">Paris Saint-Germain FC leads at 100% to win the title</div></a>
-    <a class="hub-card" href="/xSPN/competitions/copa_del_rey/"><div class="hub-card-name">Copa del Rey</div><div class="hub-card-snapshot">FC Barcelona leads at 100% to win the title</div></a>
     <a class="hub-card" href="/xSPN/competitions/la_liga/"><div class="hub-card-name">La Liga</div><div class="hub-card-snapshot">FC Barcelona leads at 85% to win the title</div></a>
     <a class="hub-card" href="/xSPN/competitions/premier_league/"><div class="hub-card-name">Premier League</div><div class="hub-card-snapshot">Arsenal FC leads at 78% to win the title</div></a>
+  </div>
+  <div class="hub-grid hub-closed">
+    <a class="hub-card" href="/xSPN/competitions/champions_league/"><div class="hub-card-name">UEFA Champions League</div><div class="hub-card-snapshot">Champion: Paris Saint-Germain FC (2025-26)</div></a>
+    <a class="hub-card" href="/xSPN/competitions/copa_del_rey/"><div class="hub-card-name">Copa del Rey</div><div class="hub-card-snapshot">Champion: FC Barcelona (2024-25)</div></a>
+    <a class="hub-card" href="/xSPN/competitions/world_cup_2026/"><div class="hub-card-name">World Cup 2026</div><div class="hub-card-snapshot">Champion: Spain</div></a>
   </div>
 </main>
 <footer class="xspn-foot" style="padding:16px;text-align:center;font-size:.72rem;color:#888">Football data provided by the <a href="https://www.football-data.org" rel="noopener" style="color:inherit">Football-Data.org API</a></footer>
