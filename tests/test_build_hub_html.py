@@ -115,21 +115,45 @@ def test_world_cup_snapshot_falls_back_when_bracket_missing(tmp_path):
     assert world_cup_snapshot(str(tmp_path)) == "2026 tournament predictions"
 
 
-def test_build_hub_cards_puts_world_cup_first_then_leagues(tmp_path):
+def test_title_odds_at_100_percent_name_the_champion_and_the_edition_not_leads_at_100(tmp_path):
+    # A finished edition simulates to a certain champion; "leads at 100%" read like a live forecast.
+    _write_cup(tmp_path, "champions_league", "UEFA Champions League", stage_odds={"PSG": {"champion": 1.0}})
+    assert cup_snapshot(str(tmp_path), "champions_league", "2025-26") == "Champion: PSG (2025-26)"
+    assert cup_snapshot(str(tmp_path), "champions_league") == "Champion: PSG"
+    comp_dir = tmp_path / "competitions" / "copa_del_rey"
+    comp_dir.mkdir(parents=True)
+    (comp_dir / "copa_sim.json").write_text(json.dumps({"FC Barcelona": {"champion": 1.0}, "Minnow FC": {"champion": 0.0}}))
+    assert copa_snapshot(str(tmp_path), "copa_del_rey", "2024-25") == "Champion: FC Barcelona (2024-25)"
+    _write_league(tmp_path, "la_liga", "La Liga", rank_dist={"Real Madrid CF": [1.0, 0.0]})
+    assert league_snapshot(str(tmp_path), "la_liga", "2026-27") == "Champion: Real Madrid CF (2026-27)"
+
+
+def test_build_hub_cards_puts_open_competitions_first_and_closed_ones_by_next_edition(tmp_path):
     (tmp_path / "bracket_data.json").write_text(json.dumps({"champion": "Spain"}))
-    _write_league(tmp_path, "premier_league", "Premier League",
-                  rank_dist={"Arsenal FC": [0.48, 0.52]})
+    _write_league(tmp_path, "premier_league", "Premier League", rank_dist={"Arsenal FC": [0.48, 0.52]})
+    _write_league(tmp_path, "bundesliga", "Bundesliga", rank_dist={"FC Bayern": [0.88, 0.12]})
+    _write_cup(tmp_path, "champions_league", "UEFA Champions League", stage_odds={"PSG": {"champion": 1.0}})
+    comp_dir = tmp_path / "competitions" / "copa_del_rey"
+    comp_dir.mkdir(parents=True)
+    (tmp_path / "competitions" / "copa_del_rey.json").write_text(json.dumps({
+        "slug": "copa_del_rey", "name": "Copa del Rey", "format": "knockout_only",
+        "openfootball_repo": "openfootball/espana",
+        "openfootball_files": [{"season": "2024-25", "path": "2024-25/cup.txt"}], "team_aliases": {}}))
+    (comp_dir / "copa_sim.json").write_text(json.dumps({"FC Barcelona": {"champion": 1.0}}))
     cards = build_hub_cards(str(tmp_path))
-    assert cards[0]["name"] == "World Cup 2026"
-    assert cards[1]["name"] == "Premier League"
-    assert cards[0]["href"] == "/xSPN/competitions/world_cup_2026/"
-    assert cards[1]["href"] == "/xSPN/competitions/premier_league/"
+    assert [c["name"] for c in cards] == ["Bundesliga", "Premier League", "UEFA Champions League",
+                                          "Copa del Rey", "World Cup 2026"]
+    assert [c["closed"] for c in cards] == [False, False, True, True, True]
+    assert cards[2]["snapshot"] == "Champion: PSG (2026-27)"    # the stub config's season
+    assert cards[-1]["href"] == "/xSPN/competitions/world_cup_2026/"
+    assert cards[0]["href"] == "/xSPN/competitions/bundesliga/"
 
 
 def test_build_hub_html_writes_output_and_consumes_all_placeholders(tmp_path):
     (tmp_path / "bracket_data.json").write_text(json.dumps({"champion": "Spain"}))
+    _write_league(tmp_path, "premier_league", "Premier League", rank_dist={"Arsenal FC": [0.48, 0.52]})
     template_path = tmp_path / "hub_template.html"
-    template_path.write_text("<html>__NAV__<div>__HUB_CARDS__</div>__FOOTER__</html>")
+    template_path.write_text("<html>__NAV__<div>__HUB_CARDS__</div><i>__HUB_CARDS_CLOSED__</i>__FOOTER__</html>")
     out_path = tmp_path / "index.html"
 
     build_hub_html(str(tmp_path), str(template_path), str(out_path))
@@ -138,6 +162,9 @@ def test_build_hub_html_writes_output_and_consumes_all_placeholders(tmp_path):
     assert "__" not in content
     assert "World Cup 2026" in content
     assert "Spain" in content
+    open_part, closed_part = content.split("<div>", 1)[1].split("<i>")   # past the nav bar, which names both
+    assert "Premier League" in open_part and "World Cup 2026" not in open_part   # open grid first
+    assert "World Cup 2026" in closed_part and "Premier League" not in closed_part
     assert "Football data provided by the" in content and "Football-Data.org API" in content
 
 

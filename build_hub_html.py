@@ -11,8 +11,29 @@ import re
 
 from render_nav import FOOTER_HTML, nav_entries, render_nav_html
 
+# A card whose snapshot starts with this is a decided competition: it sits in the hub's
+# second ("closed") grid instead of the first.
+CHAMPION = "Champion: "
 
-def league_snapshot(base_dir, slug):
+# Hand-maintained start of each competition's NEXT edition (ISO date), only used to order the
+# closed cards soonest-first (like render_nav.NAV_ORDER; a closed card not listed sorts last).
+# The 2026-27 Champions League began 8 Sep 2026 and the Copa del Rey's preliminary round
+# 26 Sep 2026 -- both are closed here only until openfootball publishes those editions; the
+# next World Cup opens 8 Jun 2030.
+REOPENS = {"champions_league": "2026-09-08", "copa_del_rey": "2026-09-26", "world_cup_2026": "2030-06-08"}
+
+
+def _title_line(leader, p, season):
+    """Hub-card line for a title-odds leader. At 100% the competition is decided, so name the
+    champion (and which edition, as the page may still be showing last season's) rather than
+    claim it 'leads at 100%'."""
+    leader = html_lib.escape(leader)
+    if p >= 0.9999:
+        return f"{CHAMPION}{leader} ({season})" if season else f"{CHAMPION}{leader}"
+    return f"{leader} leads at {p:.0%} to win the title"
+
+
+def league_snapshot(base_dir, slug, season=None):
     """One-line snapshot for a round-robin competition's hub card: current
     title-odds leader + percentage, or None if no simulation has run yet."""
     sim_path = os.path.join(base_dir, "competitions", slug, "league_sim.json")
@@ -23,10 +44,10 @@ def league_snapshot(base_dir, slug):
     if not rank_dist:
         return None
     leader, dist = max(rank_dist.items(), key=lambda kv: kv[1][0])
-    return f"{html_lib.escape(leader)} leads at {dist[0]:.0%} to win the title"
+    return _title_line(leader, dist[0], season)
 
 
-def cup_snapshot(base_dir, slug):
+def cup_snapshot(base_dir, slug, season=None):
     """One-line snapshot for a league_phase_knockout competition's hub card:
     current champion-odds leader + percentage, or None if no simulation has
     run yet -- the real state UCL/UEL start in (sim_cup.py needs at least
@@ -41,10 +62,10 @@ def cup_snapshot(base_dir, slug):
     if not stage_odds:
         return None
     leader, odds = max(stage_odds.items(), key=lambda kv: kv[1]["champion"])
-    return f"{html_lib.escape(leader)} leads at {odds['champion']:.0%} to win the title"
+    return _title_line(leader, odds["champion"], season)
 
 
-def copa_snapshot(base_dir, slug):
+def copa_snapshot(base_dir, slug, season=None):
     """One-line snapshot for a knockout_only competition's hub card:
     current champion-odds leader (excluding any team already eliminated,
     same convention as build_copa_html.py's odds table), or None if no
@@ -60,7 +81,7 @@ def copa_snapshot(base_dir, slug):
     if not contenders:
         return None
     leader, odds = max(contenders.items(), key=lambda kv: kv[1]["champion"])
-    return f"{html_lib.escape(leader)} leads at {odds['champion']:.0%} to win the title"
+    return _title_line(leader, odds["champion"], season)
 
 
 def world_cup_snapshot(base_dir):
@@ -73,14 +94,17 @@ def world_cup_snapshot(base_dir):
     with open(bracket_path) as f:
         bracket = json.load(f)
     champion = bracket.get("champion")
-    return f"Champion: {html_lib.escape(champion)}" if champion else "2026 tournament predictions"
+    return f"{CHAMPION}{html_lib.escape(champion)}" if champion else "2026 tournament predictions"
 
 
 def build_hub_cards(base_dir):
-    """One card dict per competition: {"name", "href", "snapshot"}. World
-    Cup first (fixed, predates the config system entirely), then every
-    discovered round-robin competition."""
+    """One card dict per competition: {"slug", "name", "href", "snapshot",
+    "closed"}. World Cup (fixed, predates the config system entirely) plus every
+    discovered competition, ordered open ones first (World Cup, then
+    alphabetical, while it is still undecided) and then the closed ones by when
+    their next edition opens (REOPENS)."""
     cards = [{
+        "slug": "world_cup_2026",
         "name": "World Cup 2026",
         "href": "/xSPN/competitions/world_cup_2026/",
         "snapshot": world_cup_snapshot(base_dir),
@@ -89,17 +113,22 @@ def build_hub_cards(base_dir):
     from list_competitions import list_competition_slugs
     for slug in list_competition_slugs(base_dir):
         config = load_competition(os.path.join(base_dir, "competitions", f"{slug}.json"))
+        season = config.openfootball_files[0]["season"]    # newest first: the edition the page shows
         if config.format == "league_phase_knockout":
-            snapshot, fallback = cup_snapshot(base_dir, slug), "Season predictions"
+            snapshot, fallback = cup_snapshot(base_dir, slug, season), "Season predictions"
         elif config.format == "knockout_only":
-            snapshot, fallback = copa_snapshot(base_dir, slug), "Draw not yet released"
+            snapshot, fallback = copa_snapshot(base_dir, slug, season), "Draw not yet released"
         else:
-            snapshot, fallback = league_snapshot(base_dir, slug), "Season predictions"
+            snapshot, fallback = league_snapshot(base_dir, slug, season), "Season predictions"
         cards.append({
+            "slug": slug,
             "name": html_lib.escape(config.name),
             "href": f"/xSPN/competitions/{slug}/",
             "snapshot": snapshot or fallback,
         })
+    for c in cards:
+        c["closed"] = c["snapshot"].startswith(CHAMPION)
+    cards.sort(key=lambda c: (c["closed"], REOPENS.get(c["slug"], "9999") if c["closed"] else ""))
     return cards
 
 
@@ -125,7 +154,8 @@ def build_hub_html(base_dir, template_path, out_path):
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
     page = page.replace("__NAV__", nav_html).replace("__FOOTER__", FOOTER_HTML)
-    page = page.replace("__HUB_CARDS__", render_cards_html(cards))
+    page = page.replace("__HUB_CARDS__", render_cards_html([c for c in cards if not c["closed"]]))
+    page = page.replace("__HUB_CARDS_CLOSED__", render_cards_html([c for c in cards if c["closed"]]))
 
     leftover = re.findall(r"__[A-Z_]+__", page)
     assert not leftover, f"unconsumed placeholder(s) in output: {leftover}"

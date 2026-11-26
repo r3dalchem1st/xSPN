@@ -12,6 +12,7 @@
 main{max-width:900px;margin:0 auto;padding:28px 20px}
 .hub-intro{color:var(--muted);font-size:.9rem;margin-bottom:20px;max-width:640px;line-height:1.5}
 .hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.hub-closed{margin-top:14px}
 .hub-card{display:block;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);
   border-radius:5px;padding:16px 18px;text-decoration:none;color:var(--text);
   box-shadow:0 1px 3px rgba(0,0,0,.06);transition:transform .12s,box-shadow .12s}
@@ -33,6 +34,9 @@ __NAV__
   <div class="hub-intro">Model-driven predictions across football's biggest competitions — Dixon-Coles Poisson modelling with Elo priors and Monte Carlo simulation, scored against real results as they come in.</div>
   <div class="hub-grid">
 __HUB_CARDS__
+  </div>
+  <div class="hub-grid hub-closed">
+__HUB_CARDS_CLOSED__
   </div>
 </main>
 __FOOTER__
