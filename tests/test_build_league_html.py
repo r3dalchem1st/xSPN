@@ -305,6 +305,24 @@ def test_br_col_open_html_marks_done_columns_collapsed_and_toggleable():
     open_live = br_col_open_html("Matchday 2", done=False)
     assert open_live == '<div class="br-col"><div class="br-title">Matchday 2</div><div class="br-matches">'
 
+    # a round with results but a fixture still to play: stays open, yet its title folds like any other
+    partial = br_col_open_html("Matchday 3", done=False, foldable=True)
+    assert 'class="br-col"' in partial and "collapsed" not in partial
+    assert 'role="button"' in partial and 'tabindex="0"' in partial and 'aria-expanded="true"' in partial
+
+
+def test_build_bracket_html_lets_a_round_with_a_postponed_fixture_fold_but_keeps_it_open():
+    # Real case (La Liga matchday 8): nine matches played in October, one postponed to December.
+    # It used to render as a plain open column with no toggle, stuck between the folded strips.
+    played = {"date": "2026-10-10", "status": "FINISHED", "goals": {"A FC": 1, "B FC": 0}, "round": "Matchday 8"}
+    postponed = {"date": "2026-12-09", "status": "SCHEDULED", "round": "Matchday 8"}
+    upcoming = {"date": "2026-12-04", "status": "SCHEDULED", "round": "Matchday 15"}
+    out = build_bracket_html({"A FC|B FC": played, "C FC|D FC": postponed, "E FC|F FC": upcoming}, {})
+    md8 = out.split("Matchday 8</div>")[0].rsplit('<div class="br-col', 1)[1]
+    assert md8.startswith('"><div class="br-title" role="button"')   # open (no " done collapsed") yet foldable
+    md15 = out.split("Matchday 15</div>")[0].rsplit('<div class="br-col', 1)[1]
+    assert md15 == '"><div class="br-title">'      # nothing played yet: no toggle
+
 
 def test_build_bracket_html_shows_confidence_for_a_finished_match_with_a_locked_prediction():
     # If the pre-match locked prediction for an already-played match is

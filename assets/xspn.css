@@ -70,10 +70,12 @@ table{width:100%;border-collapse:collapse}
 /* Collapsible bracket columns (assets/bracket.js) -- a column whose matches
    are all already decided starts folded into a slim clickable strip so a
    long-running competition's Bracket tab doesn't force scrolling through
-   rounds/matchdays nobody needs to check anymore. */
-.br-col.done>.br-title{cursor:pointer}
-.br-col.done>.br-title:hover{filter:brightness(1.15)}
-.br-col.done>.br-title:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+   rounds/matchdays nobody needs to check anymore. Any column whose title is a
+   role="button" can be folded (a round with a postponed fixture still pending
+   starts open but folds too). */
+.br-col>.br-title[role=button]{cursor:pointer}
+.br-col>.br-title[role=button]:hover{filter:brightness(1.15)}
+.br-col>.br-title[role=button]:focus-visible{outline:2px solid #fff;outline-offset:-2px}
 .br-col.collapsed{flex:0 0 32px;min-width:32px;padding:0}
 .br-col.collapsed>.br-title{flex:1;display:flex;align-items:center;justify-content:center;
   writing-mode:vertical-rl;white-space:nowrap;margin-bottom:0;padding:8px 4px;border-radius:3px}

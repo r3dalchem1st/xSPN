@@ -332,16 +332,23 @@ def _historical_prediction_line_html(score, outcome, prob, market_html=""):
             f'{confidence_badge_html(prob)}{market_html}</div>')
 
 
-def br_col_open_html(title_html, done):
+def br_col_open_html(title_html, done, foldable=False):
     """Opening markup for one bracket column. A `done` column (every match
     already decided) starts pre-collapsed into a slim clickable strip --
     assets/bracket.js toggles `.collapsed` on click/Enter/Space -- so a
     fixture list running to dozens of matchdays/rounds doesn't force a wall
     of horizontal scrolling through matches nobody needs to check anymore.
-    A still-open column has no toggle affordance at all."""
+    `foldable` gives a not-done column the same clickable
+    title without pre-collapsing it: a round with results but a postponed
+    fixture still to play stays open, so that fixture isn't hidden, yet its
+    played matches can still be folded away. A column with no results yet has
+    no toggle affordance at all."""
     if done:
         return (f'<div class="br-col done collapsed"><div class="br-title" role="button" '
                 f'tabindex="0" aria-expanded="false">{title_html}</div><div class="br-matches">')
+    if foldable:
+        return (f'<div class="br-col"><div class="br-title" role="button" '
+                f'tabindex="0" aria-expanded="true">{title_html}</div><div class="br-matches">')
     return f'<div class="br-col"><div class="br-title">{title_html}</div><div class="br-matches">'
 
 
@@ -378,8 +385,8 @@ def build_bracket_html(schedule, snapshot, lg_ens=None, rhos=None, delta=0.0):
     lines = ['<div class="bracket-wrap"><div class="bracket">']
     for round_label in sorted(by_round, key=_round_sort_key):
         entries = sorted(by_round[round_label], key=lambda kv: kv[1]["date"])
-        done = all(entry["status"] == "FINISHED" for _, entry in entries)
-        lines.append(br_col_open_html(html_lib.escape(round_label), done))
+        finished = [entry["status"] == "FINISHED" for _, entry in entries]
+        lines.append(br_col_open_html(html_lib.escape(round_label), all(finished), any(finished)))
         for key, entry in entries:
             home, away = key.split("|")
             h, a = html_lib.escape(home), html_lib.escape(away)
