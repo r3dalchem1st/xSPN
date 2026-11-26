@@ -7,7 +7,8 @@
       "correct_winner": true,
       "brier": 0.2811418028881212,
       "log_loss": 0.5630764969551492,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Hull City AFC",
@@ -16,7 +17,8 @@
       "correct_winner": true,
       "brier": 0.4879805844239402,
       "log_loss": 0.8447721498194122,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Ipswich Town FC",
@@ -25,7 +27,8 @@
       "correct_winner": false,
       "brier": 1.0338035136632044,
       "log_loss": 1.6510214688204279,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Nottingham Forest FC",
@@ -34,7 +37,8 @@
       "correct_winner": false,
       "brier": 0.7937137581382273,
       "log_loss": 1.2767507681070542,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Everton FC",
@@ -43,7 +47,8 @@
       "correct_winner": true,
       "brier": 0.6013583102140689,
       "log_loss": 1.0021856957283015,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Brentford FC",
@@ -52,7 +57,8 @@
       "correct_winner": true,
       "brier": 0.37865142805912316,
       "log_loss": 0.6925323042995285,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Manchester City FC",
@@ -61,7 +67,8 @@
       "correct_winner": true,
       "brier": 0.41297467125885223,
       "log_loss": 0.7432031428282022,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Brighton & Hove Albion FC",
@@ -70,7 +77,8 @@
       "correct_winner": true,
       "brier": 0.5587734275236985,
       "log_loss": 0.9273512208363377,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Newcastle United FC",
@@ -79,7 +87,8 @@
       "correct_winner": false,
       "brier": 0.9262560701017141,
       "log_loss": 1.5095980783518232,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Fulham FC",
@@ -88,7 +97,8 @@
       "correct_winner": true,
       "brier": 0.430516252694926,
       "log_loss": 0.7667366713972767,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Crystal Palace FC",
@@ -97,7 +107,8 @@
       "correct_winner": true,
       "brier": 0.3809614423416976,
       "log_loss": 0.7008737109142883,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Liverpool FC",
@@ -106,7 +117,8 @@
       "correct_winner": false,
       "brier": 0.9650731517886998,
       "log_loss": 1.505102496258895,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "AFC Bournemouth",
@@ -115,7 +127,8 @@
       "correct_winner": false,
       "brier": 0.7310825246551946,
       "log_loss": 1.1929842684438992,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Coventry City FC",
@@ -124,7 +137,8 @@
       "correct_winner": true,
       "brier": 0.10284278302420169,
       "log_loss": 0.29534879993987945,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Tottenham Hotspur FC",
@@ -133,7 +147,8 @@
       "correct_winner": true,
       "brier": 0.2900166527119302,
       "log_loss": 0.5784009915067316,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sunderland AFC",
@@ -142,7 +157,8 @@
       "correct_winner": false,
       "brier": 0.9880992999283086,
       "log_loss": 1.5457213264396108,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Chelsea FC",
@@ -151,7 +167,8 @@
       "correct_winner": true,
       "brier": 0.38309120770031313,
       "log_loss": 0.7021915116269606,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Leeds United FC",
@@ -160,7 +177,8 @@
       "correct_winner": false,
       "brier": 0.800143281416967,
       "log_loss": 1.2372561618724205,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Manchester United FC",
@@ -169,7 +187,8 @@
       "correct_winner": true,
       "brier": 0.2872276824585105,
       "log_loss": 0.574543754337641,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Aston Villa FC",
@@ -178,7 +197,8 @@
       "correct_winner": true,
       "brier": 0.3322830411194889,
       "log_loss": 0.6357681584047336,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Ipswich Town FC",
@@ -187,7 +207,8 @@
       "correct_winner": true,
       "brier": 0.05278321479872692,
       "log_loss": 0.20537120025927597,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Newcastle United FC",
@@ -196,7 +217,8 @@
       "correct_winner": false,
       "brier": 0.8776872062871071,
       "log_loss": 1.4224574073870466,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Nottingham Forest FC",
@@ -205,7 +227,8 @@
       "correct_winner": false,
       "brier": 0.9468417245750396,
       "log_loss": 1.503608326331555,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Manchester City FC",
@@ -214,7 +237,8 @@
       "correct_winner": true,
       "brier": 0.06166445831478383,
       "log_loss": 0.22255695681943155,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Brighton & Hove Albion FC",
@@ -223,7 +247,8 @@
       "correct_winner": false,
       "brier": 0.787345909920551,
       "log_loss": 1.2685288894839868,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Brentford FC",
@@ -232,7 +257,8 @@
       "correct_winner": false,
       "brier": 1.279524584418946,
       "log_loss": 1.894148328953287,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Fulham FC",
@@ -241,7 +267,8 @@
       "correct_winner": false,
       "brier": 0.6778100888777769,
       "log_loss": 1.0964878803083644,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Hull City AFC",
@@ -250,7 +277,8 @@
       "correct_winner": false,
       "brier": 0.9866773325408374,
       "log_loss": 1.466591666479387,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Everton FC",
@@ -259,7 +287,8 @@
       "correct_winner": false,
       "brier": 0.7703094622515946,
       "log_loss": 1.2372034900307827,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Arsenal FC",
@@ -268,7 +297,8 @@
       "correct_winner": true,
       "brier": 0.3626451779977987,
       "log_loss": 0.6764683401055235,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Crystal Palace FC",
@@ -277,7 +307,8 @@
       "correct_winner": false,
       "brier": 1.1012350672571458,
       "log_loss": 1.7392177061951204,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Liverpool FC",
@@ -286,7 +317,8 @@
       "correct_winner": false,
       "brier": 1.0223799854163542,
       "log_loss": 1.5665837685198607,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Aston Villa FC",
@@ -295,7 +327,8 @@
       "correct_winner": true,
       "brier": 0.5388059769013102,
       "log_loss": 0.9106857023993373,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "AFC Bournemouth",
@@ -304,7 +337,8 @@
       "correct_winner": false,
       "brier": 0.8780420631260989,
       "log_loss": 1.4306253724047262,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Chelsea FC",
@@ -313,7 +347,8 @@
       "correct_winner": false,
       "brier": 0.9239151030440913,
       "log_loss": 1.3341133210193123,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Tottenham Hotspur FC",
@@ -322,7 +357,8 @@
       "correct_winner": false,
       "brier": 0.801074357816709,
       "log_loss": 1.3116546299672898,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sunderland AFC",
@@ -331,7 +367,8 @@
       "correct_winner": true,
       "brier": 0.1985583326780395,
       "log_loss": 0.44226664609399396,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Coventry City FC",
@@ -340,7 +377,8 @@
       "correct_winner": true,
       "brier": 0.13667368128339147,
       "log_loss": 0.34324824460973835,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Manchester United FC",
@@ -349,7 +387,8 @@
       "correct_winner": true,
       "brier": 0.32846682054590415,
       "log_loss": 0.630699866299029,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Leeds United FC",
@@ -358,7 +397,8 @@
       "correct_winner": false,
       "brier": 0.6413486943984191,
       "log_loss": 1.045398819074905,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Brentford FC",
@@ -367,7 +407,8 @@
       "correct_winner": true,
       "brier": 0.44997423705115636,
       "log_loss": 0.7899382497231308,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Tottenham Hotspur FC",
@@ -376,7 +417,8 @@
       "correct_winner": true,
       "brier": 0.5287015972770139,
       "log_loss": 0.8941762330056978,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Everton FC",
@@ -385,7 +427,8 @@
       "correct_winner": true,
       "brier": 0.1155640466190038,
       "log_loss": 0.3211243766236324,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Brighton & Hove Albion FC",
@@ -394,7 +437,8 @@
       "correct_winner": false,
       "brier": 1.1070368141476725,
       "log_loss": 1.7835108997914226,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Newcastle United FC",
@@ -403,7 +447,8 @@
       "correct_winner": false,
       "brier": 1.0222385929543574,
       "log_loss": 1.7273855416356525,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Nottingham Forest FC",
@@ -412,7 +457,8 @@
       "correct_winner": false,
       "brier": 1.4666230958853528,
       "log_loss": 2.8471562759242324,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "AFC Bournemouth",
@@ -421,7 +467,8 @@
       "correct_winner": true,
       "brier": 0.5555200783526524,
       "log_loss": 0.925380508595741,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Leeds United FC",
@@ -430,7 +477,8 @@
       "correct_winner": false,
       "brier": 0.9147674204215577,
       "log_loss": 1.4177487719125916,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Manchester City FC",
@@ -439,7 +487,8 @@
       "correct_winner": true,
       "brier": 0.11522643869417605,
       "log_loss": 0.319057052653298,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Fulham FC",
@@ -448,7 +497,8 @@
       "correct_winner": false,
       "brier": 0.8971067474320412,
       "log_loss": 1.4454806091799905,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Arsenal FC",
@@ -457,7 +507,8 @@
       "correct_winner": true,
       "brier": 0.18579195161779735,
       "log_loss": 0.42789206104287286,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Sunderland AFC",
@@ -466,7 +517,8 @@
       "correct_winner": true,
       "brier": 0.30851521568093143,
       "log_loss": 0.6040751265323266,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Chelsea FC",
@@ -475,7 +527,8 @@
       "correct_winner": true,
       "brier": 0.5028639292116324,
       "log_loss": 0.8590392840002135,
-      "total_goal_error": 5
+      "total_goal_error": 5,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Ipswich Town FC",
@@ -484,7 +537,8 @@
       "correct_winner": false,
       "brier": 1.06055526597881,
       "log_loss": 1.6692606409820256,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Aston Villa FC",
@@ -493,7 +547,8 @@
       "correct_winner": false,
       "brier": 0.8566705464219194,
       "log_loss": 1.4076732869121755,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Manchester United FC",
@@ -502,7 +557,8 @@
       "correct_winner": false,
       "brier": 1.0808768469052314,
       "log_loss": 1.6307579828299108,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Hull City AFC",
@@ -511,7 +567,8 @@
       "correct_winner": false,
       "brier": 0.7137843088253595,
       "log_loss": 1.1274012385366474,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Crystal Palace FC",
@@ -520,7 +577,8 @@
       "correct_winner": false,
       "brier": 0.7553129575034805,
       "log_loss": 1.215834288098108,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Liverpool FC",
@@ -529,7 +587,8 @@
       "correct_winner": true,
       "brier": 0.3597418627190544,
       "log_loss": 0.67179921836489,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Coventry City FC",
@@ -538,7 +597,8 @@
       "correct_winner": false,
       "brier": 1.4338311776314265,
       "log_loss": 2.549587165496986,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Everton FC",
@@ -548,6 +608,7 @@
       "brier": 0.5899804253731254,
       "log_loss": 0.9809324560627949,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.47180941361896606,
@@ -561,6 +622,7 @@
       "brier": 0.7965730485233498,
       "log_loss": 1.2799043323954835,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.2859186727698765,
@@ -574,6 +636,7 @@
       "brier": 0.009078798049406133,
       "log_loss": 0.07864495889212426,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.08228744463144186,
@@ -587,6 +650,7 @@
       "brier": 0.6911687956732506,
       "log_loss": 1.104128120605063,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.6322519863362646,
@@ -600,6 +664,7 @@
       "brier": 0.7590830667300591,
       "log_loss": 1.2019620298203246,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.76097902152551,
@@ -613,6 +678,7 @@
       "brier": 0.4401097068568335,
       "log_loss": 0.7796920330133988,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4211698723049395,
@@ -626,6 +692,7 @@
       "brier": 0.8270475586385282,
       "log_loss": 1.3568207923963966,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8143473204393434,
@@ -639,6 +706,7 @@
       "brier": 0.14777583824723148,
       "log_loss": 0.3744974708782932,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.23270009059738594,
@@ -652,6 +720,7 @@
       "brier": 0.26187255690622596,
       "log_loss": 0.5367979099621617,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.23911048126236606,
@@ -665,6 +734,7 @@
       "brier": 0.44832117568461777,
       "log_loss": 0.789369302989658,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.19515689061115934,
@@ -678,6 +748,7 @@
       "brier": 0.9738721170730746,
       "log_loss": 1.5083912961459567,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.8039763511163541,
@@ -691,6 +762,7 @@
       "brier": 1.149181244170282,
       "log_loss": 1.8212039022534634,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.9757423976715265,
@@ -704,6 +776,7 @@
       "brier": 0.16656042234225857,
       "log_loss": 0.39685836378746603,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.15380656422802338,
@@ -717,6 +790,7 @@
       "brier": 0.3620766418709162,
       "log_loss": 0.6758721676682569,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.5278224020322344,
@@ -730,6 +804,7 @@
       "brier": 1.1694052629433298,
       "log_loss": 1.8385258720602318,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9490468809070194,
@@ -743,6 +818,7 @@
       "brier": 0.6677007653480107,
       "log_loss": 1.071704723575932,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4582157851805577,
@@ -756,6 +832,7 @@
       "brier": 0.48454932261465755,
       "log_loss": 0.8358174822471535,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.5350408962680234,
@@ -769,6 +846,7 @@
       "brier": 0.8308688161720925,
       "log_loss": 1.3061771760068734,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8877602294943036,
@@ -782,6 +860,7 @@
       "brier": 0.7884799253299041,
       "log_loss": 1.2896463208232158,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.9144229483213007,
@@ -795,6 +874,7 @@
       "brier": 0.7998906285047926,
       "log_loss": 1.2917567884735726,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7546913196507455,
@@ -808,6 +888,7 @@
       "brier": 0.3442172105071125,
       "log_loss": 0.6513349801244889,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.3432012673393268,
@@ -821,6 +902,7 @@
       "brier": 0.8869504225096158,
       "log_loss": 1.3793439010821837,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.0006151004148678,
@@ -834,6 +916,7 @@
       "brier": 0.49871473882956185,
       "log_loss": 0.857549389089921,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4602993282399615,
@@ -847,6 +930,7 @@
       "brier": 0.8350680634922398,
       "log_loss": 1.349763694486722,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7125170838439474,
@@ -860,6 +944,7 @@
       "brier": 1.0945697781452712,
       "log_loss": 1.5957518594720657,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.7789648285980975,
@@ -873,6 +958,7 @@
       "brier": 0.30112286875545086,
       "log_loss": 0.5942147588352186,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4112047636466619,
@@ -886,6 +972,7 @@
       "brier": 0.35425626254161785,
       "log_loss": 0.6654594330220402,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.22083000375184852,
@@ -899,6 +986,7 @@
       "brier": 0.8526003925410415,
       "log_loss": 1.3618758368539867,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8573842728320507,
@@ -912,6 +1000,7 @@
       "brier": 0.4689191079795076,
       "log_loss": 0.8186644882189461,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.5150571521083569,
@@ -925,6 +1014,7 @@
       "brier": 0.8231136260623564,
       "log_loss": 1.3004752160406015,
       "total_goal_error": 2,
+      "xg_regime": "xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.7066585489668078,
@@ -938,6 +1028,7 @@
       "brier": 0.22814173135678484,
       "log_loss": 0.4843777201731679,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.048418403755278464,
@@ -951,6 +1042,7 @@
       "brier": 0.8934388485521403,
       "log_loss": 1.4136904977656026,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.9962100325980008,
@@ -964,6 +1056,7 @@
       "brier": 0.4418730704121666,
       "log_loss": 0.7816772300355738,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.5822903561947894,
@@ -977,6 +1070,7 @@
       "brier": 0.8298455396672862,
       "log_loss": 1.3614622206493534,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8241349801319064,
@@ -990,6 +1084,7 @@
       "brier": 0.38818644625559884,
       "log_loss": 0.7097937695463679,
       "total_goal_error": 3,
+      "xg_regime": "xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.30018570730338445,
@@ -1003,6 +1098,7 @@
       "brier": 0.3450646368241973,
       "log_loss": 0.6531688711604493,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.26090911757387913,
@@ -1016,6 +1112,7 @@
       "brier": 0.77853902306298,
       "log_loss": 1.2442297134779816,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.8300519571409565,
@@ -1029,6 +1126,7 @@
       "brier": 0.2610589351510768,
       "log_loss": 0.5398659405497901,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.39378148360565324,
@@ -1042,6 +1140,7 @@
       "brier": 0.38650673823980525,
       "log_loss": 0.7068983179921922,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.3810814507925818,
@@ -1055,6 +1154,7 @@
       "brier": 0.849185779776682,
       "log_loss": 1.3933341197869815,
       "total_goal_error": 5,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8323358069830676,
@@ -1068,6 +1168,7 @@
       "brier": 0.8162570661809018,
       "log_loss": 1.2937443376544524,
       "total_goal_error": 4,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9103736318148876,
@@ -1081,6 +1182,7 @@
       "brier": 1.0630152252005851,
       "log_loss": 1.5739882319193497,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.1472373680056291,
@@ -1094,6 +1196,7 @@
       "brier": 0.8729841856175601,
       "log_loss": 1.372945857465252,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8982177696231881,
@@ -1107,6 +1210,7 @@
       "brier": 0.30099610905925245,
       "log_loss": 0.5938393043449713,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.31455416494185756,
@@ -1120,6 +1224,7 @@
       "brier": 0.7187023939461371,
       "log_loss": 1.1656221488199192,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 1.1549856416104436,
@@ -1133,6 +1238,7 @@
       "brier": 0.44506413312893406,
       "log_loss": 0.7861360781831449,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4131738777802003,
@@ -1146,6 +1252,7 @@
       "brier": 0.23162233517938385,
       "log_loss": 0.49914262378865687,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.2240395846449686,
@@ -1159,6 +1266,7 @@
       "brier": 0.44526399771520186,
       "log_loss": 0.7869362690229175,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4425362758613734,
@@ -1172,6 +1280,7 @@
       "brier": 0.6396631085549751,
       "log_loss": 1.0444073869682504,
       "total_goal_error": 4,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.546260267821671,
@@ -1185,6 +1294,7 @@
       "brier": 0.9147161926785875,
       "log_loss": 1.3939815058230363,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.9884166762083664,
@@ -1222,6 +1332,65 @@
       "disagree_n": 5,
       "we_right": 0,
       "market_right": 3
+    },
+    "by_xg_regime": {
+      "goals": {
+        "n": 19,
+        "avg_brier": 0.6032599500160336,
+        "vs_market": {
+          "n": 19,
+          "accuracy": 0.47368421052631576,
+          "market_accuracy": 0.5263157894736842,
+          "avg_brier": 0.6032599500160336,
+          "market_avg_brier": 0.641526781425721,
+          "brier_gap": {
+            "mean": 0.038266831409687424,
+            "lo": -0.014042497767190016,
+            "hi": 0.09954463781036725
+          },
+          "disagree_n": 1,
+          "we_right": 0,
+          "market_right": 1
+        }
+      },
+      "pre_xg": {
+        "n": 89,
+        "avg_brier": 0.6401179575533235,
+        "vs_market": {
+          "n": 29,
+          "accuracy": 0.4827586206896552,
+          "market_accuracy": 0.5517241379310345,
+          "avg_brier": 0.6206901711156333,
+          "market_avg_brier": 0.5653907161980158,
+          "brier_gap": {
+            "mean": -0.055299454917617404,
+            "lo": -0.11112983158654158,
+            "hi": -0.0023702317112434573
+          },
+          "disagree_n": 4,
+          "we_right": 0,
+          "market_right": 2
+        }
+      },
+      "xg": {
+        "n": 2,
+        "avg_brier": 0.6056500361589776,
+        "vs_market": {
+          "n": 2,
+          "accuracy": 0.5,
+          "market_accuracy": 0.5,
+          "avg_brier": 0.6056500361589776,
+          "market_avg_brier": 0.5034221281350961,
+          "brier_gap": {
+            "mean": -0.10222790802388149,
+            "lo": -0.11645507709554859,
+            "hi": -0.08800073895221439
+          },
+          "disagree_n": 0,
+          "we_right": 0,
+          "market_right": 0
+        }
+      }
     }
   }
 }
