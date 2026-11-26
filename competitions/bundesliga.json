@@ -38,7 +38,6 @@
   },
   "football_data_code": "BL1",
   "momentum_weight": 0.0,
-  "odds_history_code": "D1",
   "odds_fit_weight": 0.0,
   "odds_api_sport_key": "soccer_germany_bundesliga",
   "understat_code": "Bundesliga",

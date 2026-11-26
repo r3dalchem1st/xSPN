@@ -153,12 +153,15 @@ def fetch_and_save(config, base_dir):
       competitions/<slug>/mkt_probs_by_match.json -- real historical odds
         joined per season (see fetch_season_mkt_probs), one entry PARALLEL
         to fetched_matches.json (same length/order) -- (ph,pd,pa) or None.
-        Always written (even all-None) so fit_league.py's fit_and_save() and
-        every competition's CI commit step can rely on it always existing,
-        same invariant every other artifact file already has.
+        Always written (all-None while odds_history_code is unset, as it is
+        in every committed config) so fit_league.py's fit_and_save() can rely
+        on it existing. Gitignored: football-data.co.uk's terms are
+        private-use-only, so no derived odds are published.
       competitions/<slug>/xg_by_match.json        -- Understat (hxg, axg) or None
         per training match, parallel to fetched_matches.json (all-None unless
-        config.xg_weight is set; written for every competition, same invariant)
+        config.xg_weight is set; written for every competition, same invariant).
+        Gitignored: Understat publishes no licence, and the fit and snapshot
+        steps read it from the same CI job
       competitions/<slug>/schedule.json           -- ALL fixtures from the
         newest (current) season only, played + unplayed
 

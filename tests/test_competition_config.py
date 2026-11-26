@@ -181,3 +181,17 @@ def test_xg_weight_without_an_understat_code_is_rejected():
 def test_xg_weight_outside_zero_to_one_is_rejected(bad):
     with pytest.raises(ValueError, match="between 0 and 1"):
         CompetitionConfig(dict(VALID_DATA, understat_code="EPL", xg_weight=bad))
+
+
+def test_no_committed_competition_config_fetches_football_data_co_uk():
+    # football-data.co.uk's terms allow private use only (no bots, no model-training products), and the
+    # odds join is switched off anyway (odds_fit_weight 0), so CI must not fetch it. The backtest harness
+    # reads it locally into the gitignored backtest_cache/ instead.
+    import glob
+    import json
+    import os
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for path in glob.glob(os.path.join(root, "competitions", "*.json")):
+        data = json.load(open(path, encoding="utf-8"))
+        assert "odds_history_code" not in data, os.path.basename(path)
+        assert not data.get("odds_fit_weight"), os.path.basename(path)

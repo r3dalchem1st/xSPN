@@ -9,3 +9,9 @@ __pycache__/
 
 # Raw football-data.co.uk CSVs cached by multiseason_data.py (re-downloadable)
 backtest_cache/
+
+# Third-party data, rebuilt inside each CI job and never published: Understat's per-match xG
+# (no licence) and the football-data.co.uk odds join (private-use-only terms; odds_history_code
+# is unset in CI now, so this is all-null there).
+competitions/*/xg_by_match.json
+competitions/*/mkt_probs_by_match.json

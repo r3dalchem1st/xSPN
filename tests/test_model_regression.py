@@ -5,7 +5,7 @@ The other ~470 tests check mechanics (shapes, no-ops, parsing). None would
 notice a refactor of the fit that quietly made predictions worse -- the 17 Aug
 audit found the World Cup pipeline had a regression gate and the league
 pipeline never did. This replays three REAL La Liga seasons (frozen in
-tests/data/, from football-data.co.uk): train on 2022-23 and 2023-24, predict
+tests/data/, from openfootball/espana, CC0): train on 2022-23 and 2023-24, predict
 2024-25 out of sample with monthly refits, exactly as rolling_backtest.py does.
 
 If this fails after a deliberate model change, don't loosen the tolerance:
