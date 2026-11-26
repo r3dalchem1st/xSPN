@@ -7,7 +7,8 @@
       "correct_winner": true,
       "brier": 0.11487835607392341,
       "log_loss": 0.3236107620348539,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RB Leipzig",
@@ -16,7 +17,8 @@
       "correct_winner": true,
       "brier": 0.4514973179849801,
       "log_loss": 0.7904108427597124,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FSV Mainz 05",
@@ -25,7 +27,8 @@
       "correct_winner": false,
       "brier": 0.8153064173637636,
       "log_loss": 1.3049602355725167,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FC Union Berlin",
@@ -34,7 +37,8 @@
       "correct_winner": false,
       "brier": 0.9355118829036879,
       "log_loss": 1.4521977280660645,
-      "total_goal_error": 5
+      "total_goal_error": 5,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SV 07 Elversberg",
@@ -43,7 +47,8 @@
       "correct_winner": false,
       "brier": 0.8837757300009454,
       "log_loss": 1.3930215240025356,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FC K\u00f6ln",
@@ -52,7 +57,8 @@
       "correct_winner": true,
       "brier": 0.36667508220953915,
       "log_loss": 0.6819579579279528,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Borussia Dortmund",
@@ -61,7 +67,8 @@
       "correct_winner": true,
       "brier": 0.3396275768227598,
       "log_loss": 0.6457825680242018,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SC Freiburg",
@@ -70,7 +77,8 @@
       "correct_winner": false,
       "brier": 0.5911687412052088,
       "log_loss": 0.9726781646754202,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Augsburg",
@@ -79,7 +87,8 @@
       "correct_winner": false,
       "brier": 0.7654894519611457,
       "log_loss": 1.2443742659520824,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "VfB Stuttgart",
@@ -88,7 +97,8 @@
       "correct_winner": true,
       "brier": 0.42895580384281223,
       "log_loss": 0.764171061253276,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SV Werder Bremen",
@@ -97,7 +107,8 @@
       "correct_winner": false,
       "brier": 0.5943894427917455,
       "log_loss": 0.9773551435020963,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "TSG 1899 Hoffenheim",
@@ -106,7 +117,8 @@
       "correct_winner": true,
       "brier": 0.20472331932926993,
       "log_loss": 0.4608294680907453,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Bayer 04 Leverkusen",
@@ -115,7 +127,8 @@
       "correct_winner": true,
       "brier": 0.1930518878062919,
       "log_loss": 0.4425876506939719,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Borussia M\u00f6nchengladbach",
@@ -124,7 +137,8 @@
       "correct_winner": false,
       "brier": 0.6205700501410008,
       "log_loss": 1.0185069204448982,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SC Paderborn 07",
@@ -133,7 +147,8 @@
       "correct_winner": false,
       "brier": 0.7067468340924405,
       "log_loss": 1.1455240906263071,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Schalke 04",
@@ -142,7 +157,8 @@
       "correct_winner": false,
       "brier": 1.1595010622158815,
       "log_loss": 1.6961803521815517,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Hamburger SV",
@@ -151,7 +167,8 @@
       "correct_winner": true,
       "brier": 0.32199057205376036,
       "log_loss": 0.6137726783573682,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Eintracht Frankfurt",
@@ -160,7 +177,8 @@
       "correct_winner": false,
       "brier": 1.0578140566505199,
       "log_loss": 1.6783936211835206,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FC Union Berlin",
@@ -169,7 +187,8 @@
       "correct_winner": false,
       "brier": 1.4741818158514866,
       "log_loss": 2.510333878091267,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "TSG 1899 Hoffenheim",
@@ -178,7 +197,8 @@
       "correct_winner": false,
       "brier": 0.6735647591144909,
       "log_loss": 1.068542513601943,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Borussia Dortmund",
@@ -187,7 +207,8 @@
       "correct_winner": true,
       "brier": 0.3926969255318707,
       "log_loss": 0.6930883580926279,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Augsburg",
@@ -196,7 +217,8 @@
       "correct_winner": false,
       "brier": 0.9490294294033468,
       "log_loss": 1.4903383491933722,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FSV Mainz 05",
@@ -205,7 +227,8 @@
       "correct_winner": false,
       "brier": 0.6418174947234905,
       "log_loss": 1.0377447070825367,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SC Freiburg",
@@ -214,7 +237,8 @@
       "correct_winner": true,
       "brier": 0.42220730365707326,
       "log_loss": 0.7544165587976823,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FC K\u00f6ln",
@@ -223,7 +247,8 @@
       "correct_winner": false,
       "brier": 0.9139034347897435,
       "log_loss": 1.478519518906838,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RB Leipzig",
@@ -232,7 +257,8 @@
       "correct_winner": true,
       "brier": 0.2114571692977375,
       "log_loss": 0.4697222871408424,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SV 07 Elversberg",
@@ -241,7 +267,8 @@
       "correct_winner": true,
       "brier": 0.15125104261411346,
       "log_loss": 0.379056649509242,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Bayern M\u00fcnchen",
@@ -250,7 +277,8 @@
       "correct_winner": true,
       "brier": 0.018709101404235,
       "log_loss": 0.11618333185786098,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Hamburger SV",
@@ -259,7 +287,8 @@
       "correct_winner": true,
       "brier": 0.5573388722214376,
       "log_loss": 0.9328104842249683,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Borussia M\u00f6nchengladbach",
@@ -268,7 +297,8 @@
       "correct_winner": true,
       "brier": 0.5310610558905156,
       "log_loss": 0.8995570248749205,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SV Werder Bremen",
@@ -277,7 +307,8 @@
       "correct_winner": true,
       "brier": 0.596381775901448,
       "log_loss": 0.9859130131939619,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Eintracht Frankfurt",
@@ -286,7 +317,8 @@
       "correct_winner": false,
       "brier": 0.9215615785865297,
       "log_loss": 1.5262091891808818,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "VfB Stuttgart",
@@ -295,7 +327,8 @@
       "correct_winner": true,
       "brier": 0.4779634253320423,
       "log_loss": 0.8220687389285349,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Bayer 04 Leverkusen",
@@ -304,7 +337,8 @@
       "correct_winner": true,
       "brier": 0.3052209291887242,
       "log_loss": 0.599246537213353,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Schalke 04",
@@ -313,7 +347,8 @@
       "correct_winner": false,
       "brier": 1.2124449734152425,
       "log_loss": 1.7791952187350866,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SC Paderborn 07",
@@ -322,7 +357,8 @@
       "correct_winner": false,
       "brier": 0.8827000686014255,
       "log_loss": 1.4568410284465179,
-      "total_goal_error": 4
+      "total_goal_error": 4,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Borussia Dortmund",
@@ -331,7 +367,8 @@
       "correct_winner": false,
       "brier": 1.2685837316493063,
       "log_loss": 1.8471103748109117,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FSV Mainz 05",
@@ -340,7 +377,8 @@
       "correct_winner": true,
       "brier": 0.467099330530767,
       "log_loss": 0.8116297522383913,
-      "total_goal_error": 6
+      "total_goal_error": 6,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SC Paderborn 07",
@@ -349,7 +387,8 @@
       "correct_winner": true,
       "brier": 0.41874959067790307,
       "log_loss": 0.7512637677171435,
-      "total_goal_error": 1
+      "total_goal_error": 1,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FC Union Berlin",
@@ -358,7 +397,8 @@
       "correct_winner": false,
       "brier": 1.11010886350714,
       "log_loss": 1.7162561034051889,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "TSG 1899 Hoffenheim",
@@ -367,7 +407,8 @@
       "correct_winner": false,
       "brier": 1.03050407447129,
       "log_loss": 1.6038874070421127,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "FC Augsburg",
@@ -376,7 +417,8 @@
       "correct_winner": false,
       "brier": 1.4560062042792095,
       "log_loss": 2.185516531315223,
-      "total_goal_error": 3
+      "total_goal_error": 3,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "RB Leipzig",
@@ -385,7 +427,8 @@
       "correct_winner": true,
       "brier": 0.3114164744609816,
       "log_loss": 0.6059315067165862,
-      "total_goal_error": 5
+      "total_goal_error": 5,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "1. FC K\u00f6ln",
@@ -394,7 +437,8 @@
       "correct_winner": true,
       "brier": 0.48875084166121263,
       "log_loss": 0.8387572656917113,
-      "total_goal_error": 0
+      "total_goal_error": 0,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "SC Freiburg",
@@ -403,7 +447,8 @@
       "correct_winner": true,
       "brier": 0.5428153424300899,
       "log_loss": 0.918273876339842,
-      "total_goal_error": 2
+      "total_goal_error": 2,
+      "xg_regime": "pre_xg"
     },
     {
       "home": "Eintracht Frankfurt",
@@ -413,6 +458,7 @@
       "brier": 0.26009063427128665,
       "log_loss": 0.5376931338640994,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.38373203885576945,
@@ -426,6 +472,7 @@
       "brier": 1.108569046676084,
       "log_loss": 1.6436230734553545,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.9817638553910416,
@@ -439,6 +486,7 @@
       "brier": 1.0116464477001599,
       "log_loss": 1.5672274530984773,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.8984953465658321,
@@ -452,6 +500,7 @@
       "brier": 0.7733522617090092,
       "log_loss": 1.1859190623258822,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9214022369009448,
@@ -465,6 +514,7 @@
       "brier": 0.3731370284942047,
       "log_loss": 0.690559993317865,
       "total_goal_error": 6,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.5670324578425288,
@@ -478,6 +528,7 @@
       "brier": 0.6986056745628102,
       "log_loss": 1.1424415268670627,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.5221001344039096,
@@ -491,6 +542,7 @@
       "brier": 0.08093304778473967,
       "log_loss": 0.26369089474700924,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.07776176184282817,
@@ -504,6 +556,7 @@
       "brier": 0.2589495318727892,
       "log_loss": 0.53680017818751,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.2970193697739584,
@@ -517,6 +570,7 @@
       "brier": 0.5309861708352468,
       "log_loss": 0.8897917213331743,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.4241826142176438,
@@ -530,6 +584,7 @@
       "brier": 1.1788805376982383,
       "log_loss": 1.838262402426568,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.218604208228822,
@@ -543,6 +598,7 @@
       "brier": 0.9071200045277523,
       "log_loss": 1.4181975851559245,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9661347759118167,
@@ -556,6 +612,7 @@
       "brier": 0.7086971577163526,
       "log_loss": 1.1541250079319363,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8637374237024451,
@@ -569,6 +626,7 @@
       "brier": 0.3186833472987348,
       "log_loss": 0.6156602312715943,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.15017006237548577,
@@ -582,6 +640,7 @@
       "brier": 0.6253196656800118,
       "log_loss": 1.036590362765602,
       "total_goal_error": 0,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.4969263861524742,
@@ -595,6 +654,7 @@
       "brier": 0.9182465956521586,
       "log_loss": 1.4379936139783012,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9092562428073069,
@@ -608,6 +668,7 @@
       "brier": 0.14012985872033001,
       "log_loss": 0.3644173366307255,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.1841353760717641,
@@ -621,6 +682,7 @@
       "brier": 0.8355037742722748,
       "log_loss": 1.2866522229274904,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.6395464374062986,
@@ -634,6 +696,7 @@
       "brier": 0.10231286072723429,
       "log_loss": 0.3022169074558881,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.1461585747107988,
@@ -647,6 +710,7 @@
       "brier": 0.5746307315687255,
       "log_loss": 0.9388342918955334,
       "total_goal_error": 4,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.7655777881425871,
@@ -660,6 +724,7 @@
       "brier": 0.7810997060030281,
       "log_loss": 1.2518640273038637,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9004735429727639,
@@ -673,6 +738,7 @@
       "brier": 0.483526208711085,
       "log_loss": 0.8335191999721799,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.35984751747996474,
@@ -686,6 +752,7 @@
       "brier": 0.55765673438377,
       "log_loss": 0.9307951460918118,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.48334291345462116,
@@ -699,6 +766,7 @@
       "brier": 0.5374118876004326,
       "log_loss": 0.8979199746553579,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.6959938463199006,
@@ -712,6 +780,7 @@
       "brier": 0.9095129868069449,
       "log_loss": 1.3935351691057656,
       "total_goal_error": 3,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.9023794383712676,
@@ -725,6 +794,7 @@
       "brier": 1.2093226157340795,
       "log_loss": 1.8205671287197311,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.2112268861139985,
@@ -738,6 +808,7 @@
       "brier": 0.8465054542078583,
       "log_loss": 1.3809957078616826,
       "total_goal_error": 1,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 0.8165777303263183,
@@ -751,6 +822,7 @@
       "brier": 0.2493425835759085,
       "log_loss": 0.5237606887774395,
       "total_goal_error": 2,
+      "xg_regime": "pre_xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.27268792748462106,
@@ -764,6 +836,7 @@
       "brier": 0.5550665787136868,
       "log_loss": 0.9272509481166771,
       "total_goal_error": 3,
+      "xg_regime": "xg",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.5397783565627625,
@@ -777,6 +850,7 @@
       "brier": 0.21657299969686877,
       "log_loss": 0.4778248030441545,
       "total_goal_error": 5,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.1859714366464289,
@@ -790,6 +864,7 @@
       "brier": 0.18886817540292117,
       "log_loss": 0.4382015371166786,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.10359455784616817,
@@ -803,6 +878,7 @@
       "brier": 0.10915603552436207,
       "log_loss": 0.31394632038665315,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.18046974545277944,
@@ -816,6 +892,7 @@
       "brier": 0.7662015147664258,
       "log_loss": 1.243218928404513,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.8609953949568407,
@@ -829,6 +906,7 @@
       "brier": 0.22567122544205656,
       "log_loss": 0.4908172082665603,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.20906954749150503,
@@ -842,6 +920,7 @@
       "brier": 0.2972400710375939,
       "log_loss": 0.5883693351780629,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.30990216044508895,
@@ -855,6 +934,7 @@
       "brier": 0.2802117782972805,
       "log_loss": 0.5658035465075514,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.2110576683740135,
@@ -868,6 +948,7 @@
       "brier": 0.34348097538118677,
       "log_loss": 0.638329819475989,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.2579795792407266,
@@ -881,6 +962,7 @@
       "brier": 1.6750135401815522,
       "log_loss": 2.69951239153306,
       "total_goal_error": 4,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": false,
       "market_brier": 1.6162852306025695,
@@ -894,6 +976,7 @@
       "brier": 0.22955306781066698,
       "log_loss": 0.49051524901254756,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.09399501242674595,
@@ -907,6 +990,7 @@
       "brier": 0.3038647733886699,
       "log_loss": 0.5979915238579844,
       "total_goal_error": 4,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.2362387461214018,
@@ -920,6 +1004,7 @@
       "brier": 0.7592527558597171,
       "log_loss": 1.1722803314001733,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.41806607393955286,
@@ -933,6 +1018,7 @@
       "brier": 0.2667642041028224,
       "log_loss": 0.5475675389467193,
       "total_goal_error": 0,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": true,
       "market_brier": 0.2596983989208402,
@@ -946,6 +1032,7 @@
       "brier": 0.38403109750260644,
       "log_loss": 0.6983793881499216,
       "total_goal_error": 2,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.5273425112362684,
@@ -959,6 +1046,7 @@
       "brier": 0.7728978262152637,
       "log_loss": 1.1980180470966806,
       "total_goal_error": 1,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.9221553725028395,
@@ -972,6 +1060,7 @@
       "brier": 0.5681016909653249,
       "log_loss": 0.9445559251263902,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "A",
       "market_correct_winner": false,
       "market_brier": 0.641932172836096,
@@ -985,6 +1074,7 @@
       "brier": 0.3732851121308116,
       "log_loss": 0.6907475613555752,
       "total_goal_error": 3,
+      "xg_regime": "goals",
       "market_winner": "H",
       "market_correct_winner": true,
       "market_brier": 0.28818556389145855,
@@ -1022,6 +1112,65 @@
       "disagree_n": 4,
       "we_right": 2,
       "market_right": 2
+    },
+    "by_xg_regime": {
+      "goals": {
+        "n": 17,
+        "avg_brier": 0.4564804025709489,
+        "vs_market": {
+          "n": 17,
+          "accuracy": 0.7647058823529411,
+          "market_accuracy": 0.7647058823529411,
+          "avg_brier": 0.4564804025709489,
+          "market_avg_brier": 0.43076112781948966,
+          "brier_gap": {
+            "mean": -0.02571927475145922,
+            "lo": -0.08293085605417949,
+            "hi": 0.025721475947675963
+          },
+          "disagree_n": 2,
+          "we_right": 1,
+          "market_right": 1
+        }
+      },
+      "pre_xg": {
+        "n": 72,
+        "avg_brier": 0.6383246076310247,
+        "vs_market": {
+          "n": 27,
+          "accuracy": 0.48148148148148145,
+          "market_accuracy": 0.48148148148148145,
+          "avg_brier": 0.6288952798070833,
+          "market_avg_brier": 0.6317135886602856,
+          "brier_gap": {
+            "mean": 0.002818308853202282,
+            "lo": -0.03982320733447691,
+            "hi": 0.047710027769266646
+          },
+          "disagree_n": 2,
+          "we_right": 1,
+          "market_right": 1
+        }
+      },
+      "xg": {
+        "n": 1,
+        "avg_brier": 0.5550665787136868,
+        "vs_market": {
+          "n": 1,
+          "accuracy": 1.0,
+          "market_accuracy": 1.0,
+          "avg_brier": 0.5550665787136868,
+          "market_avg_brier": 0.5397783565627625,
+          "brier_gap": {
+            "mean": -0.015288222150924291,
+            "lo": -0.015288222150924291,
+            "hi": -0.015288222150924291
+          },
+          "disagree_n": 0,
+          "we_right": 0,
+          "market_right": 0
+        }
+      }
     }
   }
 }
