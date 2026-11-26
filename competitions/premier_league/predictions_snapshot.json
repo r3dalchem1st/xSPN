@@ -2000,5 +2000,33 @@
       "pd": 0.24964029297321183,
       "pa": 0.23711056996037408
     }
+  },
+  "Coventry City FC|Ipswich Town FC": {
+    "home": "Coventry City FC",
+    "away": "Ipswich Town FC",
+    "date": "2026-12-01",
+    "ph": 0.5447854700816097,
+    "pd": 0.2053750533074676,
+    "pa": 0.24983947661092273,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-26",
+    "model": {
+      "sha": "5ada4ae",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.4205076189534974,
+      "pd": 0.2639937926790219,
+      "pa": 0.3154985883674808
+    }
   }
 }
