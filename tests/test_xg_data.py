@@ -145,6 +145,23 @@ def test_xg_of_the_block_being_predicted_never_leaks_into_its_own_predictions():
     assert base[cut:] != changed[cut:]          # later blocks do learn from it, as they do from goals
 
 
+def test_xg_blackout_hides_the_xg_inside_the_outage_window_and_nothing_older():
+    by, keys = _data()
+    first = by["s3"][0]["date"]
+    block = lambda r: (dt.date.fromisoformat(r["date"]) - dt.date.fromisoformat(first)).days // 30
+    altered = copy.deepcopy(by)
+    for r in altered["s3"]:
+        if block(r) == 0:
+            r["hxg"], r["axg"] = 9.0, 0.0
+    run = lambda data, **cfg: _preds(data, keys, xg_weight=1.0, **cfg)
+    upto1 = sum(block(r) <= 1 for r in by["s3"])
+    assert run(by)[:upto1] != run(altered)[:upto1]            # no outage: block 0's xG is learned from block 1 on
+    assert run(by, xg_blackout_days=40)[:upto1] == run(altered, xg_blackout_days=40)[:upto1]   # still inside the 40 days
+    assert run(by, xg_blackout_days=40)[upto1:] != run(altered, xg_blackout_days=40)[upto1:]   # older than the outage: back
+    assert run(by, xg_blackout_days="season") == run(altered, xg_blackout_days="season")       # a season-long outage hides it all
+    assert _preds(by, keys, xg_weight=0.0, xg_blackout_days=40) == _preds(by, keys)             # and does nothing without xG
+
+
 def test_elo_and_the_evaluation_outcome_keep_using_real_goals_not_xg():
     by, keys = _data()
     skewed = copy.deepcopy(by)

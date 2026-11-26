@@ -53,6 +53,7 @@ DEFAULT_CONFIG = {
     "train_seasons": 3, "refit_days": 30,
     "momentum_weight": 0.0, "momentum_n": 5, "strength_shrink": 1.0, "draw_inflate": 0.0, "use_rho": False,
     "elo_prior_beta": 0.0, "promoted_prior": None, "xg_weight": 0.0,
+    "xg_blackout_days": 0,                          # xG missing for the N days before each refit ("season": the whole test season so far)
     "rest_weight": 0.0, "congestion_weight": 0.0,   # schedule fatigue (league fixtures only)
     "tier2_prior": None,                            # {"gamma","c"}: rate promoted clubs from their second-tier season
     "blend_half_life": None, "blend_weight": 0.0,   # fast/slow rating blend (cfg half_life_days is the slow one)
@@ -179,7 +180,13 @@ def run_season(rows_by_season, season_keys, test_idx, config):
         as_of = block[0]["date"]
         train = pool + [r for r in test_rows if r["date"] < as_of]
         plain = to_fit_rows(train, "bt")       # real goals: Elo, momentum and scoring never see xG
-        fit_rows = to_fit_rows(train, "bt", cfg["xg_weight"]) if cfg["xg_weight"] else plain
+        if cfg["xg_weight"] and cfg["xg_blackout_days"]:       # an Understat outage that began before this refit
+            gap = cfg["xg_blackout_days"]
+            cut = test_rows[0]["date"] if gap == "season" else (dt.date.fromisoformat(as_of) - dt.timedelta(days=gap)).isoformat()
+            train_xg = [{**r, "hxg": None, "axg": None} if r["date"] >= cut else r for r in train]
+        else:
+            train_xg = train
+        fit_rows = to_fit_rows(train_xg, "bt", cfg["xg_weight"]) if cfg["xg_weight"] else plain
         with _as_of(as_of):
             elo = fl.compute_elos(plain, half_life_days=cfg["half_life_days"])
             fit = lambda half_life: fl.fit_dc(

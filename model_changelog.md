@@ -133,4 +133,23 @@ Model was the broken June 1 pipeline; all 72 group snapshots locked with stale p
 
 ---
 
+## 2026-11-26 — xG outage: alert added, last-good-xG cache tested and NOT adopted, a latent fit hazard found (no model change)
+
+- **What happened:** Understat's whole site has served a "We will come back soon" page (HTTP 200, so the fetch fails on JSON parsing) since about 2 Nov. The fallback did its job — every CI run stayed green and printed `::warning::xG` — but nobody reads those lines, so it went unnoticed for 3+ weeks. Every lock since 2 Nov carries `xg_coverage` 0.0 (55 scored locks; only 5 scored locks have 1.0). Since 2 Nov the live model **is the goals-only baseline**, so the live results since then say nothing about xG.
+- **Alert (3d42a42):** `live_xg` reports its warnings to the caller, `fetch_league` writes `xg=ok|down` to the step output, and a non-blocking step in `update-leagues.yml` keeps one assigned GitHub issue per league (`xg-outage` label) open while a run reports xG degraded and closes it when a run joins cleanly. It never fails the run, so scoring and publishing continue through an outage. Verified in CI: three issues opened on the first run (assigned to the repo owner).
+- **Cache question (should the fit keep the last-good xG for old matches during an outage?)** — pre-registered before the run (rule in the script's docstring): DEV seasons only (2016-17..2022-23, 7,462 matches); build it only if BOTH a 30-day and a 120-day outage fit beat plain goals on paired Brier with a 95% lower bound > 0 and log-loss not worse. New harness knob `xg_blackout_days` (rolling_backtest) hides xG for the N days before each refit (or for the whole test season so far); tested. Brier improvement over plain goals, paired, positive = better:
+
+| fit | all matches | matches where every fit was finite (7,426) | retention of full xG |
+|---|---|---|---|
+| full xG (the live model before 2 Nov) | +0.00321 [+0.00154, +0.00488] | +0.00322 [+0.00156, +0.00485] | 100% |
+| xG missing for the last 30 days | NaN (a fit diverged, below) | +0.00204 [+0.00058, +0.00349] | 63% |
+| xG missing for the last 120 days | +0.00121 [-0.00003, +0.00248] | +0.00119 [-0.00002, +0.00242] | 37% |
+| xG missing for the whole season so far | +0.00114 [-0.00003, +0.00228] | +0.00114 [+0.00003, +0.00226] | 35% |
+
+  **Verdict: FAIL — the cache is not built; plain goals stays as the fallback.** The 120-day case misses by 0.00002 (a near-miss, not a proof of harm), the 30-day case could not be judged on the full sample, and the gate needs both. What the table does say: a lasting outage costs about 60% of xG's gain, and nothing cheap recovers it. The confirmation seasons were not touched.
+- **Hazard found (not fixed):** a fit that mixes xG-blended rows with only a few plain-goal rows can return NaN. Cause: Dixon–Coles rho is estimated only from integer low-score rows (0-0, 0-1, 1-0, 1-1); fractional xG rows do not enter it, so when just a few integer rows are left and they all push rho the same way (e.g. three 0-1 results) its likelihood has no maximum and Powell diverges (reproduced; moving those rows out of the cells makes the fit converge). Share of refits ending non-converged by number of recent days without xG: 0 days 0%, 1-7 days ~15%, 14 d 10%, 21 d 4%, 30 d 0.5%, >=60 d 0%. In production a NaN point fit makes `fit_dc_bootstrap` raise `RuntimeError` (every refit starts from NaN), which fails the league job. **Exposure:** it needs a handful of recent matches missing xG while the rest have it — e.g. Understat lagging on the latest matchday; all 12 committed `xg_by_match.json` snapshots from the healthy week (27 Oct - 1 Nov) were at 100%, so it has not been seen live. A last-good-xG cache would have made it routine at the start of every outage. Candidate guard (not built): if the blended fit does not converge, refit on plain goals.
+- **Consequence:** no change to predictions. xG remains off until Understat returns; the alert will say so.
+
+---
+
 *To review accuracy before/after any change: check `accuracy_history.json` for entries around the change date.*
