@@ -20,8 +20,11 @@ import os
 import re
 import sys
 
+import requests
+
 from competition_config import artifact_dir, load_competition
 from fetch_league import fetch_openfootball_file
+from fetch_live_scores import API_KEY_ENV, BASE
 from fetch_live_scores import fetch_matches as fetch_live_matches
 from fetch_live_scores import overlay_live_results
 from openfootball_txt import parse_openfootball_txt
@@ -74,6 +77,57 @@ def classify_stage(round_label):
 
 def _resolve(config, raw_name):
     return config.resolve_team(strip_country_suffix(raw_name))
+
+
+# football-data.org stage -> the openfootball round label the rest of the pipeline reads
+# (classify_stage() here, sim_cup._bracket_round() and the lock keys downstream).
+_FD_STAGE_LABELS = {"PLAYOFFS": "Playoffs", "LAST_16": "Finals, Round of 16",
+                    "QUARTER_FINALS": "Finals, Quarterfinals", "SEMI_FINALS": "Finals, Semifinals",
+                    "FINAL": "Finals, Final"}
+
+
+def football_data_match(m):
+    """One football-data.org match as the dict parse_openfootball_txt() returns
+    ({round, date, home, away, score, pen_score}), so the build_* functions below take either
+    source unchanged. None for a slot whose teams aren't known yet (a knockout fixture before
+    its draw) or a stage this pipeline doesn't model. Only a FINISHED match gets a score: the
+    true final score including extra time, with a shoot-out kept apart in pen_score
+    (football-data.org's fullTime may count shoot-out goals, so a shoot-out match is
+    regulation + extra time instead)."""
+    if m.get("stage") == "LEAGUE_STAGE":
+        label = f"League, Matchday {m['matchday']}" if m.get("matchday") else "League phase"
+    else:
+        label = _FD_STAGE_LABELS.get(m.get("stage"))
+    home, away = (m.get("homeTeam") or {}).get("name"), (m.get("awayTeam") or {}).get("name")
+    if not label or not home or not away:
+        return None
+    match = {"round": label, "date": m["utcDate"][:10], "home": home, "away": away, "score": None}
+    sc = m.get("score") or {}
+    full = sc.get("fullTime") or {}
+    if m.get("status") == "FINISHED" and full.get("home") is not None:
+        pens = sc.get("penalties") if sc.get("duration") == "PENALTY_SHOOTOUT" else None
+        reg, extra = sc.get("regularTime") or {}, sc.get("extraTime") or {}
+        if pens and reg.get("home") is not None:
+            full = {side: reg[side] + (extra.get(side) or 0) for side in ("home", "away")}
+        match["score"] = (full["home"], full["away"])
+        if pens:
+            match["pen_score"] = (pens["home"], pens["away"])
+    return match
+
+
+def fetch_football_data_season(code, season, timeout=30):
+    """Every match of one football-data.org season, as football_data_match() dicts in date
+    order. Unlike fetch_live_scores.fetch_matches (an optional overlay that shrugs failures
+    off) this IS the data source, so a missing key or a failed request raises
+    requests.RequestException and fetch_and_save aborts loudly."""
+    api_key = os.environ.get(API_KEY_ENV, "")
+    if not api_key:
+        raise requests.RequestException(f"{API_KEY_ENV} not set")
+    resp = requests.get(f"{BASE}/competitions/{code}/matches", params={"season": season},
+                        headers={"X-Auth-Token": api_key}, timeout=timeout)
+    resp.raise_for_status()
+    matches = (football_data_match(m) for m in resp.json().get("matches", []))
+    return sorted((m for m in matches if m), key=lambda m: m["date"])
 
 
 def build_training_rows(config, parsed_matches):
@@ -148,7 +202,8 @@ def build_knockout_fixtures(config, parsed_matches):
 
 
 def fetch_and_save(config, base_dir):
-    """Fetch every configured season (newest first), parse each, and write:
+    """Fetch every configured season (newest first -- football-data.org's
+    `football_data_seasons`, then openfootball's files), parse each, and write:
       competitions/<slug>/fetched_matches.json   -- training rows from every
         played match in every configured season (any stage)
       competitions/<slug>/league_schedule.json   -- newest season's
@@ -162,22 +217,29 @@ def fetch_and_save(config, base_dir):
     transient failure must never wipe a good live artifact to empty.
 
     Returns a summary dict, same shape as fetch_league.fetch_and_save's."""
-    import requests
     out_dir = artifact_dir(config, base_dir)
     all_rows, current_league_sched, current_ko_fixtures = [], {}, []
     total_skipped, failed = 0, []
     current_season_failed = False
 
-    for i, entry in enumerate(config.openfootball_files):
+    # Newest first, as ever: the config's football-data.org seasons (if any), then openfootball's.
+    sources = [(f"football-data.org {config.football_data_code} {year}",
+                lambda year=year: fetch_football_data_season(config.football_data_code, year))
+               for year in config.football_data_seasons]
+    sources += [(entry["path"],
+                 lambda path=entry["path"]: parse_openfootball_txt(
+                     fetch_openfootball_file(config.openfootball_repo, path)))
+                for entry in config.openfootball_files]
+
+    for i, (label, load) in enumerate(sources):
         try:
-            text = fetch_openfootball_file(config.openfootball_repo, entry["path"])
+            parsed = load()
         except requests.RequestException as e:
-            print(f"  ! failed to fetch {entry['path']}: {e}")
-            failed.append(entry["path"])
+            print(f"  ! failed to fetch {label}: {e}")
+            failed.append(label)
             if i == 0:
                 current_season_failed = True
             continue
-        parsed = parse_openfootball_txt(text)
         rows, n_skipped = build_training_rows(config, parsed)
         all_rows.extend(rows)
         total_skipped += n_skipped
@@ -193,7 +255,8 @@ def fetch_and_save(config, base_dir):
         print("  ! current-season fetch failed — leaving existing league_schedule.json "
               "/ knockout_fixtures.json untouched")
     else:
-        if config.football_data_code:
+        if config.football_data_code and not config.football_data_seasons:
+            # (Skipped when football-data.org already IS the current season's source.)
             # Only the league phase is a home|away-keyed schedule dict --
             # knockout_fixtures.json is a flat leg list (see its own
             # docstring above) and isn't in scope for this overlay.

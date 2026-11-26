@@ -8,5 +8,6 @@
     {"season": "2024-25", "path": "2024-25/cl.txt"}
   ],
   "team_aliases": {},
-  "football_data_code": "CL"
+  "football_data_code": "CL",
+  "football_data_seasons": [2026]
 }

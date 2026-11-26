@@ -113,7 +113,7 @@ def build_hub_cards(base_dir):
     from list_competitions import list_competition_slugs
     for slug in list_competition_slugs(base_dir):
         config = load_competition(os.path.join(base_dir, "competitions", f"{slug}.json"))
-        season = config.openfootball_files[0]["season"]    # newest first: the edition the page shows
+        season = config.current_season                     # the edition the page shows
         if config.format == "league_phase_knockout":
             snapshot, fallback = cup_snapshot(base_dir, slug, season), "Season predictions"
         elif config.format == "knockout_only":

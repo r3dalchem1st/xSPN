@@ -42,6 +42,13 @@ class CompetitionConfig:
         # openfootball's fixtures/training data, which volunteers can take
         # days to update with a played match's score. None -> no live overlay.
         self.football_data_code = data.get("football_data_code")
+        # Optional football-data.org season start-years, newest first (e.g. [2026] for 2026-27):
+        # fetch_cup.py takes THESE seasons' matches from football-data.org itself instead of
+        # openfootball -- for a competition openfootball has stopped publishing (the 2026-27
+        # Champions League has no file) -- and keeps openfootball_files for the older seasons.
+        self.football_data_seasons = data.get("football_data_seasons", [])
+        if self.football_data_seasons and not self.football_data_code:
+            raise ValueError("football_data_seasons needs a football_data_code")
         # Optional H/D/A calibration for the round-robin/cup prediction path
         # (league_calibration.py + sim_league.py/snapshot_league.py). Defaults
         # are each function's own no-op value, so an unset competition behaves
@@ -95,6 +102,15 @@ class CompetitionConfig:
             raise ValueError(f"xg_weight must be between 0 and 1, got {self.xg_weight}")
         if self.xg_weight and not self.understat_code:
             raise ValueError("xg_weight needs an understat_code")
+
+    @property
+    def current_season(self):
+        """Label of the edition the competition's page shows, e.g. "2026-27": the newest
+        football_data_seasons entry if there is one, else the newest openfootball file."""
+        if self.football_data_seasons:
+            year = self.football_data_seasons[0]
+            return f"{year}-{(year + 1) % 100:02d}"
+        return self.openfootball_files[0]["season"]
 
     def resolve_team(self, raw_name):
         """Canonical team name for a raw name from the data source. Applies

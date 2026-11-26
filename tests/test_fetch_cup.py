@@ -231,3 +231,136 @@ def test_main_exits_nonzero_when_current_season_fetch_fails(tmp_path, monkeypatc
     with pytest.raises(SystemExit) as exc_info:
         fetch_cup.main()
     assert exc_info.value.code == 1
+
+
+# ---- football-data.org as the current season's source (the 2026-27 Champions League) ----
+
+def _fd(stage, status="FINISHED", home="Real Madrid CF", away="Arsenal FC", date="2026-11-25T20:00:00Z",
+        matchday=None, **score):
+    return {"stage": stage, "matchday": matchday, "status": status, "utcDate": date,
+            "homeTeam": {"name": home}, "awayTeam": {"name": away}, "score": score}
+
+
+def test_football_data_match_maps_the_league_phase_to_the_openfootball_shape():
+    m = fetch_cup.football_data_match(_fd("LEAGUE_STAGE", matchday=5, duration="REGULAR",
+                                          fullTime={"home": 2, "away": 1}))
+    assert m == {"round": "League, Matchday 5", "date": "2026-11-25", "home": "Real Madrid CF",
+                 "away": "Arsenal FC", "score": (2, 1)}
+    assert classify_stage(m["round"]) == "league"
+
+
+def test_football_data_match_gives_an_unplayed_match_no_score():
+    m = fetch_cup.football_data_match(_fd("LEAGUE_STAGE", status="TIMED", matchday=6,
+                                          fullTime={"home": None, "away": None}))
+    assert m["score"] is None
+    in_play = fetch_cup.football_data_match(_fd("LEAGUE_STAGE", status="IN_PLAY", matchday=6,
+                                                fullTime={"home": 1, "away": 0}))
+    assert in_play["score"] is None                     # only a FINISHED match carries a score
+
+
+def test_football_data_match_labels_every_knockout_stage_the_way_sim_cup_reads_them():
+    from sim_cup import _bracket_round
+    want = {"PLAYOFFS": "playoff", "LAST_16": "round_of_16", "QUARTER_FINALS": "quarterfinal",
+            "SEMI_FINALS": "semifinal", "FINAL": "final"}
+    for stage, bracket_round in want.items():
+        m = fetch_cup.football_data_match(_fd(stage, fullTime={"home": 1, "away": 0}))
+        assert _bracket_round(m["round"]) == bracket_round
+        assert classify_stage(m["round"]) == ("playoff" if stage == "PLAYOFFS" else "final")
+
+
+def test_football_data_match_keeps_extra_time_goals_and_a_shootout_apart():
+    et = fetch_cup.football_data_match(_fd("LAST_16", duration="EXTRA_TIME", fullTime={"home": 3, "away": 2},
+                                           regularTime={"home": 2, "away": 2}, extraTime={"home": 1, "away": 0}))
+    assert et["score"] == (3, 2) and "pen_score" not in et
+    # fullTime of a shoot-out match may include the shoot-out goals (5-4 here): use 90 + extra time instead
+    pens = fetch_cup.football_data_match(_fd("FINAL", duration="PENALTY_SHOOTOUT", fullTime={"home": 5, "away": 4},
+                                            regularTime={"home": 1, "away": 1}, extraTime={"home": 0, "away": 0},
+                                            penalties={"home": 4, "away": 3}))
+    assert pens["score"] == (1, 1) and pens["pen_score"] == (4, 3)
+
+
+def test_football_data_match_skips_slots_without_teams_or_stages_we_dont_model():
+    assert fetch_cup.football_data_match(_fd("LAST_16", home=None, status="TIMED", fullTime={})) is None
+    assert fetch_cup.football_data_match(_fd("PRELIMINARY_ROUND", fullTime={"home": 1, "away": 0})) is None
+
+
+class _Resp:
+    def __init__(self, status, body):
+        self.status_code, self._body = status, body
+
+    def json(self):
+        return self._body
+
+    def raise_for_status(self):
+        if self.status_code != 200:
+            raise requests.HTTPError(f"HTTP {self.status_code}")
+
+
+def test_fetch_football_data_season_returns_known_matches_in_date_order(monkeypatch):
+    monkeypatch.setenv("FD_API_KEY", "k")
+    seen = {}
+
+    def fake_get(url, params=None, headers=None, timeout=None):
+        seen.update(url=url, params=params, token=headers["X-Auth-Token"])
+        return _Resp(200, {"matches": [
+            _fd("LEAGUE_STAGE", matchday=2, date="2026-09-16T19:00:00Z", fullTime={"home": 0, "away": 0}),
+            _fd("LAST_16", home=None, status="TIMED", fullTime={}),              # draw not made yet
+            _fd("LEAGUE_STAGE", matchday=1, date="2026-09-08T19:00:00Z", fullTime={"home": 2, "away": 3})]})
+
+    monkeypatch.setattr(fetch_cup.requests, "get", fake_get)
+    out = fetch_cup.fetch_football_data_season("CL", 2026)
+    assert [m["date"] for m in out] == ["2026-09-08", "2026-09-16"]
+    assert seen["url"].endswith("/competitions/CL/matches") and seen["params"] == {"season": 2026}
+    assert seen["token"] == "k"
+
+
+def test_fetch_football_data_season_raises_without_a_key_or_on_an_http_error(monkeypatch):
+    monkeypatch.delenv("FD_API_KEY", raising=False)
+    with pytest.raises(requests.RequestException):
+        fetch_cup.fetch_football_data_season("CL", 2026)
+    monkeypatch.setenv("FD_API_KEY", "k")
+    monkeypatch.setattr(fetch_cup.requests, "get", lambda *a, **k: _Resp(429, {}))
+    with pytest.raises(requests.RequestException):
+        fetch_cup.fetch_football_data_season("CL", 2026)
+
+
+FD_CONFIG_DATA = dict(CONFIG_DATA, football_data_code="CL", football_data_seasons=[2027],
+                      openfootball_files=[{"season": "2026-27", "path": "2026-27/cup.txt"}])
+
+
+def test_fetch_and_save_takes_the_current_season_from_football_data_and_history_from_openfootball(tmp_path, monkeypatch):
+    config = CompetitionConfig(FD_CONFIG_DATA)
+    monkeypatch.setattr(fetch_cup, "fetch_football_data_season",
+                        lambda code, season: [LEAGUE_MATCH, UNPLAYED_LEAGUE_MATCH, PLAYOFF_MATCH])
+    monkeypatch.setattr(fetch_cup, "fetch_openfootball_file", lambda repo, path, timeout=10: "history")
+    monkeypatch.setattr(fetch_cup, "parse_openfootball_txt", lambda text: [LEAGUE_PHASE_LABEL_MATCH])
+    monkeypatch.setattr(fetch_cup, "fetch_live_matches",
+                        lambda code: pytest.fail("the overlay is redundant when football-data.org is the source"))
+
+    summary = fetch_and_save(config, str(tmp_path))
+
+    assert summary["current_season_failed"] is False
+    assert summary["matches"] == 3 and summary["league_scheduled"] == 2 and summary["knockout_fixtures"] == 1
+    sched = json.loads((tmp_path / "competitions" / "test_cup" / "league_schedule.json").read_text())
+    assert sched["Real Madrid CF|Arsenal FC"]["status"] == "FINISHED"      # came from football-data.org
+    assert "Manchester United FC|Fulham FC" not in sched                    # the history season only trains
+
+
+def test_fetch_and_save_aborts_on_a_football_data_failure_and_leaves_the_artifacts_alone(tmp_path, monkeypatch):
+    config = CompetitionConfig(FD_CONFIG_DATA)
+    out_dir = tmp_path / "competitions" / "test_cup"
+    out_dir.mkdir(parents=True)
+    (out_dir / "league_schedule.json").write_text('{"keep": "me"}')
+
+    def boom(code, season):
+        raise requests.RequestException("429")
+
+    monkeypatch.setattr(fetch_cup, "fetch_football_data_season", boom)
+    monkeypatch.setattr(fetch_cup, "fetch_openfootball_file", lambda repo, path, timeout=10: "history")
+    monkeypatch.setattr(fetch_cup, "parse_openfootball_txt", lambda text: [LEAGUE_MATCH])
+
+    summary = fetch_and_save(config, str(tmp_path))
+
+    assert summary["current_season_failed"] is True
+    assert summary["failed_seasons"] == ["football-data.org CL 2027"]
+    assert json.loads((out_dir / "league_schedule.json").read_text()) == {"keep": "me"}

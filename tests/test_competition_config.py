@@ -195,3 +195,17 @@ def test_no_committed_competition_config_fetches_football_data_co_uk():
         data = json.load(open(path, encoding="utf-8"))
         assert "odds_history_code" not in data, os.path.basename(path)
         assert not data.get("odds_fit_weight"), os.path.basename(path)
+
+
+def test_football_data_seasons_default_to_none_and_the_openfootball_season_is_current():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.football_data_seasons == []
+    assert config.current_season == config.openfootball_files[0]["season"]
+
+
+def test_football_data_seasons_need_a_code_and_set_the_current_season():
+    with pytest.raises(ValueError, match="football_data_code"):
+        CompetitionConfig({**VALID_DATA, "football_data_seasons": [2026]})
+    config = CompetitionConfig({**VALID_DATA, "football_data_code": "CL", "football_data_seasons": [2026]})
+    assert config.football_data_seasons == [2026] and config.current_season == "2026-27"
+    assert CompetitionConfig({**VALID_DATA, "football_data_code": "CL", "football_data_seasons": [2099]}).current_season == "2099-00"
