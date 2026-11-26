@@ -226,14 +226,14 @@ def test_the_stamp_does_not_change_the_prediction_itself(tmp_path):
     assert abs(e["ph"] + e["pd"] + e["pa"] - 1.0) < 1e-9 and e["predicted_winner"] in "HDA"
 
 
-def _stamp_with_xg(tmp_path, name, config_data, xg):
+def _stamp_with_xg(tmp_path, name, config_data, xg, ensemble=None):
     base = str(tmp_path / name)
     matches = [["2026-07-01", "Weak FC", "Strong FC", 1, 0, "Test League", False],
                ["2026-07-08", "Strong FC", "Weak FC", 2, 1, "Test League", False]]
     _write_league_files(base, "test_league", DUE_SCHEDULE, matches)
     with open(os.path.join(base, "competitions", "test_league", "xg_by_match.json"), "w") as f:
         json.dump(xg, f)
-    snapshot_and_save(CompetitionConfig(config_data), base, [DC_SAMPLE], today="2026-08-14", odds_lookup={})
+    snapshot_and_save(CompetitionConfig(config_data), base, ensemble or [DC_SAMPLE], today="2026-08-14", odds_lookup={})
     with open(os.path.join(base, "competitions", "test_league", "predictions_snapshot.json")) as f:
         return json.load(f)["Weak FC|Strong FC"]["model"]
 
@@ -253,3 +253,10 @@ def test_the_stamp_shows_zero_coverage_when_understat_could_not_be_reached(tmp_p
 def test_the_stamp_has_no_xg_when_the_competition_does_not_use_it(tmp_path):
     m = _stamp_with_xg(tmp_path, "off", MOMENTUM_CONFIG_DATA, [[1.1, 0.3], [0.2, 0.9]])
     assert (m["xg_weight"], m["xg_coverage"]) == (0.0, 0.0)
+
+
+def test_the_stamp_shows_zero_coverage_when_the_fit_fell_back_to_real_goals(tmp_path):
+    # xg_by_match.json is mostly complete, but fit_league refit on real goals after the blend failed
+    cfg = dict(MOMENTUM_CONFIG_DATA, understat_code="EPL", xg_weight=0.75)
+    m = _stamp_with_xg(tmp_path, "fallback", cfg, [[1.1, 0.3], [0.2, 0.9]], ensemble=[dict(DC_SAMPLE, xg_fallback=True)])
+    assert (m["xg_weight"], m["xg_coverage"]) == (0.75, 0.0)

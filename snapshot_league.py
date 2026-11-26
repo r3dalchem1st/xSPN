@@ -168,6 +168,8 @@ def snapshot_and_save(config, base_dir, dc_ensemble, today=None, odds_lookup=Non
     xg_path = os.path.join(out_dir, "xg_by_match.json")
     xg = json.load(open(xg_path)) if config.xg_weight and os.path.exists(xg_path) else []
     xg_coverage = sum(p is not None for p in xg) / len(xg) if len(xg) == len(matches) and xg else 0.0
+    if any(dc.get("xg_fallback") for dc in dc_ensemble):    # fit_league refit on real goals after a failed blend
+        xg_coverage = 0.0
     stamp = model_stamp(config, dc_ensemble, xg_coverage)
     added = 0
     for key, entry in due:

@@ -435,3 +435,44 @@ def test_fit_and_save_with_an_all_none_xg_file_is_a_plain_goals_fit(tmp_path):
     plain_dc, _, _ = _fit_with(tmp_path, "plain")
     dc, _, _ = _fit_with(tmp_path, "allnone", xg=[None] * len(SYNTHETIC_MATCHES), **XG_CFG)
     assert dc["attack"] == plain_dc["attack"]
+
+
+# --- a blended fit that diverges falls back to real goals instead of failing the job ---
+
+def _diverge_on_blended_goals(monkeypatch):
+    """fit_dc as-is, except that on xG-blended (non-integer) goals it returns the NaN fit seen live."""
+    real = fit_league.fit_dc
+
+    def fit(matches, *a, **kw):
+        dc = real(matches, *a, **kw)
+        if any(float(m[3]) != int(m[3]) or float(m[4]) != int(m[4]) for m in matches):
+            dc["attack"] = {t: float("nan") for t in dc["attack"]}
+        return dc
+    monkeypatch.setattr(fit_league, "fit_dc", fit)
+
+
+def test_a_non_finite_blended_fit_falls_back_to_real_goals_and_says_so(tmp_path, monkeypatch, capsys):
+    plain_dc, _, _ = _fit_with(tmp_path, "plain")
+    _diverge_on_blended_goals(monkeypatch)
+    capsys.readouterr()
+    dc, _, ens = _fit_with(tmp_path, "nan", xg=_newcomer_deserved_more(), **XG_CFG)
+    assert dc["attack"] == plain_dc["attack"]                          # the real-goals fit
+    assert ens and all(m["xg_fallback"] is True for m in ens)          # snapshot_league stamps these xg_coverage 0
+    assert "::warning::" in capsys.readouterr().out
+
+
+def test_a_healthy_blended_fit_is_untouched_by_the_guard(tmp_path):
+    _, _, ens = _fit_with(tmp_path, "ok", xg=_newcomer_deserved_more(), **XG_CFG)
+    assert ens and not any("xg_fallback" in m for m in ens)
+
+
+def test_a_non_finite_fit_on_real_goals_still_fails_loudly(tmp_path, monkeypatch):
+    real = fit_league.fit_dc
+
+    def nan_fit(*a, **kw):
+        dc = real(*a, **kw)
+        dc["attack"] = {t: float("nan") for t in dc["attack"]}
+        return dc
+    monkeypatch.setattr(fit_league, "fit_dc", nan_fit)
+    with pytest.raises(RuntimeError, match="not finite"):
+        _fit_with(tmp_path, "plain-nan")

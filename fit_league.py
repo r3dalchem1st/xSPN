@@ -326,9 +326,26 @@ def fit_and_save(config, base_dir, bootstrap_size=60, seed=42):
                   f"{len(matches)} matches -- ignored, fitting on real goals")
 
     elo = compute_elos(matches)                      # Elo keeps real goals
-    dc = fit_dc(fit_matches, elo, mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
-    ensemble = fit_dc_bootstrap(fit_matches, elo, dc, B=bootstrap_size, seed=seed,
-                                 mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
+
+    def fit(ms):
+        dc = fit_dc(ms, elo, mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
+        if not np.isfinite([*dc["attack"].values(), *dc["defense"].values(), dc["home_adv"], dc["rho"]]).all():
+            raise RuntimeError("point fit is not finite")
+        return dc, fit_dc_bootstrap(ms, elo, dc, B=bootstrap_size, seed=seed,
+                                    mkt_probs_by_match=mkt_probs_by_match, odds_weight=config.odds_fit_weight)
+    try:
+        dc, ensemble = fit(fit_matches)
+    except RuntimeError as e:
+        # Mixing xG-blended rows with only a few plain-goal ones (Understat lagging a few matches)
+        # leaves Dixon-Coles rho pinned by almost nothing and Powell can diverge to NaN (23 of 90
+        # real-data fits with the last 1-7 days missing). Fall back to real goals, as an
+        # unavailable xG already does, instead of failing the league job.
+        if fit_matches is matches:
+            raise
+        print(f"::warning::{config.name}: the xG-blended fit failed ({e}) -- refitting on real goals")
+        dc, ensemble = fit(matches)
+        for member in ensemble:
+            member["xg_fallback"] = True             # snapshot_league stamps these locks xg_coverage 0
 
     with open(os.path.join(out_dir, "model_params.json"), "w") as f:
         json.dump({"elo": {t: round(v, 2) for t, v in elo.items()}, "dc": dc}, f, indent=2)
