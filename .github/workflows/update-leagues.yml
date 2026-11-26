@@ -34,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write      # the xG-outage alert below
     strategy:
       matrix:
         competition: ${{ fromJson(needs.discover.outputs.competitions) }}
@@ -59,11 +60,36 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Fetch new match results
+        id: fetch
         run: python fetch_league.py "competitions/$COMPETITION.json"
         env:
           # Only competitions with a football_data_code configured make use
           # of this (see fetch_live_scores.py) -- no-op for the rest.
           FD_API_KEY: ${{ secrets.FD_API_KEY }}
+
+      - name: Flag an xG outage (never fails the run)
+        # Understat is an unofficial feed: when it is down the fit quietly falls back to real
+        # goals (xg_data.live_xg), which once went unnoticed for 3+ weeks. Keep one open issue per
+        # league while a run reports xG degraded, and close it when a run joins cleanly. Assigned
+        # to the repo owner so GitHub notifies them. continue-on-error: a notification problem must
+        # never stop the predictions or the scoring.
+        if: steps.fetch.outputs.xg != ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          XG_STATE: ${{ steps.fetch.outputs.xg }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="xG degraded for $COMPETITION"
+          open=$(gh issue list --state open --label xg-outage --json number,title \
+                   --jq ".[] | select(.title == \"$title\") | .number" | head -n 1)
+          if [ "$XG_STATE" = down ] && [ -z "$open" ]; then
+            gh label create xg-outage --color B60205 --description "Understat xG unavailable or partial" 2>/dev/null || true
+            gh issue create --label xg-outage --assignee "$GITHUB_REPOSITORY_OWNER" --title "$title" \
+              --body "Understat xG failed or only partly joined for $COMPETITION, so new fits train those matches on real goals (the fallback working as designed). Details: the \`::warning::xG\` lines in $RUN_URL. Each new lock's \`model.xg_coverage\` in predictions_snapshot.json records what it actually used. This issue closes itself when a run joins cleanly."
+          elif [ "$XG_STATE" = ok ] && [ -n "$open" ]; then
+            gh issue close "$open" --comment "xG joined cleanly again ($RUN_URL)."
+          fi
 
       - name: Refit model (Dixon-Coles + Elo)
         run: python fit_league.py "competitions/$COMPETITION.json"

@@ -202,6 +202,13 @@ def test_live_xg_never_raises_when_understat_is_unreachable(capsys):
     assert "::warning::" in capsys.readouterr().out
 
 
+def test_live_xg_reports_each_warning_to_the_caller_and_nothing_on_a_clean_run():
+    clean, degraded = [], []
+    xg_data.live_xg("EPL", LIVE, lambda code, year: RAW, problems=clean)
+    xg_data.live_xg("EPL", LIVE, _blocked, problems=degraded)
+    assert clean == [] and len(degraded) == 1 and "unavailable (OSError: blocked)" in degraded[0]
+
+
 def test_live_xg_treats_a_response_in_the_wrong_shape_as_unreachable(capsys):
     assert xg_data.live_xg("EPL", LIVE, lambda code, year: [{"isResult": True}]) == [None, None]
     assert "unavailable (KeyError" in capsys.readouterr().out

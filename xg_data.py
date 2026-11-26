@@ -129,7 +129,7 @@ def season_of(date):
     return f"{y % 100:02d}{(y + 1) % 100:02d}"
 
 
-def live_xg(code, rows, fetch=fetch_understat_season):
+def live_xg(code, rows, fetch=fetch_understat_season, problems=None):
     """[(hxg, axg) or None] parallel to the live training `rows` ([date, home, away, hg, ag, ...]).
 
     The production counterpart of attach_all, but it never raises: Understat is unofficial and
@@ -137,11 +137,17 @@ def live_xg(code, rows, fetch=fetch_understat_season):
     season whose scores disagree with ours (> MAX_SCORE_MISMATCH) leaves those rows None -- the
     fit then trains them on real goals -- and prints a GitHub warning. A match the training
     data has but Understat does not (results land in different places at different times) is
-    also None; it only draws a warning when a season is short by more than JOIN_FLOOR."""
+    also None; it only draws a warning when a season is short by more than JOIN_FLOOR.
+    Every warning's text is also appended to `problems` (when given), so the caller can tell a
+    clean run from a degraded one."""
     out, by_season = [None] * len(rows), defaultdict(list)
     for i, r in enumerate(rows):
         by_season[season_of(r[0])].append(i)
-    warn = lambda msg: print(f"::warning::xG ({code}): {msg} -- those matches train on real goals")
+
+    def warn(msg):
+        print(f"::warning::xG ({code}): {msg} -- those matches train on real goals")
+        if problems is not None:
+            problems.append(msg)
     us = {}
     for season in by_season:
         try:

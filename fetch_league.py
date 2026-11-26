@@ -226,9 +226,13 @@ def fetch_and_save(config, base_dir):
         json.dump(current_mkt_probs + older_mkt_probs, f)
     # Understat xG per training match, parallel to fetched_matches.json (None = train on real
     # goals). Always written, like mkt_probs_by_match.json; live_xg never raises (see xg_data.py).
-    xg = live_xg(config.understat_code, all_rows) if config.xg_weight else [None] * len(all_rows)
+    problems = []
+    xg = live_xg(config.understat_code, all_rows, problems=problems) if config.xg_weight else [None] * len(all_rows)
     if config.xg_weight:
         print(f"  xG: {sum(p is not None for p in xg)}/{len(xg)} training matches")
+        if os.environ.get("GITHUB_OUTPUT"):         # read by the workflow's xG-outage alert step
+            with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+                f.write(f"xg={'down' if problems else 'ok'}\n")
     with open(os.path.join(out_dir, "xg_by_match.json"), "w") as f:
         json.dump(xg, f)
     if not current_season_failed:

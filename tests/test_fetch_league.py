@@ -427,7 +427,7 @@ def _fake_one_played_match(monkeypatch):
 
 def test_fetch_and_save_writes_an_all_none_xg_file_and_never_calls_understat_without_a_weight(tmp_path, monkeypatch):
     _fake_one_played_match(monkeypatch)
-    monkeypatch.setattr(fetch_league, "live_xg", lambda *a: (_ for _ in ()).throw(AssertionError("Understat called")))
+    monkeypatch.setattr(fetch_league, "live_xg", lambda *a, **k: (_ for _ in ()).throw(AssertionError("Understat called")))
     fetch_and_save(CompetitionConfig(CONFIG_DATA), str(tmp_path))
     with open(tmp_path / "competitions" / "test_league" / "xg_by_match.json") as f:
         assert json.load(f) == [None]
@@ -436,7 +436,8 @@ def test_fetch_and_save_writes_an_all_none_xg_file_and_never_calls_understat_wit
 def test_fetch_and_save_writes_xg_parallel_to_fetched_matches_when_a_weight_is_set(tmp_path, monkeypatch):
     _fake_one_played_match(monkeypatch)
     seen = []
-    monkeypatch.setattr(fetch_league, "live_xg", lambda code, rows: seen.append((code, rows)) or [(1.2, 0.4)])
+    monkeypatch.setattr(fetch_league, "live_xg",
+                        lambda code, rows, problems=None: seen.append((code, rows)) or [(1.2, 0.4)])
     fetch_and_save(CompetitionConfig(dict(CONFIG_DATA, understat_code="EPL", xg_weight=0.75)), str(tmp_path))
     out_dir = tmp_path / "competitions" / "test_league"
     with open(out_dir / "fetched_matches.json") as f:
@@ -444,3 +445,30 @@ def test_fetch_and_save_writes_xg_parallel_to_fetched_matches_when_a_weight_is_s
     with open(out_dir / "xg_by_match.json") as f:
         assert json.load(f) == [[1.2, 0.4]]
     assert seen == [("EPL", matches)]
+
+
+def _xg_output(tmp_path, monkeypatch, problem, **config):
+    """What fetch_and_save tells the workflow (GITHUB_OUTPUT) about xG, given a live_xg stand-in
+    that reports `problem` (or none)."""
+    def live(code, rows, problems=None):
+        problems.extend([problem] if problem else [])
+        return [None]
+    _fake_one_played_match(monkeypatch)
+    out = tmp_path / "github_output"
+    monkeypatch.setenv("GITHUB_OUTPUT", str(out))
+    monkeypatch.setattr(fetch_league, "live_xg", live)
+    fetch_and_save(CompetitionConfig(dict(CONFIG_DATA, **config)), str(tmp_path))
+    return out.read_text() if out.exists() else ""
+
+
+def test_the_workflow_is_told_xg_is_ok_only_when_live_xg_raised_no_problem(tmp_path, monkeypatch):
+    assert _xg_output(tmp_path, monkeypatch, None, understat_code="EPL", xg_weight=0.75) == "xg=ok\n"
+
+
+def test_the_workflow_is_told_xg_is_down_when_live_xg_reports_a_problem(tmp_path, monkeypatch):
+    out = _xg_output(tmp_path, monkeypatch, "Understat 2627 unavailable", understat_code="EPL", xg_weight=0.75)
+    assert out == "xg=down\n"
+
+
+def test_the_workflow_is_told_nothing_about_xg_when_no_weight_is_set(tmp_path, monkeypatch):
+    assert _xg_output(tmp_path, monkeypatch, "never asked") == ""
