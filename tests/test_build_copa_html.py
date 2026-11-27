@@ -143,3 +143,17 @@ def test_build_copa_html_against_the_real_template_file(tmp_path):
     with open(out_path) as f:
         content = f.read()
     assert "Copa del Rey" in content
+    assert "Wikipedia" not in content            # no Wikipedia pages configured -> no credit line
+
+
+def test_build_copa_html_credits_wikipedia_when_it_supplies_the_seasons(tmp_path):
+    config = CompetitionConfig({**CONFIG_DATA, "wikipedia_pages": [{"season": "2026-27", "page": "2026–27 Copa del Rey"}]})
+    os.makedirs(os.path.join(str(tmp_path), "competitions", config.slug), exist_ok=True)
+    real_template_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "copa_template.html")
+
+    out_path = build_copa_html(config, str(tmp_path), real_template_path)
+
+    with open(out_path, encoding="utf-8") as f:
+        content = f.read()
+    assert "Match data from Wikipedia" in content and "CC BY-SA 4.0" in content

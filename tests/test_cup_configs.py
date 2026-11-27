@@ -23,5 +23,10 @@ def test_copa_del_rey_config_loads():
     assert config.format == "knockout_only"
     assert config.openfootball_repo == "openfootball/espana"
     assert config.extra_training_sources  # non-empty, per the design doc
-    # Not on football-data.org's free tier -- openfootball stays the sole source.
+    # Not on football-data.org's free tier; openfootball has no Copa file after 2024-25, so the
+    # current editions come from Wikipedia (newest first) and the four Supercopa clubs enter late.
     assert config.football_data_code is None
+    assert [p["season"] for p in config.wikipedia_pages] == ["2026-27", "2025-26"]
+    assert config.current_season == "2026-27"
+    assert len(config.late_entrants["round_3"]) == 4
+    assert {"repo": "openfootball/espana", "path": "2026-27/1-liga.txt"} in config.extra_training_sources

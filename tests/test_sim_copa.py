@@ -159,6 +159,38 @@ def test_simulate_bracket_raises_with_no_fixtures():
         simulate_bracket([], [_dc()])
 
 
+def _leg(home, away, score, pens=None, label="Preliminary round", date="2026-09-26"):
+    return {"round": label, "date": date, "home": home, "away": away, "score": score, "pen_score": pens}
+
+
+def test_build_played_ties_decides_a_two_legged_tie_outside_the_semifinal():
+    # 2026-27's Preliminary round is two-legged: the tie is decided on aggregate...
+    played = build_played_ties([_leg("B", "A", [0, 1]), _leg("A", "B", [2, 0], date="2026-10-04")])
+    assert known_tie_winner("preliminary", "A", "B", played) == "A"
+    # ...or, with the aggregate level, by the shoot-out on the second leg
+    played = build_played_ties([_leg("B", "A", [1, 0]), _leg("A", "B", [1, 0], pens=[4, 2], date="2026-10-04")])
+    assert known_tie_winner("preliminary", "A", "B", played) == "A"
+
+
+def test_build_played_ties_waits_for_the_second_leg_of_a_two_legged_preliminary_tie():
+    fixtures = [_leg("B", "A", [3, 0]), _leg("A", "B", None, date="2026-10-04")]   # second leg still to play
+    assert known_tie_winner("preliminary", "A", "B", build_played_ties(fixtures)) is None
+
+
+def test_simulate_bracket_fields_late_entrants_before_their_round_is_drawn():
+    # Round 2 is drawn (4 clubs); the round of 32 is not, and two big clubs skip to it.
+    fixtures = [_leg(h, a, None, label="Round 2", date="2026-12-02") for h, a in (("A", "B"), ("C", "D"))]
+    late = {"round_3": ["Giant FC", "Giant United"]}
+    dc = _dc({"Giant FC": 3.0, "Giant United": 3.0})
+
+    odds = simulate_bracket(fixtures, [dc], n_sims=200, seed=1, late_entrants=late)
+
+    assert odds["Giant FC"]["round_3"] == 1.0 and odds["Giant United"]["round_3"] == 1.0
+    assert odds["Giant FC"]["champion"] > odds["A"]["champion"]
+    assert sum(o["champion"] for o in odds.values()) == pytest.approx(1.0)
+    assert "Giant FC" not in simulate_bracket(fixtures, [dc], n_sims=20, seed=1)   # absent without the config
+
+
 def test_simulate_and_save_writes_copa_sim(tmp_path):
     from competition_config import CompetitionConfig
     config = CompetitionConfig({

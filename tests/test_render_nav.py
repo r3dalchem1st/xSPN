@@ -170,4 +170,12 @@ def test_footer_credits_football_data_org_and_sits_in_every_page_that_shows_its_
     read = lambda t: open(os.path.join(root, t), encoding="utf-8").read()
     for t in ("template.html", "league_template.html", "cup_template.html", "hub_template.html"):
         assert "__FOOTER__" in read(t), t
-    assert "__FOOTER__" not in read("copa_template.html")     # openfootball only; no football-data.org data
+    assert "__FOOTER__" in read("copa_template.html")         # carries the Wikipedia credit instead
+
+
+def test_wikipedia_footer_credits_each_source_page_and_the_licence():
+    from render_nav import wikipedia_footer_html
+    html = wikipedia_footer_html([{"season": "2026-27", "page": "2026–27 Copa del Rey"}])
+    assert 'href="https://en.wikipedia.org/wiki/2026%E2%80%9327_Copa_del_Rey"' in html
+    assert "2026–27 Copa del Rey</a>" in html
+    assert "CC BY-SA 4.0" in html and "creativecommons.org/licenses/by-sa/4.0" in html

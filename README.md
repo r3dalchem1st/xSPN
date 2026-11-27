@@ -10,4 +10,4 @@ Licensed under the GNU Affero General Public License v3.0 only (AGPL-3.0-only); 
 
 ## Data
 
-The AGPL covers this repository's code and the predictions it produces, not third-party data. Match data comes from [openfootball](https://github.com/openfootball) (CC0) and the [football-data.org](https://www.football-data.org/) API; odds from The Odds API; expected goals from Understat when available. Each keeps its owner's terms.
+The AGPL covers this repository's code and the predictions it produces, not third-party data. Match data comes from [openfootball](https://github.com/openfootball) (CC0) and the [football-data.org](https://www.football-data.org/) API, and the Copa del Rey's current seasons from [Wikipedia](https://en.wikipedia.org/) (CC BY-SA 4.0, credited on that page); odds from The Odds API; expected goals from Understat when available. Each keeps its owner's terms.

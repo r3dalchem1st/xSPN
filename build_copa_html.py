@@ -18,7 +18,7 @@ from build_league_html import (
     _outcome_classes, _prediction_line_html, _historical_prediction_line_html,
     br_col_open_html, BRACKET_LEGEND_HTML,
 )
-from render_nav import nav_entries, render_nav_html
+from render_nav import nav_entries, render_nav_html, wikipedia_footer_html
 from sim_copa import ROUND_ORDER, _stage, build_played_ties
 
 STAGE_TITLES = {
@@ -157,6 +157,7 @@ def build_copa_html(config, base_dir, template_path, n_sims=10000):
     with open(template_path, encoding="utf-8") as f:
         page = f.read()
     page = page.replace("__NAV__", nav_html)
+    page = page.replace("__FOOTER__", wikipedia_footer_html(config.wikipedia_pages) if config.wikipedia_pages else "")
     page = page.replace("__COMPETITION_NAME__", html_lib.escape(config.name))
     page = page.replace("__GENERATED_DATE__", date.today().isoformat())
     page = page.replace("__N_SIMS__", str(n_sims))

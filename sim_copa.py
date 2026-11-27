@@ -70,20 +70,25 @@ def _decide_single(fx, team_a, team_b):
 
 def build_played_ties(knockout_fixtures):
     """{(stage, frozenset({team_a, team_b})): winner} for every
-    ALREADY-DECIDED tie. A Semifinal tie needs BOTH legs played (aggregate,
-    or a shootout on whichever leg carries a pen_score); every other round
-    is a single match, decided the moment its one fixture has a score."""
-    legs_by_tie = defaultdict(list)
+    ALREADY-DECIDED tie. A two-legged tie -- every Semifinal, and any other
+    tie the fixtures list with two legs (the 2026-27 Preliminary round) --
+    needs BOTH legs played (aggregate, or a shootout on whichever leg
+    carries a pen_score); every other tie is a single match, decided the
+    moment its one fixture has a score."""
+    legs_by_tie, n_legs = defaultdict(list), defaultdict(int)
     for fx in knockout_fixtures:
         stage = _stage(fx["round"])
-        if stage is None or fx["score"] is None:
+        if stage is None:
             continue
-        legs_by_tie[(stage, frozenset((fx["home"], fx["away"])))].append(fx)
+        tie = (stage, frozenset((fx["home"], fx["away"])))
+        n_legs[tie] += 1                       # played or not
+        if fx["score"] is not None:
+            legs_by_tie[tie].append(fx)
 
     winners = {}
     for (stage, pair), legs in legs_by_tie.items():
         team_a, team_b = tuple(pair)
-        if stage not in TWO_LEGGED_ROUNDS:
+        if stage not in TWO_LEGGED_ROUNDS and n_legs[(stage, pair)] == 1:
             if len(legs) != 1:
                 continue
             winners[(stage, pair)] = _decide_single(legs[0], team_a, team_b)
@@ -221,7 +226,7 @@ def build_match_lambda_tables(config, teams, dc_ensemble, matches, as_of_date):
     return [league_average_lambda_table(teams, dc, config.strength_shrink) for dc in dc_ensemble]
 
 
-def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42):
+def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42, late_entrants=None):
     """Monte Carlo the whole 8-round bracket. Each simulated tournament
     starts from the earliest round with real entrant data and advances
     round by round, using each round's REAL pairing whenever it's already
@@ -230,9 +235,14 @@ def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42):
     Returns {team: {stage: reached_pct, ..., "champion": pct}}, each a
     standalone probability of REACHING that stage (not exclusive of later
     stages, same convention as every other bracket in this project)."""
-    all_teams = sorted({t for fx in knockout_fixtures for t in (fx["home"], fx["away"])})
-    if not all_teams:
+    teams_in_fixtures = {t for fx in knockout_fixtures for t in (fx["home"], fx["away"])}
+    if not teams_in_fixtures:
         raise ValueError("no fixtures in knockout_fixtures.json -- nothing to simulate")
+    # `late_entrants` ({stage: [teams]}, from the config) joins clubs that no fixture names yet
+    # because their entry round isn't drawn -- Copa's four Supercopa clubs skip the early rounds.
+    # Once a stage has real fixtures its own entrant set replaces this.
+    late = late_entrants or {}
+    all_teams = sorted(teams_in_fixtures | {t for teams in late.values() for t in teams})
 
     decided = build_played_ties(knockout_fixtures)
     lg_ens = [league_average_lambda_table(all_teams, dc) for dc in dc_ensemble]
@@ -255,6 +265,8 @@ def simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=10000, seed=42):
             real_entrants = real_entrants_by_stage[stage]
             if real_entrants is not None:
                 field = real_entrants
+            elif field is not None and stage in late:
+                field = field + late[stage]
             if field is None:
                 continue  # this stage (and every earlier one) has no real data yet
             for t in field:
@@ -304,7 +316,8 @@ def simulate_and_save(config, base_dir, n_sims=10000, seed=42):
     with open(ensemble_path) as f:
         dc_ensemble = json.load(f)
 
-    stage_odds = simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=n_sims, seed=seed)
+    stage_odds = simulate_bracket(knockout_fixtures, dc_ensemble, n_sims=n_sims, seed=seed,
+                                  late_entrants=config.late_entrants)
 
     with open(os.path.join(out_dir, "copa_sim.json"), "w") as f:
         json.dump(stage_odds, f, indent=2)

@@ -209,3 +209,19 @@ def test_football_data_seasons_need_a_code_and_set_the_current_season():
     config = CompetitionConfig({**VALID_DATA, "football_data_code": "CL", "football_data_seasons": [2026]})
     assert config.football_data_seasons == [2026] and config.current_season == "2026-27"
     assert CompetitionConfig({**VALID_DATA, "football_data_code": "CL", "football_data_seasons": [2099]}).current_season == "2099-00"
+
+
+def test_wikipedia_pages_and_late_entrants_default_to_none_and_wikipedia_sets_the_current_season():
+    config = CompetitionConfig(VALID_DATA)
+    assert config.wikipedia_pages == [] and config.late_entrants == {}
+    config = CompetitionConfig({**VALID_DATA, "late_entrants": {"round_3": ["A"]},
+                                "wikipedia_pages": [{"season": "2026-27", "page": "2026–27 Copa del Rey"},
+                                                    {"season": "2025-26", "page": "2025–26 Copa del Rey"}]})
+    assert config.current_season == "2026-27" and config.late_entrants == {"round_3": ["A"]}
+
+
+def test_load_competition_reads_non_ascii_config_text_as_utf8(tmp_path):
+    path = tmp_path / "c.json"
+    path.write_text(json.dumps({**VALID_DATA, "wikipedia_pages": [{"season": "2026-27", "page": "2026–27 Copa del Rey"}]},
+                               ensure_ascii=False), encoding="utf-8")
+    assert load_competition(str(path)).wikipedia_pages[0]["page"] == "2026–27 Copa del Rey"

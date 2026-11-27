@@ -6,7 +6,15 @@
   "openfootball_files": [
     {"season": "2024-25", "path": "2024-25/cup.txt"}
   ],
+  "wikipedia_pages": [
+    {"season": "2026-27", "page": "2026–27 Copa del Rey"},
+    {"season": "2025-26", "page": "2025–26 Copa del Rey"}
+  ],
+  "late_entrants": {
+    "round_3": ["Real Madrid CF", "FC Barcelona", "Club Atlético de Madrid", "Real Sociedad de Fútbol"]
+  },
   "extra_training_sources": [
+    {"repo": "openfootball/espana", "path": "2026-27/1-liga.txt"},
     {"repo": "openfootball/espana", "path": "2025-26/1-liga.txt"},
     {"repo": "openfootball/espana", "path": "2024-25/1-liga.txt"},
     {"repo": "openfootball/espana", "path": "2025-26/2-liga2.txt"},
@@ -14,13 +22,31 @@
   ],
   "team_aliases": {
     "Real Madrid": "Real Madrid CF",
+    "Real Madrid C.F.": "Real Madrid CF",
     "Atlético Madrid": "Club Atlético de Madrid",
+    "Atlético de Madrid": "Club Atlético de Madrid",
+    "Barcelona": "FC Barcelona",
     "RC Celta": "RC Celta de Vigo",
     "Rayo Vallecano": "Rayo Vallecano de Madrid",
     "Real Betis": "Real Betis Balompié",
     "Real Sociedad": "Real Sociedad de Fútbol",
     "Espanyol Barcelona": "RCD Espanyol de Barcelona",
+    "RCD Espanyol": "RCD Espanyol de Barcelona",
     "Real Valladolid": "Real Valladolid CF",
-    "CD Alavés": "Deportivo Alavés"
+    "CD Alavés": "Deportivo Alavés",
+    "Sevilla": "Sevilla FC",
+    "Villarreal": "Villarreal CF",
+    "Athletic Bilbao": "Athletic Club",
+    "Deportivo La Coruña": "RC Deportivo La Coruña",
+    "Deportivo A Coruña": "RC Deportivo La Coruña",
+    "Deportivo de A Coruña": "RC Deportivo La Coruña",
+    "Deportivo de La Coruña": "RC Deportivo La Coruña",
+    "Racing Santander": "Real Racing Club de Santander",
+    "Racing de Santander": "Real Racing Club de Santander",
+    "AD Ceuta": "AD Ceuta FC",
+    "Albacete Balompié": "Albacete",
+    "Cultural y Deportiva Leonesa": "Cultural Leonesa",
+    "Sporting de Gijón": "Sporting Gijón",
+    "Racing de Ferrol": "Racing Ferrol"
   }
 }

@@ -49,6 +49,17 @@ class CompetitionConfig:
         self.football_data_seasons = data.get("football_data_seasons", [])
         if self.football_data_seasons and not self.football_data_code:
             raise ValueError("football_data_seasons needs a football_data_code")
+        # Optional Wikipedia pages, newest first ([{"season": "2026-27", "page": "2026–27 Copa del
+        # Rey"}]): fetch_copa.py reads THESE editions' matches from the page's wikitext instead of
+        # openfootball -- for a competition openfootball has stopped publishing (no Copa file after
+        # 2024-25) -- and keeps openfootball_files for the older seasons. CC BY-SA: the page
+        # footer credits them (render_nav.wikipedia_footer_html).
+        self.wikipedia_pages = data.get("wikipedia_pages", [])
+        # Optional {stage: [teams]} (sim_copa stage keys, e.g. "round_3") that join a knockout
+        # bracket at a round which isn't drawn yet, so sim_copa.py can field them before any
+        # fixture names them (Copa del Rey: the four Supercopa clubs enter at the round of 32).
+        # Once that round has real fixtures they name the entrants and this is ignored.
+        self.late_entrants = data.get("late_entrants", {})
         # Optional H/D/A calibration for the round-robin/cup prediction path
         # (league_calibration.py + sim_league.py/snapshot_league.py). Defaults
         # are each function's own no-op value, so an unset competition behaves
@@ -106,7 +117,10 @@ class CompetitionConfig:
     @property
     def current_season(self):
         """Label of the edition the competition's page shows, e.g. "2026-27": the newest
-        football_data_seasons entry if there is one, else the newest openfootball file."""
+        wikipedia_pages entry, else the newest football_data_seasons entry, else the newest
+        openfootball file."""
+        if self.wikipedia_pages:
+            return self.wikipedia_pages[0]["season"]
         if self.football_data_seasons:
             year = self.football_data_seasons[0]
             return f"{year}-{(year + 1) % 100:02d}"
@@ -126,7 +140,7 @@ class CompetitionConfig:
 def load_competition(path):
     """Load and validate a competition config JSON file.
     Raises ValueError on schema violations, FileNotFoundError if missing."""
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     return CompetitionConfig(data)
 

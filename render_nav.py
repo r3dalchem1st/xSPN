@@ -22,6 +22,7 @@ first and outside this ordering entirely (it isn't a competition).
 import html as html_lib
 import json
 import os
+from urllib.parse import quote
 
 from list_competitions import list_competition_slugs
 
@@ -111,7 +112,18 @@ def render_nav_html(entries):
 
 # football-data.org's free tier asks for this credit wherever its data is shown: the live
 # results/fixtures overlay on the league, cup and World Cup pages (the hub links to them).
-# Copa del Rey is openfootball-only, so its page does not carry it.
+# The Copa del Rey page carries the Wikipedia credit below instead.
 FOOTER_HTML = ('<footer class="xspn-foot" style="padding:16px;text-align:center;font-size:.72rem;color:#888">'
                'Football data provided by the <a href="https://www.football-data.org" rel="noopener" '
                'style="color:inherit">Football-Data.org API</a></footer>')
+
+
+def wikipedia_footer_html(pages):
+    """Credit for match data taken from Wikipedia pages (the config's `wikipedia_pages`): CC BY-SA
+    4.0 asks for attribution, a link to the licence and a link to each source page."""
+    links = ", ".join(
+        f'<a href="https://en.wikipedia.org/wiki/{quote(p["page"].replace(" ", "_"))}" rel="noopener" '
+        f'style="color:inherit">{html_lib.escape(p["page"])}</a>' for p in pages)
+    return ('<footer class="xspn-foot" style="padding:16px;text-align:center;font-size:.72rem;color:#888">'
+            f'Match data from Wikipedia ({links}), available under <a href="https://creativecommons.org/licenses/by-sa/4.0/" '
+            'rel="noopener" style="color:inherit">CC BY-SA 4.0</a></footer>')
