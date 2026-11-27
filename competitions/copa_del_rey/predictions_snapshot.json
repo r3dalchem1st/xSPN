@@ -1,1 +1,244 @@
-{}
+{
+  "Round 2|Reus FC Reddis|Real Racing Club de Santander": {
+    "home": "Reus FC Reddis",
+    "away": "Real Racing Club de Santander",
+    "date": "2026-12-01",
+    "ph": 0.1446823527764222,
+    "pd": 0.19729835648748717,
+    "pa": 0.6580192907360906,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|SD Huesca|Girona FC": {
+    "home": "SD Huesca",
+    "away": "Girona FC",
+    "date": "2026-12-01",
+    "ph": 0.3216995470298856,
+    "pd": 0.2751622458382716,
+    "pa": 0.40313820713184273,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|SD Ponferradina|FC Andorra": {
+    "home": "SD Ponferradina",
+    "away": "FC Andorra",
+    "date": "2026-12-01",
+    "ph": 0.3932642523038805,
+    "pd": 0.263124680721208,
+    "pa": 0.3436110669749114,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Gimn\u00e1stica de Torrelavega|Deportivo Alav\u00e9s": {
+    "home": "Gimn\u00e1stica de Torrelavega",
+    "away": "Deportivo Alav\u00e9s",
+    "date": "2026-12-01",
+    "ph": 0.18684116687261493,
+    "pd": 0.20233762386075077,
+    "pa": 0.6108212092666342,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|CD Numancia|Athletic Club": {
+    "home": "CD Numancia",
+    "away": "Athletic Club",
+    "date": "2026-12-01",
+    "ph": 0.15750454714065007,
+    "pd": 0.16154567678412654,
+    "pa": 0.6809497760752236,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|CE Europa|Rayo Vallecano de Madrid": {
+    "home": "CE Europa",
+    "away": "Rayo Vallecano de Madrid",
+    "date": "2026-12-01",
+    "ph": 0.23292518672519552,
+    "pd": 0.21684962522204626,
+    "pa": 0.5502251880527582,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Antequera CF|Levante UD": {
+    "home": "Antequera CF",
+    "away": "Levante UD",
+    "date": "2026-12-01",
+    "ph": 0.2532283383777372,
+    "pd": 0.2557861277388679,
+    "pa": 0.49098553388339466,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Albacete|UD Las Palmas": {
+    "home": "Albacete",
+    "away": "UD Las Palmas",
+    "date": "2026-12-01",
+    "ph": 0.41793365803965643,
+    "pd": 0.2658587365776297,
+    "pa": 0.31620760538271403,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|FC Cartagena|Elche CF": {
+    "home": "FC Cartagena",
+    "away": "Elche CF",
+    "date": "2026-12-01",
+    "ph": 0.149211442964047,
+    "pd": 0.20920671714321049,
+    "pa": 0.6415818398927425,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|CD Extremadura|Real Betis Balompi\u00e9": {
+    "home": "CD Extremadura",
+    "away": "Real Betis Balompi\u00e9",
+    "date": "2026-12-01",
+    "ph": 0.13893575522367815,
+    "pd": 0.1372068853102847,
+    "pa": 0.7238573594660372,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Club Portugalete|RC Deportivo La Coru\u00f1a": {
+    "home": "Club Portugalete",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "date": "2026-12-02",
+    "ph": 0.1473769205012895,
+    "pd": 0.3098960675719421,
+    "pa": 0.5427270119267682,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|UE Sant Andreu|SD Eibar": {
+    "home": "UE Sant Andreu",
+    "away": "SD Eibar",
+    "date": "2026-12-02",
+    "ph": 0.3461917916991682,
+    "pd": 0.2837548124912537,
+    "pa": 0.37005339580957836,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Cultural Leonesa|CD Castell\u00f3n": {
+    "home": "Cultural Leonesa",
+    "away": "CD Castell\u00f3n",
+    "date": "2026-12-02",
+    "ph": 0.44465802383365244,
+    "pd": 0.2302935100114869,
+    "pa": 0.3250484661548606,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Zamora CF|Real Valladolid CF": {
+    "home": "Zamora CF",
+    "away": "Real Valladolid CF",
+    "date": "2026-12-02",
+    "ph": 0.44045116016547337,
+    "pd": 0.31898220711255243,
+    "pa": 0.2405666327219743,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|CD Mirand\u00e9s|CD Legan\u00e9s": {
+    "home": "CD Mirand\u00e9s",
+    "away": "CD Legan\u00e9s",
+    "date": "2026-12-02",
+    "ph": 0.3792170987167,
+    "pd": 0.29130226359195005,
+    "pa": 0.32948063769135005,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|CE Sabadell|Sporting Gij\u00f3n": {
+    "home": "CE Sabadell",
+    "away": "Sporting Gij\u00f3n",
+    "date": "2026-12-02",
+    "ph": 0.11556846274841576,
+    "pd": 0.22279260449652263,
+    "pa": 0.6616389327550617,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Rayo Majadahonda|RCD Mallorca": {
+    "home": "Rayo Majadahonda",
+    "away": "RCD Mallorca",
+    "date": "2026-12-02",
+    "ph": 0.1180814029252457,
+    "pd": 0.2059928159314043,
+    "pa": 0.6759257811433501,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Sestao River Club|Villarreal CF": {
+    "home": "Sestao River Club",
+    "away": "Villarreal CF",
+    "date": "2026-12-02",
+    "ph": 0.19219168863725555,
+    "pd": 0.12163422770252108,
+    "pa": 0.6861740836602233,
+    "predicted_winner": "A",
+    "predicted_score": "1-4",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|Arosa SC|RC Celta de Vigo": {
+    "home": "Arosa SC",
+    "away": "RC Celta de Vigo",
+    "date": "2026-12-02",
+    "ph": 0.31253792532819513,
+    "pd": 0.2519811005627208,
+    "pa": 0.4354809741090841,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|AD Ceuta FC|C\u00e1diz CF": {
+    "home": "AD Ceuta FC",
+    "away": "C\u00e1diz CF",
+    "date": "2026-12-02",
+    "ph": 0.3482791008122287,
+    "pd": 0.3265663769101057,
+    "pa": 0.32515452227766556,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|UD Almer\u00eda|Granada CF": {
+    "home": "UD Almer\u00eda",
+    "away": "Granada CF",
+    "date": "2026-12-02",
+    "ph": 0.5435141983539249,
+    "pd": 0.20826198930775872,
+    "pa": 0.2482238123383164,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-27"
+  },
+  "Round 2|CD Eldense|CD Tenerife": {
+    "home": "CD Eldense",
+    "away": "CD Tenerife",
+    "date": "2026-12-02",
+    "ph": 0.41059205642334634,
+    "pd": 0.3074569279440793,
+    "pa": 0.2819510156325741,
+    "predicted_winner": "H",
+    "predicted_score": "1-0",
+    "snapped_at": "2026-11-27"
+  }
+}

@@ -1,34 +1,20 @@
 [
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "San Tirso SD",
-    "away": "Selaya FC",
+    "date": "2026-09-26",
+    "home": "CD Anaitasuna",
+    "away": "CD Tede\u00f3n",
     "score": [
-      1,
-      1
-    ],
-    "pen_score": [
       5,
-      3
-    ]
-  },
-  {
-    "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "CD Sonseca",
-    "away": "Parla Escuela",
-    "score": [
-      0,
-      1
+      0
     ],
     "pen_score": null
   },
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "Astur CF",
-    "away": "DUX Logro\u00f1o",
+    "date": "2026-09-26",
+    "home": "Atl\u00e9tico Calatayud",
+    "away": "CD Bazt\u00e1n",
     "score": [
       2,
       0
@@ -37,34 +23,130 @@
   },
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
+    "date": "2026-09-26",
+    "home": "UB Lebrijana",
+    "away": "CD Ceuta 6 de Junio",
+    "score": [
+      5,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-26",
+    "home": "Ribadesella CF",
+    "away": "SD Noja",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-26",
+    "home": "UD Pinatar",
+    "away": "Atl\u00e9tico Melilla CF",
+    "score": [
+      8,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-27",
+    "home": "Auriense CA",
+    "away": "CD San Jos\u00e9",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-27",
+    "home": "AD Sporting Hortaleza",
+    "away": "EMF Atl\u00e9tico Uni\u00f3n G\u00fc\u00edmar",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-27",
+    "home": "CF Sant Rafel",
+    "away": "AE Prat",
+    "score": [
+      1,
+      5
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-27",
+    "home": "CP Talayuela",
+    "away": "Sporting de Alc\u00e1zar CF",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-09-27",
+    "home": "UD Maracena",
+    "away": "CF UE Tavernes de la Valldigna",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-10-03",
     "home": "CD Bazt\u00e1n",
-    "away": "Onti\u00f1ena CF",
+    "away": "Atl\u00e9tico Calatayud",
     "score": [
       1,
-      1
+      2
     ],
-    "pen_score": [
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-10-03",
+    "home": "CD Tede\u00f3n",
+    "away": "CD Anaitasuna",
+    "score": [
       2,
-      4
-    ]
+      5
+    ],
+    "pen_score": null
   },
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "UD San Pedro",
-    "away": "Ceuta 6 de Junio",
+    "date": "2026-10-03",
+    "home": "CD Ceuta 6 de Junio",
+    "away": "UB Lebrijana",
     "score": [
-      4,
+      1,
       2
     ],
     "pen_score": null
   },
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "CD Villamuriel",
-    "away": "CD Aurrer\u00e1 de Vitoria",
+    "date": "2026-10-04",
+    "home": "CD San Jos\u00e9",
+    "away": "Auriense CA",
     "score": [
       1,
       0
@@ -73,34 +155,34 @@
   },
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "EF Dolorense",
-    "away": "Manises CF",
-    "score": [
-      1,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "UE Vic",
-    "away": "CF Sporting Mahon\u00e9s",
-    "score": [
-      4,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "CD G\u00e9vora",
-    "away": "Playas de Sotavento",
+    "date": "2026-10-04",
+    "home": "SD Noja",
+    "away": "Ribadesella CF",
     "score": [
       1,
       1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-10-04",
+    "home": "Sporting de Alc\u00e1zar CF",
+    "away": "CP Talayuela",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Preliminary round",
+    "date": "2026-10-04",
+    "home": "CF UE Tavernes de la Valldigna",
+    "away": "UD Maracena",
+    "score": [
+      0,
+      0
     ],
     "pen_score": [
       4,
@@ -109,75 +191,9 @@
   },
   {
     "round": "Preliminary round",
-    "date": "2024-10-09",
-    "home": "Chiclana CF",
-    "away": "Melilla CD",
-    "score": [
-      4,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "CD Villamuriel",
-    "away": "Rayo Vallecano de Madrid",
-    "score": [
-      0,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "SD Compostela",
-    "away": "Deportivo Alav\u00e9s",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "CD Guijuelo",
-    "away": "Ourense CF",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "Astur CF",
-    "away": "Real Valladolid CF",
-    "score": [
-      1,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "UD Poblense",
-    "away": "Villarreal CF",
-    "score": [
-      1,
-      6
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "Real Ja\u00e9n",
-    "away": "C\u00e1diz CF",
+    "date": "2026-10-04",
+    "home": "Atl\u00e9tico Melilla CF",
+    "away": "UD Pinatar",
     "score": [
       0,
       3
@@ -185,547 +201,104 @@
     "pen_score": null
   },
   {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "CE L'Hospitalet",
-    "away": "Real Zaragoza",
-    "score": [
-      1,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-29",
-    "home": "UD Lanzarote",
-    "away": "Racing Santander",
+    "round": "Preliminary round",
+    "date": "2026-10-11",
+    "home": "EMF Atl\u00e9tico Uni\u00f3n G\u00fc\u00edmar",
+    "away": "AD Sporting Hortaleza",
     "score": [
       3,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CE Europa",
-    "away": "Albacete",
-    "score": [
-      2,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Las Rozas CF",
-    "away": "Sevilla FC",
-    "score": [
-      0,
       3
     ],
     "pen_score": null
   },
   {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Ciudad de Lucena",
-    "away": "CD Legan\u00e9s",
+    "round": "Preliminary round",
+    "date": "2026-10-11",
+    "home": "AE Prat",
+    "away": "CF Sant Rafel",
     "score": [
-      1,
-      2
+      5,
+      0
     ],
     "pen_score": null
   },
   {
     "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UE Olot",
-    "away": "C\u00f3rdoba CF",
-    "score": [
-      1,
-      1
-    ],
-    "pen_score": [
-      4,
-      3
-    ]
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Ibiza",
-    "away": "Gimn\u00e0stic de Tarragona",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "SD Beasain",
-    "away": "FC Cartagena",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD M\u00f3stoles URJC",
-    "away": "Burgos CF",
-    "score": [
-      2,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Berganti\u00f1os FC",
-    "away": "Marbella FC",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UP Langreo",
-    "away": "Orihuela CF",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Cortes",
-    "away": "Granada CF",
-    "score": [
-      0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UE Sant Andreu",
+    "date": "2026-10-27",
+    "home": "Atl\u00e9tico Tordesillas",
     "away": "CD Mirand\u00e9s",
     "score": [
-      2,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CF Badalona Futur",
-    "away": "SD Huesca",
-    "score": [
-      0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UD Logro\u00f1\u00e9s",
-    "away": "SD Eibar",
-    "score": [
-      1,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Numancia",
-    "away": "Sporting Gij\u00f3n",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Utebo FC",
-    "away": "Unionistas CF",
-    "score": [
-      0,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Laredo",
-    "away": "Yeclano Deportivo",
-    "score": [
-      0,
-      6
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Juventud Torremolinos",
-    "away": "Zamora CF",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UM Escobedo",
-    "away": "SD Ponferradina",
-    "score": [
-      0,
-      0
+      3,
+      3
     ],
     "pen_score": [
-      4,
-      5
+      2,
+      4
     ]
   },
   {
     "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Lleida Esportiu",
-    "away": "Barakaldo CF",
-    "score": [
-      1,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "Salamanca CF UDS",
-    "away": "AD Alcorc\u00f3n",
-    "score": [
-      1,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Coria",
-    "away": "Elche CF",
-    "score": [
-      0,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CP Cacere\u00f1o",
-    "away": "Gimn\u00e1stica Segoviana",
-    "score": [
-      2,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UB Conquense",
-    "away": "UD Ibiza",
-    "score": [
-      1,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UD San Pedro",
-    "away": "RC Celta de Vigo",
-    "score": [
-      1,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Extremadura",
-    "away": "Girona FC",
-    "score": [
-      0,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "UD SS Reyes",
-    "away": "UD Almer\u00eda",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "\u00c1guilas FC",
-    "away": "CD Castell\u00f3n",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-30",
-    "home": "CD Atl\u00e9tico Paso",
-    "away": "CD Eldense",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "UE Vic",
-    "away": "Club Atl\u00e9tico de Madrid",
-    "score": [
-      0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "San Tirso SD",
-    "away": "RCD Espanyol de Barcelona",
-    "score": [
-      0,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "UD Barbastro",
-    "away": "SD Amorebieta",
-    "score": [
-      4,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "Real \u00c1vila CF",
-    "away": "Real Oviedo",
-    "score": [
-      0,
-      0
-    ],
-    "pen_score": [
-      3,
-      0
-    ]
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "CD Tudelano",
-    "away": "Deportiva Minera",
-    "score": [
-      0,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "Don Benito",
-    "away": "FC Andorra",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "CD G\u00e9vora",
-    "away": "Real Betis Balompi\u00e9",
-    "score": [
-      1,
-      6
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "Onti\u00f1ena CF",
-    "away": "UD Las Palmas",
-    "score": [
-      0,
-      7
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "CD Cuarte",
-    "away": "Racing Ferrol",
-    "score": [
-      1,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "CD Estepona",
-    "away": "M\u00e1laga CF",
-    "score": [
-      3,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "CD Alfaro",
-    "away": "CD Tenerife",
-    "score": [
-      0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-10-31",
-    "home": "UD Llanera",
+    "date": "2026-10-27",
+    "home": "Gimn\u00e1stica Segoviana CF",
     "away": "Cultural Leonesa",
     "score": [
       0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-11-05",
-    "home": "Chiclana CF",
-    "away": "CA Osasuna",
-    "score": [
-      0,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-11-06",
-    "home": "Xerez CD",
-    "away": "AD Ceuta FC",
-    "score": [
-      0,
       1
     ],
     "pen_score": null
   },
   {
     "round": "Round 1",
-    "date": "2024-11-14",
-    "home": "SD Ejea",
-    "away": "H\u00e9rcules CF",
+    "date": "2026-10-27",
+    "home": "UD Llanera",
+    "away": "SD Ponferradina",
     "score": [
       1,
+      1
+    ],
+    "pen_score": [
+      3,
+      5
+    ]
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "Arosa SC",
+    "away": "Pontevedra CF",
+    "score": [
+      2,
       0
     ],
     "pen_score": null
   },
   {
     "round": "Round 1",
-    "date": "2024-11-19",
-    "home": "Pontevedra CF",
-    "away": "Levante UD",
+    "date": "2026-10-27",
+    "home": "CD Cuarte",
+    "away": "Girona FC",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "Sestao River Club",
+    "away": "RCD Espanyol de Barcelona",
     "score": [
       4,
-      1
+      3
     ],
     "pen_score": null
   },
   {
     "round": "Round 1",
-    "date": "2024-11-21",
-    "home": "Jove Espa\u00f1ol",
-    "away": "Real Sociedad de F\u00fatbol",
-    "score": [
-      0,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-11-26",
-    "home": "Parla Escuela",
-    "away": "Valencia CF",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 1",
-    "date": "2024-11-26",
-    "home": "Manises CF",
-    "away": "Getafe CF",
+    "date": "2026-10-27",
+    "home": "CF Calamocha",
+    "away": "CE Europa",
     "score": [
       0,
       3
@@ -733,122 +306,45 @@
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-03",
-    "home": "Real \u00c1vila CF",
-    "away": "Real Valladolid CF",
-    "score": [
-      2,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-03",
-    "home": "Yeclano Deportivo",
-    "away": "Elche CF",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-03",
-    "home": "Salamanca CF UDS",
-    "away": "RC Celta de Vigo",
-    "score": [
-      0,
-      7
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-03",
-    "home": "UD Barbastro",
-    "away": "RCD Espanyol de Barcelona",
-    "score": [
-      2,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-03",
-    "home": "Real Zaragoza",
-    "away": "Granada CF",
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "CE Manresa",
+    "away": "UE Sant Andreu",
     "score": [
       2,
       2
     ],
     "pen_score": [
-      4,
-      5
+      1,
+      3
     ]
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-03",
-    "home": "CE Europa",
-    "away": "UD Las Palmas",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "UE Sant Andreu",
-    "away": "Real Betis Balompi\u00e9",
-    "score": [
-      1,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Unionistas CF",
-    "away": "Rayo Vallecano de Madrid",
-    "score": [
-      2,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Gimn\u00e0stic de Tarragona",
-    "away": "SD Huesca",
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "CD Tudelano",
+    "away": "Real Zaragoza",
     "score": [
       0,
-      1
+      4
     ],
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Ourense CF",
-    "away": "Deportivo La Coru\u00f1a",
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "UD Pinatar",
+    "away": "Elche CF",
     "score": [
       1,
-      0
+      3
     ],
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Cultural Leonesa",
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "UD Castellonense",
     "away": "UD Almer\u00eda",
     "score": [
       1,
@@ -857,9 +353,243 @@
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "C\u00e1diz CF",
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "CE Manacor",
+    "away": "Villarreal CF",
+    "score": [
+      0,
+      5
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "Sporting de Alc\u00e1zar CF",
+    "away": "M\u00e1laga CF",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "CD Atl\u00e9tico Paso",
+    "away": "C\u00f3rdoba CF",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "RSD Alcal\u00e1",
+    "away": "UD Las Palmas",
+    "score": [
+      1,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "CD Ciudad de Lucena",
+    "away": "CF Rayo Majadahonda",
+    "score": [
+      0,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "CD Don Benito",
+    "away": "CD Extremadura",
+    "score": [
+      2,
+      4
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-27",
+    "home": "Recreativo de Huelva",
+    "away": "Rayo Vallecano de Madrid",
+    "score": [
+      2,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Numancia",
+    "away": "Real Oviedo",
+    "score": [
+      3,
+      3
+    ],
+    "pen_score": [
+      4,
+      2
+    ]
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Coruxo FC",
+    "away": "Zamora CF",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Covadonga",
+    "away": "Real Valladolid CF",
+    "score": [
+      0,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Guijuelo",
+    "away": "Sporting Gij\u00f3n",
+    "score": [
+      1,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Laredo",
+    "away": "Burgos CF",
+    "score": [
+      2,
+      4
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Real \u00c1vila CF",
+    "away": "Unionistas de Salamanca CF",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Gimn\u00e1stica de Torrelavega",
+    "away": "UD Ourense",
+    "score": [
+      3,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Ribadesella CF",
+    "away": "Real Racing Club de Santander",
+    "score": [
+      0,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Auriense CA",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Pe\u00f1a Sport FC",
+    "away": "SD Huesca",
+    "score": [
+      1,
+      5
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Atl\u00e9tico Calatayud",
+    "away": "CA Osasuna",
+    "score": [
+      0,
+      6
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Varea",
+    "away": "FC Andorra",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "AE Prat",
+    "away": "Athletic Club",
+    "score": [
+      1,
+      6
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "UD Poblense",
+    "away": "AD Ceuta FC",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Atl\u00e9tico Baleares",
     "away": "CD Eldense",
     "score": [
       0,
@@ -868,135 +598,54 @@
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Racing Santander",
-    "away": "Sporting Gij\u00f3n",
-    "score": [
-      1,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "UD Logro\u00f1\u00e9s",
-    "away": "Girona FC",
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "CD Cieza",
+    "away": "Granada CF",
     "score": [
       0,
-      0
-    ],
-    "pen_score": [
-      4,
-      3
-    ]
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "SD Ejea",
-    "away": "Valencia CF",
-    "score": [
-      1,
       3
     ],
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Pontevedra CF",
-    "away": "Villarreal CF",
-    "score": [
-      1,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "CD Estepona",
-    "away": "CD Legan\u00e9s",
-    "score": [
-      2,
-      2
-    ],
-    "pen_score": [
-      4,
-      5
-    ]
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-04",
-    "home": "Zamora CF",
-    "away": "CD Tenerife",
-    "score": [
-      0,
-      0
-    ],
-    "pen_score": [
-      1,
-      3
-    ]
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "CP Cacere\u00f1o",
-    "away": "Club Atl\u00e9tico de Madrid",
-    "score": [
-      1,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "Orihuela CF",
-    "away": "Getafe CF",
-    "score": [
-      0,
-      0
-    ],
-    "pen_score": [
-      0,
-      3
-    ]
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "AD Ceuta FC",
-    "away": "CA Osasuna",
-    "score": [
-      2,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "SD Ponferradina",
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "UB Conquense",
     "away": "CD Castell\u00f3n",
     "score": [
-      1,
-      1
-    ],
-    "pen_score": [
-      4,
+      0,
       3
-    ]
+    ],
+    "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "Barakaldo CF",
-    "away": "Racing Ferrol",
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Antequera CF",
+    "away": "\u00c1guilas FC",
+    "score": [
+      2,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "UB Lebrijana",
+    "away": "Getafe CF",
+    "score": [
+      2,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "UD San Sebasti\u00e1n de los Reyes",
+    "away": "CD Coria",
     "score": [
       1,
       2
@@ -1004,32 +653,10 @@
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "Marbella FC",
-    "away": "Burgos CF",
-    "score": [
-      1,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "FC Andorra",
-    "away": "FC Cartagena",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "UE Olot",
-    "away": "Sevilla FC",
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "Xerez CD",
+    "away": "C\u00e1diz CF",
     "score": [
       1,
       3
@@ -1037,394 +664,420 @@
     "pen_score": null
   },
   {
-    "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "Deportiva Minera",
+    "round": "Round 1",
+    "date": "2026-10-29",
+    "home": "AD Sporting Hortaleza",
+    "away": "Sevilla FC",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-10",
+    "home": "CD Pamplona",
+    "away": "SD Eibar",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-10",
+    "home": "CD Anaitasuna",
     "away": "Deportivo Alav\u00e9s",
     "score": [
-      2,
+      1,
+      6
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-10",
+    "home": "SD Amorebieta",
+    "away": "UD Logro\u00f1\u00e9s",
+    "score": [
+      1,
+      0
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-10",
+    "home": "CP Mijas-Las Lagunas",
+    "away": "Real Ja\u00e9n",
+    "score": [
+      1,
       2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-10",
+    "home": "CF UE Tavernes de la Valldigna",
+    "away": "Valencia CF",
+    "score": [
+      0,
+      6
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-10",
+    "home": "CF Trival Valderas",
+    "away": "CD Legan\u00e9s",
+    "score": [
+      0,
+      1
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-12",
+    "home": "Calvo Sotelo Puertollano CF",
+    "away": "Albacete",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-12",
+    "home": "CD Taranc\u00f3n",
+    "away": "Levante UD",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-12",
+    "home": "CDA Navalcarnero",
+    "away": "Real Betis Balompi\u00e9",
+    "score": [
+      2,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-13",
+    "home": "Salamanca CF UDS",
+    "away": "RC Celta de Vigo",
+    "score": [
+      0,
+      5
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-18",
+    "home": "Club Portugalete",
+    "away": "Real Uni\u00f3n",
+    "score": [
+      0,
+      0
     ],
     "pen_score": [
       4,
-      2
+      1
     ]
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-18",
+    "home": "Utebo FC",
+    "away": "CE Sabadell FC",
+    "score": [
+      0,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-18",
+    "home": "Reus FC Reddis",
+    "away": "Barakaldo CF",
+    "score": [
+      1,
+      1
+    ],
+    "pen_score": [
+      4,
+      3
+    ]
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-18",
+    "home": "CD Alcoyano",
+    "away": "RCD Mallorca",
+    "score": [
+      1,
+      3
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-18",
+    "home": "CD Minera",
+    "away": "FC Cartagena",
+    "score": [
+      1,
+      2
+    ],
+    "pen_score": null
+  },
+  {
+    "round": "Round 1",
+    "date": "2026-11-18",
+    "home": "CD Badajoz",
+    "away": "CD Tenerife",
+    "score": [
+      2,
+      5
+    ],
+    "pen_score": null
   },
   {
     "round": "Round 2",
-    "date": "2024-12-05",
-    "home": "UB Conquense",
-    "away": "Real Sociedad de F\u00fatbol",
-    "score": [
-      0,
-      1
-    ],
+    "date": "2026-12-01",
+    "home": "Reus FC Reddis",
+    "away": "Real Racing Club de Santander",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round 3",
-    "date": "2025-01-03",
-    "home": "Pontevedra CF",
-    "away": "RCD Mallorca",
-    "score": [
-      3,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-03",
-    "home": "Granada CF",
-    "away": "Getafe CF",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-03",
-    "home": "Racing Ferrol",
-    "away": "Rayo Vallecano de Madrid",
-    "score": [
-      1,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-04",
+    "round": "Round 2",
+    "date": "2026-12-01",
     "home": "SD Huesca",
-    "away": "Real Betis Balompi\u00e9",
-    "score": [
-      0,
-      1
-    ],
+    "away": "Girona FC",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round 3",
-    "date": "2025-01-04",
-    "home": "CD Tenerife",
-    "away": "CA Osasuna",
-    "score": [
-      1,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-04",
-    "home": "UD Almer\u00eda",
-    "away": "Sevilla FC",
-    "score": [
-      4,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-04",
-    "home": "UD Barbastro",
-    "away": "FC Barcelona",
-    "score": [
-      0,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-04",
-    "home": "UD Logro\u00f1\u00e9s",
-    "away": "Athletic Club",
-    "score": [
-      0,
-      0
-    ],
-    "pen_score": [
-      3,
-      4
-    ]
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-04",
-    "home": "Marbella FC",
-    "away": "Club Atl\u00e9tico de Madrid",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-05",
-    "home": "Ourense CF",
-    "away": "Real Valladolid CF",
-    "score": [
-      3,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-05",
-    "home": "Elche CF",
-    "away": "UD Las Palmas",
-    "score": [
-      4,
-      0
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-05",
+    "round": "Round 2",
+    "date": "2026-12-01",
     "home": "SD Ponferradina",
-    "away": "Real Sociedad de F\u00fatbol",
-    "score": [
-      0,
-      2
-    ],
+    "away": "FC Andorra",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round 3",
-    "date": "2025-01-05",
-    "home": "Racing Santander",
-    "away": "RC Celta de Vigo",
-    "score": [
-      2,
-      3
-    ],
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "Gimn\u00e1stica de Torrelavega",
+    "away": "Deportivo Alav\u00e9s",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round 3",
-    "date": "2025-01-05",
-    "home": "FC Cartagena",
-    "away": "CD Legan\u00e9s",
-    "score": [
-      1,
-      2
-    ],
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "CD Numancia",
+    "away": "Athletic Club",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round 3",
-    "date": "2025-01-06",
-    "home": "Deportiva Minera",
-    "away": "Real Madrid CF",
-    "score": [
-      0,
-      5
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round 3",
-    "date": "2025-01-07",
-    "home": "CD Eldense",
-    "away": "Valencia CF",
-    "score": [
-      0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round of 16",
-    "date": "2025-01-14",
-    "home": "Ourense CF",
-    "away": "Valencia CF",
-    "score": [
-      0,
-      2
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round of 16",
-    "date": "2025-01-15",
-    "home": "Pontevedra CF",
-    "away": "Getafe CF",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round of 16",
-    "date": "2025-01-15",
-    "home": "UD Almer\u00eda",
-    "away": "CD Legan\u00e9s",
-    "score": [
-      2,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round of 16",
-    "date": "2025-01-15",
-    "home": "FC Barcelona",
-    "away": "Real Betis Balompi\u00e9",
-    "score": [
-      5,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round of 16",
-    "date": "2025-01-15",
-    "home": "Elche CF",
-    "away": "Club Atl\u00e9tico de Madrid",
-    "score": [
-      0,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Round of 16",
-    "date": "2025-01-16",
-    "home": "Real Sociedad de F\u00fatbol",
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "CE Europa",
     "away": "Rayo Vallecano de Madrid",
-    "score": [
-      3,
-      1
-    ],
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round of 16",
-    "date": "2025-01-16",
-    "home": "Athletic Club",
-    "away": "CA Osasuna",
-    "score": [
-      2,
-      3
-    ],
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "Antequera CF",
+    "away": "Levante UD",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Round of 16",
-    "date": "2025-01-16",
-    "home": "Real Madrid CF",
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "Albacete",
+    "away": "UD Las Palmas",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "FC Cartagena",
+    "away": "Elche CF",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-01",
+    "home": "CD Extremadura",
+    "away": "Real Betis Balompi\u00e9",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "Club Portugalete",
+    "away": "RC Deportivo La Coru\u00f1a",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "UE Sant Andreu",
+    "away": "SD Eibar",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "Cultural Leonesa",
+    "away": "CD Castell\u00f3n",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "Zamora CF",
+    "away": "Real Valladolid CF",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "CD Mirand\u00e9s",
+    "away": "CD Legan\u00e9s",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "CE Sabadell",
+    "away": "Sporting Gij\u00f3n",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "Rayo Majadahonda",
+    "away": "RCD Mallorca",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "Sestao River Club",
+    "away": "Villarreal CF",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "Arosa SC",
     "away": "RC Celta de Vigo",
-    "score": [
-      5,
-      2
-    ],
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Quarterfinals",
-    "date": "2025-02-04",
-    "home": "Club Atl\u00e9tico de Madrid",
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "AD Ceuta FC",
+    "away": "C\u00e1diz CF",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "UD Almer\u00eda",
+    "away": "Granada CF",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-02",
+    "home": "CD Eldense",
+    "away": "CD Tenerife",
+    "score": null,
+    "pen_score": null
+  },
+  {
+    "round": "Round 2",
+    "date": "2026-12-03",
+    "home": "Real \u00c1vila CF",
     "away": "Getafe CF",
-    "score": [
-      5,
-      0
-    ],
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Quarterfinals",
-    "date": "2025-02-05",
-    "home": "CD Legan\u00e9s",
-    "away": "Real Madrid CF",
-    "score": [
-      2,
-      3
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Quarterfinals",
-    "date": "2025-02-06",
-    "home": "Real Sociedad de F\u00fatbol",
+    "round": "Round 2",
+    "date": "2026-12-03",
+    "home": "SD Amorebieta",
     "away": "CA Osasuna",
-    "score": [
-      2,
-      0
-    ],
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Quarterfinals",
-    "date": "2025-02-06",
-    "home": "Valencia CF",
-    "away": "FC Barcelona",
-    "score": [
-      0,
-      5
-    ],
+    "round": "Round 2",
+    "date": "2026-12-03",
+    "home": "Real Zaragoza",
+    "away": "Burgos CF",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Semifinals",
-    "date": "2025-02-25",
-    "home": "FC Barcelona",
-    "away": "Club Atl\u00e9tico de Madrid",
-    "score": [
-      4,
-      4
-    ],
+    "round": "Round 2",
+    "date": "2026-12-03",
+    "home": "CD Atl\u00e9tico Paso",
+    "away": "Sevilla FC",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Semifinals",
-    "date": "2025-02-26",
-    "home": "Real Sociedad de F\u00fatbol",
-    "away": "Real Madrid CF",
-    "score": [
-      0,
-      1
-    ],
+    "round": "Round 2",
+    "date": "2026-12-03",
+    "home": "CD Coria",
+    "away": "M\u00e1laga CF",
+    "score": null,
     "pen_score": null
   },
   {
-    "round": "Semifinals",
-    "date": "2025-04-01",
-    "home": "Real Madrid CF",
-    "away": "Real Sociedad de F\u00fatbol",
-    "score": [
-      4,
-      4
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Semifinals",
-    "date": "2025-04-02",
-    "home": "Club Atl\u00e9tico de Madrid",
-    "away": "FC Barcelona",
-    "score": [
-      0,
-      1
-    ],
-    "pen_score": null
-  },
-  {
-    "round": "Final",
-    "date": "2025-04-26",
-    "home": "FC Barcelona",
-    "away": "Real Madrid CF",
-    "score": [
-      3,
-      2
-    ],
+    "round": "Round 2",
+    "date": "2026-12-03",
+    "home": "Real Ja\u00e9n",
+    "away": "Valencia CF",
+    "score": null,
     "pen_score": null
   }
 ]

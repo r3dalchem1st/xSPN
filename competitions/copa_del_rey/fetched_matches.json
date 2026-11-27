@@ -1,5 +1,1922 @@
 [
   [
+    "2026-09-26",
+    "CD Anaitasuna",
+    "CD Tede\u00f3n",
+    5,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-26",
+    "Atl\u00e9tico Calatayud",
+    "CD Bazt\u00e1n",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-26",
+    "UB Lebrijana",
+    "CD Ceuta 6 de Junio",
+    5,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-26",
+    "Ribadesella CF",
+    "SD Noja",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-26",
+    "UD Pinatar",
+    "Atl\u00e9tico Melilla CF",
+    8,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-27",
+    "Auriense CA",
+    "CD San Jos\u00e9",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-27",
+    "AD Sporting Hortaleza",
+    "EMF Atl\u00e9tico Uni\u00f3n G\u00fc\u00edmar",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-27",
+    "CF Sant Rafel",
+    "AE Prat",
+    1,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-27",
+    "CP Talayuela",
+    "Sporting de Alc\u00e1zar CF",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-27",
+    "UD Maracena",
+    "CF UE Tavernes de la Valldigna",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-03",
+    "CD Bazt\u00e1n",
+    "Atl\u00e9tico Calatayud",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-03",
+    "CD Tede\u00f3n",
+    "CD Anaitasuna",
+    2,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-03",
+    "CD Ceuta 6 de Junio",
+    "UB Lebrijana",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-04",
+    "CD San Jos\u00e9",
+    "Auriense CA",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-04",
+    "SD Noja",
+    "Ribadesella CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-04",
+    "Sporting de Alc\u00e1zar CF",
+    "CP Talayuela",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-04",
+    "CF UE Tavernes de la Valldigna",
+    "UD Maracena",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-04",
+    "Atl\u00e9tico Melilla CF",
+    "UD Pinatar",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-11",
+    "EMF Atl\u00e9tico Uni\u00f3n G\u00fc\u00edmar",
+    "AD Sporting Hortaleza",
+    3,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-11",
+    "AE Prat",
+    "CF Sant Rafel",
+    5,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "Atl\u00e9tico Tordesillas",
+    "CD Mirand\u00e9s",
+    3,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "Gimn\u00e1stica Segoviana CF",
+    "Cultural Leonesa",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "UD Llanera",
+    "SD Ponferradina",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "Arosa SC",
+    "Pontevedra CF",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CD Cuarte",
+    "Girona FC",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "Sestao River Club",
+    "RCD Espanyol de Barcelona",
+    4,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CF Calamocha",
+    "CE Europa",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CE Manresa",
+    "UE Sant Andreu",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CD Tudelano",
+    "Real Zaragoza",
+    0,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "UD Pinatar",
+    "Elche CF",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "UD Castellonense",
+    "UD Almer\u00eda",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CE Manacor",
+    "Villarreal CF",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "Sporting de Alc\u00e1zar CF",
+    "M\u00e1laga CF",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CD Atl\u00e9tico Paso",
+    "C\u00f3rdoba CF",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "RSD Alcal\u00e1",
+    "UD Las Palmas",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CD Ciudad de Lucena",
+    "CF Rayo Majadahonda",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "CD Don Benito",
+    "CD Extremadura",
+    2,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-27",
+    "Recreativo de Huelva",
+    "Rayo Vallecano de Madrid",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Numancia",
+    "Real Oviedo",
+    3,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Coruxo FC",
+    "Zamora CF",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Covadonga",
+    "Real Valladolid CF",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Guijuelo",
+    "Sporting Gij\u00f3n",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Laredo",
+    "Burgos CF",
+    2,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Real \u00c1vila CF",
+    "Unionistas de Salamanca CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Gimn\u00e1stica de Torrelavega",
+    "UD Ourense",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Ribadesella CF",
+    "Real Racing Club de Santander",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Auriense CA",
+    "RC Deportivo La Coru\u00f1a",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Pe\u00f1a Sport FC",
+    "SD Huesca",
+    1,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Atl\u00e9tico Calatayud",
+    "CA Osasuna",
+    0,
+    6,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Varea",
+    "FC Andorra",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "AE Prat",
+    "Athletic Club",
+    1,
+    6,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "UD Poblense",
+    "AD Ceuta FC",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Atl\u00e9tico Baleares",
+    "CD Eldense",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "CD Cieza",
+    "Granada CF",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "UB Conquense",
+    "CD Castell\u00f3n",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Antequera CF",
+    "\u00c1guilas FC",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "UB Lebrijana",
+    "Getafe CF",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "UD San Sebasti\u00e1n de los Reyes",
+    "CD Coria",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "Xerez CD",
+    "C\u00e1diz CF",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-10-29",
+    "AD Sporting Hortaleza",
+    "Sevilla FC",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-10",
+    "CD Pamplona",
+    "SD Eibar",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-10",
+    "CD Anaitasuna",
+    "Deportivo Alav\u00e9s",
+    1,
+    6,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-10",
+    "SD Amorebieta",
+    "UD Logro\u00f1\u00e9s",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-10",
+    "CP Mijas-Las Lagunas",
+    "Real Ja\u00e9n",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-10",
+    "CF UE Tavernes de la Valldigna",
+    "Valencia CF",
+    0,
+    6,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-10",
+    "CF Trival Valderas",
+    "CD Legan\u00e9s",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-12",
+    "Calvo Sotelo Puertollano CF",
+    "Albacete",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-12",
+    "CD Taranc\u00f3n",
+    "Levante UD",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-12",
+    "CDA Navalcarnero",
+    "Real Betis Balompi\u00e9",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-13",
+    "Salamanca CF UDS",
+    "RC Celta de Vigo",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-18",
+    "Club Portugalete",
+    "Real Uni\u00f3n",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-18",
+    "Utebo FC",
+    "CE Sabadell FC",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-18",
+    "Reus FC Reddis",
+    "Barakaldo CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-18",
+    "CD Alcoyano",
+    "RCD Mallorca",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-18",
+    "CD Minera",
+    "FC Cartagena",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-11-18",
+    "CD Badajoz",
+    "CD Tenerife",
+    2,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "SD Textil Escudo",
+    "SD Negreira",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "Puerto de Vega CF",
+    "CCD Alberite",
+    4,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "CD Getxo",
+    "Betis CF",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "Atl\u00e8tic Sant Just FC",
+    "Atl\u00e9tico Calatayud",
+    3,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "CD Sant Jordi",
+    "CD Lourdes",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "Manises CF",
+    "UD Los Garres",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "Atl\u00e9tico Melilla CF",
+    "Atl\u00e9tico Palma del R\u00edo CF",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "Club Sporting de Ceuta",
+    "UD Maracena",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "CF Campanario",
+    "CD Yuncos",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-09-27",
+    "CF Inter de Valdemoro",
+    "Universitario FC",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "SD Negreira",
+    "SD Textil Escudo",
+    4,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "CCD Alberite",
+    "Puerto de Vega CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "Betis CF",
+    "CD Getxo",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "Atl\u00e9tico Calatayud",
+    "Atl\u00e8tic Sant Just FC",
+    1,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "CD Lourdes",
+    "CD Sant Jordi",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "UD Los Garres",
+    "Manises CF",
+    4,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "Atl\u00e9tico Palma del R\u00edo CF",
+    "Atl\u00e9tico Melilla CF",
+    5,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "UD Maracena",
+    "Club Sporting de Ceuta",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "CD Yuncos",
+    "CF Campanario",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-04",
+    "Universitario FC",
+    "CF Inter de Valdemoro",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "Ourense CF",
+    "Real Oviedo",
+    4,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "Atl\u00e9tico Tordesillas",
+    "Burgos CF",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "SD Logro\u00f1\u00e9s",
+    "Real Racing Club de Santander",
+    0,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "UP Langreo",
+    "Racing Ferrol",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CD Tropez\u00f3n",
+    "Cultural Leonesa",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "SD Negreira",
+    "Real Sociedad de F\u00fatbol",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CE Const\u00e0ncia",
+    "Girona FC",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "Utebo FC",
+    "SD Huesca",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "UCAM Murcia CF",
+    "C\u00e1diz CF",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "UD Maracena",
+    "Valencia CF",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CD Roda",
+    "Granada CF",
+    1,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CD Toledo",
+    "Sevilla FC",
+    1,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CF Inter de Valdemoro",
+    "Getafe CF",
+    0,
+    11,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CD Guadalajara (Spain)",
+    "CP Cacere\u00f1o",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CF Rayo Majadahonda",
+    "CF Talavera de la Reina",
+    1,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "UD San Fernando",
+    "Albacete",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "RSD Alcal\u00e1",
+    "CD Tenerife",
+    0,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-28",
+    "CD Extremadura",
+    "UD Las Palmas",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Atl\u00e9tico Astorga FC",
+    "CD Mirand\u00e9s",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "N\u00e1xara CD",
+    "SD Eibar",
+    2,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Caudal Deportivo",
+    "Sporting Gij\u00f3n",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Numancia",
+    "Arenas Club de Getxo",
+    3,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Club Portugalete",
+    "Real Valladolid CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "UD Ourense",
+    "Pontevedra CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "UD Poblense",
+    "CE Sabadell FC",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Sant Jordi",
+    "CA Osasuna",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "UD Mutilvera",
+    "Real Zaragoza",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Ebro",
+    "SD Tarazona",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Atl\u00e8tic Sant Just FC",
+    "RCD Mallorca",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "UE Sant Andreu",
+    "CD Teruel",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Reus FC Reddis",
+    "CE Europa",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "UD Los Garres",
+    "Elche CF",
+    0,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "FC La Uni\u00f3n Atl\u00e9tico",
+    "AD Ceuta FC",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Torrent CF",
+    "Juventud de Torremolinos CF",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CF Lorca Deportiva",
+    "UD Almer\u00eda",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Cieza",
+    "C\u00f3rdoba CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Puente Genil FC",
+    "FC Cartagena",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Ciudad de Lucena",
+    "Villarreal CF",
+    0,
+    6,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "Real Ja\u00e9n",
+    "CD Eldense",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CDA Navalcarnero",
+    "M\u00e9rida AD",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Azuaga",
+    "CD Legan\u00e9s",
+    1,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Yuncos",
+    "Rayo Vallecano de Madrid",
+    1,
+    6,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-29",
+    "CD Quintanar del Rey",
+    "UD Ibiza",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "Puerto de Vega CF",
+    "RC Celta de Vigo",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "CD Getxo",
+    "Deportivo Alav\u00e9s",
+    0,
+    7,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "Real \u00c1vila CF",
+    "Real Avil\u00e9s Industrial CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "UD Logro\u00f1\u00e9s",
+    "SD Ponferradina",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "UD S\u00e1mano",
+    "RC Deportivo La Coru\u00f1a",
+    1,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "CD Valle de Eg\u00fc\u00e9s",
+    "FC Andorra",
+    1,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "CD Atl\u00e9tico Baleares",
+    "Gimn\u00e0stic de Tarragona",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "CE Atl\u00e8tic Lleida",
+    "RCD Espanyol de Barcelona",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "Orihuela CF",
+    "Levante UD",
+    3,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "CA Antoniano",
+    "CD Castell\u00f3n",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "CD Estepona FS",
+    "M\u00e1laga CF",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "Atl\u00e9tico Palma del R\u00edo CF",
+    "Real Betis Balompi\u00e9",
+    1,
+    7,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-10-30",
+    "Real Murcia CF",
+    "Antequera CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-02",
+    "CD Numancia",
+    "RCD Mallorca",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-02",
+    "Racing Ferrol",
+    "SD Huesca",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-02",
+    "Club Portugalete",
+    "Deportivo Alav\u00e9s",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-02",
+    "CD Ebro",
+    "CA Osasuna",
+    3,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-02",
+    "CD Guadalajara (Spain)",
+    "AD Ceuta FC",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-02",
+    "CDA Navalcarnero",
+    "Getafe CF",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "CD Mirand\u00e9s",
+    "Sporting Gij\u00f3n",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "Cultural Leonesa",
+    "FC Andorra",
+    4,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "Ourense CF",
+    "Girona FC",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "Reus FC Reddis",
+    "Real Sociedad de F\u00fatbol",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "Pontevedra CF",
+    "SD Eibar",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "CD Eldense",
+    "UD Almer\u00eda",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "CF Talavera de la Reina",
+    "M\u00e1laga CF",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "Real Murcia",
+    "C\u00e1diz CF",
+    3,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "CD Cieza",
+    "Levante UD",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "CA Antoniano",
+    "Villarreal CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "CD Quintanar del Rey",
+    "Elche CF",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-03",
+    "Torrent CF",
+    "Real Betis Balompi\u00e9",
+    1,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "Atl\u00e9tico Baleares",
+    "RCD Espanyol de Barcelona",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "CE Sabadell",
+    "RC Deportivo La Coru\u00f1a",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "SD Ponferradina",
+    "Real Racing Club de Santander",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "UE Sant Andreu",
+    "RC Celta de Vigo",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "Real Zaragoza",
+    "Burgos CF",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "CD Legan\u00e9s",
+    "Albacete",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "Real \u00c1vila CF",
+    "Rayo Vallecano de Madrid",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "FC Cartagena",
+    "Valencia CF",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "CD Extremadura",
+    "Sevilla FC",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-04",
+    "CD Tenerife",
+    "Granada CF",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-16",
+    "SD Eibar",
+    "Elche CF",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-16",
+    "RC Deportivo La Coru\u00f1a",
+    "RCD Mallorca",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-16",
+    "CD Eldense",
+    "Real Sociedad de F\u00fatbol",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-16",
+    "Sporting Gij\u00f3n",
+    "Valencia CF",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-16",
+    "CD Guadalajara (Spain)",
+    "FC Barcelona",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "Cultural Leonesa",
+    "Levante UD",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "Atl\u00e9tico Baleares",
+    "Club Atl\u00e9tico de Madrid",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "Albacete",
+    "RC Celta de Vigo",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "Real Racing Club de Santander",
+    "Villarreal CF",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "SD Huesca",
+    "CA Osasuna",
+    2,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "CF Talavera de la Reina",
+    "Real Madrid CF",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-17",
+    "Deportivo Alav\u00e9s",
+    "Sevilla FC",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-18",
+    "Burgos CF",
+    "Getafe CF",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-18",
+    "Ourense CF",
+    "Athletic Club",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2025-12-18",
+    "Real Murcia",
+    "Real Betis Balompi\u00e9",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-06",
+    "Granada CF",
+    "Rayo Vallecano de Madrid",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-13",
+    "Cultural Leonesa",
+    "Athletic Club",
+    3,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-13",
+    "Real Sociedad de F\u00fatbol",
+    "CA Osasuna",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-13",
+    "RC Deportivo La Coru\u00f1a",
+    "Club Atl\u00e9tico de Madrid",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-14",
+    "Albacete",
+    "Real Madrid CF",
+    3,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-14",
+    "Real Betis Balompi\u00e9",
+    "Elche CF",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-14",
+    "Deportivo Alav\u00e9s",
+    "Rayo Vallecano de Madrid",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-15",
+    "Real Racing Club de Santander",
+    "FC Barcelona",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-01-15",
+    "Burgos CF",
+    "Valencia CF",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-02-03",
+    "Albacete",
+    "FC Barcelona",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-02-04",
+    "Deportivo Alav\u00e9s",
+    "Real Sociedad de F\u00fatbol",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-02-04",
+    "Valencia CF",
+    "Athletic Club",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-02-05",
+    "Real Betis Balompi\u00e9",
+    "Club Atl\u00e9tico de Madrid",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-02-11",
+    "Athletic Club",
+    "Real Sociedad de F\u00fatbol",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-02-12",
+    "Club Atl\u00e9tico de Madrid",
+    "FC Barcelona",
+    4,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-03-03",
+    "FC Barcelona",
+    "Club Atl\u00e9tico de Madrid",
+    3,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-03-04",
+    "Real Sociedad de F\u00fatbol",
+    "Athletic Club",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-04-18",
+    "Club Atl\u00e9tico de Madrid",
+    "Real Sociedad de F\u00fatbol",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
     "2024-10-09",
     "San Tirso SD",
     "Selaya FC",
@@ -155,7 +2072,7 @@
   [
     "2024-10-29",
     "UD Lanzarote",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     3,
     4,
     "Copa del Rey",
@@ -668,7 +2585,7 @@
   [
     "2024-12-04",
     "Ourense CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     0,
     "Copa del Rey",
@@ -694,7 +2611,7 @@
   ],
   [
     "2024-12-04",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Sporting Gij\u00f3n",
     1,
     0,
@@ -946,7 +2863,7 @@
   ],
   [
     "2025-01-05",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "RC Celta de Vigo",
     2,
     3,
@@ -1134,6 +3051,627 @@
     false
   ],
   [
+    "2026-08-15",
+    "Deportivo Alav\u00e9s",
+    "Getafe CF",
+    3,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-15",
+    "Sevilla FC",
+    "Rayo Vallecano de Madrid",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-16",
+    "Real Racing Club de Santander",
+    "Villarreal CF",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-16",
+    "RCD Espanyol de Barcelona",
+    "Levante UD",
+    3,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-17",
+    "RC Deportivo La Coru\u00f1a",
+    "Elche CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-19",
+    "Club Atl\u00e9tico de Madrid",
+    "M\u00e1laga CF",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-20",
+    "Rayo Vallecano de Madrid",
+    "Deportivo Alav\u00e9s",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-21",
+    "Real Betis Balompi\u00e9",
+    "Real Sociedad de F\u00fatbol",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-22",
+    "Athletic Club",
+    "Sevilla FC",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-22",
+    "Valencia CF",
+    "RC Celta de Vigo",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-22",
+    "RCD Espanyol de Barcelona",
+    "Real Madrid CF",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-23",
+    "Club Atl\u00e9tico de Madrid",
+    "Villarreal CF",
+    2,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-23",
+    "Getafe CF",
+    "Real Racing Club de Santander",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-23",
+    "Elche CF",
+    "FC Barcelona",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-24",
+    "CA Osasuna",
+    "Levante UD",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-24",
+    "M\u00e1laga CF",
+    "RC Deportivo La Coru\u00f1a",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-25",
+    "Valencia CF",
+    "Real Betis Balompi\u00e9",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-26",
+    "Real Madrid CF",
+    "Real Sociedad de F\u00fatbol",
+    4,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-27",
+    "RC Celta de Vigo",
+    "CA Osasuna",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-27",
+    "FC Barcelona",
+    "Athletic Club",
+    2,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-28",
+    "Real Racing Club de Santander",
+    "Elche CF",
+    3,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-28",
+    "Deportivo Alav\u00e9s",
+    "Villarreal CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-29",
+    "Levante UD",
+    "Real Betis Balompi\u00e9",
+    5,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-29",
+    "Real Sociedad de F\u00fatbol",
+    "RCD Espanyol de Barcelona",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-29",
+    "Sevilla FC",
+    "Club Atl\u00e9tico de Madrid",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-30",
+    "Real Madrid CF",
+    "M\u00e1laga CF",
+    4,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-30",
+    "RC Deportivo La Coru\u00f1a",
+    "Valencia CF",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-30",
+    "RC Celta de Vigo",
+    "Athletic Club",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-31",
+    "CA Osasuna",
+    "Getafe CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-08-31",
+    "FC Barcelona",
+    "Rayo Vallecano de Madrid",
+    5,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-03",
+    "Real Sociedad de F\u00fatbol",
+    "RC Celta de Vigo",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-04",
+    "Real Betis Balompi\u00e9",
+    "Real Madrid CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-05",
+    "Athletic Club",
+    "Club Atl\u00e9tico de Madrid",
+    3,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-05",
+    "Rayo Vallecano de Madrid",
+    "Real Racing Club de Santander",
+    3,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-05",
+    "Villarreal CF",
+    "RC Deportivo La Coru\u00f1a",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-06",
+    "Valencia CF",
+    "FC Barcelona",
+    0,
+    5,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-06",
+    "Deportivo Alav\u00e9s",
+    "CA Osasuna",
+    5,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-06",
+    "M\u00e1laga CF",
+    "Levante UD",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-06",
+    "RCD Espanyol de Barcelona",
+    "Sevilla FC",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-07",
+    "Getafe CF",
+    "RC Celta de Vigo",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-07",
+    "Elche CF",
+    "Real Sociedad de F\u00fatbol",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-11",
+    "Sevilla FC",
+    "Valencia CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-12",
+    "Real Racing Club de Santander",
+    "Deportivo Alav\u00e9s",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-12",
+    "CA Osasuna",
+    "RCD Espanyol de Barcelona",
+    0,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-12",
+    "Athletic Club",
+    "Elche CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-12",
+    "Real Madrid CF",
+    "Rayo Vallecano de Madrid",
+    4,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-13",
+    "RC Celta de Vigo",
+    "M\u00e1laga CF",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-13",
+    "Levante UD",
+    "FC Barcelona",
+    2,
+    4,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-13",
+    "Getafe CF",
+    "RC Deportivo La Coru\u00f1a",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-13",
+    "Real Sociedad de F\u00fatbol",
+    "Club Atl\u00e9tico de Madrid",
+    0,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-14",
+    "Villarreal CF",
+    "Real Betis Balompi\u00e9",
+    1,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-15",
+    "Rayo Vallecano de Madrid",
+    "RCD Espanyol de Barcelona",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-15",
+    "Deportivo Alav\u00e9s",
+    "Valencia CF",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-15",
+    "Elche CF",
+    "Real Madrid CF",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-16",
+    "RC Deportivo La Coru\u00f1a",
+    "Sevilla FC",
+    0,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-16",
+    "Club Atl\u00e9tico de Madrid",
+    "CA Osasuna",
+    4,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-16",
+    "FC Barcelona",
+    "Real Racing Club de Santander",
+    7,
+    2,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-17",
+    "Real Betis Balompi\u00e9",
+    "Getafe CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-17",
+    "M\u00e1laga CF",
+    "Villarreal CF",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-18",
+    "RCD Espanyol de Barcelona",
+    "Elche CF",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-19",
+    "CA Osasuna",
+    "Rayo Vallecano de Madrid",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-19",
+    "Athletic Club",
+    "Deportivo Alav\u00e9s",
+    0,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-19",
+    "RC Celta de Vigo",
+    "Real Racing Club de Santander",
+    5,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-19",
+    "Sevilla FC",
+    "FC Barcelona",
+    1,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-20",
+    "Getafe CF",
+    "M\u00e1laga CF",
+    1,
+    0,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-20",
+    "Club Atl\u00e9tico de Madrid",
+    "Real Madrid CF",
+    2,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-20",
+    "RC Deportivo La Coru\u00f1a",
+    "Real Betis Balompi\u00e9",
+    1,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-20",
+    "Villarreal CF",
+    "Levante UD",
+    3,
+    1,
+    "Copa del Rey",
+    false
+  ],
+  [
+    "2026-09-20",
+    "Valencia CF",
+    "Real Sociedad de F\u00fatbol",
+    2,
+    3,
+    "Copa del Rey",
+    false
+  ],
+  [
     "2025-08-15",
     "Girona FC",
     "Rayo Vallecano de Madrid",
@@ -1144,7 +3682,7 @@
   ],
   [
     "2025-08-15",
-    "Villarreal",
+    "Villarreal CF",
     "Real Oviedo",
     2,
     0,
@@ -1154,7 +3692,7 @@
   [
     "2025-08-16",
     "RCD Mallorca",
-    "Barcelona",
+    "FC Barcelona",
     0,
     3,
     "Copa del Rey",
@@ -1190,7 +3728,7 @@
   [
     "2025-08-17",
     "Athletic Club",
-    "Sevilla",
+    "Sevilla FC",
     3,
     2,
     "Copa del Rey",
@@ -1198,8 +3736,8 @@
   ],
   [
     "2025-08-17",
-    "RCD Espanyol",
-    "Atl\u00e9tico de Madrid",
+    "RCD Espanyol de Barcelona",
+    "Club Atl\u00e9tico de Madrid",
     2,
     1,
     "Copa del Rey",
@@ -1216,7 +3754,7 @@
   ],
   [
     "2025-08-19",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "CA Osasuna",
     1,
     0,
@@ -1243,7 +3781,7 @@
   ],
   [
     "2025-08-23",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Elche CF",
     1,
     1,
@@ -1253,7 +3791,7 @@
   [
     "2025-08-23",
     "Levante UD",
-    "Barcelona",
+    "FC Barcelona",
     2,
     3,
     "Copa del Rey",
@@ -1270,7 +3808,7 @@
   ],
   [
     "2025-08-24",
-    "Villarreal",
+    "Villarreal CF",
     "Girona FC",
     5,
     0,
@@ -1280,7 +3818,7 @@
   [
     "2025-08-24",
     "Real Sociedad de F\u00fatbol",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     2,
     2,
     "Copa del Rey",
@@ -1289,7 +3827,7 @@
   [
     "2025-08-24",
     "Real Oviedo",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     0,
     3,
     "Copa del Rey",
@@ -1306,7 +3844,7 @@
   ],
   [
     "2025-08-25",
-    "Sevilla",
+    "Sevilla FC",
     "Getafe CF",
     1,
     2,
@@ -1343,7 +3881,7 @@
   [
     "2025-08-30",
     "Deportivo Alav\u00e9s",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     1,
     1,
     "Copa del Rey",
@@ -1361,7 +3899,7 @@
   [
     "2025-08-30",
     "Girona FC",
-    "Sevilla",
+    "Sevilla FC",
     0,
     2,
     "Copa del Rey",
@@ -1369,7 +3907,7 @@
   ],
   [
     "2025-08-30",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "RCD Mallorca",
     2,
     1,
@@ -1379,7 +3917,7 @@
   [
     "2025-08-31",
     "RC Celta de Vigo",
-    "Villarreal",
+    "Villarreal CF",
     1,
     1,
     "Copa del Rey",
@@ -1396,7 +3934,7 @@
   ],
   [
     "2025-08-31",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "CA Osasuna",
     1,
     0,
@@ -1406,7 +3944,7 @@
   [
     "2025-08-31",
     "Rayo Vallecano de Madrid",
-    "Barcelona",
+    "FC Barcelona",
     1,
     1,
     "Copa del Rey",
@@ -1414,7 +3952,7 @@
   ],
   [
     "2025-09-12",
-    "Sevilla",
+    "Sevilla FC",
     "Elche CF",
     2,
     2,
@@ -1433,7 +3971,7 @@
   [
     "2025-09-13",
     "Real Sociedad de F\u00fatbol",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     1,
     2,
     "Copa del Rey",
@@ -1450,8 +3988,8 @@
   ],
   [
     "2025-09-13",
-    "Atl\u00e9tico de Madrid",
-    "Villarreal",
+    "Club Atl\u00e9tico de Madrid",
+    "Villarreal CF",
     2,
     0,
     "Copa del Rey",
@@ -1486,7 +4024,7 @@
   ],
   [
     "2025-09-14",
-    "Barcelona",
+    "FC Barcelona",
     "Valencia CF",
     6,
     0,
@@ -1495,7 +4033,7 @@
   ],
   [
     "2025-09-15",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "RCD Mallorca",
     3,
     2,
@@ -1522,8 +4060,8 @@
   ],
   [
     "2025-09-20",
-    "Real Madrid C.F.",
-    "RCD Espanyol",
+    "Real Madrid CF",
+    "RCD Espanyol de Barcelona",
     2,
     0,
     "Copa del Rey",
@@ -1531,7 +4069,7 @@
   ],
   [
     "2025-09-20",
-    "Villarreal",
+    "Villarreal CF",
     "CA Osasuna",
     2,
     1,
@@ -1541,7 +4079,7 @@
   [
     "2025-09-20",
     "Deportivo Alav\u00e9s",
-    "Sevilla",
+    "Sevilla FC",
     1,
     2,
     "Copa del Rey",
@@ -1568,7 +4106,7 @@
   [
     "2025-09-21",
     "RCD Mallorca",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     1,
     1,
     "Copa del Rey",
@@ -1585,7 +4123,7 @@
   ],
   [
     "2025-09-21",
-    "Barcelona",
+    "FC Barcelona",
     "Getafe CF",
     3,
     0,
@@ -1594,7 +4132,7 @@
   ],
   [
     "2025-09-23",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Valencia CF",
     2,
     2,
@@ -1613,7 +4151,7 @@
   [
     "2025-09-23",
     "Levante UD",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     1,
     4,
     "Copa del Rey",
@@ -1621,8 +4159,8 @@
   ],
   [
     "2025-09-23",
-    "Sevilla",
-    "Villarreal",
+    "Sevilla FC",
+    "Villarreal CF",
     1,
     2,
     "Copa del Rey",
@@ -1639,7 +4177,7 @@
   ],
   [
     "2025-09-24",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Rayo Vallecano de Madrid",
     3,
     2,
@@ -1667,7 +4205,7 @@
   [
     "2025-09-25",
     "Real Oviedo",
-    "Barcelona",
+    "FC Barcelona",
     1,
     3,
     "Copa del Rey",
@@ -1676,7 +4214,7 @@
   [
     "2025-09-26",
     "Girona FC",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     0,
     0,
     "Copa del Rey",
@@ -1693,8 +4231,8 @@
   ],
   [
     "2025-09-27",
-    "Atl\u00e9tico de Madrid",
-    "Real Madrid C.F.",
+    "Club Atl\u00e9tico de Madrid",
+    "Real Madrid CF",
     5,
     2,
     "Copa del Rey",
@@ -1711,7 +4249,7 @@
   ],
   [
     "2025-09-27",
-    "Villarreal",
+    "Villarreal CF",
     "Athletic Club",
     1,
     0,
@@ -1721,7 +4259,7 @@
   [
     "2025-09-28",
     "Rayo Vallecano de Madrid",
-    "Sevilla",
+    "Sevilla FC",
     0,
     1,
     "Copa del Rey",
@@ -1738,7 +4276,7 @@
   ],
   [
     "2025-09-28",
-    "Barcelona",
+    "FC Barcelona",
     "Real Sociedad de F\u00fatbol",
     2,
     1,
@@ -1801,8 +4339,8 @@
   ],
   [
     "2025-10-04",
-    "Real Madrid C.F.",
-    "Villarreal",
+    "Real Madrid CF",
+    "Villarreal CF",
     3,
     1,
     "Copa del Rey",
@@ -1819,8 +4357,8 @@
   ],
   [
     "2025-10-05",
-    "Sevilla",
-    "Barcelona",
+    "Sevilla FC",
+    "FC Barcelona",
     4,
     1,
     "Copa del Rey",
@@ -1837,7 +4375,7 @@
   ],
   [
     "2025-10-05",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Real Betis Balompi\u00e9",
     1,
     2,
@@ -1847,7 +4385,7 @@
   [
     "2025-10-05",
     "RC Celta de Vigo",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     1,
     1,
     "Copa del Rey",
@@ -1856,7 +4394,7 @@
   [
     "2025-10-17",
     "Real Oviedo",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     0,
     2,
     "Copa del Rey",
@@ -1864,7 +4402,7 @@
   ],
   [
     "2025-10-18",
-    "Sevilla",
+    "Sevilla FC",
     "RCD Mallorca",
     1,
     3,
@@ -1873,7 +4411,7 @@
   ],
   [
     "2025-10-18",
-    "Barcelona",
+    "FC Barcelona",
     "Girona FC",
     2,
     1,
@@ -1882,7 +4420,7 @@
   ],
   [
     "2025-10-18",
-    "Villarreal",
+    "Villarreal CF",
     "Real Betis Balompi\u00e9",
     2,
     2,
@@ -1891,7 +4429,7 @@
   ],
   [
     "2025-10-18",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "CA Osasuna",
     1,
     0,
@@ -1928,7 +4466,7 @@
   [
     "2025-10-19",
     "Getafe CF",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     0,
     1,
     "Copa del Rey",
@@ -1946,7 +4484,7 @@
   [
     "2025-10-24",
     "Real Sociedad de F\u00fatbol",
-    "Sevilla",
+    "Sevilla FC",
     2,
     1,
     "Copa del Rey",
@@ -1963,7 +4501,7 @@
   ],
   [
     "2025-10-25",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Elche CF",
     1,
     0,
@@ -1982,7 +4520,7 @@
   [
     "2025-10-25",
     "Valencia CF",
-    "Villarreal",
+    "Villarreal CF",
     0,
     2,
     "Copa del Rey",
@@ -1999,8 +4537,8 @@
   ],
   [
     "2025-10-26",
-    "Real Madrid C.F.",
-    "Barcelona",
+    "Real Madrid CF",
+    "FC Barcelona",
     2,
     1,
     "Copa del Rey",
@@ -2027,7 +4565,7 @@
   [
     "2025-10-27",
     "Real Betis Balompi\u00e9",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     0,
     2,
     "Copa del Rey",
@@ -2044,7 +4582,7 @@
   ],
   [
     "2025-11-01",
-    "Villarreal",
+    "Villarreal CF",
     "Rayo Vallecano de Madrid",
     4,
     0,
@@ -2053,8 +4591,8 @@
   ],
   [
     "2025-11-01",
-    "Atl\u00e9tico de Madrid",
-    "Sevilla",
+    "Club Atl\u00e9tico de Madrid",
+    "Sevilla FC",
     3,
     0,
     "Copa del Rey",
@@ -2071,7 +4609,7 @@
   ],
   [
     "2025-11-01",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Valencia CF",
     4,
     0,
@@ -2090,7 +4628,7 @@
   [
     "2025-11-02",
     "Deportivo Alav\u00e9s",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     2,
     1,
     "Copa del Rey",
@@ -2098,7 +4636,7 @@
   ],
   [
     "2025-11-02",
-    "Barcelona",
+    "FC Barcelona",
     "Elche CF",
     3,
     1,
@@ -2143,7 +4681,7 @@
   ],
   [
     "2025-11-08",
-    "Sevilla",
+    "Sevilla FC",
     "CA Osasuna",
     1,
     0,
@@ -2152,7 +4690,7 @@
   ],
   [
     "2025-11-08",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Levante UD",
     3,
     1,
@@ -2161,8 +4699,8 @@
   ],
   [
     "2025-11-08",
-    "RCD Espanyol",
-    "Villarreal",
+    "RCD Espanyol de Barcelona",
+    "Villarreal CF",
     0,
     2,
     "Copa del Rey",
@@ -2180,7 +4718,7 @@
   [
     "2025-11-09",
     "Rayo Vallecano de Madrid",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     0,
     0,
     "Copa del Rey",
@@ -2207,7 +4745,7 @@
   [
     "2025-11-09",
     "RC Celta de Vigo",
-    "Barcelona",
+    "FC Barcelona",
     2,
     4,
     "Copa del Rey",
@@ -2233,7 +4771,7 @@
   ],
   [
     "2025-11-22",
-    "Barcelona",
+    "FC Barcelona",
     "Athletic Club",
     4,
     0,
@@ -2251,7 +4789,7 @@
   ],
   [
     "2025-11-22",
-    "Villarreal",
+    "Villarreal CF",
     "RCD Mallorca",
     2,
     1,
@@ -2279,7 +4817,7 @@
   [
     "2025-11-23",
     "Getafe CF",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     0,
     1,
     "Copa del Rey",
@@ -2288,7 +4826,7 @@
   [
     "2025-11-23",
     "Elche CF",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     2,
     2,
     "Copa del Rey",
@@ -2296,8 +4834,8 @@
   ],
   [
     "2025-11-24",
-    "RCD Espanyol",
-    "Sevilla",
+    "RCD Espanyol de Barcelona",
+    "Sevilla FC",
     2,
     1,
     "Copa del Rey",
@@ -2323,7 +4861,7 @@
   ],
   [
     "2025-11-29",
-    "Barcelona",
+    "FC Barcelona",
     "Deportivo Alav\u00e9s",
     3,
     1,
@@ -2341,7 +4879,7 @@
   ],
   [
     "2025-11-29",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Real Oviedo",
     2,
     0,
@@ -2351,7 +4889,7 @@
   [
     "2025-11-30",
     "Real Sociedad de F\u00fatbol",
-    "Villarreal",
+    "Villarreal CF",
     2,
     3,
     "Copa del Rey",
@@ -2359,7 +4897,7 @@
   ],
   [
     "2025-11-30",
-    "Sevilla",
+    "Sevilla FC",
     "Real Betis Balompi\u00e9",
     0,
     2,
@@ -2369,7 +4907,7 @@
   [
     "2025-11-30",
     "RC Celta de Vigo",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     0,
     1,
     "Copa del Rey",
@@ -2378,7 +4916,7 @@
   [
     "2025-11-30",
     "Girona FC",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     1,
     1,
     "Copa del Rey",
@@ -2395,8 +4933,8 @@
   ],
   [
     "2025-12-02",
-    "Barcelona",
-    "Atl\u00e9tico de Madrid",
+    "FC Barcelona",
+    "Club Atl\u00e9tico de Madrid",
     3,
     1,
     "Copa del Rey",
@@ -2405,7 +4943,7 @@
   [
     "2025-12-03",
     "Athletic Club",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     0,
     3,
     "Copa del Rey",
@@ -2422,7 +4960,7 @@
   ],
   [
     "2025-12-06",
-    "Villarreal",
+    "Villarreal CF",
     "Getafe CF",
     2,
     0,
@@ -2441,7 +4979,7 @@
   [
     "2025-12-06",
     "Real Betis Balompi\u00e9",
-    "Barcelona",
+    "FC Barcelona",
     3,
     5,
     "Copa del Rey",
@@ -2450,7 +4988,7 @@
   [
     "2025-12-06",
     "Athletic Club",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     1,
     0,
     "Copa del Rey",
@@ -2468,7 +5006,7 @@
   [
     "2025-12-07",
     "Valencia CF",
-    "Sevilla",
+    "Sevilla FC",
     1,
     1,
     "Copa del Rey",
@@ -2476,7 +5014,7 @@
   ],
   [
     "2025-12-07",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Rayo Vallecano de Madrid",
     1,
     0,
@@ -2485,7 +5023,7 @@
   ],
   [
     "2025-12-07",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "RC Celta de Vigo",
     0,
     2,
@@ -2512,7 +5050,7 @@
   ],
   [
     "2025-12-13",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Valencia CF",
     2,
     1,
@@ -2530,7 +5068,7 @@
   ],
   [
     "2025-12-13",
-    "Barcelona",
+    "FC Barcelona",
     "CA Osasuna",
     2,
     0,
@@ -2540,7 +5078,7 @@
   [
     "2025-12-13",
     "Getafe CF",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     0,
     1,
     "Copa del Rey",
@@ -2548,7 +5086,7 @@
   ],
   [
     "2025-12-14",
-    "Sevilla",
+    "Sevilla FC",
     "Real Oviedo",
     4,
     0,
@@ -2567,7 +5105,7 @@
   [
     "2025-12-14",
     "Deportivo Alav\u00e9s",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     1,
     2,
     "Copa del Rey",
@@ -2620,8 +5158,8 @@
   ],
   [
     "2025-12-20",
-    "Real Madrid C.F.",
-    "Sevilla",
+    "Real Madrid CF",
+    "Sevilla FC",
     2,
     0,
     "Copa del Rey",
@@ -2630,7 +5168,7 @@
   [
     "2025-12-21",
     "Girona FC",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     0,
     3,
     "Copa del Rey",
@@ -2638,8 +5176,8 @@
   ],
   [
     "2025-12-21",
-    "Villarreal",
-    "Barcelona",
+    "Villarreal CF",
+    "FC Barcelona",
     0,
     2,
     "Copa del Rey",
@@ -2666,7 +5204,7 @@
   [
     "2025-12-22",
     "Athletic Club",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     1,
     2,
     "Copa del Rey",
@@ -2702,7 +5240,7 @@
   [
     "2026-01-03",
     "Elche CF",
-    "Villarreal",
+    "Villarreal CF",
     1,
     3,
     "Copa del Rey",
@@ -2710,8 +5248,8 @@
   ],
   [
     "2026-01-03",
-    "RCD Espanyol",
-    "Barcelona",
+    "RCD Espanyol de Barcelona",
+    "FC Barcelona",
     0,
     2,
     "Copa del Rey",
@@ -2719,7 +5257,7 @@
   ],
   [
     "2026-01-04",
-    "Sevilla",
+    "Sevilla FC",
     "Levante UD",
     0,
     3,
@@ -2728,7 +5266,7 @@
   ],
   [
     "2026-01-04",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Real Betis Balompi\u00e9",
     5,
     1,
@@ -2756,7 +5294,7 @@
   [
     "2026-01-04",
     "Real Sociedad de F\u00fatbol",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     1,
     1,
     "Copa del Rey",
@@ -2782,7 +5320,7 @@
   ],
   [
     "2026-01-10",
-    "Villarreal",
+    "Villarreal CF",
     "Deportivo Alav\u00e9s",
     3,
     1,
@@ -2819,7 +5357,7 @@
   [
     "2026-01-11",
     "Levante UD",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     1,
     1,
     "Copa del Rey",
@@ -2827,7 +5365,7 @@
   ],
   [
     "2026-01-12",
-    "Sevilla",
+    "Sevilla FC",
     "RC Celta de Vigo",
     0,
     1,
@@ -2836,7 +5374,7 @@
   ],
   [
     "2026-01-16",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Girona FC",
     0,
     2,
@@ -2845,7 +5383,7 @@
   ],
   [
     "2026-01-17",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Levante UD",
     2,
     0,
@@ -2873,7 +5411,7 @@
   [
     "2026-01-17",
     "Real Betis Balompi\u00e9",
-    "Villarreal",
+    "Villarreal CF",
     2,
     0,
     "Copa del Rey",
@@ -2890,7 +5428,7 @@
   ],
   [
     "2026-01-18",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Deportivo Alav\u00e9s",
     1,
     0,
@@ -2909,7 +5447,7 @@
   [
     "2026-01-18",
     "Real Sociedad de F\u00fatbol",
-    "Barcelona",
+    "FC Barcelona",
     2,
     1,
     "Copa del Rey",
@@ -2918,7 +5456,7 @@
   [
     "2026-01-19",
     "Elche CF",
-    "Sevilla",
+    "Sevilla FC",
     2,
     2,
     "Copa del Rey",
@@ -2945,7 +5483,7 @@
   [
     "2026-01-24",
     "Valencia CF",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     3,
     2,
     "Copa del Rey",
@@ -2953,7 +5491,7 @@
   ],
   [
     "2026-01-24",
-    "Sevilla",
+    "Sevilla FC",
     "Athletic Club",
     2,
     1,
@@ -2962,8 +5500,8 @@
   ],
   [
     "2026-01-24",
-    "Villarreal",
-    "Real Madrid C.F.",
+    "Villarreal CF",
+    "Real Madrid CF",
     0,
     2,
     "Copa del Rey",
@@ -2971,7 +5509,7 @@
   ],
   [
     "2026-01-25",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "RCD Mallorca",
     3,
     0,
@@ -2980,7 +5518,7 @@
   ],
   [
     "2026-01-25",
-    "Barcelona",
+    "FC Barcelona",
     "Real Oviedo",
     3,
     0,
@@ -3016,7 +5554,7 @@
   ],
   [
     "2026-01-30",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Deportivo Alav\u00e9s",
     1,
     2,
@@ -3035,7 +5573,7 @@
   [
     "2026-01-31",
     "CA Osasuna",
-    "Villarreal",
+    "Villarreal CF",
     2,
     2,
     "Copa del Rey",
@@ -3044,7 +5582,7 @@
   [
     "2026-01-31",
     "Levante UD",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     0,
     0,
     "Copa del Rey",
@@ -3053,7 +5591,7 @@
   [
     "2026-01-31",
     "Elche CF",
-    "Barcelona",
+    "FC Barcelona",
     1,
     3,
     "Copa del Rey",
@@ -3061,7 +5599,7 @@
   ],
   [
     "2026-02-01",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Rayo Vallecano de Madrid",
     2,
     1,
@@ -3098,7 +5636,7 @@
   [
     "2026-02-02",
     "RCD Mallorca",
-    "Sevilla",
+    "Sevilla FC",
     4,
     1,
     "Copa del Rey",
@@ -3115,7 +5653,7 @@
   ],
   [
     "2026-02-07",
-    "Barcelona",
+    "FC Barcelona",
     "RCD Mallorca",
     3,
     0,
@@ -3142,7 +5680,7 @@
   ],
   [
     "2026-02-08",
-    "Sevilla",
+    "Sevilla FC",
     "Girona FC",
     1,
     1,
@@ -3160,7 +5698,7 @@
   ],
   [
     "2026-02-08",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Real Betis Balompi\u00e9",
     0,
     1,
@@ -3170,7 +5708,7 @@
   [
     "2026-02-08",
     "Valencia CF",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     0,
     2,
     "Copa del Rey",
@@ -3178,8 +5716,8 @@
   ],
   [
     "2026-02-09",
-    "Villarreal",
-    "RCD Espanyol",
+    "Villarreal CF",
+    "RCD Espanyol de Barcelona",
     4,
     1,
     "Copa del Rey",
@@ -3196,7 +5734,7 @@
   ],
   [
     "2026-02-14",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "RC Celta de Vigo",
     2,
     2,
@@ -3206,7 +5744,7 @@
   [
     "2026-02-14",
     "Getafe CF",
-    "Villarreal",
+    "Villarreal CF",
     2,
     1,
     "Copa del Rey",
@@ -3214,7 +5752,7 @@
   ],
   [
     "2026-02-14",
-    "Sevilla",
+    "Sevilla FC",
     "Deportivo Alav\u00e9s",
     1,
     1,
@@ -3223,7 +5761,7 @@
   ],
   [
     "2026-02-14",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Real Sociedad de F\u00fatbol",
     4,
     1,
@@ -3242,7 +5780,7 @@
   [
     "2026-02-15",
     "Rayo Vallecano de Madrid",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     3,
     0,
     "Copa del Rey",
@@ -3269,7 +5807,7 @@
   [
     "2026-02-16",
     "Girona FC",
-    "Barcelona",
+    "FC Barcelona",
     2,
     1,
     "Copa del Rey",
@@ -3278,7 +5816,7 @@
   [
     "2026-02-18",
     "Levante UD",
-    "Villarreal",
+    "Villarreal CF",
     0,
     1,
     "Copa del Rey",
@@ -3314,7 +5852,7 @@
   [
     "2026-02-21",
     "CA Osasuna",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     2,
     1,
     "Copa del Rey",
@@ -3322,8 +5860,8 @@
   ],
   [
     "2026-02-21",
-    "Atl\u00e9tico de Madrid",
-    "RCD Espanyol",
+    "Club Atl\u00e9tico de Madrid",
+    "RCD Espanyol de Barcelona",
     4,
     2,
     "Copa del Rey",
@@ -3332,7 +5870,7 @@
   [
     "2026-02-22",
     "Getafe CF",
-    "Sevilla",
+    "Sevilla FC",
     0,
     1,
     "Copa del Rey",
@@ -3340,7 +5878,7 @@
   ],
   [
     "2026-02-22",
-    "Barcelona",
+    "FC Barcelona",
     "Levante UD",
     3,
     0,
@@ -3358,7 +5896,7 @@
   ],
   [
     "2026-02-22",
-    "Villarreal",
+    "Villarreal CF",
     "Valencia CF",
     2,
     1,
@@ -3394,8 +5932,8 @@
   ],
   [
     "2026-02-28",
-    "Barcelona",
-    "Villarreal",
+    "FC Barcelona",
+    "Villarreal CF",
     4,
     1,
     "Copa del Rey",
@@ -3413,7 +5951,7 @@
   [
     "2026-02-28",
     "Real Oviedo",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     0,
     1,
     "Copa del Rey",
@@ -3422,7 +5960,7 @@
   [
     "2026-03-01",
     "Elche CF",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     2,
     2,
     "Copa del Rey",
@@ -3440,7 +5978,7 @@
   [
     "2026-03-01",
     "Real Betis Balompi\u00e9",
-    "Sevilla",
+    "Sevilla FC",
     2,
     2,
     "Copa del Rey",
@@ -3457,7 +5995,7 @@
   ],
   [
     "2026-03-02",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Getafe CF",
     0,
     1,
@@ -3476,7 +6014,7 @@
   [
     "2026-03-06",
     "RC Celta de Vigo",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     1,
     2,
     "Copa del Rey",
@@ -3502,7 +6040,7 @@
   ],
   [
     "2026-03-07",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Real Sociedad de F\u00fatbol",
     3,
     2,
@@ -3512,7 +6050,7 @@
   [
     "2026-03-07",
     "Athletic Club",
-    "Barcelona",
+    "FC Barcelona",
     0,
     1,
     "Copa del Rey",
@@ -3520,7 +6058,7 @@
   ],
   [
     "2026-03-08",
-    "Villarreal",
+    "Villarreal CF",
     "Elche CF",
     2,
     1,
@@ -3538,7 +6076,7 @@
   ],
   [
     "2026-03-08",
-    "Sevilla",
+    "Sevilla FC",
     "Rayo Vallecano de Madrid",
     1,
     1,
@@ -3556,7 +6094,7 @@
   ],
   [
     "2026-03-09",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Real Oviedo",
     1,
     1,
@@ -3566,7 +6104,7 @@
   [
     "2026-03-13",
     "Deportivo Alav\u00e9s",
-    "Villarreal",
+    "Villarreal CF",
     1,
     1,
     "Copa del Rey",
@@ -3583,7 +6121,7 @@
   ],
   [
     "2026-03-14",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Getafe CF",
     1,
     0,
@@ -3601,7 +6139,7 @@
   ],
   [
     "2026-03-14",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Elche CF",
     4,
     1,
@@ -3611,7 +6149,7 @@
   [
     "2026-03-15",
     "RCD Mallorca",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     2,
     1,
     "Copa del Rey",
@@ -3619,8 +6157,8 @@
   ],
   [
     "2026-03-15",
-    "Barcelona",
-    "Sevilla",
+    "FC Barcelona",
+    "Sevilla FC",
     5,
     2,
     "Copa del Rey",
@@ -3655,7 +6193,7 @@
   ],
   [
     "2026-03-20",
-    "Villarreal",
+    "Villarreal CF",
     "Real Sociedad de F\u00fatbol",
     3,
     1,
@@ -3673,7 +6211,7 @@
   ],
   [
     "2026-03-21",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Getafe CF",
     1,
     2,
@@ -3700,7 +6238,7 @@
   ],
   [
     "2026-03-21",
-    "Sevilla",
+    "Sevilla FC",
     "Valencia CF",
     0,
     2,
@@ -3709,7 +6247,7 @@
   ],
   [
     "2026-03-22",
-    "Barcelona",
+    "FC Barcelona",
     "Rayo Vallecano de Madrid",
     1,
     0,
@@ -3736,8 +6274,8 @@
   ],
   [
     "2026-03-22",
-    "Real Madrid C.F.",
-    "Atl\u00e9tico de Madrid",
+    "Real Madrid CF",
+    "Club Atl\u00e9tico de Madrid",
     3,
     2,
     "Copa del Rey",
@@ -3764,7 +6302,7 @@
   [
     "2026-04-04",
     "RCD Mallorca",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     2,
     1,
     "Copa del Rey",
@@ -3773,7 +6311,7 @@
   [
     "2026-04-04",
     "Real Betis Balompi\u00e9",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     0,
     0,
     "Copa del Rey",
@@ -3781,8 +6319,8 @@
   ],
   [
     "2026-04-04",
-    "Atl\u00e9tico de Madrid",
-    "Barcelona",
+    "Club Atl\u00e9tico de Madrid",
+    "FC Barcelona",
     1,
     2,
     "Copa del Rey",
@@ -3809,7 +6347,7 @@
   [
     "2026-04-05",
     "Real Oviedo",
-    "Sevilla",
+    "Sevilla FC",
     1,
     0,
     "Copa del Rey",
@@ -3827,7 +6365,7 @@
   [
     "2026-04-06",
     "Girona FC",
-    "Villarreal",
+    "Villarreal CF",
     1,
     0,
     "Copa del Rey",
@@ -3835,7 +6373,7 @@
   ],
   [
     "2026-04-10",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Girona FC",
     1,
     1,
@@ -3862,8 +6400,8 @@
   ],
   [
     "2026-04-11",
-    "Barcelona",
-    "RCD Espanyol",
+    "FC Barcelona",
+    "RCD Espanyol de Barcelona",
     4,
     1,
     "Copa del Rey",
@@ -3871,8 +6409,8 @@
   ],
   [
     "2026-04-11",
-    "Sevilla",
-    "Atl\u00e9tico de Madrid",
+    "Sevilla FC",
+    "Club Atl\u00e9tico de Madrid",
     2,
     1,
     "Copa del Rey",
@@ -3908,7 +6446,7 @@
   [
     "2026-04-12",
     "Athletic Club",
-    "Villarreal",
+    "Villarreal CF",
     1,
     2,
     "Copa del Rey",
@@ -3952,7 +6490,7 @@
   ],
   [
     "2026-04-21",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Deportivo Alav\u00e9s",
     2,
     1,
@@ -3962,7 +6500,7 @@
   [
     "2026-04-22",
     "Elche CF",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     3,
     2,
     "Copa del Rey",
@@ -3979,7 +6517,7 @@
   ],
   [
     "2026-04-22",
-    "Barcelona",
+    "FC Barcelona",
     "RC Celta de Vigo",
     1,
     0,
@@ -3989,7 +6527,7 @@
   [
     "2026-04-23",
     "Levante UD",
-    "Sevilla",
+    "Sevilla FC",
     2,
     0,
     "Copa del Rey",
@@ -3998,7 +6536,7 @@
   [
     "2026-04-23",
     "Rayo Vallecano de Madrid",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     1,
     0,
     "Copa del Rey",
@@ -4007,7 +6545,7 @@
   [
     "2026-04-23",
     "Real Oviedo",
-    "Villarreal",
+    "Villarreal CF",
     1,
     1,
     "Copa del Rey",
@@ -4016,7 +6554,7 @@
   [
     "2026-04-24",
     "Real Betis Balompi\u00e9",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     1,
     1,
     "Copa del Rey",
@@ -4034,7 +6572,7 @@
   [
     "2026-04-25",
     "Getafe CF",
-    "Barcelona",
+    "FC Barcelona",
     0,
     2,
     "Copa del Rey",
@@ -4051,7 +6589,7 @@
   ],
   [
     "2026-04-25",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Athletic Club",
     3,
     2,
@@ -4079,7 +6617,7 @@
   [
     "2026-04-26",
     "CA Osasuna",
-    "Sevilla",
+    "Sevilla FC",
     2,
     1,
     "Copa del Rey",
@@ -4087,7 +6625,7 @@
   ],
   [
     "2026-04-26",
-    "Villarreal",
+    "Villarreal CF",
     "RC Celta de Vigo",
     2,
     1,
@@ -4096,7 +6634,7 @@
   ],
   [
     "2026-04-27",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Levante UD",
     0,
     0,
@@ -4114,7 +6652,7 @@
   ],
   [
     "2026-05-02",
-    "Villarreal",
+    "Villarreal CF",
     "Levante UD",
     5,
     1,
@@ -4124,7 +6662,7 @@
   [
     "2026-05-02",
     "Valencia CF",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     0,
     2,
     "Copa del Rey",
@@ -4142,7 +6680,7 @@
   [
     "2026-05-02",
     "CA Osasuna",
-    "Barcelona",
+    "FC Barcelona",
     1,
     2,
     "Copa del Rey",
@@ -4177,8 +6715,8 @@
   ],
   [
     "2026-05-03",
-    "RCD Espanyol",
-    "Real Madrid C.F.",
+    "RCD Espanyol de Barcelona",
+    "Real Madrid CF",
     0,
     2,
     "Copa del Rey",
@@ -4186,7 +6724,7 @@
   ],
   [
     "2026-05-04",
-    "Sevilla",
+    "Sevilla FC",
     "Real Sociedad de F\u00fatbol",
     1,
     0,
@@ -4213,8 +6751,8 @@
   ],
   [
     "2026-05-09",
-    "Sevilla",
-    "RCD Espanyol",
+    "Sevilla FC",
+    "RCD Espanyol de Barcelona",
     2,
     1,
     "Copa del Rey",
@@ -4222,7 +6760,7 @@
   ],
   [
     "2026-05-09",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "RC Celta de Vigo",
     0,
     1,
@@ -4241,7 +6779,7 @@
   [
     "2026-05-10",
     "RCD Mallorca",
-    "Villarreal",
+    "Villarreal CF",
     1,
     1,
     "Copa del Rey",
@@ -4267,8 +6805,8 @@
   ],
   [
     "2026-05-10",
-    "Barcelona",
-    "Real Madrid C.F.",
+    "FC Barcelona",
+    "Real Madrid CF",
     2,
     0,
     "Copa del Rey",
@@ -4304,7 +6842,7 @@
   [
     "2026-05-12",
     "CA Osasuna",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     1,
     2,
     "Copa del Rey",
@@ -4312,7 +6850,7 @@
   ],
   [
     "2026-05-13",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Athletic Club",
     2,
     0,
@@ -4321,8 +6859,8 @@
   ],
   [
     "2026-05-13",
-    "Villarreal",
-    "Sevilla",
+    "Villarreal CF",
+    "Sevilla FC",
     2,
     3,
     "Copa del Rey",
@@ -4340,7 +6878,7 @@
   [
     "2026-05-13",
     "Deportivo Alav\u00e9s",
-    "Barcelona",
+    "FC Barcelona",
     1,
     0,
     "Copa del Rey",
@@ -4366,7 +6904,7 @@
   ],
   [
     "2026-05-14",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Real Oviedo",
     2,
     0,
@@ -4385,7 +6923,7 @@
   [
     "2026-05-17",
     "Rayo Vallecano de Madrid",
-    "Villarreal",
+    "Villarreal CF",
     2,
     0,
     "Copa del Rey",
@@ -4412,7 +6950,7 @@
   [
     "2026-05-17",
     "CA Osasuna",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     1,
     2,
     "Copa del Rey",
@@ -4438,8 +6976,8 @@
   ],
   [
     "2026-05-17",
-    "Sevilla",
-    "Real Madrid C.F.",
+    "Sevilla FC",
+    "Real Madrid CF",
     0,
     1,
     "Copa del Rey",
@@ -4447,7 +6985,7 @@
   ],
   [
     "2026-05-17",
-    "Atl\u00e9tico de Madrid",
+    "Club Atl\u00e9tico de Madrid",
     "Girona FC",
     1,
     0,
@@ -4456,7 +6994,7 @@
   ],
   [
     "2026-05-17",
-    "Barcelona",
+    "FC Barcelona",
     "Real Betis Balompi\u00e9",
     3,
     1,
@@ -4492,7 +7030,7 @@
   ],
   [
     "2026-05-23",
-    "Real Madrid C.F.",
+    "Real Madrid CF",
     "Athletic Club",
     4,
     2,
@@ -4502,7 +7040,7 @@
   [
     "2026-05-23",
     "Valencia CF",
-    "Barcelona",
+    "FC Barcelona",
     3,
     1,
     "Copa del Rey",
@@ -4510,7 +7048,7 @@
   ],
   [
     "2026-05-23",
-    "RCD Espanyol",
+    "RCD Espanyol de Barcelona",
     "Real Sociedad de F\u00fatbol",
     1,
     1,
@@ -4538,7 +7076,7 @@
   [
     "2026-05-23",
     "RC Celta de Vigo",
-    "Sevilla",
+    "Sevilla FC",
     1,
     0,
     "Copa del Rey",
@@ -4546,8 +7084,8 @@
   ],
   [
     "2026-05-24",
-    "Villarreal",
-    "Atl\u00e9tico de Madrid",
+    "Villarreal CF",
+    "Club Atl\u00e9tico de Madrid",
     5,
     1,
     "Copa del Rey",
@@ -7993,7 +10531,7 @@
   ],
   [
     "2025-08-16",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "CD Castell\u00f3n",
     3,
     1,
@@ -8012,7 +10550,7 @@
   [
     "2025-08-16",
     "Granada CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     3,
     "Copa del Rey",
@@ -8128,7 +10666,7 @@
   ],
   [
     "2025-08-24",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Burgos CF",
     0,
     0,
@@ -8156,7 +10694,7 @@
   [
     "2025-08-25",
     "Albacete",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     3,
     "Copa del Rey",
@@ -8191,7 +10729,7 @@
   ],
   [
     "2025-08-30",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "AD Ceuta FC",
     4,
     1,
@@ -8264,7 +10802,7 @@
   [
     "2025-09-01",
     "CD Legan\u00e9s",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     2,
     "Copa del Rey",
@@ -8290,7 +10828,7 @@
   ],
   [
     "2025-09-06",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Sporting Gij\u00f3n",
     1,
     0,
@@ -8345,7 +10883,7 @@
   [
     "2025-09-07",
     "UD Almer\u00eda",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     3,
     "Copa del Rey",
@@ -8390,7 +10928,7 @@
   [
     "2025-09-13",
     "CD Mirand\u00e9s",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     5,
     "Copa del Rey",
@@ -8425,7 +10963,7 @@
   ],
   [
     "2025-09-14",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Cultural Leonesa",
     2,
     4,
@@ -8470,7 +11008,7 @@
   ],
   [
     "2025-09-19",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "SD Huesca",
     4,
     0,
@@ -8552,7 +11090,7 @@
   [
     "2025-09-21",
     "C\u00f3rdoba CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     2,
     "Copa del Rey",
@@ -8579,7 +11117,7 @@
   [
     "2025-09-27",
     "SD Eibar",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     1,
     "Copa del Rey",
@@ -8587,7 +11125,7 @@
   ],
   [
     "2025-09-27",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "FC Andorra",
     1,
     2,
@@ -8677,7 +11215,7 @@
   ],
   [
     "2025-10-04",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "UD Almer\u00eda",
     1,
     1,
@@ -8731,7 +11269,7 @@
   ],
   [
     "2025-10-05",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "M\u00e1laga CF",
     3,
     0,
@@ -8822,7 +11360,7 @@
   [
     "2025-10-12",
     "Sporting Gij\u00f3n",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     1,
     "Copa del Rey",
@@ -8849,7 +11387,7 @@
   [
     "2025-10-12",
     "M\u00e1laga CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     3,
     0,
     "Copa del Rey",
@@ -8920,8 +11458,8 @@
   ],
   [
     "2025-10-19",
-    "Racing Santander",
-    "Deportivo La Coru\u00f1a",
+    "Real Racing Club de Santander",
+    "RC Deportivo La Coru\u00f1a",
     2,
     1,
     "Copa del Rey",
@@ -9011,7 +11549,7 @@
   [
     "2026-10-25",
     "CD Mirand\u00e9s",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     3,
     "Copa del Rey",
@@ -9046,7 +11584,7 @@
   ],
   [
     "2026-10-26",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Real Valladolid CF",
     1,
     1,
@@ -9055,7 +11593,7 @@
   ],
   [
     "2026-10-31",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Real Sociedad B",
     1,
     0,
@@ -9137,7 +11675,7 @@
   [
     "2026-11-02",
     "Real Zaragoza",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     0,
     2,
     "Copa del Rey",
@@ -9199,7 +11737,7 @@
   ],
   [
     "2024-08-17",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Real Oviedo",
     0,
     1,
@@ -9208,7 +11746,7 @@
   ],
   [
     "2024-08-18",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "UD Almer\u00eda",
     2,
     2,
@@ -9253,7 +11791,7 @@
   ],
   [
     "2024-08-23",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "SD Eibar",
     2,
     2,
@@ -9263,7 +11801,7 @@
   [
     "2024-08-23",
     "SD Huesca",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     1,
     "Copa del Rey",
@@ -9362,7 +11900,7 @@
   [
     "2024-08-30",
     "Real Oviedo",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     3,
     "Copa del Rey",
@@ -9406,7 +11944,7 @@
   ],
   [
     "2024-09-01",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Racing Ferrol",
     1,
     0,
@@ -9452,7 +11990,7 @@
   [
     "2024-09-06",
     "CD Tenerife",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     0,
     1,
     "Copa del Rey",
@@ -9461,7 +11999,7 @@
   [
     "2024-09-07",
     "Granada CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     1,
     "Copa del Rey",
@@ -9551,7 +12089,7 @@
   [
     "2024-09-13",
     "C\u00f3rdoba CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     0,
     "Copa del Rey",
@@ -9577,7 +12115,7 @@
   ],
   [
     "2024-09-14",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Sporting Gij\u00f3n",
     1,
     0,
@@ -9676,7 +12214,7 @@
   ],
   [
     "2024-09-21",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Burgos CF",
     0,
     2,
@@ -9704,7 +12242,7 @@
   [
     "2024-09-22",
     "CD Castell\u00f3n",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     0,
     1,
     "Copa del Rey",
@@ -9749,7 +12287,7 @@
   [
     "2024-09-27",
     "Albacete",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     5,
     "Copa del Rey",
@@ -9838,7 +12376,7 @@
   ],
   [
     "2024-09-30",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "FC Cartagena",
     1,
     2,
@@ -9893,7 +12431,7 @@
   [
     "2024-10-05",
     "Real Zaragoza",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     3,
     "Copa del Rey",
@@ -9910,7 +12448,7 @@
   ],
   [
     "2024-10-06",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "M\u00e1laga CF",
     0,
     0,
@@ -10000,7 +12538,7 @@
   ],
   [
     "2024-10-13",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Levante UD",
     1,
     0,
@@ -10028,7 +12566,7 @@
   [
     "2024-10-13",
     "Elche CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     0,
     0,
     "Copa del Rey",
@@ -10054,7 +12592,7 @@
   ],
   [
     "2024-10-19",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "CD Eldense",
     1,
     1,
@@ -10100,7 +12638,7 @@
   [
     "2024-10-20",
     "C\u00e1diz CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     0,
     1,
     "Copa del Rey",
@@ -10189,7 +12727,7 @@
   ],
   [
     "2024-10-23",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "C\u00f3rdoba CF",
     2,
     0,
@@ -10208,7 +12746,7 @@
   [
     "2024-10-24",
     "Levante UD",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     1,
     "Copa del Rey",
@@ -10288,8 +12826,8 @@
   ],
   [
     "2024-10-27",
-    "Deportivo La Coru\u00f1a",
-    "Racing Santander",
+    "RC Deportivo La Coru\u00f1a",
+    "Real Racing Club de Santander",
     1,
     2,
     "Copa del Rey",
@@ -10352,7 +12890,7 @@
   [
     "2024-11-02",
     "FC Cartagena",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     5,
     "Copa del Rey",
@@ -10369,7 +12907,7 @@
   ],
   [
     "2024-11-02",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Albacete",
     1,
     1,
@@ -10505,7 +13043,7 @@
   [
     "2024-11-10",
     "Racing Ferrol",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     2,
     "Copa del Rey",
@@ -10522,7 +13060,7 @@
   ],
   [
     "2024-11-11",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "SD Eibar",
     1,
     0,
@@ -10567,7 +13105,7 @@
   ],
   [
     "2024-11-16",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Burgos CF",
     2,
     0,
@@ -10613,7 +13151,7 @@
   [
     "2024-11-17",
     "UD Almer\u00eda",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     1,
     "Copa del Rey",
@@ -10685,7 +13223,7 @@
   [
     "2024-11-23",
     "M\u00e1laga CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     0,
     0,
     "Copa del Rey",
@@ -10702,7 +13240,7 @@
   ],
   [
     "2024-11-24",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Sporting Gij\u00f3n",
     1,
     1,
@@ -10766,7 +13304,7 @@
   [
     "2024-11-30",
     "C\u00e1diz CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     4,
     "Copa del Rey",
@@ -10774,7 +13312,7 @@
   ],
   [
     "2024-11-30",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "CD Mirand\u00e9s",
     0,
     1,
@@ -10856,7 +13394,7 @@
   [
     "2024-12-07",
     "Granada CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     3,
     0,
     "Copa del Rey",
@@ -10864,7 +13402,7 @@
   ],
   [
     "2024-12-07",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Real Zaragoza",
     1,
     1,
@@ -11017,7 +13555,7 @@
   ],
   [
     "2024-12-15",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "SD Huesca",
     0,
     1,
@@ -11027,7 +13565,7 @@
   [
     "2025-01-29",
     "CD Tenerife",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     0,
     0,
     "Copa del Rey",
@@ -11099,7 +13637,7 @@
   [
     "2024-12-19",
     "Elche CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     3,
     0,
     "Copa del Rey",
@@ -11125,7 +13663,7 @@
   ],
   [
     "2024-12-19",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "CD Castell\u00f3n",
     5,
     1,
@@ -11206,7 +13744,7 @@
   ],
   [
     "2024-12-22",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "CD Eldense",
     2,
     2,
@@ -11215,7 +13753,7 @@
   ],
   [
     "2024-12-22",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "CD Mirand\u00e9s",
     0,
     4,
@@ -11252,7 +13790,7 @@
   [
     "2025-01-11",
     "Albacete",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     2,
     "Copa del Rey",
@@ -11279,7 +13817,7 @@
   [
     "2025-01-11",
     "M\u00e1laga CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     1,
     "Copa del Rey",
@@ -11378,7 +13916,7 @@
   [
     "2025-01-19",
     "Burgos CF",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     0,
     1,
     "Copa del Rey",
@@ -11386,7 +13924,7 @@
   ],
   [
     "2025-01-19",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Racing Ferrol",
     6,
     0,
@@ -11441,7 +13979,7 @@
   [
     "2025-01-25",
     "C\u00f3rdoba CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     2,
     "Copa del Rey",
@@ -11449,7 +13987,7 @@
   ],
   [
     "2025-01-25",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Levante UD",
     1,
     2,
@@ -11566,7 +14104,7 @@
   ],
   [
     "2026-02-01",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "M\u00e1laga CF",
     2,
     1,
@@ -11585,7 +14123,7 @@
   [
     "2026-02-02",
     "SD Eibar",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     0,
     1,
     "Copa del Rey",
@@ -11684,7 +14222,7 @@
   [
     "2026-02-09",
     "Burgos CF",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     1,
     "Copa del Rey",
@@ -11710,7 +14248,7 @@
   ],
   [
     "2026-02-09",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "UD Almer\u00eda",
     3,
     1,
@@ -11755,7 +14293,7 @@
   ],
   [
     "2026-02-15",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "C\u00e1diz CF",
     2,
     3,
@@ -11783,7 +14321,7 @@
   [
     "2026-02-16",
     "CD Eldense",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     0,
     "Copa del Rey",
@@ -11855,7 +14393,7 @@
   [
     "2026-02-22",
     "SD Eibar",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     2,
     "Copa del Rey",
@@ -11881,7 +14419,7 @@
   ],
   [
     "2026-02-23",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "SD Huesca",
     0,
     0,
@@ -11981,7 +14519,7 @@
   [
     "2026-03-02",
     "Real Oviedo",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     2,
     "Copa del Rey",
@@ -12007,7 +14545,7 @@
   ],
   [
     "2026-03-02",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Elche CF",
     2,
     0,
@@ -12034,7 +14572,7 @@
   ],
   [
     "2026-03-07",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "C\u00f3rdoba CF",
     1,
     1,
@@ -12062,7 +14600,7 @@
   [
     "2026-03-08",
     "Sporting Gij\u00f3n",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     1,
     "Copa del Rey",
@@ -12196,7 +14734,7 @@
   ],
   [
     "2026-03-16",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "CD Tenerife",
     2,
     1,
@@ -12215,7 +14753,7 @@
   [
     "2026-03-17",
     "CD Castell\u00f3n",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     2,
     "Copa del Rey",
@@ -12242,7 +14780,7 @@
   [
     "2026-03-22",
     "CD Mirand\u00e9s",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     1,
     "Copa del Rey",
@@ -12304,7 +14842,7 @@
   ],
   [
     "2026-03-23",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "FC Cartagena",
     2,
     2,
@@ -12341,7 +14879,7 @@
   [
     "2026-03-29",
     "Racing Ferrol",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     0,
     1,
     "Copa del Rey",
@@ -12358,7 +14896,7 @@
   ],
   [
     "2026-03-29",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Real Zaragoza",
     2,
     0,
@@ -12476,7 +15014,7 @@
   [
     "2026-04-06",
     "Levante UD",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     3,
     1,
     "Copa del Rey",
@@ -12502,7 +15040,7 @@
   ],
   [
     "2026-04-06",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "C\u00e1diz CF",
     1,
     0,
@@ -12574,7 +15112,7 @@
   ],
   [
     "2026-04-13",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "CD Castell\u00f3n",
     1,
     1,
@@ -12593,7 +15131,7 @@
   [
     "2026-04-13",
     "CD Mirand\u00e9s",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     2,
     "Copa del Rey",
@@ -12647,7 +15185,7 @@
   [
     "2026-04-19",
     "SD Huesca",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     3,
     "Copa del Rey",
@@ -12700,7 +15238,7 @@
   ],
   [
     "2026-04-20",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "CD Tenerife",
     0,
     0,
@@ -12772,8 +15310,8 @@
   ],
   [
     "2026-04-27",
-    "Racing Santander",
-    "Deportivo La Coru\u00f1a",
+    "Real Racing Club de Santander",
+    "RC Deportivo La Coru\u00f1a",
     2,
     1,
     "Copa del Rey",
@@ -12890,7 +15428,7 @@
   [
     "2026-05-04",
     "FC Cartagena",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     1,
     0,
     "Copa del Rey",
@@ -12898,7 +15436,7 @@
   ],
   [
     "2026-05-04",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Albacete",
     5,
     1,
@@ -12935,7 +15473,7 @@
   [
     "2026-05-10",
     "Sporting Gij\u00f3n",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     2,
     1,
     "Copa del Rey",
@@ -12970,7 +15508,7 @@
   ],
   [
     "2026-05-11",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     "Real Oviedo",
     1,
     1,
@@ -13024,7 +15562,7 @@
   ],
   [
     "2026-05-17",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     "Granada CF",
     2,
     3,
@@ -13097,7 +15635,7 @@
   [
     "2026-05-18",
     "UD Almer\u00eda",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     2,
     0,
     "Copa del Rey",
@@ -13151,7 +15689,7 @@
   [
     "2026-05-25",
     "CD Eldense",
-    "Racing Santander",
+    "Real Racing Club de Santander",
     3,
     3,
     "Copa del Rey",
@@ -13196,7 +15734,7 @@
   [
     "2026-05-25",
     "Real Zaragoza",
-    "Deportivo La Coru\u00f1a",
+    "RC Deportivo La Coru\u00f1a",
     1,
     0,
     "Copa del Rey",
