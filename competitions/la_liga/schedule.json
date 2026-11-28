@@ -1189,10 +1189,10 @@
   },
   "Real Betis Balompi\u00e9|Rayo Vallecano de Madrid": {
     "date": "2026-11-28",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Real Betis Balompi\u00e9": null,
-      "Rayo Vallecano de Madrid": null
+      "Real Betis Balompi\u00e9": 0,
+      "Rayo Vallecano de Madrid": 1
     },
     "round": "Matchday 14"
   },
