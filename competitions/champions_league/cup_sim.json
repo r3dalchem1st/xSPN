@@ -2,178 +2,178 @@
   "zone_odds": {
     "AS Roma": {
       "top8": 0.0012,
-      "playoff_zone": 0.7581,
-      "eliminated": 0.2407
+      "playoff_zone": 0.7483,
+      "eliminated": 0.2505
     },
     "Arsenal FC": {
-      "top8": 0.8892,
-      "playoff_zone": 0.1108,
+      "top8": 0.8948,
+      "playoff_zone": 0.1052,
       "eliminated": 0.0
     },
     "Aston Villa FC": {
-      "top8": 0.3749,
-      "playoff_zone": 0.6226,
-      "eliminated": 0.0025
-    },
-    "Borussia Dortmund": {
-      "top8": 0.3323,
-      "playoff_zone": 0.6651,
+      "top8": 0.3724,
+      "playoff_zone": 0.625,
       "eliminated": 0.0026
     },
+    "Borussia Dortmund": {
+      "top8": 0.3341,
+      "playoff_zone": 0.6627,
+      "eliminated": 0.0032
+    },
     "Club Atl\u00e9tico de Madrid": {
-      "top8": 0.1084,
-      "playoff_zone": 0.8327,
-      "eliminated": 0.0589
+      "top8": 0.1139,
+      "playoff_zone": 0.829,
+      "eliminated": 0.0571
     },
     "Club Brugge KV": {
-      "top8": 0.173,
-      "playoff_zone": 0.7862,
-      "eliminated": 0.0408
+      "top8": 0.171,
+      "playoff_zone": 0.7837,
+      "eliminated": 0.0453
     },
     "Como 1907": {
-      "top8": 0.5168,
-      "playoff_zone": 0.4832,
+      "top8": 0.5257,
+      "playoff_zone": 0.4743,
       "eliminated": 0.0
     },
     "FC Barcelona": {
-      "top8": 0.8534,
-      "playoff_zone": 0.1466,
+      "top8": 0.8507,
+      "playoff_zone": 0.1493,
       "eliminated": 0.0
     },
     "FC Bayern M\u00fcnchen": {
-      "top8": 0.5209,
-      "playoff_zone": 0.479,
-      "eliminated": 0.0001
+      "top8": 0.5117,
+      "playoff_zone": 0.4875,
+      "eliminated": 0.0008
     },
     "FC Internazionale Milano": {
-      "top8": 0.2659,
-      "playoff_zone": 0.7296,
-      "eliminated": 0.0045
+      "top8": 0.2596,
+      "playoff_zone": 0.7357,
+      "eliminated": 0.0047
     },
     "FC Porto": {
-      "top8": 0.0025,
-      "playoff_zone": 0.6017,
-      "eliminated": 0.3958
+      "top8": 0.0026,
+      "playoff_zone": 0.6033,
+      "eliminated": 0.3941
     },
     "FK Bod\u00f8/Glimt": {
-      "top8": 0.0377,
-      "playoff_zone": 0.7971,
-      "eliminated": 0.1652
+      "top8": 0.0422,
+      "playoff_zone": 0.803,
+      "eliminated": 0.1548
     },
     "FK Shakhtar Donetsk": {
       "top8": 0.0,
-      "playoff_zone": 0.2425,
-      "eliminated": 0.7575
+      "playoff_zone": 0.2391,
+      "eliminated": 0.7609
     },
     "Fenerbah\u00e7e SK": {
-      "top8": 0.024,
-      "playoff_zone": 0.7079,
-      "eliminated": 0.2681
+      "top8": 0.0252,
+      "playoff_zone": 0.7051,
+      "eliminated": 0.2697
     },
     "Feyenoord Rotterdam": {
       "top8": 0.0,
-      "playoff_zone": 0.068,
-      "eliminated": 0.932
+      "playoff_zone": 0.0668,
+      "eliminated": 0.9332
     },
     "Galatasaray SK": {
-      "top8": 0.0595,
-      "playoff_zone": 0.8973,
-      "eliminated": 0.0432
+      "top8": 0.0599,
+      "playoff_zone": 0.8985,
+      "eliminated": 0.0416
     },
     "LASK Linz": {
-      "top8": 0.0044,
-      "playoff_zone": 0.6591,
-      "eliminated": 0.3365
+      "top8": 0.0043,
+      "playoff_zone": 0.6636,
+      "eliminated": 0.3321
     },
     "Lille OSC": {
       "top8": 0.0,
-      "playoff_zone": 0.4671,
-      "eliminated": 0.5329
+      "playoff_zone": 0.4775,
+      "eliminated": 0.5225
     },
     "Liverpool FC": {
-      "top8": 0.9505,
-      "playoff_zone": 0.0495,
+      "top8": 0.9543,
+      "playoff_zone": 0.0457,
       "eliminated": 0.0
     },
     "Manchester City FC": {
-      "top8": 0.4106,
-      "playoff_zone": 0.5889,
-      "eliminated": 0.0005
+      "top8": 0.4123,
+      "playoff_zone": 0.5861,
+      "eliminated": 0.0016
     },
     "Manchester United FC": {
-      "top8": 0.0866,
-      "playoff_zone": 0.8183,
-      "eliminated": 0.0951
+      "top8": 0.0892,
+      "playoff_zone": 0.8127,
+      "eliminated": 0.0981
     },
     "PAE AEK": {
       "top8": 0.0,
-      "playoff_zone": 0.0345,
-      "eliminated": 0.9655
+      "playoff_zone": 0.0325,
+      "eliminated": 0.9675
     },
     "PSV": {
       "top8": 0.0,
-      "playoff_zone": 0.3464,
-      "eliminated": 0.6536
+      "playoff_zone": 0.3493,
+      "eliminated": 0.6507
     },
     "Paris Saint-Germain FC": {
-      "top8": 0.9598,
-      "playoff_zone": 0.0402,
+      "top8": 0.9567,
+      "playoff_zone": 0.0433,
       "eliminated": 0.0
     },
     "RB Leipzig": {
-      "top8": 0.0007,
-      "playoff_zone": 0.48,
-      "eliminated": 0.5193
+      "top8": 0.0015,
+      "playoff_zone": 0.4767,
+      "eliminated": 0.5218
     },
     "Racing Club de Lens": {
       "top8": 0.0,
-      "playoff_zone": 0.0018,
-      "eliminated": 0.9982
+      "playoff_zone": 0.002,
+      "eliminated": 0.998
     },
     "Real Betis Balompi\u00e9": {
-      "top8": 0.2373,
-      "playoff_zone": 0.7627,
+      "top8": 0.2294,
+      "playoff_zone": 0.7706,
       "eliminated": 0.0
     },
     "Real Madrid CF": {
-      "top8": 0.987,
-      "playoff_zone": 0.013,
+      "top8": 0.9862,
+      "playoff_zone": 0.0138,
       "eliminated": 0.0
     },
     "SK Slavia Praha": {
       "top8": 0.0,
-      "playoff_zone": 0.0002,
-      "eliminated": 0.9998
+      "playoff_zone": 0.0001,
+      "eliminated": 0.9999
     },
     "SSC Napoli": {
       "top8": 0.0,
-      "playoff_zone": 0.3008,
-      "eliminated": 0.6992
+      "playoff_zone": 0.2986,
+      "eliminated": 0.7014
     },
     "Sabah FK": {
       "top8": 0.0,
-      "playoff_zone": 0.0222,
-      "eliminated": 0.9778
+      "playoff_zone": 0.0219,
+      "eliminated": 0.9781
     },
     "Sporting Clube de Portugal": {
-      "top8": 0.1813,
-      "playoff_zone": 0.8078,
-      "eliminated": 0.0109
+      "top8": 0.1797,
+      "playoff_zone": 0.8106,
+      "eliminated": 0.0097
     },
     "VfB Stuttgart": {
-      "top8": 0.0206,
-      "playoff_zone": 0.7018,
-      "eliminated": 0.2776
+      "top8": 0.0199,
+      "playoff_zone": 0.713,
+      "eliminated": 0.2671
     },
     "Viking FK": {
       "top8": 0.0,
-      "playoff_zone": 0.5393,
-      "eliminated": 0.4607
+      "playoff_zone": 0.5412,
+      "eliminated": 0.4588
     },
     "Villarreal CF": {
       "top8": 0.0015,
-      "playoff_zone": 0.438,
-      "eliminated": 0.5605
+      "playoff_zone": 0.4243,
+      "eliminated": 0.5742
     },
     "\u0160K Slovan Bratislava": {
       "top8": 0.0,
@@ -183,200 +183,200 @@
   },
   "stage_odds": {
     "AS Roma": {
-      "round_of_16": 0.4418,
-      "quarterfinal": 0.193,
-      "semifinal": 0.0689,
-      "final": 0.023,
-      "champion": 0.0085
+      "round_of_16": 0.4311,
+      "quarterfinal": 0.1881,
+      "semifinal": 0.0713,
+      "final": 0.0258,
+      "champion": 0.0102
     },
     "Arsenal FC": {
-      "round_of_16": 0.9902,
-      "quarterfinal": 0.7816,
-      "semifinal": 0.5886,
-      "final": 0.4229,
+      "round_of_16": 0.9897,
+      "quarterfinal": 0.7895,
+      "semifinal": 0.5866,
+      "final": 0.4151,
       "champion": 0.262
     },
     "Aston Villa FC": {
-      "round_of_16": 0.844,
-      "quarterfinal": 0.4834,
-      "semifinal": 0.2467,
-      "final": 0.111,
-      "champion": 0.0492
+      "round_of_16": 0.8478,
+      "quarterfinal": 0.4856,
+      "semifinal": 0.2518,
+      "final": 0.1169,
+      "champion": 0.0545
     },
     "Borussia Dortmund": {
-      "round_of_16": 0.7438,
-      "quarterfinal": 0.2991,
-      "semifinal": 0.1067,
-      "final": 0.0329,
-      "champion": 0.0115
+      "round_of_16": 0.7509,
+      "quarterfinal": 0.3076,
+      "semifinal": 0.1063,
+      "final": 0.0325,
+      "champion": 0.0111
     },
     "Club Atl\u00e9tico de Madrid": {
-      "round_of_16": 0.6695,
-      "quarterfinal": 0.3294,
-      "semifinal": 0.1419,
-      "final": 0.0517,
-      "champion": 0.0187
+      "round_of_16": 0.6646,
+      "quarterfinal": 0.3227,
+      "semifinal": 0.1364,
+      "final": 0.0487,
+      "champion": 0.0194
     },
     "Club Brugge KV": {
-      "round_of_16": 0.5321,
-      "quarterfinal": 0.1438,
-      "semifinal": 0.0319,
-      "final": 0.0066,
-      "champion": 0.0021
+      "round_of_16": 0.5303,
+      "quarterfinal": 0.1465,
+      "semifinal": 0.0338,
+      "final": 0.0069,
+      "champion": 0.0016
     },
     "Como 1907": {
-      "round_of_16": 0.8394,
-      "quarterfinal": 0.4601,
-      "semifinal": 0.247,
-      "final": 0.1234,
-      "champion": 0.0602
+      "round_of_16": 0.8468,
+      "quarterfinal": 0.4662,
+      "semifinal": 0.2478,
+      "final": 0.1262,
+      "champion": 0.06
     },
     "FC Barcelona": {
-      "round_of_16": 0.9763,
-      "quarterfinal": 0.5886,
-      "semifinal": 0.3104,
-      "final": 0.1393,
-      "champion": 0.0605
+      "round_of_16": 0.9741,
+      "quarterfinal": 0.574,
+      "semifinal": 0.3007,
+      "final": 0.135,
+      "champion": 0.0584
     },
     "FC Bayern M\u00fcnchen": {
-      "round_of_16": 0.9406,
-      "quarterfinal": 0.6717,
-      "semifinal": 0.4371,
-      "final": 0.2572,
-      "champion": 0.1348
+      "round_of_16": 0.9375,
+      "quarterfinal": 0.6678,
+      "semifinal": 0.4317,
+      "final": 0.2526,
+      "champion": 0.1329
     },
     "FC Internazionale Milano": {
-      "round_of_16": 0.7547,
-      "quarterfinal": 0.3501,
-      "semifinal": 0.1495,
-      "final": 0.0539,
-      "champion": 0.021
+      "round_of_16": 0.7511,
+      "quarterfinal": 0.3513,
+      "semifinal": 0.1442,
+      "final": 0.0511,
+      "champion": 0.0198
     },
     "FC Porto": {
-      "round_of_16": 0.2181,
-      "quarterfinal": 0.067,
-      "semifinal": 0.0184,
-      "final": 0.0034,
-      "champion": 0.0015
+      "round_of_16": 0.2202,
+      "quarterfinal": 0.0716,
+      "semifinal": 0.0185,
+      "final": 0.0044,
+      "champion": 0.0013
     },
     "FK Bod\u00f8/Glimt": {
-      "round_of_16": 0.3876,
-      "quarterfinal": 0.1304,
-      "semifinal": 0.0396,
-      "final": 0.012,
-      "champion": 0.0036
+      "round_of_16": 0.3913,
+      "quarterfinal": 0.1253,
+      "semifinal": 0.0367,
+      "final": 0.0103,
+      "champion": 0.003
     },
     "FK Shakhtar Donetsk": {
-      "round_of_16": 0.0557,
-      "quarterfinal": 0.0109,
+      "round_of_16": 0.0513,
+      "quarterfinal": 0.009,
       "semifinal": 0.0013,
-      "final": 0.0,
-      "champion": 0.0
-    },
-    "Fenerbah\u00e7e SK": {
-      "round_of_16": 0.2316,
-      "quarterfinal": 0.0611,
-      "semifinal": 0.0177,
-      "final": 0.0039,
-      "champion": 0.0012
-    },
-    "Feyenoord Rotterdam": {
-      "round_of_16": 0.0161,
-      "quarterfinal": 0.0031,
-      "semifinal": 0.0002,
       "final": 0.0001,
       "champion": 0.0
     },
-    "Galatasaray SK": {
-      "round_of_16": 0.5088,
-      "quarterfinal": 0.1696,
-      "semifinal": 0.0475,
-      "final": 0.0107,
-      "champion": 0.0041
+    "Fenerbah\u00e7e SK": {
+      "round_of_16": 0.2291,
+      "quarterfinal": 0.0595,
+      "semifinal": 0.0153,
+      "final": 0.0037,
+      "champion": 0.0009
     },
-    "LASK Linz": {
-      "round_of_16": 0.2436,
-      "quarterfinal": 0.0764,
-      "semifinal": 0.0196,
-      "final": 0.005,
-      "champion": 0.0008
-    },
-    "Lille OSC": {
-      "round_of_16": 0.1988,
-      "quarterfinal": 0.0668,
-      "semifinal": 0.0219,
-      "final": 0.0063,
-      "champion": 0.0023
-    },
-    "Liverpool FC": {
-      "round_of_16": 0.9889,
-      "quarterfinal": 0.5861,
-      "semifinal": 0.3161,
-      "final": 0.1561,
-      "champion": 0.0708
-    },
-    "Manchester City FC": {
-      "round_of_16": 0.7665,
-      "quarterfinal": 0.2905,
-      "semifinal": 0.0906,
-      "final": 0.0239,
-      "champion": 0.0082
-    },
-    "Manchester United FC": {
-      "round_of_16": 0.5252,
-      "quarterfinal": 0.2027,
-      "semifinal": 0.0746,
-      "final": 0.0215,
-      "champion": 0.0065
-    },
-    "PAE AEK": {
-      "round_of_16": 0.0078,
-      "quarterfinal": 0.0012,
+    "Feyenoord Rotterdam": {
+      "round_of_16": 0.0155,
+      "quarterfinal": 0.0028,
       "semifinal": 0.0002,
       "final": 0.0,
       "champion": 0.0
     },
+    "Galatasaray SK": {
+      "round_of_16": 0.5097,
+      "quarterfinal": 0.1693,
+      "semifinal": 0.0466,
+      "final": 0.0117,
+      "champion": 0.0033
+    },
+    "LASK Linz": {
+      "round_of_16": 0.2472,
+      "quarterfinal": 0.0736,
+      "semifinal": 0.019,
+      "final": 0.0047,
+      "champion": 0.0007
+    },
+    "Lille OSC": {
+      "round_of_16": 0.2021,
+      "quarterfinal": 0.075,
+      "semifinal": 0.0248,
+      "final": 0.0069,
+      "champion": 0.0026
+    },
+    "Liverpool FC": {
+      "round_of_16": 0.9897,
+      "quarterfinal": 0.5864,
+      "semifinal": 0.3294,
+      "final": 0.1612,
+      "champion": 0.0737
+    },
+    "Manchester City FC": {
+      "round_of_16": 0.7703,
+      "quarterfinal": 0.2946,
+      "semifinal": 0.0918,
+      "final": 0.0228,
+      "champion": 0.0053
+    },
+    "Manchester United FC": {
+      "round_of_16": 0.5243,
+      "quarterfinal": 0.2106,
+      "semifinal": 0.0749,
+      "final": 0.0238,
+      "champion": 0.0077
+    },
+    "PAE AEK": {
+      "round_of_16": 0.006,
+      "quarterfinal": 0.001,
+      "semifinal": 0.0002,
+      "final": 0.0001,
+      "champion": 0.0001
+    },
     "PSV": {
-      "round_of_16": 0.1394,
-      "quarterfinal": 0.0475,
-      "semifinal": 0.0112,
-      "final": 0.0025,
-      "champion": 0.0005
+      "round_of_16": 0.1419,
+      "quarterfinal": 0.0503,
+      "semifinal": 0.016,
+      "final": 0.0037,
+      "champion": 0.001
     },
     "Paris Saint-Germain FC": {
-      "round_of_16": 0.9961,
-      "quarterfinal": 0.7664,
-      "semifinal": 0.5482,
-      "final": 0.3637,
-      "champion": 0.2092
+      "round_of_16": 0.995,
+      "quarterfinal": 0.7668,
+      "semifinal": 0.5461,
+      "final": 0.364,
+      "champion": 0.205
     },
     "RB Leipzig": {
-      "round_of_16": 0.1205,
-      "quarterfinal": 0.0206,
-      "semifinal": 0.0019,
-      "final": 0.0003,
+      "round_of_16": 0.1211,
+      "quarterfinal": 0.0208,
+      "semifinal": 0.0029,
+      "final": 0.0002,
       "champion": 0.0001
     },
     "Racing Club de Lens": {
-      "round_of_16": 0.0003,
+      "round_of_16": 0.0001,
       "quarterfinal": 0.0,
       "semifinal": 0.0,
       "final": 0.0,
       "champion": 0.0
     },
     "Real Betis Balompi\u00e9": {
-      "round_of_16": 0.6764,
-      "quarterfinal": 0.2574,
-      "semifinal": 0.0837,
-      "final": 0.0262,
-      "champion": 0.0073
+      "round_of_16": 0.6749,
+      "quarterfinal": 0.2501,
+      "semifinal": 0.084,
+      "final": 0.0255,
+      "champion": 0.0091
     },
     "Real Madrid CF": {
-      "round_of_16": 0.9986,
-      "quarterfinal": 0.5682,
-      "semifinal": 0.2723,
-      "final": 0.1122,
-      "champion": 0.0445
+      "round_of_16": 0.9984,
+      "quarterfinal": 0.564,
+      "semifinal": 0.2767,
+      "final": 0.116,
+      "champion": 0.0457
     },
     "SK Slavia Praha": {
       "round_of_16": 0.0,
@@ -386,45 +386,45 @@
       "champion": 0.0
     },
     "SSC Napoli": {
-      "round_of_16": 0.0645,
-      "quarterfinal": 0.0122,
+      "round_of_16": 0.06,
+      "quarterfinal": 0.0096,
       "semifinal": 0.0011,
-      "final": 0.0002,
+      "final": 0.0001,
       "champion": 0.0
     },
     "Sabah FK": {
-      "round_of_16": 0.0029,
-      "quarterfinal": 0.0003,
-      "semifinal": 0.0,
+      "round_of_16": 0.0035,
+      "quarterfinal": 0.0007,
+      "semifinal": 0.0002,
       "final": 0.0,
       "champion": 0.0
     },
     "Sporting Clube de Portugal": {
-      "round_of_16": 0.6225,
-      "quarterfinal": 0.2473,
-      "semifinal": 0.0845,
-      "final": 0.0262,
-      "champion": 0.0103
+      "round_of_16": 0.6268,
+      "quarterfinal": 0.2459,
+      "semifinal": 0.0833,
+      "final": 0.0259,
+      "champion": 0.0093
     },
     "VfB Stuttgart": {
-      "round_of_16": 0.2437,
-      "quarterfinal": 0.0572,
-      "semifinal": 0.0115,
-      "final": 0.0024,
-      "champion": 0.0004
+      "round_of_16": 0.2453,
+      "quarterfinal": 0.0565,
+      "semifinal": 0.0107,
+      "final": 0.0028,
+      "champion": 0.0011
     },
     "Viking FK": {
-      "round_of_16": 0.1854,
-      "quarterfinal": 0.0491,
-      "semifinal": 0.0088,
-      "final": 0.0014,
+      "round_of_16": 0.1878,
+      "quarterfinal": 0.0492,
+      "semifinal": 0.0083,
+      "final": 0.0011,
       "champion": 0.0002
     },
     "Villarreal CF": {
-      "round_of_16": 0.0686,
-      "quarterfinal": 0.0072,
-      "semifinal": 0.0004,
-      "final": 0.0001,
+      "round_of_16": 0.0646,
+      "quarterfinal": 0.0081,
+      "semifinal": 0.0014,
+      "final": 0.0002,
       "champion": 0.0
     },
     "\u0160K Slovan Bratislava": {
@@ -436,41 +436,41 @@
     }
   },
   "expected_pos": {
-    "AS Roma": 19.8368,
-    "Arsenal FC": 4.8358,
-    "Aston Villa FC": 10.4007,
-    "Borussia Dortmund": 11.3304,
-    "Club Atl\u00e9tico de Madrid": 15.6035,
-    "Club Brugge KV": 13.9573,
-    "Como 1907": 8.693200000000001,
-    "FC Barcelona": 4.9006,
-    "FC Bayern M\u00fcnchen": 8.9619,
-    "FC Internazionale Milano": 11.757,
-    "FC Porto": 22.5733,
-    "FK Bod\u00f8/Glimt": 18.9281,
-    "FK Shakhtar Donetsk": 27.0026,
-    "Fenerbah\u00e7e SK": 20.4052,
-    "Feyenoord Rotterdam": 30.2869,
-    "Galatasaray SK": 15.1335,
-    "LASK Linz": 21.721,
-    "Lille OSC": 24.4573,
-    "Liverpool FC": 3.8711,
-    "Manchester City FC": 10.3936,
-    "Manchester United FC": 16.8718,
-    "PAE AEK": 31.2312,
-    "PSV": 25.9548,
-    "Paris Saint-Germain FC": 3.4462,
-    "RB Leipzig": 24.0306,
-    "Racing Club de Lens": 33.5467,
-    "Real Betis Balompi\u00e9": 12.02,
-    "Real Madrid CF": 2.5324999999999998,
-    "SK Slavia Praha": 34.7334,
-    "SSC Napoli": 26.6976,
-    "Sabah FK": 31.3376,
-    "Sporting Clube de Portugal": 14.2687,
-    "VfB Stuttgart": 20.6763,
-    "Viking FK": 23.7249,
-    "Villarreal CF": 24.3137,
-    "\u0160K Slovan Bratislava": 35.5642
+    "AS Roma": 19.95,
+    "Arsenal FC": 4.819100000000001,
+    "Aston Villa FC": 10.3912,
+    "Borussia Dortmund": 11.3128,
+    "Club Atl\u00e9tico de Madrid": 15.6375,
+    "Club Brugge KV": 14.0698,
+    "Como 1907": 8.6141,
+    "FC Barcelona": 4.9158,
+    "FC Bayern M\u00fcnchen": 9.0277,
+    "FC Internazionale Milano": 11.777,
+    "FC Porto": 22.4874,
+    "FK Bod\u00f8/Glimt": 18.7847,
+    "FK Shakhtar Donetsk": 27.0023,
+    "Fenerbah\u00e7e SK": 20.4193,
+    "Feyenoord Rotterdam": 30.2658,
+    "Galatasaray SK": 15.1078,
+    "LASK Linz": 21.6649,
+    "Lille OSC": 24.3702,
+    "Liverpool FC": 3.8529,
+    "Manchester City FC": 10.412,
+    "Manchester United FC": 16.8261,
+    "PAE AEK": 31.2386,
+    "PSV": 25.9927,
+    "Paris Saint-Germain FC": 3.4857,
+    "RB Leipzig": 24.0835,
+    "Racing Club de Lens": 33.5747,
+    "Real Betis Balompi\u00e9": 12.0703,
+    "Real Madrid CF": 2.535,
+    "SK Slavia Praha": 34.7506,
+    "SSC Napoli": 26.6949,
+    "Sabah FK": 31.3041,
+    "Sporting Clube de Portugal": 14.2275,
+    "VfB Stuttgart": 20.5986,
+    "Viking FK": 23.6927,
+    "Villarreal CF": 24.4822,
+    "\u0160K Slovan Bratislava": 35.5605
   }
 }
