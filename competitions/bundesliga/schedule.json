@@ -811,10 +811,10 @@
   },
   "SV Werder Bremen|Borussia M\u00f6nchengladbach": {
     "date": "2026-11-27",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "SV Werder Bremen": null,
-      "Borussia M\u00f6nchengladbach": null
+      "SV Werder Bremen": 3,
+      "Borussia M\u00f6nchengladbach": 3
     },
     "round": "Matchday 11"
   },
