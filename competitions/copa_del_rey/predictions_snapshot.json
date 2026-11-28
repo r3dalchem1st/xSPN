@@ -240,5 +240,71 @@
     "predicted_winner": "H",
     "predicted_score": "1-0",
     "snapped_at": "2026-11-27"
+  },
+  "Round 2|Real \u00c1vila CF|Getafe CF": {
+    "home": "Real \u00c1vila CF",
+    "away": "Getafe CF",
+    "date": "2026-12-03",
+    "ph": 0.1552210142326699,
+    "pd": 0.3020033568845573,
+    "pa": 0.5427756288827729,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-28"
+  },
+  "Round 2|SD Amorebieta|CA Osasuna": {
+    "home": "SD Amorebieta",
+    "away": "CA Osasuna",
+    "date": "2026-12-03",
+    "ph": 0.12344964184415984,
+    "pd": 0.1883785959633328,
+    "pa": 0.6881717621925073,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-28"
+  },
+  "Round 2|Real Zaragoza|Burgos CF": {
+    "home": "Real Zaragoza",
+    "away": "Burgos CF",
+    "date": "2026-12-03",
+    "ph": 0.31343172741794273,
+    "pd": 0.28221271051589447,
+    "pa": 0.4043555620661627,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-28"
+  },
+  "Round 2|CD Atl\u00e9tico Paso|Sevilla FC": {
+    "home": "CD Atl\u00e9tico Paso",
+    "away": "Sevilla FC",
+    "date": "2026-12-03",
+    "ph": 0.29789547645427156,
+    "pd": 0.2343892880520478,
+    "pa": 0.46771523549368077,
+    "predicted_winner": "A",
+    "predicted_score": "1-2",
+    "snapped_at": "2026-11-28"
+  },
+  "Round 2|CD Coria|M\u00e1laga CF": {
+    "home": "CD Coria",
+    "away": "M\u00e1laga CF",
+    "date": "2026-12-03",
+    "ph": 0.21329362785545097,
+    "pd": 0.2657916234206297,
+    "pa": 0.5209147487239194,
+    "predicted_winner": "A",
+    "predicted_score": "0-1",
+    "snapped_at": "2026-11-28"
+  },
+  "Round 2|Real Ja\u00e9n|Valencia CF": {
+    "home": "Real Ja\u00e9n",
+    "away": "Valencia CF",
+    "date": "2026-12-03",
+    "ph": 0.053002857615060225,
+    "pd": 0.09704344518580794,
+    "pa": 0.8499536971991322,
+    "predicted_winner": "A",
+    "predicted_score": "0-4",
+    "snapped_at": "2026-11-28"
   }
 }
