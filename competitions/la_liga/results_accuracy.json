@@ -1489,35 +1489,49 @@
       "market_correct_winner": false,
       "market_brier": 0.8237652651326618,
       "disagree": false
+    },
+    {
+      "home": "Levante UD",
+      "away": "Real Racing Club de Santander",
+      "date": "2026-11-27",
+      "correct_winner": false,
+      "brier": 1.07077418476924,
+      "log_loss": 1.621357097913898,
+      "total_goal_error": 3,
+      "xg_regime": "goals",
+      "market_winner": "H",
+      "market_correct_winner": false,
+      "market_brier": 0.7591951420060137,
+      "disagree": false
     }
   ],
   "summary": {
-    "n_scored": 129,
-    "accuracy": 0.5736434108527132,
-    "avg_brier": 0.5639815300810296,
-    "avg_log_loss": 0.9546966516044438,
-    "avg_goal_error": 1.9612403100775193,
+    "n_scored": 130,
+    "accuracy": 0.5692307692307692,
+    "avg_brier": 0.5678799351170927,
+    "avg_log_loss": 0.9598248088837474,
+    "avg_goal_error": 1.9692307692307693,
     "baseline": {
       "base_rate": [
         0.46710526315789475,
         0.25,
         0.28289473684210525
       ],
-      "avg_brier": 0.6489664530052182,
-      "skill": 0.13095426201253157,
-      "skill_lo": 0.06304123572548934,
-      "skill_hi": 0.20070558032776584
+      "avg_brier": 0.6500892286383976,
+      "skill": 0.12645847662095722,
+      "skill_lo": 0.057846912888477243,
+      "skill_hi": 0.19489485481591107
     },
     "vs_market": {
-      "n": 50,
-      "accuracy": 0.58,
-      "market_accuracy": 0.58,
-      "avg_brier": 0.5400658497987448,
-      "market_avg_brier": 0.5287846942190522,
+      "n": 51,
+      "accuracy": 0.5686274509803921,
+      "market_accuracy": 0.5686274509803921,
+      "avg_brier": 0.55047189558248,
+      "market_avg_brier": 0.5333025461364436,
       "brier_gap": {
-        "mean": -0.011281155579692443,
-        "lo": -0.0364637563375117,
-        "hi": 0.015714089231151508
+        "mean": -0.017169349446036247,
+        "lo": -0.04544868755002792,
+        "hi": 0.00860031020261603
       },
       "disagree_n": 5,
       "we_right": 1,
@@ -1525,18 +1539,18 @@
     },
     "by_xg_regime": {
       "goals": {
-        "n": 19,
-        "avg_brier": 0.5675530557860444,
+        "n": 20,
+        "avg_brier": 0.5927141122352042,
         "vs_market": {
-          "n": 19,
-          "accuracy": 0.5263157894736842,
-          "market_accuracy": 0.5263157894736842,
-          "avg_brier": 0.5675530557860444,
-          "market_avg_brier": 0.5354936496781093,
+          "n": 20,
+          "accuracy": 0.5,
+          "market_accuracy": 0.5,
+          "avg_brier": 0.5927141122352042,
+          "market_avg_brier": 0.5466787242945046,
           "brier_gap": {
-            "mean": -0.032059406107935104,
-            "lo": -0.07207126337473012,
-            "hi": 0.010235562510444262
+            "mean": -0.04603538794069967,
+            "lo": -0.09421360673277779,
+            "hi": 0.0041506148989042275
           },
           "disagree_n": 1,
           "we_right": 0,

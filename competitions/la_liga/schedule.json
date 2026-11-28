@@ -1234,10 +1234,10 @@
   },
   "Levante UD|Real Racing Club de Santander": {
     "date": "2026-11-27",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Levante UD": null,
-      "Real Racing Club de Santander": null
+      "Levante UD": 1,
+      "Real Racing Club de Santander": 3
     },
     "round": "Matchday 14"
   },
