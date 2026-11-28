@@ -1299,57 +1299,71 @@
       "market_correct_winner": false,
       "market_brier": 0.9884166762083664,
       "disagree": false
+    },
+    {
+      "home": "Nottingham Forest FC",
+      "away": "Chelsea FC",
+      "date": "2026-11-27",
+      "correct_winner": true,
+      "brier": 0.5932179105642803,
+      "log_loss": 0.9812543617202274,
+      "total_goal_error": 4,
+      "xg_regime": "goals",
+      "market_winner": "A",
+      "market_correct_winner": false,
+      "market_brier": 0.6569685278925907,
+      "disagree": true
     }
   ],
   "summary": {
-    "n_scored": 110,
-    "accuracy": 0.4818181818181818,
-    "avg_brier": 0.6331248849533487,
-    "avg_log_loss": 1.056545397762577,
-    "avg_goal_error": 2.018181818181818,
+    "n_scored": 111,
+    "accuracy": 0.4864864864864865,
+    "avg_brier": 0.6327653626615553,
+    "avg_log_loss": 1.0558671001405737,
+    "avg_goal_error": 2.036036036036036,
     "baseline": {
       "base_rate": [
         0.41710526315789476,
         0.25921052631578945,
         0.3236842105263158
       ],
-      "avg_brier": 0.6522063082347016,
-      "skill": 0.02925672910616195,
-      "skill_lo": -0.05619848181855295,
-      "skill_hi": 0.10778640170717746
+      "avg_brier": 0.650940736442814,
+      "skill": 0.02792170279675721,
+      "skill_lo": -0.061466273300533905,
+      "skill_hi": 0.10410054957831771
     },
     "vs_market": {
-      "n": 50,
-      "accuracy": 0.48,
-      "market_accuracy": 0.54,
-      "avg_brier": 0.6134650816995192,
-      "market_avg_brier": 0.591843677462027,
+      "n": 51,
+      "accuracy": 0.49019607843137253,
+      "market_accuracy": 0.5294117647058824,
+      "avg_brier": 0.6130680783439263,
+      "market_avg_brier": 0.5931206353136067,
       "brier_gap": {
-        "mean": -0.021621404237492134,
-        "lo": -0.06380873956661198,
-        "hi": 0.01884070410327892
+        "mean": -0.019947443030319534,
+        "lo": -0.05955549060124348,
+        "hi": 0.0202917306087911
       },
-      "disagree_n": 5,
-      "we_right": 0,
+      "disagree_n": 6,
+      "we_right": 1,
       "market_right": 3
     },
     "by_xg_regime": {
       "goals": {
-        "n": 19,
-        "avg_brier": 0.6032599500160336,
+        "n": 20,
+        "avg_brier": 0.6027578480434459,
         "vs_market": {
-          "n": 19,
-          "accuracy": 0.47368421052631576,
-          "market_accuracy": 0.5263157894736842,
-          "avg_brier": 0.6032599500160336,
-          "market_avg_brier": 0.641526781425721,
+          "n": 20,
+          "accuracy": 0.5,
+          "market_accuracy": 0.5,
+          "avg_brier": 0.6027578480434459,
+          "market_avg_brier": 0.6422988687490645,
           "brier_gap": {
-            "mean": 0.038266831409687424,
-            "lo": -0.014042497767190016,
-            "hi": 0.09954463781036725
+            "mean": 0.039541020705618574,
+            "lo": -0.009605573455789884,
+            "hi": 0.0956884498058916
           },
-          "disagree_n": 1,
-          "we_right": 0,
+          "disagree_n": 2,
+          "we_right": 1,
           "market_right": 1
         }
       },

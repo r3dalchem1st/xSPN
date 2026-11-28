@@ -1045,10 +1045,10 @@
   },
   "Nottingham Forest FC|Chelsea FC": {
     "date": "2026-11-27",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "goals": {
-      "Nottingham Forest FC": null,
-      "Chelsea FC": null
+      "Nottingham Forest FC": 3,
+      "Chelsea FC": 2
     },
     "round": "Matchday 12"
   },

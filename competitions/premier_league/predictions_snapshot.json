@@ -2252,5 +2252,33 @@
       "pd": 0.2667034011355313,
       "pa": 0.3461938644597315
     }
+  },
+  "Tottenham Hotspur FC|Fulham FC": {
+    "home": "Tottenham Hotspur FC",
+    "away": "Fulham FC",
+    "date": "2026-12-03",
+    "ph": 0.41107172151134375,
+    "pd": 0.26509616771624067,
+    "pa": 0.3238321107724157,
+    "predicted_winner": "H",
+    "predicted_score": "2-1",
+    "snapped_at": "2026-11-28",
+    "model": {
+      "sha": "14c191c",
+      "odds_fit_weight": 0.0,
+      "momentum_weight": 0.0,
+      "momentum_n": 5,
+      "strength_shrink": 1.0,
+      "draw_inflate": 0.0,
+      "use_rho": false,
+      "xg_weight": 0.75,
+      "xg_coverage": 0.0,
+      "ensemble": 60
+    },
+    "market": {
+      "ph": 0.5144062182998218,
+      "pd": 0.2540380675092561,
+      "pa": 0.2315557141909219
+    }
   }
 }
